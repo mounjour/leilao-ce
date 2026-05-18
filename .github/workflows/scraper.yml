@@ -1,0 +1,75 @@
+name: Scraper LeilãoCE
+
+on:
+  schedule:
+    # Roda às 06:00 e 18:00 UTC = 03:00 e 15:00 horário de Fortaleza (UTC-3)
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:        # permite rodar manualmente pela aba Actions
+
+# Permissões necessárias para o GITHUB_TOKEN fazer push do leiloes.json
+permissions:
+  contents: write
+
+concurrency:
+  group: scraper
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Instalar dependências Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Instalar Chromium do Playwright
+        run: python -m playwright install --with-deps chromium
+
+      - name: Rodar scraper
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python scraper.py
+
+      - name: Verificar se leiloes.json foi gerado
+        run: |
+          if [ ! -f leiloes.json ]; then
+            echo "::error::leiloes.json não foi gerado pelo scraper"
+            exit 1
+          fi
+          echo "Tamanho do leiloes.json:"
+          wc -c leiloes.json
+          echo "Quantidade de lotes:"
+          python -c "import json; d=json.load(open('leiloes.json')); print(len(d))"
+
+      - name: Commit e push do leiloes.json (se mudou)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add leiloes.json
+          if git diff --staged --quiet; then
+            echo "Nenhuma mudança no leiloes.json — pulando commit."
+          else
+            git commit -m "chore: atualiza leiloes.json [auto $(date -u +%Y-%m-%dT%H:%MZ)]"
+            git push
+          fi
+
+      - name: Upload do leiloes.json como artifact (backup)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: leiloes-${{ github.run_number }}
+          path: leiloes.json
+          retention-days: 7
