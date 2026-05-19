@@ -66,6 +66,38 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .ia-box .rec { color:#334155; font-style:italic; margin-bottom:6px; line-height:1.5; }
 .ia-box .ponto-pos { color:#16a34a; font-size:11px; line-height:1.6; }
 .ia-box .ponto-neg { color:#dc2626; font-size:11px; line-height:1.6; }
+
+/* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    div[data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+    }
+    div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+        width: 100% !important;
+        flex: none !important;
+        min-width: 100% !important;
+    }
+    .banner-info-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .banner-tile .pct { font-size: 13px !important; }
+    .banner-tile .lbl { font-size: 10px !important; }
+    .card-img-box { height: 140px !important; }
+    .stApp { padding: 0 !important; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    div[data-testid="stHorizontalBlock"] {
+        flex-wrap: wrap !important;
+    }
+    div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+        min-width: calc(50% - 8px) !important;
+        flex: 1 1 calc(50% - 8px) !important;
+    }
+    .banner-info-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
