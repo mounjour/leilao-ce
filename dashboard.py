@@ -3,7 +3,7 @@ import json
 import os
 import subprocess
 
-st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="auto")
+st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -67,6 +67,23 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .ia-box .ponto-pos { color:#16a34a; font-size:11px; line-height:1.6; }
 .ia-box .ponto-neg { color:#dc2626; font-size:11px; line-height:1.6; }
 
+/* ── MÉTRICAS ────────────────────────────────────────────────────── */
+.metrics-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:0 0 16px 0;
+}
+.metric-card {
+  background:#fff; border-radius:12px; padding:16px 20px;
+  border:1px solid #e2e8f0; text-align:center;
+}
+.metric-label {
+  font-size:11px; color:#64748b; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;
+}
+.metric-value { font-size:28px; font-weight:700; line-height:1; }
+.metric-green  { background:#f0fdf4; border-color:#bbf7d0; }
+.metric-yellow { background:#fefce8; border-color:#fde68a; }
+.metric-red    { background:#fef2f2; border-color:#fecaca; }
+
 /* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
 [data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
@@ -75,14 +92,12 @@ footer[data-testid="stFooter"],
 
 /* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
-    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+    /* Métricas: 2×2 no mobile */
+    .metrics-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .metric-value { font-size: 22px !important; }
 
-    /* Padrão mobile: 2 por linha (métricas ficam 2×2) */
-    div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
-        min-width: 50% !important;
-        flex: 1 1 50% !important;
-    }
-    /* Colunas de cards: 1 por linha */
+    /* Cards: 1 por linha */
+    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
     div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
         min-width: 100% !important;
         flex: 1 1 100% !important;
@@ -413,11 +428,26 @@ otimos = sum(1 for l in lotes if "ÓTIMO"   in l.get("classificacao",""))
 medios = sum(1 for l in lotes if "MEDIANO" in l.get("classificacao",""))
 ruins  = sum(1 for l in lotes if "RUIM"    in l.get("classificacao","") or "INSPECIONAR" in l.get("classificacao",""))
 
-m1,m2,m3,m4 = st.columns(4)
-m1.metric("Total de lotes", total)
-m2.metric("✅ Ótimas", otimos)
-m3.metric("⚠️ Medianas", medios)
-m4.metric("❌ Ruins/Inspecionar", ruins)
+st.markdown(f"""
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="metric-label">Total de lotes</div>
+    <div class="metric-value" style="color:#0f172a">{total}</div>
+  </div>
+  <div class="metric-card metric-green">
+    <div class="metric-label">✅ Ótimas</div>
+    <div class="metric-value" style="color:#15803d">{otimos}</div>
+  </div>
+  <div class="metric-card metric-yellow">
+    <div class="metric-label">⚠️ Medianas</div>
+    <div class="metric-value" style="color:#a16207">{medios}</div>
+  </div>
+  <div class="metric-card metric-red">
+    <div class="metric-label">❌ Ruins/Inspecionar</div>
+    <div class="metric-value" style="color:#b91c1c">{ruins}</div>
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 
