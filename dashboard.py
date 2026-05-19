@@ -3,7 +3,7 @@ import json
 import os
 import subprocess
 
-st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="auto")
 
 st.markdown("""
 <style>
@@ -67,36 +67,39 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .ia-box .ponto-pos { color:#16a34a; font-size:11px; line-height:1.6; }
 .ia-box .ponto-neg { color:#dc2626; font-size:11px; line-height:1.6; }
 
+/* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
+[data-testid="stToolbar"],
+.viewerBadge_container__1QSob,
+footer[data-testid="stFooter"],
+#stDecoration { display: none !important; }
+
 /* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
-    div[data-testid="stHorizontalBlock"] {
-        flex-direction: column !important;
-    }
+    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+
+    /* Padrão mobile: 2 por linha (métricas ficam 2×2) */
     div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
-        width: 100% !important;
-        flex: none !important;
+        min-width: 50% !important;
+        flex: 1 1 50% !important;
+    }
+    /* Colunas de cards: 1 por linha */
+    div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
         min-width: 100% !important;
+        flex: 1 1 100% !important;
     }
-    .banner-info-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
+    .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .banner-tile .pct { font-size: 13px !important; }
     .banner-tile .lbl { font-size: 10px !important; }
-    .card-img-box { height: 140px !important; }
-    .stApp { padding: 0 !important; }
+    .card-img-box    { height: 140px !important; }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
-    div[data-testid="stHorizontalBlock"] {
-        flex-wrap: wrap !important;
-    }
+    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
     div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
         min-width: calc(50% - 8px) !important;
         flex: 1 1 calc(50% - 8px) !important;
     }
-    .banner-info-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
+    .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -141,11 +144,25 @@ def desconto_str(lance, fipe, qtd=1):
         else:        return f"▲ {abs(pct):.0f}% acima da referência", "#dc2626"
     return None, None
 
-def render_lotes(lotes_lista):
+ITEMS_PER_PAGE = 50
+
+def render_lotes(lotes_lista, key="main"):
     icones_cat = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
                   "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","outros":"📦"}
+
+    total        = len(lotes_lista)
+    total_pages  = max(1, (total + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE)
+    page_key     = f"page_{key}"
+    if page_key not in st.session_state:
+        st.session_state[page_key] = 1
+    page = max(1, min(st.session_state[page_key], total_pages))
+    st.session_state[page_key] = page
+
+    start         = (page - 1) * ITEMS_PER_PAGE
+    lotes_pagina  = lotes_lista[start : start + ITEMS_PER_PAGE]
+
     cols = st.columns(3)
-    for i, lote in enumerate(lotes_lista):
+    for i, lote in enumerate(lotes_pagina):
         lance   = lote["lance_atual"]
         fipe    = lote["fipe_valor"]
         foto    = lote.get("foto","")
@@ -223,6 +240,24 @@ def render_lotes(lotes_lista):
                     st.markdown(ia_html, unsafe_allow_html=True)
 
                 st.markdown(f"[🔗 Ver lote na Leilo →]({lote['url']})")
+
+    if total_pages > 1:
+        st.markdown("---")
+        c1, c2, c3 = st.columns([1, 2, 1])
+        with c1:
+            if page > 1 and st.button("← Anterior", key=f"prev_{key}"):
+                st.session_state[page_key] = page - 1
+                st.rerun()
+        with c2:
+            st.markdown(
+                f"<p style='text-align:center;color:#64748b;font-size:13px'>"
+                f"Página <b>{page}</b> de {total_pages} &nbsp;•&nbsp; {total} lotes</p>",
+                unsafe_allow_html=True
+            )
+        with c3:
+            if page < total_pages and st.button("Próxima →", key=f"next_{key}"):
+                st.session_state[page_key] = page + 1
+                st.rerun()
 
 def pagina_sobre():
     st.markdown("## 📌 Sobre o LeilãoCE")
@@ -325,6 +360,13 @@ with st.sidebar:
     lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
     f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
 
+    fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
+    if st.session_state.get("_fil_hash") != fil_hash:
+        for k in list(st.session_state.keys()):
+            if k.startswith("page_"):
+                st.session_state[k] = 1
+        st.session_state["_fil_hash"] = fil_hash
+
     st.markdown("---")
     st.markdown("**📖 Páginas**")
     pagina = st.radio(" ", ["🏠 Leilões","📌 Sobre","🛒 Como comprar","⚠️ Informações"], label_visibility="collapsed")
@@ -392,10 +434,10 @@ abas = st.tabs(abas_labels)
 
 with abas[0]:
     st.caption(f"{len(fil)} lotes")
-    render_lotes(fil)
+    render_lotes(fil, key="todos")
 
 for aba, categoria in zip(abas[1:], cats_presentes):
     lotes_cat = [l for l in fil if l.get("categoria") == categoria]
     with aba:
         st.caption(f"{len(lotes_cat)} lotes")
-        render_lotes(lotes_cat)
+        render_lotes(lotes_cat, key=categoria)
