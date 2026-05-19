@@ -84,6 +84,48 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .metric-yellow { background:#fefce8; border-color:#fde68a; }
 .metric-red    { background:#fef2f2; border-color:#fecaca; }
 
+/* ── BOTÃO COLAPSAR/EXPANDIR SIDEBAR ────────────────────────────── */
+/* Seta "<" dentro da sidebar (estado expandido) */
+section[data-testid="stSidebar"] > div > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    background: #1e293b !important;
+    cursor: pointer !important;
+    border-radius: 0 10px 10px 0 !important;
+    transition: background 0.2s !important;
+}
+section[data-testid="stSidebar"] > div > div:last-child:hover {
+    background: #334155 !important;
+}
+section[data-testid="stSidebar"] > div > div:last-child svg {
+    color: #94a3b8 !important;
+    fill: #94a3b8 !important;
+    width: 14px !important;
+}
+
+/* Seta ">" flutuante (estado colapsado) */
+[data-testid="collapsedControl"] {
+    background: #0f172a !important;
+    border-radius: 0 10px 10px 0 !important;
+    height: 48px !important;
+    width: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2) !important;
+    transition: background 0.2s !important;
+}
+[data-testid="collapsedControl"]:hover {
+    background: #1e293b !important;
+}
+[data-testid="collapsedControl"] svg {
+    color: #94a3b8 !important;
+    fill: #94a3b8 !important;
+    width: 14px !important;
+}
+
 /* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
 [data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
@@ -350,43 +392,28 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 # ─── APP ──────────────────────────────────────────────────────────────────────
 lotes = carregar()
 
-if "show_filters" not in st.session_state:
-    st.session_state.show_filters = True
-
 with st.sidebar:
     st.markdown("## 🚗 LeilãoCE")
     st.markdown("*Monitor de Leilões do Ceará*")
     st.markdown("---")
 
-    hd_col, btn_col = st.columns([3, 2])
-    with hd_col:
-        st.markdown("**🔍 Filtros**")
-    with btn_col:
-        lbl = "▲ Ocultar" if st.session_state.show_filters else "▼ Mostrar"
-        if st.button(lbl, key="toggle_filters", use_container_width=True):
-            st.session_state.show_filters = not st.session_state.show_filters
-            st.rerun()
+    st.markdown("**🔍 Filtros**")
 
+    cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
+    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
+    cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
+    marcas  = sorted(set(l["marca"] for l in lotes))
+    cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
+    classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
+    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
+
+    f_cat    = st.selectbox("Categoria", cats)
+    f_class  = st.selectbox("Classificação", classes)
+    f_estado = st.selectbox("Estado", estados)
+    f_cidade = st.selectbox("Cidade", cidades)
+    f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
     lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
-
-    if st.session_state.show_filters:
-        cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
-        cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
-        cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
-        marcas  = sorted(set(l["marca"] for l in lotes))
-        cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
-        classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
-        estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
-
-        f_cat    = st.selectbox("Categoria", cats)
-        f_class  = st.selectbox("Classificação", classes)
-        f_estado = st.selectbox("Estado", estados)
-        f_cidade = st.selectbox("Cidade", cidades)
-        f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
-        f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
-    else:
-        f_cat, f_class, f_estado, f_cidade, f_marca = "Todas", "Todas", "Todos", "Todas", []
-        f_lance = int(lance_max)
+    f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
 
     fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
     if st.session_state.get("_fil_hash") != fil_hash:
