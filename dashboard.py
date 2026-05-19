@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import json
 import os
 import subprocess
@@ -90,35 +91,6 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 footer[data-testid="stFooter"],
 #stDecoration { display: none !important; }
 
-/* Botão nativo de colapsar sidebar: esconde texto/ícone, mostra seta CSS */
-section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] {
-    font-size: 0 !important;
-    background: rgba(255,255,255,0.12) !important;
-    border-radius: 50% !important;
-    width: 28px !important; height: 28px !important;
-    padding: 0 !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-}
-section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] span,
-section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] svg { display:none !important; }
-section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"]::after {
-    content: '◀' !important; font-size: 13px !important; color: #94a3b8 !important;
-}
-
-/* Botão de expandir sidebar quando colapsada */
-[data-testid="collapsedControl"] {
-    font-size: 0 !important;
-    background: #0f172a !important;
-    border-radius: 0 8px 8px 0 !important;
-    width: 24px !important; height: 48px !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.15) !important;
-}
-[data-testid="collapsedControl"] span,
-[data-testid="collapsedControl"] svg { display: none !important; }
-[data-testid="collapsedControl"]::after {
-    content: '▶' !important; font-size: 12px !important; color: #94a3b8 !important;
-}
 
 /* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
@@ -379,6 +351,28 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
 lotes = carregar()
+
+# Injeta CSS no documento pai para esconder o texto "keyboard_double" do Streamlit
+components.html("""
+<script>
+try {
+    var doc = window.parent.document;
+    if (!doc.getElementById('lce-sidebar-fix')) {
+        var s = doc.createElement('style');
+        s.id = 'lce-sidebar-fix';
+        s.textContent = [
+            'button[data-testid="baseButton-headerNoPadding"] { overflow:hidden!important; color:transparent!important; font-size:0!important; }',
+            'button[data-testid="baseButton-headerNoPadding"] * { display:none!important; }',
+            'button[data-testid="baseButton-headerNoPadding"]::before { content:"◀"; font-size:14px!important; color:#94a3b8!important; display:block!important; }',
+            '[data-testid="collapsedControl"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#0f172a!important; border-radius:0 8px 8px 0!important; }',
+            '[data-testid="collapsedControl"] * { display:none!important; }',
+            '[data-testid="collapsedControl"]::before { content:"▶"; font-size:12px!important; color:#94a3b8!important; display:block!important; }'
+        ].join(' ');
+        doc.head.appendChild(s);
+    }
+} catch(e) {}
+</script>
+""", height=0)
 
 with st.sidebar:
     st.markdown("## 🚗 LeilãoCE")
