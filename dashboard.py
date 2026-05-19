@@ -3,7 +3,7 @@ import json
 import os
 import subprocess
 
-st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -90,20 +90,34 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 footer[data-testid="stFooter"],
 #stDecoration { display: none !important; }
 
-/* Oculta botão nativo de colapsar sidebar (renderiza como texto em alguns browsers) */
-section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"],
-[data-testid="collapsedControl"] { display: none !important; }
+/* Botão nativo de colapsar sidebar: esconde texto/ícone, mostra seta CSS */
+section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] {
+    font-size: 0 !important;
+    background: rgba(255,255,255,0.12) !important;
+    border-radius: 50% !important;
+    width: 28px !important; height: 28px !important;
+    padding: 0 !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+}
+section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] span,
+section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] svg { display:none !important; }
+section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"]::after {
+    content: '◀' !important; font-size: 13px !important; color: #94a3b8 !important;
+}
 
-/* Botão de filtros no conteúdo principal */
-div[data-testid="stMain"] div[data-testid="stButton"]:first-of-type button {
-    background: #fff !important;
-    color: #0f172a !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 8px !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    width: 100% !important;
-    margin-bottom: 8px !important;
+/* Botão de expandir sidebar quando colapsada */
+[data-testid="collapsedControl"] {
+    font-size: 0 !important;
+    background: #0f172a !important;
+    border-radius: 0 8px 8px 0 !important;
+    width: 24px !important; height: 48px !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15) !important;
+}
+[data-testid="collapsedControl"] span,
+[data-testid="collapsedControl"] svg { display: none !important; }
+[data-testid="collapsedControl"]::after {
+    content: '▶' !important; font-size: 12px !important; color: #94a3b8 !important;
 }
 
 /* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
@@ -370,6 +384,32 @@ with st.sidebar:
     st.markdown("## 🚗 LeilãoCE")
     st.markdown("*Monitor de Leilões do Ceará*")
     st.markdown("---")
+    st.markdown("**🔍 Filtros**")
+
+    cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
+    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
+    cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
+    marcas  = sorted(set(l["marca"] for l in lotes))
+    cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
+    classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
+    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
+
+    f_cat    = st.selectbox("Categoria", cats)
+    f_class  = st.selectbox("Classificação", classes)
+    f_estado = st.selectbox("Estado", estados)
+    f_cidade = st.selectbox("Cidade", cidades)
+    f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
+    lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
+    f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
+
+    fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
+    if st.session_state.get("_fil_hash") != fil_hash:
+        for k in list(st.session_state.keys()):
+            if k.startswith("page_"):
+                st.session_state[k] = 1
+        st.session_state["_fil_hash"] = fil_hash
+
+    st.markdown("---")
     st.markdown("**📖 Páginas**")
     pagina = st.radio(" ", ["🏠 Leilões","📌 Sobre","🛒 Como comprar","⚠️ Informações"], label_visibility="collapsed")
     st.markdown("---")
@@ -385,46 +425,6 @@ if pagina == "⚠️ Informações":    pagina_informacoes(); st.stop()
 if not lotes:
     st.warning("Clique em **Atualizar dados** na sidebar para buscar os leilões.")
     st.stop()
-
-# ── FILTROS NO CONTEÚDO PRINCIPAL ─────────────────────────────────────────────
-lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
-
-if "show_filters" not in st.session_state:
-    st.session_state.show_filters = False
-
-btn_lbl = "▲ Ocultar filtros" if st.session_state.show_filters else "▼ Mostrar filtros"
-if st.button(btn_lbl, key="toggle_filters", use_container_width=True):
-    st.session_state.show_filters = not st.session_state.show_filters
-    st.rerun()
-
-if st.session_state.show_filters:
-    cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
-    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
-    cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
-    marcas  = sorted(set(l["marca"] for l in lotes))
-    cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
-    classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
-    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
-    with st.container(border=True):
-        c1, c2 = st.columns(2)
-        with c1:
-            f_cat    = st.selectbox("Categoria", cats)
-            f_class  = st.selectbox("Classificação", classes)
-            f_estado = st.selectbox("Estado", estados)
-        with c2:
-            f_cidade = st.selectbox("Cidade", cidades)
-            f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
-            f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
-else:
-    f_cat, f_class, f_estado, f_cidade, f_marca = "Todas", "Todas", "Todos", "Todas", []
-    f_lance = int(lance_max)
-
-fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
-if st.session_state.get("_fil_hash") != fil_hash:
-    for k in list(st.session_state.keys()):
-        if k.startswith("page_"):
-            st.session_state[k] = 1
-    st.session_state["_fil_hash"] = fil_hash
 
 fil = lotes.copy()
 if f_cat != "Todas":    fil = [l for l in fil if l.get("categoria") == f_cat]
