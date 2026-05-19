@@ -84,48 +84,6 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .metric-yellow { background:#fefce8; border-color:#fde68a; }
 .metric-red    { background:#fef2f2; border-color:#fecaca; }
 
-/* ── BOTÃO COLAPSAR/EXPANDIR SIDEBAR ────────────────────────────── */
-/* Seta "<" dentro da sidebar (estado expandido) */
-section[data-testid="stSidebar"] > div > div:last-child {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 20px !important;
-    background: #1e293b !important;
-    cursor: pointer !important;
-    border-radius: 0 10px 10px 0 !important;
-    transition: background 0.2s !important;
-}
-section[data-testid="stSidebar"] > div > div:last-child:hover {
-    background: #334155 !important;
-}
-section[data-testid="stSidebar"] > div > div:last-child svg {
-    color: #94a3b8 !important;
-    fill: #94a3b8 !important;
-    width: 14px !important;
-}
-
-/* Seta ">" flutuante (estado colapsado) */
-[data-testid="collapsedControl"] {
-    background: #0f172a !important;
-    border-radius: 0 10px 10px 0 !important;
-    height: 48px !important;
-    width: 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2) !important;
-    transition: background 0.2s !important;
-}
-[data-testid="collapsedControl"]:hover {
-    background: #1e293b !important;
-}
-[data-testid="collapsedControl"] svg {
-    color: #94a3b8 !important;
-    fill: #94a3b8 !important;
-    width: 14px !important;
-}
-
 /* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
 [data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
