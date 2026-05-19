@@ -90,6 +90,21 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 footer[data-testid="stFooter"],
 #stDecoration { display: none !important; }
 
+/* Oculta o botão nativo de colapsar sidebar (renderiza como texto em alguns browsers) */
+section[data-testid="stSidebar"] button[data-testid="baseButton-headerNoPadding"] {
+    display: none !important;
+}
+
+/* Botão toggle de filtros */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+    background: #1e293b !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #334155 !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    width: 100% !important;
+}
+
 /* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
     /* Métricas: 2×2 no mobile */
@@ -358,14 +373,11 @@ with st.sidebar:
     st.markdown("*Monitor de Leilões do Ceará*")
     st.markdown("---")
 
-    hd_col, btn_col = st.columns([3, 2])
-    with hd_col:
-        st.markdown("**🔍 Filtros**")
-    with btn_col:
-        lbl = "▲ Ocultar" if st.session_state.show_filters else "▼ Mostrar"
-        if st.button(lbl, key="toggle_filters", use_container_width=True):
-            st.session_state.show_filters = not st.session_state.show_filters
-            st.rerun()
+    st.markdown("**🔍 Filtros**")
+    lbl = "▲ Ocultar filtros" if st.session_state.show_filters else "▼ Mostrar filtros"
+    if st.button(lbl, key="toggle_filters", use_container_width=True):
+        st.session_state.show_filters = not st.session_state.show_filters
+        st.rerun()
 
     lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
 
