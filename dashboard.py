@@ -350,30 +350,43 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 # ─── APP ──────────────────────────────────────────────────────────────────────
 lotes = carregar()
 
+if "show_filters" not in st.session_state:
+    st.session_state.show_filters = True
+
 with st.sidebar:
     st.markdown("## 🚗 LeilãoCE")
     st.markdown("*Monitor de Leilões do Ceará*")
     st.markdown("---")
 
-    st.markdown("**🔍 Filtros**")
+    hd_col, btn_col = st.columns([3, 2])
+    with hd_col:
+        st.markdown("**🔍 Filtros**")
+    with btn_col:
+        lbl = "▲ Ocultar" if st.session_state.show_filters else "▼ Mostrar"
+        if st.button(lbl, key="toggle_filters", use_container_width=True):
+            st.session_state.show_filters = not st.session_state.show_filters
+            st.rerun()
 
-    # Categorias completas (mesmo que não tenham lotes)
-    cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
-    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
-    cats = ["Todas"] + sorted(set(cats_existentes + cats_completas))
-
-    marcas  = sorted(set(l["marca"] for l in lotes))
-    cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
-    classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
-    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
-
-    f_cat    = st.selectbox("Categoria", cats)
-    f_class  = st.selectbox("Classificação", classes)
-    f_estado = st.selectbox("Estado", estados)
-    f_cidade = st.selectbox("Cidade", cidades)
-    f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
     lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
-    f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
+
+    if st.session_state.show_filters:
+        cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
+        cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
+        cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
+        marcas  = sorted(set(l["marca"] for l in lotes))
+        cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
+        classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
+        estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
+
+        f_cat    = st.selectbox("Categoria", cats)
+        f_class  = st.selectbox("Classificação", classes)
+        f_estado = st.selectbox("Estado", estados)
+        f_cidade = st.selectbox("Cidade", cidades)
+        f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
+        f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
+    else:
+        f_cat, f_class, f_estado, f_cidade, f_marca = "Todas", "Todas", "Todos", "Todas", []
+        f_lance = int(lance_max)
 
     fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
     if st.session_state.get("_fil_hash") != fil_hash:
