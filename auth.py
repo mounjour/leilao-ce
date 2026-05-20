@@ -128,7 +128,6 @@ _AUTH_CSS = """
 <style>
 [data-testid="stAppViewContainer"] { background: #f0f4f8 !important; }
 [data-testid="stHeader"] { background: transparent !important; }
-[data-testid="stSidebar"] { display: none !important; }
 
 /* inputs */
 .stTextInput label { color: #374151 !important; font-size: .85rem !important;
