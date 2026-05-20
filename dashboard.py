@@ -13,7 +13,7 @@ st.markdown("""
 * { font-family: 'Inter', sans-serif !important; }
 .stApp { background: #f5f7fb; }
 
-section[data-testid="stSidebar"] { background: #0f172a !important; }
+section[data-testid="stSidebar"] { background: #0f172a !important; display: flex !important; }
 section[data-testid="stSidebar"] * { color: #cbd5e1 !important; }
 section[data-testid="stSidebar"] h2, section[data-testid="stSidebar"] strong { color: #fff !important; }
 section[data-testid="stSidebar"] hr { border-color: #1e293b !important; }
