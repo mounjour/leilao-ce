@@ -39,9 +39,12 @@ def is_subscribed() -> bool:
     return bool(profile and profile.get("subscription_status") == "active")
 
 
-def _load_profile(user_id: str):
+def _load_profile(user_id: str, access_token: str = None):
     try:
-        res = _sb().table("profiles").select("*").eq("id", user_id).single().execute()
+        sb = _sb()
+        if access_token:
+            sb.postgrest.auth(access_token)
+        res = sb.table("profiles").select("*").eq("id", user_id).single().execute()
         st.session_state["profile"] = res.data
     except Exception:
         st.session_state["profile"] = None
@@ -54,7 +57,7 @@ def login(email: str, password: str) -> tuple[bool, str]:
         res = _sb().auth.sign_in_with_password({"email": email, "password": password})
         st.session_state["user"] = res.user
         st.session_state["session"] = res.session
-        _load_profile(res.user.id)
+        _load_profile(res.user.id, res.session.access_token)
         return True, ""
     except Exception as e:
         return False, str(e)
@@ -66,7 +69,8 @@ def signup(email: str, password: str) -> tuple[bool, str]:
         if res.user:
             st.session_state["user"] = res.user
             st.session_state["session"] = res.session
-            _load_profile(res.user.id)
+            token = res.session.access_token if res.session else None
+            _load_profile(res.user.id, token)
             return True, ""
         return False, "Erro ao criar conta"
     except Exception as e:
