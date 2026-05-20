@@ -13,10 +13,50 @@ st.markdown("""
 * { font-family: 'Inter', sans-serif !important; }
 .stApp { background: #f5f7fb; }
 
-section[data-testid="stSidebar"] { background: #0f172a !important; display: flex !important; }
-section[data-testid="stSidebar"] * { color: #cbd5e1 !important; }
-section[data-testid="stSidebar"] h2, section[data-testid="stSidebar"] strong { color: #fff !important; }
-section[data-testid="stSidebar"] hr { border-color: #1e293b !important; }
+/* ── SIDEBAR ─────────────────────────────────────────────────────── */
+section[data-testid="stSidebar"] { background: #ffffff !important;
+    border-right: 1px solid #e5e7eb !important; display: flex !important; }
+section[data-testid="stSidebar"] * { color: #374151 !important; }
+section[data-testid="stSidebar"] hr { border-color: #f3f4f6 !important; }
+
+/* logo */
+section[data-testid="stSidebar"] h2 { color: #111827 !important;
+    font-size: 1.1rem !important; font-weight: 700 !important; }
+
+/* labels de filtro */
+section[data-testid="stSidebar"] label { color: #6b7280 !important;
+    font-size: .78rem !important; font-weight: 600 !important;
+    text-transform: uppercase !important; letter-spacing: .05em !important; }
+
+/* inputs da sidebar */
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background: #f9fafb !important; border-color: #e5e7eb !important;
+    border-radius: 8px !important; color: #111827 !important; }
+
+/* radio como nav items */
+section[data-testid="stSidebar"] [data-testid="stRadio"] label {
+    display: flex !important; align-items: center !important;
+    padding: 8px 12px !important; border-radius: 8px !important;
+    margin-bottom: 2px !important; cursor: pointer !important;
+    font-size: .9rem !important; font-weight: 500 !important;
+    color: #374151 !important; text-transform: none !important;
+    letter-spacing: 0 !important; transition: background .15s !important; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {
+    background: #f3f4f6 !important; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] [aria-checked="true"] + div,
+section[data-testid="stSidebar"] [data-testid="stRadio"] input:checked ~ div {
+    background: #eff6ff !important; color: #1d4ed8 !important; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] > div:first-child {
+    display: none !important; }
+
+/* botões sidebar */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+    background: #f3f4f6 !important; color: #374151 !important;
+    border: none !important; border-radius: 8px !important;
+    font-weight: 500 !important; font-size: .88rem !important; }
+section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
+    background: #e5e7eb !important; }
 
 .pill {
   display:inline-block; padding:4px 10px; border-radius:20px;
@@ -386,10 +426,27 @@ try {
 """, height=0)
 
 with st.sidebar:
-    st.markdown("## 🚗 LeilãoCE")
-    st.markdown("*Monitor de Leilões do Ceará*")
+    user = get_user()
+
+    st.markdown("""
+    <div style="padding:1rem 0 .5rem;">
+      <div style="font-size:1.15rem;font-weight:800;color:#111827;">🚗 LeilãoCE</div>
+      <div style="font-size:.75rem;color:#9ca3af;margin-top:2px;">Monitor de Leilões do Ceará</div>
+    </div>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
-    st.markdown("**🔍 Filtros**")
+    pagina = st.radio("Navegação", [
+        "🏠  Leilões",
+        "📌  Sobre",
+        "🛒  Como comprar",
+        "⚠️  Informações"
+    ], label_visibility="collapsed")
+
+    st.markdown("---")
+    st.markdown("""<div style="font-size:.72rem;font-weight:700;color:#9ca3af;
+                text-transform:uppercase;letter-spacing:.07em;
+                margin-bottom:.5rem;">Filtros</div>""", unsafe_allow_html=True)
 
     cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
     cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
@@ -415,23 +472,26 @@ with st.sidebar:
         st.session_state["_fil_hash"] = fil_hash
 
     st.markdown("---")
-    st.markdown("**📖 Páginas**")
-    pagina = st.radio(" ", ["🏠 Leilões","📌 Sobre","🛒 Como comprar","⚠️ Informações"], label_visibility="collapsed")
-    st.markdown("---")
-    if st.button("🔄 Atualizar dados"):
+    if st.button("🔄 Atualizar dados", use_container_width=True):
         with st.spinner("Buscando leilões..."):
             subprocess.run(["python","scraper.py"], capture_output=True)
         st.rerun()
-    user = get_user()
+
+    st.markdown("<div style='flex:1'></div>", unsafe_allow_html=True)
     if user:
-        st.markdown(f"<small style='color:#64748b'>👤 {user.email}</small>", unsafe_allow_html=True)
-    if st.button("Sair"):
+        st.markdown(f"""<div style="padding:.5rem 0;border-top:1px solid #f3f4f6;margin-top:.5rem;">
+          <div style="font-size:.75rem;color:#9ca3af;margin-bottom:.3rem;">Conta</div>
+          <div style="font-size:.82rem;color:#374151;font-weight:500;
+                      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+            {user.email}</div>
+        </div>""", unsafe_allow_html=True)
+    if st.button("Sair", use_container_width=True):
         logout()
         st.rerun()
 
-if pagina == "📌 Sobre":          pagina_sobre(); st.stop()
-if pagina == "🛒 Como comprar":   pagina_como_comprar(); st.stop()
-if pagina == "⚠️ Informações":    pagina_informacoes(); st.stop()
+if "Sobre"       in pagina: pagina_sobre(); st.stop()
+if "Como comprar" in pagina: pagina_como_comprar(); st.stop()
+if "Informações" in pagina: pagina_informacoes(); st.stop()
 
 if not lotes:
     st.warning("Clique em **Atualizar dados** na sidebar para buscar os leilões.")
