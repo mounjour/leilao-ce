@@ -127,7 +127,10 @@ def create_checkout_url(user_email: str) -> str:
 _AUTH_CSS = """
 <style>
 [data-testid="stAppViewContainer"] { background: #ffffff !important; }
-[data-testid="stHeader"] { background: transparent !important; }
+[data-testid="stHeader"],
+[data-testid="stToolbar"],
+#stDecoration,
+footer { display: none !important; }
 
 .stTextInput label { color: #374151 !important; font-size: .85rem !important;
                      font-weight: 500 !important; }
@@ -165,6 +168,12 @@ div[data-testid="stButton"] button {
 div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
 
 hr { border-color: #f3f4f6 !important; }
+
+/* Esqueci minha senha — center within tab */
+.stTabs [data-testid="stButton"] {
+    display: flex !important;
+    justify-content: center !important;
+}
 </style>
 """
 
@@ -217,11 +226,6 @@ def render_auth_page():
                 st.rerun()
 
         else:
-            st.markdown("""
-            <div style="background:#fff; border-radius:12px; padding:2rem;
-                        box-shadow:0 2px 16px rgba(0,0,0,.08); border:1px solid #f3f4f6;">
-            """, unsafe_allow_html=True)
-
             tab_in, tab_up = st.tabs(["Entrar", "Criar conta"])
 
             with tab_in:
@@ -246,11 +250,9 @@ def render_auth_page():
                             else:
                                 st.error(f"Erro: {err}")
 
-                col_l, col_r = st.columns([1, 1])
-                with col_r:
-                    if st.button("Esqueci minha senha", key="btn_forgot"):
-                        st.session_state["_show_forgot"] = True
-                        st.rerun()
+                if st.button("Esqueci minha senha", key="btn_forgot"):
+                    st.session_state["_show_forgot"] = True
+                    st.rerun()
 
             with tab_up:
                 with st.form("signup_form"):
@@ -280,7 +282,6 @@ def render_auth_page():
                             else:
                                 st.error(f"Erro: {err}")
 
-            st.markdown("</div>", unsafe_allow_html=True)
 
 
 def render_paywall():

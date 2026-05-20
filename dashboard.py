@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
+from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
@@ -15,7 +16,7 @@ st.markdown("""
 
 /* ── SIDEBAR ─────────────────────────────────────────────────────── */
 section[data-testid="stSidebar"] { background: #ffffff !important;
-    border-right: 1px solid #e5e7eb !important; display: flex !important; }
+    border-right: 1px solid #e5e7eb !important; }
 section[data-testid="stSidebar"] * { color: #374151 !important; }
 section[data-testid="stSidebar"] hr { border-color: #f3f4f6 !important; }
 
@@ -34,19 +35,16 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
     background: #f9fafb !important; border-color: #e5e7eb !important;
     border-radius: 8px !important; color: #111827 !important; }
 
-/* radio como nav items */
-section[data-testid="stSidebar"] [data-testid="stRadio"] label {
+/* radio como nav items — somente as opções, não o grupo-label */
+section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] label {
     display: flex !important; align-items: center !important;
     padding: 8px 12px !important; border-radius: 8px !important;
     margin-bottom: 2px !important; cursor: pointer !important;
     font-size: .9rem !important; font-weight: 500 !important;
     color: #374151 !important; text-transform: none !important;
     letter-spacing: 0 !important; transition: background .15s !important; }
-section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {
+section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] label:hover {
     background: #f3f4f6 !important; }
-section[data-testid="stSidebar"] [data-testid="stRadio"] [aria-checked="true"] + div,
-section[data-testid="stSidebar"] [data-testid="stRadio"] input:checked ~ div {
-    background: #eff6ff !important; color: #1d4ed8 !important; }
 section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] > div:first-child {
     display: none !important; }
 
@@ -127,6 +125,7 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .metric-red    { background:#fef2f2; border-color:#fecaca; }
 
 /* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
+[data-testid="stHeader"],
 [data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
 footer[data-testid="stFooter"],
@@ -297,7 +296,16 @@ def render_lotes(lotes_lista, key="main"):
                     ia_html += '</div>'
                     st.markdown(ia_html, unsafe_allow_html=True)
 
-                st.markdown(f"[🔗 Ver lote na Leilo →]({lote['url']})")
+                col_link, col_fav = st.columns([4, 1])
+                col_link.markdown(f"[🔗 Ver lote na Leilo →]({lote['url']})")
+                lote_url = lote.get("url", "")
+                heart = "❤️" if is_favorite(lote_url) else "🤍"
+                if col_fav.button(heart, key=f"fav_{key}_{i}", help="Favoritar"):
+                    _usr = get_user()
+                    _ses = st.session_state.get("session")
+                    if _usr and _ses:
+                        toggle_favorite(_usr.id, _ses.access_token, lote)
+                        st.rerun()
 
     if total_pages > 1:
         st.markdown("---")
@@ -359,6 +367,16 @@ def pagina_como_comprar():
 - Transporte e reparos
 """)
 
+def pagina_favoritos():
+    favs = list(get_favorites().values())
+    st.markdown("## ⭐ Meus Favoritos")
+    if not favs:
+        st.info("Você ainda não favoritou nenhum lote. Clique em 🤍 em qualquer card para favoritar.")
+        return
+    st.caption(f"{len(favs)} lote(s) favoritado(s)")
+    render_lotes(favs, key="favs")
+
+
 def pagina_informacoes():
     st.markdown("## ⚠️ Informações Importantes")
     st.markdown("""
@@ -401,6 +419,10 @@ if not is_subscribed():
     render_paywall()
     st.stop()
 
+_session = st.session_state.get("session")
+if "favorites" not in st.session_state and _session:
+    load_favorites(get_user().id, _session.access_token)
+
 lotes = carregar()
 
 # Injeta CSS no documento pai para esconder o texto "keyboard_double" do Streamlit
@@ -412,12 +434,12 @@ try {
         var s = doc.createElement('style');
         s.id = 'lce-sidebar-fix';
         s.textContent = [
-            'button[data-testid="baseButton-headerNoPadding"] { overflow:hidden!important; color:transparent!important; font-size:0!important; }',
+            'button[data-testid="baseButton-headerNoPadding"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#2563eb!important; border-radius:50%!important; width:2rem!important; height:2rem!important; border:none!important; }',
             'button[data-testid="baseButton-headerNoPadding"] * { display:none!important; }',
-            'button[data-testid="baseButton-headerNoPadding"]::before { content:"◀"; font-size:14px!important; color:#94a3b8!important; display:block!important; }',
-            '[data-testid="collapsedControl"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#0f172a!important; border-radius:0 8px 8px 0!important; }',
+            'button[data-testid="baseButton-headerNoPadding"]::before { content:"◀"; font-size:13px!important; color:#fff!important; display:flex!important; align-items:center!important; justify-content:center!important; }',
+            '[data-testid="collapsedControl"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#2563eb!important; border-radius:0 8px 8px 0!important; }',
             '[data-testid="collapsedControl"] * { display:none!important; }',
-            '[data-testid="collapsedControl"]::before { content:"▶"; font-size:12px!important; color:#94a3b8!important; display:block!important; }'
+            '[data-testid="collapsedControl"]::before { content:"▶"; font-size:12px!important; color:#fff!important; display:block!important; }'
         ].join(' ');
         doc.head.appendChild(s);
     }
@@ -436,8 +458,11 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     st.markdown("---")
-    pagina = st.radio("Navegação", [
+    n_favs = len(get_favorites())
+    fav_label = f"⭐  Favoritos ({n_favs})" if n_favs else "⭐  Favoritos"
+    pagina = st.radio("", [
         "🏠  Leilões",
+        fav_label,
         "📌  Sobre",
         "🛒  Como comprar",
         "⚠️  Informações"
@@ -489,6 +514,7 @@ with st.sidebar:
         logout()
         st.rerun()
 
+if "Favoritos"   in pagina: pagina_favoritos(); st.stop()
 if "Sobre"       in pagina: pagina_sobre(); st.stop()
 if "Como comprar" in pagina: pagina_como_comprar(); st.stop()
 if "Informações" in pagina: pagina_informacoes(); st.stop()
