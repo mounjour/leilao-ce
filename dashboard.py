@@ -3,6 +3,7 @@ import streamlit.components.v1 as components
 import json
 import os
 import subprocess
+from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
@@ -350,6 +351,16 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 """)
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
+
+# Auth gate: must be logged in and subscribed to access the dashboard
+if not get_user():
+    render_auth_page()
+    st.stop()
+
+if not is_subscribed():
+    render_paywall()
+    st.stop()
+
 lotes = carregar()
 
 # Injeta CSS no documento pai para esconder o texto "keyboard_double" do Streamlit
@@ -410,6 +421,12 @@ with st.sidebar:
     if st.button("🔄 Atualizar dados"):
         with st.spinner("Buscando leilões..."):
             subprocess.run(["python","scraper.py"], capture_output=True)
+        st.rerun()
+    user = get_user()
+    if user:
+        st.markdown(f"<small style='color:#64748b'>👤 {user.email}</small>", unsafe_allow_html=True)
+    if st.button("Sair"):
+        logout()
         st.rerun()
 
 if pagina == "📌 Sobre":          pagina_sobre(); st.stop()
