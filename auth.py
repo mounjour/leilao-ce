@@ -63,7 +63,7 @@ def login(email: str, password: str) -> tuple[bool, str]:
         return False, str(e)
 
 
-def signup(email: str, password: str) -> tuple[bool, str]:
+def signup(email: str, password: str, phone: str = "") -> tuple[bool, str]:
     try:
         res = _sb().auth.sign_up({"email": email, "password": password})
         if res.user:
@@ -71,6 +71,16 @@ def signup(email: str, password: str) -> tuple[bool, str]:
             st.session_state["session"] = res.session
             token = res.session.access_token if res.session else None
             _load_profile(res.user.id, token)
+            if phone:
+                try:
+                    sb = _sb()
+                    if token:
+                        sb.postgrest.auth(token)
+                    sb.table("profiles").update({"phone": phone}).eq("id", res.user.id).execute()
+                    if st.session_state.get("profile"):
+                        st.session_state["profile"]["phone"] = phone
+                except Exception:
+                    pass
             return True, ""
         return False, "Erro ao criar conta"
     except Exception as e:
@@ -116,132 +126,145 @@ def create_checkout_url(user_email: str) -> str:
 
 _AUTH_CSS = """
 <style>
-[data-testid="stAppViewContainer"] { background: #0b0f1a !important; }
+[data-testid="stAppViewContainer"] { background: #f0f4f8 !important; }
 [data-testid="stHeader"] { background: transparent !important; }
+[data-testid="stSidebar"] { display: none !important; }
 
 /* inputs */
-.stTextInput label { color: #94a3b8 !important; font-size: .85rem !important;
-                     font-weight: 500 !important; margin-bottom: 2px !important; }
+.stTextInput label { color: #374151 !important; font-size: .85rem !important;
+                     font-weight: 600 !important; }
 .stTextInput input {
-    background: #131929 !important; color: #f1f5f9 !important;
-    border: 1px solid #1e2d45 !important; border-radius: 8px !important;
-    padding: 10px 14px !important; font-size: .95rem !important;
+    background: #fff !important; color: #111827 !important;
+    border: 1.5px solid #d1d5db !important; border-radius: 8px !important;
+    font-size: .95rem !important;
 }
-.stTextInput input::placeholder { color: #3d5068 !important; }
-.stTextInput input:focus { border-color: #3b82f6 !important;
-                           box-shadow: 0 0 0 3px rgba(59,130,246,.15) !important; }
+.stTextInput input::placeholder { color: #9ca3af !important; }
+.stTextInput input:focus { border-color: #2563eb !important;
+                           box-shadow: 0 0 0 3px rgba(37,99,235,.12) !important; }
 
 /* tabs */
 .stTabs [data-baseweb="tab-list"] { background: transparent !important;
-                                     border-bottom: 1px solid #1e2d45 !important;
-                                     gap: 0 !important; }
-.stTabs [data-baseweb="tab"] { color: #64748b !important; font-size: .9rem !important;
-                                font-weight: 500 !important; padding: 10px 20px !important; }
-.stTabs [aria-selected="true"] { color: #fff !important; }
-.stTabs [data-baseweb="tab-border"] { background: #3b82f6 !important; height: 2px !important; }
+                                     border-bottom: 2px solid #e5e7eb !important; }
+.stTabs [data-baseweb="tab"] { color: #6b7280 !important; font-size: .9rem !important;
+                                font-weight: 500 !important; }
+.stTabs [aria-selected="true"] { color: #1e40af !important; font-weight: 700 !important; }
+.stTabs [data-baseweb="tab-border"] { background: #2563eb !important; height: 2px !important; }
 .stTabs [data-baseweb="tab-panel"] { padding-top: 1.25rem !important; }
 
-/* primary button */
-.stFormSubmitButton button, div[data-testid="stButton"] > button[kind="primary"] {
+/* botão principal */
+.stFormSubmitButton button {
     background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
     color: #fff !important; border: none !important; border-radius: 8px !important;
     font-weight: 600 !important; font-size: .95rem !important;
-    padding: 10px !important; transition: opacity .2s !important;
+    padding: 10px !important;
 }
-.stFormSubmitButton button:hover { opacity: .88 !important; }
+.stFormSubmitButton button:hover { opacity: .9 !important; }
 
-/* link button (forgot password) */
-div[data-testid="stButton"] > button[kind="secondary"] {
-    background: transparent !important; color: #3b82f6 !important;
-    border: none !important; padding: 0 !important; font-size: .82rem !important;
-    text-decoration: underline !important; cursor: pointer !important;
+/* botão esqueci senha */
+div[data-testid="stButton"] button {
+    background: transparent !important; color: #2563eb !important;
+    border: none !important; padding: 2px 0 !important;
+    font-size: .83rem !important; font-weight: 500 !important;
+    text-decoration: underline !important;
+    box-shadow: none !important;
 }
 
-/* benefit items */
-.benefit { display:flex; align-items:flex-start; gap:.6rem;
-           margin-bottom:.8rem; }
-.benefit-icon { font-size:1.1rem; margin-top:1px; flex-shrink:0; }
-.benefit-text { color:#cbd5e1; font-size:.9rem; line-height:1.4; }
-.benefit-text strong { color:#fff; }
-
-hr { border-color: #1e2d45 !important; }
-
-/* responsive: empilha no mobile */
-@media (max-width: 768px) {
-    .auth-brand-col { display: none; }
+/* card do formulário */
+.form-card {
+    background: #fff; border-radius: 16px;
+    padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,.08);
 }
+
+/* lado esquerdo */
+.brand-panel {
+    background: linear-gradient(160deg, #1e3a8a 0%, #1e40af 60%, #2563eb 100%);
+    border-radius: 16px; padding: 2.5rem 2rem; height: 100%;
+}
+.benefit { display:flex; align-items:flex-start; gap:.7rem; margin-bottom:1rem; }
+.benefit-icon { font-size:1.15rem; flex-shrink:0; margin-top:1px; }
+.benefit-text { color:#bfdbfe; font-size:.88rem; line-height:1.45; }
+.benefit-text strong { color:#fff; display:block; margin-bottom:.1rem; }
+
+hr { border-color: #e5e7eb !important; }
 </style>
 """
 
 def render_auth_page():
     st.markdown(_AUTH_CSS, unsafe_allow_html=True)
 
-    col_brand, col_sep, col_form = st.columns([1.1, 0.05, 1])
+    col_brand, col_form = st.columns([1, 1])
 
     with col_brand:
         st.markdown("""
-        <div style="padding: 2.5rem 1rem 2rem; height:100%;">
-          <div style="font-size:2.2rem; font-weight:800; color:#fff; margin-bottom:.4rem;">
+        <div class="brand-panel">
+          <div style="font-size:2rem; font-weight:800; color:#fff; margin-bottom:.3rem;">
             🚗 LeilãoCE
           </div>
-          <div style="color:#64748b; font-size:1rem; margin-bottom:2rem;">
+          <div style="color:#93c5fd; font-size:.95rem; margin-bottom:2rem;">
             Monitoramento inteligente de leilões no Ceará
           </div>
 
           <div class="benefit">
             <span class="benefit-icon">🔍</span>
-            <span class="benefit-text"><strong>Todos os leilões do Ceará</strong><br>
-            Carros, motos, imóveis e equipamentos em um só lugar</span>
+            <span class="benefit-text">
+              <strong>Todos os leilões do Ceará</strong>
+              Carros, motos, imóveis e equipamentos em um só lugar
+            </span>
           </div>
           <div class="benefit">
             <span class="benefit-icon">🤖</span>
-            <span class="benefit-text"><strong>Análise com inteligência artificial</strong><br>
-            Avaliação automática de cada lote com recomendação de compra</span>
+            <span class="benefit-text">
+              <strong>Análise com inteligência artificial</strong>
+              Avaliação automática de cada lote com recomendação de compra
+            </span>
           </div>
           <div class="benefit">
             <span class="benefit-icon">📊</span>
-            <span class="benefit-text"><strong>Comparação com tabela FIPE</strong><br>
-            Saiba exatamente quanto está economizando antes de dar o lance</span>
+            <span class="benefit-text">
+              <strong>Comparação com tabela FIPE</strong>
+              Saiba exatamente quanto está economizando
+            </span>
           </div>
           <div class="benefit">
             <span class="benefit-icon">🔔</span>
-            <span class="benefit-text"><strong>Alertas de favoritos</strong><br>
-            Salve lotes e receba atualizações diretamente no WhatsApp</span>
+            <span class="benefit-text">
+              <strong>Alertas no WhatsApp</strong>
+              Receba novidades dos lotes que você salvou
+            </span>
           </div>
           <div class="benefit">
             <span class="benefit-icon">⚡</span>
-            <span class="benefit-text"><strong>Atualizado 2× por dia</strong><br>
-            Dados frescos todas as manhãs e tardes automaticamente</span>
+            <span class="benefit-text">
+              <strong>Atualizado 2× por dia</strong>
+              Dados frescos todas as manhãs e tardes
+            </span>
           </div>
 
-          <div style="margin-top:2.5rem; padding:1rem; background:#0f1929;
-                      border-radius:10px; border:1px solid #1e2d45;">
-            <div style="color:#64748b; font-size:.78rem; margin-bottom:.3rem;">PLANO PRO</div>
-            <div style="font-size:1.8rem; font-weight:800; color:#4ade80;">R$ 47
-              <span style="font-size:.9rem; color:#64748b; font-weight:400;">/mês</span>
+          <div style="margin-top:2rem; padding:1.2rem 1.5rem;
+                      background:rgba(255,255,255,.1); border-radius:12px;">
+            <div style="color:#93c5fd; font-size:.75rem; font-weight:600;
+                        letter-spacing:.08em; margin-bottom:.4rem;">PLANO PRO</div>
+            <div style="font-size:2rem; font-weight:800; color:#fff;">R$&nbsp;47
+              <span style="font-size:.85rem; color:#93c5fd; font-weight:400;">/mês</span>
             </div>
-            <div style="color:#94a3b8; font-size:.82rem; margin-top:.2rem;">
+            <div style="color:#bfdbfe; font-size:.82rem; margin-top:.2rem;">
               Cancele quando quiser
             </div>
           </div>
         </div>
         """, unsafe_allow_html=True)
 
-    with col_sep:
-        st.markdown("""
-        <div style="width:1px; background:#1e2d45; min-height:500px; margin: 2rem auto;"></div>
-        """, unsafe_allow_html=True)
-
     with col_form:
-        st.markdown("<div style='padding: 2.5rem 1rem 2rem;'>", unsafe_allow_html=True)
+        st.markdown("<div class='form-card'>", unsafe_allow_html=True)
 
         forgot = st.session_state.get("_show_forgot", False)
 
         if forgot:
             st.markdown("### Recuperar senha")
-            st.markdown("<div style='color:#94a3b8;font-size:.9rem;margin-bottom:1rem;'>"
-                        "Digite seu e-mail e enviaremos um link para redefinir sua senha.</div>",
-                        unsafe_allow_html=True)
+            st.markdown(
+                "<p style='color:#6b7280;font-size:.9rem;margin-bottom:1rem;'>"
+                "Digite seu e-mail e enviaremos um link para redefinir sua senha.</p>",
+                unsafe_allow_html=True)
             with st.form("forgot_form"):
                 f_email = st.text_input("E-mail", placeholder="seu@email.com", key="forgot_email")
                 sent = st.form_submit_button("Enviar link", use_container_width=True, type="primary")
@@ -254,7 +277,7 @@ def render_auth_page():
                         st.success("Link enviado! Verifique sua caixa de entrada.")
                         st.session_state["_show_forgot"] = False
                     else:
-                        st.error("Não foi possível enviar. Verifique o e-mail digitado.")
+                        st.error("Não foi possível enviar. Verifique o e-mail.")
             if st.button("← Voltar ao login"):
                 st.session_state["_show_forgot"] = False
                 st.rerun()
@@ -284,29 +307,34 @@ def render_auth_page():
                             else:
                                 st.error(f"Erro: {err}")
 
+                st.markdown(
+                    "<div style='text-align:right; margin-top:.5rem;'>",
+                    unsafe_allow_html=True)
                 if st.button("Esqueci minha senha", key="btn_forgot"):
                     st.session_state["_show_forgot"] = True
                     st.rerun()
+                st.markdown("</div>", unsafe_allow_html=True)
 
             with tab_up:
                 with st.form("signup_form"):
                     s_email   = st.text_input("E-mail", placeholder="seu@email.com", key="su_email")
+                    s_phone   = st.text_input("WhatsApp", placeholder="(85) 99999-9999", key="su_phone")
                     s_pass    = st.text_input("Senha", type="password",
                                               placeholder="Mínimo 6 caracteres", key="su_pass")
                     s_confirm = st.text_input("Confirmar senha", type="password",
                                               placeholder="Repita a senha", key="su_conf")
-                    submitted2 = st.form_submit_button("Criar conta grátis", use_container_width=True, type="primary")
+                    submitted2 = st.form_submit_button("Criar conta", use_container_width=True, type="primary")
 
                 if submitted2:
                     if not s_email or not s_pass or not s_confirm:
-                        st.error("Preencha todos os campos")
+                        st.error("Preencha todos os campos obrigatórios")
                     elif s_pass != s_confirm:
                         st.error("As senhas não conferem")
                     elif len(s_pass) < 6:
                         st.error("A senha deve ter pelo menos 6 caracteres")
                     else:
                         with st.spinner("Criando conta…"):
-                            ok, err = signup(s_email, s_pass)
+                            ok, err = signup(s_email, s_pass, s_phone)
                         if ok:
                             st.rerun()
                         else:
