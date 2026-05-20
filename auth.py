@@ -103,6 +103,29 @@ def render_auth_page():
     st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] { background: #0f1117; }
+
+    /* labels dos inputs */
+    .stTextInput label, .stForm label { color: #cbd5e1 !important; font-size: .9rem !important; }
+
+    /* campos de input */
+    .stTextInput input {
+        background: #1e293b !important;
+        color: #f1f5f9 !important;
+        border: 1px solid #334155 !important;
+        border-radius: 8px !important;
+    }
+    .stTextInput input::placeholder { color: #64748b !important; }
+    .stTextInput input:focus { border-color: #3b82f6 !important; box-shadow: none !important; }
+
+    /* tabs */
+    .stTabs [data-baseweb="tab"] { color: #94a3b8 !important; }
+    .stTabs [aria-selected="true"] { color: #fff !important; }
+    .stTabs [data-baseweb="tab-border"] { background: #3b82f6 !important; }
+    .stTabs [data-baseweb="tab-list"] { background: transparent !important; border-bottom: 1px solid #1e293b; }
+
+    /* divider */
+    hr { border-color: #1e293b !important; }
+
     .auth-logo { text-align:center; font-size:2rem; font-weight:800;
                  color:#fff; margin-bottom:.25rem; }
     .auth-sub  { text-align:center; color:#888; font-size:.95rem;
