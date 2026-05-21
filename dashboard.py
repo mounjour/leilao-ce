@@ -528,7 +528,7 @@ components.html("""
         btn.style.setProperty('box-shadow', 'none', 'important');
         btn.style.setProperty('width', 'auto', 'important');
         btn.style.setProperty('padding', '2px 6px', 'important');
-        btn.style.setProperty('font-size', '32px', 'important');
+        btn.style.setProperty('font-size', '64px', 'important');
         btn.style.setProperty('line-height', '1', 'important');
         btn.style.setProperty('color', t === '★' ? '#f59e0b' : '#9ca3af', 'important');
       }
