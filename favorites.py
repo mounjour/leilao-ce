@@ -40,21 +40,28 @@ def toggle_favorite(user_id: str, access_token: str, lote: dict) -> bool:
     if not url:
         return False
     favs = st.session_state.setdefault("favorites", {})
+    removing = url in favs
+
+    # Atualiza estado local imediatamente (não depende do Supabase)
+    if removing:
+        del favs[url]
+    else:
+        favs[url] = lote
+
+    # Sincroniza com Supabase em segundo plano (falha silenciosa)
     try:
         sb = _sb()
         sb.postgrest.auth(access_token)
-        if url in favs:
+        if removing:
             sb.table("favorites").delete()\
               .eq("user_id", user_id).eq("lote_url", url).execute()
-            del favs[url]
-            return False
         else:
             sb.table("favorites").insert({
                 "user_id": user_id,
                 "lote_url": url,
                 "lote_data": lote,
             }).execute()
-            favs[url] = lote
-            return True
     except Exception:
-        return url in favs
+        pass
+
+    return not removing
