@@ -169,11 +169,6 @@ div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
 
 hr { border-color: #f3f4f6 !important; }
 
-/* Esqueci minha senha — center within tab */
-.stTabs [data-testid="stButton"] {
-    display: flex !important;
-    justify-content: center !important;
-}
 </style>
 """
 
@@ -250,9 +245,11 @@ def render_auth_page():
                             else:
                                 st.error(f"Erro: {err}")
 
-                if st.button("Esqueci minha senha", key="btn_forgot"):
-                    st.session_state["_show_forgot"] = True
-                    st.rerun()
+                _, col_forgot, _ = st.columns([1, 2, 1])
+                with col_forgot:
+                    if st.button("Esqueci minha senha", key="btn_forgot", use_container_width=True):
+                        st.session_state["_show_forgot"] = True
+                        st.rerun()
 
             with tab_up:
                 with st.form("signup_form"):

@@ -35,25 +35,31 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
     background: #f9fafb !important; border-color: #e5e7eb !important;
     border-radius: 8px !important; color: #111827 !important; }
 
-/* radio como nav items — somente as opções, não o grupo-label */
-section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] label {
-    display: flex !important; align-items: center !important;
-    padding: 8px 12px !important; border-radius: 8px !important;
-    margin-bottom: 2px !important; cursor: pointer !important;
-    font-size: .9rem !important; font-weight: 500 !important;
-    color: #374151 !important; text-transform: none !important;
-    letter-spacing: 0 !important; transition: background .15s !important; }
-section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] label:hover {
+/* botões de nav inativos */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"] {
+    background: transparent !important; color: #374151 !important;
+    border: none !important; border-radius: 8px !important;
+    font-weight: 500 !important; font-size: .9rem !important;
+    text-align: left !important; justify-content: flex-start !important; }
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover {
     background: #f3f4f6 !important; }
-section[data-testid="stSidebar"] [data-testid="stRadio"] [data-baseweb="radio"] > div:first-child {
-    display: none !important; }
 
-/* botões sidebar */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+/* botão de nav ATIVO — azul */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"] {
+    background: #eff6ff !important; color: #2563eb !important;
+    border: none !important; border-left: 3px solid #2563eb !important;
+    border-radius: 0 8px 8px 0 !important;
+    font-weight: 600 !important; font-size: .9rem !important;
+    text-align: left !important; justify-content: flex-start !important; }
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover {
+    background: #dbeafe !important; }
+
+/* botão Sair e Atualizar — estilo neutro */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"] {
     background: #f3f4f6 !important; color: #374151 !important;
     border: none !important; border-radius: 8px !important;
     font-weight: 500 !important; font-size: .88rem !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover {
     background: #e5e7eb !important; }
 
 .pill {
@@ -425,30 +431,50 @@ if "favorites" not in st.session_state and _session:
 
 lotes = carregar()
 
-# Injeta CSS no documento pai para esconder o texto "keyboard_double" do Streamlit
 components.html("""
 <script>
-try {
-    var doc = window.parent.document;
-    if (!doc.getElementById('lce-sidebar-fix')) {
-        var s = doc.createElement('style');
-        s.id = 'lce-sidebar-fix';
-        s.textContent = [
-            'button[data-testid="baseButton-headerNoPadding"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#2563eb!important; border-radius:50%!important; width:2rem!important; height:2rem!important; border:none!important; }',
-            'button[data-testid="baseButton-headerNoPadding"] * { display:none!important; }',
-            'button[data-testid="baseButton-headerNoPadding"]::before { content:"◀"; font-size:13px!important; color:#fff!important; display:flex!important; align-items:center!important; justify-content:center!important; }',
-            '[data-testid="collapsedControl"] { overflow:hidden!important; color:transparent!important; font-size:0!important; background:#2563eb!important; border-radius:0 8px 8px 0!important; }',
-            '[data-testid="collapsedControl"] * { display:none!important; }',
-            '[data-testid="collapsedControl"]::before { content:"▶"; font-size:12px!important; color:#fff!important; display:block!important; }'
-        ].join(' ');
-        doc.head.appendChild(s);
+(function() {
+  function applyCollapseStyle(doc) {
+    if (!doc.getElementById('lce-collapse-style')) {
+      var s = doc.createElement('style');
+      s.id = 'lce-collapse-style';
+      s.textContent =
+        'button[data-testid="baseButton-headerNoPadding"] {' +
+          'overflow:hidden!important;background:#2563eb!important;' +
+          'border-radius:50%!important;width:2rem!important;height:2rem!important;' +
+          'border:none!important;padding:0!important;min-width:0!important;' +
+          'display:flex!important;align-items:center!important;justify-content:center!important;}' +
+        'button[data-testid="baseButton-headerNoPadding"] > * {display:none!important;}' +
+        'button[data-testid="baseButton-headerNoPadding"]::after {' +
+          'content:"\\276E";font-size:14px!important;color:#fff!important;' +
+          'display:block!important;line-height:1!important;}' +
+        '[data-testid="collapsedControl"] {' +
+          'overflow:hidden!important;background:#2563eb!important;' +
+          'border-radius:0 8px 8px 0!important;min-width:1.4rem!important;' +
+          'display:flex!important;align-items:center!important;justify-content:center!important;}' +
+        '[data-testid="collapsedControl"] > * {display:none!important;}' +
+        '[data-testid="collapsedControl"]::after {' +
+          'content:"\\276F";font-size:14px!important;color:#fff!important;' +
+          'display:block!important;line-height:1!important;}';
+      doc.head.appendChild(s);
     }
-} catch(e) {}
+  }
+  try {
+    var doc = window.parent.document;
+    applyCollapseStyle(doc);
+    new MutationObserver(function() { applyCollapseStyle(doc); })
+      .observe(doc.body, {childList:true, subtree:true});
+  } catch(e) {}
+})();
 </script>
 """, height=0)
 
+if "pagina" not in st.session_state:
+    st.session_state["pagina"] = "leiloes"
+
 with st.sidebar:
     user = get_user()
+    n_favs = len(get_favorites())
 
     st.markdown("""
     <div style="padding:1rem 0 .5rem;">
@@ -458,17 +484,24 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     st.markdown("---")
-    n_favs = len(get_favorites())
-    fav_label = f"⭐  Favoritos ({n_favs})" if n_favs else "⭐  Favoritos"
-    pagina = st.radio("", [
-        "🏠  Leilões",
-        fav_label,
-        "📌  Sobre",
-        "🛒  Como comprar",
-        "⚠️  Informações"
-    ], label_visibility="collapsed")
+
+    # ── NAVEGAÇÃO PRINCIPAL ──────────────────────────────────────────────
+    p = st.session_state["pagina"]
+
+    if st.button("🏠  Leilões", key="nav_leiloes", use_container_width=True,
+                 type="primary" if p == "leiloes" else "secondary"):
+        st.session_state["pagina"] = "leiloes"
+        st.rerun()
+
+    fav_label = f"⭐  Favoritos  ({n_favs})" if n_favs else "⭐  Favoritos"
+    if st.button(fav_label, key="nav_favs", use_container_width=True,
+                 type="primary" if p == "favoritos" else "secondary"):
+        st.session_state["pagina"] = "favoritos"
+        st.rerun()
 
     st.markdown("---")
+
+    # ── FILTROS ──────────────────────────────────────────────────────────
     st.markdown("""<div style="font-size:.72rem;font-weight:700;color:#9ca3af;
                 text-transform:uppercase;letter-spacing:.07em;
                 margin-bottom:.5rem;">Filtros</div>""", unsafe_allow_html=True)
@@ -496,28 +529,52 @@ with st.sidebar:
                 st.session_state[k] = 1
         st.session_state["_fil_hash"] = fil_hash
 
-    st.markdown("---")
-    if st.button("🔄 Atualizar dados", use_container_width=True):
+    if st.button("🔄 Atualizar dados", key="btn_atualizar", use_container_width=True):
         with st.spinner("Buscando leilões..."):
             subprocess.run(["python","scraper.py"], capture_output=True)
         st.rerun()
 
-    st.markdown("<div style='flex:1'></div>", unsafe_allow_html=True)
+    st.markdown("---")
+
+    # ── INFORMAÇÕES ──────────────────────────────────────────────────────
+    st.markdown("""<div style="font-size:.72rem;font-weight:700;color:#9ca3af;
+                text-transform:uppercase;letter-spacing:.07em;
+                margin-bottom:.5rem;">Informações</div>""", unsafe_allow_html=True)
+
+    if st.button("📌  Sobre", key="nav_sobre", use_container_width=True,
+                 type="primary" if p == "sobre" else "secondary"):
+        st.session_state["pagina"] = "sobre"
+        st.rerun()
+
+    if st.button("🛒  Como comprar", key="nav_comprar", use_container_width=True,
+                 type="primary" if p == "comprar" else "secondary"):
+        st.session_state["pagina"] = "comprar"
+        st.rerun()
+
+    if st.button("⚠️  Informações", key="nav_info", use_container_width=True,
+                 type="primary" if p == "informacoes" else "secondary"):
+        st.session_state["pagina"] = "informacoes"
+        st.rerun()
+
+    st.markdown("---")
+
+    # ── USUÁRIO ──────────────────────────────────────────────────────────
     if user:
-        st.markdown(f"""<div style="padding:.5rem 0;border-top:1px solid #f3f4f6;margin-top:.5rem;">
-          <div style="font-size:.75rem;color:#9ca3af;margin-bottom:.3rem;">Conta</div>
+        st.markdown(f"""<div style="padding:.4rem 0;">
+          <div style="font-size:.72rem;color:#9ca3af;margin-bottom:.2rem;">Conta</div>
           <div style="font-size:.82rem;color:#374151;font-weight:500;
                       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
             {user.email}</div>
         </div>""", unsafe_allow_html=True)
-    if st.button("Sair", use_container_width=True):
+    if st.button("Sair", key="btn_sair", use_container_width=True):
         logout()
         st.rerun()
 
-if "Favoritos"   in pagina: pagina_favoritos(); st.stop()
-if "Sobre"       in pagina: pagina_sobre(); st.stop()
-if "Como comprar" in pagina: pagina_como_comprar(); st.stop()
-if "Informações" in pagina: pagina_informacoes(); st.stop()
+pagina = st.session_state.get("pagina", "leiloes")
+if pagina == "favoritos":   pagina_favoritos(); st.stop()
+if pagina == "sobre":       pagina_sobre(); st.stop()
+if pagina == "comprar":     pagina_como_comprar(); st.stop()
+if pagina == "informacoes": pagina_informacoes(); st.stop()
 
 if not lotes:
     st.warning("Clique em **Atualizar dados** na sidebar para buscar os leilões.")
