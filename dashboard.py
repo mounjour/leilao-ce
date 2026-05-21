@@ -35,31 +35,36 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
     background: #f9fafb !important; border-color: #e5e7eb !important;
     border-radius: 8px !important; color: #111827 !important; }
 
-/* botões de nav inativos */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"] {
+/* botões de nav inativos — cobre kind= e data-testid= */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
     background: transparent !important; color: #374151 !important;
     border: none !important; border-radius: 8px !important;
     font-weight: 500 !important; font-size: .9rem !important;
     text-align: left !important; justify-content: flex-start !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover {
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"]:hover {
     background: #f3f4f6 !important; }
 
-/* botão de nav ATIVO — azul */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"] {
-    background: #eff6ff !important; color: #2563eb !important;
-    border: none !important; border-left: 3px solid #2563eb !important;
-    border-radius: 0 8px 8px 0 !important;
+/* botão de nav ATIVO — azul sólido */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"] {
+    background: #1e40af !important; color: #fff !important;
+    border: none !important; border-radius: 8px !important;
     font-weight: 600 !important; font-size: .9rem !important;
     text-align: left !important; justify-content: flex-start !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover {
-    background: #dbeafe !important; }
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
+    background: #1d4ed8 !important; }
 
-/* botão Sair e Atualizar — estilo neutro */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"] {
+/* botão Sair e Atualizar */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"] {
     background: #f3f4f6 !important; color: #374151 !important;
     border: none !important; border-radius: 8px !important;
     font-weight: 500 !important; font-size: .88rem !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover {
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
     background: #e5e7eb !important; }
 
 .pill {
@@ -475,22 +480,47 @@ lotes = carregar()
 components.html("""
 <script>
 (function() {
-  function colorHearts(doc) {
+  function applyFixes(doc) {
+    // ── Botão colapso da sidebar ─────────────────────────────────────
+    doc.querySelectorAll('button').forEach(function(btn) {
+      if (btn.textContent.includes('keyboard')) {
+        btn.style.setProperty('background', '#2563eb', 'important');
+        btn.style.setProperty('border-radius', '50%', 'important');
+        btn.style.setProperty('width', '2rem', 'important');
+        btn.style.setProperty('height', '2rem', 'important');
+        btn.style.setProperty('min-width', '0', 'important');
+        btn.style.setProperty('border', 'none', 'important');
+        btn.style.setProperty('position', 'relative', 'important');
+        btn.style.setProperty('overflow', 'hidden', 'important');
+        btn.style.setProperty('padding', '0', 'important');
+        btn.querySelectorAll('*').forEach(function(el) {
+          el.style.setProperty('visibility', 'hidden', 'important');
+          el.style.setProperty('font-size', '0', 'important');
+        });
+        if (!btn.querySelector('.lce-arrow')) {
+          var arrow = doc.createElement('span');
+          arrow.className = 'lce-arrow';
+          arrow.textContent = '❮';
+          arrow.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;color:#fff;visibility:visible!important;line-height:1;';
+          btn.appendChild(arrow);
+        }
+      }
+    });
+
+    // ── Corações vermelhos ────────────────────────────────────────────
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
       if (t === '♡' || t === '❤️' || t === '❤') {
         btn.style.setProperty('color', '#ef4444', 'important');
         btn.style.setProperty('font-size', '18px', 'important');
-        btn.style.setProperty('background', 'transparent', 'important');
-        btn.style.setProperty('border', 'none', 'important');
-        btn.style.setProperty('width', 'auto', 'important');
       }
     });
   }
+
   try {
     var doc = window.parent.document;
-    colorHearts(doc);
-    new MutationObserver(function() { colorHearts(doc); })
+    applyFixes(doc);
+    new MutationObserver(function() { applyFixes(doc); })
       .observe(doc.body, {childList:true, subtree:true});
   } catch(e) {}
 })();
