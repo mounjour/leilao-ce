@@ -96,6 +96,25 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 div[data-testid="stButton"] button { background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:500; width:100%; }
 div[data-testid="stButton"] button:hover { background:#1e293b; }
 
+/* ── ESTRELA FAVORITAR ── última coluna de cada card ──────────────── */
+[data-testid="column"]:last-child > div > [data-testid="stButton"] button {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 2px 6px !important;
+    font-size: 48px !important;
+    color: #f59e0b !important;
+    line-height: 1 !important;
+}
+[data-testid="column"]:last-child > div > [data-testid="stButton"] button:hover {
+    background: transparent !important;
+    opacity: .75;
+}
+
 .card-img-box {
   width:100%; height:170px; border-radius:8px; overflow:hidden;
   background:#f1f5f9; display:flex; align-items:center; justify-content:center;
@@ -518,19 +537,15 @@ components.html("""
       }
     });
 
-    // ── Estrela favoritar ─────────────────────────────────────────────
+    // ── Cor da estrela (☆ cinza / ★ amarelo) ─────────────────────────
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
-      if (t === '★' || t === '☆') {
-        btn.style.setProperty('background', 'transparent', 'important');
-        btn.style.setProperty('background-color', 'transparent', 'important');
-        btn.style.setProperty('border', 'none', 'important');
-        btn.style.setProperty('box-shadow', 'none', 'important');
-        btn.style.setProperty('width', 'auto', 'important');
-        btn.style.setProperty('padding', '2px 6px', 'important');
-        btn.style.setProperty('font-size', '128px', 'important');
-        btn.style.setProperty('line-height', '1', 'important');
-        btn.style.setProperty('color', t === '★' ? '#f59e0b' : '#9ca3af', 'important');
+      if (t.includes('★') || t.includes('☆')) {
+        var cor = t.includes('★') ? '#f59e0b' : '#9ca3af';
+        btn.style.setProperty('color', cor, 'important');
+        btn.querySelectorAll('*').forEach(function(el) {
+          el.style.setProperty('color', cor, 'important');
+        });
       }
     });
   }
