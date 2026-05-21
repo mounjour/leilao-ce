@@ -143,29 +143,39 @@ button[data-testid="baseButton-headerNoPadding"] {
     border-radius: 50% !important;
     width: 2rem !important; height: 2rem !important;
     min-width: 0 !important; border: none !important;
-    font-size: 0 !important; color: transparent !important;
-    overflow: hidden !important; padding: 0 !important;
-    display: flex !important; align-items: center !important;
-    justify-content: center !important;
+    padding: 0 !important; position: relative !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,.4) !important;
 }
-button[data-testid="baseButton-headerNoPadding"] > * { display: none !important; }
+button[data-testid="baseButton-headerNoPadding"] * {
+    visibility: hidden !important;
+}
 button[data-testid="baseButton-headerNoPadding"]::after {
     content: "\276E" !important;
-    font-size: 15px !important; color: #fff !important;
-    display: block !important; line-height: 1 !important;
+    position: absolute !important;
+    top: 50% !important; left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 14px !important; color: #fff !important;
+    visibility: visible !important; display: block !important;
+    line-height: 1 !important;
 }
 [data-testid="collapsedControl"] {
     background: #2563eb !important;
     border-radius: 0 8px 8px 0 !important;
-    display: flex !important; align-items: center !important;
-    justify-content: center !important; min-width: 1.4rem !important;
-    font-size: 0 !important; color: transparent !important; overflow: hidden !important;
+    min-width: 1.4rem !important; padding: 0 !important;
+    position: relative !important;
+    box-shadow: 2px 0 8px rgba(37,99,235,.4) !important;
 }
-[data-testid="collapsedControl"] > * { display: none !important; }
+[data-testid="collapsedControl"] * {
+    visibility: hidden !important;
+}
 [data-testid="collapsedControl"]::after {
     content: "\276F" !important;
-    font-size: 15px !important; color: #fff !important;
-    display: block !important; line-height: 1 !important;
+    position: absolute !important;
+    top: 50% !important; left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 14px !important; color: #fff !important;
+    visibility: visible !important; display: block !important;
+    line-height: 1 !important;
 }
 
 
