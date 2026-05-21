@@ -14,58 +14,69 @@ st.markdown("""
 * { font-family: 'Inter', sans-serif !important; }
 .stApp { background: #f5f7fb; }
 
-/* ── SIDEBAR ─────────────────────────────────────────────────────── */
-section[data-testid="stSidebar"] { background: #ffffff !important;
-    border-right: 1px solid #e5e7eb !important; }
-section[data-testid="stSidebar"] * { color: #374151 !important; }
-section[data-testid="stSidebar"] hr { border-color: #f3f4f6 !important; }
+/* ── SIDEBAR — fundo azul escuro ─────────────────────────────────── */
+section[data-testid="stSidebar"] {
+    background: #1e3a8a !important;
+    border-right: none !important; }
+section[data-testid="stSidebar"] * { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,.15) !important; }
 
 /* logo */
-section[data-testid="stSidebar"] h2 { color: #111827 !important;
+section[data-testid="stSidebar"] h2 { color: #fff !important;
     font-size: 1.1rem !important; font-weight: 700 !important; }
 
-/* labels de filtro */
-section[data-testid="stSidebar"] label { color: #6b7280 !important;
+/* labels de seção (FILTROS, INFORMAÇÕES) */
+section[data-testid="stSidebar"] label { color: #93c5fd !important;
     font-size: .78rem !important; font-weight: 600 !important;
     text-transform: uppercase !important; letter-spacing: .05em !important; }
 
-/* inputs da sidebar */
+/* inputs e selects no fundo azul */
 section[data-testid="stSidebar"] input,
 section[data-testid="stSidebar"] [data-baseweb="select"] > div {
-    background: #f9fafb !important; border-color: #e5e7eb !important;
-    border-radius: 8px !important; color: #111827 !important; }
+    background: rgba(255,255,255,.12) !important;
+    border-color: rgba(255,255,255,.25) !important;
+    border-radius: 8px !important; color: #fff !important; }
 
-/* botões de nav inativos — cobre kind= e data-testid= */
+/* opções do selectbox */
+section[data-testid="stSidebar"] [data-baseweb="menu"] {
+    background: #1e3a8a !important; }
+section[data-testid="stSidebar"] [role="option"] { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.1) !important; }
+
+/* slider */
+section[data-testid="stSidebar"] [data-testid="stSlider"] * { color: #e2e8f0 !important; }
+
+/* ── BOTÕES DE NAVEGAÇÃO ─────────────────────────────────────────── */
+
+/* inativo — texto claro, fundo transparente */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
-    background: transparent !important; color: #374151 !important;
+    background: transparent !important; color: #e2e8f0 !important;
     border: none !important; border-radius: 8px !important;
-    font-weight: 500 !important; font-size: .9rem !important;
-    text-align: left !important; justify-content: flex-start !important; }
+    font-weight: 500 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"]:hover {
-    background: #f3f4f6 !important; }
+    background: rgba(255,255,255,.12) !important; }
 
-/* botão de nav ATIVO — azul sólido */
+/* ativo — fundo branco, texto azul escuro */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"] {
-    background: #1e40af !important; color: #fff !important;
+    background: #fff !important; color: #1e3a8a !important;
     border: none !important; border-radius: 8px !important;
-    font-weight: 600 !important; font-size: .9rem !important;
-    text-align: left !important; justify-content: flex-start !important; }
+    font-weight: 700 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
-    background: #1d4ed8 !important; }
+    background: #dbeafe !important; }
 
-/* botão Sair e Atualizar */
+/* Sair e Atualizar dados */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"] {
-    background: #f3f4f6 !important; color: #374151 !important;
-    border: none !important; border-radius: 8px !important;
+    background: rgba(255,255,255,.1) !important; color: #e2e8f0 !important;
+    border: 1px solid rgba(255,255,255,.2) !important; border-radius: 8px !important;
     font-weight: 500 !important; font-size: .88rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
-    background: #e5e7eb !important; }
+    background: rgba(255,255,255,.2) !important; }
 
 .pill {
   display:inline-block; padding:4px 10px; border-radius:20px;
@@ -149,38 +160,38 @@ button[data-testid="baseButton-headerNoPadding"] {
     width: 2rem !important; height: 2rem !important;
     min-width: 0 !important; border: none !important;
     padding: 0 !important; position: relative !important;
-    box-shadow: 0 2px 8px rgba(37,99,235,.4) !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,.5) !important;
 }
 button[data-testid="baseButton-headerNoPadding"] * {
     visibility: hidden !important;
 }
 button[data-testid="baseButton-headerNoPadding"]::after {
-    content: "\276E" !important;
+    content: "❮" !important;
     position: absolute !important;
     top: 50% !important; left: 50% !important;
     transform: translate(-50%, -50%) !important;
     font-size: 14px !important; color: #fff !important;
     visibility: visible !important; display: block !important;
-    line-height: 1 !important;
+    line-height: 1 !important; font-family: sans-serif !important;
 }
 [data-testid="collapsedControl"] {
     background: #2563eb !important;
     border-radius: 0 8px 8px 0 !important;
-    min-width: 1.4rem !important; padding: 0 !important;
+    min-width: 1.6rem !important; padding: 0 !important;
     position: relative !important;
-    box-shadow: 2px 0 8px rgba(37,99,235,.4) !important;
+    box-shadow: 2px 0 8px rgba(37,99,235,.5) !important;
 }
 [data-testid="collapsedControl"] * {
     visibility: hidden !important;
 }
 [data-testid="collapsedControl"]::after {
-    content: "\276F" !important;
+    content: "❯" !important;
     position: absolute !important;
     top: 50% !important; left: 50% !important;
     transform: translate(-50%, -50%) !important;
     font-size: 14px !important; color: #fff !important;
     visibility: visible !important; display: block !important;
-    line-height: 1 !important;
+    line-height: 1 !important; font-family: sans-serif !important;
 }
 
 
