@@ -6,7 +6,7 @@
     "modelo": "Onix 10Mt Lt2",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 43500.0,
+    "lance_atual": 44500.0,
     "fipe_valor": 43394.0,
     "fipe_str": "R$ 43.394,00",
     "classificacao": "❌ RUIM",
@@ -15,19 +15,19 @@
     "descricao": "Recuperado de Financiamento",
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "OTIMA",
+    "oportunidade": "BOA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Preço 0,3% acima da referência (praticamente na tabela)",
-      "Veículo novo 2025 com garantia de fábrica",
-      "Modelo popular com boa demanda de mercado",
-      "Sem km rodado (conservado)"
+      "Modelo 2025 - zero ou baixíssimo km",
+      "Lance 2,5% acima da referência - margem pequena para revenda",
+      "Chevrolet Onix - demanda consistente no mercado"
     ],
     "negativos": [
-      "Recuperado de financiamento - verificar documentação e débitos pendentes",
-      "Exigir inspeção mecânica completa antes de finalizar"
+      "KM não informado - deve-se verificar antes de licitar",
+      "Recuperado de financiamento - inspecionar condições gerais do veículo",
+      "Sem histórico de manutenção do período anterior"
     ],
-    "avaliacao_plataforma": "Lance excelente: novo 2025 na tabela FIPE. Verifique regularização documental e pendências antes de arrematar. Ótimo potencial de revenda.",
+    "avaliacao_plataforma": "Oportunidade BOA se KM confirmado baixo. Lance competitivo exige inspeção rigorosa do estado geral e documentação. Veículos recuperados de financiamento costumam estar bem conservados, mas divergências não são raras.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt2/ano.2025/eb1c68af-b0fd-11f0-ae59-02420a000008"
   },
   {
@@ -37,11 +37,11 @@
     "modelo": "Soul Ex Ff At",
     "ano": 2011,
     "cidade": "Eusebio/CE",
-    "lance_atual": 14000.0,
+    "lance_atual": 14300.0,
     "fipe_valor": 41878.0,
     "fipe_str": "R$ 41.878,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311852222_1bbdaeb5-de2a-46bd-8c56-fe1633286816_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "RECUPERADO_FINANCIAMENTO",
@@ -49,14 +49,16 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Preço 33.4% abaixo da referência (R$ 14k vs R$ 41.8k)",
-      "Modelo consolidado com bom histórico de confiabilidade"
+      "Lance 34.1% abaixo da referência - margem excelente",
+      "Kia Soul modelo consolidado, boa demanda no mercado secundário",
+      "Preço permite lucro significativo em revenda"
     ],
     "negativos": [
-      "Quilometragem não informada - verificar no momento da inspeção",
-      "Histórico de financiamento requer análise jurídica completa (débitos, gravames)"
+      "KM não informado - impossível avaliar desgaste real",
+      "Recuperado de financiamento - pode ter histórico de atraso/negligência",
+      "Modelo 2011 com 13+ anos - verificar estado geral urgentemente"
     ],
-    "avaliacao_plataforma": "EXCELENTE OPORTUNIDADE. Está na faixa ótima (<40% da referência). Priorize inspeção mecânica e regularização documental antes de qualquer oferta.",
+    "avaliacao_plataforma": "Oportunidade excelente de preço (34% off), mas EXIGE inspeção completa antes de lance. Histórico de recuperação + KM desconhecido = risco moderado. Recomenda-se mecânico antes de ofertar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/kia/soul-ex-ff-at-(4p)/ano.2011/d388517b-248d-11f1-a639-02420a000005"
   },
   {
@@ -66,7 +68,7 @@
     "modelo": "Gol 1.0",
     "ano": 2010,
     "cidade": "Eusebio/CE",
-    "lance_atual": 14000.0,
+    "lance_atual": 14300.0,
     "fipe_valor": 31416.0,
     "fipe_str": "R$ 31.416,00",
     "classificacao": "⚠️ MEDIANO",
@@ -78,14 +80,16 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Preço 44,6% abaixo da referência (R$ 14k vs R$ 31,4k)",
-      "Volkswagen Gol - modelo consolidado, peças acessíveis"
+      "Desconto significativo de 54,5% vs referência de mercado",
+      "Volkswagen Gol modelo consolidado com peças acessíveis",
+      "Preço abaixo de R$ 15k favorece rápida revenda"
     ],
     "negativos": [
-      "KM não informado - risco desconhecido de desgaste",
-      "Histórico de financiamento - exigir documentação de quitação e situação mecânica"
+      "KM não informado - verificar hodômetro em inspeção obrigatória",
+      "Histórico de financiamento requer análise de documentação/pendências",
+      "Sem detalhes de conservação/manutenção do veículo"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente se aprovado em inspeção técnica completa. Desconto significativo justificado pelo desconhecimento do histórico. Obrigatório verificar documentação e funcionamento de todos os sistemas antes de rematar.",
+    "avaliacao_plataforma": "Lance excelente (45,5% da ref), mas OBRIGATÓRIO inspecionar quilometragem real, documentação clara e estado geral antes de oferta. Recuperado de financiamento requer diligência extra.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-1.0-(2p%2F4p)/ano.2010/175355b2-3760-11f1-86d7-0242ac50004b"
   },
   {
@@ -105,18 +109,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/pessoa física",
+    "uso_sugerido": "revenda",
     "positivos": [
-      "Lance em 18.2% da referência - desconto expressivo de 81.8%",
-      "Chevrolet Spin: modelo popular com boa procura no mercado secundário",
-      "Preço viável para revenda com margem"
+      "Lance em 18.2% da referência (R$ 21.800 vs R$ 119.900)",
+      "Spin 1.8L MT é modelo confiável e demanda no mercado",
+      "Margem robusta para revenda mesmo com custos de regularização"
     ],
     "negativos": [
-      "KM não informado - risco desconhecido de desgaste",
-      "Recuperado de financiamento - histórico de ocupação precisa ser validado",
-      "Sem informações de estado geral/danos"
+      "KM não informado - inspeção obrigatória antes de licitação",
+      "Recuperado de financiamento requer verificação de documentação/pendências",
+      "Condição mecânica desconhecida"
     ],
-    "avaliacao_plataforma": "Oportunidade muito atrativa em preço, mas EXIGE inspeção técnica completa antes da compra. KM desconhecido é o principal fator de risco. Classificação como 'Bom/Rec.Fin' fica em zona ótima (18.2%), porém condicionado à vistoria que comprove integridade do veículo.",
+    "avaliacao_plataforma": "EXCELENTE OPORTUNIDADE DE COMPRA. Desconto de 81.8% justificado pelo status. Recomenda-se inspeção técnica completa e consulta ao DETRAN antes de licitar. Potencial margem de lucro significativo para revenda.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/spin-1.8l-mt-lt/ano.2015/d239e0d8-0e7c-11f1-8a4c-0242ac50000b"
   },
   {
@@ -138,14 +142,16 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Desconto expressivo de 41,2% sobre referência de mercado",
-      "Modelo consolidado com boa demanda de revenda"
+      "Desconto robusto de 41.2% sobre referência de mercado",
+      "Modelo popular com demanda de revenda garantida",
+      "Categoria Joye oferece boa relação custo-benefício"
     ],
     "negativos": [
-      "Quilometragem não informada — verificar antes de ofertar",
-      "Recuperado de financiamento — exigir inspeção completa e documentação"
+      "KM não informado - verificar odômetro antes de dar lance",
+      "Recuperado de financiamento - exigir histórico completo e documentação",
+      "Sem informações sobre manutenção ou sinistros anteriores"
     ],
-    "avaliacao_plataforma": "Oportunidade mediana com bom desconto (58,8% ref). Exija vistoria técnica detalhada, histórico de sinistros e regularidade documental antes de arrematar. KM desconhecido é risco adicional.",
+    "avaliacao_plataforma": "Preço 58.8% da ref. (MEDIANO) indica boa oportunidade. Exija inspeção detalhada de mecânica, documentação limpa e odômetro verificado antes de participar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-joye-(4p)/ano.2018/2a917374-3f3f-11f1-86d7-0242ac50004b"
   },
   {
@@ -165,17 +171,17 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/pessoa física",
+    "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Lance em 21,5% da referência - desconto excepcional",
-      "Veículo popular com demanda de mercado"
+      "Lance em 21.5% da referência (R$ 16k vs R$ 74.5k) - desconto excepcional",
+      "Ecosport é modelo procurado, boa demanda de revenda"
     ],
     "negativos": [
-      "KM não informado - risco desconhecido",
-      "Histórico de financiamento requer vistoria completa",
-      "Sem informações sobre estado mecânico/visual"
+      "KM não informado - risco desconhecido de desgaste",
+      "Recuperado de financiamento - histórico de falta de pagamento",
+      "Ausência de laudo mecânico na descrição"
     ],
-    "avaliacao_plataforma": "Oportunidade excepcional de preço se vistoria confirmar bom estado. Obrigatório inspecionar documentação, motor, chassi e histórico de manutenção antes de arrematação.",
+    "avaliacao_plataforma": "Oportunidade excepcional de preço (21.5%), mas OBRIGATÓRIO: inspeção mecânica completa antes de lance. Verificar documentação, multas e débitos. Risco moderado, ganho potencial alto se aprovado.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-xlt/ano.2012/91817cd3-be5c-11f0-a1d0-0242ac500062"
   },
   {
@@ -195,16 +201,16 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/uso pessoal",
+    "uso_sugerido": "revenda/particulares",
     "positivos": [
-      "Lance em 10.3% da referência (R$ 6.000 vs R$ 58.060)",
-      "Volkswagen Golf: modelo confiável e procurado no mercado"
+      "Lance em 10.3% da referência - desconto excepcional de 89.7%",
+      "Golf 2005 é modelo procurado, peças acessíveis e demanda de mercado"
     ],
     "negativos": [
-      "KM não informado - exige inspeção técnica obrigatória",
-      "Geração 2005 (19 anos) - verificar documentação, multas e débitos pendentes"
+      "KM não informado - risco desconhecido de desgaste",
+      "Recuperado de financiamento - histórico de inadimplência pode indicar problemas mecânicos ocultos"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente no preço, mas exige inspeção completa antes de arrematar. Recuperado de financiamento implica risco de débitos: confirmar quitação, RENAVAM limpo e histórico de sinistros. Com KM desconhecido, lance apenas após vistoria presencial.",
+    "avaliacao_plataforma": "Oportunidade de compra excelente em preço, mas INSPEÇÃO MECÂNICA OBRIGATÓRIA antes de fechar. Golf 2005 recuperado merece análise de motor, câmbio e suspensão - o desconto agressivo pode refletir problema não declarado.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/golf-generation-(4p)/ano.2005/b957517f-dc41-11f0-913b-02420a000005"
   },
   {
@@ -226,14 +232,15 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Preço 37,4% abaixo da referência - margem excelente para revenda",
-      "Sandero Stepway com boa demanda no mercado secundário"
+      "Preço 37,4% abaixo da referência (R$ 13k vs R$ 34,7k)",
+      "Sandero Stepway modelo consolidado, boa demanda de revenda"
     ],
     "negativos": [
-      "KM não informado - verificar odômetro é obrigatório",
-      "Histórico de financiamento requer checagem de débitos/pendências"
+      "KM não informado - risco operacional desconhecido",
+      "Histórico de financiamento requer inspeção técnica rigorosa",
+      "Potencial débitos/multas pendentes"
     ],
-    "avaliacao_plataforma": "Oportunidade sólida dentro da faixa ÓTIMO (37,4%). Exigir inspeção completa do veículo, conferência de KM real e documentação clara de quitação antes de lance. Risco baixo se regularizado.",
+    "avaliacao_plataforma": "Oportunidade dentro do patamar ótimo (37,4%), mas exige inspeção completa: mecânica, documentação, débitos e situação de pegadinha de financiamento anterior. Risco moderado compensado pelo desconto significativo.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-(4p)/ano.2012/d86a072b-ed7d-11f0-bca1-02420a00000c"
   },
   {
@@ -243,26 +250,28 @@
     "modelo": "207 Passion Xr Sport",
     "ano": 2010,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6000.0,
+    "lance_atual": 0,
     "fipe_valor": 29114.0,
     "fipe_str": "R$ 29.114,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779296972616_7ff2ae7a-ac16-4fd9-95e2-f2e03acec424_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/uso pessoal",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "pendente de avaliação",
     "positivos": [
-      "Lance 20,6% abaixo da referência (R$ 6mil vs R$ 29,1mil)",
-      "Modelo consolidado com peças acessíveis no mercado"
+      "Modelo popular com demanda de mercado",
+      "Referência de preço disponível (R$ 29.114)"
     ],
     "negativos": [
-      "Quilometragem não informada - verificar odômetro em inspeção",
-      "Histórico financeiro pode indicar problemas mecânicos ou documentação pendente"
+      "Sem descrição do estado geral",
+      "Quilometragem não informada",
+      "Sem lance inicial definido",
+      "Impossível avaliar conservação sem dados"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente se aprovado em inspeção. Peugeot 207 é veículo estável, mas exija relatório técnico completo e documentação regularizada antes do lance final.",
+    "avaliacao_plataforma": "Anúncio incompleto. Exija inspeção presencial com relatório de estado (mecânico, funilaria, interior) antes de qualquer oferta. Sem informações mínimas, evite participar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/207-passion-xr-sport-(4p)/ano.2010/c6fe4dc3-f6d4-11f0-af6c-02420a000005"
   },
   {
@@ -272,28 +281,28 @@
     "modelo": "Siena El Flex",
     "ano": 2012,
     "cidade": "Eusebio/CE",
-    "lance_atual": 16500.0,
+    "lance_atual": 0,
     "fipe_valor": 44862.0,
     "fipe_str": "R$ 44.862,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779297006039_a5191fca-8659-4bf6-b2ee-8eae8fea3a5e_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/pessoa física",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "aguardar inspeção",
     "positivos": [
-      "Lance em 36.8% da referência (muito abaixo de 40%)",
-      "Fiat Siena modelo 2012 com demanda de mercado",
-      "Margem excelente para revenda"
+      "Referência de mercado disponível (R$ 44.862)",
+      "Modelo Siena tem demanda de mercado"
     ],
     "negativos": [
-      "KM não informado - exige inspeção obrigatória",
-      "Histórico de financiamento requer análise de documentação",
-      "Sem informações sobre estado mecânico/visual"
+      "Sem descrição do estado físico",
+      "Quilometragem não informada",
+      "Lance zerado - falta dados críticos",
+      "Impossível avaliar condições mecânicas/visuais"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente de preço. Recomenda-se inspeção técnica completa antes do lance para confirmar estado real do veículo, dado o KM desconhecido e histórico de recuperação.",
+    "avaliacao_plataforma": "Anúncio incompleto. Exija inspeção presencial antes de dar lance. Falta descrição essencial para precificar adequadamente este Siena 2012.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/siena-el-flex-(4p)/ano.2012/8c35b1af-f879-11f0-af6c-02420a000005"
   },
   {
@@ -303,26 +312,28 @@
     "modelo": "208 Active",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 15000.0,
+    "lance_atual": 0,
     "fipe_valor": 95415.0,
     "fipe_str": "R$ 95.415,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/pessoa física",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance 15.7% abaixo da referência - margem forte para revenda",
-      "Peugeot 208 Active - modelo consolidado, demanda consistente"
+      "Modelo popular com boa demanda de mercado",
+      "Referência de R$ 95.415 indica veículo com potencial"
     ],
     "negativos": [
-      "KM não informado - risco desconhecido de uso",
-      "Recuperado de financiamento - histórico de inadimplência, exigir documentação completa"
+      "Sem descrição do estado geral",
+      "KM não informado - impossível avaliar desgaste",
+      "Lance zerado - falta informação de preço base",
+      "Impossível classificar condição sem dados técnicos"
     ],
-    "avaliacao_plataforma": "Oportunidade de preço atraente, mas OBRIGATÓRIO inspeção técnica completa antes da compra para verificar condições mecânicas e documentação (gravames, multas, DPVAT). Kilomtragem desconhecida é risco significativo.",
+    "avaliacao_plataforma": "REJEITE esta compra por falta de transparência. Sem km, descrição e lance inicial zerado, existem riscos de sinistro oculto ou irregularidade. Solicite inspeção obrigatória antes de qualquer lance.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-active-(4p)/ano.2014/573e6c3e-0056-11f1-8a4c-0242ac50000b"
   },
   {
@@ -342,16 +353,16 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda/pessoa física",
+    "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Preço 38,9% abaixo da referência - margem excelente para revenda",
-      "Fiat Freemont é SUV 7 lugares com demanda estável no mercado"
+      "Lance 38,9% abaixo da referência - margem excelente para revenda",
+      "Fiat Freemont modelo consolidado com demanda de mercado"
     ],
     "negativos": [
-      "KM não informado - crítico para avaliar desgaste real",
-      "Recuperado de financiamento - verificar histórico de sinistros e multas antes de fechar"
+      "KM não informado - risco operacional crítico",
+      "Histórico de financiamento pode indicar problemas mecânicos/funcionais não revelados"
     ],
-    "avaliacao_plataforma": "Oportunidade forte em preço (38,9%), mas exija relatório completo com KM, histórico Detran e parecer técnico. Recuperados de financiamento podem ter pendências ocultas.",
+    "avaliacao_plataforma": "Preço muito competitivo, mas EXIJA inspeção técnica completa antes de arrematar - quilometragem oculta e condições reais de um bem recuperado são determinantes para viabilidade da operação.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/freemont-precisio/ano.2013/38a36f02-01db-11f1-8a4c-0242ac50000b"
   },
   {
@@ -373,14 +384,15 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Preço 19.5% da referência - excelente margem de compra",
-      "Fiat Idea é modelo com demanda consistente no mercado"
+      "Lance em 19,5% da referência - desconto expressivo",
+      "Modelo popular com demanda no mercado de usados"
     ],
     "negativos": [
-      "KM não informado - requer inspeção obrigatória",
-      "Recuperado de financiamento - pode ter histórico de uso intenso ou negligência"
+      "KM não informado - fator crítico de avaliação",
+      "Recuperado de financiamento exige vistoria mecânica completa",
+      "Ausência de histórico de manutenção"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente de compra. Lance muito abaixo da referência justifica o risco. Imprescindível inspeção técnica completa antes de fazer lances decisivos, verificando mecânica, suspensão e kilometragem real.",
+    "avaliacao_plataforma": "Oportunidade EXCELENTE de preço, mas OBRIGATÓRIA inspeção técnica completa antes de arrematar. Recuperados de financiamento frequentemente têm histórico desconhecido. Se aprovado em vistoria, margem de revenda é muito boa.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/idea-attractive/ano.2015/1607899f-0418-11f1-8a4c-0242ac50000b"
   },
   {
@@ -400,16 +412,16 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda",
+    "uso_sugerido": "revenda ou uso pessoal",
     "positivos": [
-      "Preço 44.7% abaixo da referência (R$ 7.300 vs R$ 16.347)",
-      "Celta Life é modelo popular com demanda de mercado"
+      "Preço 44,7% abaixo da referência - margem excelente para revenda",
+      "Chevrolet Celta Life: modelo popular com demanda garantida"
     ],
     "negativos": [
-      "Quilometragem não informada - risco desconhecido de desgaste",
-      "Histórico de financiamento requer inspeção técnica completa antes de oferta"
+      "KM não informado - verificar odômetro obrigatoriamente na inspeção",
+      "Recuperado de financiamento - exigir laudo de vistoria técnica completa antes do lance final"
     ],
-    "avaliacao_plataforma": "Ótima oportunidade de preço dentro da faixa MEDIANO (44.7%). Exigir inspeção obrigatória de mecânica, elétrica e documentação antes de firmar lance. Veículo de revenda viável se aprovado em vistoria.",
+    "avaliacao_plataforma": "Oportunidade muito interessante na faixa ÓTIMO (44,7%). Exija inspeção detalhada focando mecânica, histórico de sinistros e documentação. KM desconhecido é risco moderado em popular deste segmento.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-life-2p-(2p%2F4p)/ano.2010/f7028e24-2c64-11f1-8174-02420a000006"
   },
   {
@@ -429,18 +441,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "RUIM",
-    "uso_sugerido": "inspeção obrigatória",
+    "uso_sugerido": "inspeção obrigatória antes de decisão",
     "positivos": [
       "Modelo popular com demanda de mercado",
-      "Preço permite margem se bem avaliado"
+      "Preço pode atrair compradores se condição confirmar"
     ],
     "negativos": [
       "Sobrepreço de 166% acima da referência (R$ 14.800 vs R$ 8.892)",
-      "Quilometragem não informada - risco elevado",
-      "Recuperado de financiamento: pode ter histórico de negligência",
-      "Sem garantias aparentes nesta categoria"
+      "Quilometragem não informada - risco desconhecido",
+      "Recuperado de financiamento indica possível desgaste ou negligência",
+      "Sem histórico claro de manutenção"
     ],
-    "avaliacao_plataforma": "Leilão com risco alto. Exija inspeção completa (motor, suspensão, documentação) antes de licitar. O ágio de 66% só se justifica com vistoria presencial que comprove bom estado real. Recomendo cuidado.",
+    "avaliacao_plataforma": "Lote com desvantagem clara: preço 66% acima do mercado em condição incerta. Exija inspeção técnica completa antes de licitar. Risco alto para revenda.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-way-1.0-(2p%2F4p)/ano.2011/36df5035-2d26-11f1-8174-02420a000006"
   },
   {
@@ -460,18 +472,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda",
+    "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "Desconto expressivo de 55,5% vs referência",
-      "Modelo popular com boa demanda de mercado",
-      "Fiat Punto 2012 ainda com público comprador"
+      "Desconto substancial de 55.5% sobre referência",
+      "Modelo consolidado com peças acessíveis",
+      "Fiat Punto mantém demanda no mercado secundário"
     ],
     "negativos": [
-      "Quilometragem não informada - exigir laudo completo",
-      "Recuperado de financiamento requer inspeção técnica obrigatória",
-      "Histórico de restrição financeira - verificar documentação"
+      "Quilometragem não informada - verificar odômetro na inspeção",
+      "Recuperado de financiamento pode indicar manutenção negligenciada",
+      "Sem histórico de sinistros declarado - exigir laudo de inspeção"
     ],
-    "avaliacao_plataforma": "Oportunidade atrativa pelo preço, mas EXIGIR inspeção técnica completa (motor, suspensão, elétrica) e documentação de quitação antes de qualquer lance. Risco moderado para revenda depende do estado real.",
+    "avaliacao_plataforma": "Excelente relação preço-valor para recuperado de financiamento. Obrigatória inspeção completa (motor, câmbio, elétrica) antes de lance final, pois histórico de manutenção é incerto.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/punto-attractive-(4p)/ano.2012/b2376ff1-2df7-11f1-8174-02420a000006"
   },
   {
@@ -494,14 +506,193 @@
     "uso_sugerido": "revenda",
     "positivos": [
       "Preço 38% abaixo da referência de mercado",
-      "Clássico 2011 com demanda de mercado"
+      "Chevrolet Classic é modelo consolidado com boa demanda de revenda"
     ],
     "negativos": [
-      "KM não informado - exige inspeção obrigatória",
-      "Histórico de financiamento resgata riscos mecânicos"
+      "KM não informado - verificar antes de compra",
+      "Recuperado de financiamento - inspecionar documentação e histórico"
     ],
-    "avaliacao_plataforma": "Oportunidade real para revenda. Porém, INSPECIONE obrigatoriamente antes: condição mecânica completa, documentação regularizada e histórico de manutenção. Recuperados de financiamento frequentemente têm desgaste acelerado ou problemas ocultos.",
+    "avaliacao_plataforma": "Excelente oportunidade de compra. Preço em faixa ÓTIMA (38%). Recomenda-se inspeção técnica completa e verificação de documentação antes de rematar. Potencial de revenda com margem significativa.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/classic-ls-(2p%2F4p)/ano.2011/59c0aeea-34d8-11f1-86d7-0242ac50004b"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Novo Voyage Trendline Mbv",
+    "ano": 2017,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 19000.0,
+    "fipe_valor": 31416.0,
+    "fipe_str": "R$ 31.416,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311672861_54696daf-42d3-418d-b525-0c9d8891595f_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "revenda",
+    "positivos": [
+      "Desconto expressivo de 39,5% sobre referência de mercado",
+      "Modelo consolidado com demanda de revenda",
+      "Volkswagen Voyage: baixo custo operacional e público amplo"
+    ],
+    "negativos": [
+      "KM não informado - verificar odômetro obrigatoriamente",
+      "Veículo recuperado de financiamento - inspecionar documentação e histórico de sinistro",
+      "Necessário vistoria completa antes de licitação"
+    ],
+    "avaliacao_plataforma": "Oportunidade ÓTIMA pela precificação agressiva (60,5%), mas OBRIGATÓRIO inspeção física para descartar problemas ocultos comuns em recuperados de financiamento. Confirmar quilometragem real antes de arrematar.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-trendline-mbv-(4p)/ano.2017/2515e090-e7b2-11ee-843f-02420a00007b"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ecosport Freestyle At B",
+    "ano": 2017,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 29000.0,
+    "fipe_valor": 74585.0,
+    "fipe_str": "R$ 74.585,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311677993_8bbeea7c-d5a9-4203-8622-18ca458429cb_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "revenda",
+    "positivos": [
+      "Lance em 38.9% da referência (abaixo do limite de 40%)",
+      "Ford Ecosport modelo recente (2017) com demanda de mercado",
+      "Margem significativa para revenda com lucro"
+    ],
+    "negativos": [
+      "KM não informado - exige inspeção obrigatória antes de arrematação",
+      "Histórico de financiamento requer verificação de regularização junto ao Detran"
+    ],
+    "avaliacao_plataforma": "Oportunidade EXCELENTE de preço. Recomendado VENCER o lance, mas CONDICIONE à inspeção técnica completa e regularização documental. Marque revisão antes da entrega.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-freestyle-at-b/ano.2017/628d29d3-3cbd-11f0-b593-02420a000005"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Se C",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 21000.0,
+    "fipe_valor": 26832.0,
+    "fipe_str": "R$ 26.832,00",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311612068_4fb32e34-c0ff-440c-a05d-52627d85d57f_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "BOA",
+    "uso_sugerido": "revenda",
+    "positivos": [
+      "Desconto expressivo de 21.7% contra referência",
+      "Modelo popular com demanda de mercado"
+    ],
+    "negativos": [
+      "KM não informado - verificar histórico de uso",
+      "Recuperado de financiamento - exigir inspeção mecânica completa",
+      "Risco de uso intenso ou abandono prolongado"
+    ],
+    "avaliacao_plataforma": "Oportunidade aceitável com desconto atrativo, mas EXIJA vistoria completa (motor, chassis, documentação) antes de fechar. Recuperados de financiamento frequentemente apresentam problemas mecânicos ocultos.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c-(4p)/ano.2020/8f3a9278-b00c-11f0-ae59-02420a000008"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Uno Way 1.0",
+    "ano": 2012,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 16500.0,
+    "fipe_valor": 8892.0,
+    "fipe_str": "R$ 8.892,00",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311647398_0e94e052-6f5d-4743-98ff-759215b842d2_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "inspeção obrigatória pré-compra",
+    "positivos": [
+      "Modelo popular com demanda de peças",
+      "Categoria simples, manutenção acessível"
+    ],
+    "negativos": [
+      "Preço 185.6% acima da referência - superfaturado",
+      "KM não informado - risco de odômetro clonado",
+      "Recuperado de financiamento - pode ter problemas estruturais/documentação"
+    ],
+    "avaliacao_plataforma": "Leilão desfavorável. Sobreprecificação severa + falta de informações críticas + histórico de inadimplência. Inspeccione antes de ofertar.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-way-1.0-(2p%2F4p)/ano.2012/5195e5c6-0dcc-11f1-8a4c-0242ac50000b"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "208 Active",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 20000.0,
+    "fipe_valor": 95415.0,
+    "fipe_str": "R$ 95.415,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311586831_cbf9167b-b99a-47e2-b903-9b06bd3d4fb8_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "revenda",
+    "positivos": [
+      "Lance 21% abaixo da referência (R$ 20k vs R$ 95,4k) - margem excelente",
+      "Veículo popular com mercado ativo de compradores"
+    ],
+    "negativos": [
+      "KM não informado - requer inspeção obrigatória",
+      "Recuperado de financiamento - histórico de uso desconhecido"
+    ],
+    "avaliacao_plataforma": "Oportunidade de revenda com margem expressiva, mas exige inspeção mecânica detalhada antes da compra. Verificar documentação, quilometragem real e condições gerais para confirmar viabilidade.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-active-(4p)/ano.2015/b0216c5b-21fc-11f1-a639-02420a000005"
+  },
+  {
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Hatch Se 1.0",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17000.0,
+    "fipe_valor": 26832.0,
+    "fipe_str": "R$ 26.832,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/20/1779311581926_7ef2d43a-faaf-426a-a31b-dd936dc43ff5_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "revenda",
+    "positivos": [
+      "Desconto expressivo de 36,6% ante referência de mercado",
+      "Ford Ka é modelo consolidado com demanda de revenda"
+    ],
+    "negativos": [
+      "KM não informado - risco desconhecido de desgaste",
+      "Recuperado de financiamento pode indicar histórico de negligência"
+    ],
+    "avaliacao_plataforma": "Oportunidade mediana com bom desconto, mas exige inspeção técnica completa antes de oferta. Priorizar verificação de mecânica, documentação e histórico de manutenção dado o contexto de recuperação financeira.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/e9eb2507-2eca-11f1-86d7-0242ac50004b"
   },
   {
     "categoria": "carros",
@@ -520,18 +711,16 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "OTIMA",
-    "uso_sugerido": "revenda",
+    "uso_sugerido": "revenda ou uso pessoal",
     "positivos": [
-      "Desconto significativo de 35.2% abaixo da referência",
-      "Modelo consolidado com boa demanda de revenda",
-      "Preço competitivo para margem comercial"
+      "Desconto expressivo de 35.2% sobre referência de mercado",
+      "Voyage é modelo consolidado, boa demanda de revenda"
     ],
     "negativos": [
-      "KM não informado - impossível avaliar desgaste real",
-      "Histórico de financiamento requer verificação de multas/débitos",
-      "Sem informações sobre estado geral/mecânico"
+      "KM não informado - exigir verificação obrigatória",
+      "Recuperado de financiamento - pode ter histórico de manutenção irregular"
     ],
-    "avaliacao_plataforma": "Oportunidade MEDIANA de valor (64.8% da ref.). Essencial: (1) Inspeção completa antes de compra - documento de quitação, histórico de manutenção e teste mecânico; (2) Verificar débitos/multas junto a órgãos; (3) Confirmar KM real em inspeção.",
+    "avaliacao_plataforma": "Lance em faixa MEDIANA (64.8%), típico de recuperação. Excelente oportunidade se inspeção mecânica confirmar integridade. Priorize documentação e histórico de serviços antes de fechar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-(4p)/ano.2013/8c9e26c9-4ba1-11f1-8621-02420a000005"
   },
   {
@@ -553,16 +742,16 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Desconto de 17,8% da referência (R$ 2.704 de economia)",
-      "Moto 2024 com baixa depreciação acumulada",
-      "Modelo Biz 125 é referência em mercado de revenda"
+      "Desconto de 17,8% sobre a referência de mercado",
+      "Modelo 2024 com baixa depreciação esperada",
+      "Moto popular com alta demanda de revenda"
     ],
     "negativos": [
-      "KM não informado - exige vistoria obrigatória",
-      "Recuperado de financiamento pode indicar manutenção negligenciada",
-      "Histórico desconhecido do uso anterior"
+      "Quilometragem não informada - verificar antes de comprar",
+      "Histórico de financiamento requer vistoria mecânica completa",
+      "Possível falta de documentação ou pendências administrativas"
     ],
-    "avaliacao_plataforma": "Oportunidade interessante de margem. Exija inspeção completa focando em estado mecânico, documentação financeira limpa e histórico de manutenção. Se tudo estiver ok, lance recomendado.",
+    "avaliacao_plataforma": "Oportunidade excelente de preço (82,2% ref). Recuperado de financiamento exige inspeção completa: documentação, histórico de sinistros, estado mecânico e visual. Se tudo ok, é negócio viável para revenda.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-125/ano.2024/16e5cff6-dd7a-11ef-903d-02420a000042"
   },
   {
@@ -584,15 +773,17 @@
     "oportunidade": "BOA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Modelo 2024 com baixíssima quilometragem (33.027 km)",
-      "Lance 36% abaixo da referência de mercado (~R$ 22.500)",
-      "Recuperado de financiamento = sem histórico de sinistro"
+      "Modelo 2024 - veículo novo",
+      "Quilometragem baixa (33.027 km)",
+      "Honda Bros - marca confiável e demanda de mercado",
+      "Lance 35% abaixo referência estimada (R$ 22k-24k)"
     ],
     "negativos": [
-      "Procedência de retomada exige inspeção completa pré-compra",
-      "Possível falta de documentação ou pendências administrativas"
+      "Origem: recuperação de financiamento - verificar documentação e histórico",
+      "Sem referência de preço oficial - dificulta análise comparativa",
+      "Necessário inspeção técnica completa pré-compra"
     ],
-    "avaliacao_plataforma": "Excelente oportunidade de revenda. Moto nova com preço agressivo, mas obrigatório inspecionar mecanicamente e validar documentação (gravames/débitos) antes do lance final. Margem de lucro estimada em 40-50% se aprovado.",
+    "avaliacao_plataforma": "Oportunidade competitiva para revenda. Veículo novo com bom desconto, mas exija inspeção mecânica e regularização de documentos antes de fechar. Risco moderado contornável com due diligence.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2024/552c893b-2ab1-11f0-9f79-02420a000005"
   },
   {
@@ -614,16 +805,16 @@
     "oportunidade": "OTIMA",
     "uso_sugerido": "revenda/uso pessoal",
     "positivos": [
-      "24,3% do valor de referência - desconto excepcional",
-      "Modelo 2024 - zero km ou baixa quilometragem esperada",
-      "Honda CB 500X - moto confiável, mercado ativo de revenda"
+      "Preço 76.3% abaixo da referência (R$ 18.7k vs R$ 76.9k)",
+      "Modelo 2024 com tecnologia recente",
+      "Moto de trilha/adventure versátil e procurada"
     ],
     "negativos": [
-      "Quilometragem não informada - verificar antes de comprar",
-      "Recuperado de financiamento - pode ter histórico de uso desconhecido",
-      "Sem informações sobre manutenção anterior"
+      "Quilometragem não informada - verificar na inspeção",
+      "Recuperado de financiamento - exigir documentação completa",
+      "Sem histórico de manutenção disponível"
     ],
-    "avaliacao_plataforma": "Oportunidade excelente em preço. Imprescindível inspeção completa, verificação de documentação e teste de funcionamento antes da compra. Margem de ganho significativa para revenda se aprovado.",
+    "avaliacao_plataforma": "Oportunidade excepcional se documentação estiver regularizada. Recomenda-se inspeção técnica completa e verificação de débitos/gravames antes da compra. Preço sugere possível dano não declarado ou urgência na venda.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cb-500x/ano.2024/67acac3f-277f-11f1-b6ad-0242ac500058"
   },
   {
@@ -633,29 +824,28 @@
     "modelo": "Nxr 160 Bros Cbs",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 9200.0,
     "fipe_valor": 11381.0,
     "fipe_str": "R$ 11.381,00",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/16/1778955210808_1bbb3641-d850-4778-b8f7-669fa30fa9df_media.webp",
     "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar análise técnica",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "revenda",
     "positivos": [
-      "Modelo 2026 (novo)",
-      "Marca confiável (Honda)",
-      "Referência de mercado disponível (R$ 11.381)"
+      "Desconto de 19.2% em relação à referência de mercado",
+      "Modelo 2026 com tecnologia recente (CBS)",
+      "Moto popular com alta demanda de revenda"
     ],
     "negativos": [
-      "Sem descrição do estado geral",
-      "KM não informado",
-      "Lance inicial em R$ 0 (indicador de lote problemático)",
-      "Impossível avaliar condição mecânica"
+      "Recuperado de financiamento - exige inspeção mecânica completa",
+      "KM não informado - verificar odômetro obrigatoriamente",
+      "Possível histórico de uso intenso ou negligência"
     ],
-    "avaliacao_plataforma": "Lote crítico: ausência total de informações (descrição, KM, fotos implícitas) e lance zerado indicam possível sinistro, batida ou falta de documentação. Exige inspeção presencial obrigatória antes de qualquer lance.",
+    "avaliacao_plataforma": "Oportunidade atrativa se aprovada na inspeção. Preço competitivo para revenda, mas exigir laudo técnico detalhado e documentação de regularização.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2026/d940a5e6-3347-11f1-86d7-0242ac50004b"
   },
   {
@@ -665,7 +855,7 @@
     "modelo": "Nxr 160 Bros Cbs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18400.0,
+    "lance_atual": 18700.0,
     "fipe_valor": 11381.0,
     "fipe_str": "R$ 11.381,00",
     "classificacao": "❌ RUIM",
@@ -677,16 +867,16 @@
     "oportunidade": "RUIM",
     "uso_sugerido": "não recomendado",
     "positivos": [
-      "Modelo 2025 (zero km provável)",
-      "Marca confiável com bom custo de manutenção"
+      "Modelo 2025 (0km esperado)",
+      "Marca confiável com peças acessíveis"
     ],
     "negativos": [
-      "Precificação 61,7% acima da referência de mercado",
-      "Recuperado de financiamento = histórico de inadimplência",
-      "Alto risco de pendências documentais/processuais",
-      "Sem KM informado reforça falta de transparência"
+      "Sobrepreço de 164,3% acima da referência de mercado",
+      "Recuperado de financiamento - risco de problemas mecânicos/documentação",
+      "KM não informado - falta transparência crítica",
+      "Preço incompatível com condição de bem recuperado"
     ],
-    "avaliacao_plataforma": "Preço totalmente desalinhado do mercado para moto recuperada de financiamento. Exija inspeção completa com verificação de débitos, pendências judiciais e regularização de documentação antes de qualquer oferta.",
+    "avaliacao_plataforma": "Lance completamente fora de mercado para moto recuperada de financiamento. Exija inspeção técnica completa e regularização documental antes de qualquer oferta. Aguarde redução significativa ou passe.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2025/4af83e50-292e-11f1-b6ad-0242ac500058"
   },
   {
@@ -708,16 +898,17 @@
     "oportunidade": "BOA",
     "uso_sugerido": "revenda",
     "positivos": [
-      "Modelo 2025 - zero km ou baixa quilometragem",
-      "Honda Bros - marca confiável, alta demanda no mercado",
-      "Lance 40% abaixo referência estimada (R$ 28-30k mercado)"
+      "Modelo 2025 - zero ou baixíssimo km",
+      "Honda Bros - marca confiável, demanda garantida",
+      "Lance 29% abaixo da tabela (R$ 23.800 FIPE aprox.)",
+      "CBS (freio combinado) - segurança agregada"
     ],
     "negativos": [
-      "Recuperado de financiamento - histórico desconhecido",
-      "KM não informado - exige inspeção obrigatória",
-      "Sem documentação clara de procedência"
+      "Sem documentação clara pós-financiamento - verificar débitos",
+      "Histórico de financiamento pode ter sinais de uso/desgaste oculto",
+      "Necessário vistoria completa antes da aquisição"
     ],
-    "avaliacao_plataforma": "Oportunidade interessante se aprovada em inspeção mecânica completa. Descontos típicos de recuperação (40-50%) justificam o preço. Exigir laudo técnico e documentação de liberação antes de concretizar.",
+    "avaliacao_plataforma": "Oportunidade sólida se documentação regularizada. Honda Bros 2025 recuperada de financiamento a R$ 16.900 representa margem de ~29% vs. tabela. Exija inspeção prévia e comprovação de quitação antes do lance.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/honda-nxr-160-bros-cbs/ano.2025/72addac0-1f03-11f1-a639-02420a000005"
   },
   {
@@ -727,7 +918,7 @@
     "modelo": "Nxr 160 Bros Cbs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 17800.0,
+    "lance_atual": 18100.0,
     "fipe_valor": 11381.0,
     "fipe_str": "R$ 11.381,00",
     "classificacao": "❌ RUIM",
@@ -737,18 +928,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "RUIM",
-    "uso_sugerido": "inspeção obrigatória antes de qualquer decisão",
+    "uso_sugerido": "inspeção obrigatória antes de decisão",
     "positivos": [
-      "Modelo 2025 (zero km potencial)",
-      "Marca confiável com peças acessíveis"
+      "Modelo 2025 - ano recente",
+      "NXR 160 Bros CBS - moto confiável e demandada"
     ],
     "negativos": [
-      "Sobrepreço de 56,4% acima da referência",
-      "KM não informado (risco desconhecido)",
-      "Histórico de financiamento requer inspeção mecânica completa",
-      "Sem garantia aparente para recuperados"
+      "Sobrepreço de 159% acima da referência (R$ 18.100 vs R$ 11.381)",
+      "KM não informado - sinal de alerta em recuperado de financiamento",
+      "Sem histórico de manutenção ou condição mecânica declarada",
+      "Recuperado de financiamento pode ter negligência prévia"
     ],
-    "avaliacao_plataforma": "Recuperado de financiamento com ágio excessivo. Exija inspeção em oficina especializada antes de ofertar. Risco elevado sem documentação clara do estado mecânico.",
+    "avaliacao_plataforma": "Preço completamente desalinhado do mercado. Exija inspeção técnica completa antes de licitar - verificar documentação, motor e histórico de sinistros. Risco elevado sem informações básicas.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2025/f643d7d0-17f3-11f1-a639-02420a000005"
   },
   {
@@ -758,7 +949,7 @@
     "modelo": "Basham Bm T 180",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4000.0,
+    "lance_atual": 4200.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -768,17 +959,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revisor/perito antes de revenda",
+    "uso_sugerido": "após inspeção técnica completa",
     "positivos": [
-      "Modelo recente (2025)",
-      "Recuperado de financiamento geralmente sem sinistro estrutural"
+      "Modelo 2025 - ano recente",
+      "Lance inicial competitivo sem referência inflada"
     ],
     "negativos": [
-      "KM não informado - fator crítico em moto",
-      "Sem referência de preço - impossível validar lance",
-      "Lance de R$ 4.000 muito baixo para BM T 180 novo - requer verificação de integridade"
+      "KM não informado - falta de transparência crítica",
+      "Sem preço de referência para comparação de mercado",
+      "Recuperado de financiamento requer histórico detalhado (sinistro/uso abusivo?)",
+      "Bull Basham é marca com menor revenda que Honda/Yamaha"
     ],
-    "avaliacao_plataforma": "Moto recuperada de financiamento com informações insuficientes. Exija inspeção mecânica completa, documentação de regularização e histórico de sinistro antes de qualquer oferta. Preço sugere problemas estruturais não declarados.",
+    "avaliacao_plataforma": "Moto 2025 recuperada de financiamento com dados insuficientes. OBRIGATÓRIO: inspecionar documentação de sinistro, histórico de uso, KM real e condições mecânicas antes de ofertar. Risco moderado-alto sem transparência completa.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bull/basham-bm-t-180/ano.2025/0ed93289-cebc-11f0-913b-02420a000005"
   },
   {
@@ -798,18 +990,17 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "RUIM",
-    "uso_sugerido": "inspeção obrigatória",
+    "uso_sugerido": "não recomendado",
     "positivos": [
-      "Modelo recente (2022)",
-      "Marca confiável (Honda CG 160)"
+      "Modelo 2022 recente",
+      "Honda CG 160 é confiável e tem demanda"
     ],
     "negativos": [
-      "Ágio de 93,8% acima da referência",
-      "KM não informado",
-      "Recuperado de financiamento (risco de pendências/danos)",
-      "Preço incompatível com garantia de funcionamento"
+      "Preço 193,8% acima da referência (R$ 8.300 vs R$ 4.283)",
+      "KM não informado - falta informação crítica",
+      "Recuperado de financiamento pode ter problemas mecânicos ocultos"
     ],
-    "avaliacao_plataforma": "EVITE. Preço excessivo para bem recuperado de financiamento. Exija inspeção técnica completa e documentação clara antes de qualquer lance. Risco elevado de passivos ocultos.",
+    "avaliacao_plataforma": "Preço completamente desalinhado do mercado. Lance praticamente 2x acima da referência com falta de informações essenciais. Exija inspeção completa antes de qualquer oferta.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2022/c5b1b781-3835-11f1-86d7-0242ac50004b"
   },
   {
@@ -832,15 +1023,15 @@
     "uso_sugerido": "inspeção obrigatória",
     "positivos": [
       "Modelo recente (2022)",
-      "Marca confiável com peças acessíveis"
+      "Marca confiável Honda"
     ],
     "negativos": [
-      "Sobreprecificado em 207,8% da referência",
-      "KM não informado (risco de alto uso)",
-      "Recuperado de financiamento (histórico de inadimplência)",
-      "Sem informações técnicas sobre condições reais"
+      "Preço 207,8% acima da referência (R$ 8.900 vs R$ 4.283)",
+      "KM não informado - fator de risco",
+      "Recuperado de financiamento - histórico desconhecido",
+      "Sem garantia de estado mecânico"
     ],
-    "avaliacao_plataforma": "Preço muito acima do mercado para moto recuperada de financiamento. Exija inspeção completa antes de qualquer lance - histórico de inadimplência requer verificação de documentação e mecânica detalhada.",
+    "avaliacao_plataforma": "Preço muito acima do mercado para moto recuperada com informações incompletas. Recomenda-se inspeção prévia e investigação do histórico de sinistros antes de qualquer lance.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2022/9971aaf9-3a8d-11f1-86d7-0242ac50004b"
   },
   {
@@ -860,18 +1051,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspeção obrigatória",
+    "uso_sugerido": "revisor avaliar antes de lance",
     "positivos": [
-      "Modelo 2025 (ano novo)",
-      "Lance inicial acessível para moto nova"
+      "Modelo 2025 - ano recente",
+      "Marca Haojian com potencial de revenda"
     ],
     "negativos": [
-      "Recuperado de financiamento (histórico desconhecido)",
-      "KM não informado",
+      "KM não informado - informação crítica ausente",
       "Sem preço de referência para comparação",
-      "Fabricante Haojian (marca pouco consolidada no mercado BR)"
+      "Recuperação financeira requer inspeção mecânica completa",
+      "Histórico desconhecido - possível uso abusivo durante inadimplência"
     ],
-    "avaliacao_plataforma": "Recuperado de financiamento exige inspeção técnica completa antes de qualquer decisão. Sem dados de quilometragem e referência de mercado, impossível avaliar se o lance é competitivo. Risco moderado para comprador.",
+    "avaliacao_plataforma": "Moto recuperada de financiamento sem dados técnicos essenciais. Exija inspeção profissional antes de licitar: verificar motor, combustível, documentação e possíveis danos ocultos. Lance inicial baixo pode indicar necessidade de reparos não mencionados.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/haojian/avelloz-az1/ano.2025/93d3768e-48be-11f1-9b2f-02420a000006"
   },
   {
@@ -891,19 +1082,19 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspeção obrigatória antes de decisão",
+    "uso_sugerido": "inspecionar antes de qualquer decisão",
     "positivos": [
       "Implemento agrícola específico (nicho de mercado)",
-      "Ano 2023 (equipamento recente)"
+      "Ano 2023 (recente)"
     ],
     "negativos": [
-      "Sem referência de preço (R$ 0) - impossível avaliar se R$ 3.000 é competitivo",
-      "Equipamento recuperado de financiamento - histórico de inadimplência",
-      "KM/horas não informado - impossível avaliar desgaste",
-      "Sem dados técnicos, condição física ou funcional",
-      "Categoria 'caminhões' não corresponde a implemento - classificação confusa"
+      "Sem referência de preço para comparação (impossível avaliar lance)",
+      "KM não informado (equipamentos agrícolas costumam informar horas de uso)",
+      "Recuperado de financiamento (indica inadimplência anterior)",
+      "Falta informação técnica crítica sobre condição real",
+      "Categoria 'caminhões' vs 'implemento agrícola' = inconsistência no cadastro"
     ],
-    "avaliacao_plataforma": "Lance suspeito. Falta dados críticos (preço referência, KM/horas, condição). Equipamento de financiamento requer inspeção técnica presencial antes de qualquer oferta. Não lance sem vistoria.",
+    "avaliacao_plataforma": "REJEITAR LANCE SEM INSPEÇÃO. Faltam dados críticos (referência de mercado, KM/horas, fotos, histórico técnico). Recuperado de financiamento exige vistoria presencial obrigatória antes de oferta.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/nome-padrao/implemento-agricola-sulcador-leve-de-dunas-linas/ano.2023/299ad0a5-9958-11f0-bc23-02420a000006"
   },
   {
@@ -923,20 +1114,19 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspeção técnica obrigatória",
+    "uso_sugerido": "inspeção prévia obrigatória",
     "positivos": [
-      "Equipamento agrícola de marca consolidada (PLB)",
-      "Ano 2021 - modelo recente",
-      "Lance inicial acessível para categoria"
+      "Equipamento agrícola especializado (semeadora de precisão)",
+      "Ano 2021 - modelo recente"
     ],
     "negativos": [
-      "KM não informado - dado crítico ausente",
+      "KM não informado - impossível avaliar desgaste",
       "Recuperado de financiamento - histórico de inadimplência",
-      "Categoria 'caminhões' incorreta (é equipamento agrícola)",
-      "Sem referência de mercado (R$ 0) - impossível avaliar desconto",
-      "Sem laudo técnico mencionado"
+      "Sem referência de preço (R$ 0) - impossível validar lance",
+      "Categoria incorreta: semeadora não é caminhão - dado inconsistente",
+      "Lance extremamente baixo (R$ 17 mil) - alerta de mecanismo ou dano estrutural"
     ],
-    "avaliacao_plataforma": "RECUPERADO DE FINANCIAMENTO exige inspeção presencial obrigatória. Semeadora PLB 2021 sem KM e sem documentação técnica representa RISCO ALTO. Recomenda-se vistoria completa de funcionamento, histórico de manutenção e situação registral antes de qualquer lance. Valor não é competitivo sem comparativo de mercado.",
+    "avaliacao_plataforma": "RISCO ALTO. Dados incompletos + recuperação financeira + preço suspeito. Exija inspeção técnica completa (motor, sistemas hidráulicos, chassi) antes de qualquer decisão. Equipamentos agrícolas requer expertise específica. Não recomendo lance sem verificação presencial.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/nome-padrao/semeadora-de-precisao-de-linhas-plb/ano.2021/a5b2ab74-994b-11f0-bc23-02420a000006"
   },
   {
@@ -956,18 +1146,18 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance em 11.1% da referência - potencial desconto significativo",
-      "Randon Re é marca confiável no segmento de reboques"
+      "Lance em 11,1% da referência (R$ 10 mil vs R$ 90 mil) - potencial desconto significativo",
+      "Randon Re é marca consolidada no segmento de reboques/semireboques"
     ],
     "negativos": [
-      "Sem descrição do estado físico - risco crítico",
-      "KM não informado - impossível avaliar desgaste",
-      "Reboque 2 eixos pode ter danos estruturais não relatados",
-      "Desconto muito agressivo sugere possível sinistro ou defeito oculto"
+      "Sem descrição do estado: impossível avaliar condições",
+      "KM não informado - histórico de uso desconhecido",
+      "Falta de fotos/documentação técnica",
+      "Lance extremamente baixo indica possível problema estrutural ou sinistro"
     ],
-    "avaliacao_plataforma": "ALERTA: Preço 89% abaixo da referência + ausência total de informações = sinistrado/batido/sucata provável. Exija inspeção presencial antes de ofertar. Não recomendado sem laudo técnico detalhado.",
+    "avaliacao_plataforma": "RISCO ALTO. Desconto de ~89% sugere sinistro, recuperação financeira ou sucata. Exija inspeção presencial completa antes de participar. Não lance sem documentação técnica.",
     "url": "https://leilo.com.br/leilao/horizonte-ceara/pesados/randon/re-dl-2-eixo/ano.2023/e1cd98a1-4afe-11f1-8621-02420a000005"
   },
   {
@@ -989,235 +1179,16 @@
     "oportunidade": "REGULAR",
     "uso_sugerido": "revenda com inspeção prévia",
     "positivos": [
-      "Modelo Strada Adventure com demanda no mercado",
-      "Cabine dupla (maior versatilidade comercial)"
+      "Fiat Strada é modelo consolidado no mercado de trabalho",
+      "Cabine dupla com demanda consistente"
     ],
     "negativos": [
-      "KM não informado (risco crítico)",
-      "Lance em ~26k sem referência explícita do mercado",
-      "Recuperado financeiro: risco de defeitos ocultos ou uso intenso",
-      "Ano 2011 (12+ anos) - desgaste mecânico esperado"
+      "KM não informado - reduz confiança no histórico",
+      "Sem referência de preço (R$0) - impossível avaliar desgio real",
+      "Lance de R$ 26.200 é valor baixo para 2011 - sinalizador de risco oculto",
+      "Recuperado de financiamento = possível sinistro mecânico ou jurídico"
     ],
-    "avaliacao_plataforma": "Exija inspeção técnica completa antes de oferta. Sem KM e sendo recuperado financeiro, o veículo requer avaliação presencial de motor, chassis e documentação regularizada. Lance somente após laudo detalhado.",
+    "avaliacao_plataforma": "OBRIGATÓRIA inspeção técnica completa. Ausência de KM + valor deprimido + origem em financiamento sugerem problemas não divulgados. Recomendo rejeitar sem laudo prévio ou reduzir lance em 15-20% como margem de risco.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/strada-adventure-cabine-dupla/ano.2011/cb1aebe4-aeab-11f0-ae59-02420a000008"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Volkswagen",
-    "modelo": "Novo Voyage Trendline Mbv",
-    "ano": 2017,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 19000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de decisão",
-    "positivos": [
-      "Volkswagen Voyage - modelo popular com demanda de mercado",
-      "Ano 2017 - ainda com valor de revenda potencial"
-    ],
-    "negativos": [
-      "KM não informado - risco crítico de omissão",
-      "Recuperado de financiamento - histórico de inadimplência/danos potenciais",
-      "Lance de R$ 19.000 sem referência - impossível avaliar desconto real",
-      "Categoria 'caminhões' incorreta para Voyage - discrepância administrativa"
-    ],
-    "avaliacao_plataforma": "Veículo recuperado exige inspeção técnica completa (motor, documentação, sinistros ocultados). Sem KM e referência de preço, não há base para análise de oportunidade. Risco elevado - recomenda-se cautela.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-trendline-mbv-(4p)/ano.2017/2515e090-e7b2-11ee-843f-02420a00007b"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Ford",
-    "modelo": "Ecosport Freestyle At B",
-    "ano": 2017,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 29000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "revenda com inspeção prévia",
-    "positivos": [
-      "Modelo 2017 ainda com demanda no mercado",
-      "Lance inicial competitivo (necessita validação de referência)"
-    ],
-    "negativos": [
-      "KM não informado - risco operacional desconhecido",
-      "Recuperado de financiamento - histórico de uso indefinido",
-      "Categoria incorreta (listado como caminhão, é SUV)",
-      "Sem referência de preço - impossível avaliar real oportunidade"
-    ],
-    "avaliacao_plataforma": "Recuperado de financiamento sem dados essenciais (KM, referência de preço, condição técnica). Exija inspeção completa antes de lance - risco moderado por falta de transparência.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-freestyle-at-b/ano.2017/628d29d3-3cbd-11f0-b593-02420a000005"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Ford",
-    "modelo": "Ka Se C",
-    "ano": 2020,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 21000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspeção obrigatória antes de decisão",
-    "positivos": [
-      "Modelo recente (2020)",
-      "Veículo de linha (não sucata/sinistrado)"
-    ],
-    "negativos": [
-      "Km não informado - risco de odômetro irregular",
-      "Sem referência de mercado (Ref: R₀) - impossível avaliar se R$ 21k é vantajoso",
-      "Recuperado de financiamento - requer inspeção técnica completa",
-      "Categoria 'caminhões' inconsistente com Ford Ka (veículo de passeio)"
-    ],
-    "avaliacao_plataforma": "Leilão com dados inconsistentes. Ford Ka 2020 em recuperação financeira por R$ 21k requer inspeção técnica e verificação de documentação antes de qualquer lance. Impossível classificar como ÓTIMO/MEDIANO/RUIM sem referência de mercado e km real.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c-(4p)/ano.2020/8f3a9278-b00c-11f0-ae59-02420a000008"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Mitsubishi",
-    "modelo": "L200 Outdoor Cabine Dupla",
-    "ano": 2010,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 24000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "revenda ou uso operacional",
-    "positivos": [
-      "Modelo robusto e procurado (L200 Outdoor)",
-      "Cabine dupla valorizada no mercado",
-      "Lance inicial competitivo (24k vs ~45-55k em mercado)"
-    ],
-    "negativos": [
-      "KM não informado - risco crítico de desgaste desconhecido",
-      "14 anos de uso - possíveis problemas mecânicos latentes",
-      "Sem histórico de manutenção disponível",
-      "Recuperado de financiamento indica possível falta de manutenção preventiva"
-    ],
-    "avaliacao_plataforma": "Lance representa ~45-50% da referência de mercado, porém KM desconhecido e histórico de recuperação exigem inspeção técnica completa ANTES do lance final. Risco moderado-alto se não inspecionado.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/mitsubishi/l200-outdoor-cabine-dupla/ano.2010/2688ae1b-b9b2-11f0-ae59-02420a000008"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Fiat",
-    "modelo": "Uno Way 1.0",
-    "ano": 2012,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 16500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "revenda com inspeção prévia",
-    "positivos": [
-      "Fiat Uno Way é modelo popular com demanda de mercado",
-      "Lance inicial competitivo se veículo estiver em condições aceitáveis"
-    ],
-    "negativos": [
-      "KM não informado é red flag crítica - impedimento para avaliação real",
-      "Sem referência de mercado (R$ 0) inviabiliza análise comparativa",
-      "Recuperado de financiamento sugere possível uso intenso ou negligência",
-      "Categoria incorreta: Uno Way é carro de passeio, não caminhão"
-    ],
-    "avaliacao_plataforma": "EXIGIR inspeção presencial obrigatória antes de oferta. KM ausente e dados incompletos impedem valoração confiável. Recomenda-se cautela com recuperados de financiamento — verificar histórico de manutenção e sinistros.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-way-1.0-(2p%2F4p)/ano.2012/5195e5c6-0dcc-11f1-8a4c-0242ac50000b"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Peugeot",
-    "modelo": "208 Active",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 20000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de decisão",
-    "positivos": [
-      "Veículo de entrada (segmento popular)",
-      "Potencial para revenda se mecanicamente íntegro"
-    ],
-    "negativos": [
-      "KM não informado - risco desconhecido",
-      "Categorizado como caminhão (inconsistência: 208 é hatchback)",
-      "Sem referência de preço (R$ 0) impossibilita avaliação comparativa",
-      "Recuperado de financiamento - risco de sinistro ou problemas estruturais",
-      "Lance R$ 20k está abaixo da tabela FIPE (208 2015: ~R$ 35-45k) - sinalizador de defeitos"
-    ],
-    "avaliacao_plataforma": "REJUSTE RECOMENDADO: Exigir inspeção técnica completa, corrigir categoria de classificação, informar KM e histórico de sinistro. Desconto de 55%+ em relação à tabela indica problema não declarado.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-active-(4p)/ano.2015/b0216c5b-21fc-11f1-a639-02420a000005"
-  },
-  {
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Ford",
-    "modelo": "Ka Hatch Se 1.0",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 17000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspecionar antes de decidir",
-    "positivos": [
-      "Modelo popular com demanda de mercado",
-      "Lance inicial competitivo para veículo recuperado"
-    ],
-    "negativos": [
-      "Categoria incorreta: Ford Ka é hatch, não caminhão",
-      "KM não informado - risco operacional crítico",
-      "Sem referência de preço (R$ 0) - impossível avaliar desconto",
-      "Recuperado de financiamento requer inspeção completa"
-    ],
-    "avaliacao_plataforma": "CRÍTICO: Categorização errada e falta de informações essenciais (KM, preço referência). Exija inspeção técnica completa antes de licitar. Veículo recuperado pode ter histórico de inadimplência prolongada.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/e9eb2507-2eca-11f1-86d7-0242ac50004b"
   }
 ]
