@@ -362,7 +362,7 @@ def render_lotes(lotes_lista, key="main"):
                 col_link, col_fav = st.columns([4, 1])
                 col_link.markdown(f"[🔗 Ver lote na Leilo →]({lote['url']})")
                 lote_url = lote.get("url", "")
-                heart = "❤️" if is_favorite(lote_url) else "♡"
+                heart = "★" if is_favorite(lote_url) else "☆"
                 if col_fav.button(heart, key=f"fav_{key}_{i}", help="Favoritar"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
@@ -518,10 +518,10 @@ components.html("""
       }
     });
 
-    // ── Corações vermelhos sem fundo ─────────────────────────────────
+    // ── Estrela favoritar sem fundo ──────────────────────────────────
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
-      if (t === '♡' || t === '❤️' || t === '❤') {
+      if (t === '☆' || t === '★') {
         btn.style.setProperty('background', 'transparent', 'important');
         btn.style.setProperty('background-color', 'transparent', 'important');
         btn.style.setProperty('color', '#ef4444', 'important');
