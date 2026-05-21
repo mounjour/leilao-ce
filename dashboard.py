@@ -525,7 +525,7 @@ components.html("""
         btn.style.setProperty('background', 'transparent', 'important');
         btn.style.setProperty('background-color', 'transparent', 'important');
         btn.style.setProperty('color', '#ef4444', 'important');
-        btn.style.setProperty('font-size', '20px', 'important');
+        btn.style.setProperty('font-size', '28px', 'important');
         btn.style.setProperty('border', 'none', 'important');
         btn.style.setProperty('box-shadow', 'none', 'important');
         btn.style.setProperty('width', 'auto', 'important');
