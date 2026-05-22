@@ -1,0 +1,42 @@
+name: Teste Alertas WhatsApp
+
+on:
+  workflow_dispatch:
+    inputs:
+      telefone:
+        description: 'Seu WhatsApp (só números, ex: 85999999999)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dotenv supabase
+
+      - name: Rodar teste de alerta
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          EVOLUTION_API_URL:         ${{ secrets.EVOLUTION_API_URL }}
+          EVOLUTION_API_KEY:         ${{ secrets.EVOLUTION_API_KEY }}
+          EVOLUTION_INSTANCE:        ${{ secrets.EVOLUTION_INSTANCE }}
+          TEST_PHONE:                ${{ inputs.telefone }}
+        run: python teste_alerta.py ${{ inputs.telefone }}
