@@ -66,6 +66,15 @@ jobs:
             git push
           fi
 
+      - name: Rodar alertas WhatsApp
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          EVOLUTION_API_URL:         ${{ secrets.EVOLUTION_API_URL }}
+          EVOLUTION_API_KEY:         ${{ secrets.EVOLUTION_API_KEY }}
+          EVOLUTION_INSTANCE:        ${{ secrets.EVOLUTION_INSTANCE }}
+        run: python alertas.py
+
       - name: Upload do leiloes.json como artifact (backup)
         if: always()
         uses: actions/upload-artifact@v4
