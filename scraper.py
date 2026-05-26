@@ -69,6 +69,12 @@ def buscar_referencia_mercado(marca, modelo):
     return 0, "Sem referência"
 
 # ─── FIPE ─────────────────────────────────────────────────────────────────────
+_STOPWORDS = {"de","da","do","dos","das","com","para","e","a","o","em","mt","cvt"}
+
+def _score_modelo(fipe_nome: str, palavras: list) -> int:
+    nome = fipe_nome.lower()
+    return sum(1 for p in palavras if p in nome)
+
 def buscar_fipe(marca, modelo, ano, categoria):
     if categoria in ["imoveis","equipamentos","caminhoes"]:
         return buscar_referencia_mercado(marca, modelo)
@@ -77,15 +83,28 @@ def buscar_fipe(marca, modelo, ano, categoria):
         marcas = requests.get(f"{FIPE_API}/{endpoint}/marcas", timeout=8).json()
         marca_id = next((m["codigo"] for m in marcas if marca.lower() in m["nome"].lower()), None)
         if not marca_id: return 0, "Marca não encontrada"
-        modelos = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos", timeout=8).json()["modelos"]
-        palavras = modelo.lower().split()
-        modelo_id = None
-        for qtd in [1, 2]:
-            modelo_id = next((m["codigo"] for m in modelos if " ".join(palavras[:qtd]) in m["nome"].lower()), None)
-            if modelo_id: break
-        if not modelo_id: return 0, "Modelo não encontrado"
+        modelos_fipe = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos", timeout=8).json()["modelos"]
+
+        # Score-based matching: pontua cada variante e escolhe a mais específica
+        palavras = [p for p in modelo.lower().split() if len(p) > 1 and p not in _STOPWORDS]
+        scored = [(m, _score_modelo(m["nome"], palavras)) for m in modelos_fipe]
+        scored = [(m, s) for m, s in scored if s > 0]
+        if not scored: return 0, "Modelo não encontrado"
+        # Maior pontuação; em empate, nome mais curto (variante mais simples)
+        melhor = max(scored, key=lambda x: (x[1], -len(x[0]["nome"])))
+        modelo_id = melhor[0]["codigo"]
+
         anos_f = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos/{modelo_id}/anos", timeout=8).json()
-        ano_id = next((a["codigo"] for a in anos_f if str(ano) in a["nome"]), anos_f[0]["codigo"])
+        # Ano exato primeiro; depois ano mais próximo
+        ano_id = next((a["codigo"] for a in anos_f if str(ano) in a["nome"]), None)
+        if not ano_id:
+            try:
+                anos_num = [(abs(int(re.search(r'\d{4}', a["nome"]).group()) - ano), a["codigo"])
+                            for a in anos_f if re.search(r'\d{4}', a["nome"])]
+                ano_id = min(anos_num)[1] if anos_num else anos_f[0]["codigo"]
+            except:
+                ano_id = anos_f[0]["codigo"]
+
         dados = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos/{modelo_id}/anos/{ano_id}", timeout=8).json()
         return float(dados["Valor"].replace("R$ ","").replace(".","").replace(",",".").strip()), dados["Valor"]
     except:
@@ -96,8 +115,8 @@ def classificar(lance, ref, estado):
     if estado in ["SINISTRADO","BATIDO","SUCATA"]: return "⚠️ INSPECIONAR"
     if ref == 0 or lance == 0: return "Sem referência"
     pct = (lance / ref) * 100
-    if pct <= 40:   return "✅ ÓTIMO"
-    elif pct <= 70: return "⚠️ MEDIANO"
+    if pct <= 50:   return "✅ ÓTIMO"
+    elif pct <= 75: return "⚠️ MEDIANO"
     else:           return "❌ RUIM"
 
 # ─── ANÁLISE IA ───────────────────────────────────────────────────────────────
@@ -111,10 +130,11 @@ Item: {marca} {modelo} {ano} | Categoria: {categoria}
 KM: {km or 'não informado'} | Lance: R$ {lance:,.0f} ({pct}) | Ref: R$ {ref:,.0f}
 Descrição: {desc or 'sem descrição'}
 REGRAS:
-- Sinistrado/batido/sucata: oriente inspeção, não classifique valor
-- Bom/rec.fin: <=40%=ÓTIMO, 41-70%=MEDIANO, >70%=RUIM
-- Para caminhões/equipamentos: use referência de mercado e oriente sobre riscos
-- Seja direto como consultor experiente
+- Sinistrado/batido/sucata: calcule economia (ref - lance) e estime custo de reparo. Se economia > reparo, pode valer; se reparo ≈ economia, risco alto. Seja específico.
+- Veículos bons: <=50%=ÓTIMO, 51-75%=BOA, >75%=REGULAR. Em leilão, 60-70% da FIPE já é bom negócio.
+- Rec. financiamento: risco de alienação/restrição; oriente consulta ao cartório e leilão especializado.
+- Para caminhões/equipamentos: use referência de mercado, avalie vida útil e custo de manutenção.
+- Seja direto como consultor experiente de leilões; foco em ROI real do arrematante.
 JSON apenas:
 {{"estado":"BOM","selo":"🟢 Bom estado","oportunidade":"OTIMA","uso_sugerido":"revenda","positivos":["p1","p2"],"negativos":["n1","n2"],"avaliacao_plataforma":"análise direta de 1-2 linhas"}}
 estado: BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO

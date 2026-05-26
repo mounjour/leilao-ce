@@ -265,15 +265,19 @@ def pill_estado(s):
 
 def orientacao_uso(lance, fipe, estado, qtd=1):
     if estado in ["SINISTRADO","BATIDO","SUCATA"]:
-        return "🔧", "Inspecione antes — custo de reparo pode anular vantagem do preço", "#c2410c"
+        economia = fipe - lance if fipe > lance > 0 else 0
+        economia_str = f" (economia ~R$ {economia:,.0f})" if economia > 0 else ""
+        return "🔧", f"Verifique custo de reparo antes de arrematar{economia_str}", "#c2410c"
+    if estado == "RECUPERADO_FINANCIAMENTO":
+        return "🔵", "Consulte restrições no cartório antes de arrematar", "#1d4ed8"
     if fipe == 0 or lance == 0:
         return "❓", "Sem referência de preço — avalie com cuidado", "#64748b"
     valor_unitario = lance / qtd if qtd > 1 else lance
     pct = (valor_unitario / fipe) * 100
-    if pct <= 30: return "🌟", f"EXCELENTE OPORTUNIDADE — {pct:.0f}% da FIPE", "#15803d"
-    if pct <= 50: return "💼", f"Ótimo para revenda/locação — {pct:.0f}% da FIPE", "#16a34a"
-    if pct <= 70: return "🏠", f"Bom para uso próprio — {pct:.0f}% da FIPE", "#ca8a04"
-    return "⚠️", f"Avalie bem — {pct:.0f}% da FIPE (alto)", "#dc2626"
+    if pct <= 35: return "🌟", f"EXCELENTE — {pct:.0f}% da FIPE (ótimo para revenda)", "#15803d"
+    if pct <= 50: return "💼", f"Ótimo negócio — {pct:.0f}% da FIPE", "#16a34a"
+    if pct <= 75: return "🏠", f"Bom para uso próprio — {pct:.0f}% da FIPE", "#ca8a04"
+    return "⚠️", f"Avalie com cuidado — {pct:.0f}% da FIPE", "#dc2626"
 
 def desconto_str(lance, fipe, qtd=1):
     valor_unitario = lance / qtd if qtd > 1 else lance
