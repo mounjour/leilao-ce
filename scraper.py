@@ -153,118 +153,326 @@ def limpar_modelo(raw):
     m = unquote(raw)
     return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
 
+def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
+               ref_val, ref_str, classif, foto, km, descricao, analise, url):
+    return {
+        "fonte":                fonte,
+        "categoria":            categoria,
+        "icone":                ICONES.get(categoria, "📦"),
+        "marca":                marca,
+        "modelo":               modelo,
+        "ano":                  ano,
+        "cidade":               cidade,
+        "lance_atual":          lance,
+        "fipe_valor":           ref_val,
+        "fipe_str":             ref_str,
+        "classificacao":        classif,
+        "foto":                 foto,
+        "km":                   km,
+        "descricao":            descricao,
+        "estado":               analise.get("estado", "NAO_INFORMADO"),
+        "estado_selo":          analise.get("selo", "⚪ Não informado"),
+        "oportunidade":         analise.get("oportunidade", "INSPECIONAR"),
+        "uso_sugerido":         analise.get("uso_sugerido", ""),
+        "positivos":            analise.get("positivos", []),
+        "negativos":            analise.get("negativos", []),
+        "avaliacao_plataforma": analise.get("avaliacao_plataforma", ""),
+        "url":                  url,
+    }
+
+def _extrair_lance(texto):
+    lance = 0
+    for m in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
+        try:
+            v = float(m.replace("R$","").replace("\xa0","").replace(" ","")
+                       .replace(".","").replace(",",".").strip())
+            if v > 100:
+                lance = min(lance, v) if lance > 0 else v
+        except:
+            pass
+    return lance
+
+def _extrair_foto(html, dominios=('cdndp.com.br',)):
+    for dom in dominios:
+        pat = rf'https?://[^\s"\']+{re.escape(dom)}[^\s"\']*\.(?:jpg|jpeg|png|webp)'
+        for f in re.findall(pat, html, re.IGNORECASE):
+            if not any(x in f.lower() for x in ['logo','icon','avatar','banner','no-image']):
+                return f
+    return ""
+
+def _extrair_km(texto):
+    for m in re.findall(r'([\d]{2,3}\.[\d]{3})\s*km', texto, re.IGNORECASE):
+        if int(m.replace(".","")) >= 1000:
+            return f"{m} km"
+    return ""
+
+def _extrair_descricao(texto):
+    for linha in texto.split('\n'):
+        l = linha.strip()
+        if any(p in l.lower() for p in ['recuperado','sinistro','batido',
+               'financiamento','conservado','sucata','alienado']) and len(l) > 20:
+            return l[:200]
+    return ""
+
+# ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────
+def _raspar_leilo(pg_lista, pg_detalhe, vistos):
+    lotes = []
+    for url_base, cat_url in URLS:
+        try:
+            pg_lista.goto(url_base, timeout=15000, wait_until="domcontentloaded")
+            pg_lista.wait_for_timeout(4000)
+        except:
+            continue
+
+        for _ in range(5):
+            pg_lista.keyboard.press("End")
+            pg_lista.wait_for_timeout(2000)
+
+        hrefs = []
+        for link in pg_lista.query_selector_all('a'):
+            try:
+                href = link.get_attribute('href') or ''
+                if '/leilao/' in href and 'ano.' in href and href not in vistos:
+                    vistos.add(href); hrefs.append(href)
+            except:
+                continue
+
+        if not hrefs:
+            continue
+        print(f"📡 Leilo {url_base.split('/leilao/')[1]} | {len(hrefs)} lotes")
+
+        for href in hrefs[:30]:
+            try:
+                pts      = href.strip('/').split('/')
+                cidade   = pts[1].replace("-ceara","").replace("-"," ").title() if len(pts)>1 else "?"
+                marca    = pts[3].title() if len(pts)>3 else "?"
+                modelo   = limpar_modelo(pts[4]) if len(pts)>4 else "?"
+                ano_str  = pts[5].replace("ano.","") if len(pts)>5 else "0"
+                ano      = int(ano_str) if ano_str.isdigit() else 0
+                url_lote = f"https://leilo.com.br{href}"
+                categoria = detectar_categoria(modelo, marca, cat_url)
+
+                try:
+                    pg_detalhe.goto(url_lote, timeout=12000, wait_until="domcontentloaded")
+                    pg_detalhe.wait_for_timeout(2000)
+                    texto = pg_detalhe.inner_text('body')
+                    html  = pg_detalhe.content()
+                except:
+                    texto, html = "", ""
+
+                lance     = _extrair_lance(texto)
+                foto      = _extrair_foto(html, ('leilo.cdndp.com.br', 'cdndp.com.br'))
+                km        = _extrair_km(texto)
+                descricao = _extrair_descricao(texto)
+
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado",""))
+
+                icone = ICONES.get(categoria, "📦")
+                print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
+
+                lotes.append(_lote_dict("leilo", categoria, marca, modelo, ano,
+                                        cidade+"/CE", lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, url_lote))
+                time.sleep(0.5)
+            except Exception as e:
+                print(f"  ⚠️ Leilo: {e}"); continue
+
+    return lotes
+
+# ─── SCRAPER MEGA LEILÕES ─────────────────────────────────────────────────────
+_MEGA_URLS = [
+    "https://www.megaleiloes.com.br/veiculos/ce",
+    "https://www.megaleiloes.com.br/imoveis/ce",
+]
+_MEGA_CAT = {
+    "carros":"carros","motos":"motos","caminhoes":"caminhoes","pesados":"caminhoes",
+    "casas":"imoveis","imoveis":"imoveis","imoveis-comerciais":"imoveis",
+    "terrenos":"imoveis","apartamentos":"imoveis","predios":"imoveis",
+}
+
+def _parse_mega_lot(href, titulo):
+    path   = href.replace("https://www.megaleiloes.com.br","").split("?")[0]
+    parts  = [p for p in path.split("/") if p]
+    tipo   = parts[0] if parts else "veiculos"
+    subcat = parts[1] if len(parts) > 1 else "carros"
+    cidade = parts[3].replace("-"," ").title() if len(parts) > 3 else "?"
+    slug   = parts[4] if len(parts) > 4 else ""
+
+    categoria = "imoveis" if tipo == "imoveis" else _MEGA_CAT.get(subcat, "carros")
+
+    if categoria == "imoveis":
+        return categoria, cidade, "Imóvel", titulo, 0
+
+    slug = re.sub(r'-[a-z]\d+$', '', slug)
+    slug = re.sub(r'^(?:carro|moto|caminhao|veiculo)-', '', slug)
+
+    ano = 0
+    m8 = re.search(r'(\d{4})(\d{4})', slug)
+    if m8:
+        ano  = int(m8.group(2))
+        slug = slug.replace(m8.group(0), "").strip("-")
+    else:
+        m4 = re.search(r'(\d{4})', slug)
+        if m4 and 1980 <= int(m4.group(1)) <= 2030:
+            ano  = int(m4.group(1))
+            slug = slug.replace(m4.group(0), "").strip("-")
+
+    parts_s = [p for p in slug.split("-") if p]
+    marca  = parts_s[0].title() if parts_s else "?"
+    modelo = " ".join(p.title() for p in parts_s[1:]) if len(parts_s) > 1 else "?"
+    return categoria, cidade, marca, modelo, ano
+
+def _raspar_mega(pg, vistos):
+    lotes = []
+    for url_base in _MEGA_URLS:
+        for pagina in range(1, 15):
+            url = f"{url_base}?pagina={pagina}"
+            try:
+                pg.goto(url, timeout=15000, wait_until="networkidle")
+                pg.wait_for_timeout(2000)
+            except:
+                break
+
+            cards = pg.query_selector_all('.card.open')
+            if not cards:
+                break
+            print(f"📡 Mega {url_base.split('/')[-1]} p.{pagina} | {len(cards)} cards")
+
+            for card in cards:
+                try:
+                    title_el = card.query_selector('.card-title')
+                    price_el = card.query_selector('.card-price')
+                    img_el   = card.query_selector('.card-image')
+                    if not title_el:
+                        continue
+
+                    href = (title_el.get_attribute('href') or '').split('?')[0]
+                    if not href or href in vistos:
+                        continue
+                    vistos.add(href)
+
+                    titulo    = title_el.inner_text().strip()
+                    preco_str = price_el.inner_text().strip() if price_el else ""
+                    lance     = _extrair_lance(preco_str) or _extrair_lance(pg.inner_text('body'))
+
+                    foto = ""
+                    if img_el:
+                        bg = img_el.get_attribute('data-bg') or ""
+                        if bg and 'no-image' not in bg:
+                            foto = bg
+
+                    categoria, cidade, marca, modelo, ano = _parse_mega_lot(href, titulo)
+                    icone = ICONES.get(categoria, "📦")
+
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    analise = analisar(marca, modelo, ano, "", "", lance, ref_val, categoria)
+                    classif = classificar(lance, ref_val, analise.get("estado",""))
+
+                    print(f"  {icone} [Mega/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                    lotes.append(_lote_dict("mega", categoria, marca, modelo, ano,
+                                            f"{cidade}/CE", lance, ref_val, ref_str,
+                                            classif, foto, "", "", analise, href))
+                    time.sleep(0.3)
+                except Exception as e:
+                    print(f"  ⚠️ Mega: {e}"); continue
+
+    return lotes
+
+# ─── SCRAPER PACTO LEILÕES ────────────────────────────────────────────────────
+_PACTO_CIDADES = ["fortaleza","eusebio","maracanau","caucaia","horizonte",
+                  "pacajus","aquiraz","russas","juazeiro-do-norte","sobral"]
+_PACTO_CAT_MAP = {
+    "carros":"carros","motos":"motos","pesados":"caminhoes",
+    "utilitarios":"caminhoes","sucatas":"carros","imoveis":"imoveis",
+}
+
+def _raspar_pacto(pg, pg_d, vistos):
+    lotes = []
+    for cidade in _PACTO_CIDADES:
+        url_base = f"https://www.pactoleiloes.com.br/leilao/{cidade}-ceara"
+        try:
+            pg.goto(url_base, timeout=20000, wait_until="networkidle")
+            pg.wait_for_timeout(3000)
+        except:
+            continue
+
+        for _ in range(10):
+            pg.keyboard.press("End")
+            pg.wait_for_timeout(1200)
+
+        hrefs = pg.eval_on_selector_all(
+            'a[href*="/leilao/"][href*="/ano."]',
+            'els => [...new Set(els.map(e => e.href))]'
+        )
+        novos = [h for h in hrefs if h not in vistos and '/ano.' in h]
+        for h in novos:
+            vistos.add(h)
+
+        if not novos:
+            continue
+        print(f"📡 Pacto {cidade} | {len(novos)} lotes")
+
+        for href in novos[:40]:
+            try:
+                pts       = href.replace('https://www.pactoleiloes.com.br','').strip('/').split('/')
+                if len(pts) < 6:
+                    continue
+                cidade_s  = pts[1].replace("-ceara","").replace("-"," ").title()
+                cat_url   = pts[2]
+                marca     = pts[3].title() if len(pts) > 3 else "?"
+                modelo    = limpar_modelo(pts[4]) if len(pts) > 4 else "?"
+                ano_str   = pts[5].replace("ano.","") if len(pts) > 5 else "0"
+                ano       = int(ano_str) if ano_str.isdigit() else 0
+                categoria = detectar_categoria(modelo, marca, _PACTO_CAT_MAP.get(cat_url, cat_url))
+                icone     = ICONES.get(categoria, "📦")
+
+                try:
+                    pg_d.goto(href, timeout=12000, wait_until="domcontentloaded")
+                    pg_d.wait_for_timeout(2000)
+                    texto = pg_d.inner_text('body')
+                    html  = pg_d.content()
+                except:
+                    texto, html = "", ""
+
+                lance     = _extrair_lance(texto)
+                foto      = _extrair_foto(html, ('leilomaster.cdndp.com.br','cdndp.com.br'))
+                km        = _extrair_km(texto)
+                descricao = _extrair_descricao(texto)
+
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado",""))
+
+                print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
+                lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
+                                        f"{cidade_s}/CE", lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, href))
+                time.sleep(0.5)
+            except Exception as e:
+                print(f"  ⚠️ Pacto: {e}"); continue
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Todas as cidades e categorias\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
         browser    = p.chromium.launch(headless=True)
-        ctx        = browser.new_context()
+        ctx        = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/124.0.0.0 Safari/537.36"
+        )
         pg_lista   = ctx.new_page()
         pg_detalhe = ctx.new_page()
 
-        for url_base, cat_url in URLS:
-            try:
-                pg_lista.goto(url_base, timeout=15000, wait_until="domcontentloaded")
-                pg_lista.wait_for_timeout(4000)
-            except:
-                continue
-
-            # Rolar várias vezes para carregar todos os lotes dinâmicos
-            for _ in range(5):
-                pg_lista.keyboard.press("End")
-                pg_lista.wait_for_timeout(2000)
-
-            hrefs = []
-            for link in pg_lista.query_selector_all('a'):
-                try:
-                    href = link.get_attribute('href') or ''
-                    if '/leilao/' in href and 'ano.' in href and href not in vistos:
-                        vistos.add(href); hrefs.append(href)
-                except: continue
-
-            if not hrefs: continue
-            print(f"📡 {url_base.split('/leilao/')[1]} | {len(hrefs)} lotes")
-
-            for href in hrefs[:30]:
-                try:
-                    pts      = href.strip('/').split('/')
-                    cidade   = pts[1].replace("-ceara","").replace("-"," ").title() if len(pts)>1 else "?"
-                    marca    = pts[3].title() if len(pts)>3 else "?"
-                    modelo   = limpar_modelo(pts[4]) if len(pts)>4 else "?"
-                    ano_str  = pts[5].replace("ano.","") if len(pts)>5 else "0"
-                    ano      = int(ano_str) if ano_str.isdigit() else 0
-                    url_lote = f"https://leilo.com.br{href}"
-                    categoria = detectar_categoria(modelo, marca, cat_url)
-                    icone     = ICONES.get(categoria, "📦")
-
-                    try:
-                        pg_detalhe.goto(url_lote, timeout=12000, wait_until="domcontentloaded")
-                        pg_detalhe.wait_for_timeout(2000)
-                        texto = pg_detalhe.inner_text('body')
-                        html  = pg_detalhe.content()
-                    except:
-                        texto, html = "", ""
-
-                    lance = 0
-                    for m in re.findall(r'R\$\s*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
-                        try:
-                            v = float(m.replace("R$","").replace(".","").replace(",",".").strip())
-                            if v > 100: lance = min(lance, v) if lance > 0 else v
-                        except: pass
-
-                    foto = ""
-                    for padrao in [r'https?://[^\s"\']+leilo\.cdndp\.com\.br[^\s"\']*\.(?:jpg|jpeg|png|webp)',
-                                   r'https?://[^\s"\']+cdndp\.com\.br[^\s"\']*\.(?:jpg|jpeg|png|webp)']:
-                        for f in re.findall(padrao, html, re.IGNORECASE):
-                            if not any(x in f.lower() for x in ['logo','icon','avatar','banner']):
-                                foto = f; break
-                        if foto: break
-
-                    km = ""
-                    for m in re.findall(r'([\d]{2,3}\.[\d]{3})\s*km', texto, re.IGNORECASE):
-                        if int(m.replace(".","")) >= 1000: km = f"{m} km"; break
-
-                    descricao = ""
-                    for linha in texto.split('\n'):
-                        l = linha.strip()
-                        if any(p in l.lower() for p in ['recuperado','sinistro','batido',
-                               'financiamento','conservado','sucata','alienado']) and len(l) > 20:
-                            descricao = l[:200]; break
-
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                    classif  = classificar(lance, ref_val, analise.get("estado",""))
-
-                    print(f"  {icone} [{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
-
-                    lotes.append({
-                        "categoria":            categoria,
-                        "icone":                icone,
-                        "marca":                marca,
-                        "modelo":               modelo,
-                        "ano":                  ano,
-                        "cidade":               cidade + "/CE",
-                        "lance_atual":          lance,
-                        "fipe_valor":           ref_val,
-                        "fipe_str":             ref_str,
-                        "classificacao":        classif,
-                        "foto":                 foto,
-                        "km":                   km,
-                        "descricao":            descricao,
-                        "estado":               analise.get("estado","NAO_INFORMADO"),
-                        "estado_selo":          analise.get("selo","⚪ Não informado"),
-                        "oportunidade":         analise.get("oportunidade","INSPECIONAR"),
-                        "uso_sugerido":         analise.get("uso_sugerido",""),
-                        "positivos":            analise.get("positivos",[]),
-                        "negativos":            analise.get("negativos",[]),
-                        "avaliacao_plataforma": analise.get("avaliacao_plataforma",""),
-                        "url":                  url_lote
-                    })
-                    time.sleep(0.5)
-                except Exception as e:
-                    print(f"  ⚠️ {e}"); continue
+        lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
+        lotes += _raspar_mega(pg_lista, vistos)
+        lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
         browser.close()

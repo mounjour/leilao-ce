@@ -383,7 +383,8 @@ def render_lotes(lotes_lista, key="main"):
                     st.markdown(ia_html, unsafe_allow_html=True)
 
                 col_link, col_fav = st.columns([4, 1])
-                col_link.markdown(f"[🔗 Ver lote na Leilo →]({lote['url']})")
+                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo"}.get(lote.get("fonte",""), "Leilão")
+                col_link.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
                 if col_fav.button(heart, key=f"fav_{key}_{i}", help="Favoritar"):
