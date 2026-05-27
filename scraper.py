@@ -388,33 +388,36 @@ _PACTO_CAT_MAP = {
     "utilitarios":"caminhoes","sucatas":"carros","imoveis":"imoveis",
 }
 
-def _raspar_pacto(pg, pg_d, vistos):
+def _raspar_pacto(pg, _pg_d, vistos):
     lotes = []
     for cidade in _PACTO_CIDADES:
         url_base = f"https://www.pactoleiloes.com.br/leilao/{cidade}-ceara"
         try:
             pg.goto(url_base, timeout=20000, wait_until="networkidle")
-            pg.wait_for_timeout(3000)
+            pg.wait_for_timeout(2000)
         except:
             continue
 
-        for _ in range(10):
+        for _ in range(6):
             pg.keyboard.press("End")
-            pg.wait_for_timeout(1200)
+            pg.wait_for_timeout(700)
 
-        hrefs = pg.eval_on_selector_all(
+        # Captura href + texto do link (texto contém preço "R$ 14.600,00")
+        items = pg.eval_on_selector_all(
             'a[href*="/leilao/"][href*="/ano."]',
-            'els => [...new Set(els.map(e => e.href))]'
+            'els => [...new Map(els.map(e => [e.href, e.innerText.trim()])).entries()]'
+                  '.map(([href, text]) => ({href, text}))'
         )
-        novos = [h for h in hrefs if h not in vistos and '/ano.' in h]
-        for h in novos:
-            vistos.add(h)
+        novos = [it for it in items if it['href'] not in vistos and '/ano.' in it['href']]
+        for it in novos:
+            vistos.add(it['href'])
 
         if not novos:
             continue
         print(f"📡 Pacto {cidade} | {len(novos)} lotes")
 
-        for href in novos[:40]:
+        for it in novos[:50]:
+            href = it['href']
             try:
                 pts       = href.replace('https://www.pactoleiloes.com.br','').strip('/').split('/')
                 if len(pts) < 6:
@@ -428,28 +431,19 @@ def _raspar_pacto(pg, pg_d, vistos):
                 categoria = detectar_categoria(modelo, marca, _PACTO_CAT_MAP.get(cat_url, cat_url))
                 icone     = ICONES.get(categoria, "📦")
 
-                try:
-                    pg_d.goto(href, timeout=12000, wait_until="domcontentloaded")
-                    pg_d.wait_for_timeout(2000)
-                    texto = pg_d.inner_text('body')
-                    html  = pg_d.content()
-                except:
-                    texto, html = "", ""
-
-                lance     = _extrair_lance(texto)
-                foto      = _extrair_foto(html, ('leilomaster.cdndp.com.br','cdndp.com.br'))
-                km        = _extrair_km(texto)
-                descricao = _extrair_descricao(texto)
+                # Extrai lance do texto do card (sem navegar ao detalhe)
+                lance = _extrair_lance(it['text'])
+                km    = _extrair_km(it['text'])
 
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                analise  = analisar(marca, modelo, ano, "", km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
                 lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
                                         f"{cidade_s}/CE", lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, href))
-                time.sleep(0.5)
+                                        classif, "", km, "", analise, href))
+                time.sleep(0.1)
             except Exception as e:
                 print(f"  ⚠️ Pacto: {e}"); continue
 
