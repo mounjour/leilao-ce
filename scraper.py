@@ -402,11 +402,16 @@ def _raspar_pacto(pg, _pg_d, vistos):
             pg.keyboard.press("End")
             pg.wait_for_timeout(700)
 
-        # Captura href + texto do link (texto contém preço "R$ 14.600,00")
+        # Concatena todos os textos de links com mesmo href (preço, km, data ficam juntos)
         items = pg.eval_on_selector_all(
             'a[href*="/leilao/"][href*="/ano."]',
-            'els => [...new Map(els.map(e => [e.href, e.innerText.trim()])).entries()]'
-                  '.map(([href, text]) => ({href, text}))'
+            '''els => Object.entries(
+                els.reduce((acc, e) => {
+                    const h = e.href;
+                    acc[h] = (acc[h] || "") + " " + e.innerText.trim();
+                    return acc;
+                }, {})
+            ).map(([href, text]) => ({href, text: text.trim()}))'''
         )
         novos = [it for it in items if it['href'] not in vistos and '/ano.' in it['href']]
         for it in novos:
