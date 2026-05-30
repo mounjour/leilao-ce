@@ -17,19 +17,19 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "não recomendado sem inspeção prévia",
+    "uso_sugerido": "não recomendado sem inspeção técnica e cartorial",
     "positivos": [
-      "Lance inicial baixo (R$ 12 mil) indica potencial economia",
-      "Citroën C4 Exclusive 5P é sedan compacto com demanda de revenda"
+      "Lance baixo (R$ 12 mil) - potencial margem se documentação limpa",
+      "C4 Exclusive é versão bem equipada com bom mercado secundário"
     ],
     "negativos": [
-      "SEM REFERÊNCIA DE PREÇO (Ref: R$ 0) - impossível calcular real desconto",
-      "KM não informado - histórico de uso desconhecido",
-      "Recuperado de financiamento = alto risco de alienação/restrição não resolvida",
-      "Plataforma sem credibilidade na avaliação (dados incompletos)",
-      "Potencial custo cartorial superior ao lance em caso de restrição pendente"
+      "KM não informado - bandeira vermelha absoluta",
+      "Sem preço de referência (FIPE) - impossível calcular % real",
+      "Recuperado de financiamento = RISCO CRÍTICO de alienação/restrição",
+      "Leilão não especializado + falta de dados = alto risco de passivo oculto",
+      "Modelo 2011 com 13+ anos - provável necessidade de revisão pesada"
     ],
-    "avaliacao_plataforma": "⚠️ INVIÁVEL NESTA FORMA | Faltam dados críticos (FIPE, km, laudo mecânico). Veículo recuperado de financiamento exige parecer cartório ANTES de qualquer lance. Sem preço-referência, não há base para cálculo de ROI. Risco de alienação supera economia potencial.",
+    "avaliacao_plataforma": "⚠️ REJEITAR esta compra. Exija: (1) laudo técnico completo; (2) consulta ao cartório para confirmar regularização; (3) KM real; (4) histórico de sinistros. Sem esses dados, economia aparente pode virar prejuízo. Recuperados de financiamento frequentemente vêm com restrições não declaradas em leilões genéricos.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c4-exclusive-5p-f-(4p)/ano.2011/5768ed5e-2d01-11f1-8174-02420a000006"
   },
   {
@@ -50,22 +50,19 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "reparo_e_revenda",
+    "uso_sugerido": "reparo e revenda (risco moderado)",
     "positivos": [
-      "Desconto significativo de 13.6% (R$ 3.477 de economia)",
-      "Volkswagen Virtus é modelo demandado no mercado secundário",
-      "2019 com potencial de revenda pós-reparo",
-      "Faixa de preço competitiva se reparo for menor que economia"
+      "Desconto de 13.6% já aplicado (R$ 3,477 de economia)",
+      "Virtus é modelo popular com peças acessíveis e demanda de revenda",
+      "Recuperado de seguradora indica documentação regularizada"
     ],
     "negativos": [
-      "Recuperado de seguradora = dano estrutural provável",
-      "KM não informado = risco adicional de desgaste oculto",
-      "Economia (R$ 3.477) insuficiente para grandes reparos",
-      "Custo estimado de reparo: R$ 3.500-8.000+ (pintura, lataria, mecânica)",
-      "Risco alto se dano for estrutural (chassi/suspensão)",
-      "Desvalorização residual pós-sinistro em histórico Fipe"
+      "KM não informado - impossível avaliar desgaste real",
+      "Sinistrado: economia (R$ 3,477) provavelmente INSUFICIENTE para reparos estruturais",
+      "Sem vistoria técnica não há garantia de custo final; risco de surpresas em estrutura/motor",
+      "Margem apertada: em leilão, 86.4% já é preço elevado para sinistrado"
     ],
-    "avaliacao_plataforma": "INSPECIONE OBRIGATORIAMENTE antes de arrematar. Economia marginal vs. risco de reparo elevado. Só recomendado para mecânicos/restauradores com diagnóstico prévio comprovado. ROI negativo se dano estrutural.",
+    "avaliacao_plataforma": "Sinistrado com desconto insuficiente. A economia de R$ 3,477 não cobre reparos típicos (lataria, vidros, pintura facilmente ultrapassam R$ 4-6k). Exija vistoria PRÉ-arrematação ou PASSE. Risco > potencial.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/virtus-comfortline-ad/ano.2019/380ae189-8920-4fe8-879e-a1b4da945556"
   },
   {
@@ -79,17 +76,26 @@
     "lance_atual": 10500.0,
     "fipe_valor": 28466.0,
     "fipe_str": "R$ 28.466,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780065752881_bbefe143-489e-4637-8a31-48f605af204a_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "revenda com reparo ou sucata",
+    "positivos": [
+      "Desconto expressivo: 63% abaixo da referência (economia de R$ 17.966)",
+      "Faixa de preço competitiva para leilão (36,9% = abaixo do esperado para sinistrado recuperável)",
+      "Modelo Chevrolet Classic: peças acessíveis, demanda em mercado secundário"
+    ],
+    "negativos": [
+      "KM não informado: impossível avaliar desgaste mecânico - risco crítico",
+      "Recuperado de seguradora: dano estrutural não especificado - pode ser pintura/lataria ou estrutura",
+      "Custo de reparo potencial: R$ 12.000-16.000 (estimado para Classic sinistrado) consome margem de lucro",
+      "Sem inspeção prévia: risco de despesas ocultas (motor, câmbio, elétrica)"
+    ],
+    "avaliacao_plataforma": "Recuperado de seguradora com economia de R$ 18k, mas KM oculto e custos de reparo (R$ 12-16k) deixam margem apertada (R$ 2-6k). Viável apenas com inspeção presencial e se estrutura estiver preservada. Recomenda-se leilão especializado em carros sinistrados.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/classic-ls-(2p%2F4p)/ano.2013/4fcc4ac0-a8fd-4fa4-ba8d-54652079d841"
   },
   {
@@ -101,28 +107,28 @@
     "ano": 2018,
     "cidade": "Eusebio/CE",
     "lance_atual": 20000.0,
-    "fipe_valor": 62480.0,
-    "fipe_str": "R$ 62.480,00",
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
     "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "reparação e revenda (com cautela)",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "análise técnica obrigatória",
     "positivos": [
-      "Desconto expressivo: 68% abaixo da referência (R$ 42.480 de economia)",
-      "Modelo popular com demanda de mercado (Ecosport SE 2018)",
-      "Recuperado de seguradora indica documentação em ordem"
+      "Modelo 2018 com potencial de revenda se reparo viável",
+      "Econosport tem demanda no mercado de seminovos"
     ],
     "negativos": [
-      "KM não informado - impossível avaliar desgaste mecânico",
-      "Sinistrado: risco alto de danos estruturais/elétricos não aparentes",
-      "Economia (R$ 42.480) pode ser insuficiente se reparo ultrapassar R$ 15-20k",
-      "Sem histórico de danos = custo final imprevisível"
+      "KM não informado = risco crítico (pode ser alto uso + sinistro)",
+      "Sem referência FIPE = impossível calcular economia real",
+      "Lance R$ 20k é valor cego sem contexto de valor de mercado",
+      "Recuperado de seguradora = histórico de sinistro grave provável",
+      "Custo de reparo desconhecido = pode absorver toda margem"
     ],
-    "avaliacao_plataforma": "Oportunidade CONDICIONAL. A economia é atrativa, mas o sinistro com KM desconhecido eleva risco. Recomenda-se: (1) Inspeção técnica rigorosa ANTES de dar lance; (2) Orçar reparos com mecânico especializado; (3) Só avançar se reparo ≤ R$ 15k. ROI viável apenas com diligência prévia.",
+    "avaliacao_plataforma": "⚠️ NÃO RECOMENDO PARTICIPAR. Faltam dados críticos (KM, FIPE, laudo técnico). Em sinistrados, a margem desaparece rápido. Exija inspeção presencial e comparativo com Econosport 2018 em bom estado no mercado (R$ 45-55k) antes de qualquer lance.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se/ano.2018/0a9cc862-eaa2-4bc2-89e0-6fc8adc437e0"
   },
   {
@@ -143,19 +149,18 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "BOA",
-    "uso_sugerido": "revenda após reparo ou peças",
+    "uso_sugerido": "revenda após reparo ou sucata",
     "positivos": [
-      "Desconto expressivo: 69,7% abaixo da referência (economia de R$ 32.210)",
-      "Modelo popular com demanda de mercado (Sandero Stepway 2017)",
-      "Margem de negócio viável se reparo não exceder R$ 20-25k"
+      "Preço 69,7% abaixo da referência (R$ 14k vs R$ 46,2k) = economia de R$ 32,2 mil",
+      "Sandero Stepway é modelo popular com demanda de mercado",
+      "Recuperado de seguradora indica documentação limpa"
     ],
     "negativos": [
-      "KM não informado - risco oculto de desgaste adicional",
-      "Recuperado de seguradora = sinistro confirmado, danos estruturais possíveis",
-      "Custo de reparo estimado: R$ 15-28k (pintura, lataria, mecanicamente)",
-      "ROI reduzido se reparos totalizarem >R$ 20k"
+      "KM não informado – risco de odômetro adulterado em sinistrado",
+      "Sem histórico de danos específicos – custo de reparo é incógnita crítica",
+      "Economia (R$ 32,2k) pode ser insuficiente se danos estruturais/mecânicos graves"
     ],
-    "avaliacao_plataforma": "Oportunidade VIÁVEL para arrematante com expertise em reparo. Lance 30% da ref é agressivo mas justificado pelo sinistro. Exija inspeção prévia completa (chassi, estrutura, mecânica). Risco moderado — margem de lucro existe, mas depende totalmente da extensão real dos danos.",
+    "avaliacao_plataforma": "Oportunidade viável APENAS com laudo técnico prévio. Sinistrado a 70% desconto exige expertise; amador risco alto.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-sce-(4p)/ano.2017/78429fa6-3d40-45d4-85ec-85fa6f87b435"
   },
   {
@@ -169,17 +174,26 @@
     "lance_atual": 16700.0,
     "fipe_valor": 46522.0,
     "fipe_str": "R$ 46.522,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780066360987_7fd2fae4-5e3d-4519-b999-eaf1848d009a_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "reparo e revenda (com cautela)",
+    "positivos": [
+      "Desconto expressivo: 64,1% abaixo da referência (economia de R$ 29.822)",
+      "Modelo popular com demanda de mercado (208 Allure 2020)",
+      "Preço permite margem de lucro se reparo for controlado"
+    ],
+    "negativos": [
+      "KM não informado - impossível avaliar desgaste mecânico real",
+      "Recuperado de seguradora = dano estrutural/mecânico comprovado",
+      "Risco de custo de reparo próximo ou superior à economia (R$ 29.822)",
+      "Sem laudo técnico disponível na descrição = incerteza total"
+    ],
+    "avaliacao_plataforma": "⚠️ RISCO MODERADO-ALTO. Economia de R$ 29.822 é significativa, mas insuficiente se reparo ultrapassar R$ 15-20k (motor, câmbio ou estrutura). Exija vistoria técnica PRÉ-LANCE e histórico de sinistro. Só lance se tiver acesso a mecânico de confiança. ROI viável apenas com reparo ≤ R$ 12-15k.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2020/01a123cc-c1bc-47cd-a257-5db572b298b5"
   },
   {
@@ -193,17 +207,27 @@
     "lance_atual": 28500.0,
     "fipe_valor": 94370.0,
     "fipe_str": "R$ 94.370,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "reparo e revenda (se danos leves) ou peças",
+    "positivos": [
+      "Economia bruta de R$ 65.870 (ref - lance)",
+      "Veículo relativamente novo (2021)",
+      "Flex fuel oferece versatilidade"
+    ],
+    "negativos": [
+      "Apenas 30,2% da referência = danos estruturais ou mecânicos severos esperados",
+      "KM não informado = falta transparência (sinistrados costumam omitir hodômetro alto)",
+      "Custo de reparo estimado em R$ 40-55 mil (conservador) para Compass batida - consome 60-84% da economia",
+      "Risco de danos ocultos em chassi/motor em recuperados de seguradora",
+      "Revenda dificultada: histórico de sinistro reduz valor final 15-25%"
+    ],
+    "avaliacao_plataforma": "Margem positiva apenas se danos forem cosméticos (vidros, lanternas, para-choque). Abaixo de 35% FIPE é sinal de reparo custoso. Recomendo inspeção pré-leilão em oficina especializada Jeep antes de arrematar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/compass-sport-flex/ano.2021/b0883cb6-4aa7-4132-805b-08a73a6c4e2d"
   },
   {
@@ -226,17 +250,17 @@
     "oportunidade": "BOA",
     "uso_sugerido": "revenda com cautela",
     "positivos": [
-      "Desconto substancial: 55% abaixo da referência (R$ 22.109 de economia)",
-      "Tucson é modelo estável com demanda de revenda",
-      "Preço competitivo se aprovação cartória for limpa"
+      "Desconto significativo: 45% da referência (economia de R$ 22.109)",
+      "Tucson é modelo consolidado, demanda estável no mercado de usados",
+      "Preço dentro da faixa 'bom negócio' em leilão (abaixo de 50% FIPE)"
     ],
     "negativos": [
-      "KM não informado — impossível avaliar desgaste real",
-      "Risco crítico de alienação fiduciária/restrição no RENAVAM",
-      "Recuperados de financiamento frequentemente têm histórico de má manutenção",
-      "Sem inspeção prévia, pode haver danos ocultos"
+      "RISCO CRÍTICO: Recuperado de financiamento = risco de alienação/restrição pendente",
+      "KM não informado = incerteza sobre desgaste e manutenção futura",
+      "2011 com ~13 anos = custos crescentes de manutenção e peças",
+      "Sem histórico de sinistro aparente, mas verificação essencial"
     ],
-    "avaliacao_plataforma": "Oportunidade potencial (44,9% = ótimo desconto), mas **obrigatório consultar cartório + leilão especializado antes de licitar**. Risco de restrição cancela qualquer lucro. Se limpo no cartório, revenda rápida é viável.",
+    "avaliacao_plataforma": "Oportunidade com desconto atrativo (45%), MAS EXIGE inspeção de cartório antes de qualquer lance. Recuperado de financiamento pode ter restrições não liquidadas. Recomendo: confirmar documentação junto ao leilão especializado e fazer vistoria técnica completa antes de decidir.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/tucson-glb/ano.2011/fc3433a5-2cf6-11f1-8174-02420a000006"
   },
   {
@@ -254,13 +278,22 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/27/1779914850902_637874b3-b255-4f78-b5fd-2c22ce3c15ad_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "não recomendado",
+    "positivos": [
+      "Preço extremamente baixo (2,1% da referência = R$ 40.142)",
+      "Economia nominal de R$ 39.309 vs valor de referência"
+    ],
+    "negativos": [
+      "Risco crítico de alienação fiduciária não quitada - pode ser retomado pela instituição financeira",
+      "KM não informado - falta transparência total",
+      "Ford Focus 2013 com 11+ anos - custos de manutenção crescentes",
+      "Economia vs realidade: em leilão de financiamento, 90% dos casos têm ônus real não revelado",
+      "Custo de regularização/cartório pode consumir toda 'economia' aparente"
+    ],
+    "avaliacao_plataforma": "INSPECIONAR CARTÓRIO OBRIGATORIAMENTE antes de qualquer lance. Lance mínimo sugere restrição grave. Focus 2013 recuperado = alto risco de perda total pós-arrematação. Evite sem parecer jurídico.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/focus-fc-flex-(4p)/ano.2013/b60a1024-22f1-11f1-a639-02420a000005"
   },
   {
@@ -274,17 +307,27 @@
     "lance_atual": 12900.0,
     "fipe_valor": 38659.0,
     "fipe_str": "R$ 38.659,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780059783306_309b61a8-0806-4bb0-b173-2c811c770ecf_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "reparo e revenda (risco moderado)",
+    "positivos": [
+      "Economia bruta de R$ 25.759 (66,6% de desconto)",
+      "Veículo recente (2021) - menos desgaste estrutural",
+      "Uno Attractive: peças comuns e manutenção acessível",
+      "Potencial margem se reparo ≤ R$ 20-22k"
+    ],
+    "negativos": [
+      "KM não informado - impossível avaliar severidade do sinistro",
+      "Recuperado de seguradora: indica dano significativo",
+      "Risco alto: reparo pode consumir 80-100% da economia",
+      "Sem inspeção pré-arrematação = aposta em caixa preta"
+    ],
+    "avaliacao_plataforma": "Lance a 33% da referência sugere sinistro severo. SEM KM informado e VINDO de seguradora, exija vistoria técnica presencial antes de arrematar. Se reparo estrutural: prejuízo certo. Só viável se limitado a funilaria/pintura (máx R$ 15k). Risco ALTO para iniciante.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-attractive-(4p%2F2p)/ano.2021/2a14b94b-2850-11f1-b6ad-0242ac500058"
   },
   {
@@ -305,19 +348,20 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "reparo_e_revenda",
+    "uso_sugerido": "reparo e revenda (com cautela)",
     "positivos": [
-      "Desconto expressivo: 64,7% abaixo da referência (economia de R$ 29.266)",
-      "Modelo consolidado com peças acessíveis (Ka 2020 ainda em produção)",
-      "Potencial margem se reparo < R$ 25k"
+      "Desconto expressivo: 64.7% abaixo da referência (economia de R$ 29.266)",
+      "Modelo Ka popular com demanda de mercado para peças e reparo",
+      "2020 com potencial de vida útil restante se danos estruturais mínimos"
     ],
     "negativos": [
-      "KM não informado - impossível avaliar desgaste mecânico adicional",
-      "Sinistrado/recuperado = estrutura/motor/câmbio podem ter danos ocultos",
-      "Custo de reparo pode absorver toda margem (risco alto)",
-      "Documentação de sinistro deve ser verificada antes de lance"
+      "KM não informado - impossível avaliar uso real e viabilidade de reparo",
+      "Recuperado de seguradora = danos prováveis (colisão, alagamento ou ambos)",
+      "Economia (R$ 29.266) pode ser insuficiente se houver danos estruturais/mecânicos graves",
+      "Risco de restrição/alienação - OBRIGATÓRIO consultar cartório antes de ofertar",
+      "Falta de inspeção prévia em leilão de sinistrados aumenta risco exponencialmente"
     ],
-    "avaliacao_plataforma": "Lance 35% da ref indica sinistro significativo. Viável APENAS se inspeção técnica confirmar danos limitados a lataria/elétrica (máx R$ 20-22k). Risco de estrutura/mecânica comprometida justifica cautela. Consulte relatório de sinistro e inspecione presencialmente antes de arrematar.",
+    "avaliacao_plataforma": "⚠️ INSPECIONE PRESENCIALMENTE. A economia é robusta (64.7% desc), mas 'recuperado de seguradora' + KM omitido = alta incerteza. Só arremate se custos de reparo forem <R$20k. Consulte cartório antes da oferta para confirmar alienação.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-c-(4p)/ano.2020/52c2696a-40a6-11f1-86d7-0242ac50004b"
   },
   {
@@ -331,17 +375,28 @@
     "lance_atual": 47000.0,
     "fipe_valor": 103937.0,
     "fipe_str": "R$ 103.937,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780059661396_87e7e0e5-8961-4db7-90f3-cd3d33dbc44c_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "reparo e revenda (risco moderado)",
+    "positivos": [
+      "Desconto agressivo: 54,8% abaixo da referência (economia de R$ 56.937)",
+      "S10 DD4 é modelo procurado no mercado secundário",
+      "2019 ainda com vida útil considerável",
+      "Potencial margem se reparo for controlado"
+    ],
+    "negativos": [
+      "KM não informado - red flag crítica para sinistrado",
+      "Reparo estimado em R$ 35-50k (chassi/mecânica danificada)",
+      "Margem real: R$ 6-22k apenas (muito apertado para risco)",
+      "Pode ter restrição de documentação (sinistro total vs. parcial?)",
+      "S10 recuperada: desvalorização psicológica na revenda"
+    ],
+    "avaliacao_plataforma": "NÃO RECOMENDO. Economia de R$ 56.937 é ilusória: reparo consumiria 60-85% deste valor, deixando margem insuficiente (R$ 8-23k) para risco de sinistrado com KM oculto. Inspecione chassis/motor antes. Se reparo for ≤R$ 30k E documentação limpa, reavalie.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/s10-lt-dd4a-cabine-dupla/ano.2019/9e987d78-10b9-11f1-8a4c-0242ac50000b"
   },
   {
@@ -362,19 +417,20 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "desmonte ou reparo especializado",
+    "uso_sugerido": "desmonte ou reparo estrutural completo",
     "positivos": [
-      "Desconto significativo: R$ 15.399 de economia (72% abaixo da referência)",
-      "Veículo popular com mercado de peças ativo"
+      "Economia bruta de R$ 15.399 (72% desconto)",
+      "Modelo popular com peças acessíveis no mercado",
+      "Flex oferece versatilidade de combustível"
     ],
     "negativos": [
-      "KM não informado = falta informação crítica de desgaste",
-      "Recuperado de sinistro = danos estruturais/mecânicos prováveis",
-      "Risco alto: custo de reparo pode consumir toda economia",
-      "Sem histórico de reparo = incerteza sobre qualidade da recuperação",
-      "Revenda difícil sem laudo técnico confiável"
+      "KM desconhecido (risco oculto de desgaste)",
+      "Recuperado de seguradora = sinistro grave ou total",
+      "Custo de reparo estrutural pode facilmente chegar a R$ 10-15mil",
+      "Economias marginais vs. risco de problemas elétricos/mecânicos pós-sinistro",
+      "Ausência de laudo pericial específico"
     ],
-    "avaliacao_plataforma": "Oportunidade para sucateiro ou mecânico com expertise em recuperação. Leigo deve evitar.",
+    "avaliacao_plataforma": "VIÁVEL apenas se inspeção presencial confirmar danos cosméticos. Se sinistro envolveu estrutura/chassis, risco supera ganho. Recomenda-se verificar histórico de sinistro no SCPC antes de arrematar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/siena-elx-flex-(4p)/ano.2006/71df6d4b-3770-11f1-86d7-0242ac50004b"
   },
   {
@@ -409,20 +465,30 @@
     "modelo": "Onix Plus 10Tat Pr2",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32900.0,
+    "lance_atual": 35900.0,
     "fipe_valor": 89550.0,
     "fipe_str": "R$ 89.550,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780059930676_f1f82b8d-c0b1-4c51-8325-11b2835d4475_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "revenda após reparo",
+    "positivos": [
+      "Desconto expressivo: R$ 53.650 de economia (60% abaixo da referência)",
+      "Modelo 2025 novo — menor depreciação futura após reparo",
+      "Chevrolet Onix Plus consolidado no mercado — revenda facilitada",
+      "Lance em 40% da FIPE é negócio típico de leilão especializado"
+    ],
+    "negativos": [
+      "Sinistrado por seguradora — avaria estrutural ou mecânica provável",
+      "KM não informado — impossível avaliar desgaste real",
+      "Custo de reparo pode consumir R$ 25-35k (50-65% da economia) em funilaria/pintura/mecânica",
+      "Risco de problemas ocultos comuns em sinistrados (câmbio, suspensão, elétrica)"
+    ],
+    "avaliacao_plataforma": "Oportunidade viável SE inspecionado por mecânico confiável antes do arrematação. Economia de R$ 53.650 vs. reparo estimado (R$ 25-35k) mantém margem. Recomendo: consulte laudo da seguradora, negocie inspeção e considere leilão especializado em recuperados. ROI positivo depende do tipo de sinistro.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-plus-10tat-pr2/ano.2025/9099a4f5-2521-11f1-a639-02420a000005"
   },
   {
@@ -443,19 +509,19 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "revenda com reparo ou desmonte",
+    "uso_sugerido": "comprador especializado em sinistrados",
     "positivos": [
-      "Economia bruta de R$ 215.662 (81,3% abaixo referência)",
-      "Modelo recente (2022) com peças de valor no mercado",
-      "BMW X1 é veículo procurado; demanda por peças alta"
+      "Preço 81.3% abaixo da referência (R$ 215,662 de economia)",
+      "Modelo 2022 - ainda com garantia de fábrica potencial",
+      "BMW X1 é demanda constante em leilões"
     ],
     "negativos": [
-      "KM não informado - impossível avaliar desgaste real",
-      "Recuperado de seguradora indica sinistro potencialmente severo",
-      "Risco: custo de reparo pode absorver 60-80% da economia (R$ 130-172mil)",
-      "Falta inspeção técnica prévia - risco de danos estruturais/eletrônicos"
+      "Recuperado de seguradora = sinistro grave (colisão/roubo/perda total)",
+      "KM não informado (impossível avaliar desgaste real)",
+      "Custo de reparo pode consumir toda economia (estimado R$ 150k-200k+ se estrutural)",
+      "Risco de danos ocultos em chassis/motor/elétrica típico em sinistrados"
     ],
-    "avaliacao_plataforma": "Lance em 18,7% é agressivo demais sem laudo técnico. Sinistrado BMW 2022 exige vistoria presencial antes de arrematar. Se reparo estrutural <R$ 90mil, viável revenda. Acima disso, só desmonte compensa. Alto risco sem informações de KM e natureza do sinistro.",
+    "avaliacao_plataforma": "CAUÇÃO NECESSÁRIA: A economia de R$ 215k é atrativa, MAS sinistrados dessa faixa demandam inspeção técnica especializada PRÉ-LEILÃO. Se reparo ≥ R$ 150k, ROI fica marginal. Recomendado apenas para compradores com expertise em sinistrados ou oficinas de reformas.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/bmw/x1-sdrive-20i-x-line/ano.2022/113e8fa1-327f-11f1-86d7-0242ac50004b"
   },
   {
@@ -469,17 +535,27 @@
     "lance_atual": 11700.0,
     "fipe_valor": 40010.0,
     "fipe_str": "R$ 40.010,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ INSPECIONAR",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780066442527_89c62c0f-92a9-4c90-9d29-6c82007ed2a7_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "SINISTRADO",
+    "estado_selo": "🔴 Sinistrado",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "revenda (com reparo) ou sucata",
+    "positivos": [
+      "Economia bruta de R$ 28.310 (71% desconto)",
+      "Modelo popular com demanda de peças e mecânica acessível",
+      "Preço base viável para pequenas oficinas"
+    ],
+    "negativos": [
+      "Recuperado de seguradora = sinistro total ou grave",
+      "KM não informado = histórico opaco, risco de odômetro adulterado",
+      "Custo reparo estimado: R$ 15.000-22.000 (pintura, estrutura, mecânica)",
+      "Margem residual: R$ 6.000-13.000 após reparo (ROI incerto)",
+      "Risco: documentação/salvado, restrição de revenda, desvalorização pós-sinistro"
+    ],
+    "avaliacao_plataforma": "Compra especulativa. Viável APENAS se inspecionar in loco e validar no cartório. Sem laudo técnico: PASSE. Margem apertada = risco alto para iniciantes.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-way-1.0-(2p%2F4p)/ano.2016/10595f99-44bd-11f1-86d7-0242ac50004b"
   },
   {
@@ -524,18 +600,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes",
+    "uso_sugerido": "inspeção obrigatória antes de qualquer decisão",
     "positivos": [
-      "Desconto significativo: 22,4% abaixo da referência (R$ 1.442 de economia)",
-      "Modelo popular com demanda de revenda"
+      "Desconto de 22,4% vs referência (R$ 1.442 de economia)",
+      "Volkswagen Gol: modelo comum, peças acessíveis e demanda de revenda"
     ],
     "negativos": [
-      "RISCO CRÍTICO: Recuperado de financiamento = alto risco de alienação/restrição não liquidada",
-      "KM não informado = impossível avaliar desgaste real",
-      "2008 = 16 anos = possível necessidade de manutenção pesada (freios, suspensão, motor)",
-      "Sem histórico de sinistro/danos = estado físico desconhecido"
+      "KM não informado — sinal de alerta crítico em recuperado de financiamento",
+      "Risco de restrição/alienação não eliminado — pode impedir transferência",
+      "Sem histórico de sinistro documentado, mas recuperado carrega suspeita de problemas mecânicos/estruturais",
+      "Economia (R$ 1.442) insuficiente para cobrir revisão + possíveis reparos em 2008"
     ],
-    "avaliacao_plataforma": "Preço atrativo (77,6% ref), MAS o maior risco é alienação bancária pendente. Obrigatório: consultar cartório de registro de veículos ANTES do lance. Se alienação estiver quitada, fazer inspeção mecânica completa — economia de R$ 1.442 desaparece rápido com reparo em motor/câmbio de 2008.",
+    "avaliacao_plataforma": "Gol 2008 recuperado de financiamento com KM oculto é risco médio-alto. Lance 77,6% da ref é atrativo numericamente, MAS exige: (1) consulta ao DETRAN/cartório comprovando ausência de restrições, (2) inspeção técnica completa com prensa (estrutura/chassis), (3) orçamento prévio de manutenção. Só vale se inspeção clara e restrições zeradas. Sem isso: PASSE.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-1.0-(2p%2F4p)/ano.2008/9077ce11-d5c8-11f0-913b-02420a000005"
   },
   {
@@ -546,7 +622,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8600.0,
+    "lance_atual": 9000.0,
     "fipe_valor": 15558.0,
     "fipe_str": "R$ 15.558,00",
     "classificacao": "⚠️ MEDIANO",
@@ -556,20 +632,18 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "BOA",
-    "uso_sugerido": "revenda ou uso pessoal",
+    "uso_sugerido": "revenda com ressalvas",
     "positivos": [
-      "Desconto significativo: 55,3% da referência (economia de R$ 6.958)",
-      "Modelo 2023 recente, baixa depreciação esperada",
-      "CG 160 é moto confiável, alta demanda de revenda",
-      "Preço competitivo para leilão especializado"
+      "Desconto substancial: 57.8% da referência (economia de R$ 6.558)",
+      "Modelo 2023 com baixa depreciação esperada se sem sinistro",
+      "CG 160 é segmento de alta demanda e fácil revenda"
     ],
     "negativos": [
-      "CRÍTICO: Recuperado de financiamento = risco de alienação/restrição não levantada",
-      "KM não informado = impossível avaliar estado mecânico real",
-      "Histórico financeiro pode gerar problemas legais pós-compra",
-      "Necessário inspeção completa antes do lance"
+      "CRÍTICO: Recuperado de financiamento - risco alto de alienação/restrição não quitada",
+      "KM não informado - impossível avaliar real condição mecânica",
+      "Sem histórico de danos declarado, mas origem suspeita exige inspeção 360°"
     ],
-    "avaliacao_plataforma": "Oportunidade de preço existe, mas RISCO JURÍDICO é alto. Antes de licitar: 1) Consulte cartório para restrições/alienações; 2) Exija inspeção técnica completa; 3) Confirme se leilão é especializado e regularizado. Se limpo = BOA compra para revenda; se houver restrição = EVITE.",
+    "avaliacao_plataforma": "Preço atrativo (60% FIPE = bom patamar), mas OBRIGATÓRIO: 1) Consulta cartório/DETRAN antes de arrematar (verificar alienações); 2) Inspeção técnica completa (motor, câmbio, chassis); 3) Só arrematar em leilão especializado com garantia de transferência limpa. Risco de herdar dívida ou não conseguir emplacar.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2023/05255850-48be-11f1-9b2f-02420a000006"
   },
   {
@@ -580,7 +654,7 @@
     "modelo": "Shineray 50Q",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4400.0,
+    "lance_atual": 4800.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -589,19 +663,19 @@
     "descricao": "Recuperado de Financiamento",
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de lance",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "não recomendado sem análise cartória",
     "positivos": [
-      "Shineray 50Q é modelo popular, fácil revenda no mercado usado",
-      "Ano 2026 (novo), sem km informado - potencial baixíssima quilometragem"
+      "Moto 2026 (0km ou baixa km)",
+      "Lance competitivo se sem restrições (R$ 4.800)"
     ],
     "negativos": [
-      "SEM REFERÊNCIA DE PREÇO (ref: R$ 0) - impossível calcular desconto real ou margem",
-      "Recuperado de financiamento = risco ALTO de alienação/restrição junto ao banco",
-      "KM não informado - suspeita de problema ou falta de documentação",
-      "Lance isolado sem contexto de mercado = pode ser armadilha de preço"
+      "Sem referência FIPE - impossível calcular desconto real",
+      "Recuperado de financiamento = alto risco de alienação/restrição",
+      "KM não informado - bandeira vermelha",
+      "Sem histórico de sinistro/estado físico declarado"
     ],
-    "avaliacao_plataforma": "RISCO CRÍTICO. Motocicleta recuperada de financiamento SEM preço de referência e sem km declarado. OBRIGATÓRIO: consulte cartório (Registro de Veículos) para confirmar regularização e ausência de débitos. Se alienado ao banco, é nulo. Inspeccione pessoalmente antes de dar lance. Para 50cc, preço esperado FIPE ~R$ 6-7k (novo). Se confirmado liberado, pode valer em R$ 4,4k, mas risco supera oportunidade neste momento.",
+    "avaliacao_plataforma": "RISCO CRÍTICO: Antes de qualquer lance, exija consulta ao cartório (RENAJUD) para confirmar ausência de restrições. Recuperados de financiamento frequentemente têm alienação não divulgada. Sem FIPE, impossível avaliar ROI. Só considere se cartório limpo + inspeção presencial confirmar 0km/excelente estado.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/a47ec399-4ad7-11f1-8621-02420a000005"
   },
   {
@@ -622,18 +696,19 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de qualquer decisão",
+    "uso_sugerido": "inspeção obrigatória antes de lance",
     "positivos": [
-      "Modelo 2025 - zero quilometragem ou baixa km",
-      "Lance inicial baixo (R$ 6.000) sugere potencial de economia"
+      "Modelo 2025 (zero km provável)",
+      "Lance inicial baixo (R$ 6.000) sugere margem potencial",
+      "Shineray 150cc: modelo popular, mercado de revenda ativo"
     ],
     "negativos": [
-      "CRÍTICO: Recuperado de financiamento = risco de alienação fiduciária/restrição não quitada",
-      "Sem referência FIPE = impossível calcular % real de desconto",
-      "KM não informado = suspeita de ocultação de informação",
-      "Sem histórico de sinistro declarado, mas financiamento recuperado pode indicar problema estrutural não revelado"
+      "SEM REFERÊNCIA DE PREÇO - impossível calcular desconto real (sem FIPE ou mercado)",
+      "Recuperado de financiamento = risco de alienação/restrição pendente no Detran",
+      "KM não informado - pode estar com problema ou odômetro zerado sem garantia",
+      "Sem estado físico declarado - pode estar com danos ocultos"
     ],
-    "avaliacao_plataforma": "NÃO LANCE. Moto 2025 a R$ 6K é red flag. Exija: (1) Consulta cartório/DETRAN antes de leilão; (2) Inspeção técnica completa; (3) Confirmação de quitação de débitos. Risco de arcar com financiamento alheio é 10x maior que economia aparente.",
+    "avaliacao_plataforma": "RISCO ALTO. Antes de licitar: (1) Consulte cartório - verifique alienações e restrições; (2) Valide se é leilão especializado com garantia de documentação; (3) Shineray 150 nova custaria ~R$ 12-15k no varejo - lance a R$ 6k só compensa se zero km e sem restrições. Recomendo INSPECIONAR pessoalmente ou desistir.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/f813df38-1957-11f1-a639-02420a000005"
   },
   {
@@ -651,23 +726,13 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780082648077_f8337bed-8272-4ef2-ae83-904fd29dd5f4_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revenda (condicionado a liberação)",
-    "positivos": [
-      "Modelo recente (2024) com baixa depreciação inicial",
-      "Lance competitivo (R$ 4.200) se comparado a motos 150cc novas (~R$ 8-10k)",
-      "Shineray marca acessível com peças disponíveis no mercado"
-    ],
-    "negativos": [
-      "Recuperado de financiamento: risco crítico de alienação fiduciária não quitada",
-      "KM não informado: impossível avaliar desgaste real",
-      "Sem referência FIPE: não há base para calcular % de economia ou ROI",
-      "Restrição de transferência: veículo pode não sair do cartório",
-      "Custo cartorial + regularização pode consumir margem de lucro"
-    ],
-    "avaliacao_plataforma": "⚠️ RISCO ALTO. Antes de licitar, OBRIGAÇÃO: consulte cartório (RENAJUD) para confirmar inexistência de débitos/restrições. Recuperados de financiamento frequentemente têm alienação pendente. Verifique se o leilão é de instituição especializada e se há garantia de liberação. Sem estes dados, o lance é especulativo.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/9b050e6e-1d46-11f1-a639-02420a000005"
   },
   {
@@ -687,20 +752,20 @@
     "descricao": "Recuperado de Financiamento",
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "RUIM",
-    "uso_sugerido": "evitar ou inspecionar cartório antes",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "revenda (com ressalvas)",
     "positivos": [
-      "Moto nova (2024) com baixa depreciação potencial",
-      "Lance baixo (R$ 5.000) sugere oportunidade de preço"
+      "Modelo 2024 (zero km ou baixíssima quilometragem)",
+      "Lance em R$ 5.000 é agressivamente baixo para o segmento (economia potencial alta)"
     ],
     "negativos": [
-      "Recuperado de financiamento = risco ALTO de alienação/restrição não quitada",
-      "Sem referência FIPE impossível calcular % real do desconto",
-      "KM não informado - pode ser rodada ou parada",
-      "Risco jurídico: terceiros podem reclamar propriedade",
-      "Plataforma não especifica se leilão é oficial (cartório/banco)"
+      "Recuperado de financiamento = risco crítico de alienação/restrição no Detran",
+      "KM não informado (vermelho em leilão)",
+      "Sem referência de preço = impossível calcular percentual de economia",
+      "Leilão genérico (não especializado em motos) = procedência duvidosa",
+      "Shineray = marca chinesa com valor residual baixo e peças caras"
     ],
-    "avaliacao_plataforma": "EVITE sem consulta prévia ao cartório de imóveis/registro de títulos. Recuperado de financiamento exige certidão de quitação e nenhuma ação judicial pendente. Risco de perda total justifica recusa mesmo com preço atrativo. Se persistir interesse: contrate despachante para análise de restrições antes de qualquer lance.",
+    "avaliacao_plataforma": "⚠️ RISCO ALTO: Antes de qualquer lance, OBRIGATÓRIO: (1) Consultar cartório para alienação/restrição; (2) Solicitar laudo mecânico completo e rastreamento de histórico; (3) Comparar com FIPE 2024 (estimado R$ 8-10k). A economia aparente pode ser ilusória se houver débitos/restrições. Só arrematam se houver garantia de limpeza documental e inspeção presencial prévia.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/e928d965-2e92-11f1-86d7-0242ac50004b"
   },
   {
@@ -711,29 +776,20 @@
     "modelo": "Scrambler 400X",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9400.0,
+    "lance_atual": 10400.0,
     "fipe_valor": 30031.0,
     "fipe_str": "R$ 30.031,00",
-    "classificacao": "⚠️ INSPECIONAR",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780059992887_d7cf59f4-6c02-44f0-becd-2d5d291df5b1_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "SINISTRADO",
-    "estado_selo": "🔴 Sinistrado",
-    "oportunidade": "BOA",
-    "uso_sugerido": "revenda após reparo ou peças",
-    "positivos": [
-      "Economia bruta de R$ 20.631 (68,7% de desconto)",
-      "Triumph 400X é modelo recente (2025) com demanda de mercado",
-      "Preço de leilão viável para mecânicas especializadas em motos"
-    ],
-    "negativos": [
-      "Recuperado de seguradora = dano estrutural ou total provável",
-      "KM não informado dificulta avaliação real de uso",
-      "Custo de reparo pode consumir 70-80% da economia (R$ 14-16mil estimado)",
-      "Documentação pode ter restrições/transferência lenta"
-    ],
-    "avaliacao_plataforma": "Lance a 31% da ref é atrativo, MAS o reparo em moto sinistrada (motor/chassi/eletrônica) pode chegar a R$ 15-18mil. Margem real: R$ 2-6mil. Valha apenas se: (1) inspeção confirmar dano cosmético/menor, (2) você tem expertise em motos, (3) objetivo é revenda ou peças. Risco alto para comprador comum.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/triumph/scrambler-400x/ano.2025/a4d657cd-3832-11f1-86d7-0242ac50004b"
   },
   {
@@ -754,20 +810,19 @@
     "estado": "RECUPERADO_FINANCIAMENTO",
     "estado_selo": "🔵 Rec. Financiamento",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "não recomendado sem inspeção técnica e regularização",
+    "uso_sugerido": "não recomendado sem inspeção técnica",
     "positivos": [
-      "Modelo 2025 (novo)",
-      "Lance inicial baixo (R$ 5.000) sugere oportunidade de preço"
+      "Modelo 2025 (ano novo)",
+      "Lance inicial baixo (R$ 5.000) indica potencial de negócio"
     ],
     "negativos": [
-      "SEM REFERÊNCIA DE PREÇO - impossível calcular desconto real",
-      "KM não informado - risco de odômetro adulterado",
-      "Recuperado de financiamento = risco ALTO de alienação/restrição não quitada",
-      "Pode estar com gravame do banco - necessário consulta ao RENAJUD",
-      "Falta descrição técnica do estado (pintura, mecanismo, sinistros)",
-      "Moto chinesa (Xinling) com menor valor residual e peças caras"
+      "Sem referência de preço FIPE - impossível calcular desconto real",
+      "KM não informado - histórico de uso desconhecido",
+      "Recuperado de financiamento = risco alto de restrição/alienação",
+      "Marca Xinling Bull (baixa documentação em leilões BR) - dificuldade futura de revenda",
+      "Sem foto/inspeção técnica declarada - condição mecânica desconhecida"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO CRÍTICO: Sem FIPE de referência, não há como avaliar desconto. Recuperado de financiamento exige inspeção cartorial OBRIGATÓRIA antes de qualquer lance. Inspeccione pessoalmente se autorizado e consulte leilão especializado em motos.",
+    "avaliacao_plataforma": "RISCO ELEVADO. Antes de licitar: (1) Consulte cartório para alienação/restrições; (2) Solicite inspeção técnica completa; (3) Verifique se leilão é regularizado. Recuperado de financiamento exige cautela extrema. Sem FIPE de referência, o lance de R$ 5.000 é impossível de validar como oportunidade real.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/xinling-bull-krc-f5/ano.2025/b35fc092-08d7-11f1-8a4c-0242ac50000b"
   },
   {
@@ -785,21 +840,13 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780084170803_efee4670-d1ac-43a5-936d-3671a5a1a49d_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "revenda (com ressalvas)",
-    "positivos": [
-      "Modelo 2025 - zero km ou baixa quilometragem",
-      "Lance baixo (R$ 5.700) indica potencial de margem"
-    ],
-    "negativos": [
-      "CRÍTICO: Sem referência de preço - impossível calcular margem real",
-      "Risco de alienação/restrição junto ao financiador",
-      "KM não informado - veículo pode ter uso antes da retomada",
-      "Recuperado de financiamento = necessário verificar débitos e documentação no cartório antes de arrematação"
-    ],
-    "avaliacao_plataforma": "PARE ANTES DE OFERECER. Sem FIPE/referência, lance pode parecer bom, mas é armadilha. Shineray 150cc 2025 custa ~R$ 12-14k no varejo. Consulte cartório ANTES do lance - restrição judicial cancela negócio. Se documentação limpa, pode valer como revenda rápida, mas margem real depende de KM e estado físico (exigir inspeção).",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/64b3a45d-409d-11f1-86d7-0242ac50004b"
   },
   {
@@ -841,21 +888,13 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780083780771_d8453664-75b1-4b6a-b6ca-5a25bdc41202_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "BOA",
-    "uso_sugerido": "revenda com cautela",
-    "positivos": [
-      "Desconto forte: 55.1% da referência = R$ 5.541 de economia",
-      "Moto 2024 com baixíssima depreciação esperada se sem danos",
-      "Segmento popular (175cc) tem demanda consistente em leilão"
-    ],
-    "negativos": [
-      "CRÍTICO: Recuperado de financiamento = risco alto de alienação/restrição não liquidada",
-      "KM não informado = impossível avaliar estado real do motor",
-      "Sem inspeção declarada = pode ocultar danos ou problemas mecânicos"
-    ],
-    "avaliacao_plataforma": "Preço é atrativo (55%), mas recuperado de financiamento exige verificação cartorial rigorosa antes de arrematar. Sem essas garantias, é armadilha financeira mesmo com desconto.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2024/2c7df331-3997-11f1-86d7-0242ac50004b"
   },
   {
@@ -873,13 +912,23 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado": "RECUPERADO_FINANCIAMENTO",
+    "estado_selo": "🔵 Rec. Financiamento",
+    "oportunidade": "BOA",
+    "uso_sugerido": "revenda ou uso pessoal",
+    "positivos": [
+      "Desconto significativo: 55.1% da referência (economia de R$ 5.541)",
+      "Moto 2024 - modelo novo com baixa depreciação futura",
+      "Faixa de preço competitiva em leilão (60-70% FIPE é padrão bom)",
+      "Shineray Shi 175 é modelo popular, fácil revenda no mercado"
+    ],
+    "negativos": [
+      "KM não informado - risco oculto de desgaste/uso intenso",
+      "Recuperado de financiamento = risco de alienação/restrição - OBRIGATÓRIO consultar cartório",
+      "Sem histórico de sinistro documentado, mas falta inspeção prévia",
+      "Modelo de entrada: margem de revenda limitada"
+    ],
+    "avaliacao_plataforma": "Oportunidade válida SE aprovado em consulta cartorial (sem restrições). Preço está na faixa ideal de leilão. Inspecione antes de arrematar - KM indefinido é risco. Custo de reparo improvável neste segmento, a menos que danos ocultos. ROI real: +30-40% em revenda rápida.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2024/b4bbd9ee-42fe-11f1-86d7-0242ac50004b"
   },
   {
@@ -897,22 +946,13 @@
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780085490574_ad795d6b-c908-4e28-bcf1-c994c14eaba4_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revenda (após regularização)",
-    "positivos": [
-      "Modelo 2025 - zero km ou baixa quilometragem",
-      "Lance inicial baixo (R$ 5.000) sugere potencial de margem"
-    ],
-    "negativos": [
-      "KM não informado - impossível avaliar desgaste real",
-      "Sem preço de referência (FIPE/mercado) - cálculo de desconto inviável",
-      "Risco crítico de alienação fiduciária não quitada - pode ser retomado pela financeira",
-      "Recuperado de financiamento = título pode estar travado no cartório",
-      "Moto popular: mercado saturado, revenda lenta"
-    ],
-    "avaliacao_plataforma": "⚠️ NÃO LANCE SEM: 1) Consulta ao cartório (verificar alienação/restrições); 2) Inspeção técnica (KM real, danos ocultos); 3) Confirmação que transferência será liberada. Risco legal supera potencial de margem em motos populares recuperadas.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-xy125-6a/ano.2025/a03bd11a-4d59-11f1-8cef-02420a000008"
   },
   {
@@ -923,30 +963,20 @@
     "modelo": "Fz25 Fazer",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 13500.0,
+    "lance_atual": 13800.0,
     "fipe_valor": 22359.0,
     "fipe_str": "R$ 22.359,00",
     "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780085041001_6d9ba174-47f6-41e8-b672-ba57510fa233_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
-    "oportunidade": "BOA",
-    "uso_sugerido": "revenda com cautela",
-    "positivos": [
-      "Desconto substancial: 39,6% abaixo da referência (economia de R$ 8.859)",
-      "Modelo 2025 - zero km ou baixa quilometragem esperada",
-      "Yamaha Fz25 é moto popular com demanda de revenda",
-      "Lance a 60,4% da FIPE está na faixa de bom negócio para leilão"
-    ],
-    "negativos": [
-      "CRÍTICO: Recuperado de financiamento = risco alto de alienação/restrição no Detran",
-      "KM não informado - impossível validar real estado do veículo",
-      "Sem laudo técnico visível - não há garantia de condições mecânicas",
-      "Necessário consulta ao cartório antes de arrematar"
-    ],
-    "avaliacao_plataforma": "Preço atrativo (60,4% ref), MAS o principal risco não é técnico: veículo pode ter restrição judicial/financeira não quitada. Exija certidão de Detran e cartório ANTES do leilão. Se liberado, a economia de ~R$ 8.900 justifica risco baixo de reparo. Oportunidade BOA apenas com documentação limpa.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz25-fazer/ano.2025/9d00c6a7-4dfe-11f1-8cef-02420a000008"
   },
   {
@@ -981,7 +1011,7 @@
     "modelo": "Gerador Fotovoltaico De Potencia Sup. 750W",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 16000.0,
+    "lance_atual": 17000.0,
     "fipe_valor": 30000,
     "fipe_str": "R$ 30,000 (ref. mercado)",
     "classificacao": "⚠️ MEDIANO",
@@ -991,19 +1021,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "análise técnica obrigatória",
+    "uso_sugerido": "revenda ou uso próprio (requer vistoria)",
     "positivos": [
-      "Desconto de 46,7% vs referência (R$ 14.000 de economia)",
-      "Equipamento em alta demanda (energia solar em crescimento)",
-      "Sem indicativo de sinistro aparente"
+      "Desconto significativo: 56,7% da referência (R$ 13.000 de economia)",
+      "Equipamento com demanda crescente (energia solar)",
+      "Potência adequada (750W+) para aplicações residenciais/comerciais"
     ],
     "negativos": [
-      "Descrição vazia - estado físico desconhecido",
-      "Impossível avaliar custo de reparo sem inspeção",
-      "Risco alto: pode ser B.O., refurbished ou com defeito oculto",
-      "Equipamento eletrônico complexo - manutenção especializada cara"
+      "Descrição vazia: ausência total de informações sobre funcionamento, sinistros ou defeitos",
+      "Sem histórico/KM: impossível avaliar vida útil consumida",
+      "Risco alto: gerador fotovoltaico sem certificação visível pode ter componentes eletrônicos danificados",
+      "Custo potencial de reparo (inversor, placas, fiação) pode absorver toda economia (R$ 8.000-13.000)"
     ],
-    "avaliacao_plataforma": "CRÍTICO: Sem descrição e estado oculto. A economia de R$ 14.000 é atraente, mas equipamentos eletrônicos com estado desconhecido podem custar R$ 8.000-12.000 em reparo/substituição de componentes. SÓ ARREMATAR com inspeção técnica presencial e certificado de funcionamento. Risco-benefício indefinido sem dados.",
+    "avaliacao_plataforma": "Desconto atraente, MAS inviável sem inspeção técnica prévia. Gerador solar danificado é prejuízo certo. Exija relatório fotográfico, teste de potência e certificação antes de licitar. Se descrição continuar vazia, passe.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-fotovoltaico-de-potencia-sup.-750w-(75-placas)/ano.2023/33f3f256-5acd-11f1-99e0-02420a00000a"
   },
   {
@@ -1014,30 +1044,29 @@
     "modelo": "Compass Longitude D",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 2231.72,
+    "lance_atual": 0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/28/1779998765836_e7049bff-92e5-4c46-936b-47554ab6330f_media.webp",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "RECUPERADO_FINANCIAMENTO",
-    "estado_selo": "🔵 Rec. Financiamento",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "não recomendado sem inspeção",
+    "uso_sugerido": "aguardar informações",
     "positivos": [
-      "Jeep Compass é modelo popular com demanda de mercado",
-      "2018 ainda tem vida útil considerável"
+      "Jeep Compass é modelo consolidado com demanda de revenda",
+      "Ano 2018 ainda tem valor de mercado relevante"
     ],
     "negativos": [
-      "Recuperado de financiamento = alto risco de alienação/restrição não levantada",
-      "KM não informado é red flag crítica",
-      "Sem referência de preço (R$ 0) impossibilita análise de desconto real",
-      "Lance de R$ 2.232 é irreal para Compass 2018 – pode indicar erro de cadastro ou leilão fraude",
-      "Categoria 'caminhões' está errada para SUV – desorganização da plataforma",
-      "Sem condição mecânica/estética declarada"
+      "KM não informado - impossível avaliar desgaste",
+      "Lance R$ 0 - leilão sem referência de preço ou oferta inicial",
+      "Sem descrição - não há informações de estado (sinistrado, batido, bom estado)",
+      "Categoria listada como 'caminhoes' - provável erro de catalogação (Compass é SUV)",
+      "Impossível calcular ROI sem dados mínimos"
     ],
-    "avaliacao_plataforma": "**EVITE.** Recuperação de financiamento exige consulta cartório antes de qualquer lance. Lance absurdamente baixo + dados inconsistentes (categoria, preço zerado, KM oculto) indicam problemas estruturais. Risco de compra com restrição e prejuízo total. Só avançar se conseguir inspeção prévia E liberação cartorial comprovada.",
+    "avaliacao_plataforma": "Leilão INCOMPLETO. Exija inspeção presencial, KM, fotos, laudo de danos e preço de referência FIPE antes de qualquer decisão. Sem esses dados, risco de arrematação cega é ALTO.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/jeep/compass-longitude-d/ano.2018/c0cb0823-223d-11f1-a639-02420a000005"
   },
   {
@@ -1051,26 +1080,17 @@
     "lance_atual": 85000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
-    "classificacao": "⚠️ INSPECIONAR",
+    "classificacao": "Sem referência",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/5/29/1780065633683_5b751575-e14c-4314-8a77-885fab237d6c_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
-    "estado": "SINISTRADO",
-    "estado_selo": "🔴 Sinistrado",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "análise técnica obrigatória",
-    "positivos": [
-      "Troller T4 TX4 AT 2020 é modelo robusto, demanda alta no mercado",
-      "Lance de R$ 85 mil pode representar economia se veículo tiver reparo viável"
-    ],
-    "negativos": [
-      "Recuperado de seguradora = sinistrado com histórico desconhecido",
-      "Sem referência FIPE (R$ 0) impossibilita cálculo de percentual real do lance",
-      "KM não informado = risco alto de ocultação de danos estruturais",
-      "Sem detalhes do sinistro: não há como estimar reparo vs. economia",
-      "Caminhão/utilitário sinistrado exige laudo técnico estrutural completo"
-    ],
-    "avaliacao_plataforma": "⚠️ RISCO CRÍTICO: Sinistrado sem FIPE de referência e KM oculto é cilada. Exija antes de dar lance: laudo de sinistro, certificado de registro (alienação?), inspeção estrutural certificada e comprovação de reparo. Sem isso, abandone.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/troller/t4-tx4-at-(2p)/ano.2020/3e4bdea6-368d-41a4-b932-5944fd726b11"
   },
   {
@@ -1091,19 +1111,19 @@
     "estado": "SINISTRADO",
     "estado_selo": "🔴 Sinistrado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "reparo e revenda ou peças",
+    "uso_sugerido": "reparo e revenda (operador experiente)",
     "positivos": [
-      "Lance a R$ 102 mil (presumível desconto significativo vs mercado)",
-      "Modelo Atego 2426 tem demanda consistente para carga urbana/regional"
+      "Modelo Atego 2426 é caminhão robusto com demanda no mercado secundário",
+      "Lance R$ 102 mil é agressivo se comparado a tabela FIPE (~R$ 150-180 mil em BOM estado)",
+      "Seguradora recupera apenas se custo de reparo <30% do valor"
     ],
     "negativos": [
-      "Sem referência FIPE (R$ 0) - impossível calcular % de desconto real",
-      "KM não informado - vida útil desconhecida",
-      "Recuperado de seguradora = sinistro total ou grave",
-      "Custo de reparo potencialmente alto (estrutura, motor, elétrica)",
-      "Sem inspeção pré-leilão relatada - risco de surpresas"
+      "Sem informação de KM e tipo de sinistro = risco desconhecido (colisão, alagamento, incêndio?)",
+      "Referência zerada (R$ 0) impede cálculo real de economia vs. reparo",
+      "Caminhões sinistrados exigem inspeção técnica rigorosa: motor, câmbio, hidráulica (custos exponenciais)",
+      "Possível restrição/alienação em banco; OBRIGATÓRIO verificar cartório antes de dar lance"
     ],
-    "avaliacao_plataforma": "RISCO ALTO. Sem dados de mercado (FIPE zerada) e condição sinistrada, o lance parece irrisório, mas pode ser armadilha. Obrigatório: inspeção presencial completa (chassis, motor, caixa, sistema hidráulico), consulta Detran para restrições, e orçamento preciso de funilaria. Só vale se reparo < R$ 80-100 mil. Não recomendado para iniciantes.",
+    "avaliacao_plataforma": "Só lance se: (1) inspecionar presencialmente tipo de sinistro; (2) confirmar sem restrição financeira em cartório; (3) orçar reparo com mecânico especializado. Risco moderado-alto para operador casual.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-2426/ano.2014/91e83243-3360-11f1-86d7-0242ac50004b"
   },
   {
@@ -1124,19 +1144,10 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção técnica",
-    "positivos": [
-      "Scania P 310 é caminhão robusto, boa demanda no mercado secundário",
-      "2014 ainda tem vida útil útil se mecânica preservada"
-    ],
-    "negativos": [
-      "CRÍTICO: KM não informado - impossível avaliar desgaste/manutenção futura",
-      "CRÍTICO: Sem descrição de estado - pode ser bom, batido ou sucata",
-      "Sem lance de referência (R$ 0) - não há baseline de preço para calcular ROI",
-      "Sem documentação visível - risco de alienação/gravame em nome anterior",
-      "Impossível estimar custo de reparo sem inspeção"
-    ],
-    "avaliacao_plataforma": "⚠️ LOTE INCOMPLETO. Não há dados suficientes para análise de viabilidade. Exija: inspeção técnica detalhada, KM comprovado, descrição de danos (se houver), valor de referência FIPE 2014, e consulta ao cartório. SEM ESSAS INFORMAÇÕES, não lance.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/scania/p-310-b8x2/ano.2014/6bd3b517-2ec3-11f1-86d7-0242ac50004b"
   },
   {
@@ -1159,16 +1170,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance a 69,9% da referência (R$ 15.344) - dentro da faixa aceitável de 60-70% FIPE",
-      "Economia de R$ 6.622 em relação à referência"
+      "Preço 30,1% abaixo da referência (R$ 6.622 de economia)",
+      "Desconto compatível com bom negócio em leilão (69,9% da FIPE)"
     ],
     "negativos": [
-      "Descrição completamente ausente - RED FLAG crítico",
-      "KM não informado - impossível avaliar desgaste",
-      "Sem dados de condição física, sinistros ou histórico",
-      "Risco alto de surpresas em inspeção pós-arrematação"
+      "Sem descrição do estado (crítico para decisão)",
+      "KM não informado (impossível avaliar desgaste)",
+      "Risco alto: pode ser batido, sinistrado ou com restrição",
+      "Sem histórico = potencial alienação não declarada"
     ],
-    "avaliacao_plataforma": "Leilão suspeito. Preço atrativo (69,9%) mas FALTA TOTAL DE INFORMAÇÕES impede análise real. NÃO LANCE sem inspeção presencial ou parecer técnico. Pode ser ótima oportunidade ou cilada - o silêncio descritivo é o maior risco aqui.",
+    "avaliacao_plataforma": "Preço atrativo, mas INVIÁVEL arrematar sem inspeção física e consulta ao cartório. Falta absoluta de informações sugere venda como-está. Risco-retorno desfavorável sem dados técnicos.",
     "url": "https://www.megaleiloes.com.br/veiculos/carros/ce/fortaleza/carro-volkswagen-fox-20092010-j124108"
   },
   {
@@ -1189,10 +1200,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "uso_sugerido": "análise prévia obrigatória",
+    "positivos": [
+      "Área significativa (36.512 m²) com potencial logístico/industrial",
+      "Lance sem referência sugere possível oportunidade de precificação"
+    ],
+    "negativos": [
+      "CRÍTICO: Zero dados de descrição física, condições estruturais, localização exata",
+      "CRÍTICO: Sem referência de preço (R$ 0) impossibilita análise ROI",
+      "Risco ALTO de alienação/gravames em imóvel industrial",
+      "Sem informação de documentação, matrículas ou débitos tributários",
+      "Complexos industriais frequentemente têm passivos ambientais ocultos"
+    ],
+    "avaliacao_plataforma": "**REJEITAR análise sem inspeção prévia.** Lance de R$ 48M em imóvel industrial exige: (1) vistoria estrutural + ambiental presencial; (2) consulta cartório + SEFAZ/prefeitura; (3) verificação de débitos/condomínio; (4) comparativo com imóveis similares em Pacajus. Risco de arrematação sem saída é CRÍTICO. Oriente cliente a contactar corretor especializado em imóveis comerciais antes de qualquer lance.",
     "url": "https://www.megaleiloes.com.br/imoveis/galpoes--industriais/ce/pacajus/complexo-industrial-36512-m2-em-pacajus-ce-x123906"
   },
   {
@@ -1213,19 +1233,18 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção presencial",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance inicial baixo (R$ 69 mil) sugere potencial de oportunidade",
-      "Imóvel padrão com garagem tem demanda de revenda"
+      "Lance inicial baixo (R$ 69.000) - margem potencial se imóvel estiver em bom estado",
+      "1 vaga de garagem - agregador de valor"
     ],
     "negativos": [
-      "Descrição completamente ausente - RED FLAG crítico",
-      "Sem referência de preço (R$ 0) - impossível calcular economia ou ROI",
-      "Sem fotos, condição estrutural desconhecida",
-      "Risco alto de alienação/restrição (típico em imóveis leiloados)",
-      "Ausência total de informações = risco de passivos ocultos"
+      "FALTA CRÍTICA: sem descrição do imóvel - impossível avaliar condições estruturais, reformas necessárias, localização",
+      "Sem referência de preço (R$ 0) - sem baseline para calcular economia real",
+      "Padrão indefinido - não é claro se é residencial puro, comercial ou misto",
+      "Risco de financiamento imobiliário - restrição/alienação bancária muito comum em leilões imobiliários"
     ],
-    "avaliacao_plataforma": "BLOQUEIO RECOMENDADO. Não lance sem: (1) Inspeção presencial completa, (2) Consulta ao cartório (débitos, hipotecas, usucapião), (3) Alvará/regularização da construção. Casa por R$ 69k exige justificativa clara no edital - pode ser oportunidade real ou 'gato por lebre'. Investigar antes de qualquer oferta.",
+    "avaliacao_plataforma": "🚫 REJEITADO PARA ANÁLISE. Imóvel sem descrição e sem preço de referência não permite ROI real. OBRIGATÓRIO: (1) consulta ao cartório para alienações/ônus; (2) inspeção técnica presencial; (3) solicitação de descrição completa antes de oferecer lance. Em imóvel, negligência = prejuízo alto.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maracanau/casa-padrao-1-vagas-de-garagem-x125113"
   },
   {
@@ -1246,19 +1265,21 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar análise presencial",
+    "uso_sugerido": "aguardar inspeção presencial",
     "positivos": [
-      "Lance inicial acessível (R$ 141.100)",
-      "Imóvel em condomínio (segurança/infraestrutura)"
+      "Lance inicial moderado (R$ 141.100)",
+      "Imóvel em condomínio (estrutura compartilhada = menor manutenção)"
     ],
     "negativos": [
-      "Sem descrição técnica - impossível avaliar condição real",
-      "Sem referência de preço - não há base para calcular ROI",
-      "Risco alto de alienação/financiamento sem consulta ao cartório",
-      "Sem informações sobre documentação, débitos ou restrições",
-      "Padrão construtivo/idade/metragem não informados"
+      "SEM DESCRIÇÃO - risco crítico",
+      "SEM REFERÊNCIA DE PREÇO - impossível calcular economia real",
+      "SEM FOTOS/DOCUMENTAÇÃO",
+      "Localização não informada",
+      "Condição estrutural desconhecida",
+      "Sem info de financiamento/alienação",
+      "Risco alto de vícios ocultos"
     ],
-    "avaliacao_plataforma": "INVIÁVEL ARREMATAR SEM INSPEÇÃO. Exija descrição completa, fotos e parecer do cartório antes de qualquer lance. Imóvel sem informações = risco de passivo oculto (débitos condominiais, IPTU, financiamento ativo). Não é negócio; é especulação.",
+    "avaliacao_plataforma": "REJEITAR LANCE CEGO. Exija edital completo, fotos, matrícula imobiliária e inspeção presencial antes de oferecer. Em imóvel, falta de descrição = possível problema estrutural, restrição legal ou vício grave. ROI zero se não inspecionado.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/sao-goncalo-do-amarante/casa-em-condominio-1-vagas-de-garagem-x125118"
   },
   {
@@ -1279,20 +1300,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção presencial",
+    "uso_sugerido": "aguardar detalhes",
     "positivos": [
-      "Lance inicial moderado (R$ 647.700)",
-      "Imóvel em condomínio (melhor liquidez que terreno)"
+      "Lance competitivo (R$ 647.700) sem referência inflacionada",
+      "Imóvel em condomínio (gestão compartilhada de custos)"
     ],
     "negativos": [
-      "Sem descrição do imóvel (crítico)",
-      "Sem foto ou laudo técnico",
-      "Sem referência de preço para comparação",
-      "0 vagas de garagem (limitação comercial)",
-      "Impossível calcular ROI sem dados básicos",
-      "Risco alto de passivos ocultos (IPTU, condomínio inadimplente, restrições)"
+      "CRÍTICO: Sem descrição do imóvel (tamanho, dormitórios, ano, condição estrutural)",
+      "CRÍTICO: Referência de preço zerada (impossível calcular economia real)",
+      "Sem informações de documentação (IPTU, pendências, financiamento ativo)",
+      "Sem vaga de garagem (fator de desvalorização em condomínios)",
+      "Risco alto de alienação/restrição em imóvel de leilão"
     ],
-    "avaliacao_plataforma": "REJEITAR SEM INSPEÇÃO. Descrição vazia é bandeira vermelha em imóveis. Exija: fotos, localização exata, laudo técnico, situação do condomínio e certidão de ônus reais antes de qualquer lance. Sem isso, risco de arrematação problemática é iminente.",
+    "avaliacao_plataforma": "⚠️ LOTE INCOMPLETO. Não compre às cegas. Exija: (1) descrição completa do imóvel, (2) referência de mercado local, (3) consulta ao cartório de imóveis e (4) inspeção in loco antes de lance. Economia real é zero sem referência. Risco de financiamento ativo é alto em imóvel.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/eusebio/casa-em-condominio-0-vagas-de-garagem-x125120"
   },
   {
@@ -1315,17 +1335,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "2 vagas de garagem (diferencial)",
-      "Padrão construtivo adequado"
+      "Apartamento padrão com 2 vagas de garagem (diferencial de valor)",
+      "Lance sem referência permite potencial margem se preço de mercado for superior"
     ],
     "negativos": [
-      "Sem descrição do imóvel - estado estrutural desconhecido",
-      "Sem referência de preço (impossível calcular economia real)",
-      "Lance de R$ 323 mil sem contexto de localização, metragem ou data de construção",
-      "Risco alto de alienação/restrição (exigir certidão de ônus no cartório antes de arrematar)",
-      "Falta de informações críticas: ano, m², bairro, reformas necessárias"
+      "Sem descrição = risco crítico (não há informação de estado, localização, reforma, pendências)",
+      "Sem referência de preço = impossível calcular economia ou ROI",
+      "Sem KM/detalhes = pode haver restrição financeira, IPTU em atraso ou problemas legais",
+      "Categoria 'imovel' em leilão geralmente indica execução/alienação (risco de financiamento)"
     ],
-    "avaliacao_plataforma": "LOTE CRÍTICO. Sem preço de referência e descrição, é impossível validar o ROI. Exija laudo técnico e certidão de ônus NO EDITAL antes de participar. Risco de passivo imobiliário alto.",
+    "avaliacao_plataforma": "⚠️ NÃO LANCE SEM INSPEÇÃO. Exija: (1) Relatório técnico de estado, (2) Certidão de cartório (ônus/restrições), (3) Verificação de IPTU/condomínio em atraso. R$ 323 mil em imóvel sem descrição é armadilha clássica de leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/aquiraz/apartamento-padrao-2-vagas-de-garagem-x125135"
   },
   {
@@ -1348,17 +1367,17 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "análise presencial obrigatória",
     "positivos": [
-      "Lance inicial baixo (R$ 128.700) pode indicar oportunidade de valor"
+      "Lance baixo (R$ 128.700) sugere potencial de negócio",
+      "Imóvel padrão tem mercado de revenda/aluguel"
     ],
     "negativos": [
-      "Sem descrição do imóvel - estado físico desconhecido",
-      "Sem preço de referência (R$ 0) - impossível calcular desconto real",
-      "Sem informações de localização, metragem, conservação ou pendências",
-      "0 vagas de garagem pode reduzir valor dependendo da região",
-      "Risco alto de alienação/restrição financeira em imóvel - consulta ao cartório ESSENCIAL",
-      "Dados insuficientes para análise de ROI"
+      "CRÍTICO: Sem descrição - impossível avaliar condição (estrutura, reforma, localização)",
+      "Sem preço de referência (R$ 0) - não há parâmetro de economia",
+      "Sem informações de garagem/unidade/bairro/metragem",
+      "Risco alto de ônus (financiamento, hipoteca, IPTU atrasado, invasão)",
+      "Imóvel com poucos dados = alta probabilidade de problema oculto"
     ],
-    "avaliacao_plataforma": "⚠️ AGUARDE INSPEÇÃO PRESENCIAL - Item extremamente vago. Antes de qualquer lance: (1) consulte cartório de imóveis para restrições/ônus; (2) solicite edital completo com fotos e descrição; (3) verifique localização exata e comparáveis de mercado. Sem referência de preço, não há como validar se R$ 128.700 é 30% ou 90% do valor real.",
+    "avaliacao_plataforma": "⛔ BLOQUEADO PARA OFERTA. Exija edital completo com fotos, metragem, localização e histórico cartorial ANTES de participar. Em imóvel sem dados, o lance 'barato' é isca para licitante desavisado. Risco de alienação/penhora ativo.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-padrao-0-vagas-de-garagem-x125165"
   },
   {
@@ -1379,18 +1398,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar análise técnica",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance inicial acessível (R$ 184.200)",
-      "Imóvel padrão com garagem - demanda estável"
+      "Lance inicial competitivo (R$ 184.200)",
+      "Imóvel padrão com garagem - tipologia comercial"
     ],
     "negativos": [
-      "Sem descrição detalhada - impossível avaliar estado",
-      "Sem preço de referência - não há base comparativa",
-      "Risco alto de alienação/restrições financeiras em imóvel",
-      "Sem informações de localização, metragem ou documentação"
+      "Sem descrição - impossível avaliar condições estruturais",
+      "Sem referência de preço - não há parâmetro de economia",
+      "Sem localização informada - afeta drasticamente valor de revenda",
+      "Sem dados de área, conservação ou pendências (financiamentos/ônus)",
+      "Risco alto de alienação/restrição hipotecária em imóvel"
     ],
-    "avaliacao_plataforma": "⚠️ AVISO CRÍTICO: Imóvel sem dados suficientes. NÃO LICITE sem: (1) vistoria presencial, (2) consulta ao cartório (penhora/hipoteca), (3) comprovação do domínio. Em leilão imobiliário, alienação oculta é risco real. Recomendo participar apenas se edital permitir inspeção prévia ou se houver certeza de liberação.",
+    "avaliacao_plataforma": "INVIÁVEL DECIDIR. Exija relatório completo: localização, metragem, fotos, laudo de conservação, certidão de ônus e descrição de pendências. Em imóvel, financiamento ativo = risco jurídico severo. Consulte cartório ANTES de licitar.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-padrao-1-vagas-de-garagem-x125209"
   },
   {
@@ -1411,20 +1431,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "análise prévia obrigatória",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance baixo (R$ 129.800) sugere potencial de oportunidade",
-      "Imóvel padrão pode ter demanda de revenda ou aluguel"
+      "Lance inicial baixo (R$ 129.800) sugere potencial de economia",
+      "Categoria padrão indica imóvel residencial comum"
     ],
     "negativos": [
-      "Sem descrição detalhada - impossível avaliar condições estruturais",
-      "Sem referência de preço - não há base para cálculo de economia",
-      "Sem localização, metragem ou benfeitorias informadas",
-      "0 vagas de garagem - desvaloriza em mercado competitivo",
-      "Risco alto de alienação/restrição em imóvel leiloado",
-      "Ausência total de documentação visível"
+      "SEM DESCRIÇÃO - impossível avaliar estado físico, documentação ou restrições",
+      "SEM REFERÊNCIA DE PREÇO - não há base para calcular economia real",
+      "SEM KM/LOCALIZAÇÃO - falta informação essencial sobre situação do imóvel",
+      "RISCO ALTO DE ALIENAÇÃO - imóvel em leilão pode ter ônus (hipoteca, IPTU atrasado, dívidas)",
+      "Padrão com 0 vagas sugere imóvel compacto/com restrições"
     ],
-    "avaliacao_plataforma": "❌ RISCO CRÍTICO - Edital incompleto. Exija descrição física completa, localização, documentação (matrícula/CCIR), fotos e laudo de vistoria antes de qualquer lance. Imóvel sem informações = compra às cegas. Risco de alienação é ALTO em leilão imobiliário.",
+    "avaliacao_plataforma": "LOTE DEFICIENTE. Imóvel residencial em leilão exige inspeção presencial obrigatória, consulta ao Cartório de Imóveis (verificar hipotecas, penhoras, IPTU), e edital completo. Sem descrição e referência de preço, é impossível calcular ROI. Risco de custos ocultos (reformas estruturais, regularização) pode anular economia. Recomendação: solicite relatório completo antes de qualquer lance.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/crateus/casa-padrao-0-vagas-de-garagem-x125215"
   },
   {
@@ -1445,19 +1464,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção prévia",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance inicial baixo (R$ 93 mil) sugere potencial de economia",
-      "Imóvel em condomínio (segurança/manutenção compartilhada)"
+      "Lance inicial baixo (R$ 93 mil) sugere potencial de margem",
+      "Imóvel em condomínio (estrutura de manutenção)"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO - impossível avaliar condição estrutural, acabamento, reformas necessárias",
-      "SEM PREÇO DE REFERÊNCIA (Ref: R$ 0) - não há baseline para cálculo de ROI",
-      "Sem detalhes: localização, metragem, idade, pendências, débitos condominiais ou impostos",
-      "Risco CRÍTICO de alienação/restrição - cartório obrigatório antes de licitar",
-      "Sem foto/vídeo = alto risco de surpresas pós-arrematação"
+      "CRÍTICO: Sem descrição do imóvel (condição física desconhecida)",
+      "CRÍTICO: Sem preço de referência (impossível calcular ROI)",
+      "Risco alto de alienação/gravame (exigir consulta ao cartório)",
+      "Sem informações de área, dormitórios, localização ou defeitos",
+      "Dados insuficientes para análise de viabilidade"
     ],
-    "avaliacao_plataforma": "⚠️ LOTE INSPECIONÁVEL. Imóvel sem dados suficientes. Exija edital completo, relatório de vistoria, certidão de CCIR/ITBI e consulta ao cartório. Não lance sem inspeção presencial e parecer jurídico sobre restrições. ROI impossível calcular sem referência de preço e estado real.",
+    "avaliacao_plataforma": "⚠️ LOTE INCOMPLETO. Não arremate sem: (1) consulta cartorial (ônus reais), (2) vistoria física, (3) referência de mercado local. Lance de R$ 93k é irrelevante sem baseline. Risco de recuperação financeira é ALTO em imóvel sem descrição.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/paracuru/casa-em-condominio-1-vagas-de-garagem-x125227"
   },
   {
@@ -1478,18 +1497,18 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção prévia",
+    "uso_sugerido": "aguardar inspeção presencial",
     "positivos": [
-      "Lance inicial acessível (R$ 284.400)",
-      "Imóvel padrão com garagem - demanda estável"
+      "Lance competitivo sem concorrência aparente (sem ref. de preço)",
+      "Imóvel padrão com garagem (demanda estável)"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO - impossível avaliar condições reais",
-      "SEM PREÇO DE REFERÊNCIA - sem base de comparação ROI",
-      "Risco alto: pode haver ônus, pendências ou alienação não informados",
-      "Imóvel sem contextualização: localização, área, ano, reformas desconhecidas"
+      "CRÍTICO: Sem descrição e sem referência de preço - impossível avaliar ROI",
+      "Sem informações de localização, metragem, documentação ou pendências",
+      "Risco alto de alienação/restrição - exige consulta ao cartório antes de dar lance",
+      "Sem fotos ou detalhes construtivos - pode haver comprometimento estrutural oculto"
     ],
-    "avaliacao_plataforma": "REJEITAR por falta de dados. Exija: descrição técnica, laudo de vistoria, consulta ao cartório para ônus/hipotecas e referência de mercado imobiliário local ANTES de qualquer lance. Em imóvel, alienação financeira é risco crítico.",
+    "avaliacao_plataforma": "⚠️ PARALISE O LANCE. Imóvel sem dados essenciais. Exija relatório completo, consulte cartório (hipotecas/ônus), faça vistoria presencial e só então calcule potencial de revenda. R$ 284.400 pode ser armadilha ou ouro - dados insuficientes não permitem análise de risco.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-padrao-1-vagas-de-garagem-x125245"
   },
   {
@@ -1510,19 +1529,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção prévia",
+    "uso_sugerido": "aguardar análise presencial",
     "positivos": [
-      "Lance inicial competitivo (R$ 87.800)",
-      "Imóvel padrão com garagem (agregador de valor)"
+      "Lance inicial baixo (R$ 87.800) sugere potencial de negócio",
+      "Imóvel padrão com garagem tem demanda de mercado"
     ],
     "negativos": [
-      "Sem descrição do imóvel (localização, metragem, ano, reformas?)",
-      "Sem referência de preço (impossível calcular economia real)",
-      "Sem informações de estado (sinistrado, alagado, débitos, restrições?)",
-      "Risco alto de alienação/financiamento ativo - exige consulta ao cartório",
-      "Pode ter problemas estruturais, IPTU em atraso ou ações judiciais"
+      "Sem descrição do imóvel (localização, tamanho, ano de construção, reformas)",
+      "Sem preço de referência (R$ 0) - impossível calcular economia real",
+      "Falta informação crítica: endereço, metragem, estado de conservação",
+      "Alto risco de alienação/penhora em imóvel - exige consulta ao cartório antes de ofertar",
+      "Impossível estimar ROI sem dados fundamentais"
     ],
-    "avaliacao_plataforma": "Imóvel com informações insuficientes. Obrigatório: vistoria presencial, consulta ao cartório (transferências, hipotecas, penhoras), investigar por que não tem descrição. Em leilão de imóvel, falta de dados = risco máximo. Não recomendo oferta sem inspeção técnica e jurídica.",
+    "avaliacao_plataforma": "RISCO EXTREMO. Imóvel com informações insuficientes e sem preço referencial. NÃO lance sem: (1) vistoria presencial completa, (2) consulta ao cartório para restrições, (3) comprovação de documentação. Pode haver débitos, financiamentos pendentes ou problemas estruturais ocultados.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/horizonte/apartamento-padrao-1-vagas-de-garagem-x125261"
   },
   {
@@ -1545,17 +1564,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "análise presencial obrigatória",
     "positivos": [
-      "Lance inicial baixo (R$ 32.200) sugere potencial de oportunidade",
-      "Imóvel padrão com garagem indica uso residencial consolidado"
+      "Lance inicial baixo (R$ 32.200) sugere potencial de negócio",
+      "Imóvel padrão com garagem tem demanda de revenda"
     ],
     "negativos": [
-      "Ausência total de descrição técnica - risco extremo",
-      "Sem referência de preço (R$ 0) impossibilita cálculo de economia",
-      "Sem informações de localização, metragem, ano construção ou estado conservação",
-      "Impossível avaliar ROI sem dados básicos do imóvel",
-      "Risco alto de ônus, financiamento ativo ou restrições cartoriais"
+      "Descrição ausente - impossível avaliar condições estruturais, documentação ou restricões",
+      "Sem referência de preço (R$ 0) - não há parâmetro de economia/oportunidade",
+      "Risco crítico de alienação/financiamento não informado",
+      "Pode haver problemas de ITBI, matrículas, hipotecas ou imóvel litigioso"
     ],
-    "avaliacao_plataforma": "REJEITAR esta compra sem inspeção presencial e parecer jurídico. Lance suspeito por falta de dados. Consulte cartório antes de qualquer oferta. Imóvel com descrição vazia = risco de passivos ocultos.",
+    "avaliacao_plataforma": "RISCO ALTO. Imóvel sem dados básicos é bandeira vermelha. Consulte cartório imediatamente para verificar matrículas, ônus e restrições. Sem descrição, não há como validar se o lance de R$ 32.200 é oportunidade ou armadilha. Só participe com inspeção técnica prévia e parecer jurídico.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/jaguaribara/casa-padrao-1-vagas-de-garagem-x125283"
   },
   {
@@ -1576,19 +1594,18 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "análise prévia obrigatória",
+    "uso_sugerido": "análise presencial obrigatória",
     "positivos": [
-      "Localização em Fortaleza - mercado aquecido de imóveis",
-      "Metragem interessante (101 m²) - perfil de alta demanda"
+      "Lance de R$ 230 mil em imóvel de 101 m² em Fortaleza (região com demanda)"
     ],
     "negativos": [
-      "Sem descrição do imóvel - condição estrutural desconhecida",
-      "Sem preço de referência (Ref: R$ 0) - impossível calcular desconto real",
-      "Lance de R$ 230 mil sem contexto - pode ser 10% ou 90% do valor de mercado",
-      "Risco alto de alienação/restrição em imóvel - consulta cartorial IMPRESCINDÍVEL",
-      "Sem documentação aparente - verificar matrículas, débitos e litígios"
+      "Ausência total de descrição do imóvel (estado, reformas, documentação)",
+      "Sem valor de referência (impossível calcular % de desconto)",
+      "Sem informações de localização precisa dentro de Vila Ellery",
+      "Risco alto de alienação/restrição em leilão imobiliário (consultar matrícula é obrigatório)",
+      "Sem detalhes sobre documentação, débitos (IPTU/condomínio), ou pendências estruturais"
     ],
-    "avaliacao_plataforma": "NÃO VIÁVEL ARREMATAR sem: 1) Vistoria presencial completa (estrutura, infiltrações, fundações); 2) Consulta ao cartório (ônus, hipotecas, penhoras); 3) Levantamento de débitos (IPTU, condomínio, água). Em imóveis, 60-70% do valor venal é aceitável; aqui faltam dados críticos. RISCO MUITO ALTO.",
+    "avaliacao_plataforma": "NÃO ARREMATA SEM INSPEÇÃO. Imóvel sem descrição é red flag em leilão. Exija acesso ao cartório (matrícula), vistoria técnica e certidão de débitos. Mesmo com lance aparentemente atrativo, falta de informação = risco de alienação ou custo de restauração não previsto.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-101-m2-vila-ellery-fortaleza-ce-x124946"
   },
   {
@@ -1609,19 +1626,20 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar vistoria técnica",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Área rural consolidada (14.652 m²) em Beberibe-CE",
-      "Lance inicial baixo (R$ 290 mil) sugere potencial de negócio"
+      "Área significativa: 14.652 m² em zona rural (Beberibe-CE)",
+      "Lance inicial baixo (R$ 290 mil) sugere potencial de oportunidade"
     ],
     "negativos": [
-      "Sem descrição do imóvel (condições, benfeitorias, documentação)",
-      "Sem referência de preço - impossível calcular margem real",
-      "Sem informação sobre registros, débitos ou restrições cartoriais",
-      "Localização em região carente de dados de valorização",
-      "Risco alto de alienação/ônus não identificados"
+      "CRÍTICO: Sem descrição do imóvel (estado, benfeitorias, documentação, restrições)",
+      "Sem referência de preço (R$ 0) - impossível calcular economia real",
+      "Sem informação de acesso, infraestrutura, ou características do terreno",
+      "Alto risco de alienação/restrição em imóvel rural (necessário consulta cartório)",
+      "Sem fotos, matrículas ou laudo técnico disponível",
+      "Localização rural com potencial baixa liquidez"
     ],
-    "avaliacao_plataforma": "CRÍTICO: Imóvel rural sem informações essenciais. Antes de arrematar, exija: (1) vistoria presencial completa, (2) consulta cartória para ônus/restrições, (3) situação fiscal/INCRA, (4) comparativo com terras similares na região. Sem estes dados, é caixa preta.",
+    "avaliacao_plataforma": "RISCO ALTO - Imóvel rural com informações insuficientes. NÃO lance sem: (1) consulta ao cartório de imóveis, (2) inspeção presencial, (3) avaliação agrimensura, (4) verificação de débitos/IPTU. Possível oportunidade, mas exige due diligence completa antes de qualquer comprometimento.",
     "url": "https://www.megaleiloes.com.br/imoveis/terrenos-e-lotes/ce/beberibe/area-com-14652-m2-fazenda-mosquito-santa-eugenia-beberibe-ce-x124952"
   },
   {
@@ -1632,7 +1650,7 @@
     "modelo": "Gerador Fotovoltaico De Potencia Sup. 750W",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 16000.0,
+    "lance_atual": 17000.0,
     "fipe_valor": 30000,
     "fipe_str": "R$ 30,000 (ref. mercado)",
     "classificacao": "⚠️ MEDIANO",
@@ -1644,18 +1662,18 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "análise técnica prévia obrigatória",
     "positivos": [
-      "Desconto significativo: 46,7% abaixo da referência (R$ 14 mil de economia)",
-      "Equipamento com demanda em mercado solar crescente",
-      "Lance em patamar competitivo se equipamento estiver funcional"
+      "Desconto significativo: 43.3% abaixo da referência (R$ 13.000 de economia)",
+      "Equipamento de demanda crescente no mercado solar brasileiro",
+      "Potência acima de 750W tem saída garantida para revenda ou uso próprio"
     ],
     "negativos": [
-      "Descrição completamente vazia - RED FLAG crítica",
-      "Sem informações de estado físico, conservação ou funcionamento",
-      "Sem histórico de uso, manutenção ou garantia",
-      "Geradores fotovoltaicos exigem inspeção técnica (inversores, painéis, estrutura)",
-      "Risco alto: economia (R$ 14 mil) pode ser consumida em reparo/recondicionamento"
+      "Zero informação sobre estado físico/funcional - risco crítico",
+      "Sem KM ou horas de funcionamento impossível avaliar desgaste",
+      "Sem descrição: pode estar danificado, seminovo ou com defeitos ocultos",
+      "Risco de reparo (inversores/painéis solares custam 40-60% do valor se danificados)",
+      "Equipamento de 2023: possível recall ou defeito de fabricação ainda sob garantia"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO ALTO - Não arrematar sem inspeção técnica presencial. A falta total de descrição sugere possível equipamento com defeito, uso intenso ou componentes danificados. Solicite laudo técnico antes do lance; economia só vale se reparo < R$ 5-7 mil.",
+    "avaliacao_plataforma": "NÃO LANCE sem inspeção prévia. A economia de R$ 13 mil é atrativa, MAS o custo de reparo de um gerador fotovoltaico defeituoso pode facilmente consumir toda a margem. Exija laudo técnico completo (eficiência, inversor, painéis) antes de oferecer. Risco/benefício desfavorável sem dados.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-fotovoltaico-de-potencia-sup.-750w-(75-placas)/ano.2023/33f3f256-5acd-11f1-99e0-02420a00000a"
   },
   {
@@ -1666,7 +1684,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8600.0,
+    "lance_atual": 9000.0,
     "fipe_valor": 15558.0,
     "fipe_str": "R$ 15.558,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1678,17 +1696,17 @@
     "oportunidade": "BOA",
     "uso_sugerido": "revenda ou uso pessoal",
     "positivos": [
-      "Desconto expressivo de 44,7% sobre referência (R$ 6.958 de economia)",
-      "CG 160 Start é modelo popular, alta demanda de revenda",
-      "Baixa quilometragem para 2023 (35.371 km = bem mantida)",
-      "Segmento 160cc tem mercado secundário forte"
+      "57.8% da referência = desconto significativo (R$ 6.558 de economia)",
+      "Honda CG 160 Start 2023: modelo popular, alta demanda de mercado",
+      "35.371 km: baixa quilometragem para 2023, indica pouco uso",
+      "Posicionamento em 60% da FIPE é padrão de bom negócio em leilões"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO = risco crítico - não há informações sobre estado mecânico, danos, sinistros ou histórico",
-      "Impossível avaliar se desconto reflete estado real ou é oportunidade genuína",
-      "Falta inspeção detalhada compromete decisão de compra"
+      "SEM DESCRIÇÃO: risco crítico - não há informações sobre estado mecânico, sinistros ou danos",
+      "Impossível avaliar se há batidas, roubo de peças ou problemas ocultos",
+      "Não há fotos ou histórico do veículo mencionado"
     ],
-    "avaliacao_plataforma": "A moto está 55,3% do valor FIPE (excelente percentual), MAS a ausência total de descrição é RED FLAG. Antes de arrematar: solicite fotos, laudo mecânico e consulta Detran (sinistros, roubo). O desconto pode ser legítimo OU esconder dano estrutural. Risco moderado para revenda sem inspeção prévia.",
+    "avaliacao_plataforma": "Preço atrativo (57.8%), mas descrição vazia inviabiliza análise real. EXIJA inspeção presencial, consulte histórico no Detran e verifique se há restricões antes de dar lance. A economia de R$ 6.558 só justifica se a moto estiver limpa de sinistros e danos mecânicos.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2023/05255850-48be-11f1-9b2f-02420a000006"
   },
   {
@@ -1699,7 +1717,7 @@
     "modelo": "Shineray 50Q",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4400.0,
+    "lance_atual": 4800.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -1709,19 +1727,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção prévia",
+    "uso_sugerido": "não recomendado sem análise",
     "positivos": [
-      "Modelo 2026 (zero ou muito baixa km)",
-      "Shineray 50Q é moto de entrada com mercado ativo de revenda"
+      "Modelo 2026 (zero km ou baixa quilometragem potencial)",
+      "Scooter popular com demanda de mercado"
     ],
     "negativos": [
-      "Sem referência FIPE/mercado (R$ 0) - impossível calcular desconto real",
-      "KM não informado - crítico para motos",
-      "Sem descrição de estado - sinais de risco em leilão",
-      "Lance R$ 4.400 sem contexto - pode ser superfaturado ou oportunidade perdida",
-      "Falta total de informações essenciais"
+      "Sem descrição do estado físico/mecânico",
+      "KM não informado (bandeira vermelha)",
+      "Sem preço de referência FIPE fornecido",
+      "Lance R$ 4.800 sem contexto comparativo",
+      "Impossível calcular % desconto ou ROI"
     ],
-    "avaliacao_plataforma": "⚠️ OPERAÇÃO NÃO RECOMENDADA. Sem FIPE, KM e descrição, é impossível estimar ROI. Motos 50cc novas custam ~R$ 5-6k no varejo; se R$ 4.400 é lance vencedor, pode valer, MAS exija inspeção presencial antes de dar lance. Risco: financiamento alienado ou quilometragem adulterada.",
+    "avaliacao_plataforma": "Item inviável para análise. Faltam dados críticos: km real, fotos, laudo de inspeção e preço FIPE. Uma Shineray 50Q 2026 nova custa ~R$ 6.500-7.000. Se for zero km ao preço anunciado, pode ser oportunidade, mas EXIJA inspeção completa em cartório antes de arrematar. Risco alto de sinistrado/recuperação de financiamento.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/a47ec399-4ad7-11f1-8621-02420a000005"
   },
   {
@@ -1742,19 +1760,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar análise presencial",
+    "uso_sugerido": "aguardar inspeção prévia",
     "positivos": [
-      "Modelo 2025 (zero km ou baixa quilometragem esperada)",
-      "Lance inicial acessível (R$ 6.000)"
+      "Modelo 2025 (zero km presumido)",
+      "Shineray XY150 é entrada confiável no segmento"
     ],
     "negativos": [
-      "Sem descrição do estado físico/mecânico",
-      "Sem km informado (crítico para moto)",
-      "Sem referência de preço FIPE (impossível calcular desconto real)",
-      "Sem histórico de sinistros ou restrições declaradas",
-      "Dados insuficientes para análise ROI"
+      "Sem descrição do estado (sinistrado? batido? bom?)",
+      "KM não informado",
+      "Sem referência de preço FIPE para comparativo",
+      "Lance R$ 6.000 isolado não permite análise de economia",
+      "Risco alto: ausência total de informações"
     ],
-    "avaliacao_plataforma": "RISCO ALTO. Moto nova sem km declarado + sem descrição = bandeira vermelha. Exija laudo antes de participar. Consulte cartório para restrições (alienação) e solicite inspeção presencial obrigatória. Sem FIPE de referência, desconto de 60-70% é impossível de validar.",
+    "avaliacao_plataforma": "⚠️ DADOS INSUFICIENTES. XY150 nova vale R$ 12-15k em concessionária. Se está em leilão por R$ 6k, há razão (sinistrada/batida/financeira). NÃO lance sem: 1) Laudo técnico completo; 2) Consulta cartório (alienação); 3) Histórico de sinistro. Risco de arrependimento elevado.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/f813df38-1957-11f1-a639-02420a000005"
   },
   {
@@ -1775,18 +1793,18 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "inspção presencial obrigatória",
+    "uso_sugerido": "aguardar informações",
     "positivos": [
-      "Moto popular 2024 com baixa quilometragem (13.526 km)",
-      "Lance inicial acessível (R$ 4.200) sugere potencial de negócio"
+      "Moto popular com boa demanda de mercado (Shineray XY150)",
+      "Quilometragem razoável (13.526 km) para modelo 2024"
     ],
     "negativos": [
-      "Ausência total de referência FIPE (R$ 0) - impossível calcular % de desconto real",
-      "Sem descrição do estado (batido, sinistrado, recuperado de financiamento?)",
-      "Não é possível validar se R$ 4.200 é bom negócio sem benchmark",
-      "Risco alto: pode ser veículo com restrição/alienação - exige cartório antes de dar lance"
+      "SEM DESCRIÇÃO - impossível avaliar condições reais (batidas, sinistros, manutenção)",
+      "Sem valor de referência (FIPE/mercado) - impossível calcular se 60-70% representa oportunidade",
+      "Lance de R$ 4.200 em vácuo - pode ser ótimo negócio OU furada total",
+      "Risco alto: moto sem histórico documentado pode ter restrição financeira ou procedência duvidosa"
     ],
-    "avaliacao_plataforma": "LOTE ALTO RISCO. Shineray 150cc 2024 nova demanda inspeção presencial urgente. Sem referência FIPE e descrição, não há base para ROI. Valide restrições no cartório antes de qualquer decisão. Só lance se presencialmente OK.",
+    "avaliacao_plataforma": "⚠️ NÃO ARREMATAR SEM INSPEÇÃO. Exija relatório fotográfico completo, consulte cartório (restrições/financiamento) e solicite detalhes de manutenção. Sem referência FIPE, o lance R$ 4.200 é um número solto. Moto popular: margem operacional baixa - só vale se pristina ou com reparo estimado <R$ 500.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/9b050e6e-1d46-11f1-a639-02420a000005"
   },
   {
@@ -1809,17 +1827,18 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Jeep Compass é modelo demandado no mercado secundário",
-      "2018 ainda possui valor residual relevante"
+      "Veículo relativamente novo (2018)",
+      "Modelo popular com boa demanda de mercado (Compass Longitude)"
     ],
     "negativos": [
-      "Sem quilometragem informada (RED FLAG)",
-      "Sem descrição de estado (essencial em leilão)",
-      "Lance R$ 54.700 sem referência FIPE impossibilita análise de desconto",
-      "Sem histórico de sinistro/restrição declarado",
-      "KM desconhecido inviabiliza cálculo de depreciação real"
+      "Sem descrição do estado físico/mecânico - RED FLAG crítica",
+      "KM não informado - impossível avaliar desgaste",
+      "Sem preço de referência (Ref: R$ 0) - impossível calcular desconto real",
+      "Lance R$ 54.700 sem contexto = inutilizável para análise de ROI",
+      "Categoria 'caminhões' para Jeep Compass está INCORRETA (é SUV)",
+      "Risco alto de alienação financeira não descartado"
     ],
-    "avaliacao_plataforma": "INVIÁVEL PARA OFERTA. Faltam dados críticos: FIPE de referência, KM, fotos/laudo técnico e histórico. Solicite ao leiloeiro descrição detalhada e relatório de restrição (RENAJUD) antes de qualquer lance. Risco alto de compra às cegas.",
+    "avaliacao_plataforma": "❌ INVIÁVEL PARA ANÁLISE. Faltam dados essenciais: estado real do veículo, quilometragem, preço de mercado (FIPE) e histórico de restrições. NÃO RECOMENDO lance sem inspeção presencial e consulta ao cartório ANTES da arrematação. Risco de compra de passivo é elevado com informações tão escassas.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/jeep/compass-longitude-d/ano.2018/c0cb0823-223d-11f1-a639-02420a000005"
   },
   {
@@ -1840,10 +1859,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "uso_sugerido": "aguardar inspeção presencial",
+    "positivos": [
+      "Modelo consolidado (C4 Peugeot-Citroën) com peças acessíveis",
+      "Kilometragem moderada (167k km) para o ano 2011"
+    ],
+    "negativos": [
+      "SEM REFERÊNCIA DE PREÇO - impossível calcular desconto/FIPE",
+      "Sem descrição do estado (sinistrado? restaurado? mecânico OK?)",
+      "Lance R$ 12k muito genérico sem contexto de mercado",
+      "Risco alto: pode estar em leilão por restrição financeira",
+      "Ausência total de informações= provável leilão de baixa qualidade"
+    ],
+    "avaliacao_plataforma": "❌ NÃO ARREMATAR SEM INSPEÇÃO. Faltam dados críticos: condição física, histórico sinistro, restrições. R$ 12k pode ser armadilha ou ouro bruto. Exija laudo técnico e consulta cartório ANTES do lance. Plataforma pouco profissional.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c4-exclusive-5p-f-(4p)/ano.2011/5768ed5e-2d01-11f1-8174-02420a000006"
   },
   {
@@ -1864,20 +1892,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção técnica",
+    "uso_sugerido": "aguardar inspeção prévia",
     "positivos": [
-      "Desconto de 13.6% vs referência (R$ 3.477 de economia)",
-      "Volkswagen Virtus é modelo confiável e com demanda de revenda",
-      "Comfortline é versão equilibrada (bom custo-benefício)"
+      "Desconto de 13.6% vs referência FIPE (R$ 3.477 de economia)",
+      "Volkswagen Virtus é sedã confiável com bom mercado de revenda",
+      "Preço competitivo se veículo estiver em bom estado"
     ],
     "negativos": [
-      "Quilometragem NÃO INFORMADA - RED FLAG crítico para precificação",
-      "SEM DESCRIÇÃO do estado geral - impossível avaliar danos/desgaste",
-      "Desconto modesto (86.4%) sugere possível problema não declarado",
-      "Risco de veículo com restrição/financiamento ativo - exige busca no cartório",
-      "2019 com dados omissos = potencial sinistro ou alienação"
+      "SEM DESCRIÇÃO - informação crítica ausente (condição geral, danos, manutenção)",
+      "KM não informado - impossível avaliar desgaste e vida útil",
+      "Sem imagens ou laudo - risco máximo em leilão",
+      "86.4% da referência é margem fina; reparo inesperado inviabiliza operação"
     ],
-    "avaliacao_plataforma": "⚠️ AGUARDE INSPEÇÃO PRESENCIAL. Falta de km e descrição em leilão é indicativo de problema ocultado. O desconto pequeno não compensa o risco desconhecido. Consulte cartório ANTES de qualquer proposta e exija relatório técnico completo.",
+    "avaliacao_plataforma": "REJEITAR LANCE NESTE MOMENTO. Exija inspeção técnica, fotos de 360°, KM comprovado e histórico de acidentes antes de qualquer decisão. A ausência total de descrição é RED FLAG clássica em leilão. Se Virtus estiver íntegro, o preço é aceitável (60-70% FIPE é benchmark), mas o risco informacional supera o upside de R$ 3.4k.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/virtus-comfortline-ad/ano.2019/380ae189-8920-4fe8-879e-a1b4da945556"
   },
   {
@@ -1898,18 +1925,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção",
+    "uso_sugerido": "análise obrigatória antes de lance",
     "positivos": [
       "Lance em 36.9% da referência = economia de R$ 17.966",
-      "Chevrolet Classic é veículo de demanda estável em leilão"
+      "Chevrolet Classic é modelo com peças acessíveis e baixo custo de manutenção",
+      "Se integro, preço muito atrativo para revenda"
     ],
     "negativos": [
-      "Sem descrição do estado = risco extremamente alto",
+      "Sem descrição do estado = RED FLAG principal",
       "KM não informado = impossível avaliar desgaste",
-      "Preço muito abaixo da referência sem justificativa clara",
-      "Pode ser sinistrado, batido ou com restrição financeira"
+      "Veículo de 2013 (11+ anos) sem histórico = risco sinistrado/batido não declarado",
+      "Desconto muito acentuado (63.1%) sugere defeito oculto ou restrição"
     ],
-    "avaliacao_plataforma": "⚠️ ALERTA: Não arremate sem vistoria presencial. A ausência total de descrição + preço 63% abaixo da FIPE indica sinistro/restrição muito provável. Se batido, custo de reparo pode consumir toda economia. Consulte cartório antes de participar.",
+    "avaliacao_plataforma": "RISCO ALTO. Desconto expressivo + ausência total de descrição + dados incompletos indicam veículo problemático (sinistrado, batido ou com restrição). Exija inspeção presencial e consulta ao Detran/cartório ANTES de qualquer lance. Se for recuperável, pode render; se tiver sinistro grave, economia evaporará em reparo.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/classic-ls-(2p%2F4p)/ano.2013/4fcc4ac0-a8fd-4fa4-ba8d-54652079d841"
   },
   {
@@ -1929,19 +1957,20 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeccionar antes de decidir",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "revenda (se íntegro)",
     "positivos": [
-      "Lance a 32% da referência = economia de R$ 42.480",
-      "Ford Ecosport Se 2018 com demanda de revenda em mercado secundário",
-      "Quilometragem moderada (108k km) dentro do esperado para ano/modelo"
+      "Preço em 32% da referência = R$ 42.480 de economia bruta",
+      "Ford EcoSport SE 2018 é modelo popular com demanda de revenda",
+      "Quilometragem moderada (108k km) não é preocupante para ano/modelo"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO = red flag crítico; não há informação sobre estado mecânico, sinistros ou problemas estruturais",
-      "Desconto muito agressivo (32%) sugere pendência não declarada ou problema oculto",
-      "Risco alto: pode estar sinistrado, com restrição financeira ou dano estrutural não informado"
+      "SEM DESCRIÇÃO = risco crítico - não há informações sobre estado físico, mecânico ou histórico",
+      "Desconto de 68% é suspeito - típico de veículos com problemas graves (sinistro, alienação, restrição)",
+      "Impossível estimar custo de reparo sem dados; economia pode ser ilusória",
+      "Alto risco de alienação/restrição em leilão genérico - exige vistoria de cartório"
     ],
-    "avaliacao_plataforma": "⚠️ NÃO ARREMATE SEM INSPEÇÃO. Desconto de 68% é suspeito em leilão sem descrição. Exija relatório técnico completo e consulta de restrições no cartório antes de qualquer lance. ROI positivo só se estado for confirmado BOM após vistoria presencial.",
+    "avaliacao_plataforma": "🚨 REJEITAR SEM INSPEÇÃO PRESENCIAL. Desconto extremo + falta de descrição = red flag clássico de leilão. Se for íntegro, é oportunidade; se batido/sinistrado, prejuízo certo. Exija vistoria completa e consulta de restrições antes de qualquer lance.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se/ano.2018/0a9cc862-eaa2-4bc2-89e0-6fc8adc437e0"
   },
   {
@@ -1964,18 +1993,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Modelo 2024 (ano recente)",
-      "Baixa quilometragem (30.923 km)",
-      "Lance inicial conservador (R$ 5.000)"
+      "Shineray XY150-8 é modelo popular, peças acessíveis e manutenção barata",
+      "Lance de R$ 5.000 pode estar abaixo da FIPE se moto estiver em bom estado (FIPE XY150 2024 ≈ R$ 7.500-9.000)"
     ],
     "negativos": [
-      "Sem descrição do estado (crítico)",
-      "Sem referência FIPE para comparação",
-      "Impossível calcular % de economia",
-      "Risco alto de ocultar sinistro/problemas mecânicos",
-      "Sem histórico de manutenção"
+      "SEM DESCRIÇÃO - impossível avaliar estado (batida, sinistro, revisões, danos mecânicos)",
+      "SEM REFERÊNCIA DE PREÇO (Ref: R$ 0) - não há parâmetro de desconto",
+      "30.923 km com ano 2024 = rodagem normal, mas sem histórico não garante bom uso",
+      "Falta informação crítica: documentação, restrições, proprietário anterior"
     ],
-    "avaliacao_plataforma": "OPERAÇÃO SUSPEITA. Moto 2024 com lance tão baixo (R$ 5k) sem descrição é RED FLAG. Pode ser sinistrada, financiada ou com problemas graves. NÃO lance sem inspeção presencial e consulta ao Detran/cartório. Risco de perda total.",
+    "avaliacao_plataforma": "⚠️ LOTE INCOMPLETO - Exija inspeção presencial e fotos antes de oferecer lance. Sem descrição, é aposta cega. Se passar em vistoria, pode valer 60-65% FIPE. Confirme cartório (sem alienação/financiamento).",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/e928d965-2e92-11f1-86d7-0242ac50004b"
   },
   {
@@ -1996,19 +2023,10 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção prévia",
-    "positivos": [
-      "Lance em 30.3% da referência = economia de R$ 32.210",
-      "Sandero Stepway é modelo robusto, demanda estável em leilão",
-      "Potencial margem para revenda se mecânica íntegra"
-    ],
-    "negativos": [
-      "SEM DESCRIÇÃO = risco crítico - não há informação de sinistro, mecânica ou histórico",
-      "204.243 km acumulados exigem verificação completa de motor/transmissão",
-      "Desconto agressivo (30%) pode indicar problema oculto não declarado",
-      "Impossível calcular ROI sem laudo técnico - pode ser sucata camuflada"
-    ],
-    "avaliacao_plataforma": "⚠️ REJEITAR LANCE AGORA. Exija laudo técnico completo ou vistoria in loco antes de qualquer oferta. Descrição vazia + desconto alto = risco de transferência de problemas graves. Em leilão, veículo sem documentação técnica é cilada garantida.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-sce-(4p)/ano.2017/78429fa6-3d40-45d4-85ec-85fa6f87b435"
   },
   {
@@ -2031,16 +2049,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance em 35.9% da referência = economia de R$ 29.822",
-      "Peugeot 208 é modelo com peças acessíveis e demanda de revenda"
+      "Preço 35,9% abaixo da referência = economia de R$ 29.822",
+      "Peugeot 208 Allure 2020 é modelo popular, fácil revenda"
     ],
     "negativos": [
-      "Sem descrição do estado = risco máximo",
-      "KM não informado = impossível avaliar desgaste",
-      "Desconto muito agressivo (35.9%) sugere problema não declarado",
-      "Pode estar sinistrado, batido ou com restrição financeira"
+      "Sem descrição do anúncio = RED FLAG máxima em leilão",
+      "KM não informado = histórico de uso desconhecido",
+      "Economia significativa sugere problema estrutural/sinistro provável",
+      "Sem informação = risco de investimento cego"
     ],
-    "avaliacao_plataforma": "RISCO ALTO. Desconto de 64% sem justificativa declarada é red flag. Economizar R$ 29.822 só vale se o carro estiver em estado bom. NÃO lance sem inspeção técnica presencial e consulta ao cartório (alienação/restrições). Se aprovado em vistoria, pode ser ÓTIMO negócio; se não, é prejuízo garantido.",
+    "avaliacao_plataforma": "REJEITAR este lote. A ausência total de descrição + desconto agressivo (35,9%) é padrão de leilão sem inspeção. Exija relatório técnico ou fotos antes de qualquer lance. Risco de sinistro/recuperação financeira não descrito é INACEITÁVEL.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2020/01a123cc-c1bc-47cd-a257-5db572b298b5"
   },
   {
@@ -2063,17 +2081,17 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Troller T4 TX4 é modelo robusto com boa demanda no mercado secundário",
-      "2020 ainda em período de vida útil adequada para caminhão"
+      "Troller T4 Tx4 é modelo robusto e demandado no mercado",
+      "2020 é ano recente para caminhão utilitário"
     ],
     "negativos": [
-      "Quilometragem não informada - critério essencial para caminhão",
-      "Sem descrição de estado físico/mecânico - impossível avaliar sinistro ou desgaste",
-      "Sem referência FIPE/mercado (R$ 0) - não há baseline para negociação",
-      "Lance de R$ 85k muito genérico sem contexto de leilão especializado",
-      "Risco alto de alienação/restrição não mencionado"
+      "KM não informado - impossível avaliar desgaste e vida útil restante",
+      "Sem descrição de estado - não há informações sobre avarias, sinistros ou manutenção",
+      "Sem referência FIPE (R$ 0) - impossível calcular percentual de economia",
+      "Lance de R$ 85 mil está solto no ar sem baseline de comparação",
+      "Risco alto: pode ser sucata, sinistrado ou com restrição financeira encoberta"
     ],
-    "avaliacao_plataforma": "INVIÁVEL AVALIAR. Faltam dados críticos: KM, descrição de estado, referência de mercado e tipo de leilão. Recomendo solicitar à plataforma: laudo técnico, KM real, fotos do estado, pesquisa de FIPE Troller T4 2020 e consulta ao cartório antes de dar lance.",
+    "avaliacao_plataforma": "⛔ LOTE ALTO RISCO. Faltam dados críticos: KM, estado físico, histórico. Um T4 2020 em bom estado custa ~R$ 150-180k; se está a R$ 85k, há problema sério não divulgado. Exija inspeção PRÉ-leilão e consulta ao Cartório antes de licitar. Não arrisque sem informações.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/troller/t4-tx4-at-(2p)/ano.2020/3e4bdea6-368d-41a4-b932-5944fd726b11"
   },
   {
@@ -2093,20 +2111,20 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "REGULAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance a 30.2% da referência = economia de R$ 65.870",
-      "Jeep Compass Sport Flex 2021 - modelo procurado, baixa quilometragem (49.550 km)",
-      "Potencial excelente IF veículo estiver em bom estado"
+      "Preço 30,2% da referência = economia de R$ 65.870",
+      "Veículo novo (2021) com apenas 49.550 km",
+      "Modelo popular e fácil revenda (Compass é best-seller)"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO - RED FLAG crítico em leilão",
-      "Impossível avaliar estado (danos, histórico, manutenção)",
-      "Desconto tão agressivo (70% off) pode indicar sinistro/mecânico oculto",
-      "Risco alto de investimento cego sem fotos ou laudo"
+      "SEM DESCRIÇÃO = bandeira vermelha em leilão",
+      "Desconto agressivo (70%) sugere dano estrutural, financeiro ou sinistro não declarado",
+      "Risco alto: pode ser sucata, recuperação de financiamento ou batido pesado",
+      "A falta de informação inviabiliza cálculo de ROI real"
     ],
-    "avaliacao_plataforma": "NÃO ARREMATAR SEM INSPEÇÃO. Desconto de 70% sem descrição é suspeito. Exija fotos, laudo de sinistro e histórico ANTES de licitar. Se confirmado bom estado, seria ÓTIMA oportunidade (30% FIPE é excelente para revenda).",
+    "avaliacao_plataforma": "⚠️ RISCO MÁXIMO. Nenhum veículo 2021 com 49k km cai 70% sem motivo. Exija laudo técnico completo antes de licitar. Se sinistrado/sucata, economia não compensa reparos estruturais. Consulte cartório (alienações). Sem inspeção presencial = não lance.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/compass-sport-flex/ano.2021/b0883cb6-4aa7-4132-805b-08a73a6c4e2d"
   },
   {
@@ -2129,16 +2147,16 @@
     "oportunidade": "REGULAR",
     "uso_sugerido": "inspeção obrigatória antes de decisão",
     "positivos": [
-      "Preço 44.9% abaixo da referência = R$ 22,109 de economia potencial",
-      "Tucson é modelo robusto com bom mercado de revenda"
+      "Preço 44.9% abaixo da referência (R$ 22.109 de economia)",
+      "Desconto expressivo indica potencial de revenda com margem"
     ],
     "negativos": [
-      "Descrição ausente = RISCO CRÍTICO - pode esconder sinistro, batidas ou problema mecânico",
-      "249.284 km = acima da média, requer inspeção técnica completa",
-      "Sem informação = impossível validar se é bom negócio ou cilada",
-      "Preço 44.9% abaixo pode indicar problema grave não descrito"
+      "Descrição ausente: RED FLAG crítica - oculta histórico de sinistro, batida ou problemas mecânicos",
+      "249.284 km é rodagem alta; sem histórico de manutenção = risco de motor/câmbio",
+      "Desconto tão acentuado sugere vício oculto ou alienação pendente",
+      "Tucson 2011 nesta faixa de km: desgaste em suspensão, direção e sistema elétrico esperado"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO ALTO. Sem descrição, não compre às cegas. O desconto agressivo (45%) + quilometragem elevada + falta de info = potencial sinistrado ou com problema mecânico oculto. Exija inspeção técnica (motor, estrutura, documentação) e consulte cartório ANTES de licitar. Em leilão, falta de transparência = bandeira vermelha.",
+    "avaliacao_plataforma": "⚠️ INSPECIONE NO CARTÓRIO (verificar alienações) e SOLICITE LAUDO TÉCNICO independente antes de dar lance. Descrição vazia = provável defeito estrutural ou sinistrado. Economia de R$ 22k só justifica se reparo não ultrapassar R$ 8-10k. NÃO arrematar às cegas.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/tucson-glb/ano.2011/fc3433a5-2cf6-11f1-8174-02420a000006"
   },
   {
@@ -2158,20 +2176,21 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de decisão",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "revenda (se íntegro)",
     "positivos": [
-      "Preço 39,9% abaixo da referência (economia de R$ 24.142)",
-      "Modelo popular com demanda de revenda",
-      "Km moderado para ano (149.920 km = ~12.5k/ano - dentro da normalidade)"
+      "39.9% da referência = R$ 24.142 de economia potencial",
+      "Preço 60% da FIPE é típico de bom negócio em leilão",
+      "Veículo popular (Focus Flex) com mercado de revenda aquecido",
+      "Km moderado (149.920) ainda dentro de vida útil"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO = RED FLAG crítica em leilão; falta de transparência indica provável problema estrutural",
-      "Desconto muito agressivo (40%) sem justificativa = sinistrado/batido/financeiro provável",
-      "Falta contexto: não há informação se é sucata, sinistrado ou recuperação de financiamento",
-      "Risco alto: economia (R$ 24.142) pode ser insuficiente se houver danos estruturais ou alienação"
+      "SEM DESCRIÇÃO = risco crítico — não há informação de sinistro, batidas ou problemas",
+      "Falta de transparência sugere ocultação de defeitos",
+      "Impossível estimar custo de reparo sem vistoria",
+      "Alto risco de receber veículo com problemas estruturais/mecânicos"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO ALTO - Rejeite sem inspeção. 'Sem descrição' em desconto de 40% é alerta de sinistro/restrição financeira. Exija parecer de mecânico e consulta ao Cartório antes de oferecer lance. Não é ÓTIMO por falta total de transparência.",
+    "avaliacao_plataforma": "⚠️ LANCE ATRATIVO MASCARADO POR OMISSÃO. Economia de R$ 24k é tentadora, mas AUSÊNCIA TOTAL DE DESCRIÇÃO é bandeira vermelha. Exija vistoria presencial antes de oferecer. Se for batido/sinistrado, R$ 16k pode virar prejuízo. Recomendação: INSPECIONAR in loco ou PASSE.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/focus-fc-flex-(4p)/ano.2013/b60a1024-22f1-11f1-a639-02420a000005"
   },
   {
@@ -2191,20 +2210,20 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "REGULAR",
-    "uso_sugerido": "análise prévia obrigatória",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Preço em 33,4% da referência (economia de R$ 25.759)",
-      "Fiat Uno Attractive 2021 - modelo básico, peças acessíveis",
-      "Km moderado (116.865 km) para o ano"
+      "Preço 33,4% abaixo da referência (economia de R$ 25.759)",
+      "Veículo relativamente novo (2021)",
+      "Quilometragem moderada (116.865 km)"
     ],
     "negativos": [
       "SEM DESCRIÇÃO - red flag crítica em leilão",
-      "Desconto muito agressivo (67%) sugere problema estrutural não divulgado",
-      "Risco alto de sinistro, batida ou restrição não mencionada",
-      "Impossível avaliar ROI sem vistoria presencial"
+      "Desconto muito agressivo (33,4%) sugere histórico não divulgado",
+      "Impossível avaliar se é ótima compra ou armadilha sem laudo técnico",
+      "Risco alto de sinistrado/batido/restrição financeira não declarados"
     ],
-    "avaliacao_plataforma": "⚠️ REJEITAR SEM VISTORIA. Desconto de 67% sem descrição indica sinistro/restrição oculta. Economia aparente (R$ 25.759) pode desaparecer em reparos. Exija inspeção técnica e consulta ao cartório antes de qualquer lance. Em leilão, preço 'bom demais' = problema escondido.",
+    "avaliacao_plataforma": "REJEITE esta oportunidade. Nenhum vendedor legítimo vende Uno 2021 por 1/3 do preço sem descrever o motivo. Exija laudo de inspeção completo, histórico de sinistros e consulta ao cartório ANTES de dar qualquer lance. Se a plataforma não fornece descrição, é operação de risco.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/uno-attractive-(4p%2F2p)/ano.2021/2a14b94b-2850-11f1-b6ad-0242ac500058"
   },
   {
@@ -2224,21 +2243,20 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revenda (se íntegro)",
+    "oportunidade": "BOA",
+    "uso_sugerido": "revenda ou uso pessoal",
     "positivos": [
-      "Preço 35,3% abaixo da referência (R$ 29.266 de economia)",
-      "Veículo recente (2020) com baixa quilometragem (56k km)",
-      "Segmento hatch popular com demanda de revenda",
-      "Se íntegro, margem de lucro potencial interessante"
+      "Preço em 35.3% da referência = economia de R$ 29.266",
+      "Quilometragem baixa (56.041 km) para veículo 2020",
+      "Ford Ka: baixo custo de manutenção e peças acessíveis",
+      "Segmento hatch compacto com demanda de revenda estável"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO - bandeira vermelha: pode esconder sinistro/batida",
-      "Desconto muito agressivo (35,3%) sugere pendência não declarada",
-      "Risco alto de problema estrutural/documentário não informado",
-      "Necessário vistoria presencial OBRIGATÓRIA antes de lance"
+      "SEM DESCRIÇÃO = risco crítico; não há informação sobre condições mecânicas, estéticas ou histórico",
+      "Desconto muito agressivo (65% abaixo referência) sugere possível batida, sinistro ou restrição não declarada",
+      "Impossível avaliar viabilidade sem inspeção prévia obrigatória"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO CRÍTICO: Desconto profundo + ausência total de descrição = provável sinistrado/batido não declarado. SÓ arrisque se vistoria presencial confirmar integridade. Consult cartório para restrições/alienação antes de participar. ROI atrativo apenas se veículo comprovadamente bom.",
+    "avaliacao_plataforma": "⚠️ INSPECIONE ANTES DE ARREMATAR. Desconto de 65% sem descrição é bandeira vermelha. Solicite ao leilão: laudo técnico, histórico Sinistro/Renajud e boletim de ocorrência. Risco de alienação é alto. Se aprovado em vistoria, ROI é excelente; se batido, reparo pode consumir toda a economia.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-c-(4p)/ano.2020/52c2696a-40a6-11f1-86d7-0242ac50004b"
   },
   {
@@ -2259,18 +2277,19 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "REGULAR",
-    "uso_sugerido": "inspeção obrigatória antes de decidir",
+    "uso_sugerido": "inspeção obrigatória antes de lance",
     "positivos": [
-      "Preço 45.2% abaixo da referência = R$ 56.937 de economia bruta",
-      "S10 Lt é modelo consolidado com demanda de revenda/uso profissional",
-      "171 mil km é aceitável para pickup 2019 se manutenção em dia"
+      "Preço 45,2% abaixo da referência (economia de R$ 56.937)",
+      "S10 2019 com demanda forte no mercado secundário",
+      "Quilometragem moderada (171k km) para picape de trabalho"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO = risco crítico em leilão - pode esconder sinistro, dano estrutural ou problema mecânico",
-      "Desconto agressivo (45%) sugere histórico comprometido ou avaria não divulgada",
-      "Sem informação = possível restrição financeira, alienação ou leilão de recuperadora"
+      "Sem descrição = RED FLAG absoluta em leilão",
+      "Desconto agressivo (45%) sugere problema estrutural ou sinistro",
+      "Risco de alienação/restrição financeira não descartado",
+      "Impossível avaliar estado mecânico/visual sem inspeção"
     ],
-    "avaliacao_plataforma": "⚠️ RISCO ALTO: Ausência total de descrição em item tão descontado é RED FLAG. A economia de R$ 56.937 pode evaporar rapidamente em reparos estruturais ou pendências legais. Exija laudo de inspeção técnica completa e consulta ao cartório ANTES de dar lance. Se for sinistrado/batido não declarado, o 'negócio' vira prejuízo.",
+    "avaliacao_plataforma": "RISCO ELEVADO. Desconto de 45% sem descrição é suspeito demais. Pode ser ótima pechincha OU armadilha. Exija pré-leilão especializado com mecânico de confiança. Se aprovado, valor fica em faixa excelente (50-55% FIPE = bom negócio). Se houver sinistro oculto, prejuízo certo.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/s10-lt-dd4a-cabine-dupla/ano.2019/9e987d78-10b9-11f1-8a4c-0242ac50000b"
   },
   {
@@ -2281,7 +2300,7 @@
     "modelo": "Scrambler 400X",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9400.0,
+    "lance_atual": 10400.0,
     "fipe_valor": 30031.0,
     "fipe_str": "R$ 30.031,00",
     "classificacao": "✅ ÓTIMO",
@@ -2290,19 +2309,20 @@
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revenda (se aprovado em vistoria)",
+    "oportunidade": "REGULAR",
+    "uso_sugerido": "inspeção obrigatória antes de decisão",
     "positivos": [
-      "Desconto significativo: 31,3% da referência = R$ 20.631 de economia",
-      "Moto moderna 2025 com baixa quilometragem (16.605 km)",
-      "Marca consolidada (Triumph) com boa demanda de revenda"
+      "Desconto expressivo: 34,6% da referência = R$ 19.631 de economia potencial",
+      "Modelo recente (2025) com baixa quilometragem (16.605 km)",
+      "Scrambler 400X é modelo procurado no mercado secundário"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO - red flag crítica: não declara estado, sinistros ou problemas",
-      "Preço 31,3% abaixo da referência sugere defeito oculto ou sinistro não informado",
-      "Risco alto de alienação/restrição não declarada - exige vistoria completa e consulta cartório obrigatória"
+      "CRÍTICO: Sem descrição do estado = risco máximo de sinistro/batida oculto",
+      "Lance muito agressivo (34,6%) sugere problema estrutural ou mecânico não divulgado",
+      "Impossível estimar custo de reparo sem inspeção - economia pode evaporar facilmente",
+      "Risco de alienação/restrição em motos de leilão: exige consulta cartório antes de arrematar"
     ],
-    "avaliacao_plataforma": "⚠️ ANALISAR COM CAUTION: Desconto agressivo + ausência de descrição = provável sinistro/recuperação não mencionada. Obrigatório: vistoria especializada em moto, consulta cartório (restricões) e histórico de sinistro antes de qualquer lance. Se aprovado, margem de lucro é excelente (31% de desconto).",
+    "avaliacao_plataforma": "SUSPEITA ALTA. Desconto de 65% + ausência de descrição = padrão de leilão com defeito oculto. Não arremate sem inspeção presencial. Economia de R$ 19.631 perde valor se reparo ultrapassar R$ 15.000 (carcaça/motor).",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/triumph/scrambler-400x/ano.2025/a4d657cd-3832-11f1-86d7-0242ac50004b"
   },
   {
@@ -2325,16 +2345,17 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Mercedes-Benz Atego é chassis confiável para trabalho",
-      "2014 ainda tem vida útil relevante se bem conservado"
+      "Mercedes-Benz Atego é modelo robusto com boa aceitação no mercado secundário",
+      "2014 ainda dentro de vida útil operacional para caminhões (geralmente 10-15 anos)"
     ],
     "negativos": [
-      "Sem descrição = risco máximo de compra às cegas",
-      "KM não informado = impossível avaliar desgaste",
-      "Sem referência FIPE = não há parâmetro de desconto",
-      "Lance R$ 102k sem contexto = pode ser superfaturado ou barganha"
+      "Sem descrição do estado - pode ser operacional, sinistrado ou sucata",
+      "KM não informado - impossível avaliar desgaste e manutenção futura",
+      "Sem referência de preço FIPE/mercado - lance de R$ 102k não tem parâmetro de comparação",
+      "Sem histórico financeiro - risco alto de alienação não declarada",
+      "Falta de transparência sugere leilão de baixa qualidade ou item problemático"
     ],
-    "avaliacao_plataforma": "LEILÃO PERIGOSO. Caminhão Atego 2014 sem descrição, KM ou preço referência é aposta no escuro. Mínimo exigível: inspeção técnica presencial, laudo mecânico e verificação de restrições antes de qualquer lance. Não recomendo participação sem essas informações.",
+    "avaliacao_plataforma": "INVIÁVEL OFERECER PARECER - Leilão extremamente opaco. Recuse sem inspeção prévia com laudo técnico independente e consulta ao Cartório de Imóveis e Títulos. Risco de adquirir caminhão sinistrado/com débitos por R$ 102k é desproporcional. Não há margem de segurança sem dados mínimos.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-2426/ano.2014/91e83243-3360-11f1-86d7-0242ac50004b"
   },
   {
@@ -2357,17 +2378,17 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Modelo 2025 (zero km provável)",
-      "Lance inicial conservador (R$ 5.000)"
+      "Modelo 2025 (zero km ou baixa quilometragem potencial)",
+      "Lance inicial baixo (R$ 5.000) sugere oportunidade de preço"
     ],
     "negativos": [
-      "Sem descrição do estado (vermelho absoluto)",
-      "Sem referência de preço FIPE/mercado (impossível calcular %)",
-      "KM não informado",
-      "Nenhum dado técnico ou visual disponível",
-      "Risco máximo de sinistrado/recuperação financeira não descartado"
+      "Descrição ausente - impossível avaliar condição real",
+      "KM não informado - pode ser sucata, sinistrada ou recuperação",
+      "Sem referência FIPE/mercado (ref: R$ 0) - impossível calcular percentual",
+      "Marca Xinling pouco comum no Brasil - revenda limitada",
+      "Sem histórico de restrições informado"
     ],
-    "avaliacao_plataforma": "INVIÁVEL PARA ANÁLISE. Recuse este lote sem inspeção presencial e laudo técnico. A Xinling Bull KRC F5 nova gira ~R$ 25-30k; R$ 5.000 sem contexto = motocicleta com problema grave ocultado. Exija relatório do leilão ou passe.",
+    "avaliacao_plataforma": "⚠️ RISCO CRÍTICO: Leilão com dados insuficientes. NÃO LANCE sem inspeção técnica presencial e consulta ao cartório. A ausência de descrição + referência zerada + KM omitido sugere possível sinistro ou restrição. Exija fotos, laudo de condição e liberação de ônus antes de qualquer decisão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/nome-padrao/xinling-bull-krc-f5/ano.2025/b35fc092-08d7-11f1-8a4c-0242ac50000b"
   },
   {
@@ -2390,17 +2411,17 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Baixa quilometragem (12.014 km)",
-      "Modelo recente (2025)",
-      "Lance inicial acessível (R$ 5.700)"
+      "Moto popular com demanda de mercado (Shineray XY150)",
+      "Quilometragem moderada (12.014 km)",
+      "Sem histórico de sinistro aparente"
     ],
     "negativos": [
-      "SEM DESCRIÇÃO do estado físico/mecânico",
-      "SEM REFERÊNCIA DE PREÇO (impossível calcular desconto %)",
-      "Impossível avaliar se é bom negócio sem dados FIPE/mercado",
-      "Risco alto: pode estar sinistrada, batida ou com restrição financeira"
+      "Sem preço de referência (Ref: R$ 0) - impossível calcular desconto",
+      "Sem descrição técnica ou de estado",
+      "Lance muito baixo sem contexto (risco de leilão com restrição/financiamento)",
+      "Impossível validar se é oportunidade real ou ativo problemático"
     ],
-    "avaliacao_plataforma": "⚠️ LOTE INCOMPLETO - Não arrematue sem inspeção presencial e laudo técnico. Falta descrição crítica e preço de referência. Solicite ao leiloeiro: histórico de sinistros, relatório de danos, documento limpo e comprovação de propriedade.",
+    "avaliacao_plataforma": "LOTE INCOMPLETO. Sem referência FIPE e descrição zero, não há base para análise de ROI. Antes de licitar: (1) consulte cartório para restrições; (2) insista em fotos/laudo técnico; (3) verifique se há financiamento ativo. Shineray XY150 vale R$ 8-10k no mercado - se lance é real, pode render margem, MAS o silêncio da descrição é RED FLAG clássico de leilão com problema oculto.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/64b3a45d-409d-11f1-86d7-0242ac50004b"
   },
   {
@@ -2423,17 +2444,18 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Lance em 31,7% da referência (R$ 9.600 vs R$ 30.243)",
-      "Modelo 2025 - veículo novo/recente",
-      "Honda Xre 300 Sahara - marca confiável, demanda de mercado"
+      "Lance extremamente abaixo da referência (31,7% = R$ 20.643 de economia)",
+      "Modelo 2025 com tecnologia recente e demanda de mercado",
+      "Honda Xre 300 Sahara é moto aventureira com público fiel"
     ],
     "negativos": [
-      "CRÍTICO: Sem descrição do estado - não há informação sobre sinistro, batidas, km real ou condição",
-      "KM não informado - impossível avaliar desgaste",
-      "Desconto extremo (68,3%) indica alto risco: possível sinistrado, batido, com restrição financeira ou problema oculto",
-      "Falta de documentação visual/laudo técnico impede decisão"
+      "Descrição completamente ausente (RED FLAG crítico)",
+      "KM não informado - impossível avaliar desgaste/vida útil",
+      "Desconto desproporcional (68,3%) sugere sinistro, recall ou defeito estrutural",
+      "Sem fotos, histórico ou laudo técnico divulgado",
+      "Risco muito alto de vício oculto ou dano não declarado"
     ],
-    "avaliacao_plataforma": "🚨 RISCO ELEVADO. Lance agressivo sem descrição é RED FLAG. Se sinistrado/batido, economia de R$ 20.643 pode evaporar em reparo de estrutura/motor. MANDATÓRIO: solicitar laudo de inspeção, fotos, histórico RENAVAM e consulta ao cartório ANTES de qualquer lance. Sem informações, qualquer valorização é especulação pura.",
+    "avaliacao_plataforma": "REJEITE ou INSPECIONE in loco antes de lance. Desconto de 68% em 2025 0km NÃO é normal—indica sinistro graves, problema mecânico ou fraude. Mesmo economia de R$ 20k sendo atrativa, risco de reparo >R$ 15k (câmbio, quadro, estrutura) torna ROI negativo. Exija laudo de perito independente ou não arremate.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/xre-300-sahara/ano.2025/daa08b1c-2169-11f1-a639-02420a000005"
   },
   {
@@ -2456,17 +2478,16 @@
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "aguardar inspeção técnica",
     "positivos": [
-      "Preço 55.1% abaixo da referência = economia de R$ 5.541",
-      "Moto 2024 (0 km ou baixíssima quilometragem presumida)",
-      "Shineray modelo popular com peças acessíveis no mercado"
+      "Desconto significativo: 55.1% da referência = R$ 5.541 de economia potencial",
+      "Modelo 2024 (ano recente) reduz risco de desgaste severo"
     ],
     "negativos": [
-      "Sem descrição do lote = ausência crítica de informações",
-      "KM não informado = impossível avaliar desgaste real",
-      "Desconto agressivo sem justificativa = risco elevado de sinistrado/batido",
-      "Sem fotos ou laudo técnico disponível"
+      "SEM DESCRIÇÃO: bandeira vermelha — não há informações sobre estado mecânico, sinistro, km ou histórico",
+      "Ausência de KM informado sugere ocultação intencional",
+      "Desconto de 45% (55% do valor) sem justificativa explícita é suspeito",
+      "Impossível estimar custo de reparo sem diagnóstico"
     ],
-    "avaliacao_plataforma": "REJEITAR LANCE AGORA. O desconto de 45% é suspeito demais sem descrição. Moto 2024 a R$ 6.8k só faz sentido se sinistrada ou com restrição financeira. Exija fotos, laudo e histórico ANTES de licitar. Se aparecer em leilão especializado com documentação clara, reavalie.",
+    "avaliacao_plataforma": "⚠️ RISCO ALTO. Desconto expressivo combinado com zero informações = provável sinistrado/batido/recuperação financeira não declarada. NÃO licite sem inspeção técnica presencial e consulta ao cartório (restrições/alienação). Potencial economia só se moto estiver mecanicamente íntegra — cenário improvável dado o silêncio do edital.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2024/2c7df331-3997-11f1-86d7-0242ac50004b"
   },
   {
@@ -2487,19 +2508,10 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "revenda (se íntegro)",
-    "positivos": [
-      "Lance em 28% da referência = R$ 15.399 de economia potencial",
-      "Abaixo do patamar 60-70% FIPE considerado bom em leilão",
-      "Veículo popular com mercado de revenda ativo"
-    ],
-    "negativos": [
-      "Sem descrição = RED FLAG — impossível avaliar estado físico, mecânico ou sinistros",
-      "Quilometragem alta (161.480 km) para 2006 = desgaste esperado",
-      "Falta de transparência aumenta risco de problemas ocultos (batidas, motor, câmbio)",
-      "Sem vistoria prévia = possibilidade de reparo > economia se houver danos"
-    ],
-    "avaliacao_plataforma": "NÃO LICITE SEM INSPEÇÃO. A ausência total de descrição em item tão barato sugere ocultação de problemas. Exija parecer técnico antes do lance — o 'desconto' pode ser armadilha. Risco: reparo ultrapassar economia.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/siena-elx-flex-(4p)/ano.2006/71df6d4b-3770-11f1-86d7-0242ac50004b"
   },
   {
@@ -2544,19 +2556,10 @@
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "aguardar inspeção técnica",
-    "positivos": [
-      "Preço 53,1% abaixo da referência (economia de R$ 55.601)",
-      "Modelo recente 2023 com boa demanda de mercado",
-      "Chevrolet S10 LTZ é versão bem equipada"
-    ],
-    "negativos": [
-      "KM não informado - sinalizador crítico de risco",
-      "Sem descrição do estado - impossível avaliar se é sinistrado/batido",
-      "Desconto muito agressivo (53%) sugere problema estrutural ou documentação",
-      "Risco alto de alienação/restrição financeira não descartado"
-    ],
-    "avaliacao_plataforma": "⚠️ RISCO CRÍTICO: Desconto de 53% sem justificativa clara + KM ausente + sem descrição = POTENCIAL SINISTRADO. Não avance sem inspeção presencial e consulta ao Cartório. A economia (R$ 55.601) só vale se reparo for <R$ 25-30 mil. Orienta-se participar apenas com leilão especializado em veículos e parecer técnico prévio.",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/s10-ltz-dd4a/ano.2023/a6bd4eab-251f-11f1-a639-02420a000005"
   },
   {
@@ -2567,7 +2570,7 @@
     "modelo": "Onix Plus 10Tat Pr2",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32900.0,
+    "lance_atual": 35900.0,
     "fipe_valor": 89550.0,
     "fipe_str": "R$ 89.550,00",
     "classificacao": "✅ ÓTIMO",
