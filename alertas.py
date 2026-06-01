@@ -97,8 +97,13 @@ def run():
         return
 
     user_ids = list({row["user_id"] for row in favs.data})
-    profiles = sb.table("profiles").select("id, phone").in_("id", user_ids).execute()
-    phone_map = {row["id"]: row.get("phone", "") for row in (profiles.data or [])}
+    try:
+        profiles = sb.table("profiles").select("id, phone").in_("id", user_ids).execute()
+        phone_map = {row["id"]: row.get("phone", "") for row in (profiles.data or [])}
+    except Exception as e:
+        print(f"[alertas] Erro ao buscar perfis (coluna phone ausente?): {e}")
+        print("[alertas] Execute no Supabase SQL Editor: ALTER TABLE profiles ADD COLUMN IF NOT EXISTS phone TEXT;")
+        phone_map = {}
 
     sent = 0
     updated = 0
