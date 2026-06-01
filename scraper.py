@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+from datetime import datetime, timedelta
 import anthropic
 import requests
 import json
@@ -154,7 +155,7 @@ def limpar_modelo(raw):
     return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
 
 def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
-               ref_val, ref_str, classif, foto, km, descricao, analise, url):
+               ref_val, ref_str, classif, foto, km, descricao, analise, url, data_leilao=""):
     return {
         "fonte":                fonte,
         "categoria":            categoria,
@@ -178,6 +179,7 @@ def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
         "negativos":            analise.get("negativos", []),
         "avaliacao_plataforma": analise.get("avaliacao_plataforma", ""),
         "url":                  url,
+        "data_leilao":          data_leilao,
     }
 
 def _extrair_lance(texto):
@@ -212,6 +214,35 @@ def _extrair_descricao(texto):
         if any(p in l.lower() for p in ['recuperado','sinistro','batido',
                'financiamento','conservado','sucata','alienado']) and len(l) > 20:
             return l[:200]
+    return ""
+
+def _extrair_data_leilao(texto):
+    # Mega: "1ª Praça: 28/05/2026 às 10:30"
+    m = re.search(r'1[ªa]\s*Pra[çc]a:\s*(\d{2}/\d{2}/\d{4})\s*[àa]s?\s*(\d{2}:\d{2})', texto, re.IGNORECASE)
+    if m:
+        try:
+            return datetime.strptime(f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
+    # Pacto: "Finaliza em 18h3m42s"
+    m = re.search(r'Finaliza em\s*(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?', texto, re.IGNORECASE)
+    if m and any(m.group(i) for i in range(1, 4)):
+        try:
+            dt = datetime.now() + timedelta(
+                hours=int(m.group(1) or 0),
+                minutes=int(m.group(2) or 0),
+                seconds=int(m.group(3) or 0)
+            )
+            return dt.strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
+    # Leilo/genérico: "DD/MM/YYYY" próximo de horário
+    m = re.search(r'(\d{2}/\d{2}/\d{4}).*?(\d{2}:\d{2})', texto[:800])
+    if m:
+        try:
+            return datetime.strptime(f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
     return ""
 
 # ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────
@@ -270,11 +301,12 @@ def _raspar_leilo(pg_lista, pg_detalhe, vistos):
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 icone = ICONES.get(categoria, "📦")
+                data_leilao = _extrair_data_leilao(texto)
                 print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
 
                 lotes.append(_lote_dict("leilo", categoria, marca, modelo, ano,
                                         cidade+"/CE", lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, url_lote))
+                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
                 time.sleep(0.5)
             except Exception as e:
                 print(f"  ⚠️ Leilo: {e}"); continue
@@ -370,10 +402,11 @@ def _raspar_mega(pg, vistos):
                     analise = analisar(marca, modelo, ano, "", "", lance, ref_val, categoria)
                     classif = classificar(lance, ref_val, analise.get("estado",""))
 
+                    data_leilao = _extrair_data_leilao(card.inner_text())
                     print(f"  {icone} [Mega/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
                     lotes.append(_lote_dict("mega", categoria, marca, modelo, ano,
                                             f"{cidade}/CE", lance, ref_val, ref_str,
-                                            classif, foto, "", "", analise, href))
+                                            classif, foto, "", "", analise, href, data_leilao))
                     time.sleep(0.3)
                 except Exception as e:
                     print(f"  ⚠️ Mega: {e}"); continue
@@ -444,10 +477,11 @@ def _raspar_pacto(pg, _pg_d, vistos):
                 analise  = analisar(marca, modelo, ano, "", km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
+                data_leilao = _extrair_data_leilao(it['text'])
                 print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
                 lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
                                         f"{cidade_s}/CE", lance, ref_val, ref_str,
-                                        classif, "", km, "", analise, href))
+                                        classif, "", km, "", analise, href, data_leilao))
                 time.sleep(0.1)
             except Exception as e:
                 print(f"  ⚠️ Pacto: {e}"); continue

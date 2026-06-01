@@ -3,6 +3,8 @@ import streamlit.components.v1 as components
 import json
 import os
 import subprocess
+from datetime import datetime, timedelta
+from urllib.parse import quote
 from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
@@ -341,6 +343,13 @@ def render_lotes(lotes_lista, key="main"):
                 st.markdown(f"**{lote['marca']} {lote['modelo']}**")
                 meta = f"📅 {lote['ano']} • 📍 {lote.get('cidade','')}"
                 if km: meta += f" • 🛣️ {km}"
+                _data = lote.get("data_leilao", "")
+                if _data:
+                    try:
+                        _dt = datetime.fromisoformat(_data)
+                        meta += f" • 🔔 {_dt.strftime('%d/%m às %Hh%M')}"
+                    except:
+                        pass
                 st.caption(meta)
 
                 # Preços
@@ -381,6 +390,22 @@ def render_lotes(lotes_lista, key="main"):
                         ia_html += f'<div class="ponto-neg">❌ {nt}</div>'
                     ia_html += '</div>'
                     st.markdown(ia_html, unsafe_allow_html=True)
+
+                # Botão Google Calendar (quando há data disponível)
+                if _data:
+                    try:
+                        _dt    = datetime.fromisoformat(_data)
+                        _dt_e  = _dt + timedelta(hours=1)
+                        _ds    = _dt.strftime("%Y%m%dT%H%M00")
+                        _de    = _dt_e.strftime("%Y%m%dT%H%M00")
+                        _title = quote(f"{lote.get('marca','')} {lote.get('modelo','')} {lote.get('ano','')}")
+                        _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | LeilãoCE")
+                        _loc   = quote(lote.get('cidade',''))
+                        _cal   = (f"https://calendar.google.com/calendar/render?action=TEMPLATE"
+                                  f"&text={_title}&dates={_ds}/{_de}&details={_det}&location={_loc}")
+                        st.markdown(f"[📅 Salvar no Google Calendar]({_cal})")
+                    except:
+                        pass
 
                 col_link, col_fav = st.columns([4, 1])
                 _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo"}.get(lote.get("fonte",""), "Leilão")
