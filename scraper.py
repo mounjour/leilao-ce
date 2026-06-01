@@ -227,6 +227,11 @@ def _extrair_descricao(texto):
             return l[:200]
     return ""
 
+_MESES_PT = {
+    'janeiro':1,'fevereiro':2,'março':3,'marco':3,'abril':4,'maio':5,'junho':6,
+    'julho':7,'agosto':8,'setembro':9,'outubro':10,'novembro':11,'dezembro':12,
+}
+
 def _extrair_data_leilao(texto):
     # Mega: "1ª Praça: 28/05/2026 às 10:30"
     m = re.search(r'1[ªa]\s*Pra[çc]a:\s*(\d{2}/\d{2}/\d{4})\s*[àa]s?\s*(\d{2}:\d{2})', texto, re.IGNORECASE)
@@ -247,8 +252,40 @@ def _extrair_data_leilao(texto):
             return dt.strftime("%Y-%m-%dT%H:%M")
         except:
             pass
-    # Leilo/genérico: "DD/MM/YYYY" próximo de horário
-    m = re.search(r'(\d{2}/\d{2}/\d{4}).*?(\d{2}:\d{2})', texto[:800])
+    # Leilo: countdown "X dias Y horas Z min" (ou "X dia Y hora")
+    m = re.search(r'(\d+)\s*dia[s]?\D{1,10}(\d+)\s*hora[s]?\D{1,10}(\d+)\s*min', texto, re.IGNORECASE)
+    if m:
+        try:
+            dt = datetime.now() + timedelta(
+                days=int(m.group(1)), hours=int(m.group(2)), minutes=int(m.group(3))
+            )
+            return dt.strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
+    # Leilo: countdown "X dias Y horas" (sem minutos)
+    m = re.search(r'(\d+)\s*dia[s]?\D{1,10}(\d+)\s*hora[s]?', texto, re.IGNORECASE)
+    if m:
+        try:
+            dt = datetime.now() + timedelta(days=int(m.group(1)), hours=int(m.group(2)))
+            return dt.strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
+    # Genérico: "DD de mês de YYYY ... HH:MM"
+    m = re.search(
+        r'(\d{1,2})\s+de\s+(janeiro|fevereiro|mar[çc]o|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\s+de\s+(\d{4}).*?(\d{2}:\d{2})',
+        texto, re.IGNORECASE | re.DOTALL
+    )
+    if m:
+        try:
+            mes = _MESES_PT.get(m.group(2).lower().replace('ç','c'), 0)
+            if mes:
+                dt = datetime(int(m.group(3)), mes, int(m.group(1)),
+                              int(m.group(4)[:2]), int(m.group(4)[3:]))
+                return dt.strftime("%Y-%m-%dT%H:%M")
+        except:
+            pass
+    # Genérico: "DD/MM/YYYY" próximo de horário — texto completo, aceita multilinha
+    m = re.search(r'(\d{2}/\d{2}/\d{4})\D{0,30}(\d{2}:\d{2})', texto, re.DOTALL)
     if m:
         try:
             return datetime.strptime(f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
@@ -269,6 +306,12 @@ def _raspar_leilo(pg_lista, pg_detalhe, vistos):
         for _ in range(5):
             pg_lista.keyboard.press("End")
             pg_lista.wait_for_timeout(2000)
+
+        # Extrai data do evento da listagem — fallback para todos os lotes desta página
+        try:
+            data_evento = _extrair_data_leilao(pg_lista.inner_text('body'))
+        except:
+            data_evento = ""
 
         hrefs = []
         for link in pg_lista.query_selector_all('a'):
@@ -312,8 +355,8 @@ def _raspar_leilo(pg_lista, pg_detalhe, vistos):
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 icone = ICONES.get(categoria, "📦")
-                data_leilao = _extrair_data_leilao(texto)
-                print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
+                data_leilao = _extrair_data_leilao(texto) or data_evento
+                print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif} | {data_leilao or 'sem data'}")
 
                 lotes.append(_lote_dict("leilo", categoria, marca, modelo, ano,
                                         cidade+"/CE", lance, ref_val, ref_str,
