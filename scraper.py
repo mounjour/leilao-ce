@@ -145,7 +145,8 @@ oportunidade: OTIMA|BOA|REGULAR|RUIM|INSPECIONAR"""}]
         texto = r.content[0].text.strip()
         match = re.search(r'\{.*\}', texto, re.DOTALL)
         return json.loads(match.group() if match else texto)
-    except:
+    except Exception as e:
+        print(f"  ⚠️ IA error: {e}")
         return {"estado":"NAO_INFORMADO","selo":"⚪ Não informado","oportunidade":"INSPECIONAR",
                 "uso_sugerido":"verificar presencialmente","positivos":[],"negativos":[],
                 "avaliacao_plataforma":"Sem dados. Recomendamos inspeção antes do leilão."}
@@ -183,16 +184,26 @@ def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
     }
 
 def _extrair_lance(texto):
-    lance = 0
+    # Retorna o PRIMEIRO valor >= 500 encontrado no texto.
+    # Evita pegar incrementos/taxas pequenas (que aparecem depois do lance real).
+    for m in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
+        try:
+            v = float(m.replace("R$","").replace("\xa0","").replace(" ","")
+                       .replace(".","").replace(",",".").strip())
+            if v >= 500:
+                return v
+        except:
+            pass
+    # fallback: qualquer valor > 100
     for m in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
         try:
             v = float(m.replace("R$","").replace("\xa0","").replace(" ","")
                        .replace(".","").replace(",",".").strip())
             if v > 100:
-                lance = min(lance, v) if lance > 0 else v
+                return v
         except:
             pass
-    return lance
+    return 0
 
 def _extrair_foto(html, dominios=('cdndp.com.br',)):
     for dom in dominios:
