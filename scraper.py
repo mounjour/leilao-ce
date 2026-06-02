@@ -121,7 +121,16 @@ def classificar(lance, ref, estado):
     else:           return "❌ RUIM"
 
 # ─── ANÁLISE IA ───────────────────────────────────────────────────────────────
+_IA_ATIVA = True  # circuit breaker: False quando créditos esgotam
+
+_FALLBACK_IA = {"estado":"NAO_INFORMADO","selo":"⚪ Não informado","oportunidade":"INSPECIONAR",
+                "uso_sugerido":"verificar presencialmente","positivos":[],"negativos":[],
+                "avaliacao_plataforma":"Sem dados. Recomendamos inspeção antes do leilão."}
+
 def analisar(marca, modelo, ano, desc, km, lance, ref, categoria):
+    global _IA_ATIVA
+    if not _IA_ATIVA:
+        return _FALLBACK_IA
     try:
         pct = f"{round((lance/ref)*100,1)}% da referência" if ref > 0 and lance > 0 else "sem referência de preço"
         r = cliente_ia.messages.create(
@@ -146,10 +155,13 @@ oportunidade: OTIMA|BOA|REGULAR|RUIM|INSPECIONAR"""}]
         match = re.search(r'\{.*\}', texto, re.DOTALL)
         return json.loads(match.group() if match else texto)
     except Exception as e:
-        print(f"  ⚠️ IA error: {e}")
-        return {"estado":"NAO_INFORMADO","selo":"⚪ Não informado","oportunidade":"INSPECIONAR",
-                "uso_sugerido":"verificar presencialmente","positivos":[],"negativos":[],
-                "avaliacao_plataforma":"Sem dados. Recomendamos inspeção antes do leilão."}
+        msg = str(e)
+        if "credit balance is too low" in msg or "insufficient_quota" in msg:
+            _IA_ATIVA = False
+            print("  ⚠️ IA desativada: créditos Anthropic esgotados. Recarregue em console.anthropic.com")
+        else:
+            print(f"  ⚠️ IA error: {e}")
+        return _FALLBACK_IA
 
 def limpar_modelo(raw):
     m = unquote(raw)
