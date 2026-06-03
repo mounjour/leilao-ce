@@ -554,9 +554,117 @@ def _raspar_pacto(pg, _pg_d, vistos):
 
     return lotes
 
+# ─── SCRAPER CONSTRUBEM ───────────────────────────────────────────────────────
+_CONSTRUBEM_BASES = [
+    "https://construbemleiloes.plataformasoleon.com.br",
+    "https://www.construbemleiloes.com.br",
+]
+_CONSTRUBEM_PATHS = ["/lotes", "/leiloes", "/veiculos", "/imoveis", "/"]
+
+def _raspar_construbem(pg_lista, pg_detalhe, vistos):
+    lotes = []
+
+    for base in _CONSTRUBEM_BASES:
+        encontrou = False
+        for path in _CONSTRUBEM_PATHS:
+            url = base + path
+            try:
+                pg_lista.goto(url, timeout=25000, wait_until="networkidle")
+                pg_lista.wait_for_timeout(4000)
+            except:
+                continue
+
+            for _ in range(6):
+                pg_lista.keyboard.press("End")
+                pg_lista.wait_for_timeout(800)
+
+            url_final = pg_lista.url
+            print(f"📡 Construbem | {url_final}")
+
+            # Coleta hrefs de lotes — tenta padrões comuns de plataformas BR
+            hrefs = []
+            for link in pg_lista.query_selector_all('a[href]'):
+                try:
+                    href = link.get_attribute('href') or ''
+                    full = href if href.startswith('http') else base + href
+                    if full in vistos:
+                        continue
+                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis)/\S', href, re.I):
+                        hrefs.append(full)
+                        vistos.add(full)
+                except:
+                    continue
+
+            if not hrefs:
+                texto = pg_lista.inner_text('body')
+                print(f"  [diag] {texto[:400].replace(chr(10), ' ')[:400]}")
+                continue
+
+            print(f"  {len(hrefs)} lotes encontrados")
+            encontrou = True
+
+            for url_lote in hrefs[:40]:
+                try:
+                    try:
+                        pg_detalhe.goto(url_lote, timeout=15000, wait_until="domcontentloaded")
+                        pg_detalhe.wait_for_timeout(2000)
+                        texto = pg_detalhe.inner_text('body')
+                        html  = pg_detalhe.content()
+                    except:
+                        texto, html = "", ""
+
+                    # Tenta extrair marca/modelo do slug da URL
+                    slug = re.sub(r'\?.*', '', url_lote).rstrip('/').split('/')[-1]
+                    slug = re.sub(r'-\d+$', '', slug)           # remove ID numérico final
+                    palavras = [p for p in slug.split('-') if p]
+                    marca  = palavras[0].title() if palavras else "?"
+                    modelo = ' '.join(p.title() for p in palavras[1:3]) if len(palavras) > 1 else "?"
+
+                    # Ano no slug ou no texto
+                    ano = 0
+                    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + texto[:500])
+                    if m:
+                        ano = int(m.group())
+
+                    # Cidade
+                    cidade = "CE"
+                    for c in CIDADES_CE:
+                        if c.replace('-', ' ') in texto.lower():
+                            cidade = c.replace('-', ' ').title() + '/CE'
+                            break
+
+                    lance      = _extrair_lance(texto)
+                    foto       = _extrair_foto(html, ('construbem', 'soleon', 's3.amazonaws', 'cloudfront'))
+                    km         = _extrair_km(texto)
+                    descricao  = _extrair_descricao(texto)
+                    data_leilao = _extrair_data_leilao(texto)
+
+                    categoria = detectar_categoria(modelo, marca, "carros")
+                    icone     = ICONES.get(categoria, "📦")
+
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
+
+                    print(f"  {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif} | {data_leilao or 'sem data'}")
+                    lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
+                                           cidade, lance, ref_val, ref_str,
+                                           classif, foto, km, descricao, analise, url_lote, data_leilao))
+                    time.sleep(0.5)
+                except Exception as e:
+                    print(f"  ⚠️ Construbem: {e}")
+                    continue
+
+            break  # achou lotes neste path, não tenta o próximo
+
+        if encontrou:
+            break  # achou no primeiro base, não tenta o segundo
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -572,6 +680,7 @@ def raspar_leiloes():
         lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
+        lotes += _raspar_construbem(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
         browser.close()
