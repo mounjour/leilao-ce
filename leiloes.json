@@ -22,7 +22,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-lt-1.4-mecanico-(4p)/ano.2014/53660e91-4896-11f1-9b2f-02420a000006",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -111,7 +111,7 @@
     "fipe_valor": 57952.0,
     "fipe_str": "R$ 57.952,00",
     "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486381383_376d815d-41ff-4268-8e4a-8e1b3bd270f4_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -322,7 +322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/golf-generation-(4p)/ano.2005/b957517f-dc41-11f0-913b-02420a000005",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -433,9 +433,9 @@
     "ano": 2012,
     "cidade": "Eusebio/CE",
     "lance_atual": 38691.0,
-    "fipe_valor": 25016.0,
-    "fipe_str": "R$ 25.016,00",
-    "classificacao": "❌ RUIM",
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780485331080_213ba356-9a53-4820-8c55-84b107b86b5f_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
@@ -557,13 +557,13 @@
     "modelo": "Uno Way 1.0",
     "ano": 2012,
     "cidade": "Eusebio/CE",
-    "lance_atual": 30581.0,
+    "lance_atual": 0,
     "fipe_valor": 40379.0,
     "fipe_str": "R$ 40.379,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -572,7 +572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-way-1.0-(2p%2F4p)/ano.2012/5195e5c6-0dcc-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -732,13 +732,13 @@
     "modelo": "Tiida S",
     "ano": 2008,
     "cidade": "Eusebio/CE",
-    "lance_atual": 22687.0,
+    "lance_atual": 0,
     "fipe_valor": 26135.0,
     "fipe_str": "R$ 26.135,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -747,7 +747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/tiida-s-(4p)/ano.2008/a0461ca3-1f54-11ef-b7fa-02420a00001f",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -772,7 +772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-ex/ano.2025/e53fe74d-1e08-11f1-a639-02420a000005",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -786,7 +786,7 @@
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486627115_4ba553bf-3b91-4aff-b0c2-86ba8f225041_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -811,7 +811,7 @@
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486621268_87ec152e-8cd3-4c8d-aa22-db7fef33b8c1_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -836,7 +836,7 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486597099_e48e6539-eefd-4e7a-9206-00aef27ee2be_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -861,7 +861,7 @@
     "fipe_valor": 12250.0,
     "fipe_str": "R$ 12.250,00",
     "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486538412_0bd468d9-7249-4330-8b90-e77aa223ea6c_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -886,7 +886,7 @@
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780486535141_9fd93df5-b1b7-47cd-9890-b761a5e751bf_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -907,13 +907,13 @@
     "modelo": "Strada Adventure Cabine Dupla",
     "ano": 2011,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 48900.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/2/1780434725740_c67802b0-7f6b-4bd1-aa8c-18a80eb9dea6_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -922,7 +922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/strada-adventure-cabine-dupla/ano.2011/cb1aebe4-aeab-11f0-ae59-02420a000008",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
