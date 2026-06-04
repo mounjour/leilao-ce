@@ -571,7 +571,8 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
             try:
                 pg_lista.goto(url, timeout=25000, wait_until="networkidle")
                 pg_lista.wait_for_timeout(4000)
-            except:
+            except Exception as e:
+                print(f"  ⚠️ Construbem goto {url}: {e}")
                 continue
 
             for _ in range(6):
@@ -579,17 +580,19 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                 pg_lista.wait_for_timeout(800)
 
             url_final = pg_lista.url
-            print(f"📡 Construbem | {url_final}")
+            print(f"📡 Construbem | tentou={url} | final={url_final}")
 
-            # Coleta hrefs de lotes — tenta padrões comuns de plataformas BR
+            # Coleta hrefs — tenta padrão Soleon e padrões genéricos BR
             hrefs = []
+            todos_hrefs = []
             for link in pg_lista.query_selector_all('a[href]'):
                 try:
                     href = link.get_attribute('href') or ''
                     full = href if href.startswith('http') else base + href
+                    todos_hrefs.append(href)
                     if full in vistos:
                         continue
-                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis)/\S', href, re.I):
+                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?|item[s]?)/\S', href, re.I):
                         hrefs.append(full)
                         vistos.add(full)
                 except:
@@ -597,7 +600,10 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
 
             if not hrefs:
                 texto = pg_lista.inner_text('body')
-                print(f"  [diag] {texto[:400].replace(chr(10), ' ')[:400]}")
+                # Mostra amostra de links encontrados para diagnóstico
+                amostra = [h for h in todos_hrefs if h and not h.startswith('#')][:10]
+                print(f"  [diag] links={amostra}")
+                print(f"  [diag] texto={texto[:300].replace(chr(10), ' ')}")
                 continue
 
             print(f"  {len(hrefs)} lotes encontrados")
