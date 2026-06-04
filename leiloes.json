@@ -72,7 +72,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/540565c8-4fa4-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -936,9 +936,9 @@
     "fipe_valor": 30000,
     "fipe_str": "R$ 30,000 (ref. mercado)",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -947,7 +947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-de-energia-solar-fotovoltaico-10,12-kwp-(-17-placas)/ano.2022/0b93e5e5-484f-11ef-9ceb-02420a000023",
-    "data_leilao": "2026-06-08T13:00"
+    "data_leilao": "2026-06-08T12:59"
   },
   {
     "fonte": "leilo",
@@ -2207,7 +2207,7 @@
     "modelo": "Biz Ex",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9700.0,
+    "lance_atual": 10100.0,
     "fipe_valor": 16874.0,
     "fipe_str": "R$ 16.874,00",
     "classificacao": "⚠️ MEDIANO",
