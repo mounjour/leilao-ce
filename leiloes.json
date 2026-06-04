@@ -632,13 +632,13 @@
     "modelo": "Idea Attractive",
     "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 40050.0,
+    "lance_atual": 0,
     "fipe_valor": 41132.0,
     "fipe_str": "R$ 41.132,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/3/1780485453704_3480f669-e9ca-4e96-befb-8bad4c64d233_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -647,7 +647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/idea-attractive/ano.2015/1607899f-0418-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-09T12:30"
   },
   {
     "fonte": "leilo",
@@ -672,7 +672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/freemont-precisio/ano.2013/38a36f02-01db-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -2207,7 +2207,7 @@
     "modelo": "Biz Ex",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10100.0,
+    "lance_atual": 10500.0,
     "fipe_valor": 16874.0,
     "fipe_str": "R$ 16.874,00",
     "classificacao": "⚠️ MEDIANO",
