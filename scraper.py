@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+from playwright_stealth import stealth_sync
 from datetime import datetime, timedelta
 import anthropic
 import requests
@@ -563,6 +564,12 @@ _CONSTRUBEM_PATHS = ["/lotes", "/leiloes", "/veiculos", "/imoveis", "/"]
 
 def _raspar_construbem(pg_lista, pg_detalhe, vistos):
     lotes = []
+    # Aplica stealth nas duas páginas para tentar passar pelo Cloudflare
+    try:
+        stealth_sync(pg_lista)
+        stealth_sync(pg_detalhe)
+    except Exception as e:
+        print(f"  ⚠️ Construbem stealth: {e}")
 
     for base in _CONSTRUBEM_BASES:
         encontrou = False
