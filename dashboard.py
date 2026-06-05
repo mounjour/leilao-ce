@@ -522,13 +522,9 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
 
-# Auth gate: must be logged in and subscribed to access the dashboard
+# Auth gate: must be logged in (subscription temporarily disabled for beta)
 if not get_user():
     render_auth_page()
-    st.stop()
-
-if not is_subscribed():
-    render_paywall()
     st.stop()
 
 _session = st.session_state.get("session")
