@@ -796,7 +796,7 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + DanielGarcia\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -812,9 +812,9 @@ def raspar_leiloes():
         lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
-        # Construbem bloqueado por Cloudflare nos IPs do GitHub Actions
+        # Bloqueados por Cloudflare nos IPs do GitHub Actions:
         # lotes += _raspar_construbem(pg_lista, pg_detalhe, vistos)
-        lotes += _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos)
+        # lotes += _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
         browser.close()
