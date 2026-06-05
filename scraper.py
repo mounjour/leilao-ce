@@ -569,8 +569,8 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
         for path in _CONSTRUBEM_PATHS:
             url = base + path
             try:
-                pg_lista.goto(url, timeout=25000, wait_until="networkidle")
-                pg_lista.wait_for_timeout(4000)
+                pg_lista.goto(url, timeout=20000, wait_until="domcontentloaded")
+                pg_lista.wait_for_timeout(5000)  # aguarda JS renderizar
             except Exception as e:
                 print(f"  ⚠️ Construbem goto {url}: {e}")
                 continue
