@@ -522,10 +522,10 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
 
-# Auth gate: must be logged in (subscription temporarily disabled for beta)
-if not get_user():
-    render_auth_page()
-    st.stop()
+# Auth gate: temporarily disabled for public beta
+# if not get_user():
+#     render_auth_page()
+#     st.stop()
 
 _session = st.session_state.get("session")
 if "favorites" not in st.session_state and _session:
