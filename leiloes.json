@@ -7,13 +7,13 @@
     "modelo": "Tiggo 7 Pro",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 78500.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780678112017_a79fa097-6b00-44b2-9c17-d1029574ebdc_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Veiculo com registro de sinistro (csv 016243875632026) / ipva 2026 pago / vistoria r$ 250,00 / comunicado de venda r$ 120,00 / vendido no estado em que se encontra, maiores informacoes e condicoes de ",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -22,7 +22,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo-7-pro/ano.2023/f5c52d61-5ad0-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-09T12:30"
+    "data_leilao": "2026-06-09T12:29"
   },
   {
     "fonte": "leilo",
@@ -32,7 +32,7 @@
     "modelo": "Virtus Comfortline Ad",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 73601.0,
+    "lance_atual": 30000.0,
     "fipe_valor": 20041.0,
     "fipe_str": "R$ 20.041,00",
     "classificacao": "❌ RUIM",
@@ -47,7 +47,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/virtus-comfortline-ad/ano.2019/380ae189-8920-4fe8-879e-a1b4da945556",
-    "data_leilao": "2026-06-09T12:30"
+    "data_leilao": "2026-06-09T13:29"
   },
   {
     "fonte": "leilo",
@@ -57,13 +57,13 @@
     "modelo": "Hb20 Sense",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 17300.0,
     "fipe_valor": 54299.0,
     "fipe_str": "R$ 54.299,00",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/6/1780749360755_6a5242dd-826b-4c1a-8522-12e9c809f141_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -72,7 +72,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-sense/ano.2020/b106c833-43c5-42ff-b302-b78fadba96f6",
-    "data_leilao": "2026-06-09T12:30"
+    "data_leilao": "2026-06-09T13:29"
   },
   {
     "fonte": "leilo",
@@ -207,7 +207,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 51000.0,
+    "lance_atual": 52000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "✅ ÓTIMO",
@@ -547,7 +547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-mc4-(4p%2F2p)/ano.2020/cbbbcb04-5053-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -682,13 +682,13 @@
     "modelo": "Ka Se C",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 21000.0,
+    "lance_atual": 0,
     "fipe_valor": 45179.0,
     "fipe_str": "R$ 45.179,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/2/1780434723694_5c1bc34b-85bf-45a1-a4e8-a893d5be5422_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -697,7 +697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c-(4p)/ano.2020/8f3a9278-b00c-11f0-ae59-02420a000008",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-09T12:30"
   },
   {
     "fonte": "leilo",
@@ -1482,11 +1482,11 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 6000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780679312523_53b34955-c19d-4c2d-8a0a-5fb649b81c98_media.webp",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
@@ -1507,7 +1507,7 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 7000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1522,7 +1522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(10-pls-sol-/-1-inv)-prod-novo-%2F-sem-uso/ano.2026/d1a38c6b-5ebc-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-08T13:19"
+    "data_leilao": "2026-06-08T13:18"
   },
   {
     "fonte": "leilo",
@@ -1532,10 +1532,10 @@
     "modelo": "Gerador De Energia Solar Fotovoltaico 10,12 Kwp",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 9000.0,
     "fipe_valor": 30000,
     "fipe_str": "R$ 30,000 (ref. mercado)",
-    "classificacao": "Sem referência",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780671099342_06027aa5-0a24-4241-8bec-7fae9230a1ef_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
@@ -1557,7 +1557,7 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 8000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1572,7 +1572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(10-pls-sol-/-1-inv)-prod-novo-%2F-sem-uso/ano.2026/38ebb9ec-5ebd-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-08T13:12"
+    "data_leilao": "2026-06-08T13:32"
   },
   {
     "fonte": "leilo",
@@ -1772,7 +1772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/volkswagen/gol-mc4-(4p%2F2p)/ano.2022/7da9a300-9fb5-11f0-bcb1-02420a000005",
-    "data_leilao": "2026-06-09T13:29"
+    "data_leilao": "2026-06-09T13:30"
   },
   {
     "fonte": "leilo",
@@ -2407,7 +2407,7 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 6000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2432,7 +2432,7 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 7000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2457,10 +2457,10 @@
     "modelo": "Gerador De Energia Solar Fotovoltaico 10,12 Kwp",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 9000.0,
     "fipe_valor": 30000,
     "fipe_str": "R$ 30,000 (ref. mercado)",
-    "classificacao": "Sem referência",
+    "classificacao": "✅ ÓTIMO",
     "foto": "",
     "km": "",
     "descricao": "",
@@ -2522,7 +2522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-de-energia-solar-fotovoltaico-38.60-(-88-placas-solares)/ano.2025/1956536c-b36a-11f0-ae59-02420a000008",
-    "data_leilao": "2026-06-08T13:34"
+    "data_leilao": "2026-06-08T13:33"
   },
   {
     "fonte": "pacto",
@@ -2532,7 +2532,7 @@
     "modelo": "Tiggo 7 Pro",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 84000.0,
+    "lance_atual": 78500.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -2757,7 +2757,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 51000.0,
+    "lance_atual": 52000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "✅ ÓTIMO",
