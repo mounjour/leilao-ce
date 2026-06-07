@@ -600,13 +600,36 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
 
     for base in _CONSTRUBEM_BASES:
         encontrou = False
-        for path in _CONSTRUBEM_PATHS:
-            url = base + path
+
+        # Carrega a raiz e navega pelo menu de categorias (SPA React)
+        try:
+            pg_lista.goto(base + "/", timeout=40000, wait_until="domcontentloaded")
+            pg_lista.wait_for_timeout(6000)
+        except Exception as e:
+            print(f"  ⚠️ Construbem root {base}: {e}")
+            continue
+
+        print(f"📡 Construbem | {pg_lista.url}")
+
+        # Tenta clicar nos links de categoria (Veículos, Imóveis, etc.)
+        cats_clicadas = []
+        for sel in ['a[href*="veiculos"]', 'a[href*="imoveis"]', 'a[href*="lotes"]']:
             try:
-                pg_lista.goto(url, timeout=40000, wait_until="domcontentloaded")
-                pg_lista.wait_for_timeout(5000)  # aguarda JS renderizar
+                el = pg_lista.query_selector(sel)
+                if el:
+                    cats_clicadas.append(el.get_attribute('href') or '')
+            except:
+                pass
+
+        # Navega para cada categoria encontrada no menu
+        urls_tentadas = cats_clicadas or _CONSTRUBEM_PATHS[:3]
+        for cat_path in urls_tentadas:
+            cat_url = cat_path if cat_path.startswith('http') else base + cat_path
+            try:
+                pg_lista.goto(cat_url, timeout=40000, wait_until="domcontentloaded")
+                pg_lista.wait_for_timeout(6000)
             except Exception as e:
-                print(f"  ⚠️ Construbem goto {url}: {e}")
+                print(f"  ⚠️ Construbem cat {cat_url}: {e}")
                 continue
 
             for _ in range(6):
@@ -614,9 +637,9 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                 pg_lista.wait_for_timeout(800)
 
             url_final = pg_lista.url
-            print(f"📡 Construbem | tentou={url} | final={url_final}")
+            print(f"  categoria: {url_final}")
 
-            # Coleta hrefs — tenta padrão Soleon e padrões genéricos BR
+            # Coleta hrefs de lotes — ID numérico no final = lote real
             hrefs = []
             todos_hrefs = []
             for link in pg_lista.query_selector_all('a[href]'):
@@ -626,7 +649,6 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                     todos_hrefs.append(href)
                     if full in vistos:
                         continue
-                    # Lotes reais no Soleon têm ID numérico no final da URL
                     if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?)/[^/]*\d{4,}', href, re.I):
                         hrefs.append(full)
                         vistos.add(full)
@@ -634,11 +656,10 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                     continue
 
             if not hrefs:
+                amostra = [h for h in todos_hrefs if h and not h.startswith('#')][:8]
                 texto = pg_lista.inner_text('body')
-                # Mostra amostra de links encontrados para diagnóstico
-                amostra = [h for h in todos_hrefs if h and not h.startswith('#')][:10]
                 print(f"  [diag] links={amostra}")
-                print(f"  [diag] texto={texto[:300].replace(chr(10), ' ')}")
+                print(f"  [diag] texto={texto[:200].replace(chr(10), ' ')}")
                 continue
 
             print(f"  {len(hrefs)} lotes encontrados")
@@ -696,7 +717,8 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                     print(f"  ⚠️ Construbem: {e}")
                     continue
 
-            break  # achou lotes neste path, não tenta o próximo
+            if hrefs:
+                encontrou = True
 
         if encontrou:
             break  # achou no primeiro base, não tenta o segundo
