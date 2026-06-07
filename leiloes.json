@@ -7,13 +7,13 @@
     "modelo": "Tiggo 7 Pro",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 84000.0,
+    "lance_atual": 0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780678112017_a79fa097-6b00-44b2-9c17-d1029574ebdc_media.webp",
+    "foto": "",
     "km": "",
-    "descricao": "Veiculo com registro de sinistro (csv 016243875632026) / ipva 2026 pago / vistoria r$ 250,00 / comunicado de venda r$ 120,00 / vendido no estado em que se encontra, maiores informacoes e condicoes de ",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -22,7 +22,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo-7-pro/ano.2023/f5c52d61-5ad0-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-09T12:29"
+    "data_leilao": "2026-06-09T12:30"
   },
   {
     "fonte": "leilo",
@@ -32,7 +32,7 @@
     "modelo": "Virtus Comfortline Ad",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 30000.0,
+    "lance_atual": 73601.0,
     "fipe_valor": 20041.0,
     "fipe_str": "R$ 20.041,00",
     "classificacao": "❌ RUIM",
@@ -47,7 +47,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/virtus-comfortline-ad/ano.2019/380ae189-8920-4fe8-879e-a1b4da945556",
-    "data_leilao": "2026-06-09T13:29"
+    "data_leilao": "2026-06-09T12:30"
   },
   {
     "fonte": "leilo",
@@ -57,13 +57,13 @@
     "modelo": "Hb20 Sense",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 17300.0,
+    "lance_atual": 0,
     "fipe_valor": 54299.0,
     "fipe_str": "R$ 54.299,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/6/1780749360755_6a5242dd-826b-4c1a-8522-12e9c809f141_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -72,7 +72,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-sense/ano.2020/b106c833-43c5-42ff-b302-b78fadba96f6",
-    "data_leilao": "2026-06-09T13:29"
+    "data_leilao": "2026-06-09T12:30"
   },
   {
     "fonte": "leilo",
@@ -207,7 +207,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 49000.0,
+    "lance_atual": 51000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "✅ ÓTIMO",
@@ -497,7 +497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/540565c8-4fa4-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -547,7 +547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-mc4-(4p%2F2p)/ano.2020/cbbbcb04-5053-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-10T12:30"
   },
   {
     "fonte": "leilo",
@@ -1357,7 +1357,7 @@
     "modelo": "Dominar D400",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 13500.0,
+    "lance_atual": 13800.0,
     "fipe_valor": 23694.0,
     "fipe_str": "R$ 23.694,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1482,11 +1482,11 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780679312523_53b34955-c19d-4c2d-8a0a-5fb649b81c98_media.webp",
+    "foto": "",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
@@ -1557,7 +1557,7 @@
     "modelo": "1 Inv) Prod Novo / Sem Uso",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1572,7 +1572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(10-pls-sol-/-1-inv)-prod-novo-%2F-sem-uso/ano.2026/38ebb9ec-5ebd-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-08T13:31"
+    "data_leilao": "2026-06-08T13:12"
   },
   {
     "fonte": "leilo",
@@ -1782,7 +1782,7 @@
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2447,7 +2447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(10-pls-sol-/-1-inv)-prod-novo-%2F-sem-uso/ano.2026/d1a38c6b-5ebc-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-08T13:19"
+    "data_leilao": "2026-06-08T13:18"
   },
   {
     "fonte": "pacto",
@@ -2497,7 +2497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(10-pls-sol-/-1-inv)-prod-novo-%2F-sem-uso/ano.2026/38ebb9ec-5ebd-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-08T13:32"
+    "data_leilao": "2026-06-08T13:31"
   },
   {
     "fonte": "pacto",
@@ -2757,7 +2757,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 49500.0,
+    "lance_atual": 51000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "✅ ÓTIMO",
@@ -3057,7 +3057,7 @@
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 40246.0,
     "fipe_str": "R$ 40.246,00",
     "classificacao": "✅ ÓTIMO",
