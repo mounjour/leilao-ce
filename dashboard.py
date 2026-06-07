@@ -2,7 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import json
 import os
-import subprocess
 from datetime import datetime, timedelta
 from urllib.parse import quote
 from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
@@ -646,11 +645,6 @@ with st.sidebar:
                 st.session_state[k] = 1
         st.session_state["_fil_hash"] = fil_hash
 
-    if st.button("🔄 Atualizar dados", key="btn_atualizar", use_container_width=True):
-        with st.spinner("Buscando leilões..."):
-            subprocess.run(["python","scraper.py"], capture_output=True)
-        st.rerun()
-
     st.markdown("---")
 
     # ── INFORMAÇÕES ──────────────────────────────────────────────────────
@@ -694,7 +688,7 @@ if pagina == "comprar":     pagina_como_comprar(); st.stop()
 if pagina == "informacoes": pagina_informacoes(); st.stop()
 
 if not lotes:
-    st.warning("Clique em **Atualizar dados** na sidebar para buscar os leilões.")
+    st.warning("Nenhum lote encontrado. Os dados são atualizados automaticamente 2x ao dia.")
     st.stop()
 
 fil = lotes.copy()

@@ -215,27 +215,27 @@ def _parse_brl(s):
         return 0
 
 def _extrair_lance(texto):
-    # Prioridade 1: valor imediatamente após "Lance Atual" / "Lance Mínimo"
+    # Prioridade 1: valor após "Lance Atual" ou "Lance Mínimo" — aceita qualquer valor > 0
     m = re.search(
         r'lance\s+(?:atual|m[ií]nimo)[^\d]{0,40}R\$[\xa0\s]*([\d]{1,3}(?:\.[\d]{3})*,[\d]{2})',
         texto, re.IGNORECASE | re.DOTALL
     )
     if m:
         v = _parse_brl(m.group(1))
-        if v >= 500:
+        if v > 0:
             return v
 
-    # Prioridade 2: valor logo após qualquer palavra "lance"
+    # Prioridade 2: valor logo após qualquer palavra "lance" — aceita qualquer valor > 0
     m = re.search(
         r'\blance\b[^\d]{0,60}R\$[\xa0\s]*([\d]{1,3}(?:\.[\d]{3})*,[\d]{2})',
         texto, re.IGNORECASE | re.DOTALL
     )
     if m:
         v = _parse_brl(m.group(1))
-        if v >= 500:
+        if v > 0:
             return v
 
-    # Fallback: primeiro valor >= 500 (exclui valores suspeitamente altos sem contexto)
+    # Fallback: primeiro valor >= 500 (sem contexto de "lance", filtra taxas pequenas)
     valores = []
     for raw in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
         v = _parse_brl(raw)
