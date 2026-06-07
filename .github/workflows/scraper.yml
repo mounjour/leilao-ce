@@ -40,6 +40,7 @@ jobs:
       - name: Rodar scraper
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SCRAPERAPI_KEY:    ${{ secrets.SCRAPERAPI_KEY }}
           PYTHONUNBUFFERED: '1'
         run: python scraper.py
 

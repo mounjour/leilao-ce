@@ -796,7 +796,7 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -812,11 +812,31 @@ def raspar_leiloes():
         lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
-        # Bloqueados por Cloudflare nos IPs do GitHub Actions:
-        # lotes += _raspar_construbem(pg_lista, pg_detalhe, vistos)
-        # lotes += _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
+
+        # Sites com Cloudflare — usa ScraperAPI como proxy
+        scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
+        if scraperapi_key:
+            ctx_cf = browser.new_context(
+                proxy={
+                    "server": "http://proxy-server.scraperapi.com:8001",
+                    "username": "scraperapi",
+                    "password": scraperapi_key,
+                },
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                           "AppleWebKit/537.36 (KHTML, like Gecko) "
+                           "Chrome/124.0.0.0 Safari/537.36",
+                ignore_https_errors=True,
+            )
+            pg_cf1 = ctx_cf.new_page()
+            pg_cf2 = ctx_cf.new_page()
+            lotes += _raspar_construbem(pg_cf1, pg_cf2, vistos)
+            lotes += _raspar_daniel_garcia(pg_cf1, pg_cf2, vistos)
+            ctx_cf.close()
+        else:
+            print("⚠️  SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
+
         browser.close()
 
     with open("leiloes.json","w",encoding="utf-8") as f:
