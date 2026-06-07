@@ -87,13 +87,24 @@ def buscar_fipe(marca, modelo, ano, categoria):
         if not marca_id: return 0, "Marca não encontrada"
         modelos_fipe = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos", timeout=8).json()["modelos"]
 
-        # Score-based matching: pontua cada variante e escolhe a mais específica
+        # Score-based matching: palavras do modelo que aparecem no nome FIPE
         palavras = [p for p in modelo.lower().split() if len(p) > 1 and p not in _STOPWORDS]
-        scored = [(m, _score_modelo(m["nome"], palavras)) for m in modelos_fipe]
+
+        def _score_fipe(fipe_nome):
+            nome = fipe_nome.lower()
+            acertos = sum(1 for p in palavras if p in nome)
+            if acertos == 0:
+                return 0
+            # Penaliza modelos com muitas palavras extras que não estão no nosso modelo
+            palavras_fipe = [p for p in nome.split() if len(p) > 1 and p not in _STOPWORDS]
+            extras = max(0, len(palavras_fipe) - len(palavras))
+            return acertos * 10 - extras
+
+        scored = [(m, _score_fipe(m["nome"])) for m in modelos_fipe]
         scored = [(m, s) for m, s in scored if s > 0]
         if not scored: return 0, "Modelo não encontrado"
-        # Maior pontuação; em empate, nome mais curto (variante mais simples)
-        melhor = max(scored, key=lambda x: (x[1], -len(x[0]["nome"])))
+        # Maior score; em empate, nome mais longo (variante mais específica/completa)
+        melhor = max(scored, key=lambda x: (x[1], len(x[0]["nome"])))
         modelo_id = melhor[0]["codigo"]
 
         anos_f = requests.get(f"{FIPE_API}/{endpoint}/marcas/{marca_id}/modelos/{modelo_id}/anos", timeout=8).json()
@@ -196,26 +207,42 @@ def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
         "data_leilao":          data_leilao,
     }
 
+def _parse_brl(s):
+    try:
+        return float(s.replace("R$","").replace("\xa0","").replace(" ","")
+                      .replace(".","").replace(",",".").strip())
+    except:
+        return 0
+
 def _extrair_lance(texto):
-    # Retorna o PRIMEIRO valor >= 500 encontrado no texto.
-    # Evita pegar incrementos/taxas pequenas (que aparecem depois do lance real).
-    for m in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
-        try:
-            v = float(m.replace("R$","").replace("\xa0","").replace(" ","")
-                       .replace(".","").replace(",",".").strip())
-            if v >= 500:
-                return v
-        except:
-            pass
-    # fallback: qualquer valor > 100
-    for m in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
-        try:
-            v = float(m.replace("R$","").replace("\xa0","").replace(" ","")
-                       .replace(".","").replace(",",".").strip())
-            if v > 100:
-                return v
-        except:
-            pass
+    # Prioridade 1: valor imediatamente após "Lance Atual" / "Lance Mínimo"
+    m = re.search(
+        r'lance\s+(?:atual|m[ií]nimo)[^\d]{0,40}R\$[\xa0\s]*([\d]{1,3}(?:\.[\d]{3})*,[\d]{2})',
+        texto, re.IGNORECASE | re.DOTALL
+    )
+    if m:
+        v = _parse_brl(m.group(1))
+        if v >= 500:
+            return v
+
+    # Prioridade 2: valor logo após qualquer palavra "lance"
+    m = re.search(
+        r'\blance\b[^\d]{0,60}R\$[\xa0\s]*([\d]{1,3}(?:\.[\d]{3})*,[\d]{2})',
+        texto, re.IGNORECASE | re.DOTALL
+    )
+    if m:
+        v = _parse_brl(m.group(1))
+        if v >= 500:
+            return v
+
+    # Fallback: primeiro valor >= 500 (exclui valores suspeitamente altos sem contexto)
+    valores = []
+    for raw in re.findall(r'R\$[\xa0\s]*[\d]{1,3}(?:\.[\d]{3})*,[\d]{2}', texto):
+        v = _parse_brl(raw)
+        if v >= 500:
+            valores.append(v)
+    if valores:
+        return valores[0]
     return 0
 
 def _extrair_foto(html, dominios=('cdndp.com.br',)):
