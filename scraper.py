@@ -844,6 +844,168 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
 
     return lotes
 
+# ─── SCRAPERAPI REST (Cloudflare) ─────────────────────────────────────────────
+def _scraperapi_render(url, key):
+    """Renderiza URL via ScraperAPI REST (JS rendering no lado deles)."""
+    try:
+        r = requests.get(
+            "http://api.scraperapi.com",
+            params={"api_key": key, "url": url, "render": "true", "country_code": "br"},
+            timeout=90,
+        )
+        if r.status_code == 200:
+            return r.text
+        print(f"  ⚠️ ScraperAPI {url}: HTTP {r.status_code}")
+    except Exception as e:
+        print(f"  ⚠️ ScraperAPI {url}: {e}")
+    return ""
+
+def _extrair_lotes_html(html, base, vistos):
+    """Extrai hrefs de lotes com ID numérico de um HTML renderizado."""
+    hrefs = []
+    for href in re.findall(r'href=["\']([^"\']{5,200})["\']', html):
+        full = href if href.startswith('http') else base + href
+        if full in vistos:
+            continue
+        if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?)/[^/]*\d{4,}', href, re.I):
+            hrefs.append(full)
+            vistos.add(full)
+    return hrefs
+
+def _lote_de_html(html, url, fonte):
+    """Extrai dados básicos de um lote a partir do HTML renderizado."""
+    texto = re.sub(r'<[^>]+>', ' ', html)
+    texto = re.sub(r'\s+', ' ', texto).strip()
+
+    slug = re.sub(r'\?.*', '', url).rstrip('/').split('/')[-1]
+    slug = re.sub(r'-\d+$', '', slug)
+    palavras = [p for p in slug.split('-') if p]
+    marca  = palavras[0].title() if palavras else "?"
+    modelo = ' '.join(p.title() for p in palavras[1:3]) if len(palavras) > 1 else "?"
+
+    ano = 0
+    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + texto[:500])
+    if m:
+        ano = int(m.group())
+
+    cidade = "CE"
+    for c in CIDADES_CE:
+        if c.replace('-', ' ') in texto.lower():
+            cidade = c.replace('-', ' ').title() + '/CE'
+            break
+
+    lance      = _extrair_lance(texto)
+    km         = _extrair_km(texto)
+    descricao  = _extrair_descricao(texto)
+    data_leilao = _extrair_data_leilao(texto)
+
+    # Foto: busca src de img
+    fotos = re.findall(r'src=["\']([^"\']+\.(?:jpg|jpeg|png|webp))["\']', html, re.I)
+    foto = next((f for f in fotos if not any(x in f.lower() for x in ['logo','icon','avatar','banner'])), "")
+
+    return marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao
+
+def _raspar_construbem_rest(key, vistos):
+    lotes = []
+    bases = [
+        "https://construbemleiloes.plataformasoleon.com.br",
+        "https://www.construbemleiloes.com.br",
+    ]
+    paths = ["/veiculos", "/imoveis", "/lotes", "/"]
+
+    for base in bases:
+        encontrou = False
+        for path in paths:
+            url = base + path
+            print(f"📡 Construbem REST | {url}")
+            html = _scraperapi_render(url, key)
+            if not html:
+                continue
+
+            hrefs = _extrair_lotes_html(html, base, vistos)
+            if not hrefs:
+                texto = re.sub(r'<[^>]+>', ' ', html)
+                amostra = re.findall(r'href=["\']([^"\']{10,80})["\']', html)[:8]
+                print(f"  [diag] links={amostra}")
+                print(f"  [diag] texto={texto[:200].replace(chr(10),' ')}")
+                continue
+
+            print(f"  {len(hrefs)} lotes encontrados")
+            encontrou = True
+
+            for url_lote in hrefs[:40]:
+                try:
+                    lot_html = _scraperapi_render(url_lote, key)
+                    if not lot_html:
+                        continue
+                    marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
+                    categoria = detectar_categoria(modelo, marca, "carros")
+                    icone     = ICONES.get(categoria, "📦")
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                    print(f"  {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                    lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
+                                           cidade, lance, ref_val, ref_str,
+                                           classif, foto, km, descricao, analise, url_lote, data_leilao))
+                    time.sleep(0.3)
+                except Exception as e:
+                    print(f"  ⚠️ Construbem lote: {e}")
+        if encontrou:
+            break
+    return lotes
+
+def _raspar_daniel_garcia_rest(key, vistos):
+    lotes = []
+    base  = "https://www.danielgarcialeiloes.com.br"
+    paths = ["/leiloes", "/veiculos", "/lotes", "/"]
+
+    for path in paths:
+        url = base + path
+        print(f"📡 DanielGarcia REST | {url}")
+        html = _scraperapi_render(url, key)
+        if not html:
+            continue
+
+        hrefs = _extrair_lotes_html(html, base, vistos)
+        if not hrefs:
+            texto = re.sub(r'<[^>]+>', ' ', html)
+            amostra = re.findall(r'href=["\']([^"\']{10,80})["\']', html)[:8]
+            print(f"  [diag] links={amostra}")
+            print(f"  [diag] texto={texto[:200].replace(chr(10),' ')}")
+            continue
+
+        # Filtra somente CE
+        hrefs_ce = [h for h in hrefs if any(
+            c in h.lower() for c in ['ceara', 'fortaleza', '/ce/', '-ce-', '-ce/']
+        )] or hrefs
+
+        print(f"  {len(hrefs_ce)} lotes CE de {len(hrefs)} totais")
+
+        for url_lote in hrefs_ce[:40]:
+            try:
+                lot_html = _scraperapi_render(url_lote, key)
+                if not lot_html:
+                    continue
+                texto_lote = re.sub(r'<[^>]+>', ' ', lot_html)
+                if not any(c in texto_lote.lower() for c in ['ceará','ceara','fortaleza','caucaia','maracanau','juazeiro','sobral','crato']):
+                    continue
+                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
+                categoria = detectar_categoria(modelo, marca, "carros")
+                icone     = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"  ⚠️ DanielGarcia lote: {e}")
+        break
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
     print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia\n")
@@ -865,28 +1027,13 @@ def raspar_leiloes():
 
         ctx.close()
 
-        # Sites com Cloudflare — usa ScraperAPI como proxy
+        # Sites com Cloudflare — ScraperAPI REST API (render=true)
         scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
         if scraperapi_key:
-            ctx_cf = browser.new_context(
-                proxy={
-                    "server": "http://proxy-server.scraperapi.com:8001",
-                    "username": "scraperapi",
-                    "password": scraperapi_key,
-                },
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                           "AppleWebKit/537.36 (KHTML, like Gecko) "
-                           "Chrome/124.0.0.0 Safari/537.36",
-                ignore_https_errors=True,
-            )
-            pg_cf1 = ctx_cf.new_page()
-            pg_cf2 = ctx_cf.new_page()
-            lotes += _raspar_construbem(pg_cf1, pg_cf2, vistos)
-            # Daniel Garcia: muitos timeouts via ScraperAPI (ERR_TOO_MANY_RETRIES)
-            # lotes += _raspar_daniel_garcia(pg_cf1, pg_cf2, vistos)
-            ctx_cf.close()
+            lotes += _raspar_construbem_rest(scraperapi_key, vistos)
+            lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
         else:
-            print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
+            print("⚠️  SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
 
         browser.close()
 
