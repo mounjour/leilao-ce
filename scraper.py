@@ -603,7 +603,7 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
         for path in _CONSTRUBEM_PATHS:
             url = base + path
             try:
-                pg_lista.goto(url, timeout=20000, wait_until="domcontentloaded")
+                pg_lista.goto(url, timeout=40000, wait_until="domcontentloaded")
                 pg_lista.wait_for_timeout(5000)  # aguarda JS renderizar
             except Exception as e:
                 print(f"  ⚠️ Construbem goto {url}: {e}")
@@ -626,7 +626,8 @@ def _raspar_construbem(pg_lista, pg_detalhe, vistos):
                     todos_hrefs.append(href)
                     if full in vistos:
                         continue
-                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?|item[s]?)/\S', href, re.I):
+                    # Lotes reais no Soleon têm ID numérico no final da URL
+                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?)/[^/]*\d{4,}', href, re.I):
                         hrefs.append(full)
                         vistos.add(full)
                 except:
@@ -859,10 +860,11 @@ def raspar_leiloes():
             pg_cf1 = ctx_cf.new_page()
             pg_cf2 = ctx_cf.new_page()
             lotes += _raspar_construbem(pg_cf1, pg_cf2, vistos)
-            lotes += _raspar_daniel_garcia(pg_cf1, pg_cf2, vistos)
+            # Daniel Garcia: muitos timeouts via ScraperAPI (ERR_TOO_MANY_RETRIES)
+            # lotes += _raspar_daniel_garcia(pg_cf1, pg_cf2, vistos)
             ctx_cf.close()
         else:
-            print("⚠️  SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
+            print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
 
         browser.close()
 
