@@ -945,12 +945,12 @@ def _raspar_construbem_rest(key, vistos):
         if not html_auction:
             continue
 
+        # Busca /item/{ID}/detalhes em href E em qualquer parte do HTML (JS, data-attrs)
+        lot_ids_found = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
         lot_hrefs = []
-        for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
-            full = href if href.startswith('http') else base + href
-            if full in vistos:
-                continue
-            if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
+        for item_id in lot_ids_found:
+            full = f"{base}/item/{item_id}/detalhes"
+            if full not in vistos:
                 lot_hrefs.append(full)
                 vistos.add(full)
 
@@ -966,7 +966,7 @@ def _raspar_construbem_rest(key, vistos):
         # Passo 3: detalhe de cada lote
         for url_lote in lot_hrefs[:40]:
             try:
-                lot_html = _scraperapi_render(url_lote, key, wait_ms=5000)
+                lot_html = _scraperapi_render(url_lote, key)
                 if not lot_html:
                     continue
                 marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
@@ -1013,7 +1013,10 @@ def _raspar_daniel_garcia_rest(key, vistos):
 
         print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
 
-        # Passo 2: lista de lotes por leilão (wait=10s para React renderizar)
+        _CE_WORDS = ['ceará','ceara','fortaleza','maracanau','caucaia','juazeiro',
+                     'sobral','crato','eusebio','horizonte','pacajus','aquiraz','russas']
+
+        # Passo 2: lista de lotes por leilão — filtra apenas CE pelo título
         for auction_id in auction_ids:
             url_auction = f"{base}/leilao/{auction_id}/lotes"
             print(f"  📋 DanielGarcia | leilão {auction_id}: {url_auction}")
@@ -1021,12 +1024,19 @@ def _raspar_daniel_garcia_rest(key, vistos):
             if not html_auction:
                 continue
 
+            # Verifica se é leilão do CE pelo título da página
+            title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_auction, re.I)
+            titulo  = title_m.group(1).lower() if title_m else ""
+            if not any(c in titulo for c in _CE_WORDS):
+                print(f"    [skip] leilão {auction_id} não é CE: {titulo[:80]}")
+                continue
+
+            # Busca /item/{ID}/detalhes em href E em qualquer parte do HTML
+            lot_ids_found = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
             lot_hrefs = []
-            for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
-                full = href if href.startswith('http') else base + href
-                if full in vistos:
-                    continue
-                if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
+            for item_id in lot_ids_found:
+                full = f"{base}/item/{item_id}/detalhes"
+                if full not in vistos:
                     lot_hrefs.append(full)
                     vistos.add(full)
 
@@ -1037,16 +1047,13 @@ def _raspar_daniel_garcia_rest(key, vistos):
                 print(f"    [diag leilão {auction_id}] texto={texto[:500].replace(chr(10),' ')}")
                 continue
 
-            print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
+            print(f"    {len(lot_hrefs)} lotes CE em leilão {auction_id}")
 
             # Passo 3: detalhe de cada lote
             for url_lote in lot_hrefs[:40]:
                 try:
-                    lot_html = _scraperapi_render(url_lote, key, wait_ms=5000)
+                    lot_html = _scraperapi_render(url_lote, key)
                     if not lot_html:
-                        continue
-                    texto_lote = re.sub(r'<[^>]+>', ' ', lot_html)
-                    if not any(c in texto_lote.lower() for c in ['ceará','ceara','fortaleza','caucaia','maracanau','juazeiro','sobral','crato']):
                         continue
                     marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
                     categoria = detectar_categoria(modelo, marca, "carros")
@@ -1092,8 +1099,7 @@ def raspar_leiloes():
         scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
         if scraperapi_key:
             lotes += _raspar_construbem_rest(scraperapi_key, vistos)
-            # DanielGarcia temporariamente desativado: site nacional (SP/MG/PR), poucos lotes CE
-            # lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
+            lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
         else:
             print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
 
