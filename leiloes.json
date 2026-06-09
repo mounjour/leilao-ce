@@ -22,7 +22,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo-7-pro/ano.2023/f5c52d61-5ad0-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-09T12:30"
+    "data_leilao": "2026-06-09T12:41"
   },
   {
     "fonte": "leilo",
@@ -147,7 +147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault-kwid-zen-1.0-12v-(flex)-4p-a/g/ano.2023/d6b065a9-b123-4906-a3b5-d4bf52e9d4de",
-    "data_leilao": "2026-06-09T13:38"
+    "data_leilao": "2026-06-09T13:39"
   },
   {
     "fonte": "leilo",
@@ -207,7 +207,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 58500.0,
+    "lance_atual": 61000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "⚠️ MEDIANO",
@@ -232,10 +232,10 @@
     "modelo": "Hb20 Comfortline",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 24800.0,
+    "lance_atual": 28400.0,
     "fipe_valor": 55397.0,
     "fipe_str": "R$ 55.397,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780660350465_a608ac38-c9e5-4ad6-8546-5c099f221b16_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
@@ -522,7 +522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c3-origine-pack-(4p)/ano.2015/55f02815-8839-11f0-b593-02420a000005",
-    "data_leilao": "2026-06-10T12:30"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -607,7 +607,7 @@
     "modelo": "Golf Generation",
     "ano": 2005,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6300.0,
+    "lance_atual": 6600.0,
     "fipe_valor": 21985.0,
     "fipe_str": "R$ 21.985,00",
     "classificacao": "✅ ÓTIMO",
@@ -707,13 +707,13 @@
     "modelo": "Argo Drive 1.0",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 27700.0,
+    "lance_atual": 0,
     "fipe_valor": 50447.0,
     "fipe_str": "R$ 50.447,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780658310528_4a12827c-6cd9-4d07-9f0f-d11984b20aef_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -722,7 +722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0-(4p)/ano.2019/d2f64667-3a6a-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-09T12:41"
   },
   {
     "fonte": "leilo",
@@ -757,7 +757,7 @@
     "modelo": "Crosser Z Abs",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8500.0,
+    "lance_atual": 8900.0,
     "fipe_valor": 55731.0,
     "fipe_str": "R$ 55.731,00",
     "classificacao": "✅ ÓTIMO",
@@ -782,7 +782,7 @@
     "modelo": "Versys 1100 Gt",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32600.0,
+    "lance_atual": 33400.0,
     "fipe_valor": 74993.0,
     "fipe_str": "R$ 74.993,00",
     "classificacao": "✅ ÓTIMO",
@@ -807,7 +807,7 @@
     "modelo": "Z900",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 25000.0,
+    "lance_atual": 25600.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -857,13 +857,13 @@
     "modelo": "Cg 160 Fan",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8700.0,
+    "lance_atual": 0,
     "fipe_valor": 13251.0,
     "fipe_str": "R$ 13.251,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780665396161_b9395ff3-1557-42ce-a681-f05ededdef35_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -872,7 +872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2018/a2ba77a5-43c7-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-10T12:29"
+    "data_leilao": "2026-06-09T13:53"
   },
   {
     "fonte": "leilo",
@@ -907,10 +907,10 @@
     "modelo": "Biz Ex",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12500.0,
+    "lance_atual": 12800.0,
     "fipe_valor": 16874.0,
     "fipe_str": "R$ 16.874,00",
-    "classificacao": "⚠️ MEDIANO",
+    "classificacao": "❌ RUIM",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/6/1780747470449_322f43f1-3a18-4c3f-8d03-9a0ed2509ca1_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
@@ -1257,7 +1257,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9800.0,
+    "lance_atual": 10000.0,
     "fipe_valor": 21691.0,
     "fipe_str": "R$ 21.691,00",
     "classificacao": "✅ ÓTIMO",
@@ -1407,13 +1407,13 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 11800.0,
     "fipe_valor": 19194.0,
     "fipe_str": "R$ 19.194,00",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/8/1780925703468_5cc336d2-345c-4314-bb3f-923a9f9b4dea_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1422,7 +1422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2022/21642936-56a0-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-09T13:52"
+    "data_leilao": "2026-06-10T12:29"
   },
   {
     "fonte": "leilo",
@@ -1457,7 +1457,7 @@
     "modelo": "Xy150 8",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7400.0,
+    "lance_atual": 7600.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -1647,7 +1647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2017/8a210f65-39a8-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-09T14:08"
+    "data_leilao": "2026-06-09T14:09"
   },
   {
     "fonte": "leilo",
@@ -1672,7 +1672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/0d9875a3-08be-11f0-8c72-02420a00002d",
-    "data_leilao": "2026-06-09T14:14"
+    "data_leilao": "2026-06-09T14:16"
   },
   {
     "fonte": "leilo",
@@ -1707,13 +1707,13 @@
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 2500.0,
+    "lance_atual": 0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/5/1780661312654_10e8c805-55a4-4106-99ee-09e9f7545511_media.webp",
+    "foto": "",
     "km": "",
-    "descricao": "iniciochevron_rightpatio 2 - fortaleza/cechevron_rightsucataschevron_rightrenaultchevron_right 2021",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1722,7 +1722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/renault/kwid-zen-1.0-mecanico-(4p)/ano.2021/dfa3337f-08bd-11f0-8c72-02420a00002d",
-    "data_leilao": "2026-06-09T14:17"
+    "data_leilao": "2026-06-09T12:42"
   },
   {
     "fonte": "leilo",
@@ -1772,7 +1772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/jac/j3-(4p)/ano.2012/9304d06f-1c61-11ef-b80e-02420a000059",
-    "data_leilao": "2026-06-09T14:20"
+    "data_leilao": "2026-06-09T14:21"
   },
   {
     "fonte": "leilo",
@@ -1782,7 +1782,7 @@
     "modelo": "Fiesta Flex",
     "ano": 2008,
     "cidade": "Eusebio/CE",
-    "lance_atual": 1000.0,
+    "lance_atual": 1300.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1832,7 +1832,7 @@
     "modelo": "Discovery Sport D180 Hse",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 21800.0,
+    "lance_atual": 22400.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1847,7 +1847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/land-rover/discovery-sport-d180-hse/ano.2019/50306bcb-069b-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-09T14:23"
+    "data_leilao": "2026-06-09T14:24"
   },
   {
     "fonte": "leilo",
@@ -1857,7 +1857,7 @@
     "modelo": "Frontier Attack 4X4",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 17300.0,
+    "lance_atual": 17600.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2657,7 +2657,7 @@
     "modelo": "Civic Ex",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 58500.0,
+    "lance_atual": 61000.0,
     "fipe_valor": 106124.0,
     "fipe_str": "R$ 106.124,00",
     "classificacao": "⚠️ MEDIANO",
@@ -2682,7 +2682,7 @@
     "modelo": "Crosser Z Abs",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8500.0,
+    "lance_atual": 8900.0,
     "fipe_valor": 55731.0,
     "fipe_str": "R$ 55.731,00",
     "classificacao": "✅ ÓTIMO",
@@ -2707,7 +2707,7 @@
     "modelo": "Versys 1100 Gt",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32600.0,
+    "lance_atual": 33400.0,
     "fipe_valor": 74993.0,
     "fipe_str": "R$ 74.993,00",
     "classificacao": "✅ ÓTIMO",
@@ -2732,7 +2732,7 @@
     "modelo": "Z900",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 25000.0,
+    "lance_atual": 25600.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -2757,10 +2757,10 @@
     "modelo": "Hb20 Comfortline",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 24800.0,
+    "lance_atual": 28400.0,
     "fipe_valor": 55397.0,
     "fipe_str": "R$ 55.397,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "",
     "km": "89.455 km",
     "descricao": "",
@@ -2922,7 +2922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2017/8a210f65-39a8-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-09T14:09"
+    "data_leilao": "2026-06-09T14:10"
   },
   {
     "fonte": "pacto",
@@ -2947,7 +2947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/0d9875a3-08be-11f0-8c72-02420a00002d",
-    "data_leilao": "2026-06-09T14:15"
+    "data_leilao": "2026-06-09T14:16"
   },
   {
     "fonte": "pacto",
@@ -3057,7 +3057,7 @@
     "modelo": "Fiesta Flex",
     "ano": 2008,
     "cidade": "Eusebio/CE",
-    "lance_atual": 1000.0,
+    "lance_atual": 1300.0,
     "fipe_valor": 31617.0,
     "fipe_str": "R$ 31.617,00",
     "classificacao": "✅ ÓTIMO",
@@ -3107,7 +3107,7 @@
     "modelo": "Discovery Sport D180 Hse",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 21800.0,
+    "lance_atual": 22400.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -3132,7 +3132,7 @@
     "modelo": "Frontier Attack 4X4",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 17300.0,
+    "lance_atual": 17600.0,
     "fipe_valor": 84973.0,
     "fipe_str": "R$ 84.973,00",
     "classificacao": "✅ ÓTIMO",
