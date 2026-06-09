@@ -860,31 +860,35 @@ def _scraperapi_render(url, key):
         print(f"  ⚠️ ScraperAPI {url}: {e}")
     return ""
 
-def _extrair_lotes_html(html, base, vistos):
-    """Extrai hrefs de lotes com ID numérico de um HTML renderizado."""
-    hrefs = []
-    for href in re.findall(r'href=["\']([^"\']{5,200})["\']', html):
-        full = href if href.startswith('http') else base + href
-        if full in vistos:
-            continue
-        if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?)/[^/]*\d{4,}', href, re.I):
-            hrefs.append(full)
-            vistos.add(full)
-    return hrefs
 
 def _lote_de_html(html, url, fonte):
     """Extrai dados básicos de um lote a partir do HTML renderizado."""
     texto = re.sub(r'<[^>]+>', ' ', html)
     texto = re.sub(r'\s+', ' ', texto).strip()
 
+    # Tenta extrair marca/modelo do título ou h1 da página
+    title_m = re.search(r'<title[^>]*>([^<]+)</title>', html, re.I)
+    h1_m    = re.search(r'<h1[^>]*>([^<]+)</h1>', html, re.I)
+    info_text = (h1_m.group(1) if h1_m else (title_m.group(1) if title_m else "")).strip()
+    info_text = re.split(r'[|\-–]', info_text)[0].strip()
+
     slug = re.sub(r'\?.*', '', url).rstrip('/').split('/')[-1]
-    slug = re.sub(r'-\d+$', '', slug)
-    palavras = [p for p in slug.split('-') if p]
-    marca  = palavras[0].title() if palavras else "?"
-    modelo = ' '.join(p.title() for p in palavras[1:3]) if len(palavras) > 1 else "?"
+    slug_limpo = re.sub(r'^\d+(-\d+)?$', '', slug)  # ignora se for só número
+    slug_limpo = re.sub(r'-\d+$', '', slug_limpo)
+    palavras_slug = [p for p in slug_limpo.split('-') if p and not p.isdigit()]
+
+    if palavras_slug:
+        marca  = palavras_slug[0].title()
+        modelo = ' '.join(p.title() for p in palavras_slug[1:3]) if len(palavras_slug) > 1 else "?"
+    elif info_text:
+        words  = info_text.split()
+        marca  = words[0].title() if words else "?"
+        modelo = ' '.join(w.title() for w in words[1:3]) if len(words) > 1 else "?"
+    else:
+        marca, modelo = "?", "?"
 
     ano = 0
-    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + texto[:500])
+    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + info_text + ' ' + texto[:500])
     if m:
         ano = int(m.group())
 
@@ -899,95 +903,141 @@ def _lote_de_html(html, url, fonte):
     descricao  = _extrair_descricao(texto)
     data_leilao = _extrair_data_leilao(texto)
 
-    # Foto: busca src de img
     fotos = re.findall(r'src=["\']([^"\']+\.(?:jpg|jpeg|png|webp))["\']', html, re.I)
     foto = next((f for f in fotos if not any(x in f.lower() for x in ['logo','icon','avatar','banner'])), "")
 
     return marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao
 
 def _raspar_construbem_rest(key, vistos):
+    """Scraper Construbem via ScraperAPI REST.
+    Estrutura Soleon: / → /leilao/{ID}/lotes → /leilao/{ID}/lotes/{LOT_ID}
+    """
     lotes = []
-    bases = [
-        "https://construbemleiloes.plataformasoleon.com.br",
-        "https://www.construbemleiloes.com.br",
-    ]
-    paths = ["/veiculos", "/imoveis", "/lotes", "/"]
+    base = "https://www.construbemleiloes.com.br"
 
-    for base in bases:
-        encontrou = False
-        for path in paths:
-            url = base + path
-            print(f"📡 Construbem REST | {url}")
-            html = _scraperapi_render(url, key)
-            if not html:
+    # Passo 1: homepage para encontrar leilões ativos
+    print(f"📡 Construbem REST | {base}/")
+    html_home = _scraperapi_render(base + "/", key)
+    if not html_home:
+        print("  ⚠️ Construbem: homepage não carregou")
+        return lotes
+
+    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
+    if not auction_ids:
+        amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
+        texto   = re.sub(r'<[^>]+>', ' ', html_home)
+        print(f"  [diag] links={amostra}")
+        print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
+        return lotes
+
+    print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
+
+    # Passo 2: para cada leilão, pega a lista de lotes
+    for auction_id in auction_ids:
+        url_auction = f"{base}/leilao/{auction_id}/lotes"
+        print(f"  📋 Construbem | leilão {auction_id}: {url_auction}")
+        html_auction = _scraperapi_render(url_auction, key)
+        if not html_auction:
+            continue
+
+        lot_hrefs = []
+        for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
+            full = href if href.startswith('http') else base + href
+            if full in vistos:
                 continue
+            if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
+                lot_hrefs.append(full)
+                vistos.add(full)
 
-            hrefs = _extrair_lotes_html(html, base, vistos)
-            if not hrefs:
-                texto = re.sub(r'<[^>]+>', ' ', html)
-                amostra = re.findall(r'href=["\']([^"\']{10,80})["\']', html)[:8]
-                print(f"  [diag] links={amostra}")
-                print(f"  [diag] texto={texto[:200].replace(chr(10),' ')}")
-                continue
+        if not lot_hrefs:
+            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:10]
+            texto   = re.sub(r'<[^>]+>', ' ', html_auction)
+            print(f"    [diag leilão {auction_id}] links={amostra}")
+            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
+            continue
 
-            print(f"  {len(hrefs)} lotes encontrados")
-            encontrou = True
+        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
 
-            for url_lote in hrefs[:40]:
-                try:
-                    lot_html = _scraperapi_render(url_lote, key)
-                    if not lot_html:
-                        continue
-                    marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
-                    categoria = detectar_categoria(modelo, marca, "carros")
-                    icone     = ICONES.get(categoria, "📦")
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                    print(f"  {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-                    lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
-                                           cidade, lance, ref_val, ref_str,
-                                           classif, foto, km, descricao, analise, url_lote, data_leilao))
-                    time.sleep(0.3)
-                except Exception as e:
-                    print(f"  ⚠️ Construbem lote: {e}")
-        if encontrou:
-            break
+        # Passo 3: detalhe de cada lote
+        for url_lote in lot_hrefs[:40]:
+            try:
+                lot_html = _scraperapi_render(url_lote, key)
+                if not lot_html:
+                    continue
+                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
+                categoria = detectar_categoria(modelo, marca, "carros")
+                icone     = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"    {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
+                                       cidade, lance, ref_val, ref_str,
+                                       classif, foto, km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"    ⚠️ Construbem lote: {e}")
+
     return lotes
 
 def _raspar_daniel_garcia_rest(key, vistos):
+    """Scraper Daniel Garcia via ScraperAPI REST.
+    Mesma plataforma Soleon: / → /leilao/{ID}/lotes → /leilao/{ID}/lotes/{LOT_ID}
+    """
     lotes = []
-    base  = "https://www.danielgarcialeiloes.com.br"
-    paths = ["/leiloes", "/veiculos", "/lotes", "/"]
+    base = "https://www.danielgarcialeiloes.com.br"
 
-    for path in paths:
-        url = base + path
-        print(f"📡 DanielGarcia REST | {url}")
-        html = _scraperapi_render(url, key)
-        if not html:
+    # Passo 1: homepage para encontrar leilões ativos
+    print(f"📡 DanielGarcia REST | {base}/")
+    html_home = _scraperapi_render(base + "/", key)
+    if not html_home:
+        print("  ⚠️ DanielGarcia: homepage não carregou")
+        return lotes
+
+    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
+    if not auction_ids:
+        amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
+        texto   = re.sub(r'<[^>]+>', ' ', html_home)
+        print(f"  [diag] links={amostra}")
+        print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
+        return lotes
+
+    print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
+
+    # Passo 2: lista de lotes por leilão
+    for auction_id in auction_ids:
+        url_auction = f"{base}/leilao/{auction_id}/lotes"
+        print(f"  📋 DanielGarcia | leilão {auction_id}: {url_auction}")
+        html_auction = _scraperapi_render(url_auction, key)
+        if not html_auction:
             continue
 
-        hrefs = _extrair_lotes_html(html, base, vistos)
-        if not hrefs:
-            texto = re.sub(r'<[^>]+>', ' ', html)
-            amostra = re.findall(r'href=["\']([^"\']{10,80})["\']', html)[:8]
-            print(f"  [diag] links={amostra}")
-            print(f"  [diag] texto={texto[:200].replace(chr(10),' ')}")
+        lot_hrefs = []
+        for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
+            full = href if href.startswith('http') else base + href
+            if full in vistos:
+                continue
+            if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
+                lot_hrefs.append(full)
+                vistos.add(full)
+
+        if not lot_hrefs:
+            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:10]
+            texto   = re.sub(r'<[^>]+>', ' ', html_auction)
+            print(f"    [diag leilão {auction_id}] links={amostra}")
+            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
             continue
 
-        # Filtra somente CE
-        hrefs_ce = [h for h in hrefs if any(
-            c in h.lower() for c in ['ceara', 'fortaleza', '/ce/', '-ce-', '-ce/']
-        )] or hrefs
+        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
 
-        print(f"  {len(hrefs_ce)} lotes CE de {len(hrefs)} totais")
-
-        for url_lote in hrefs_ce[:40]:
+        # Passo 3: detalhe de cada lote
+        for url_lote in lot_hrefs[:40]:
             try:
                 lot_html = _scraperapi_render(url_lote, key)
                 if not lot_html:
                     continue
                 texto_lote = re.sub(r'<[^>]+>', ' ', lot_html)
+                # Daniel Garcia opera no CE, mas pode ter lotes de outros estados
                 if not any(c in texto_lote.lower() for c in ['ceará','ceara','fortaleza','caucaia','maracanau','juazeiro','sobral','crato']):
                     continue
                 marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
@@ -996,14 +1046,14 @@ def _raspar_daniel_garcia_rest(key, vistos):
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                print(f"  {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                print(f"    {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
                 lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
                                         cidade, lance, ref_val, ref_str,
                                         classif, foto, km, descricao, analise, url_lote, data_leilao))
                 time.sleep(0.3)
             except Exception as e:
-                print(f"  ⚠️ DanielGarcia lote: {e}")
-        break
+                print(f"    ⚠️ DanielGarcia lote: {e}")
+
     return lotes
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
