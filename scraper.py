@@ -1074,9 +1074,123 @@ def _raspar_daniel_garcia_rest(key, vistos):
 
     return lotes
 
+# ─── SCRAPER MJ LEILÕES ──────────────────────────────────────────────────────
+_MJ_BASE    = "https://www.mjleiloes.com.br"
+_MJ_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                              "AppleWebKit/537.36 (KHTML, like Gecko) "
+                              "Chrome/124.0.0.0 Safari/537.36"}
+_MJ_CE      = ['ceará','ceara','/ce','-ce','ce-','pacujá','pacuja','juazeiro',
+               'fortaleza','caucaia','maracanau','sobral','crato','eusebio',
+               'horizonte','pacajus','aquiraz','russas']
+
+def _raspar_mj_leiloes(vistos):
+    lotes = []
+    try:
+        r = requests.get(f"{_MJ_BASE}/leiloes", headers=_MJ_HEADERS, timeout=20)
+        html_list = r.text
+    except Exception as e:
+        print(f"⚠️ MJLeiloes: {e}")
+        return lotes
+
+    auction_ids = list(dict.fromkeys(re.findall(r'/leiloes/(\d+)', html_list)))
+    if not auction_ids:
+        print("⚠️ MJLeiloes: nenhum leilão encontrado")
+        return lotes
+
+    for auction_id in auction_ids:
+        url_auction = f"{_MJ_BASE}/leiloes/{auction_id}"
+        try:
+            r = requests.get(url_auction, headers=_MJ_HEADERS, timeout=20)
+            html_auction = r.text
+        except Exception as e:
+            print(f"  ⚠️ MJLeiloes {url_auction}: {e}")
+            continue
+
+        titulo_pg = re.sub(r'<[^>]+>', ' ', html_auction[:3000])
+        if not any(c in titulo_pg.lower() for c in _MJ_CE):
+            continue
+
+        title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_auction, re.I)
+        titulo  = title_m.group(1).strip() if title_m else f"Leilão {auction_id}"
+        print(f"📡 MJLeiloes | leilão {auction_id} (CE): {titulo[:70]}")
+
+        lot_paths = list(dict.fromkeys(re.findall(r'/lote/\d+/[^"\'<>\s]+', html_auction)))
+        if not lot_paths:
+            print(f"  ⚠️ MJLeiloes: nenhum lote encontrado em leilão {auction_id}")
+            continue
+
+        print(f"  {len(lot_paths)} lotes encontrados")
+
+        for lot_path in lot_paths[:60]:
+            url_lote = _MJ_BASE + lot_path
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+            try:
+                r = requests.get(url_lote, headers=_MJ_HEADERS, timeout=15)
+                html_lote = r.text
+                texto = re.sub(r'<[^>]+>', ' ', html_lote)
+                texto = re.sub(r'\s+', ' ', texto).strip()
+
+                # Título do lote: "Volkswagen Saveiro ..., Ano/Mod 2012/2013"
+                h_m = re.search(r'<h[12][^>]*>\s*([^<]{5,120})\s*</h[12]>', html_lote, re.I)
+                titulo_lote = h_m.group(1).strip() if h_m else ""
+
+                ano = 0
+                ano_m = re.search(r'Ano[/\s]+Mod[^\d]*(\d{4})[/\s]*(\d{4})?', titulo_lote, re.I)
+                if ano_m:
+                    ano = int(ano_m.group(2) or ano_m.group(1))
+                    titulo_lote = titulo_lote[:titulo_lote.lower().find('ano')].strip().rstrip(',')
+                else:
+                    ano_m2 = re.search(r'\b(19[89]\d|20[012]\d)\b', titulo_lote + ' ' + texto[:300])
+                    if ano_m2:
+                        ano = int(ano_m2.group())
+
+                partes = titulo_lote.split(' ', 1)
+                marca  = partes[0].title() if partes else "?"
+                modelo = partes[1].title() if len(partes) > 1 else "?"
+
+                lance      = _extrair_lance(texto)
+                km         = _extrair_km(texto)
+                descricao  = _extrair_descricao(texto)
+                data_leilao = _extrair_data_leilao(texto)
+
+                fotos = re.findall(
+                    r'https://static\.suporteleiloes\.com\.br[^\s"\'<>]+\.(?:jpg|jpeg|png|webp)',
+                    html_lote, re.I
+                )
+                foto = next((f for f in fotos if not any(
+                    x in f.lower() for x in ['logo','icon','avatar','banner','thumb']
+                )), "")
+
+                cidade = "CE"
+                for c in CIDADES_CE:
+                    if c.replace('-', ' ') in texto.lower():
+                        cidade = c.replace('-', ' ').title() + '/CE'
+                        break
+                if cidade == "CE":
+                    m_cid = re.search(r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)*)[,/]\s*CE\b', texto)
+                    if m_cid:
+                        cidade = m_cid.group(1).strip() + '/CE'
+
+                categoria = detectar_categoria(modelo, marca, "carros")
+                icone     = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [MJLeiloes/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict("mj", categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"  ⚠️ MJLeiloes lote: {e}")
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -1104,6 +1218,9 @@ def raspar_leiloes():
             print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
 
         browser.close()
+
+    # Sites simples — requests direto, sem Playwright nem ScraperAPI
+    lotes += _raspar_mj_leiloes(vistos)
 
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)
