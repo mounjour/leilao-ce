@@ -845,13 +845,18 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
     return lotes
 
 # ─── SCRAPERAPI REST (Cloudflare) ─────────────────────────────────────────────
-def _scraperapi_render(url, key):
-    """Renderiza URL via ScraperAPI REST (JS rendering no lado deles)."""
+def _scraperapi_render(url, key, wait_ms=0):
+    """Renderiza URL via ScraperAPI REST (JS rendering no lado deles).
+    wait_ms: tempo extra (ms) para aguardar renderização do JavaScript.
+    """
     try:
+        params = {"api_key": key, "url": url, "render": "true", "country_code": "br"}
+        if wait_ms > 0:
+            params["wait"] = str(wait_ms)
         r = requests.get(
             "http://api.scraperapi.com",
-            params={"api_key": key, "url": url, "render": "true", "country_code": "br"},
-            timeout=90,
+            params=params,
+            timeout=120,
         )
         if r.status_code == 200:
             return r.text
@@ -932,11 +937,11 @@ def _raspar_construbem_rest(key, vistos):
 
     print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
 
-    # Passo 2: para cada leilão, pega a lista de lotes
+    # Passo 2: para cada leilão, pega a lista de lotes (wait=10s para React renderizar)
     for auction_id in auction_ids:
         url_auction = f"{base}/leilao/{auction_id}/lotes"
         print(f"  📋 Construbem | leilão {auction_id}: {url_auction}")
-        html_auction = _scraperapi_render(url_auction, key)
+        html_auction = _scraperapi_render(url_auction, key, wait_ms=10000)
         if not html_auction:
             continue
 
@@ -950,10 +955,10 @@ def _raspar_construbem_rest(key, vistos):
                 vistos.add(full)
 
         if not lot_hrefs:
-            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:10]
+            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:15]
             texto   = re.sub(r'<[^>]+>', ' ', html_auction)
             print(f"    [diag leilão {auction_id}] links={amostra}")
-            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
+            print(f"    [diag leilão {auction_id}] texto={texto[:500].replace(chr(10),' ')}")
             continue
 
         print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
@@ -961,7 +966,7 @@ def _raspar_construbem_rest(key, vistos):
         # Passo 3: detalhe de cada lote
         for url_lote in lot_hrefs[:40]:
             try:
-                lot_html = _scraperapi_render(url_lote, key)
+                lot_html = _scraperapi_render(url_lote, key, wait_ms=5000)
                 if not lot_html:
                     continue
                 marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
@@ -985,74 +990,80 @@ def _raspar_daniel_garcia_rest(key, vistos):
     Mesma plataforma Soleon: / → /leilao/{ID}/lotes → /leilao/{ID}/lotes/{LOT_ID}
     """
     lotes = []
-    base = "https://www.danielgarcialeiloes.com.br"
+    bases = [
+        "https://www.danielgarcialeiloes.com.br",
+        "https://danielgarcialeiloes.plataformasoleon.com.br",
+    ]
 
-    # Passo 1: homepage para encontrar leilões ativos
-    print(f"📡 DanielGarcia REST | {base}/")
-    html_home = _scraperapi_render(base + "/", key)
-    if not html_home:
-        print("  ⚠️ DanielGarcia: homepage não carregou")
-        return lotes
-
-    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
-    if not auction_ids:
-        amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
-        texto   = re.sub(r'<[^>]+>', ' ', html_home)
-        print(f"  [diag] links={amostra}")
-        print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
-        return lotes
-
-    print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
-
-    # Passo 2: lista de lotes por leilão
-    for auction_id in auction_ids:
-        url_auction = f"{base}/leilao/{auction_id}/lotes"
-        print(f"  📋 DanielGarcia | leilão {auction_id}: {url_auction}")
-        html_auction = _scraperapi_render(url_auction, key)
-        if not html_auction:
+    for base in bases:
+        # Passo 1: homepage para encontrar leilões ativos
+        print(f"📡 DanielGarcia REST | {base}/")
+        html_home = _scraperapi_render(base + "/", key, wait_ms=5000)
+        if not html_home:
+            print(f"  ⚠️ DanielGarcia: {base} não carregou, tentando próximo")
             continue
 
-        lot_hrefs = []
-        for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
-            full = href if href.startswith('http') else base + href
-            if full in vistos:
+        auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
+        if not auction_ids:
+            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
+            texto   = re.sub(r'<[^>]+>', ' ', html_home)
+            print(f"  [diag] links={amostra}")
+            print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
+            continue
+
+        print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
+
+        # Passo 2: lista de lotes por leilão (wait=10s para React renderizar)
+        for auction_id in auction_ids:
+            url_auction = f"{base}/leilao/{auction_id}/lotes"
+            print(f"  📋 DanielGarcia | leilão {auction_id}: {url_auction}")
+            html_auction = _scraperapi_render(url_auction, key, wait_ms=10000)
+            if not html_auction:
                 continue
-            if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
-                lot_hrefs.append(full)
-                vistos.add(full)
 
-        if not lot_hrefs:
-            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:10]
-            texto   = re.sub(r'<[^>]+>', ' ', html_auction)
-            print(f"    [diag leilão {auction_id}] links={amostra}")
-            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
-            continue
-
-        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
-
-        # Passo 3: detalhe de cada lote
-        for url_lote in lot_hrefs[:40]:
-            try:
-                lot_html = _scraperapi_render(url_lote, key)
-                if not lot_html:
+            lot_hrefs = []
+            for href in re.findall(r'href=["\']([^"\']+)["\']', html_auction):
+                full = href if href.startswith('http') else base + href
+                if full in vistos:
                     continue
-                texto_lote = re.sub(r'<[^>]+>', ' ', lot_html)
-                # Daniel Garcia opera no CE, mas pode ter lotes de outros estados
-                if not any(c in texto_lote.lower() for c in ['ceará','ceara','fortaleza','caucaia','maracanau','juazeiro','sobral','crato']):
-                    continue
-                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
-                categoria = detectar_categoria(modelo, marca, "carros")
-                icone     = ICONES.get(categoria, "📦")
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                print(f"    {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-                lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
-                                        cidade, lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
-                time.sleep(0.3)
-            except Exception as e:
-                print(f"    ⚠️ DanielGarcia lote: {e}")
+                if re.search(r'/leilao/\d+/lote[s]?/\d+', href, re.I):
+                    lot_hrefs.append(full)
+                    vistos.add(full)
+
+            if not lot_hrefs:
+                amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:15]
+                texto   = re.sub(r'<[^>]+>', ' ', html_auction)
+                print(f"    [diag leilão {auction_id}] links={amostra}")
+                print(f"    [diag leilão {auction_id}] texto={texto[:500].replace(chr(10),' ')}")
+                continue
+
+            print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
+
+            # Passo 3: detalhe de cada lote
+            for url_lote in lot_hrefs[:40]:
+                try:
+                    lot_html = _scraperapi_render(url_lote, key, wait_ms=5000)
+                    if not lot_html:
+                        continue
+                    texto_lote = re.sub(r'<[^>]+>', ' ', lot_html)
+                    if not any(c in texto_lote.lower() for c in ['ceará','ceara','fortaleza','caucaia','maracanau','juazeiro','sobral','crato']):
+                        continue
+                    marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
+                    categoria = detectar_categoria(modelo, marca, "carros")
+                    icone     = ICONES.get(categoria, "📦")
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                    print(f"    {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                    lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
+                                            cidade, lance, ref_val, ref_str,
+                                            classif, foto, km, descricao, analise, url_lote, data_leilao))
+                    time.sleep(0.3)
+                except Exception as e:
+                    print(f"    ⚠️ DanielGarcia lote: {e}")
+
+        if lotes:
+            break  # achou lotes no primeiro domínio que funcionou
 
     return lotes
 
