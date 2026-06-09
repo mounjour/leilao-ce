@@ -1092,9 +1092,10 @@ def raspar_leiloes():
         scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
         if scraperapi_key:
             lotes += _raspar_construbem_rest(scraperapi_key, vistos)
-            lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
+            # DanielGarcia temporariamente desativado: site nacional (SP/MG/PR), poucos lotes CE
+            # lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
         else:
-            print("⚠️  SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
+            print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
 
         browser.close()
 
