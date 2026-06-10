@@ -844,26 +844,10 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
 
     return lotes
 
-# ─── SCRAPERAPI REST (Cloudflare) ─────────────────────────────────────────────
-def _scraperapi_render(url, key, wait_ms=0):
-    """Renderiza URL via ScraperAPI REST (JS rendering no lado deles).
-    wait_ms: tempo extra (ms) para aguardar renderização do JavaScript.
-    """
-    try:
-        params = {"api_key": key, "url": url, "render": "true", "country_code": "br"}
-        if wait_ms > 0:
-            params["wait"] = str(wait_ms)
-        r = requests.get(
-            "http://api.scraperapi.com",
-            params=params,
-            timeout=120,
-        )
-        if r.status_code == 200:
-            return r.text
-        print(f"  ⚠️ ScraperAPI {url}: HTTP {r.status_code}")
-    except Exception as e:
-        print(f"  ⚠️ ScraperAPI {url}: {e}")
-    return ""
+# ─── SOLEON (Playwright + ScraperAPI proxy) ───────────────────────────────────
+_SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
+              'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
+              'aquiraz','russas','/ce','-ce']
 
 
 def _lote_de_html(html, url, fonte):
@@ -913,52 +897,63 @@ def _lote_de_html(html, url, fonte):
 
     return marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao
 
-def _raspar_construbem_rest(key, vistos):
-    """Scraper Construbem via ScraperAPI REST.
-    Estrutura Soleon: / → /leilao/{ID}/lotes → /leilao/{ID}/lotes/{LOT_ID}
+def _raspar_soleon_playwright(pg, base, fonte, vistos):
+    """Scraper genérico para plataforma Soleon via Playwright + proxy residencial.
+    Funciona para Construbem e Daniel Garcia.
+    Fluxo: / → /leilao/{ID}/lotes (espera JS) → /item/{ID}/detalhes
     """
     lotes = []
-    base = "https://www.construbemleiloes.com.br"
+    nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte)
 
-    # Passo 1: homepage para encontrar leilões ativos
-    print(f"📡 Construbem REST | {base}/")
-    html_home = _scraperapi_render(base + "/", key)
-    if not html_home:
-        print("  ⚠️ Construbem: homepage não carregou")
+    # Passo 1: homepage
+    print(f"📡 {nome} | {base}/")
+    try:
+        pg.goto(base + "/", timeout=45000, wait_until="domcontentloaded")
+        pg.wait_for_timeout(3000)
+    except Exception as e:
+        print(f"  ⚠️ {nome}: homepage erro: {e}")
         return lotes
 
+    html_home   = pg.content()
     auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
     if not auction_ids:
-        amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
-        texto   = re.sub(r'<[^>]+>', ' ', html_home)
-        print(f"  [diag] links={amostra}")
-        print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
+        print(f"  ⚠️ {nome}: nenhum leilão encontrado na homepage")
         return lotes
+    print(f"  {len(auction_ids)} leilão(ões): {auction_ids}")
 
-    print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
-
-    # Passo 2: para cada leilão, pega a lista de lotes (wait=10s para React renderizar)
-    for auction_id in auction_ids:
+    # Passo 2: cada leilão
+    for auction_id in auction_ids[:20]:
         url_auction = f"{base}/leilao/{auction_id}/lotes"
-        print(f"  📋 Construbem | leilão {auction_id}: {url_auction}")
-        html_auction = _scraperapi_render(url_auction, key, wait_ms=10000)
-        if not html_auction:
+        print(f"  📋 {nome} | leilão {auction_id}")
+        try:
+            pg.goto(url_auction, timeout=35000, wait_until="domcontentloaded")
+        except Exception as e:
+            print(f"    ⚠️ {nome} leilão {auction_id}: {e}")
             continue
 
-        # Busca /item/{ID}/detalhes em href E em qualquer parte do HTML (JS, data-attrs)
-        lot_ids_found = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
+        # Filtra CE pelo título (server-rendered, sem esperar JS)
+        if fonte == "danielgarcia":
+            title_m = re.search(r'<title[^>]*>([^<]+)</title>', pg.content(), re.I)
+            titulo  = (title_m.group(1) if title_m else "").lower()
+            if not any(c in titulo for c in _SOLEON_CE):
+                print(f"    [skip] não CE: {titulo[:70]}")
+                continue
+
+        # Aguarda JavaScript carregar os lotes
+        pg.wait_for_timeout(8000)
+        html_auction = pg.content()
+
+        lot_ids   = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
         lot_hrefs = []
-        for item_id in lot_ids_found:
+        for item_id in lot_ids:
             full = f"{base}/item/{item_id}/detalhes"
             if full not in vistos:
                 lot_hrefs.append(full)
                 vistos.add(full)
 
         if not lot_hrefs:
-            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:15]
-            texto   = re.sub(r'<[^>]+>', ' ', html_auction)
-            print(f"    [diag leilão {auction_id}] links={amostra}")
-            print(f"    [diag leilão {auction_id}] texto={texto[:500].replace(chr(10),' ')}")
+            texto = pg.inner_text('body')
+            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
             continue
 
         print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
@@ -966,111 +961,27 @@ def _raspar_construbem_rest(key, vistos):
         # Passo 3: detalhe de cada lote
         for url_lote in lot_hrefs[:40]:
             try:
-                lot_html = _scraperapi_render(url_lote, key)
-                if not lot_html:
+                try:
+                    pg.goto(url_lote, timeout=25000, wait_until="domcontentloaded")
+                    pg.wait_for_timeout(2000)
+                except Exception as e:
+                    print(f"    ⚠️ {nome} lote load: {e}")
                     continue
-                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "construbem")
+
+                html  = pg.content()
+                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(html, url_lote, fonte)
                 categoria = detectar_categoria(modelo, marca, "carros")
                 icone     = ICONES.get(categoria, "📦")
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                print(f"    {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-                lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
-                                       cidade, lance, ref_val, ref_str,
-                                       classif, foto, km, descricao, analise, url_lote, data_leilao))
+                print(f"    {icone} [{nome}/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict(fonte, categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
                 time.sleep(0.3)
             except Exception as e:
-                print(f"    ⚠️ Construbem lote: {e}")
-
-    return lotes
-
-def _raspar_daniel_garcia_rest(key, vistos):
-    """Scraper Daniel Garcia via ScraperAPI REST.
-    Mesma plataforma Soleon: / → /leilao/{ID}/lotes → /leilao/{ID}/lotes/{LOT_ID}
-    """
-    lotes = []
-    bases = [
-        "https://www.danielgarcialeiloes.com.br",
-        "https://danielgarcialeiloes.plataformasoleon.com.br",
-    ]
-
-    for base in bases:
-        # Passo 1: homepage para encontrar leilões ativos
-        print(f"📡 DanielGarcia REST | {base}/")
-        html_home = _scraperapi_render(base + "/", key, wait_ms=5000)
-        if not html_home:
-            print(f"  ⚠️ DanielGarcia: {base} não carregou, tentando próximo")
-            continue
-
-        auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
-        if not auction_ids:
-            amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_home)[:10]
-            texto   = re.sub(r'<[^>]+>', ' ', html_home)
-            print(f"  [diag] links={amostra}")
-            print(f"  [diag] texto={texto[:300].replace(chr(10),' ')}")
-            continue
-
-        print(f"  {len(auction_ids)} leilão(ões) encontrado(s): {auction_ids}")
-
-        _CE_WORDS = ['ceará','ceara','fortaleza','maracanau','caucaia','juazeiro',
-                     'sobral','crato','eusebio','horizonte','pacajus','aquiraz','russas']
-
-        # Passo 2: lista de lotes por leilão — filtra apenas CE pelo título
-        for auction_id in auction_ids:
-            url_auction = f"{base}/leilao/{auction_id}/lotes"
-            print(f"  📋 DanielGarcia | leilão {auction_id}: {url_auction}")
-            html_auction = _scraperapi_render(url_auction, key, wait_ms=10000)
-            if not html_auction:
-                continue
-
-            # Verifica se é leilão do CE pelo título da página
-            title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_auction, re.I)
-            titulo  = title_m.group(1).lower() if title_m else ""
-            if not any(c in titulo for c in _CE_WORDS):
-                print(f"    [skip] leilão {auction_id} não é CE: {titulo[:80]}")
-                continue
-
-            # Busca /item/{ID}/detalhes em href E em qualquer parte do HTML
-            lot_ids_found = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
-            lot_hrefs = []
-            for item_id in lot_ids_found:
-                full = f"{base}/item/{item_id}/detalhes"
-                if full not in vistos:
-                    lot_hrefs.append(full)
-                    vistos.add(full)
-
-            if not lot_hrefs:
-                amostra = re.findall(r'href=["\']([^"\']{5,80})["\']', html_auction)[:15]
-                texto   = re.sub(r'<[^>]+>', ' ', html_auction)
-                print(f"    [diag leilão {auction_id}] links={amostra}")
-                print(f"    [diag leilão {auction_id}] texto={texto[:500].replace(chr(10),' ')}")
-                continue
-
-            print(f"    {len(lot_hrefs)} lotes CE em leilão {auction_id}")
-
-            # Passo 3: detalhe de cada lote
-            for url_lote in lot_hrefs[:40]:
-                try:
-                    lot_html = _scraperapi_render(url_lote, key)
-                    if not lot_html:
-                        continue
-                    marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(lot_html, url_lote, "danielgarcia")
-                    categoria = detectar_categoria(modelo, marca, "carros")
-                    icone     = ICONES.get(categoria, "📦")
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                    print(f"    {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-                    lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
-                                            cidade, lance, ref_val, ref_str,
-                                            classif, foto, km, descricao, analise, url_lote, data_leilao))
-                    time.sleep(0.3)
-                except Exception as e:
-                    print(f"    ⚠️ DanielGarcia lote: {e}")
-
-        if lotes:
-            break  # achou lotes no primeiro domínio que funcionou
+                print(f"    ⚠️ {nome} lote: {e}")
 
     return lotes
 
@@ -1208,19 +1119,43 @@ def raspar_leiloes():
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
-
-        # Sites com Cloudflare — ScraperAPI REST API (render=true)
-        scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
-        if scraperapi_key:
-            lotes += _raspar_construbem_rest(scraperapi_key, vistos)
-            lotes += _raspar_daniel_garcia_rest(scraperapi_key, vistos)
-        else:
-            print("⚠️  SCRAPERAPI_KEY não definida — Construbem ignorado")
-
         browser.close()
 
     # Sites simples — requests direto, sem Playwright nem ScraperAPI
     lotes += _raspar_mj_leiloes(vistos)
+
+    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright com proxy residencial
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
+    if scraperapi_key:
+        with sync_playwright() as p_proxy:
+            browser_proxy = p_proxy.chromium.launch(
+                headless=True,
+                proxy={
+                    "server": "http://proxy.scraperapi.com:8001",
+                    "username": "scraperapi",
+                    "password": scraperapi_key,
+                },
+                args=["--ignore-certificate-errors", "--no-sandbox"],
+            )
+            ctx_proxy = browser_proxy.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                           "AppleWebKit/537.36 (KHTML, like Gecko) "
+                           "Chrome/124.0.0.0 Safari/537.36"
+            )
+            pg_soleon = ctx_proxy.new_page()
+            try:
+                stealth_sync(pg_soleon)
+            except Exception as e:
+                print(f"  ⚠️ stealth: {e}")
+            lotes += _raspar_soleon_playwright(
+                pg_soleon, "https://www.construbemleiloes.com.br", "construbem", vistos
+            )
+            lotes += _raspar_soleon_playwright(
+                pg_soleon, "https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos
+            )
+            browser_proxy.close()
+    else:
+        print("⚠️ SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
 
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)
