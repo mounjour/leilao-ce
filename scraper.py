@@ -1099,9 +1099,103 @@ def _raspar_mj_leiloes(vistos):
 
     return lotes
 
+# ─── SCRAPER CELSO CUNHA LEILÕES ─────────────────────────────────────────────
+_CC_BASE    = "https://celsocunhaleiloes.com.br"
+_CC_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                              "AppleWebKit/537.36 (KHTML, like Gecko) "
+                              "Chrome/124.0.0.0 Safari/537.36"}
+
+def _raspar_celso_cunha(vistos):
+    lotes = []
+    try:
+        r = requests.get(_CC_BASE + "/", headers=_CC_HEADERS, timeout=20)
+        html_home = r.text
+    except Exception as e:
+        print(f"⚠️ CelsoCunha: {e}")
+        return lotes
+
+    auction_paths = list(dict.fromkeys(re.findall(r'/leilao/\d+/[^"\'<>\s]+', html_home)))
+    if not auction_paths:
+        print("⚠️ CelsoCunha: nenhum leilão encontrado na homepage")
+        return lotes
+
+    for auction_path in auction_paths:
+        url_auction = _CC_BASE + auction_path
+        print(f"📡 CelsoCunha | {auction_path}")
+
+        for page in range(1, 30):
+            try:
+                r = requests.get(f"{url_auction}?page={page}", headers=_CC_HEADERS, timeout=20)
+                html_pg = r.text
+            except Exception as e:
+                print(f"  ⚠️ CelsoCunha {auction_path} p{page}: {e}")
+                break
+
+            lot_paths = list(dict.fromkeys(re.findall(r'/lote/\d+/[^"\'<>\s]+', html_pg)))
+            if not lot_paths:
+                break
+
+            new_lots = [p for p in lot_paths if (_CC_BASE + p) not in vistos]
+            if not new_lots:
+                break
+
+            print(f"  p{page}: {len(new_lots)} lotes novos")
+
+            for lot_path in new_lots:
+                url_lote = _CC_BASE + lot_path
+                vistos.add(url_lote)
+                try:
+                    r = requests.get(url_lote, headers=_CC_HEADERS, timeout=15)
+                    html_lote = r.text
+                    texto = re.sub(r'<[^>]+>', ' ', html_lote)
+                    texto = re.sub(r'\s+', ' ', texto).strip()
+
+                    def _li_val(field):
+                        m = re.search(rf'»\s*{field}:\s*([^<\n]+)', html_lote, re.I)
+                        return m.group(1).strip() if m else ""
+
+                    marca  = _li_val("Marca").title() or "?"
+                    modelo = _li_val("Modelo").title() or "?"
+                    ano_str = _li_val("Ano")
+                    ano = 0
+                    ano_m = re.search(r'(\d{4})', ano_str)
+                    if ano_m:
+                        ano = int(ano_m.group(1))
+
+                    lance = _extrair_lance(texto)
+                    km    = _extrair_km(texto)
+                    descricao = _extrair_descricao(texto)
+                    data_leilao = _extrair_data_leilao(texto)
+
+                    fotos = re.findall(
+                        r'https://(?:www\.)?celsocunhaleiloes\.com\.br/imgTmp/[^\s"\'<>]+',
+                        html_lote, re.I
+                    )
+                    foto = fotos[0] if fotos else ""
+
+                    cidade = "Fortaleza/CE"
+                    m_cid = re.search(r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)*)\s*/\s*Cear[aá]', html_lote)
+                    if m_cid:
+                        cidade = m_cid.group(1).strip() + "/CE"
+
+                    categoria = detectar_categoria(modelo, marca, "carros")
+                    icone     = ICONES.get(categoria, "📦")
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                    print(f"  {icone} [CelsoCunha/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                    lotes.append(_lote_dict("celsocunha", categoria, marca, modelo, ano,
+                                            cidade, lance, ref_val, ref_str,
+                                            classif, foto, km, descricao, analise, url_lote, data_leilao))
+                    time.sleep(0.3)
+                except Exception as e:
+                    print(f"  ⚠️ CelsoCunha lote: {e}")
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -1123,6 +1217,7 @@ def raspar_leiloes():
 
     # Sites simples — requests direto, sem Playwright nem ScraperAPI
     lotes += _raspar_mj_leiloes(vistos)
+    lotes += _raspar_celso_cunha(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright com proxy residencial
     scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")

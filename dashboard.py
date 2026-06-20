@@ -407,7 +407,7 @@ def render_lotes(lotes_lista, key="main"):
                         pass
 
                 col_link, col_fav = st.columns([4, 1])
-                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões"}.get(lote.get("fonte",""), "Leilão")
+                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha"}.get(lote.get("fonte",""), "Leilão")
                 col_link.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
