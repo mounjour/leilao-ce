@@ -1219,38 +1219,29 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
 
-    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright com proxy residencial
-    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
-    if scraperapi_key:
-        with sync_playwright() as p_proxy:
-            browser_proxy = p_proxy.chromium.launch(
-                headless=True,
-                proxy={
-                    "server": "http://proxy.scraperapi.com:8001",
-                    "username": "scraperapi",
-                    "password": scraperapi_key,
-                },
-                args=["--ignore-certificate-errors", "--no-sandbox"],
-            )
-            ctx_proxy = browser_proxy.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                           "AppleWebKit/537.36 (KHTML, like Gecko) "
-                           "Chrome/124.0.0.0 Safari/537.36"
-            )
-            pg_soleon = ctx_proxy.new_page()
-            try:
-                stealth_sync(pg_soleon)
-            except Exception as e:
-                print(f"  ⚠️ stealth: {e}")
-            lotes += _raspar_soleon_playwright(
-                pg_soleon, "https://www.construbemleiloes.com.br", "construbem", vistos
-            )
-            lotes += _raspar_soleon_playwright(
-                pg_soleon, "https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos
-            )
-            browser_proxy.close()
-    else:
-        print("⚠️ SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
+    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright direto (sem proxy)
+    with sync_playwright() as p_soleon:
+        browser_soleon = p_soleon.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-dev-shm-usage"],
+        )
+        ctx_proxy = browser_soleon.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/124.0.0.0 Safari/537.36"
+        )
+        pg_soleon = ctx_proxy.new_page()
+        try:
+            stealth_sync(pg_soleon)
+        except Exception as e:
+            print(f"  ⚠️ stealth: {e}")
+        lotes += _raspar_soleon_playwright(
+            pg_soleon, "https://www.construbemleiloes.com.br", "construbem", vistos
+        )
+        lotes += _raspar_soleon_playwright(
+            pg_soleon, "https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos
+        )
+        browser_soleon.close()
 
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)

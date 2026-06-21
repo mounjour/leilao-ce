@@ -64,6 +64,7 @@ jobs:
             echo "Nenhuma mudança no leiloes.json — pulando commit."
           else
             git commit -m "chore: atualiza leiloes.json [auto $(date -u +%Y-%m-%dT%H:%MZ)]"
+            git pull --rebase origin main
             git push
           fi
 
