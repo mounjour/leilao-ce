@@ -1219,16 +1219,26 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
 
-    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright direto (sem proxy)
+    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright + ScraperAPI proxy
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
+    if not scraperapi_key:
+        print("⚠️ SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
     with sync_playwright() as p_soleon:
+        proxy_cfg = {
+            "server":   "http://proxy.scraperapi.com:8010",
+            "username": "scraperapi",
+            "password": scraperapi_key,
+        } if scraperapi_key else None
         browser_soleon = p_soleon.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage"],
+            proxy=proxy_cfg,
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--ignore-certificate-errors"],
         )
         ctx_proxy = browser_soleon.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                       "Chrome/124.0.0.0 Safari/537.36"
+                       "Chrome/124.0.0.0 Safari/537.36",
+            ignore_https_errors=True,
         )
         pg_soleon = ctx_proxy.new_page()
         try:
