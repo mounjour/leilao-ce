@@ -3,341 +3,16 @@
     "fonte": "leilo",
     "categoria": "carros",
     "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Civic Ex",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 54000.0,
-    "fipe_valor": 106124.0,
-    "fipe_str": "R$ 106.124,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781889450699_35fe376a-05d1-49b1-9cb2-c54d8de78497_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/honda/civic-ex-(4p)/ano.2019/8920c086-3748-4932-a955-ecb54fabc8e4",
-    "data_leilao": "2026-06-23T13:30"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Hyundai",
-    "modelo": "Hb20 Vision",
-    "ano": 2022,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 25000.0,
-    "fipe_valor": 64641.0,
-    "fipe_str": "R$ 64.641,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781889301712_c7acb10a-27f7-482b-9859-053b68b0b19b_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-vision/ano.2022/09ee203d-c1e3-4863-969a-884bfbb88479",
-    "data_leilao": "2026-06-23T13:31"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Jeep",
-    "modelo": "Compass Longitude D",
-    "ano": 2018,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 42600.0,
-    "fipe_valor": 96106.0,
-    "fipe_str": "R$ 96.106,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150397602_ee1c8d48-9a0b-4fde-b9e6-d701b4f763cd_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/compass-longitude-d/ano.2018/0d3e27f1-dfc4-4092-b142-00d569b95fb7",
-    "data_leilao": "2026-06-23T13:32"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix Lt 1.0",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 19500.0,
-    "fipe_valor": 54502.0,
-    "fipe_str": "R$ 54.502,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781889391097_7108d7a5-b865-4f34-82d7-2a7b992e29cb_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-lt-1.0-(4p)/ano.2019/a2fd5642-38c1-4b80-a03d-d1931b048ae7",
-    "data_leilao": "2026-06-23T13:33"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Jeep",
-    "modelo": "Compass Sport Flex",
-    "ano": 2021,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 33700.0,
-    "fipe_valor": 93644.0,
-    "fipe_str": "R$ 93.644,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781890111664_547f3136-38d1-46eb-9c9b-cc9dbb6b8fe7_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/compass-sport-flex/ano.2021/b0883cb6-4aa7-4132-805b-08a73a6c4e2d",
-    "data_leilao": "2026-06-23T13:42"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Polo Highline Ab",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 53000.0,
-    "fipe_valor": 106305.0,
-    "fipe_str": "R$ 106.305,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781890055669_c59a04db-8bab-4dcd-8dc9-24cc4b3aa0fb_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-highline-ab-(4p)/ano.2025/371ababb-35e9-462f-a59c-c6fadb669c2b",
-    "data_leilao": "2026-06-23T13:43"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Fiat",
-    "modelo": "Argo Drive 1.0",
-    "ano": 2026,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 32000.0,
-    "fipe_valor": 80848.0,
-    "fipe_str": "R$ 80.848,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150486914_17be1600-9623-47d6-8c41-76d08948afd6_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0/ano.2026/54262b1a-664b-44cc-ae27-363f16907cb7",
-    "data_leilao": "2026-06-23T13:49"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Citroen",
-    "modelo": "C3 120M Exclusive",
-    "ano": 2013,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 10200.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781878200852_90dd6746-0855-4a43-be55-6da70bd4fa49_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c3-120m-exclusive-(4p)/ano.2013/48201ef9-3833-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:05"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Fit Lx Flex",
-    "ano": 2011,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 13800.0,
-    "fipe_valor": 62119.0,
-    "fipe_str": "R$ 62.119,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781892811438_da244d9b-247d-4ade-88ff-94350c4c0a29_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/honda/fit-lx-flex-(4p)/ano.2011/29e15e00-5eb2-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:08"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Sandero Stepway X",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 16300.0,
-    "fipe_valor": 39296.0,
-    "fipe_str": "R$ 39.296,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875290748_4a70cb17-4663-4e76-a4e0-4b3b8bc0a62a_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-x-(4p)/ano.2019/165bab3c-4a52-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-23T14:10"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Gol Trendline Mb S",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 11200.0,
-    "fipe_valor": 40072.0,
-    "fipe_str": "R$ 40.072,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875234838_b57f285d-59c9-49e3-b0cb-fbdef414e4cc_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mb-s-(2p%2F4p)/ano.2015/3aa8d977-53b5-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:13"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Hr V Exl Cvt Automatico",
-    "ano": 2016,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 32800.0,
-    "fipe_valor": 85144.0,
-    "fipe_str": "R$ 85.144,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875231498_706fb173-1598-4487-bd0e-dd707dcdd4d0_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/honda/hr-v-exl-cvt-automatico/ano.2016/a528566f-5547-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:14"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Ford",
-    "modelo": "Ka Flex",
-    "ano": 2011,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 6000.0,
-    "fipe_valor": 41006.0,
-    "fipe_str": "R$ 41.006,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781891313451_0cc8e3ea-f58e-4af5-8dc7-250b37b751b2_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-flex-(2p)/ano.2011/baba016c-1341-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:18"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
     "marca": "Renault",
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 19600.0,
+    "lance_atual": 17000.0,
     "fipe_valor": 44953.0,
     "fipe_str": "R$ 44.953,00",
     "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781891286949_cf0f3904-0bef-416b-b755-982a755a1199_media.webp",
-    "km": "",
+    "km": "70.377 km",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
@@ -347,32 +22,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/4cb963ce-5938-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:19"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Kwid Intense",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 11800.0,
-    "fipe_valor": 63997.0,
-    "fipe_str": "R$ 63.997,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150309203_bc668768-0704-4856-98e7-4fed066e8037_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-intense-(4p)/ano.2019/9351f8fb-4a51-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-23T14:22"
+    "data_leilao": "2026-06-23T13:30"
   },
   {
     "fonte": "leilo",
@@ -386,7 +36,7 @@
     "fipe_valor": 254222.0,
     "fipe_str": "R$ 254.222,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781868780922_25bcc742-cc05-4c24-b3c1-27c7b31b3cbe_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782212911528_7f0fec6f-9398-4203-ab00-c14b34c182fd_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -397,7 +47,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/hilux-cd-srx-a-4fd/ano.2016/0234064f-39b3-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:30"
   },
   {
     "fonte": "leilo",
@@ -422,7 +72,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c-(4p)/ano.2021/b97e0cec-4968-11f1-a92f-0242ac5000df",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:30"
   },
   {
     "fonte": "leilo",
@@ -447,7 +97,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-outsider-(4p)/ano.2022/fbc7efa3-4fb9-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:31"
   },
   {
     "fonte": "leilo",
@@ -472,7 +122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/nova-saveiro-robust-mbv-cabine-dupla/ano.2022/918bede5-0671-11f0-8c72-02420a00002d",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:31"
   },
   {
     "fonte": "leilo",
@@ -497,7 +147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/cobalt-ltz-(4p)/ano.2015/0ea8a3cb-cb86-11f0-913b-02420a000005",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:32"
   },
   {
     "fonte": "leilo",
@@ -507,11 +157,11 @@
     "modelo": "Onix Lt 1.0",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26000.0,
+    "lance_atual": 26800.0,
     "fipe_valor": 52973.0,
     "fipe_str": "R$ 52.973,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782211626181_d99993b0-3974-41b5-8287-47cff0f01038_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -522,7 +172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-lt-1.0-(4p)/ano.2018/95e78c18-5a04-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:32"
   },
   {
     "fonte": "leilo",
@@ -532,11 +182,11 @@
     "modelo": "Polo Mca",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 38000.0,
+    "lance_atual": 38500.0,
     "fipe_valor": 9636.0,
     "fipe_str": "R$ 9.636,00",
     "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223681183_678bcf90-f5ca-44bb-bf44-cbbcf9d86672_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -547,7 +197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-mca/ano.2019/72c6fcdf-7268-11ed-9785-02420a000030",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:33"
   },
   {
     "fonte": "leilo",
@@ -572,7 +222,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfort-(4p)/ano.2017/83413b4e-b3da-11ef-8e48-02420a000017",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:33"
   },
   {
     "fonte": "leilo",
@@ -586,7 +236,7 @@
     "fipe_valor": 27074.0,
     "fipe_str": "R$ 27.074,00",
     "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223653832_76645784-da62-4b84-80e6-fc61d08067e3_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -597,7 +247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se-at-b/ano.2017/96d9b26f-5901-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:34"
   },
   {
     "fonte": "leilo",
@@ -622,7 +272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-(4p)/ano.2018/1f6787a5-586a-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:34"
   },
   {
     "fonte": "leilo",
@@ -647,7 +297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt2/ano.2020/cca29394-279c-11f1-b6ad-0242ac500058",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:36"
   },
   {
     "fonte": "leilo",
@@ -657,7 +307,7 @@
     "modelo": "Mobi Like",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18600.0,
+    "lance_atual": 19400.0,
     "fipe_valor": 44954.0,
     "fipe_str": "R$ 44.954,00",
     "classificacao": "✅ ÓTIMO",
@@ -672,7 +322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2020/c340c586-2d21-11f1-8174-02420a000006",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:36"
   },
   {
     "fonte": "leilo",
@@ -682,7 +332,7 @@
     "modelo": "Hb20 Sense",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32500.0,
+    "lance_atual": 33000.0,
     "fipe_valor": 56346.0,
     "fipe_str": "R$ 56.346,00",
     "classificacao": "⚠️ MEDIANO",
@@ -697,7 +347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-sense/ano.2021/f73d787b-4a50-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:37"
   },
   {
     "fonte": "leilo",
@@ -722,7 +372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se/ano.2018/e2d54b6d-4e25-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:37"
   },
   {
     "fonte": "leilo",
@@ -747,23 +397,123 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2020/22e55581-5483-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:38"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Prisma Joye 1.0 Mecanico",
+    "ano": 2019,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 20800.0,
+    "fipe_valor": 43900.0,
+    "fipe_str": "R$ 43.900,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/12/1781284051846_4acae7f6-0587-47b2-96e9-431bf1853816_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-joye-1.0-mecanico-(4p)/ano.2019/0b8295a6-44a4-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:38"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Saveiro Cabine Estendida Cross",
+    "ano": 2011,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 14300.0,
+    "fipe_valor": 36693.0,
+    "fipe_str": "R$ 36.693,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223803949_0fdd336d-ded7-4fed-840b-80b314462583_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/saveiro-cabine-estendida-cross-(2p)/ano.2011/18a4e570-94c3-11f0-bc23-02420a000006",
+    "data_leilao": "2026-06-24T12:39"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Gol Trendline Mb S",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 21800.0,
+    "fipe_valor": 40072.0,
+    "fipe_str": "R$ 40.072,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782211651959_1533356f-7204-4282-b3f2-7cba4f377003_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mb-s-(2p%2F4p)/ano.2015/028c650e-82b9-11f0-b593-02420a000005",
+    "data_leilao": "2026-06-24T12:39"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Bmw",
+    "modelo": "X1 Sdrive 18I Vl31",
+    "ano": 2012,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 0,
+    "fipe_valor": 62685.0,
+    "fipe_str": "R$ 62.685,00",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/bmw/x1-sdrive-18i-vl31/ano.2012/6bd13ecd-997c-11f0-bc23-02420a000006",
     "data_leilao": "2026-06-24T12:29"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Fluo 125",
-    "ano": 2026,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Fiesta Hatch Se A",
+    "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6400.0,
-    "fipe_valor": 15560.0,
-    "fipe_str": "R$ 15.560,00",
+    "lance_atual": 14000.0,
+    "fipe_valor": 41590.0,
+    "fipe_str": "R$ 41.590,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781888553549_23174e3a-a1ba-4426-89f6-ec35f321806d_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781640249098_bf398037-6a41-48d5-bb0b-da4d8d255687_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -771,74 +521,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fluo-125/ano.2026/3f571968-e8a5-434a-8fc4-6d0285516d77",
-    "data_leilao": "2026-06-23T13:39"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/fiesta-hatch-se-a-(4p)/ano.2014/66a4e4cc-294e-11f1-b6ad-0242ac500058",
+    "data_leilao": "2026-06-24T12:40"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Shineray",
-    "modelo": "Xy150 8",
-    "ano": 2024,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Agile Ltz",
+    "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 2800.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/20/1781964631708_7b327dc7-2b9a-4bdd-b3e4-40d3b75bb030_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/a3796a26-2323-495e-a06d-3b0852712c34",
-    "data_leilao": "2026-06-23T13:40"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Jtz",
-    "modelo": "Master Ride 150",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 5600.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875325039_b4794e55-e6d9-4275-ab23-692e9ea7ebcb_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/jtz/master-ride-150/ano.2024/5e5b09af-43eb-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:05"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Xtz250 Lander",
-    "ano": 2023,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 10000.0,
-    "fipe_valor": 28567.0,
-    "fipe_str": "R$ 28.567,00",
+    "lance_atual": 14500.0,
+    "fipe_valor": 36053.0,
+    "fipe_str": "R$ 36.053,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/20/1781964451013_1690967d-dadf-4758-bb57-cadfac55d8b5_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/17/1781718691260_00e5d3c9-907b-45db-8e0a-63c8b9f15e76_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -846,24 +546,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/xtz250-lander/ano.2023/e4316cfe-52b3-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:07"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/agile-ltz-(2p%2F4p)/ano.2013/8c489de3-4a0b-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:41"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Royal-Enfield",
-    "modelo": "Himalayan",
-    "ano": 2026,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Citroen",
+    "modelo": "C3 Origine Pack",
+    "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10000.0,
+    "lance_atual": 14000.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875295702_1bb9f38f-8bbe-490d-9fd1-c9f259c437f9_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781618462397_578861ba-9fc3-4642-98b6-438352206a77_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -871,74 +571,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/royal-enfield/himalayan/ano.2026/039bc532-592c-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:09"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c3-origine-pack-(4p)/ano.2015/55f02815-8839-11f0-b593-02420a000005",
+    "data_leilao": "2026-06-24T12:42"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Triumph",
-    "modelo": "Street Triple Rs",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 22100.0,
-    "fipe_valor": 63772.0,
-    "fipe_str": "R$ 63.772,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875323996_b01eafb7-d382-4c29-b386-3e94cbf90181_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/triumph/street-triple-rs/ano.2025/b395b8f8-553e-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:11"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Ybr 125I Factor Ed",
-    "ano": 2020,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 5000.0,
-    "fipe_valor": 12221.0,
-    "fipe_str": "R$ 12.221,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875389035_172429d2-3846-48ea-95fc-ce9a389f35f1_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-125i-factor-ed/ano.2020/cdc575a1-40a4-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:12"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Honda",
-    "modelo": "Cb 300R",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Tucson Gl",
     "ano": 2010,
     "cidade": "Eusebio/CE",
-    "lance_atual": 3500.0,
-    "fipe_valor": 11793.0,
-    "fipe_str": "R$ 11.793,00",
+    "lance_atual": 15000.0,
+    "fipe_valor": 72471.0,
+    "fipe_str": "R$ 72.471,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875411242_eb41c1c7-cb95-4394-94a0-12ce59c1c6cb_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781640216692_d07d2793-554b-48ee-8f66-604d3c12d7ba_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -946,24 +596,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cb-300r/ano.2010/cd6d77e2-133c-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:15"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/tucson-gl/ano.2010/13b5f476-4b04-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:42"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Royal-Enfield",
-    "modelo": "Royal Hunter 350",
-    "ano": 2024,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "206 Sw Presence Flex",
+    "ano": 2007,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7600.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875207051_1511eead-b028-4cbb-8bd2-db21c9d26d22_media.webp",
+    "lance_atual": 3000.0,
+    "fipe_valor": 13281.0,
+    "fipe_str": "R$ 13.281,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781618434555_fc81168f-d0ff-4ca3-ae3e-840000edd676_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -971,24 +621,74 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/royal-enfield/royal-hunter-350/ano.2024/8cc70d65-10b6-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:16"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/206-sw-presence-flex/ano.2007/79c57ffb-4a12-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:43"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Triumph",
-    "modelo": "Tiger 1200 Bledt",
-    "ano": 2024,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Hatch Se 1.0 C",
+    "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 39000.0,
-    "fipe_valor": 49664.0,
-    "fipe_str": "R$ 49.664,00",
+    "lance_atual": 19000.0,
+    "fipe_valor": 45179.0,
+    "fipe_str": "R$ 45.179,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781640211505_37a5269c-07af-4014-9623-86baf18d6bda_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-c-(4p)/ano.2020/929ee417-43dc-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:43"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Logan Authentique",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15000.0,
+    "fipe_valor": 34201.0,
+    "fipe_str": "R$ 34.201,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781868724409_58344902-8647-4281-ba1b-5b352b53d36c_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/logan-authentique-(4p)/ano.2020/abd7af35-bf1d-11f0-a1d0-0242ac500062",
+    "data_leilao": "2026-06-24T12:44"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "208 Allure",
+    "ano": 2021,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 38100.0,
+    "fipe_valor": 47591.0,
+    "fipe_str": "R$ 47.591,00",
     "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781891280837_6ff9a288-26ff-4de7-9310-0ba424aa27d6_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781868721766_d0244bc1-d39a-44ef-8712-73be7bc57f1d_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -996,24 +696,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/triumph/tiger-1200-bledt/ano.2024/6e8ae8c1-4df7-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:20"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2021/c6f9cab7-f787-11f0-af6c-02420a000005",
+    "data_leilao": "2026-06-24T12:45"
   },
   {
     "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Bmw",
-    "modelo": "R1250Gs A",
-    "ano": 2023,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Siena Attractive",
+    "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 43500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150335905_d5d2063b-ab0e-4e02-8656-d0031d5f3918_media.webp",
+    "lance_atual": 16200.0,
+    "fipe_valor": 42778.0,
+    "fipe_str": "R$ 42.778,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781868690783_97210141-7b2c-4966-8328-ea78b92af55c_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1021,8 +721,33 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bmw/r1250gs-a/ano.2023/6ad577e3-4e37-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:21"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/siena-attractive-(4p)/ano.2015/f5e3ba6e-1efe-11f1-a639-02420a000005",
+    "data_leilao": "2026-06-24T12:45"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "408 Griffe",
+    "ano": 2012,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 9000.0,
+    "fipe_valor": 34490.0,
+    "fipe_str": "R$ 34.490,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/16/1781618529395_cd08be78-4c91-4495-8057-e8d5923aa986_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/408-griffe-(4p)/ano.2012/9dd0059f-22fa-11f1-a639-02420a000005",
+    "data_leilao": "2026-06-24T12:46"
   },
   {
     "fonte": "leilo",
@@ -1032,7 +757,7 @@
     "modelo": "Biz Ex",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12100.0,
+    "lance_atual": 12300.0,
     "fipe_valor": 16874.0,
     "fipe_str": "R$ 16.874,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1047,7 +772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-ex/ano.2025/dd995f46-1ef3-11f1-a639-02420a000005",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:35"
   },
   {
     "fonte": "leilo",
@@ -1057,7 +782,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12400.0,
+    "lance_atual": 13000.0,
     "fipe_valor": 19648.0,
     "fipe_str": "R$ 19.648,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1072,7 +797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2025/dbd08a9a-343e-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:35"
   },
   {
     "fonte": "leilo",
@@ -1097,7 +822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2018/a2ba77a5-43c7-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:47"
   },
   {
     "fonte": "leilo",
@@ -1122,7 +847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/f813df38-1957-11f1-a639-02420a000005",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:07"
   },
   {
     "fonte": "leilo",
@@ -1147,7 +872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start-fusco-u/ano.2025/05f9b4de-550a-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:09"
   },
   {
     "fonte": "leilo",
@@ -1157,13 +882,13 @@
     "modelo": "Shi 175",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6800.0,
+    "lance_atual": 0,
     "fipe_valor": 12250.0,
     "fipe_str": "R$ 12.250,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782140312979_87eff9ce-47ec-42f8-897d-efaeeefc74f9_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1172,7 +897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2024/1497136d-35a2-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T12:35"
   },
   {
     "fonte": "leilo",
@@ -1197,7 +922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/jincheng-avelloz-az160/ano.2025/1cbd2e90-3f14-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:11"
   },
   {
     "fonte": "leilo",
@@ -1222,7 +947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2025/005baad6-0d8e-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:14"
   },
   {
     "fonte": "leilo",
@@ -1232,7 +957,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12000.0,
+    "lance_atual": 12300.0,
     "fipe_valor": 20578.0,
     "fipe_str": "R$ 20.578,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1247,7 +972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2026/87e89432-6104-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-24T12:30"
+    "data_leilao": "2026-06-24T13:14"
   },
   {
     "fonte": "leilo",
@@ -1272,7 +997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2025/4f463631-55fd-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:17"
   },
   {
     "fonte": "leilo",
@@ -1297,7 +1022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2023/a5c830c4-4fca-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:19"
   },
   {
     "fonte": "leilo",
@@ -1307,7 +1032,7 @@
     "modelo": "Xy150Gy 6A",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6500.0,
+    "lance_atual": 6700.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -1322,7 +1047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-xy150-8/xy150gy-6a/ano.2026/7ebf0793-52de-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:19"
   },
   {
     "fonte": "leilo",
@@ -1332,7 +1057,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9900.0,
+    "lance_atual": 10100.0,
     "fipe_valor": 17959.0,
     "fipe_str": "R$ 17.959,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1347,7 +1072,32 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2024/62b30b55-56a1-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:20"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Nome-Padrao",
+    "modelo": "Shineray 50Q",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 4100.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223592787_745910cb-bd2a-44ff-992c-4deb4b909793_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2025/4d7e6b2d-4a53-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T13:21"
   },
   {
     "fonte": "leilo",
@@ -1372,7 +1122,32 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2024/66287699-56a2-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:22"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Nome-Padrao",
+    "modelo": "Shineray 50Q",
+    "ano": 2026,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 4400.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223593413_95f5cc70-3666-4a1f-b961-0ca3cb48ea0e_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/5a2667b9-5903-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-24T13:24"
   },
   {
     "fonte": "leilo",
@@ -1382,7 +1157,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 11900.0,
+    "lance_atual": 12200.0,
     "fipe_valor": 21691.0,
     "fipe_str": "R$ 21.691,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1397,7 +1172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-titan/ano.2024/d11a564d-44bb-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:25"
   },
   {
     "fonte": "leilo",
@@ -1422,7 +1197,32 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2025/32c628a4-5db5-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:26"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Ku-Xun-Tq",
+    "modelo": "Shineray Shi 175/175S",
+    "ano": 2026,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 8300.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223564334_750108e4-75ec-4ae3-9d1a-20510df560b2_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/ku-xun-tq/shineray-shi-175%2F175s/ano.2026/e5397e55-4f99-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T13:27"
   },
   {
     "fonte": "leilo",
@@ -1447,7 +1247,57 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz15-fazer-abs/ano.2024/fbf90c0a-3fe4-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:27"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Nome-Padrao",
+    "modelo": "Shineray 50Q",
+    "ano": 2026,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 4400.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223560912_b1f419b6-2216-45ba-8b8e-736bf1cf3248_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/be978ef5-61a0-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-24T13:28"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Nome-Padrao",
+    "modelo": "Jincheng Avelloz Az125",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 6800.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782223561429_5046f91b-dc03-4384-83a1-cee9ba52a491_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/jincheng-avelloz-az125/ano.2025/dd8eae3d-63ff-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-24T13:32"
   },
   {
     "fonte": "leilo",
@@ -1472,7 +1322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/crosser-z-abs/ano.2025/ddca450e-538e-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:34"
   },
   {
     "fonte": "leilo",
@@ -1497,23 +1347,23 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2023/5a574814-5df8-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-24T12:29"
+    "data_leilao": "2026-06-24T13:36"
   },
   {
     "fonte": "leilo",
     "categoria": "caminhoes",
     "icone": "🚛",
-    "marca": "Fiat",
-    "modelo": "Toro Ranch At9 D4 Cabine Dupla",
-    "ano": 2020,
+    "marca": "Caoa-Chery",
+    "modelo": "Tiggo 8 Tgdi",
+    "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 38900.0,
+    "lance_atual": 19000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781877218357_dab14c4a-ffa1-4e11-94ca-92bd50a7f695_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781889601656_e16e9867-f14e-4386-8dd3-f68a51e7215c_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_rightcaoa-cherychevron_right 2022",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1521,24 +1371,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/toro-ranch-at9-d4-cabine-dupla/ano.2020/20df95f4-40a4-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T13:51"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/caoa-chery/tiggo-8-tgdi/ano.2022/c5025c4b-f8a2-4aa6-bfb0-db6fe2f56a26",
+    "data_leilao": "2026-06-23T13:30"
   },
   {
     "fonte": "leilo",
     "categoria": "caminhoes",
     "icone": "🚛",
     "marca": "Mercedes-Benz",
-    "modelo": "Accelo 815",
-    "ano": 2018,
+    "modelo": "Atego 2426 Cabine Estendida",
+    "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 87000.0,
+    "lance_atual": 63000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781870341345_bc98361c-3666-4456-9b88-eb4ec5fc8572_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781878112122_4ba69780-f377-4ce2-833b-e1d23d4652a6_media.webp",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_rightmercedes-benzchevron_right 2023",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1546,24 +1396,24 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/accelo-815/ano.2018/2132cbc1-4a4e-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-23T14:08"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/mercedes-benz/atego-2426-cabine-estendida/ano.2023/28bc785f-17fc-11f1-a639-02420a000005",
+    "data_leilao": "2026-06-23T13:30"
   },
   {
     "fonte": "leilo",
     "categoria": "caminhoes",
     "icone": "🚛",
-    "marca": "Scania",
-    "modelo": "P 310 B8X2",
-    "ano": 2014,
+    "marca": "Honda",
+    "modelo": "Cb 1000R Black Edition",
+    "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 88500.0,
+    "lance_atual": 17200.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875351064_7a9f085a-be4c-4ea1-bc16-a3b0adac55dc_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781878051738_091a2034-a871-441c-a0f9-568c450c17d2_media.webp",
+    "km": "194.064 km",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_righthondachevron_right 2024",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1571,8 +1421,83 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/scania/p-310-b8x2/ano.2014/6bd3b517-2ec3-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:11"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/honda/cb-1000r-black-edition/ano.2024/926e49c0-dd06-11f0-913b-02420a000005",
+    "data_leilao": "2026-06-23T13:30"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Volkswagen",
+    "modelo": "Novo Gol",
+    "ano": 2014,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 7700.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781878054453_989d1f1d-d4b8-411c-8469-209c0d058cd6_media.webp",
+    "km": "164.388 km",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_rightvolkswagenchevron_right 2014",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/volkswagen/novo-gol-(4p%2F2p)/ano.2014/6eb4bec3-375a-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-23T13:30"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Fiat",
+    "modelo": "Siena El Flex",
+    "ano": 2014,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 7000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150424606_16a9f015-5b94-42d6-ad5e-c72dea892ac3_media.webp",
+    "km": "",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_rightfiatchevron_right 2014",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/fiat/siena-el-flex-(4p)/ano.2014/0468a36d-4fd0-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-23T13:30"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Volkswagen",
+    "modelo": "Santana Gls 2000 I",
+    "ano": 1995,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 4000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782150511589_6614d3ac-1143-4aa7-b54e-27e934d17d03_media.webp",
+    "km": "",
+    "descricao": "iniciochevron_rightpatio fortaleza/cechevron_rightsucataschevron_rightvolkswagenchevron_right 1995",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/volkswagen/santana-gls-2000-i-(2p%2F4p)/ano.1995/492a4227-53af-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-23T12:30"
   },
   {
     "fonte": "leilo",
@@ -1582,10 +1507,10 @@
     "modelo": "Fh 540 6X4T",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 199100.0,
+    "lance_atual": 125000.0,
     "fipe_valor": 350000,
     "fipe_str": "R$ 350,000 (ref. mercado)",
-    "classificacao": "⚠️ MEDIANO",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/22/1782135907351_dacc5163-98a8-4d8b-b766-16f32210707f_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
@@ -1597,23 +1522,23 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/volvo/fh-540-6x4t/ano.2014/78d82027-240a-11ef-b7fa-02420a00001f",
-    "data_leilao": "2026-06-23T14:13"
+    "data_leilao": "2026-06-24T12:29"
   },
   {
     "fonte": "leilo",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Randon",
-    "modelo": "Sr Ba",
-    "ano": 2019,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Duster 2.0 D 4X2 Automatico",
+    "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 30500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781878115551_f86980ee-ef90-4476-83f0-3c56d5bf9736_media.webp",
+    "lance_atual": 20000.0,
+    "fipe_valor": 62175.0,
+    "fipe_str": "R$ 62.175,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
-    "descricao": "Recuperado de Seguradora",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1621,33 +1546,8 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/randon/sr-ba/ano.2019/be3bd313-48ac-11f1-9b2f-02420a000006",
-    "data_leilao": "2026-06-23T14:15"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Scania",
-    "modelo": "P320 B8X2",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 269000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781875354595_685a96b3-0b06-4506-9c23-ddbd35f77f65_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Seguradora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/scania/p320-b8x2/ano.2025/c6779c3b-88fd-11f0-b593-02420a000005",
-    "data_leilao": "2026-06-23T14:17"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/duster-2.0-d-4x2-automatico/ano.2015/b06002e6-4e28-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:47"
   },
   {
     "fonte": "mega",
@@ -1672,7 +1572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-75-m2-02-vagas-vicente-pinzon-fortaleza-ce-x125745",
-    "data_leilao": "2026-06-23T11:11"
+    "data_leilao": "2026-06-23T16:12"
   },
   {
     "fonte": "mega",
@@ -2076,541 +1976,16 @@
   },
   {
     "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Civic Ex",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 54000.0,
-    "fipe_valor": 106124.0,
-    "fipe_str": "R$ 106.124,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/honda/civic-ex-(4p)/ano.2019/8920c086-3748-4932-a955-ecb54fabc8e4",
-    "data_leilao": "2026-06-23T13:30"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Hyundai",
-    "modelo": "Hb20 Vision",
-    "ano": 2022,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 25000.0,
-    "fipe_valor": 64641.0,
-    "fipe_str": "R$ 64.641,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "66.789 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-vision/ano.2022/09ee203d-c1e3-4863-969a-884bfbb88479",
-    "data_leilao": "2026-06-23T13:31"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Jeep",
-    "modelo": "Compass Longitude D",
-    "ano": 2018,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 42600.0,
-    "fipe_valor": 96106.0,
-    "fipe_str": "R$ 96.106,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/compass-longitude-d/ano.2018/0d3e27f1-dfc4-4092-b142-00d569b95fb7",
-    "data_leilao": "2026-06-23T13:32"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix Lt 1.0",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 19500.0,
-    "fipe_valor": 54502.0,
-    "fipe_str": "R$ 54.502,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "190.875 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-lt-1.0-(4p)/ano.2019/a2fd5642-38c1-4b80-a03d-d1931b048ae7",
-    "data_leilao": "2026-06-23T13:33"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Fluo 125",
-    "ano": 2026,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 6400.0,
-    "fipe_valor": 15560.0,
-    "fipe_str": "R$ 15.560,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/fluo-125/ano.2026/3f571968-e8a5-434a-8fc4-6d0285516d77",
-    "data_leilao": "2026-06-23T13:39"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Shineray",
-    "modelo": "Xy150 8",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 2800.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "11.565 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/shineray/xy150-8/ano.2024/a3796a26-2323-495e-a06d-3b0852712c34",
-    "data_leilao": "2026-06-23T13:40"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Jeep",
-    "modelo": "Compass Sport Flex",
-    "ano": 2021,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 33700.0,
-    "fipe_valor": 93644.0,
-    "fipe_str": "R$ 93.644,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "49.550 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/compass-sport-flex/ano.2021/b0883cb6-4aa7-4132-805b-08a73a6c4e2d",
-    "data_leilao": "2026-06-23T13:42"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Polo Highline Ab",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 53000.0,
-    "fipe_valor": 106305.0,
-    "fipe_str": "R$ 106.305,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-highline-ab-(4p)/ano.2025/371ababb-35e9-462f-a59c-c6fadb669c2b",
-    "data_leilao": "2026-06-23T13:43"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Fiat",
-    "modelo": "Argo Drive 1.0",
-    "ano": 2026,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 32000.0,
-    "fipe_valor": 80848.0,
-    "fipe_str": "R$ 80.848,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0/ano.2026/54262b1a-664b-44cc-ae27-363f16907cb7",
-    "data_leilao": "2026-06-23T13:49"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Fiat",
-    "modelo": "Toro Ranch At9 D4 Cabine Dupla",
-    "ano": 2020,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 38900.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "90.261 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/fiat/toro-ranch-at9-d4-cabine-dupla/ano.2020/20df95f4-40a4-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T13:51"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Citroen",
-    "modelo": "C3 120M Exclusive",
-    "ano": 2013,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 10200.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "117.147 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c3-120m-exclusive-(4p)/ano.2013/48201ef9-3833-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:05"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Jtz",
-    "modelo": "Master Ride 150",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 5600.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/jtz/master-ride-150/ano.2024/5e5b09af-43eb-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:06"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Xtz250 Lander",
-    "ano": 2023,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 10000.0,
-    "fipe_valor": 28567.0,
-    "fipe_str": "R$ 28.567,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/xtz250-lander/ano.2023/e4316cfe-52b3-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:07"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Mercedes-Benz",
-    "modelo": "Accelo 815",
-    "ano": 2018,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 87000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/accelo-815/ano.2018/2132cbc1-4a4e-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-23T14:08"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Fit Lx Flex",
-    "ano": 2011,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 13800.0,
-    "fipe_valor": 62119.0,
-    "fipe_str": "R$ 62.119,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "143.480 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/honda/fit-lx-flex-(4p)/ano.2011/29e15e00-5eb2-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:08"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Royal-Enfield",
-    "modelo": "Himalayan",
-    "ano": 2026,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 10000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/royal-enfield/himalayan/ano.2026/039bc532-592c-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:09"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Sandero Stepway X",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 16300.0,
-    "fipe_valor": 39296.0,
-    "fipe_str": "R$ 39.296,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "184.817 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-x-(4p)/ano.2019/165bab3c-4a52-11f1-8621-02420a000005",
-    "data_leilao": "2026-06-23T14:10"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Scania",
-    "modelo": "P 310 B8X2",
-    "ano": 2014,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 88500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/scania/p-310-b8x2/ano.2014/6bd3b517-2ec3-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:11"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Triumph",
-    "modelo": "Street Triple Rs",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 22100.0,
-    "fipe_valor": 63772.0,
-    "fipe_str": "R$ 63.772,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/triumph/street-triple-rs/ano.2025/b395b8f8-553e-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:11"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Yamaha",
-    "modelo": "Ybr 125I Factor Ed",
-    "ano": 2020,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 5200.0,
-    "fipe_valor": 12221.0,
-    "fipe_str": "R$ 12.221,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-125i-factor-ed/ano.2020/cdc575a1-40a4-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-23T14:12"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Gol Trendline Mb S",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 11200.0,
-    "fipe_valor": 40072.0,
-    "fipe_str": "R$ 40.072,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "205.460 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mb-s-(2p%2F4p)/ano.2015/3aa8d977-53b5-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:13"
-  },
-  {
-    "fonte": "pacto",
     "categoria": "caminhoes",
     "icone": "🚛",
     "marca": "Volvo",
     "modelo": "Fh 540 6X4T",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 199100.0,
+    "lance_atual": 125000.0,
     "fipe_valor": 350000,
     "fipe_str": "R$ 350,000 (ref. mercado)",
-    "classificacao": "⚠️ MEDIANO",
+    "classificacao": "✅ ÓTIMO",
     "foto": "",
     "km": "",
     "descricao": "",
@@ -2622,22 +1997,22 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/volvo/fh-540-6x4t/ano.2014/78d82027-240a-11ef-b7fa-02420a00001f",
-    "data_leilao": "2026-06-23T14:13"
+    "data_leilao": ""
   },
   {
     "fonte": "pacto",
     "categoria": "carros",
     "icone": "🚗",
-    "marca": "Honda",
-    "modelo": "Hr V Exl Cvt Automatico",
+    "marca": "Toyota",
+    "modelo": "Hilux Cd Srx A 4Fd",
     "ano": 2016,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32800.0,
-    "fipe_valor": 85144.0,
-    "fipe_str": "R$ 85.144,00",
+    "lance_atual": 120000.0,
+    "fipe_valor": 254222.0,
+    "fipe_str": "R$ 254.222,00",
     "classificacao": "✅ ÓTIMO",
     "foto": "",
-    "km": "",
+    "km": "151.856 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
@@ -2646,123 +2021,23 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/honda/hr-v-exl-cvt-automatico/ano.2016/a528566f-5547-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:15"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Honda",
-    "modelo": "Cb 300R",
-    "ano": 2010,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 3500.0,
-    "fipe_valor": 11793.0,
-    "fipe_str": "R$ 11.793,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/cb-300r/ano.2010/cd6d77e2-133c-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:15"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Randon",
-    "modelo": "Sr Ba",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 30500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/randon/sr-ba/ano.2019/be3bd313-48ac-11f1-9b2f-02420a000006",
-    "data_leilao": "2026-06-23T14:16"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Royal-Enfield",
-    "modelo": "Royal Hunter 350",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 7600.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/royal-enfield/royal-hunter-350/ano.2024/8cc70d65-10b6-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:16"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Scania",
-    "modelo": "P320 B8X2",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 269000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "38.966 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/scania/p320-b8x2/ano.2025/c6779c3b-88fd-11f0-b593-02420a000005",
-    "data_leilao": "2026-06-23T14:18"
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/hilux-cd-srx-a-4fd/ano.2016/0234064f-39b3-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:30"
   },
   {
     "fonte": "pacto",
     "categoria": "carros",
     "icone": "🚗",
     "marca": "Ford",
-    "modelo": "Ka Flex",
-    "ano": 2011,
+    "modelo": "Ka Se C",
+    "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6000.0,
-    "fipe_valor": 41006.0,
-    "fipe_str": "R$ 41.006,00",
-    "classificacao": "✅ ÓTIMO",
+    "lance_atual": 24000.0,
+    "fipe_valor": 45179.0,
+    "fipe_str": "R$ 45.179,00",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "",
-    "km": "",
+    "km": "98.314 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
@@ -2771,23 +2046,23 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-flex-(2p)/ano.2011/baba016c-1341-11f1-8a4c-0242ac50000b",
-    "data_leilao": "2026-06-23T14:19"
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c-(4p)/ano.2021/b97e0cec-4968-11f1-a92f-0242ac5000df",
+    "data_leilao": "2026-06-24T12:30"
   },
   {
     "fonte": "pacto",
     "categoria": "carros",
     "icone": "🚗",
     "marca": "Renault",
-    "modelo": "Kwid Zen 1.0 Mecanico",
+    "modelo": "Kwid Outsider",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 19600.0,
-    "fipe_valor": 44953.0,
-    "fipe_str": "R$ 44.953,00",
+    "lance_atual": 25000.0,
+    "fipe_valor": 50374.0,
+    "fipe_str": "R$ 50.374,00",
     "classificacao": "✅ ÓTIMO",
     "foto": "",
-    "km": "",
+    "km": "91.135 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
@@ -2796,20 +2071,145 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/4cb963ce-5938-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-23T14:20"
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/kwid-outsider-(4p)/ano.2022/fbc7efa3-4fb9-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:31"
   },
   {
     "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Triumph",
-    "modelo": "Tiger 1200 Bledt",
-    "ano": 2024,
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Nova Saveiro Robust Mbv Cabine Dupla",
+    "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 39000.0,
-    "fipe_valor": 49664.0,
-    "fipe_str": "R$ 49.664,00",
+    "lance_atual": 39300.0,
+    "fipe_valor": 66995.0,
+    "fipe_str": "R$ 66.995,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "50.765 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/nova-saveiro-robust-mbv-cabine-dupla/ano.2022/918bede5-0671-11f0-8c72-02420a00002d",
+    "data_leilao": "2026-06-24T12:31"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Cobalt Ltz",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17000.0,
+    "fipe_valor": 43358.0,
+    "fipe_str": "R$ 43.358,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "175.571 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/cobalt-ltz-(4p)/ano.2015/0ea8a3cb-cb86-11f0-913b-02420a000005",
+    "data_leilao": "2026-06-24T12:32"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Onix Lt 1.0",
+    "ano": 2018,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 26800.0,
+    "fipe_valor": 52973.0,
+    "fipe_str": "R$ 52.973,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "105.189 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-lt-1.0-(4p)/ano.2018/95e78c18-5a04-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-24T12:32"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Polo Mca",
+    "ano": 2019,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 38500.0,
+    "fipe_valor": 9636.0,
+    "fipe_str": "R$ 9.636,00",
+    "classificacao": "❌ RUIM",
+    "foto": "",
+    "km": "116.685 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-mca/ano.2019/72c6fcdf-7268-11ed-9785-02420a000030",
+    "data_leilao": "2026-06-24T12:33"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Comfort",
+    "ano": 2017,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 25000.0,
+    "fipe_valor": 71867.0,
+    "fipe_str": "R$ 71.867,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "99.452 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfort-(4p)/ano.2017/83413b4e-b3da-11ef-8e48-02420a000017",
+    "data_leilao": "2026-06-24T12:33"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ecosport Se At B",
+    "ano": 2017,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 27000.0,
+    "fipe_valor": 27074.0,
+    "fipe_str": "R$ 27.074,00",
     "classificacao": "❌ RUIM",
     "foto": "",
     "km": "",
@@ -2821,8 +2221,508 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/triumph/tiger-1200-bledt/ano.2024/6e8ae8c1-4df7-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-23T14:20"
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se-at-b/ano.2017/96d9b26f-5901-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-24T12:34"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Argo Drive",
+    "ano": 2018,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 29000.0,
+    "fipe_valor": 49022.0,
+    "fipe_str": "R$ 49.022,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-(4p)/ano.2018/1f6787a5-586a-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:34"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Biz Ex",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 12300.0,
+    "fipe_valor": 16874.0,
+    "fipe_str": "R$ 16.874,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "12.774 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/biz-ex/ano.2025/dd995f46-1ef3-11f1-a639-02420a000005",
+    "data_leilao": "2026-06-24T12:35"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cg 160 Fan",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 13000.0,
+    "fipe_valor": 19648.0,
+    "fipe_str": "R$ 19.648,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2025/dbd08a9a-343e-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:35"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Onix 10Mt Lt2",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 34000.0,
+    "fipe_valor": 44912.0,
+    "fipe_str": "R$ 44.912,00",
+    "classificacao": "❌ RUIM",
+    "foto": "",
+    "km": "82.860 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt2/ano.2020/cca29394-279c-11f1-b6ad-0242ac500058",
+    "data_leilao": "2026-06-24T12:36"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Mobi Like",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 19400.0,
+    "fipe_valor": 44954.0,
+    "fipe_str": "R$ 44.954,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "176.768 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2020/c340c586-2d21-11f1-8174-02420a000006",
+    "data_leilao": "2026-06-24T12:37"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Sense",
+    "ano": 2021,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 33000.0,
+    "fipe_valor": 56346.0,
+    "fipe_str": "R$ 56.346,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "89.049 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-sense/ano.2021/f73d787b-4a50-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:37"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ecosport Se",
+    "ano": 2018,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 34900.0,
+    "fipe_valor": 66091.0,
+    "fipe_str": "R$ 66.091,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "116.438 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ecosport-se/ano.2018/e2d54b6d-4e25-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:38"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Kwid Zen 1.0 Mecanico",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15600.0,
+    "fipe_valor": 38769.0,
+    "fipe_str": "R$ 38.769,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "152.418 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2020/22e55581-5483-11f1-8cef-02420a000008",
+    "data_leilao": "2026-06-24T12:39"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Prisma Joye 1.0 Mecanico",
+    "ano": 2019,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 20800.0,
+    "fipe_valor": 43900.0,
+    "fipe_str": "R$ 43.900,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "151.365 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-joye-1.0-mecanico-(4p)/ano.2019/0b8295a6-44a4-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:39"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Saveiro Cabine Estendida Cross",
+    "ano": 2011,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 14300.0,
+    "fipe_valor": 36693.0,
+    "fipe_str": "R$ 36.693,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/saveiro-cabine-estendida-cross-(2p)/ano.2011/18a4e570-94c3-11f0-bc23-02420a000006",
+    "data_leilao": "2026-06-24T12:40"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Gol Trendline Mb S",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 21800.0,
+    "fipe_valor": 40072.0,
+    "fipe_str": "R$ 40.072,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "124.337 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mb-s-(2p%2F4p)/ano.2015/028c650e-82b9-11f0-b593-02420a000005",
+    "data_leilao": "2026-06-24T12:40"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Bmw",
+    "modelo": "X1 Sdrive 18I Vl31",
+    "ano": 2012,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 18000.0,
+    "fipe_valor": 62685.0,
+    "fipe_str": "R$ 62.685,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/bmw/x1-sdrive-18i-vl31/ano.2012/6bd13ecd-997c-11f0-bc23-02420a000006",
+    "data_leilao": "2026-06-24T12:41"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Fiesta Hatch Se A",
+    "ano": 2014,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 14000.0,
+    "fipe_valor": 41590.0,
+    "fipe_str": "R$ 41.590,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "177.947 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/fiesta-hatch-se-a-(4p)/ano.2014/66a4e4cc-294e-11f1-b6ad-0242ac500058",
+    "data_leilao": "2026-06-24T12:42"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Chevrolet",
+    "modelo": "Agile Ltz",
+    "ano": 2013,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 14800.0,
+    "fipe_valor": 36053.0,
+    "fipe_str": "R$ 36.053,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/agile-ltz-(2p%2F4p)/ano.2013/8c489de3-4a0b-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:42"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Citroen",
+    "modelo": "C3 Origine Pack",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 14000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "128.244 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c3-origine-pack-(4p)/ano.2015/55f02815-8839-11f0-b593-02420a000005",
+    "data_leilao": "2026-06-24T12:43"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Tucson Gl",
+    "ano": 2010,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15000.0,
+    "fipe_valor": 72471.0,
+    "fipe_str": "R$ 72.471,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "185.601 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/tucson-gl/ano.2010/13b5f476-4b04-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:44"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "206 Sw Presence Flex",
+    "ano": 2007,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 3000.0,
+    "fipe_valor": 13281.0,
+    "fipe_str": "R$ 13.281,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/206-sw-presence-flex/ano.2007/79c57ffb-4a12-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-24T12:44"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Hatch Se 1.0 C",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 19000.0,
+    "fipe_valor": 45179.0,
+    "fipe_str": "R$ 45.179,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-c-(4p)/ano.2020/929ee417-43dc-11f1-86d7-0242ac50004b",
+    "data_leilao": "2026-06-24T12:45"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Logan Authentique",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15000.0,
+    "fipe_valor": 34201.0,
+    "fipe_str": "R$ 34.201,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/logan-authentique-(4p)/ano.2020/abd7af35-bf1d-11f0-a1d0-0242ac500062",
+    "data_leilao": "2026-06-24T12:45"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Peugeot",
+    "modelo": "208 Allure",
+    "ano": 2021,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 38100.0,
+    "fipe_valor": 47591.0,
+    "fipe_str": "R$ 47.591,00",
+    "classificacao": "❌ RUIM",
+    "foto": "",
+    "km": "79.473 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2021/c6f9cab7-f787-11f0-af6c-02420a000005",
+    "data_leilao": "2026-06-24T12:47"
   },
   {
     "fonte": "mj",
@@ -3447,7 +3347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/158/toyota-corolla-xli16vvt",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:17"
   },
   {
     "fonte": "celsocunha",
@@ -3507,7 +3407,7 @@
     "modelo": "Palio Elx Flex",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 7400.0,
+    "lance_atual": 7600.0,
     "fipe_valor": 23328.0,
     "fipe_str": "R$ 23.328,00",
     "classificacao": "✅ ÓTIMO",
@@ -3522,7 +3422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/161/fiat-palio-elx-flex",
-    "data_leilao": "2026-06-22T17:48"
+    "data_leilao": "2026-06-23T11:57"
   },
   {
     "fonte": "celsocunha",
@@ -3607,7 +3507,7 @@
     "modelo": "Saveiro 1.6 Ce Cross",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 12400.0,
+    "lance_atual": 13800.0,
     "fipe_valor": 66061.0,
     "fipe_str": "R$ 66.061,00",
     "classificacao": "✅ ÓTIMO",
@@ -3622,7 +3522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/165/vw-saveiro-1-6-ce-cross",
-    "data_leilao": "2026-06-22T21:24"
+    "data_leilao": "2026-06-23T13:54"
   },
   {
     "fonte": "celsocunha",
@@ -3732,7 +3632,7 @@
     "modelo": "Palio Attractiv",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 6400.0,
+    "lance_atual": 6600.0,
     "fipe_valor": 38413.0,
     "fipe_str": "R$ 38.413,00",
     "classificacao": "✅ ÓTIMO",
@@ -3747,7 +3647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/170/fiat-palio-attractiv",
-    "data_leilao": "2026-06-23T05:10"
+    "data_leilao": "2026-06-23T08:33"
   },
   {
     "fonte": "celsocunha",
@@ -3782,7 +3682,7 @@
     "modelo": "Novo Gol 1.0",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 5400.0,
+    "lance_atual": 5600.0,
     "fipe_valor": 27383.0,
     "fipe_str": "R$ 27.383,00",
     "classificacao": "✅ ÓTIMO",
@@ -3797,7 +3697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/172/vw-novo-gol-1-0",
-    "data_leilao": "2026-06-18T12:01"
+    "data_leilao": "2026-06-23T11:54"
   },
   {
     "fonte": "celsocunha",
@@ -3832,7 +3732,7 @@
     "modelo": "Nl12 360 4X2T Edc",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 12000.0,
+    "lance_atual": 12800.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -3847,7 +3747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/176/volvo-nl12-360-4x2t-edc",
-    "data_leilao": "2026-06-22T22:06"
+    "data_leilao": "2026-06-23T12:27"
   },
   {
     "fonte": "celsocunha",
@@ -3857,7 +3757,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2600.0,
+    "lance_atual": 3200.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -3872,7 +3772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/177/sr-randon-sr-cs-tr",
-    "data_leilao": "2026-06-17T16:04"
+    "data_leilao": "2026-06-23T14:01"
   },
   {
     "fonte": "celsocunha",
@@ -3907,7 +3807,7 @@
     "modelo": "Uno Mille Economy",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 4000.0,
+    "lance_atual": 4400.0,
     "fipe_valor": 25219.0,
     "fipe_str": "R$ 25.219,00",
     "classificacao": "✅ ÓTIMO",
@@ -3922,7 +3822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/179/fiat-uno-mille-economy",
-    "data_leilao": "2026-06-18T12:10"
+    "data_leilao": "2026-06-23T12:10"
   },
   {
     "fonte": "celsocunha",
@@ -3932,7 +3832,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2020,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1400.0,
+    "lance_atual": 1500.0,
     "fipe_valor": 14412.0,
     "fipe_str": "R$ 14.412,00",
     "classificacao": "✅ ÓTIMO",
@@ -3947,7 +3847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/189/honda-cg-160-fan",
-    "data_leilao": "2026-06-22T18:46"
+    "data_leilao": "2026-06-23T10:21"
   },
   {
     "fonte": "celsocunha",
@@ -4007,7 +3907,7 @@
     "modelo": "Cg 150 Titan Esd",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 600.0,
     "fipe_valor": 9741.0,
     "fipe_str": "R$ 9.741,00",
     "classificacao": "✅ ÓTIMO",
@@ -4022,7 +3922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/192/honda-cg-150-titan-esd",
-    "data_leilao": "2026-06-22T18:46"
+    "data_leilao": "2026-06-23T12:30"
   },
   {
     "fonte": "celsocunha",
@@ -4082,7 +3982,7 @@
     "modelo": "Shineray Xy 50 Q",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 300.0,
     "fipe_valor": 3037.0,
     "fipe_str": "R$ 3.037,00",
     "classificacao": "✅ ÓTIMO",
@@ -4097,7 +3997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/195/i-shineray-xy-50-q",
-    "data_leilao": "2026-06-22T13:28"
+    "data_leilao": "2026-06-23T10:25"
   },
   {
     "fonte": "celsocunha",
@@ -4107,7 +4007,7 @@
     "modelo": "Haojian Avelloz Az1",
     "ano": 2021,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -4122,7 +4022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/196/i-haojian-avelloz-az1",
-    "data_leilao": "2026-06-22T18:47"
+    "data_leilao": "2026-06-23T10:25"
   },
   {
     "fonte": "celsocunha",
@@ -4132,7 +4032,7 @@
     "modelo": "Jialing Traxx Jl50Q 2",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 80.0,
+    "lance_atual": 180.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -4147,7 +4047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/197/i-jialing-traxx-jl50q-2",
-    "data_leilao": "2026-06-21T14:59"
+    "data_leilao": "2026-06-23T10:26"
   },
   {
     "fonte": "celsocunha",
@@ -4182,7 +4082,7 @@
     "modelo": "50Q",
     "ano": 2020,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 400.0,
     "fipe_valor": 3177.0,
     "fipe_str": "R$ 3.177,00",
     "classificacao": "✅ ÓTIMO",
@@ -4197,7 +4097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/199/shineray-50q",
-    "data_leilao": "2026-06-22T16:55"
+    "data_leilao": "2026-06-23T10:27"
   },
   {
     "fonte": "celsocunha",
@@ -4207,7 +4107,7 @@
     "modelo": "Jl50Q-9",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 400.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -4222,7 +4122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/200/traxx-jl50q-9",
-    "data_leilao": "2026-06-22T16:17"
+    "data_leilao": "2026-06-23T10:27"
   },
   {
     "fonte": "celsocunha",
@@ -4232,7 +4132,7 @@
     "modelo": "Shineray Xy50Q Phoenix",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 180.0,
+    "lance_atual": 280.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -4247,7 +4147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/201/i-shineray-xy50q-phoenix",
-    "data_leilao": "2026-06-22T13:31"
+    "data_leilao": "2026-06-23T10:28"
   },
   {
     "fonte": "celsocunha",
@@ -4257,7 +4157,7 @@
     "modelo": "50Q",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 180.0,
+    "lance_atual": 280.0,
     "fipe_valor": 3177.0,
     "fipe_str": "R$ 3.177,00",
     "classificacao": "✅ ÓTIMO",
@@ -4272,7 +4172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/202/shineray-50q",
-    "data_leilao": "2026-06-22T13:31"
+    "data_leilao": "2026-06-23T10:28"
   },
   {
     "fonte": "celsocunha",
@@ -4282,7 +4182,7 @@
     "modelo": "50Q",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 3177.0,
     "fipe_str": "R$ 3.177,00",
     "classificacao": "✅ ÓTIMO",
@@ -4297,7 +4197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/203/shineray-50q",
-    "data_leilao": "2026-06-22T06:27"
+    "data_leilao": "2026-06-23T12:31"
   },
   {
     "fonte": "celsocunha",
@@ -4334,7 +4234,7 @@
     "cidade": "Fortaleza/CE",
     "lance_atual": 250.0,
     "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft18a3b25e7d9679c685acd418cb0cf5fe8.jpeg",
     "km": "",
@@ -4359,7 +4259,7 @@
     "cidade": "Fortaleza/CE",
     "lance_atual": 150.0,
     "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft16c6cc4cbe3758c374a4c5af82a0f7507.jpeg",
     "km": "",
@@ -4382,9 +4282,9 @@
     "modelo": "Yingang Us1 2",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft17607d2bf6392b55eff63d87fcc66f0fc.jpeg",
     "km": "",
@@ -4397,7 +4297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/207/i-yingang-us1-2",
-    "data_leilao": "2026-06-22T19:34"
+    "data_leilao": "2026-06-23T10:31"
   },
   {
     "fonte": "celsocunha",
@@ -4407,9 +4307,9 @@
     "modelo": "Bashan Jonny Hype 50",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft159c6a7f6c382a145980d5ef2ed28f32b.jpeg",
     "km": "",
@@ -4422,7 +4322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/208/i-bashan-jonny-hype-50",
-    "data_leilao": "2026-06-22T13:33"
+    "data_leilao": "2026-06-23T10:30"
   },
   {
     "fonte": "celsocunha",
@@ -4432,9 +4332,9 @@
     "modelo": "Jl50Q-8",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft1e854d1bd6fadcf4743f1c367b1ab8009.jpeg",
     "km": "",
@@ -4447,7 +4347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/209/moto-traxx-jl50q-8",
-    "data_leilao": "2026-06-22T16:14"
+    "data_leilao": "2026-06-23T10:31"
   },
   {
     "fonte": "celsocunha",
@@ -4458,9 +4358,9 @@
     "ano": 2008,
     "cidade": "Fortaleza/CE",
     "lance_atual": 80.0,
-    "fipe_valor": 6752.0,
-    "fipe_str": "R$ 6.752,00",
-    "classificacao": "✅ ÓTIMO",
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft1e252d94803aea28faf504a5a8f678415.jpeg",
     "km": "",
     "descricao": "Lote: #22 - I/SHINERAY XY 150 5 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
@@ -4482,7 +4382,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 250.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4497,7 +4397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/211/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-22T19:34"
+    "data_leilao": "2026-06-23T12:27"
   },
   {
     "fonte": "celsocunha",
@@ -4507,7 +4407,7 @@
     "modelo": "Cb 300R",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 700.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4522,7 +4422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/212/honda-cb-300r",
-    "data_leilao": "2026-06-22T19:17"
+    "data_leilao": "2026-06-23T08:35"
   },
   {
     "fonte": "celsocunha",
@@ -4557,7 +4457,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2019,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4572,7 +4472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/214/honda-cg-160-fan",
-    "data_leilao": "2026-06-22T13:35"
+    "data_leilao": "2026-06-23T10:22"
   },
   {
     "fonte": "celsocunha",
@@ -4582,7 +4482,7 @@
     "modelo": "Jl50Q-9",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 350.0,
+    "lance_atual": 450.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4597,7 +4497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/215/traxx-jl50q-9",
-    "data_leilao": "2026-06-22T16:31"
+    "data_leilao": "2026-06-23T10:33"
   },
   {
     "fonte": "celsocunha",
@@ -4607,7 +4507,7 @@
     "modelo": "Jl50Q-9",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 180.0,
+    "lance_atual": 280.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4622,7 +4522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/216/traxx-jl50q-9",
-    "data_leilao": "2026-06-22T16:17"
+    "data_leilao": "2026-06-23T10:32"
   },
   {
     "fonte": "celsocunha",
@@ -4682,7 +4582,7 @@
     "modelo": "Cg 125",
     "ano": 1989,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 80.0,
+    "lance_atual": 180.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4697,7 +4597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/219/honda-cg-125",
-    "data_leilao": "2026-06-21T15:03"
+    "data_leilao": "2026-06-23T12:28"
   },
   {
     "fonte": "celsocunha",
@@ -4797,7 +4697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/223/traxx-jl50-q2",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:56"
   },
   {
     "fonte": "celsocunha",
@@ -5357,7 +5257,7 @@
     "modelo": "Xlr 125",
     "ano": 2002,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5372,7 +5272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/246/honda-xlr-125",
-    "data_leilao": "2026-06-21T15:08"
+    "data_leilao": "2026-06-23T12:25"
   },
   {
     "fonte": "celsocunha",
@@ -5407,7 +5307,7 @@
     "modelo": "Sport 110I",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5422,7 +5322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/248/mottu-sport-110i",
-    "data_leilao": "2026-06-21T13:04"
+    "data_leilao": "2026-06-23T09:22"
   },
   {
     "fonte": "celsocunha",
@@ -5582,7 +5482,7 @@
     "modelo": "Cg 150 Titan Ks",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5597,7 +5497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/255/honda-cg-150-titan-ks",
-    "data_leilao": "2026-06-23T06:40"
+    "data_leilao": "2026-06-23T12:14"
   },
   {
     "fonte": "celsocunha",
@@ -5782,7 +5682,7 @@
     "modelo": "Factor Ybr125 K",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 30.0,
+    "lance_atual": 130.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5797,7 +5697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/263/yamaha-factor-ybr125-k",
-    "data_leilao": "2026-06-19T15:38"
+    "data_leilao": "2026-06-23T09:00"
   },
   {
     "fonte": "celsocunha",
@@ -5982,7 +5882,7 @@
     "modelo": "Fz25 Fazer",
     "ano": 2019,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 550.0,
+    "lance_atual": 650.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5997,7 +5897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/271/yamaha-fz25-fazer",
-    "data_leilao": "2026-06-22T19:23"
+    "data_leilao": "2026-06-23T09:01"
   },
   {
     "fonte": "celsocunha",
@@ -6282,7 +6182,7 @@
     "modelo": "Pcx 150",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6297,7 +6197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/283/honda-pcx-150",
-    "data_leilao": "2026-06-22T18:33"
+    "data_leilao": "2026-06-23T10:24"
   },
   {
     "fonte": "celsocunha",
@@ -6332,7 +6232,7 @@
     "modelo": "Cg 125I Fan",
     "ano": 2018,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6347,7 +6247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/285/honda-cg-125i-fan",
-    "data_leilao": "2026-06-22T19:24"
+    "data_leilao": "2026-06-23T12:23"
   },
   {
     "fonte": "celsocunha",
@@ -6507,7 +6407,7 @@
     "modelo": "Xre 190",
     "ano": 2020,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 3300.0,
+    "lance_atual": 3400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6522,7 +6422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/292/honda-xre-190",
-    "data_leilao": "2026-06-22T18:43"
+    "data_leilao": "2026-06-23T09:02"
   },
   {
     "fonte": "celsocunha",
@@ -6757,7 +6657,7 @@
     "modelo": "Cg150 Titan Mix Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6772,7 +6672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/302/honda-cg150-titan-mix-ks",
-    "data_leilao": "2026-06-22T19:25"
+    "data_leilao": "2026-06-23T12:16"
   },
   {
     "fonte": "celsocunha",
@@ -6832,7 +6732,7 @@
     "modelo": "Cg150 Fan Esdi",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1100.0,
+    "lance_atual": 1300.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6847,7 +6747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/305/honda-cg150-fan-esdi",
-    "data_leilao": "2026-06-21T14:55"
+    "data_leilao": "2026-06-23T09:16"
   },
   {
     "fonte": "celsocunha",
@@ -6882,7 +6782,7 @@
     "modelo": "Cg150 Start",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 700.0,
+    "lance_atual": 900.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6897,7 +6797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/307/honda-cg150-start",
-    "data_leilao": "2026-06-21T13:08"
+    "data_leilao": "2026-06-23T09:20"
   },
   {
     "fonte": "celsocunha",
@@ -6957,7 +6857,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6972,7 +6872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/310/honda-cg-125-fan",
-    "data_leilao": "2026-06-21T13:09"
+    "data_leilao": "2026-06-23T09:20"
   },
   {
     "fonte": "celsocunha",
@@ -6982,7 +6882,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2017,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1100.0,
+    "lance_atual": 1300.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6997,7 +6897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/311/honda-cg-160-start",
-    "data_leilao": "2026-06-21T13:09"
+    "data_leilao": "2026-06-23T11:39"
   },
   {
     "fonte": "celsocunha",
@@ -7007,7 +6907,7 @@
     "modelo": "Cg 150 Titan Ks",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7022,7 +6922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/312/honda-cg-150-titan-ks",
-    "data_leilao": "2026-06-21T13:09"
+    "data_leilao": "2026-06-23T09:21"
   },
   {
     "fonte": "celsocunha",
@@ -7097,7 +6997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/315/yamaha-factor-ybr125-k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:22"
   },
   {
     "fonte": "celsocunha",
@@ -7132,7 +7032,7 @@
     "modelo": "Ybr150 Factor Ed",
     "ano": 2021,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1800.0,
+    "lance_atual": 2000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7147,7 +7047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/317/yamaha-ybr150-factor-ed",
-    "data_leilao": "2026-06-22T22:59"
+    "data_leilao": "2026-06-23T08:06"
   },
   {
     "fonte": "celsocunha",
@@ -7172,7 +7072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/318/yamaha-ybr-125k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:24"
   },
   {
     "fonte": "celsocunha",
@@ -7257,7 +7157,7 @@
     "modelo": "Cb250F",
     "ano": 2022,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1800.0,
+    "lance_atual": 2400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7272,7 +7172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/322/honda-cb250f",
-    "data_leilao": "2026-06-22T14:41"
+    "data_leilao": "2026-06-23T13:05"
   },
   {
     "fonte": "celsocunha",
@@ -7282,7 +7182,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7297,7 +7197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/323/honda-cg-160-start",
-    "data_leilao": "2026-06-22T16:25"
+    "data_leilao": "2026-06-23T09:25"
   },
   {
     "fonte": "celsocunha",
@@ -7332,7 +7232,7 @@
     "modelo": "Shineray Xy 150 5",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7347,7 +7247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/325/i-shineray-xy-150-5",
-    "data_leilao": "2026-06-19T21:19"
+    "data_leilao": "2026-06-23T09:26"
   },
   {
     "fonte": "celsocunha",
@@ -7382,7 +7282,7 @@
     "modelo": "Ybr125I Factor Ed",
     "ano": 2018,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1400.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7397,7 +7297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/327/yamaha-ybr125i-factor-ed",
-    "data_leilao": "2026-06-22T18:20"
+    "data_leilao": "2026-06-23T08:08"
   },
   {
     "fonte": "celsocunha",
@@ -7407,7 +7307,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 800.0,
+    "lance_atual": 1200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7422,7 +7322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/328/honda-cg-160-fan",
-    "data_leilao": "2026-06-22T16:25"
+    "data_leilao": "2026-06-23T09:04"
   },
   {
     "fonte": "celsocunha",
@@ -7472,7 +7372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/330/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:27"
   },
   {
     "fonte": "celsocunha",
@@ -7497,7 +7397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/331/i-shineray-xy-50-q-2",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:23"
   },
   {
     "fonte": "celsocunha",
@@ -7507,7 +7407,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 800.0,
+    "lance_atual": 1200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7522,7 +7422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/332/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-21T18:36"
+    "data_leilao": "2026-06-23T09:04"
   },
   {
     "fonte": "celsocunha",
@@ -7532,7 +7432,7 @@
     "modelo": "Cg 160 Fan Esdi",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1400.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7547,7 +7447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/333/honda-cg-160-fan-esdi",
-    "data_leilao": "2026-06-22T17:24"
+    "data_leilao": "2026-06-23T08:14"
   },
   {
     "fonte": "celsocunha",
@@ -7557,7 +7457,7 @@
     "modelo": "Cbx 250 Twister",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2600.0,
+    "lance_atual": 3000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7572,7 +7472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/334/honda-cbx-250-twister-2008-2008",
-    "data_leilao": "2026-06-19T23:53"
+    "data_leilao": "2026-06-23T10:29"
   },
   {
     "fonte": "celsocunha",
@@ -7607,7 +7507,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7622,7 +7522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/336/honda-cg-160-titan",
-    "data_leilao": "2026-06-21T15:02"
+    "data_leilao": "2026-06-23T09:05"
   },
   {
     "fonte": "celsocunha",
@@ -7657,7 +7557,7 @@
     "modelo": "Suzuki Intruder 125C",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 350.0,
+    "lance_atual": 550.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7672,7 +7572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/338/jta-suzuki-intruder-125c",
-    "data_leilao": "2026-06-20T18:27"
+    "data_leilao": "2026-06-23T13:24"
   },
   {
     "fonte": "celsocunha",
@@ -7682,7 +7582,7 @@
     "modelo": "Cb 300R",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7697,7 +7597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/339/honda-cb-300r",
-    "data_leilao": "2026-06-22T16:10"
+    "data_leilao": "2026-06-23T09:05"
   },
   {
     "fonte": "celsocunha",
@@ -7782,7 +7682,7 @@
     "modelo": "Cg150 Fan Esdi",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7797,7 +7697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/343/honda-cg150-fan-esdi",
-    "data_leilao": "2026-06-20T16:55"
+    "data_leilao": "2026-06-23T09:29"
   },
   {
     "fonte": "celsocunha",
@@ -7857,7 +7757,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7872,7 +7772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/346/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-22T10:56"
+    "data_leilao": "2026-06-23T09:29"
   },
   {
     "fonte": "celsocunha",
@@ -7972,7 +7872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/350/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:55"
   },
   {
     "fonte": "celsocunha",
@@ -7982,7 +7882,7 @@
     "modelo": "Cg150 Titan Mix Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7997,7 +7897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/351/honda-cg150-titan-mix-ks",
-    "data_leilao": "2026-06-22T10:49"
+    "data_leilao": "2026-06-23T11:09"
   },
   {
     "fonte": "celsocunha",
@@ -8032,7 +7932,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8047,7 +7947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/353/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-22T19:53"
+    "data_leilao": "2026-06-23T08:00"
   },
   {
     "fonte": "celsocunha",
@@ -8082,7 +7982,7 @@
     "modelo": "50Q",
     "ano": 2021,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 1000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8097,7 +7997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/355/shineray-50q",
-    "data_leilao": "2026-06-23T04:48"
+    "data_leilao": "2026-06-23T12:21"
   },
   {
     "fonte": "celsocunha",
@@ -8107,7 +8007,7 @@
     "modelo": "Xre 190",
     "ano": 2019,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2400.0,
+    "lance_atual": 2600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8122,7 +8022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/356/honda-xre-190",
-    "data_leilao": "2026-06-22T16:27"
+    "data_leilao": "2026-06-23T08:01"
   },
   {
     "fonte": "celsocunha",
@@ -8157,7 +8057,7 @@
     "modelo": "Cg 125 Cargo Ks",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8172,7 +8072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/358/honda-cg-125-cargo-ks",
-    "data_leilao": "2026-06-22T16:27"
+    "data_leilao": "2026-06-23T09:30"
   },
   {
     "fonte": "celsocunha",
@@ -8182,7 +8082,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2019,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1200.0,
+    "lance_atual": 1400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8197,7 +8097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/359/honda-cg-160-fan",
-    "data_leilao": "2026-06-22T16:49"
+    "data_leilao": "2026-06-23T08:19"
   },
   {
     "fonte": "celsocunha",
@@ -8257,7 +8157,7 @@
     "modelo": "Cbx 250 Twister",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1200.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8272,7 +8172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/362/honda-cbx-250-twister",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:28"
   },
   {
     "fonte": "celsocunha",
@@ -8457,7 +8357,7 @@
     "modelo": "Xre 300",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 3000.0,
+    "lance_atual": 3400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8472,7 +8372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/370/honda-xre-300",
-    "data_leilao": "2026-06-22T19:49"
+    "data_leilao": "2026-06-23T08:58"
   },
   {
     "fonte": "celsocunha",
@@ -8532,7 +8432,7 @@
     "modelo": "Cg 160 Fan Esdi",
     "ano": 2017,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1200.0,
+    "lance_atual": 1400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8547,7 +8447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/373/honda-cg-160-fan-esdi",
-    "data_leilao": "2026-06-22T19:49"
+    "data_leilao": "2026-06-23T09:10"
   },
   {
     "fonte": "celsocunha",
@@ -8557,7 +8457,7 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2021,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 3200.0,
+    "lance_atual": 3400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8572,7 +8472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/374/honda-nxr160-bros-esdd",
-    "data_leilao": "2026-06-22T19:50"
+    "data_leilao": "2026-06-23T07:53"
   },
   {
     "fonte": "celsocunha",
@@ -8622,7 +8522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/376/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:38"
   },
   {
     "fonte": "celsocunha",
@@ -8682,7 +8582,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8697,7 +8597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/379/honda-nxr150-bros-es-",
-    "data_leilao": "2026-06-22T13:36"
+    "data_leilao": "2026-06-23T09:38"
   },
   {
     "fonte": "celsocunha",
@@ -8832,7 +8732,7 @@
     "modelo": "Pop 110I",
     "ano": 2024,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2400.0,
+    "lance_atual": 2600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8847,7 +8747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/385/honda-pop-110i",
-    "data_leilao": "2026-06-22T15:05"
+    "data_leilao": "2026-06-23T12:56"
   },
   {
     "fonte": "celsocunha",
@@ -8897,7 +8797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/387/honda-cg-125-cargo",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:46"
   },
   {
     "fonte": "celsocunha",
@@ -9007,7 +8907,7 @@
     "modelo": "Ybr 125K",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 300.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9022,7 +8922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/392/yamaha-ybr-125k",
-    "data_leilao": "2026-06-19T16:29"
+    "data_leilao": "2026-06-23T09:39"
   },
   {
     "fonte": "celsocunha",
@@ -9072,7 +8972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/394/honda-cg-150-titan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:32"
   },
   {
     "fonte": "celsocunha",
@@ -9097,7 +8997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/395/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:05"
   },
   {
     "fonte": "celsocunha",
@@ -9132,7 +9032,7 @@
     "modelo": "Cg150 Fan Esdi",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9147,7 +9047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/397/honda-cg150-fan-esdi",
-    "data_leilao": "2026-06-22T10:59"
+    "data_leilao": "2026-06-23T12:32"
   },
   {
     "fonte": "celsocunha",
@@ -9197,7 +9097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/399/honda-cb-300r",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:40"
   },
   {
     "fonte": "celsocunha",
@@ -9207,7 +9107,7 @@
     "modelo": "Factor Ybr125 E",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9222,7 +9122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/400/yamaha-factor-ybr125-e",
-    "data_leilao": "2026-06-22T22:09"
+    "data_leilao": "2026-06-23T09:41"
   },
   {
     "fonte": "celsocunha",
@@ -9257,7 +9157,7 @@
     "modelo": "Cg 160 Fan Esdi",
     "ano": 2017,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9272,7 +9172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/402/honda-cg-160-fan-esdi",
-    "data_leilao": "2026-06-19T22:34"
+    "data_leilao": "2026-06-23T12:33"
   },
   {
     "fonte": "celsocunha",
@@ -9382,7 +9282,7 @@
     "modelo": "Pop100",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9397,7 +9297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/407/honda-pop100",
-    "data_leilao": "2026-06-22T11:00"
+    "data_leilao": "2026-06-23T09:42"
   },
   {
     "fonte": "celsocunha",
@@ -9447,7 +9347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/409/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:35"
   },
   {
     "fonte": "celsocunha",
@@ -9522,7 +9422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/412/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:26"
   },
   {
     "fonte": "celsocunha",
@@ -9547,7 +9447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/413/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:35"
   },
   {
     "fonte": "celsocunha",
@@ -9632,7 +9532,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1800.0,
+    "lance_atual": 2000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9647,7 +9547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/417/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-22T15:26"
+    "data_leilao": "2026-06-23T12:54"
   },
   {
     "fonte": "celsocunha",
@@ -9697,7 +9597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/419/honda-cg-160-titan-exc",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:29"
   },
   {
     "fonte": "celsocunha",
@@ -9722,7 +9622,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/420/honda-cg-160-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:31"
   },
   {
     "fonte": "celsocunha",
@@ -9747,7 +9647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/421/honda-cg150-fan-esdi",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:36"
   },
   {
     "fonte": "celsocunha",
@@ -9757,7 +9657,7 @@
     "modelo": "Xre 300 Abs",
     "ano": 2019,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 6200.0,
+    "lance_atual": 9000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9772,7 +9672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/422/honda-xre-300-abs",
-    "data_leilao": "2026-06-23T07:18"
+    "data_leilao": "2026-06-23T10:05"
   },
   {
     "fonte": "celsocunha",
@@ -9822,7 +9722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/424/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:36"
   },
   {
     "fonte": "celsocunha",
@@ -9857,7 +9757,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9872,7 +9772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/426/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-22T19:12"
+    "data_leilao": "2026-06-23T11:55"
   },
   {
     "fonte": "celsocunha",
@@ -9947,7 +9847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/429/honda-cg-125-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:09"
   },
   {
     "fonte": "celsocunha",
@@ -9997,7 +9897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/431/honda-cg-125-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:10"
   },
   {
     "fonte": "celsocunha",
@@ -10032,7 +9932,7 @@
     "modelo": "Factor Ybr125 K",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 700.0,
+    "lance_atual": 900.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10047,7 +9947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/433/yamaha-factor-ybr125-k",
-    "data_leilao": "2026-06-22T23:01"
+    "data_leilao": "2026-06-23T07:46"
   },
   {
     "fonte": "celsocunha",
@@ -10132,7 +10032,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2025,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1400.0,
+    "lance_atual": 1600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10147,7 +10047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/437/honda-cg-160-titan",
-    "data_leilao": "2026-06-22T14:41"
+    "data_leilao": "2026-06-23T08:34"
   },
   {
     "fonte": "celsocunha",
@@ -10172,7 +10072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/438/honda-nxr160-bros-esdd",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:35"
   },
   {
     "fonte": "celsocunha",
@@ -10197,7 +10097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/439/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:14"
   },
   {
     "fonte": "celsocunha",
@@ -10272,7 +10172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/442/honda-nxr150-bros-esd",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:13"
   },
   {
     "fonte": "celsocunha",
@@ -10282,7 +10182,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10297,7 +10197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/443/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T11:56"
   },
   {
     "fonte": "celsocunha",
@@ -10382,7 +10282,7 @@
     "modelo": "Factor Ybr125 K",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 850.0,
+    "lance_atual": 1050.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10397,7 +10297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/447/yamaha-factor-ybr125-k",
-    "data_leilao": "2026-06-22T23:02"
+    "data_leilao": "2026-06-23T07:48"
   },
   {
     "fonte": "celsocunha",
@@ -10497,7 +10397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/451/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:17"
   },
   {
     "fonte": "celsocunha",
@@ -10532,7 +10432,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10547,7 +10447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/453/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:18"
   },
   {
     "fonte": "celsocunha",
@@ -10597,7 +10497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/455/honda-cg-150-fan-esi",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:19"
   },
   {
     "fonte": "celsocunha",
@@ -10647,7 +10547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/457/honda-cg-150-titan-esd",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:18"
   },
   {
     "fonte": "celsocunha",
@@ -10657,7 +10557,7 @@
     "modelo": "Cb 300R",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10672,7 +10572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/459/honda-cb-300r",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:20"
   },
   {
     "fonte": "celsocunha",
@@ -10782,7 +10682,7 @@
     "modelo": "Pop 110I",
     "ano": 2022,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 950.0,
+    "lance_atual": 1350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10797,7 +10697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/463/honda-pop-110i",
-    "data_leilao": "2026-06-22T11:04"
+    "data_leilao": "2026-06-23T12:15"
   },
   {
     "fonte": "celsocunha",
@@ -10857,7 +10757,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 450.0,
+    "lance_atual": 850.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -10872,7 +10772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/466/honda-cg-125-fan-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:06"
   },
   {
     "fonte": "celsocunha",
@@ -10997,7 +10897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/471/honda-cg-125-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:21"
   },
   {
     "fonte": "celsocunha",
@@ -11072,7 +10972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/474/honda-cg-160-titan-ex",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:16"
   },
   {
     "fonte": "celsocunha",
@@ -11932,7 +11832,7 @@
     "modelo": "Ybr150 Factor Ed",
     "ano": 2022,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1200.0,
+    "lance_atual": 1400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -11947,7 +11847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/509/yamaha-ybr150-factor-ed",
-    "data_leilao": "2026-06-22T23:03"
+    "data_leilao": "2026-06-23T07:43"
   },
   {
     "fonte": "celsocunha",
@@ -12032,7 +11932,7 @@
     "modelo": "Presidente Tra Carga1",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1300.0,
+    "lance_atual": 1700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -12047,7 +11947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/513/r-presidente-tra-carga1",
-    "data_leilao": "2026-06-21T19:46"
+    "data_leilao": "2026-06-23T10:01"
   },
   {
     "fonte": "celsocunha",
@@ -12107,7 +12007,7 @@
     "modelo": "Hercules Rm Ca 1E",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 300.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -12122,7 +12022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/516/srm-hercules-rm-ca-1e",
-    "data_leilao": "2026-06-22T15:47"
+    "data_leilao": "2026-06-23T11:15"
   },
   {
     "fonte": "celsocunha",
@@ -12147,7 +12047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/517/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:50"
   },
   {
     "fonte": "celsocunha",
@@ -12197,7 +12097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/519/honda-cg-125-titan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:27"
   },
   {
     "fonte": "celsocunha",
@@ -12222,7 +12122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/520/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:33"
   },
   {
     "fonte": "celsocunha",
@@ -12272,7 +12172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/522/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:28"
   },
   {
     "fonte": "celsocunha",
@@ -12347,7 +12247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/525/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:30"
   },
   {
     "fonte": "celsocunha",
@@ -12357,7 +12257,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 800.0,
+    "lance_atual": 1000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -12372,7 +12272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/526/honda-pop-110i",
-    "data_leilao": "2026-06-22T11:09"
+    "data_leilao": "2026-06-23T10:01"
   },
   {
     "fonte": "celsocunha",
@@ -12397,7 +12297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/527/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:31"
   },
   {
     "fonte": "celsocunha",
@@ -12547,7 +12447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/533/honda-nxr-160-bros",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:33"
   },
   {
     "fonte": "celsocunha",
@@ -12732,7 +12632,7 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 800.0,
+    "lance_atual": 1000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -12747,7 +12647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/541/honda-nxr160-bros-esdd",
-    "data_leilao": "2026-06-20T20:20"
+    "data_leilao": "2026-06-23T10:47"
   },
   {
     "fonte": "celsocunha",
@@ -12797,7 +12697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/543/yamaha-factor-ybr125-e",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:35"
   },
   {
     "fonte": "celsocunha",
@@ -12997,7 +12897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/551/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:36"
   },
   {
     "fonte": "celsocunha",
@@ -13257,7 +13157,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2024,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1200.0,
+    "lance_atual": 1800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -13272,7 +13172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/562/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:35"
   },
   {
     "fonte": "celsocunha",
@@ -13557,7 +13457,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1800.0,
+    "lance_atual": 2000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -13572,7 +13472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/574/honda-cg-160-titan-",
-    "data_leilao": "2026-06-22T19:39"
+    "data_leilao": "2026-06-23T09:50"
   },
   {
     "fonte": "celsocunha",
@@ -13597,7 +13497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/575/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:53"
   },
   {
     "fonte": "celsocunha",
@@ -13647,7 +13547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/577/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:41"
   },
   {
     "fonte": "celsocunha",
@@ -13697,7 +13597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/579/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:42"
   },
   {
     "fonte": "celsocunha",
@@ -13757,7 +13657,7 @@
     "modelo": "Cbx 250 Twister",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1600.0,
+    "lance_atual": 2200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -13772,7 +13672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/582/honda-cbx-250-twister",
-    "data_leilao": "2026-06-19T22:42"
+    "data_leilao": "2026-06-23T10:28"
   },
   {
     "fonte": "celsocunha",
@@ -13857,7 +13757,7 @@
     "modelo": "Cg 125 Titan Ks",
     "ano": 2001,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 80.0,
+    "lance_atual": 280.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -13872,7 +13772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/586/honda-cg-125-titan-ks",
-    "data_leilao": "2026-06-20T18:33"
+    "data_leilao": "2026-06-23T11:06"
   },
   {
     "fonte": "celsocunha",
@@ -13982,7 +13882,7 @@
     "modelo": "Nxr150 Bros Mix Es",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2300.0,
+    "lance_atual": 2700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -13997,7 +13897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/591/honda-nxr150-bros-mix-es",
-    "data_leilao": "2026-06-23T07:38"
+    "data_leilao": "2026-06-23T09:55"
   },
   {
     "fonte": "celsocunha",
@@ -14007,7 +13907,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1000.0,
+    "lance_atual": 1200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -14022,7 +13922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/592/honda-cg-160-fan",
-    "data_leilao": "2026-06-19T22:47"
+    "data_leilao": "2026-06-23T09:56"
   },
   {
     "fonte": "celsocunha",
@@ -14032,7 +13932,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 500.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -14047,7 +13947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/593/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T11:03"
   },
   {
     "fonte": "celsocunha",
@@ -14097,7 +13997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/595/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:45"
   },
   {
     "fonte": "celsocunha",
@@ -14222,7 +14122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/600/honda-nxr150-bros-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:59"
   },
   {
     "fonte": "celsocunha",
@@ -14472,7 +14372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/610/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:47"
   },
   {
     "fonte": "celsocunha",
@@ -14497,7 +14397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/611/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:47"
   },
   {
     "fonte": "celsocunha",
@@ -14522,7 +14422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/612/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:48"
   },
   {
     "fonte": "celsocunha",
@@ -14532,7 +14432,7 @@
     "modelo": "Cg 150 Titan Es",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 500.0,
+    "lance_atual": 700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -14547,7 +14447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/613/honda-cg-150-titan-es",
-    "data_leilao": "2026-06-22T14:43"
+    "data_leilao": "2026-06-23T11:57"
   },
   {
     "fonte": "celsocunha",
@@ -14557,7 +14457,7 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2023,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1600.0,
+    "lance_atual": 1800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -14572,7 +14472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/614/honda-nxr160-bros-esdd",
-    "data_leilao": "2026-06-20T20:23"
+    "data_leilao": "2026-06-23T09:13"
   },
   {
     "fonte": "celsocunha",
@@ -15097,7 +14997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/637/kasinski-comet-250r",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:39"
   },
   {
     "fonte": "celsocunha",
@@ -15147,7 +15047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/639/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T09:58"
   },
   {
     "fonte": "celsocunha",
@@ -15172,7 +15072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/640/honda-cg-125-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:40"
   },
   {
     "fonte": "celsocunha",
@@ -15197,7 +15097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/641/honda-cg150-titan-mix-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T08:41"
   },
   {
     "fonte": "celsocunha",
@@ -15247,7 +15147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/643/vw-gol-mi",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T12:10"
   },
   {
     "fonte": "celsocunha",
@@ -15382,7 +15282,7 @@
     "modelo": "Chev Cruze Ltz Nb At",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 380.0,
+    "lance_atual": 480.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15397,7 +15297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/649/i-chev-cruze-ltz-nb-at",
-    "data_leilao": "2026-06-22T14:50"
+    "data_leilao": "2026-06-23T08:42"
   },
   {
     "fonte": "celsocunha",
@@ -15507,7 +15407,7 @@
     "modelo": "M.Benz Ml350Bluetec",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2000.0,
+    "lance_atual": 2200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15522,7 +15422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/654/i-m-benz-ml350bluetec",
-    "data_leilao": "2026-06-22T21:52"
+    "data_leilao": "2026-06-23T09:19"
   },
   {
     "fonte": "celsocunha",
@@ -15707,7 +15607,7 @@
     "modelo": "Novo Voyage 1.6",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1450.0,
+    "lance_atual": 1550.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15722,7 +15622,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/662/vw-novo-voyage-1-6-2013-2013",
-    "data_leilao": "2026-06-22T21:30"
+    "data_leilao": "2026-06-23T09:20"
   },
   {
     "fonte": "celsocunha",
@@ -15757,7 +15657,7 @@
     "modelo": "Siena Fire Flex",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 800.0,
+    "lance_atual": 1000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15772,7 +15672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/664/fiat-siena-fire-flex",
-    "data_leilao": "2026-06-22T21:31"
+    "data_leilao": "2026-06-23T09:20"
   },
   {
     "fonte": "celsocunha",
@@ -15857,7 +15757,7 @@
     "modelo": "Sandero Dyna 16",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2600.0,
+    "lance_atual": 3400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15872,7 +15772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/668/renault-sandero-dyna-16",
-    "data_leilao": "2026-06-23T01:58"
+    "data_leilao": "2026-06-23T13:19"
   },
   {
     "fonte": "celsocunha",
@@ -15882,7 +15782,7 @@
     "modelo": "Doblo Adventure",
     "ano": 2005,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2000.0,
+    "lance_atual": 2200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15897,7 +15797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/669/fiat-doblo-adventure",
-    "data_leilao": "2026-06-22T21:31"
+    "data_leilao": "2026-06-23T10:01"
   },
   {
     "fonte": "celsocunha",
@@ -15972,7 +15872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/672/peugeot-207passion-xr",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T13:13"
   },
   {
     "fonte": "celsocunha",
@@ -15982,7 +15882,7 @@
     "modelo": "Uno Mille Way Econ",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2400.0,
+    "lance_atual": 3000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -15997,7 +15897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/673/fiat-uno-mille-way-econ",
-    "data_leilao": "2026-06-22T18:24"
+    "data_leilao": "2026-06-23T12:14"
   },
   {
     "fonte": "celsocunha",
@@ -16007,7 +15907,7 @@
     "modelo": "City Exl Flex",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2000.0,
+    "lance_atual": 2600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16022,7 +15922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/674/honda-city-exl-flex",
-    "data_leilao": "2026-06-22T16:29"
+    "data_leilao": "2026-06-23T13:14"
   },
   {
     "fonte": "celsocunha",
@@ -16082,7 +15982,7 @@
     "modelo": "S10 Ltz Dd4",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 7600.0,
+    "lance_atual": 8000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16097,7 +15997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/677/chevrolet-s10-ltz-dd4",
-    "data_leilao": "2026-06-22T21:28"
+    "data_leilao": "2026-06-23T08:50"
   },
   {
     "fonte": "celsocunha",
@@ -16107,7 +16007,7 @@
     "modelo": "Meriva Maxx",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2200.0,
+    "lance_atual": 2400.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16122,7 +16022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/678/gm-meriva-maxx",
-    "data_leilao": "2026-06-22T14:31"
+    "data_leilao": "2026-06-23T09:56"
   },
   {
     "fonte": "celsocunha",
@@ -16207,7 +16107,7 @@
     "modelo": "Celta 5 Portas",
     "ano": 2003,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2800.0,
+    "lance_atual": 3000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16222,7 +16122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/682/gm-celta-5-portas",
-    "data_leilao": "2026-06-22T22:20"
+    "data_leilao": "2026-06-23T12:30"
   },
   {
     "fonte": "celsocunha",
@@ -16232,7 +16132,7 @@
     "modelo": "Corolla Gli Flex",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 3000.0,
+    "lance_atual": 4200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16247,7 +16147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/683/toyota-corolla-gli-flex",
-    "data_leilao": "2026-06-23T01:57"
+    "data_leilao": "2026-06-23T13:32"
   },
   {
     "fonte": "celsocunha",
@@ -16332,7 +16232,7 @@
     "modelo": "Up Run Mcv",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 4800.0,
+    "lance_atual": 6000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16347,7 +16247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/687/vw-up-run-mcv",
-    "data_leilao": "2026-06-23T01:57"
+    "data_leilao": "2026-06-23T13:20"
   },
   {
     "fonte": "celsocunha",
@@ -16357,7 +16257,7 @@
     "modelo": "Chevrolet Classic Ls",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2400.0,
+    "lance_atual": 2600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16372,7 +16272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/688/i-chevrolet-classic-ls",
-    "data_leilao": "2026-06-22T21:28"
+    "data_leilao": "2026-06-23T11:28"
   },
   {
     "fonte": "celsocunha",
@@ -16382,7 +16282,7 @@
     "modelo": "Uno Vivace 1.0",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2600.0,
+    "lance_atual": 3600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16397,7 +16297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/689/fiat-uno-vivace-1-0",
-    "data_leilao": "2026-06-23T07:08"
+    "data_leilao": "2026-06-23T13:20"
   },
   {
     "fonte": "celsocunha",
@@ -16482,7 +16382,7 @@
     "modelo": "Prisma 1.4L Lt",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1900.0,
+    "lance_atual": 2300.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16497,7 +16397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/693/chevrolet-prisma-1-4l-lt",
-    "data_leilao": "2026-06-22T16:37"
+    "data_leilao": "2026-06-23T10:27"
   },
   {
     "fonte": "celsocunha",
@@ -16572,7 +16472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/696/vw-gol-mi",
-    "data_leilao": ""
+    "data_leilao": "2026-06-23T10:00"
   },
   {
     "fonte": "celsocunha",
@@ -16757,7 +16657,7 @@
     "modelo": "Civic Lxl",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2200.0,
+    "lance_atual": 2600.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -16772,7 +16672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/704/honda-civic-lxl",
-    "data_leilao": "2026-06-23T06:59"
+    "data_leilao": "2026-06-23T09:58"
   },
   {
     "fonte": "celsocunha",
