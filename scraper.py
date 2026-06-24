@@ -28,19 +28,22 @@ ICONES     = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"�
 PALAVRAS_MOTO = ['cg ','fan ','bros','titan','pcx','fazer','crosser','biz','lead',
                  'nxr','xre',' cargo','start','ybr','pop ','cb 3','ninja','factor',
                  'twister','burgman','nmax','lander','mt-','xtz','shineray','xy150',
-                 'xy125','shi 175','biz','dominar','fz15']
+                 'xy125','shi 175','biz','dominar','fz15','harley','davidson',
+                 'flhtcu','flht','softail','sportster','motocicleta']
 PALAVRAS_CAMINHAO = ['fh ','fmx','constellation','actros','axor','atego','cargo truck',
                      'f-4000','sprinter','transit','master','daily','ducato','toco',
                      'truck','bi-truck','cavalo','carreta','reboque','semirreboque',
                      'randon','facchini','noma','guerra','librelato','volvo vm',
-                     'volvo/fh','6x2t','re dl']
+                     'volvo/fh','6x2t','re dl','mpolo','marcopolo','torino gvu',
+                     'torino u','comil','busscar','neobus','caio','unisauto']
 PALAVRAS_MAQUINA  = ['escavadeira','retroescavadeira','pa carregadeira','trator',
                      'empilhadeira','guindaste','munck','compactador','gerador',
                      'compressor','alinhador','balanceador','elevador','betoneira',
                      'motoniveladora','fotovoltaico','tkba','skf']
 PALAVRAS_IMOVEL   = ['apartamento','casa ','terreno','lote ','sala comercial',
                      'galpao','barracão','prédio','sítio','fazenda','chácara',
-                     'loja ','sobrado','cobertura','flat ','imóvel']
+                     'loja ','sobrado','cobertura','flat ','imóvel','imóveis',
+                     'imovel','imoveis','direito de posse','vaga de garagem']
 
 def detectar_categoria(modelo, marca, cat_url):
     nome = f"{marca} {modelo}".lower()
@@ -1239,9 +1242,123 @@ def _raspar_celso_cunha(vistos):
     return lotes
 
 # ─── SCRAPER SOLEON VIA ZENROWS ──────────────────────────────────────────────
+
+def _extrair_veiculo_de_titulo(titulo):
+    """Extrai marca, modelo, ano de título no formato Soleon (ex: 'PEUGEOT/207HB XR S - ANO: 2009/2010')."""
+    t = re.sub(r'\s+', ' ', titulo.strip()).upper()
+    ano = 0
+    # "ANO: 2009/2010" ou "ANO/MODELO: 2009" — captura ambos os formatos
+    ano_m = re.search(r'ANO(?:/MODELO)?[:\s]+(\d{4})(?:/\d+)?', t)
+    if ano_m:
+        ano = int(ano_m.group(1))
+        t = (t[:ano_m.start()] + t[ano_m.end():]).strip().strip('-').strip()
+    else:
+        # Formato "2009/2010" standalone (sem prefixo "ANO:")
+        ano_m = re.search(r'\b(19[89]\d|20[012]\d)/\d{2,4}\b', t)
+        if ano_m:
+            ano = int(ano_m.group(1))
+            t = (t[:ano_m.start()] + t[ano_m.end():]).strip()
+    parts = [p.strip() for p in t.split('/') if p.strip()]
+    if len(parts) >= 2:
+        marca  = parts[0].title()
+        modelo = ' '.join(parts[1:]).title()
+    elif parts:
+        words = parts[0].split()
+        marca  = words[0].title() if words else "?"
+        modelo = ' '.join(w.title() for w in words[1:3]) if len(words) > 1 else "?"
+    else:
+        marca, modelo = "?", "?"
+    return marca, modelo, ano
+
+
+def _parse_soleon_lots_from_listing(html, base):
+    """
+    Extrai dados de lotes do HTML da página de listagem Soleon.
+    Cada lote tem: url, titulo, cidade, descricao, lance, km, data_leilao, foto.
+    Evita fetchs individuais de detalhe — economiza créditos Zenrows.
+    """
+    texto = re.sub(r'<[^>]+>', ' ', html)
+    texto = re.sub(r'\s+', ' ', texto)
+
+    lot_ids = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html)))
+    if not lot_ids:
+        return []
+
+    positions = []
+    for lid in lot_ids:
+        p = html.find(f'/item/{lid}/detalhes')
+        if p >= 0:
+            positions.append((lid, p))
+    positions.sort(key=lambda x: x[1])
+
+    results = []
+    for i, (lot_id, pos) in enumerate(positions):
+        url_lote = f"{base}/item/{lot_id}/detalhes"
+        next_pos = positions[i + 1][1] if i + 1 < len(positions) else len(html)
+        chunk_html = html[max(0, pos - 3000): next_pos]
+        chunk = re.sub(r'<[^>]+>', ' ', chunk_html)
+        chunk = re.sub(r'\s+', ' ', chunk).strip()
+
+        # Título: texto entre "Lote NNN" e a primeira palavra-chave estrutural
+        titulo = ""
+        lot_m = re.search(
+            r'\bLote\s+0*\d+\s+(.+?)(?=\s+(?:Descrição|Cidade|Endereço|Matrícula|Processo|Local de Exposição)\s*:)',
+            chunk
+        )
+        if lot_m:
+            titulo = re.sub(r'\s+', ' ', lot_m.group(1)).strip()[:200]
+            titulo = re.sub(r'^Item\s+\d+[:\s]+', '', titulo).strip()
+        if not titulo:
+            ls = re.search(r'\bLote\s+0*\d+\s+', chunk)
+            if ls:
+                titulo = chunk[ls.end():ls.end() + 120].split('Descrição')[0].split('Cidade')[0].strip()
+
+        # Cidade
+        cidade = "CE"
+        city_m = re.search(r'Cidade:\s*([^|\n]{3,60}?)(?:\s+(?:Endereço|Descrição|Matrícula|Processo)|$)', chunk)
+        if city_m:
+            cidade = city_m.group(1).strip().rstrip('/,')
+        else:
+            for c in CIDADES_CE:
+                if c.replace('-', ' ') in chunk.lower():
+                    cidade = c.replace('-', ' ').title() + '/CE'
+                    break
+
+        # Descrição
+        desc_m = re.search(
+            r'Descrição:\s*(.{40,600}?)(?=\s+(?:Local de Exposição|Processo|Exequente|Executado))',
+            chunk, re.S
+        )
+        descricao = re.sub(r'\s+', ' ', desc_m.group(1)).strip() if desc_m else titulo
+
+        lance      = _extrair_lance(chunk)
+        km         = _extrair_km(chunk)
+        data_leilao = _extrair_data_leilao(chunk)
+
+        foto = ""
+        fotos = re.findall(
+            r'src=["\']([^"\']+\.(?:jpg|jpeg|png|webp))["\']',
+            html[max(0, pos - 1200): min(len(html), pos + 500)], re.I
+        )
+        foto = next((f for f in fotos if not any(x in f.lower() for x in ['logo', 'icon', 'avatar', 'banner'])), "")
+
+        results.append({
+            'url': url_lote,
+            'titulo': titulo,
+            'cidade': cidade,
+            'descricao': descricao[:500],
+            'lance': lance,
+            'km': km,
+            'data_leilao': data_leilao,
+            'foto': foto,
+        })
+
+    return results
+
+
 def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
     lotes = []
-    nome  = fonte.title()
+    nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
 
     def _zget(url, wait_ms=5000):
         try:
@@ -1274,42 +1391,79 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
         url_auction = f"{base}/leilao/{auction_id}/lotes"
         print(f"  📋 {nome} | leilão {auction_id}")
 
-        html_fast = _zget(url_auction, wait_ms=3000)
-        if not html_fast:
+        html_p1 = _zget(url_auction, wait_ms=8000)
+        if not html_p1:
             continue
 
         if fonte == "danielgarcia":
-            html_check = html_fast.lower()
+            html_check = html_p1.lower()
             if not any(c in html_check for c in _SOLEON_CE):
-                title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_fast, re.I)
-                titulo  = (title_m.group(1) if title_m else "")[:70]
+                titulo_m = re.search(r'<title[^>]*>([^<]+)</title>', html_p1, re.I)
+                titulo   = (titulo_m.group(1) if titulo_m else "")[:70]
                 print(f"    [skip] não CE: {titulo}")
                 continue
 
-        html_lots = _zget(url_auction, wait_ms=10000)
-        lot_ids   = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_lots)))
-        lot_hrefs = []
-        for item_id in lot_ids:
-            full = f"{base}/item/{item_id}/detalhes"
-            if full not in vistos:
-                lot_hrefs.append(full)
-                vistos.add(full)
+        # Coletar todas as páginas (suporte a paginação)
+        all_pages = [html_p1]
+        for pg in range(2, 8):
+            url_pg  = f"{url_auction}?page={pg}"
+            html_pg = _zget(url_pg, wait_ms=5000)
+            if not html_pg or not re.search(r'/item/\d+/detalhes', html_pg):
+                break
+            if html_pg == html_p1:
+                break
+            n_pg = len(list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_pg))))
+            print(f"    Página {pg}: {n_pg} lotes")
+            all_pages.append(html_pg)
 
-        if not lot_hrefs:
-            txt = re.sub(r'<[^>]+>', ' ', html_lots[:800])
-            print(f"    [diag] sem lotes | {txt[:200]}")
-            continue
+        for html_page in all_pages:
+            lots_info = _parse_soleon_lots_from_listing(html_page, base)
+            if not lots_info:
+                txt = re.sub(r'<[^>]+>', ' ', html_page[:600])
+                print(f"    [diag] sem lotes | {txt[:200]}")
+                continue
 
-        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
-
-        for url_lote in lot_hrefs[:25]:
-            try:
-                html = _zget(url_lote, wait_ms=3000)
-                if not html:
+            for info in lots_info:
+                if info['url'] in vistos:
                     continue
-                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(html, url_lote, fonte)
-                categoria = detectar_categoria(modelo, marca, "carros")
-                icone     = ICONES.get(categoria, "📦")
+                vistos.add(info['url'])
+
+                titulo    = info['titulo']
+                descricao = info['descricao']
+                cidade    = info['cidade']
+                lance     = info['lance']
+                km        = info['km']
+                data_leilao = info['data_leilao']
+                foto      = info['foto']
+                url_lote  = info['url']
+
+                tl = titulo.lower()
+                combined = tl + ' ' + descricao.lower()[:150]
+
+                if any(p in tl for p in PALAVRAS_IMOVEL):
+                    categoria = "imoveis"
+                    marca  = titulo.title()[:60]
+                    modelo = cidade
+                    ano    = 0
+                elif any(p in combined for p in PALAVRAS_MAQUINA):
+                    categoria = "equipamentos"
+                    marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+                elif any(p in combined for p in PALAVRAS_CAMINHAO) or any(p in tl for p in ['ônibus', 'onibus', 'caminhão', 'caminhao']):
+                    categoria = "caminhoes"
+                    marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+                elif any(p in combined for p in PALAVRAS_MOTO) or any(p in tl for p in ['motocicleta', 'moto']):
+                    categoria = "motos"
+                    marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+                elif tl.strip() in ['diversos', 'vários', 'varios']:
+                    categoria = "equipamentos"
+                    marca  = "Diversos"
+                    modelo = descricao[:50].title()
+                    ano    = 0
+                else:
+                    categoria = "carros"
+                    marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+
+                icone    = ICONES.get(categoria, "📦")
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
@@ -1317,9 +1471,6 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
                 lotes.append(_lote_dict(fonte, categoria, marca, modelo, ano,
                                         cidade, lance, ref_val, ref_str,
                                         classif, foto, km, descricao, analise, url_lote, data_leilao))
-                time.sleep(0.3)
-            except Exception as e:
-                print(f"    ⚠️ {nome} lote: {e}")
 
     return lotes
 
