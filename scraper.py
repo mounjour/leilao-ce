@@ -214,6 +214,33 @@ def _analisar_cached(url, marca, modelo, ano, desc, km, lance, ref, categoria):
         return cached["analise"]
     return analisar(marca, modelo, ano, desc, km, lance, ref, categoria)
 
+def _zenrows_cache_ok(fonte, max_horas=24):
+    """
+    Retorna lotes do leiloes.json para o fonte se o último scrape foi há < max_horas.
+    Evita chamar o Zenrows desnecessariamente quando os dados ainda são recentes.
+    """
+    if not os.path.exists("leiloes.json"):
+        return []
+    try:
+        with open("leiloes.json", encoding="utf-8") as f:
+            todos = json.load(f)
+        lotes_fonte = [l for l in todos if l.get("fonte") == fonte]
+        if not lotes_fonte:
+            return []
+        datas = [l["scraped_at"] for l in lotes_fonte if l.get("scraped_at")]
+        if not datas:
+            return []
+        mais_recente = max(datas)
+        dt = datetime.fromisoformat(mais_recente)
+        horas_passadas = (datetime.now() - dt).total_seconds() / 3600
+        if horas_passadas < max_horas:
+            print(f"  [cache Zenrows] {fonte} — {len(lotes_fonte)} lotes reutilizados "
+                  f"(scraped há {horas_passadas:.1f}h, limite {max_horas}h)")
+            return lotes_fonte
+    except Exception as e:
+        print(f"  [cache Zenrows] erro ao checar cache de {fonte}: {e}")
+    return []
+
 def limpar_modelo(raw):
     m = unquote(raw)
     return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
@@ -244,6 +271,7 @@ def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
         "avaliacao_plataforma": analise.get("avaliacao_plataforma", ""),
         "url":                  url,
         "data_leilao":          data_leilao,
+        "scraped_at":           datetime.now().strftime("%Y-%m-%dT%H:%M"),
     }
 
 def _parse_brl(s):
@@ -1357,6 +1385,13 @@ def _parse_soleon_lots_from_listing(html, base):
 
 
 def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
+    # Reutiliza dados do leiloes.json se o último scrape foi há < 24h
+    cached = _zenrows_cache_ok(fonte, max_horas=24)
+    if cached:
+        for l in cached:
+            vistos.add(l.get("url", ""))
+        return cached
+
     lotes = []
     nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
 
