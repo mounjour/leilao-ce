@@ -1276,11 +1276,13 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
         if not html_fast:
             continue
 
-        title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_fast, re.I)
-        titulo  = (title_m.group(1) if title_m else "").lower()
-        if fonte == "danielgarcia" and not any(c in titulo for c in _SOLEON_CE):
-            print(f"    [skip] não CE: {titulo[:70]}")
-            continue
+        if fonte == "danielgarcia":
+            html_check = html_fast.lower()
+            if not any(c in html_check for c in _SOLEON_CE):
+                title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_fast, re.I)
+                titulo  = (title_m.group(1) if title_m else "")[:70]
+                print(f"    [skip] não CE: {titulo}")
+                continue
 
         html_lots = _zget(url_auction, wait_ms=10000)
         lot_ids   = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_lots)))
