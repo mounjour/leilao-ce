@@ -890,7 +890,9 @@ def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
 # ─── SOLEON (Playwright + ScraperAPI proxy) ───────────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
-              'aquiraz','russas','/ce','-ce']
+              'aquiraz','russas','iguatu','quixada','quixadá','limoeiro',
+              'tiangua','tianguá','caninde','canindé','itapipoca','aracati',
+              'trt-7','trt 7','7ª região','/ce','-ce']
 
 
 def _lote_de_html(html, url, fonte):
