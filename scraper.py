@@ -175,6 +175,42 @@ oportunidade: OTIMA|BOA|REGULAR|RUIM|INSPECIONAR"""}]
             print(f"  ⚠️ IA error: {e}")
         return _FALLBACK_IA
 
+_CACHE_ANALISE: dict = {}
+
+def _load_analise_cache():
+    global _CACHE_ANALISE
+    _CACHE_ANALISE = {}
+    if not os.path.exists("leiloes.json"):
+        return
+    try:
+        with open("leiloes.json", encoding="utf-8") as f:
+            prev = json.load(f)
+        for lote in prev:
+            url   = lote.get("url", "")
+            lance = float(lote.get("lance_atual", 0) or 0)
+            if url and lance:
+                _CACHE_ANALISE[url] = {
+                    "lance": lance,
+                    "analise": {
+                        "recomendacao":         lote.get("recomendacao", ""),
+                        "positivos":            lote.get("positivos", []),
+                        "negativos":            lote.get("negativos", []),
+                        "uso_sugerido":         lote.get("uso_sugerido", ""),
+                        "estado":               lote.get("estado", ""),
+                        "avaliacao_plataforma": lote.get("avaliacao_plataforma", ""),
+                        "selo":                 lote.get("avaliacao_plataforma", ""),
+                    }
+                }
+        print(f"[cache] {len(_CACHE_ANALISE)} análises carregadas do run anterior")
+    except Exception as e:
+        print(f"[cache] erro: {e}")
+
+def _analisar_cached(url, marca, modelo, ano, desc, km, lance, ref, categoria):
+    cached = _CACHE_ANALISE.get(url)
+    if cached and abs(cached["lance"] - float(lance or 0)) < 1.0:
+        return cached["analise"]
+    return analisar(marca, modelo, ano, desc, km, lance, ref, categoria)
+
 def limpar_modelo(raw):
     m = unquote(raw)
     return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
@@ -398,7 +434,7 @@ def _raspar_leilo(pg_lista, pg_detalhe, vistos):
                 descricao = _extrair_descricao(texto)
 
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 icone = ICONES.get(categoria, "📦")
@@ -500,7 +536,7 @@ def _raspar_mega(pg, vistos):
                     icone = ICONES.get(categoria, "📦")
 
                     ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise = analisar(marca, modelo, ano, "", "", lance, ref_val, categoria)
+                    analise = _analisar_cached(href, marca, modelo, ano, "", "", lance, ref_val, categoria)
                     classif = classificar(lance, ref_val, analise.get("estado",""))
 
                     data_leilao = _extrair_data_leilao(card.inner_text())
@@ -575,7 +611,7 @@ def _raspar_pacto(pg, _pg_d, vistos):
                 km    = _extrair_km(it['text'])
 
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, "", km, lance, ref_val, categoria)
+                analise  = _analisar_cached(href, marca, modelo, ano, "", km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 data_leilao = _extrair_data_leilao(it['text'])
@@ -980,7 +1016,7 @@ def _raspar_soleon_playwright(pg, base, fonte, vistos):
                 categoria = detectar_categoria(modelo, marca, "carros")
                 icone     = ICONES.get(categoria, "📦")
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
                 print(f"    {icone} [{nome}/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
                 lotes.append(_lote_dict(fonte, categoria, marca, modelo, ano,
@@ -1094,7 +1130,7 @@ def _raspar_mj_leiloes(vistos):
                 categoria = detectar_categoria(modelo, marca, "carros")
                 icone     = ICONES.get(categoria, "📦")
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
                 print(f"  {icone} [MJLeiloes/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
                 lotes.append(_lote_dict("mj", categoria, marca, modelo, ano,
@@ -1188,7 +1224,7 @@ def _raspar_celso_cunha(vistos):
                     categoria = detectar_categoria(modelo, marca, "carros")
                     icone     = ICONES.get(categoria, "📦")
                     ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                    analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                     classif  = classificar(lance, ref_val, analise.get("estado", ""))
                     print(f"  {icone} [CelsoCunha/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
                     lotes.append(_lote_dict("celsocunha", categoria, marca, modelo, ano,
@@ -1200,9 +1236,93 @@ def _raspar_celso_cunha(vistos):
 
     return lotes
 
+# ─── SCRAPER SOLEON VIA ZENROWS ──────────────────────────────────────────────
+def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
+    lotes = []
+    nome  = fonte.title()
+
+    def _zget(url, wait_ms=5000):
+        try:
+            r = requests.get(
+                "https://api.zenrows.com/v1/",
+                params={"url": url, "apikey": zenrows_key,
+                        "js_render": "true", "wait": str(wait_ms)},
+                timeout=90,
+            )
+            if r.status_code == 200:
+                return r.text
+            print(f"  ⚠️ Zenrows {r.status_code}: {r.text[:150]}")
+        except Exception as e:
+            print(f"  ⚠️ Zenrows request: {e}")
+        return ""
+
+    html_home = _zget(base + "/", wait_ms=5000)
+    if not html_home:
+        print(f"  ⚠️ {nome}: homepage vazia")
+        return lotes
+
+    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
+    if not auction_ids:
+        print(f"  ⚠️ {nome}: nenhum leilão na homepage")
+        return lotes
+
+    print(f"📡 {nome} | {len(auction_ids)} leilão(ões)")
+
+    for auction_id in auction_ids[:5]:
+        url_auction = f"{base}/leilao/{auction_id}/lotes"
+        print(f"  📋 {nome} | leilão {auction_id}")
+
+        html_fast = _zget(url_auction, wait_ms=3000)
+        if not html_fast:
+            continue
+
+        title_m = re.search(r'<title[^>]*>([^<]+)</title>', html_fast, re.I)
+        titulo  = (title_m.group(1) if title_m else "").lower()
+        if fonte == "danielgarcia" and not any(c in titulo for c in _SOLEON_CE):
+            print(f"    [skip] não CE: {titulo[:70]}")
+            continue
+
+        html_lots = _zget(url_auction, wait_ms=10000)
+        lot_ids   = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_lots)))
+        lot_hrefs = []
+        for item_id in lot_ids:
+            full = f"{base}/item/{item_id}/detalhes"
+            if full not in vistos:
+                lot_hrefs.append(full)
+                vistos.add(full)
+
+        if not lot_hrefs:
+            txt = re.sub(r'<[^>]+>', ' ', html_lots[:800])
+            print(f"    [diag] sem lotes | {txt[:200]}")
+            continue
+
+        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
+
+        for url_lote in lot_hrefs[:25]:
+            try:
+                html = _zget(url_lote, wait_ms=3000)
+                if not html:
+                    continue
+                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(html, url_lote, fonte)
+                categoria = detectar_categoria(modelo, marca, "carros")
+                icone     = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
+                classif  = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"    {icone} [{nome}/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict(fonte, categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"    ⚠️ {nome} lote: {e}")
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
     print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
+    _load_analise_cache()
     lotes, vistos = [], set()
 
     with sync_playwright() as p:
@@ -1226,39 +1346,13 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
 
-    # Plataforma Soleon (Construbem + Daniel Garcia) — Playwright + ScraperAPI proxy
-    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "")
-    if not scraperapi_key:
-        print("⚠️ SCRAPERAPI_KEY não definida — Construbem e DanielGarcia ignorados")
-    with sync_playwright() as p_soleon:
-        proxy_cfg = {
-            "server":   "http://proxy.scraperapi.com:8010",
-            "username": "scraperapi",
-            "password": scraperapi_key,
-        } if scraperapi_key else None
-        browser_soleon = p_soleon.chromium.launch(
-            headless=True,
-            proxy=proxy_cfg,
-            args=["--no-sandbox", "--disable-dev-shm-usage", "--ignore-certificate-errors"],
-        )
-        ctx_proxy = browser_soleon.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                       "AppleWebKit/537.36 (KHTML, like Gecko) "
-                       "Chrome/124.0.0.0 Safari/537.36",
-            ignore_https_errors=True,
-        )
-        pg_soleon = ctx_proxy.new_page()
-        try:
-            stealth_sync(pg_soleon)
-        except Exception as e:
-            print(f"  ⚠️ stealth: {e}")
-        lotes += _raspar_soleon_playwright(
-            pg_soleon, "https://www.construbemleiloes.com.br", "construbem", vistos
-        )
-        lotes += _raspar_soleon_playwright(
-            pg_soleon, "https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos
-        )
-        browser_soleon.close()
+    # Plataforma Soleon (Construbem + Daniel Garcia) — Zenrows JS rendering
+    zenrows_key = os.getenv("ZENROWS_API_KEY", "")
+    if zenrows_key:
+        lotes += _raspar_soleon_zenrows("https://www.construbemleiloes.com.br", "construbem", vistos, zenrows_key)
+        lotes += _raspar_soleon_zenrows("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos, zenrows_key)
+    else:
+        print("⚠️ ZENROWS_API_KEY não definida — Construbem e DanielGarcia ignorados")
 
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)

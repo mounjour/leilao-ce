@@ -41,6 +41,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SCRAPERAPI_KEY:    ${{ secrets.SCRAPERAPI_KEY }}
+          ZENROWS_API_KEY:   ${{ secrets.ZENROWS_API_KEY }}
           PYTHONUNBUFFERED: '1'
         run: python scraper.py
 
