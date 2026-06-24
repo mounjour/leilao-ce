@@ -331,6 +331,13 @@ def _extrair_data_leilao(texto):
             return datetime.strptime(f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
         except:
             pass
+    # Fallback: "DD/MM/YYYY" sem horário (Celso Cunha e similares) — assume 09:00
+    m = re.search(r'\b(\d{2}/\d{2}/\d{4})\b', texto)
+    if m:
+        try:
+            return datetime.strptime(m.group(1), "%d/%m/%Y").strftime("%Y-%m-%dT09:00")
+        except:
+            pass
     return ""
 
 # ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────

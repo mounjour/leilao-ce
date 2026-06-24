@@ -244,6 +244,7 @@ button[data-testid="baseButton-headerNoPadding"]::after {
 </style>
 """, unsafe_allow_html=True)
 
+@st.cache_data(ttl=1800)
 def carregar():
     if os.path.exists("leiloes.json"):
         with open("leiloes.json","r",encoding="utf-8") as f:
@@ -415,8 +416,12 @@ def render_lotes(lotes_lista, key="main"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
                     if _usr and _ses:
-                        toggle_favorite(_usr.id, _ses.access_token, lote)
+                        from auth import get_profile
+                        _profile = get_profile() or {}
+                        toggle_favorite(_usr.id, _ses.access_token, lote, phone=_profile.get("phone", ""))
                         st.rerun()
+                    else:
+                        st.toast("Faça login para favoritar ⭐")
 
     if total_pages > 1:
         st.markdown("---")
