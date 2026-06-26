@@ -3,131 +3,6 @@
     "fonte": "leilo",
     "categoria": "carros",
     "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix 10Mt Lt1",
-    "ano": 2022,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 38400.0,
-    "fipe_valor": 44912.0,
-    "fipe_str": "R$ 44.912,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782390210776_972f29dd-fad6-4d37-afc7-192dc5c67b0a_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt1/ano.2022/c253b12e-dfcd-11ef-903d-02420a000042",
-    "data_leilao": "2026-06-25T22:11"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Citroen",
-    "modelo": "C4 Cactus Feel A",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 41200.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/19/1781874514789_47dad9c9-bd3f-45fe-8aff-d66308168f07_media.webp",
-    "km": "10.608 km",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c4-cactus-feel-a/ano.2019/9197c03d-43f2-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-25T22:13"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Toyota",
-    "modelo": "Corolla Cross Xre 2.0",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 89900.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/24/1782332041131_483833f5-ce24-4c56-aaee-62d24be9b1e4_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-cross-xre-2.0-(4p)/ano.2024/d90ce184-4f9c-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-25T22:17"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix 10Mt Lt2",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 44000.0,
-    "fipe_valor": 44912.0,
-    "fipe_str": "R$ 44.912,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782411367854_57725353-f9b7-46ab-bda3-2aedc251499a_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt2/ano.2025/8339e947-5b5f-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-25T22:18"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Tracker Turbo A Ltz",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 65500.0,
-    "fipe_valor": 108111.0,
-    "fipe_str": "R$ 108.111,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782411426983_8b22b3b7-f0e6-4c8c-bd6c-0a75c6dcdc11_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/tracker-turbo-a-ltz/ano.2024/3ca09a30-59e4-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-25T22:20"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
     "marca": "Citroen",
     "modelo": "C4 Exclusive 5P F",
     "ano": 2011,
@@ -136,11 +11,11 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782420934335_7327c2a4-263a-4f2f-b28e-8fe4de58dc96_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -157,7 +32,7 @@
     "modelo": "Tracker Turbo A Lt",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 52200.0,
+    "lance_atual": 52700.0,
     "fipe_valor": 98003.0,
     "fipe_str": "R$ 98.003,00",
     "classificacao": "⚠️ MEDIANO",
@@ -182,13 +57,13 @@
     "modelo": "50Q",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 4400.0,
     "fipe_valor": 3177.0,
     "fipe_str": "R$ 3.177,00",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782387601146_5bbf55ef-22e1-40bd-8389-cdaeb8ed65c4_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -197,7 +72,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/shineray/50q/ano.2026/cc71373b-5f4a-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-25T22:11"
+    "data_leilao": "2026-06-27T12:29"
   },
   {
     "fonte": "leilo",
@@ -215,7 +90,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -261,7 +136,7 @@
     "fipe_valor": 39093.0,
     "fipe_str": "R$ 39.093,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421143999_d89b52a1-be8c-4d99-a850-5fafcd23f707_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -315,7 +190,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -326,28 +201,153 @@
   },
   {
     "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Comfortline",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15100.0,
+    "fipe_valor": 44531.0,
+    "fipe_str": "R$ 44.531,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfortline-(4p)/ano.2015/5d2d5d53-5941-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Flex",
+    "ano": 2011,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 5000.0,
+    "fipe_valor": 41006.0,
+    "fipe_str": "R$ 41.006,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-flex-(2p)/ano.2011/baba016c-1341-11f1-8a4c-0242ac50000b",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Kwid Zen 1.0 Mecanico",
+    "ano": 2022,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17000.0,
+    "fipe_valor": 44953.0,
+    "fipe_str": "R$ 44.953,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421592726_02948dc3-2006-40bc-809a-c3c1012b62ca_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/4cb963ce-5938-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Sandero Stepway X",
+    "ano": 2019,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 16300.0,
+    "fipe_valor": 39296.0,
+    "fipe_str": "R$ 39.296,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-x-(4p)/ano.2019/165bab3c-4a52-11f1-8621-02420a000005",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Honda",
+    "modelo": "Hr V Ex Hs",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 43400.0,
+    "fipe_valor": 97097.0,
+    "fipe_str": "R$ 97.097,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/honda/hr-v-ex-hs/ano.2025/15a8e93e-643d-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
     "categoria": "motos",
     "icone": "🏍️",
     "marca": "Yamaha",
     "modelo": "Mt09 Tracer",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32000.0,
+    "lance_atual": 32500.0,
     "fipe_valor": 46792.0,
     "fipe_str": "R$ 46.792,00",
     "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/24/1782327037210_99bc632d-3b04-4f43-91b7-3ac25ae824ee_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Sinistro indenizado / ipva 2026 pago / vistoria r$ 250,00 / comunicado de venda r$ 120,00 / suspensao dianteira travada / vendido no estado em que se encontra, maiores informacoes e condicoes de venda",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/mt09-tracer/ano.2022/4931cd2b-6f20-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-06-27T12:30"
+    "data_leilao": "2026-06-27T12:29"
   },
   {
     "fonte": "leilo",
@@ -361,11 +361,11 @@
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421051943_027bf95e-d593-498f-9968-75e84666fbe8_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -390,7 +390,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -411,7 +411,7 @@
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782420902629_a085ab49-267f-4a0c-8933-7e2b04c91541_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -436,11 +436,11 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421201949_36f65610-9158-4f1d-9420-d5a4ce9447b6_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -461,11 +461,11 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782420722780_d77f157c-bdbb-4402-99f1-79307b3b2c28_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -486,11 +486,11 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421205553_4f363900-ffc1-4e5a-b5f6-2cda4be4d9ba_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -498,6 +498,56 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/haojian-avelloz-az1/ano.2025/8e078d66-619f-11f1-99e0-02420a00000a",
     "data_leilao": "2026-06-27T12:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cb 300R",
+    "ano": 2010,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 3500.0,
+    "fipe_valor": 11793.0,
+    "fipe_str": "R$ 11.793,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cb-300r/ano.2010/cd6d77e2-133c-11f1-8a4c-0242ac50000b",
+    "data_leilao": "2026-06-30T13:29"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Bmw",
+    "modelo": "G310 Gs",
+    "ano": 2024,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 10200.0,
+    "fipe_valor": 29773.0,
+    "fipe_str": "R$ 29.773,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782421592441_7571d371-edf9-4dc0-a50a-09b502e8aa17_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Seguradora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bmw/g310-gs/ano.2024/e82b3d77-5b7f-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-06-30T13:29"
   },
   {
     "fonte": "leilo",
@@ -522,7 +572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/nome-padrao/trator-agricola-mf4707-4rm/ano.2023/b2ba6591-a5d8-11f0-bcb1-02420a000005",
-    "data_leilao": "2026-06-26T12:38"
+    "data_leilao": "2026-06-26T12:39"
   },
   {
     "fonte": "leilo",
@@ -597,7 +647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/nome-padrao/trator-agricola--a104l/ano.2022/269b9ff9-900d-11f0-b593-02420a000005",
-    "data_leilao": "2026-06-26T12:47"
+    "data_leilao": "2026-06-26T12:48"
   },
   {
     "fonte": "leilo",
@@ -640,7 +690,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -657,11 +707,11 @@
     "modelo": "Tgx 28.440 6X2 T",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 161000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782414271145_6f640ecd-50af-4e5a-8ff4-ea4178cd15bb_media.webp",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
@@ -672,7 +722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/man/tgx-28.440-6x2-t/ano.2019/389fc66a-709c-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-06-25T22:11"
+    "data_leilao": "2026-06-26T17:44"
   },
   {
     "fonte": "leilo",
@@ -682,13 +732,13 @@
     "modelo": "Fh 460 T",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 72000.0,
     "fipe_valor": 350000,
     "fipe_str": "R$ 350,000 (ref. mercado)",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/23/1782245919565_482c988d-2846-4929-904d-4fa95746e7a1_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -697,7 +747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/volvo/fh-460-t-(2p)/ano.2014/d490951a-c4be-11f0-a1d0-0242ac500062",
-    "data_leilao": "2026-06-25T22:11"
+    "data_leilao": "2026-06-26T17:46"
   },
   {
     "fonte": "leilo",
@@ -707,11 +757,11 @@
     "modelo": "Axor 2041 Ls",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 205100.0,
+    "lance_atual": 186000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/6/25/1782418712853_4537bbbf-4389-45a7-89a9-821dfe8e3a5d_media.webp",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
@@ -740,7 +790,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1151,131 +1201,6 @@
   },
   {
     "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix 10Mt Lt1",
-    "ano": 2022,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 38400.0,
-    "fipe_valor": 44912.0,
-    "fipe_str": "R$ 44.912,00",
-    "classificacao": "❌ RUIM",
-    "foto": "",
-    "km": "32.987 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt1/ano.2022/c253b12e-dfcd-11ef-903d-02420a000042",
-    "data_leilao": "2026-06-25T22:11"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Citroen",
-    "modelo": "C4 Cactus Feel A",
-    "ano": 2019,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 41200.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "81.434 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c4-cactus-feel-a/ano.2019/9197c03d-43f2-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-06-25T22:13"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Toyota",
-    "modelo": "Corolla Cross Xre 2.0",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 89900.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "",
-    "km": "25.034 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-cross-xre-2.0-(4p)/ano.2024/d90ce184-4f9c-11f1-8cef-02420a000008",
-    "data_leilao": "2026-06-25T22:17"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Onix 10Mt Lt2",
-    "ano": 2025,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 44000.0,
-    "fipe_valor": 44912.0,
-    "fipe_str": "R$ 44.912,00",
-    "classificacao": "❌ RUIM",
-    "foto": "",
-    "km": "32.505 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-10mt-lt2/ano.2025/8339e947-5b5f-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-25T22:18"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Chevrolet",
-    "modelo": "Tracker Turbo A Ltz",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 65500.0,
-    "fipe_valor": 108111.0,
-    "fipe_str": "R$ 108.111,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "",
-    "km": "45.826 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/tracker-turbo-a-ltz/ano.2024/3ca09a30-59e4-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-06-25T22:20"
-  },
-  {
-    "fonte": "pacto",
     "categoria": "equipamentos",
     "icone": "⚙️",
     "marca": "Nome-Padrao",
@@ -1315,7 +1240,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1440,7 +1365,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1482,7 +1407,7 @@
     "modelo": "Axor 2041 Ls",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 205100.0,
+    "lance_atual": 186000.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1507,7 +1432,7 @@
     "modelo": "Mt09 Tracer",
     "ano": 2022,
     "cidade": "Eusebio/CE",
-    "lance_atual": 32000.0,
+    "lance_atual": 32500.0,
     "fipe_valor": 46792.0,
     "fipe_str": "R$ 46.792,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1515,7 +1440,7 @@
     "km": "19.966 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1540,7 +1465,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1565,7 +1490,7 @@
     "km": "71.728 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1590,7 +1515,7 @@
     "km": "167.896 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1607,7 +1532,7 @@
     "modelo": "Tracker Turbo A Lt",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 52200.0,
+    "lance_atual": 52700.0,
     "fipe_valor": 98003.0,
     "fipe_str": "R$ 98.003,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1640,7 +1565,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1690,7 +1615,7 @@
     "km": "483.633 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1740,7 +1665,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1790,7 +1715,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1815,7 +1740,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1840,7 +1765,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1890,13 +1815,138 @@
     "km": "122.815 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/207-xr-sport-(2p%2F4p)/ano.2013/c8d2b484-b9a1-11f0-ae59-02420a000008",
+    "data_leilao": ""
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Comfortline",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 15100.0,
+    "fipe_valor": 44531.0,
+    "fipe_str": "R$ 44.531,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "105.969 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfortline-(4p)/ano.2015/5d2d5d53-5941-11f1-99e0-02420a00000a",
+    "data_leilao": ""
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ka Flex",
+    "ano": 2011,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 5000.0,
+    "fipe_valor": 41006.0,
+    "fipe_str": "R$ 41.006,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-flex-(2p)/ano.2011/baba016c-1341-11f1-8a4c-0242ac50000b",
+    "data_leilao": ""
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Kwid Zen 1.0 Mecanico",
+    "ano": 2022,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17000.0,
+    "fipe_valor": 44953.0,
+    "fipe_str": "R$ 44.953,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2022/4cb963ce-5938-11f1-99e0-02420a00000a",
+    "data_leilao": ""
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Sandero Stepway X",
+    "ano": 2019,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 16300.0,
+    "fipe_valor": 39296.0,
+    "fipe_str": "R$ 39.296,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "184.817 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-x-(4p)/ano.2019/165bab3c-4a52-11f1-8621-02420a000005",
+    "data_leilao": ""
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cb 300R",
+    "ano": 2010,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 3500.0,
+    "fipe_valor": 11793.0,
+    "fipe_str": "R$ 11.793,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/cb-300r/ano.2010/cd6d77e2-133c-11f1-8a4c-0242ac50000b",
     "data_leilao": ""
   },
   {
@@ -2340,7 +2390,7 @@
     "km": "",
     "descricao": "Lote: #1 - FORD VERSAILLES 1.8 I GL | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -2457,7 +2507,7 @@
     "modelo": "Polo 1.6",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 5000.0,
+    "lance_atual": 5200.0,
     "fipe_valor": 36065.0,
     "fipe_str": "R$ 36.065,00",
     "classificacao": "✅ ÓTIMO",
@@ -2465,14 +2515,14 @@
     "km": "",
     "descricao": "Lote: #7 - VW /POLO 1.6 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/156/vw-polo-1-6",
-    "data_leilao": "2026-06-21T13:40"
+    "data_leilao": "2026-06-25T21:02"
   },
   {
     "fonte": "celsocunha",
@@ -2482,7 +2532,7 @@
     "modelo": "Gol 1.0 Giv",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 5100.0,
+    "lance_atual": 5300.0,
     "fipe_valor": 6429.0,
     "fipe_str": "R$ 6.429,00",
     "classificacao": "❌ RUIM",
@@ -2490,14 +2540,14 @@
     "km": "",
     "descricao": "Lote: #8 - VW /GOL 1.0 GIV | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/157/vw-gol-1-0-giv",
-    "data_leilao": "2026-06-18T12:02"
+    "data_leilao": "2026-06-26T07:00"
   },
   {
     "fonte": "celsocunha",
@@ -2632,7 +2682,7 @@
     "modelo": "Nxr150 Bros Mix Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2150.0,
+    "lance_atual": 2350.0,
     "fipe_valor": 10125.0,
     "fipe_str": "R$ 10.125,00",
     "classificacao": "✅ ÓTIMO",
@@ -2640,14 +2690,14 @@
     "km": "",
     "descricao": "Lote: #14 - HONDA / NXR150 BROS MIX KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Da",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/163/honda-nxr150-bros-mix-ks",
-    "data_leilao": "2026-06-18T14:50"
+    "data_leilao": "2026-06-25T19:33"
   },
   {
     "fonte": "celsocunha",
@@ -2657,7 +2707,7 @@
     "modelo": "Hyundai Tucson Gl 20L",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 7000.0,
+    "lance_atual": 7200.0,
     "fipe_valor": 5463.0,
     "fipe_str": "R$ 5.463,00",
     "classificacao": "❌ RUIM",
@@ -2665,14 +2715,14 @@
     "km": "",
     "descricao": "Lote: #15 - I / HYUNDAI TUCSON GL 20L | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Dat",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/164/i-hyundai-tucson-gl-20l",
-    "data_leilao": "2026-06-21T10:06"
+    "data_leilao": "2026-06-25T21:48"
   },
   {
     "fonte": "celsocunha",
@@ -2682,7 +2732,7 @@
     "modelo": "Saveiro 1.6 Ce Cross",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 18000.0,
+    "lance_atual": 18400.0,
     "fipe_valor": 66061.0,
     "fipe_str": "R$ 66.061,00",
     "classificacao": "✅ ÓTIMO",
@@ -2697,7 +2747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/165/vw-saveiro-1-6-ce-cross",
-    "data_leilao": "2026-06-25T12:28"
+    "data_leilao": "2026-06-25T18:47"
   },
   {
     "fonte": "celsocunha",
@@ -2782,7 +2832,7 @@
     "modelo": "Onix 1.4Mt Ltz",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 10600.0,
+    "lance_atual": 10800.0,
     "fipe_valor": 51946.0,
     "fipe_str": "R$ 51.946,00",
     "classificacao": "✅ ÓTIMO",
@@ -2790,14 +2840,14 @@
     "km": "",
     "descricao": "Lote: #20 - CHEVROLET /ONIX 1.4MT LTZ | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Dat",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/169/chevrolet-onix-1-4mt-ltz",
-    "data_leilao": "2026-06-24T14:06"
+    "data_leilao": "2026-06-25T17:44"
   },
   {
     "fonte": "celsocunha",
@@ -2807,7 +2857,7 @@
     "modelo": "Palio Attractiv",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 7400.0,
+    "lance_atual": 8000.0,
     "fipe_valor": 38413.0,
     "fipe_str": "R$ 38.413,00",
     "classificacao": "✅ ÓTIMO",
@@ -2822,7 +2872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/170/fiat-palio-attractiv",
-    "data_leilao": "2026-06-25T10:50"
+    "data_leilao": "2026-06-25T18:18"
   },
   {
     "fonte": "celsocunha",
@@ -2832,7 +2882,7 @@
     "modelo": "Cg 150 Fan Esi",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 3000.0,
+    "lance_atual": 3200.0,
     "fipe_valor": 11225.0,
     "fipe_str": "R$ 11.225,00",
     "classificacao": "✅ ÓTIMO",
@@ -2840,14 +2890,14 @@
     "km": "",
     "descricao": "Lote: #22 - HONDA /CG 150 FAN ESI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/171/honda-cg-150-fan-esi",
-    "data_leilao": "2026-06-18T17:45"
+    "data_leilao": "2026-06-25T19:39"
   },
   {
     "fonte": "celsocunha",
@@ -2907,7 +2957,7 @@
     "modelo": "Nl12 360 4X2T Edc",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 14600.0,
+    "lance_atual": 15000.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -2922,7 +2972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/176/volvo-nl12-360-4x2t-edc",
-    "data_leilao": "2026-06-25T16:36"
+    "data_leilao": "2026-06-25T19:42"
   },
   {
     "fonte": "celsocunha",
@@ -2932,7 +2982,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 4000.0,
+    "lance_atual": 4200.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -2947,7 +2997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/177/sr-randon-sr-cs-tr",
-    "data_leilao": "2026-06-25T13:02"
+    "data_leilao": "2026-06-25T18:48"
   },
   {
     "fonte": "celsocunha",
@@ -2957,7 +3007,7 @@
     "modelo": "Cg 150 Fan Esdi",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 5000.0,
+    "lance_atual": 5200.0,
     "fipe_valor": 12921.0,
     "fipe_str": "R$ 12.921,00",
     "classificacao": "✅ ÓTIMO",
@@ -2965,14 +3015,14 @@
     "km": "",
     "descricao": "Lote: #29 - HONDA /CG 150 FAN ESDI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/178/honda-cg-150-fan-esdi",
-    "data_leilao": "2026-06-19T10:47"
+    "data_leilao": "2026-06-25T21:41"
   },
   {
     "fonte": "celsocunha",
@@ -2982,7 +3032,7 @@
     "modelo": "Uno Mille Economy",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 4600.0,
+    "lance_atual": 6200.0,
     "fipe_valor": 25219.0,
     "fipe_str": "R$ 25.219,00",
     "classificacao": "✅ ÓTIMO",
@@ -2990,14 +3040,14 @@
     "km": "",
     "descricao": "Lote: #30 - FIAT /UNO MILLE ECONOMY | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/179/fiat-uno-mille-economy",
-    "data_leilao": "2026-06-24T20:12"
+    "data_leilao": "2026-06-26T07:04"
   },
   {
     "fonte": "celsocunha",
@@ -3007,7 +3057,7 @@
     "modelo": "Cg 125 Today",
     "ano": 1992,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 4989.0,
     "fipe_str": "R$ 4.989,00",
     "classificacao": "✅ ÓTIMO",
@@ -3015,14 +3065,14 @@
     "km": "",
     "descricao": "Lote: #4 - HONDA/CG 125 TODAY | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/712/honda-cg-125-today",
-    "data_leilao": "2026-06-24T08:34"
+    "data_leilao": "2026-06-25T18:36"
   },
   {
     "fonte": "celsocunha",
@@ -3040,7 +3090,7 @@
     "km": "",
     "descricao": "Lote: #6 - HONDA/CG 125 TITAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -3090,7 +3140,7 @@
     "km": "",
     "descricao": "Lote: #8 - HONDA/CG 125 TITAN K | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -3140,7 +3190,7 @@
     "km": "",
     "descricao": "Lote: #12 - HONDA/C100 BIZ | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -3165,7 +3215,7 @@
     "km": "",
     "descricao": "Lote: #13 - HONDA/XLR 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -3182,7 +3232,7 @@
     "modelo": "Cg 125 Titan Es",
     "ano": 2000,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 6771.0,
     "fipe_str": "R$ 6.771,00",
     "classificacao": "✅ ÓTIMO",
@@ -3197,7 +3247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/722/honda-cg-125-titan-es",
-    "data_leilao": "2026-06-25T12:37"
+    "data_leilao": "2026-06-25T18:38"
   },
   {
     "fonte": "celsocunha",
@@ -3232,7 +3282,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 200.0,
     "fipe_valor": 8498.0,
     "fipe_str": "R$ 8.498,00",
     "classificacao": "✅ ÓTIMO",
@@ -3247,7 +3297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/724/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T12:38"
+    "data_leilao": "2026-06-25T20:15"
   },
   {
     "fonte": "celsocunha",
@@ -3397,7 +3447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/730/i-traxx-jl50q-8",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:18"
   },
   {
     "fonte": "celsocunha",
@@ -3497,7 +3547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/734/i-wuyang-wy48q-2",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:18"
   },
   {
     "fonte": "celsocunha",
@@ -3597,7 +3647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/739/gm-corsa-super",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T23:10"
   },
   {
     "fonte": "celsocunha",
@@ -3607,7 +3657,7 @@
     "modelo": "Cg 125 Titan",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 7051.0,
     "fipe_str": "R$ 7.051,00",
     "classificacao": "✅ ÓTIMO",
@@ -3615,14 +3665,14 @@
     "km": "",
     "descricao": "Lote: #32 - HONDA/CG 125 TITAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().get",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/740/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:19"
   },
   {
     "fonte": "celsocunha",
@@ -3732,7 +3782,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 200.0,
     "fipe_valor": 7424.0,
     "fipe_str": "R$ 7.424,00",
     "classificacao": "✅ ÓTIMO",
@@ -3740,14 +3790,14 @@
     "km": "",
     "descricao": "Lote: #37 - HONDA/BIZ 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/745/honda-biz-125-es",
-    "data_leilao": "2026-06-24T08:37"
+    "data_leilao": "2026-06-25T20:20"
   },
   {
     "fonte": "celsocunha",
@@ -3757,7 +3807,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 150.0,
     "fipe_valor": 9950.0,
     "fipe_str": "R$ 9.950,00",
     "classificacao": "✅ ÓTIMO",
@@ -3765,14 +3815,14 @@
     "km": "",
     "descricao": "Lote: #38 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/746/honda-cg-125-fan",
-    "data_leilao": "2026-06-24T08:37"
+    "data_leilao": "2026-06-25T20:20"
   },
   {
     "fonte": "celsocunha",
@@ -3807,7 +3857,7 @@
     "modelo": "Ybr 125K",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 6176.0,
     "fipe_str": "R$ 6.176,00",
     "classificacao": "✅ ÓTIMO",
@@ -3815,14 +3865,14 @@
     "km": "",
     "descricao": "Lote: #41 - YAMAHA/YBR 125K | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/749/yamaha-ybr-125k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:20"
   },
   {
     "fonte": "celsocunha",
@@ -3847,7 +3897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/750/honda-cbx-200-strada",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:44"
   },
   {
     "fonte": "celsocunha",
@@ -3857,7 +3907,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 250.0,
+    "lance_atual": 300.0,
     "fipe_valor": 8724.0,
     "fipe_str": "R$ 8.724,00",
     "classificacao": "✅ ÓTIMO",
@@ -3872,7 +3922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/751/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:58"
+    "data_leilao": "2026-06-25T20:20"
   },
   {
     "fonte": "celsocunha",
@@ -3947,7 +3997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/754/dafra-speed-150",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:21"
   },
   {
     "fonte": "celsocunha",
@@ -3957,7 +4007,7 @@
     "modelo": "Cg 150 Fan Esi",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 10218.0,
     "fipe_str": "R$ 10.218,00",
     "classificacao": "✅ ÓTIMO",
@@ -3972,7 +4022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/755/honda-cg-150-fan-esi",
-    "data_leilao": "2026-06-25T14:59"
+    "data_leilao": "2026-06-25T20:21"
   },
   {
     "fonte": "celsocunha",
@@ -3982,7 +4032,7 @@
     "modelo": "Pop100",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -3997,7 +4047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/756/honda-pop100",
-    "data_leilao": "2026-06-25T14:56"
+    "data_leilao": "2026-06-25T20:21"
   },
   {
     "fonte": "celsocunha",
@@ -4007,7 +4057,7 @@
     "modelo": "Cg 150 Titan Esd",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 250.0,
     "fipe_valor": 11238.0,
     "fipe_str": "R$ 11.238,00",
     "classificacao": "✅ ÓTIMO",
@@ -4022,7 +4072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/757/honda-cg-150-titan-esd",
-    "data_leilao": "2026-06-25T14:56"
+    "data_leilao": "2026-06-25T20:21"
   },
   {
     "fonte": "celsocunha",
@@ -4032,7 +4082,7 @@
     "modelo": "Cg 160 Titan Ex",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 14920.0,
     "fipe_str": "R$ 14.920,00",
     "classificacao": "✅ ÓTIMO",
@@ -4047,7 +4097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/758/honda-cg-160-titan-ex",
-    "data_leilao": "2026-06-25T14:56"
+    "data_leilao": "2026-06-25T20:21"
   },
   {
     "fonte": "celsocunha",
@@ -4122,7 +4172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/761/i-charming-bull-krc50",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:22"
   },
   {
     "fonte": "celsocunha",
@@ -4222,7 +4272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/765/i-shineray-xy-50-q",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:22"
   },
   {
     "fonte": "celsocunha",
@@ -4232,7 +4282,7 @@
     "modelo": "Shineray Xy 50 Q",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 3037.0,
     "fipe_str": "R$ 3.037,00",
     "classificacao": "✅ ÓTIMO",
@@ -4240,14 +4290,14 @@
     "km": "",
     "descricao": "Lote: #58 - I/SHINERAY XY 50 Q | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().get",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/766/i-shineray-xy-50-q",
-    "data_leilao": "2026-06-25T14:57"
+    "data_leilao": "2026-06-25T20:22"
   },
   {
     "fonte": "celsocunha",
@@ -4272,7 +4322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/767/honda-ml-125-1983-0",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:48"
   },
   {
     "fonte": "celsocunha",
@@ -4347,7 +4397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/771/honda-cg-125-titan-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:49"
   },
   {
     "fonte": "celsocunha",
@@ -4447,7 +4497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/776/vw-fox-1-0",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T23:11"
   },
   {
     "fonte": "celsocunha",
@@ -4482,7 +4532,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 9950.0,
     "fipe_str": "R$ 9.950,00",
     "classificacao": "✅ ÓTIMO",
@@ -4497,7 +4547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/778/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:53"
+    "data_leilao": "2026-06-25T20:24"
   },
   {
     "fonte": "celsocunha",
@@ -4507,22 +4557,22 @@
     "modelo": "Kombi",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
-    "fipe_valor": 33981.0,
-    "fipe_str": "R$ 33.981,00",
-    "classificacao": "✅ ÓTIMO",
+    "lance_atual": 200.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft198f260c96672b82ba93359a67d071c3b.jpeg",
     "km": "",
     "descricao": "Lote: #71 - VW/KOMBI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),eve",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/779/vw-kombi",
-    "data_leilao": "2026-06-25T14:53"
+    "data_leilao": "2026-06-25T23:12"
   },
   {
     "fonte": "celsocunha",
@@ -4532,22 +4582,22 @@
     "modelo": "Celta 2P Life",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
-    "fipe_valor": 17330.0,
-    "fipe_str": "R$ 17.330,00",
-    "classificacao": "✅ ÓTIMO",
+    "lance_atual": 200.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft10f88117102cc8c0ae754f0503402a989.jpeg",
     "km": "",
     "descricao": "Lote: #72 - GM/CELTA 2P LIFE | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/780/gm-celta-2p-life",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T23:12"
   },
   {
     "fonte": "celsocunha",
@@ -4557,10 +4607,10 @@
     "modelo": "Cg 125 Fan",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
-    "fipe_valor": 9950.0,
-    "fipe_str": "R$ 9.950,00",
-    "classificacao": "✅ ÓTIMO",
+    "lance_atual": 150.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft10c704299d87f0485bb51dff033afdc46.jpeg",
     "km": "",
     "descricao": "Lote: #73 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
@@ -4572,7 +4622,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/781/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:53"
+    "data_leilao": "2026-06-25T20:24"
   },
   {
     "fonte": "celsocunha",
@@ -4584,7 +4634,7 @@
     "cidade": "Fortaleza/CE",
     "lance_atual": 50.0,
     "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft16039115ebd30b9407d22e106f8ee4f9d.jpeg",
     "km": "",
@@ -4607,10 +4657,10 @@
     "modelo": "Cg 150 Titan Esd",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
-    "fipe_valor": 9741.0,
-    "fipe_str": "R$ 9.741,00",
-    "classificacao": "✅ ÓTIMO",
+    "lance_atual": 250.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft122ab4b6e63a1f52fb7851e3c4286444c.jpeg",
     "km": "",
     "descricao": "Lote: #76 - HONDA/CG 150 TITAN ESD | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
@@ -4622,7 +4672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/784/honda-cg-150-titan-esd",
-    "data_leilao": "2026-06-25T14:54"
+    "data_leilao": "2026-06-25T20:24"
   },
   {
     "fonte": "celsocunha",
@@ -4633,9 +4683,9 @@
     "ano": 2009,
     "cidade": "Fortaleza/CE",
     "lance_atual": 150.0,
-    "fipe_valor": 8498.0,
-    "fipe_str": "R$ 8.498,00",
-    "classificacao": "✅ ÓTIMO",
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft13997c449b8e8d8d815b3370d847ae038.jpeg",
     "km": "",
     "descricao": "Lote: #77 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
@@ -4657,7 +4707,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4672,7 +4722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/786/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:54"
+    "data_leilao": "2026-06-25T20:25"
   },
   {
     "fonte": "celsocunha",
@@ -4682,7 +4732,7 @@
     "modelo": "Ybr 125E",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4690,14 +4740,14 @@
     "km": "",
     "descricao": "Lote: #79 - YAMAHA/YBR 125E | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/787/yamaha-ybr-125e",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:25"
   },
   {
     "fonte": "celsocunha",
@@ -4707,7 +4757,7 @@
     "modelo": "C100 Biz Es",
     "ano": 2003,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4715,14 +4765,14 @@
     "km": "",
     "descricao": "Lote: #80 - HONDA/C100 BIZ ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/788/honda-c100-biz-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:25"
   },
   {
     "fonte": "celsocunha",
@@ -4732,7 +4782,7 @@
     "modelo": "Cbx 250 Twister",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4747,7 +4797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/789/honda-cbx-250-twister",
-    "data_leilao": "2026-06-25T14:54"
+    "data_leilao": "2026-06-25T20:25"
   },
   {
     "fonte": "celsocunha",
@@ -4797,7 +4847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/792/honda-pop100",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:54"
   },
   {
     "fonte": "celsocunha",
@@ -4807,7 +4857,7 @@
     "modelo": "Cg 150 Fan Esi",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4822,7 +4872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/793/honda-cg-150-fan-esi",
-    "data_leilao": "2026-06-25T14:55"
+    "data_leilao": "2026-06-25T20:25"
   },
   {
     "fonte": "celsocunha",
@@ -4832,7 +4882,7 @@
     "modelo": "Factor Ybr125 Ed",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4840,14 +4890,14 @@
     "km": "",
     "descricao": "Lote: #87 - YAMAHA/FACTOR YBR125 ED | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/795/yamaha-factor-ybr125-ed",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:26"
   },
   {
     "fonte": "celsocunha",
@@ -4857,7 +4907,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4865,14 +4915,14 @@
     "km": "",
     "descricao": "Lote: #88 - HONDA/BIZ 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/796/honda-biz-125-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:26"
   },
   {
     "fonte": "celsocunha",
@@ -4882,7 +4932,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4897,7 +4947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/797/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:55"
+    "data_leilao": "2026-06-25T20:26"
   },
   {
     "fonte": "celsocunha",
@@ -4915,7 +4965,7 @@
     "km": "",
     "descricao": "Lote: #90 - HONDA/BIZ 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -4957,7 +5007,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -4965,14 +5015,14 @@
     "km": "",
     "descricao": "Lote: #92 - HONDA/CG 125 FAN ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/800/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-25T14:55"
+    "data_leilao": "2026-06-25T20:26"
   },
   {
     "fonte": "celsocunha",
@@ -5007,7 +5057,7 @@
     "modelo": "Cg 150 Fan Esi",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5022,7 +5072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/802/honda-cg-150-fan-esi",
-    "data_leilao": "2026-06-25T14:48"
+    "data_leilao": "2026-06-25T20:26"
   },
   {
     "fonte": "celsocunha",
@@ -5057,7 +5107,7 @@
     "modelo": "Cg 160 Titan Ex",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5072,7 +5122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/804/honda-cg-160-titan-ex",
-    "data_leilao": "2026-06-25T14:54"
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5082,7 +5132,7 @@
     "modelo": "Cg 125 Titan Ks",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5097,7 +5147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/805/honda-cg-125-titan-ks",
-    "data_leilao": "2026-06-25T14:48"
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5122,7 +5172,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/807/honda-cg-125-1985-0",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:57"
   },
   {
     "fonte": "celsocunha",
@@ -5132,7 +5182,7 @@
     "modelo": "S10 2.2 S",
     "ano": 1997,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5140,14 +5190,14 @@
     "km": "",
     "descricao": "Lote: #100 - GM/S10 2.2 S | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/808/gm-s10-2-2-s",
-    "data_leilao": "2026-06-25T14:49"
+    "data_leilao": "2026-06-25T23:13"
   },
   {
     "fonte": "celsocunha",
@@ -5157,7 +5207,7 @@
     "modelo": "Nxr125 Bros Es",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5165,14 +5215,14 @@
     "km": "",
     "descricao": "Lote: #101 - HONDA/NXR125 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/809/honda-nxr125-bros-es",
-    "data_leilao": "2026-06-25T14:49"
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5197,7 +5247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/810/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T18:58"
   },
   {
     "fonte": "celsocunha",
@@ -5207,7 +5257,7 @@
     "modelo": "Cbx 250 Twister",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5215,14 +5265,14 @@
     "km": "",
     "descricao": "Lote: #103 - HONDA/CBX 250 TWISTER | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/811/honda-cbx-250-twister",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5232,7 +5282,7 @@
     "modelo": "C100 Biz",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5240,14 +5290,14 @@
     "km": "",
     "descricao": "Lote: #104 - HONDA/C100 BIZ | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/812/honda-c100-biz",
-    "data_leilao": "2026-06-25T14:51"
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5257,7 +5307,7 @@
     "modelo": "Pop100",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5272,7 +5322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/813/honda-pop100",
-    "data_leilao": "2026-06-25T14:51"
+    "data_leilao": "2026-06-25T20:27"
   },
   {
     "fonte": "celsocunha",
@@ -5282,7 +5332,7 @@
     "modelo": "Biz 125 Ks",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5290,14 +5340,14 @@
     "km": "",
     "descricao": "Lote: #106 - HONDA/BIZ 125 KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/814/honda-biz-125-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5332,7 +5382,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5340,14 +5390,14 @@
     "km": "",
     "descricao": "Lote: #108 - YAMAHA/YBR 125K | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/816/yamaha-ybr-125k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5357,7 +5407,7 @@
     "modelo": "Ybr 125K",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5365,14 +5415,14 @@
     "km": "",
     "descricao": "Lote: #109 - YAMAHA/YBR 125K | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/817/yamaha-ybr-125k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5397,7 +5447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/818/yamaha-xtz-125e",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5407,7 +5457,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5415,14 +5465,14 @@
     "km": "",
     "descricao": "Lote: #111 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/819/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:51"
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5432,7 +5482,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5440,14 +5490,14 @@
     "km": "",
     "descricao": "Lote: #112 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/820/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:52"
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5457,7 +5507,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5465,39 +5515,14 @@
     "km": "",
     "descricao": "Lote: #113 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/821/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:52"
-  },
-  {
-    "fonte": "celsocunha",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Honda",
-    "modelo": "Cg 125 Fan",
-    "ano": 2008,
-    "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
-    "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft10a3197e205ba2ae64b911613dce2a645.jpeg",
-    "km": "",
-    "descricao": "Lote: #114 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://celsocunhaleiloes.com.br/lote/822/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:45"
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5511,18 +5536,43 @@
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
+    "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft10a3197e205ba2ae64b911613dce2a645.jpeg",
+    "km": "",
+    "descricao": "Lote: #114 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://celsocunhaleiloes.com.br/lote/822/honda-cg-125-fan",
+    "data_leilao": "2026-06-25T20:28"
+  },
+  {
+    "fonte": "celsocunha",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cg 125 Fan",
+    "ano": 2008,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 150.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft171e75505722e0e8e919fb4921cfb07e7.jpeg",
     "km": "",
     "descricao": "Lote: #115 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/823/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:28"
   },
   {
     "fonte": "celsocunha",
@@ -5532,7 +5582,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5540,14 +5590,14 @@
     "km": "",
     "descricao": "Lote: #116 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/824/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5582,7 +5632,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5590,14 +5640,14 @@
     "km": "",
     "descricao": "Lote: #118 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/826/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5607,7 +5657,7 @@
     "modelo": "Pop100",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5615,14 +5665,14 @@
     "km": "",
     "descricao": "Lote: #119 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/827/honda-pop100",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5632,7 +5682,7 @@
     "modelo": "Pop100",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5640,14 +5690,14 @@
     "km": "",
     "descricao": "Lote: #120 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/828/honda-pop100",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5657,7 +5707,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5665,14 +5715,14 @@
     "km": "",
     "descricao": "Lote: #121 - HONDA/NXR150 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/829/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5682,7 +5732,7 @@
     "modelo": "Cg 125I Fan",
     "ano": 2016,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5690,14 +5740,14 @@
     "km": "",
     "descricao": "Lote: #122 - HONDA/CG 125I FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().get",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/830/honda-cg-125i-fan",
-    "data_leilao": "2026-06-25T14:46"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5732,7 +5782,7 @@
     "modelo": "S10 2.2 D",
     "ano": 1999,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5740,14 +5790,14 @@
     "km": "",
     "descricao": "Lote: #124 - GM/S10 2.2 D | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/832/gm-s10-2-2-d",
-    "data_leilao": "2026-06-25T14:47"
+    "data_leilao": "2026-06-25T23:13"
   },
   {
     "fonte": "celsocunha",
@@ -5782,7 +5832,7 @@
     "modelo": "Xtz 125E",
     "ano": 2005,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5790,14 +5840,14 @@
     "km": "",
     "descricao": "Lote: #126 - YAMAHA/XTZ 125E | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/834/yamaha-xtz-125e",
-    "data_leilao": "2026-06-25T14:47"
+    "data_leilao": "2026-06-25T20:29"
   },
   {
     "fonte": "celsocunha",
@@ -5807,7 +5857,7 @@
     "modelo": "Uno Mille Fire Flex",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5815,14 +5865,14 @@
     "km": "",
     "descricao": "Lote: #127 - FIAT/UNO MILLE FIRE FLEX | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Dat",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/835/fiat-uno-mille-fire-flex",
-    "data_leilao": "2026-06-25T14:47"
+    "data_leilao": "2026-06-25T23:14"
   },
   {
     "fonte": "celsocunha",
@@ -5832,7 +5882,7 @@
     "modelo": "Neo At115",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5840,14 +5890,14 @@
     "km": "",
     "descricao": "Lote: #128 - YAMAHA/NEO AT115 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/836/yamaha-neo-at115",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:30"
   },
   {
     "fonte": "celsocunha",
@@ -5857,7 +5907,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5865,14 +5915,14 @@
     "km": "",
     "descricao": "Lote: #129 - HONDA/BIZ 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/837/honda-biz-125-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:30"
   },
   {
     "fonte": "celsocunha",
@@ -5882,7 +5932,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5890,14 +5940,14 @@
     "km": "",
     "descricao": "Lote: #130 - HONDA/NXR150 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/838/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-25T14:47"
+    "data_leilao": "2026-06-25T20:30"
   },
   {
     "fonte": "celsocunha",
@@ -5907,7 +5957,7 @@
     "modelo": "Pop100",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5915,14 +5965,14 @@
     "km": "",
     "descricao": "Lote: #131 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/839/honda-pop100",
-    "data_leilao": "2026-06-25T14:48"
+    "data_leilao": "2026-06-25T20:30"
   },
   {
     "fonte": "celsocunha",
@@ -5940,7 +5990,7 @@
     "km": "",
     "descricao": "Lote: #133 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -5972,7 +6022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/842/i-traxx-jl110-8",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:30"
   },
   {
     "fonte": "celsocunha",
@@ -5997,7 +6047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/843/sundown-hunter-125-se",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:31"
   },
   {
     "fonte": "celsocunha",
@@ -6007,7 +6057,7 @@
     "modelo": "Parati 1.6",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6015,14 +6065,14 @@
     "km": "",
     "descricao": "Lote: #136 - VW/PARATI 1.6 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/844/vw-parati-1-6",
-    "data_leilao": "2026-06-25T14:43"
+    "data_leilao": "2026-06-25T23:18"
   },
   {
     "fonte": "celsocunha",
@@ -6032,7 +6082,7 @@
     "modelo": "Gol 1.0",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6040,14 +6090,14 @@
     "km": "",
     "descricao": "Lote: #137 - VW/GOL 1.0 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/845/vw-gol-1-0",
-    "data_leilao": "2026-06-25T14:43"
+    "data_leilao": "2026-06-25T23:18"
   },
   {
     "fonte": "celsocunha",
@@ -6057,7 +6107,7 @@
     "modelo": "Cg 150 Titan Ks",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6065,14 +6115,14 @@
     "km": "",
     "descricao": "Lote: #138 - HONDA/CG 150 TITAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/846/honda-cg-150-titan-ks",
-    "data_leilao": "2026-06-25T14:43"
+    "data_leilao": "2026-06-25T20:31"
   },
   {
     "fonte": "celsocunha",
@@ -6097,7 +6147,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/847/sundown-web-100",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:31"
   },
   {
     "fonte": "celsocunha",
@@ -6107,7 +6157,7 @@
     "modelo": "Cbx 200 Strada",
     "ano": 1999,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6115,14 +6165,14 @@
     "km": "",
     "descricao": "Lote: #140 - HONDA/CBX 200 STRADA | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/848/honda-cbx-200-strada",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:31"
   },
   {
     "fonte": "celsocunha",
@@ -6132,7 +6182,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6147,7 +6197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/850/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:43"
+    "data_leilao": "2026-06-25T20:31"
   },
   {
     "fonte": "celsocunha",
@@ -6157,7 +6207,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6165,14 +6215,14 @@
     "km": "",
     "descricao": "Lote: #143 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/851/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:44"
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6207,7 +6257,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6215,14 +6265,14 @@
     "km": "",
     "descricao": "Lote: #145 - HONDA/BIZ 125 ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/853/honda-biz-125-es",
-    "data_leilao": "2026-06-24T09:59"
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6232,7 +6282,7 @@
     "modelo": "Cg 150 Fan Esi",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6240,14 +6290,14 @@
     "km": "",
     "descricao": "Lote: #146 - HONDA/CG 150 FAN ESI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/854/honda-cg-150-fan-esi",
-    "data_leilao": "2026-06-25T14:44"
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6257,7 +6307,7 @@
     "modelo": "Pop100",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6272,7 +6322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/855/honda-pop100",
-    "data_leilao": "2026-06-25T14:44"
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6282,7 +6332,7 @@
     "modelo": "?",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6290,14 +6340,14 @@
     "km": "",
     "descricao": "Lote: #148 - SHINERAY XY50Q PHOENIX | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/856/shineray-xy50q-phoenix",
-    "data_leilao": "2026-06-25T14:45"
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6315,7 +6365,7 @@
     "km": "",
     "descricao": "Lote: #149 - TRAXX/JL50Q-8 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -6347,7 +6397,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/858/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T19:05"
   },
   {
     "fonte": "celsocunha",
@@ -6357,7 +6407,7 @@
     "modelo": "Nx 350 Sahara",
     "ano": 1996,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6365,14 +6415,14 @@
     "km": "",
     "descricao": "Lote: #151 - HONDA/NX 350 SAHARA | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/859/honda-nx-350-sahara",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:32"
   },
   {
     "fonte": "celsocunha",
@@ -6407,7 +6457,7 @@
     "modelo": "Nx 200",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6415,14 +6465,14 @@
     "km": "",
     "descricao": "Lote: #153 - HONDA/NX 200 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/861/honda-nx-200",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:33"
   },
   {
     "fonte": "celsocunha",
@@ -6432,7 +6482,7 @@
     "modelo": "Xr 200R",
     "ano": 2000,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6440,14 +6490,14 @@
     "km": "",
     "descricao": "Lote: #154 - HONDA/XR 200R | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/862/honda-xr-200r",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:33"
   },
   {
     "fonte": "celsocunha",
@@ -6482,7 +6532,7 @@
     "modelo": "Cg 125 Titan Ks",
     "ano": 2001,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6490,14 +6540,14 @@
     "km": "",
     "descricao": "Lote: #156 - HONDA/CG 125 TITAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/864/honda-cg-125-titan-ks",
-    "data_leilao": "2026-06-25T14:21"
+    "data_leilao": "2026-06-25T20:33"
   },
   {
     "fonte": "celsocunha",
@@ -6507,7 +6557,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6515,14 +6565,14 @@
     "km": "",
     "descricao": "Lote: #157 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/865/honda-cg-125-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:33"
   },
   {
     "fonte": "celsocunha",
@@ -6532,7 +6582,7 @@
     "modelo": "Strada Fire Flex",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 450.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6547,7 +6597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/866/fiat-strada-fire-flex",
-    "data_leilao": "2026-06-25T14:21"
+    "data_leilao": "2026-06-25T23:19"
   },
   {
     "fonte": "celsocunha",
@@ -6582,7 +6632,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6590,14 +6640,14 @@
     "km": "",
     "descricao": "Lote: #160 - HONDA/NXR150 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/868/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-25T14:22"
+    "data_leilao": "2026-06-25T20:33"
   },
   {
     "fonte": "celsocunha",
@@ -6682,7 +6732,7 @@
     "modelo": "Nx 200",
     "ano": 1995,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6697,7 +6747,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/872/honda-nx-200",
-    "data_leilao": "2026-06-25T14:22"
+    "data_leilao": "2026-06-25T20:34"
   },
   {
     "fonte": "celsocunha",
@@ -6707,7 +6757,7 @@
     "modelo": "Pop100",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6715,14 +6765,14 @@
     "km": "",
     "descricao": "Lote: #166 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/874/honda-pop100",
-    "data_leilao": "2026-06-25T14:23"
+    "data_leilao": "2026-06-25T20:34"
   },
   {
     "fonte": "celsocunha",
@@ -6757,7 +6807,7 @@
     "modelo": "Prisma Maxx",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 650.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6772,7 +6822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/876/gm-prisma-maxx",
-    "data_leilao": "2026-06-25T14:23"
+    "data_leilao": "2026-06-25T23:19"
   },
   {
     "fonte": "celsocunha",
@@ -6782,7 +6832,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6790,14 +6840,14 @@
     "km": "",
     "descricao": "Lote: #169 - HONDA/CG 125 FAN ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/877/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-25T14:23"
+    "data_leilao": "2026-06-25T20:34"
   },
   {
     "fonte": "celsocunha",
@@ -6822,7 +6872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/878/honda-cg-125-fan-ks",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -6872,7 +6922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/880/dafra-tvs-apache-rtr-150",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:34"
   },
   {
     "fonte": "celsocunha",
@@ -6897,7 +6947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/881/ford-ka-flex",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T23:20"
   },
   {
     "fonte": "celsocunha",
@@ -6922,7 +6972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/882/jta-suzuki-en125-yes-se",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:35"
   },
   {
     "fonte": "celsocunha",
@@ -6957,7 +7007,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6972,7 +7022,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/885/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-25T14:23"
+    "data_leilao": "2026-06-25T20:35"
   },
   {
     "fonte": "celsocunha",
@@ -6982,7 +7032,7 @@
     "modelo": "Cg 125 Fan Esd",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -6990,14 +7040,14 @@
     "km": "",
     "descricao": "Lote: #178 - HONDA/CG 125 FAN ESD | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/886/honda-cg-125-fan-esd",
-    "data_leilao": "2026-06-25T14:18"
+    "data_leilao": "2026-06-25T20:35"
   },
   {
     "fonte": "celsocunha",
@@ -7015,7 +7065,7 @@
     "km": "",
     "descricao": "Lote: #179 - HONDA/CG 160 TITAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -7065,7 +7115,7 @@
     "km": "",
     "descricao": "Lote: #181 - HONDA/CG 160 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -7107,7 +7157,7 @@
     "modelo": "Cg 125 Titan Kse",
     "ano": 2003,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7115,14 +7165,14 @@
     "km": "",
     "descricao": "Lote: #183 - HONDA/CG 125 TITAN KSE | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/891/honda-cg-125-titan-kse",
-    "data_leilao": "2026-06-25T14:19"
+    "data_leilao": "2026-06-25T20:36"
   },
   {
     "fonte": "celsocunha",
@@ -7132,7 +7182,7 @@
     "modelo": "C100 Biz",
     "ano": 2004,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7140,14 +7190,14 @@
     "km": "",
     "descricao": "Lote: #184 - HONDA/C100 BIZ | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/892/honda-c100-biz",
-    "data_leilao": "2026-06-25T14:19"
+    "data_leilao": "2026-06-25T20:36"
   },
   {
     "fonte": "celsocunha",
@@ -7157,7 +7207,7 @@
     "modelo": "Xtz 125E",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7165,14 +7215,14 @@
     "km": "",
     "descricao": "Lote: #185 - YAMAHA/XTZ 125E | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTi",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/893/yamaha-xtz-125e",
-    "data_leilao": "2026-06-25T14:19"
+    "data_leilao": "2026-06-25T20:36"
   },
   {
     "fonte": "celsocunha",
@@ -7182,7 +7232,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2007,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7190,14 +7240,14 @@
     "km": "",
     "descricao": "Lote: #187 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/895/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:19"
+    "data_leilao": "2026-06-25T20:36"
   },
   {
     "fonte": "celsocunha",
@@ -7207,7 +7257,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7215,14 +7265,14 @@
     "km": "",
     "descricao": "Lote: #188 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/896/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:19"
+    "data_leilao": "2026-06-25T20:36"
   },
   {
     "fonte": "celsocunha",
@@ -7397,7 +7447,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/903/yamaha-factor-ybr125-ed",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -7432,7 +7482,7 @@
     "modelo": "Nxr150 Bros Es",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7440,14 +7490,14 @@
     "km": "",
     "descricao": "Lote: #198 - HONDA/NXR150 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/906/honda-nxr150-bros-es",
-    "data_leilao": "2026-06-25T14:21"
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -7472,7 +7522,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/907/yamaha-factor-ybr125-k",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -7482,7 +7532,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7490,14 +7540,14 @@
     "km": "",
     "descricao": "Lote: #200 - HONDA/CG 125 FAN ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/908/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-24T01:19"
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -7515,7 +7565,7 @@
     "km": "",
     "descricao": "Lote: #201 - HONDA/CG150 FAN ESDI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -7572,7 +7622,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/911/i-wuyang-wy48q-2",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:37"
   },
   {
     "fonte": "celsocunha",
@@ -7590,7 +7640,7 @@
     "km": "",
     "descricao": "Lote: #204 - HONDA/CG 160 START | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -7622,7 +7672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/913/traxx-jl50-q2",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:38"
   },
   {
     "fonte": "celsocunha",
@@ -7647,7 +7697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/914/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:38"
   },
   {
     "fonte": "celsocunha",
@@ -7682,7 +7732,7 @@
     "modelo": "Cbx 200 Strada",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7690,14 +7740,14 @@
     "km": "",
     "descricao": "Lote: #208 - HONDA/CBX 200 STRADA | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/916/honda-cbx-200-strada",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:44"
   },
   {
     "fonte": "celsocunha",
@@ -7757,7 +7807,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7772,7 +7822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/919/honda-biz-125-es",
-    "data_leilao": "2026-06-25T14:16"
+    "data_leilao": "2026-06-25T20:38"
   },
   {
     "fonte": "celsocunha",
@@ -7782,7 +7832,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7790,14 +7840,14 @@
     "km": "",
     "descricao": "Lote: #212 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/920/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:16"
+    "data_leilao": "2026-06-25T20:38"
   },
   {
     "fonte": "celsocunha",
@@ -7932,7 +7982,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7940,14 +7990,14 @@
     "km": "",
     "descricao": "Lote: #219 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/927/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:18"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -7957,7 +8007,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7965,14 +8015,14 @@
     "km": "",
     "descricao": "Lote: #220 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/928/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:18"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -7982,7 +8032,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -7990,14 +8040,14 @@
     "km": "",
     "descricao": "Lote: #221 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/929/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:12"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -8032,7 +8082,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8040,14 +8090,14 @@
     "km": "",
     "descricao": "Lote: #223 - HONDA/CG 125 FAN ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/931/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-25T14:12"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -8057,7 +8107,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2012,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8065,14 +8115,14 @@
     "km": "",
     "descricao": "Lote: #224 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/932/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:12"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -8082,7 +8132,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8090,14 +8140,14 @@
     "km": "",
     "descricao": "Lote: #225 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/933/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:13"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -8132,7 +8182,7 @@
     "modelo": "Shineray Xy50Q Phoenix",
     "ano": 2013,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8140,14 +8190,14 @@
     "km": "",
     "descricao": "Lote: #227 - I/SHINERAY XY50Q PHOENIX | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Dat",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/935/i-shineray-xy50q-phoenix",
-    "data_leilao": "2026-06-25T14:13"
+    "data_leilao": "2026-06-25T20:39"
   },
   {
     "fonte": "celsocunha",
@@ -8197,7 +8247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/937/i-charming-bravax-bx50cc",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:40"
   },
   {
     "fonte": "celsocunha",
@@ -8272,7 +8322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/941/honda-cg-125-cargo",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:40"
   },
   {
     "fonte": "celsocunha",
@@ -8297,7 +8347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/942/sundown-hunter-90",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:40"
   },
   {
     "fonte": "celsocunha",
@@ -8322,7 +8372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/943/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:40"
   },
   {
     "fonte": "celsocunha",
@@ -8332,7 +8382,7 @@
     "modelo": "Vectra Gls",
     "ano": 1998,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8340,14 +8390,14 @@
     "km": "",
     "descricao": "Lote: #236 - GM/VECTRA GLS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/944/gm-vectra-gls",
-    "data_leilao": "2026-06-25T14:14"
+    "data_leilao": "2026-06-25T23:21"
   },
   {
     "fonte": "celsocunha",
@@ -8372,7 +8422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/945/honda-cg-125-titan",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:49"
   },
   {
     "fonte": "celsocunha",
@@ -8382,7 +8432,7 @@
     "modelo": "Corsa Sedan",
     "ano": 2003,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 650.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8390,14 +8440,39 @@
     "km": "",
     "descricao": "Lote: #239 - GM/CORSA SEDAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/947/gm-corsa-sedan",
-    "data_leilao": "2026-06-23T20:59"
+    "data_leilao": "2026-06-25T23:21"
+  },
+  {
+    "fonte": "celsocunha",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cg 125 Fan",
+    "ano": 2006,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 150.0,
+    "fipe_valor": 0,
+    "fipe_str": "FIPE indisponível",
+    "classificacao": "Sem referência",
+    "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft1508c93737380ea50881470edcedc0713.jpeg",
+    "km": "",
+    "descricao": "Lote: #241 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://celsocunhaleiloes.com.br/lote/949/honda-cg-125-fan",
+    "data_leilao": "2026-06-25T20:40"
   },
   {
     "fonte": "celsocunha",
@@ -8411,43 +8486,18 @@
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
-    "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft1508c93737380ea50881470edcedc0713.jpeg",
-    "km": "",
-    "descricao": "Lote: #241 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://celsocunhaleiloes.com.br/lote/949/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:14"
-  },
-  {
-    "fonte": "celsocunha",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Honda",
-    "modelo": "Cg 125 Fan",
-    "ano": 2006,
-    "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
     "foto": "https://www.celsocunhaleiloes.com.br/imgTmp/ft19dedb878fa27c15909f02946628b6b95.jpeg",
     "km": "",
     "descricao": "Lote: #242 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/950/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:15"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8482,7 +8532,7 @@
     "modelo": "Factor Ybr125 Ed",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8490,14 +8540,14 @@
     "km": "",
     "descricao": "Lote: #244 - YAMAHA/FACTOR YBR125 ED | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/952/yamaha-factor-ybr125-ed",
-    "data_leilao": "2026-06-24T10:23"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8507,7 +8557,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2006,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8515,14 +8565,14 @@
     "km": "",
     "descricao": "Lote: #245 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/953/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:08"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8557,7 +8607,7 @@
     "modelo": "Palio Elx",
     "ano": 2001,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 300.0,
+    "lance_atual": 350.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8565,14 +8615,14 @@
     "km": "",
     "descricao": "Lote: #247 - FIAT/PALIO ELX | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTim",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/955/fiat-palio-elx",
-    "data_leilao": "2026-06-25T14:09"
+    "data_leilao": "2026-06-25T23:22"
   },
   {
     "fonte": "celsocunha",
@@ -8607,7 +8657,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8615,14 +8665,14 @@
     "km": "",
     "descricao": "Lote: #250 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/958/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:09"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8632,7 +8682,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8640,14 +8690,14 @@
     "km": "",
     "descricao": "Lote: #251 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/959/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:09"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8657,7 +8707,7 @@
     "modelo": "Cg 125 Fan Ks",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8665,14 +8715,14 @@
     "km": "",
     "descricao": "Lote: #252 - HONDA/CG 125 FAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/960/honda-cg-125-fan-ks",
-    "data_leilao": "2026-06-25T14:09"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8682,7 +8732,7 @@
     "modelo": "Cg 150 Titan Ks",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8690,14 +8740,14 @@
     "km": "",
     "descricao": "Lote: #253 - HONDA/CG 150 TITAN KS | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/961/honda-cg-150-titan-ks",
-    "data_leilao": "2026-06-25T14:10"
+    "data_leilao": "2026-06-25T20:41"
   },
   {
     "fonte": "celsocunha",
@@ -8707,7 +8757,7 @@
     "modelo": "Zafira Comfort",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 600.0,
+    "lance_atual": 650.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8715,14 +8765,14 @@
     "km": "",
     "descricao": "Lote: #254 - GM/ZAFIRA COMFORT | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().get",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/962/gm-zafira-comfort",
-    "data_leilao": "2026-06-24T17:38"
+    "data_leilao": "2026-06-25T23:22"
   },
   {
     "fonte": "celsocunha",
@@ -8732,7 +8782,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8747,7 +8797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/963/honda-biz-125-es",
-    "data_leilao": "2026-06-25T14:10"
+    "data_leilao": "2026-06-25T20:42"
   },
   {
     "fonte": "celsocunha",
@@ -8757,7 +8807,7 @@
     "modelo": "Nxr150 Bros Esd",
     "ano": 8728,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8772,7 +8822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/964/honda-nxr150-bros-esd",
-    "data_leilao": "2026-06-25T14:10"
+    "data_leilao": "2026-06-25T20:42"
   },
   {
     "fonte": "celsocunha",
@@ -8782,7 +8832,7 @@
     "modelo": "Cg150 Fan Esdi",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8790,14 +8840,14 @@
     "km": "",
     "descricao": "Lote: #257 - HONDA/CG150 FAN ESDI | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/965/honda-cg150-fan-esdi",
-    "data_leilao": "2026-06-25T14:11"
+    "data_leilao": "2026-06-25T20:42"
   },
   {
     "fonte": "celsocunha",
@@ -8807,7 +8857,7 @@
     "modelo": "Pop100",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8815,14 +8865,14 @@
     "km": "",
     "descricao": "Lote: #258 - HONDA/POP100 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/966/honda-pop100",
-    "data_leilao": "2026-06-25T14:11"
+    "data_leilao": "2026-06-25T20:42"
   },
   {
     "fonte": "celsocunha",
@@ -8832,7 +8882,7 @@
     "modelo": "Doblo Adv 1.8 Flex",
     "ano": 2014,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1050.0,
+    "lance_atual": 1100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8847,7 +8897,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/967/fiat-doblo-adv-1-8-flex",
-    "data_leilao": "2026-06-25T12:06"
+    "data_leilao": "2026-06-25T23:22"
   },
   {
     "fonte": "celsocunha",
@@ -8857,7 +8907,7 @@
     "modelo": "Cg 150 Titan Esd",
     "ano": 2015,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8872,7 +8922,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/968/honda-cg-150-titan-esd",
-    "data_leilao": "2026-06-25T14:12"
+    "data_leilao": "2026-06-25T20:42"
   },
   {
     "fonte": "celsocunha",
@@ -8915,7 +8965,7 @@
     "km": "",
     "descricao": "Lote: #262 - HONDA/CG 160 START | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -8947,7 +8997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/972/i-charming-bravax-bx50cc",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:43"
   },
   {
     "fonte": "celsocunha",
@@ -8965,7 +9015,7 @@
     "km": "",
     "descricao": "Lote: #265 - HONDA/CG 160 TITAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -8982,7 +9032,7 @@
     "modelo": "Nx 200",
     "ano": 1995,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -8990,14 +9040,14 @@
     "km": "",
     "descricao": "Lote: #266 - HONDA/NX 200 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/974/honda-nx-200",
-    "data_leilao": "2026-06-25T14:05"
+    "data_leilao": "2026-06-25T20:54"
   },
   {
     "fonte": "celsocunha",
@@ -9007,7 +9057,7 @@
     "modelo": "Cg 125 Titan",
     "ano": 1997,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9015,14 +9065,14 @@
     "km": "",
     "descricao": "Lote: #267 - HONDA/CG 125 TITAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/975/honda-cg-125-titan",
-    "data_leilao": "2026-06-25T14:05"
+    "data_leilao": "2026-06-25T20:54"
   },
   {
     "fonte": "celsocunha",
@@ -9032,7 +9082,7 @@
     "modelo": "125",
     "ano": 1984,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9040,14 +9090,14 @@
     "km": "",
     "descricao": "Lote: #268 - HONDA/125 | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),e",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/976/honda-125",
-    "data_leilao": "2026-06-25T14:05"
+    "data_leilao": "2026-06-25T20:54"
   },
   {
     "fonte": "celsocunha",
@@ -9147,7 +9197,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/980/honda-cbx-200-strada",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:55"
   },
   {
     "fonte": "celsocunha",
@@ -9172,7 +9222,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/981/honda-cg-125-titan-es",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:43"
   },
   {
     "fonte": "celsocunha",
@@ -9182,7 +9232,7 @@
     "modelo": "Nxr125 Bros Es",
     "ano": 2003,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9190,14 +9240,14 @@
     "km": "",
     "descricao": "Lote: #274 - HONDA/NXR125 BROS ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/982/honda-nxr125-bros-es",
-    "data_leilao": "2026-06-25T14:06"
+    "data_leilao": "2026-06-25T20:43"
   },
   {
     "fonte": "celsocunha",
@@ -9232,7 +9282,7 @@
     "modelo": "Cg 125 Fan",
     "ano": 2008,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9240,14 +9290,14 @@
     "km": "",
     "descricao": "Lote: #276 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/984/honda-cg-125-fan",
-    "data_leilao": "2026-06-25T14:06"
+    "data_leilao": "2026-06-25T20:44"
   },
   {
     "fonte": "celsocunha",
@@ -9282,7 +9332,7 @@
     "modelo": "Celta",
     "ano": 2001,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 200.0,
+    "lance_atual": 250.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9297,7 +9347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/986/gm-celta",
-    "data_leilao": "2026-06-25T14:07"
+    "data_leilao": "2026-06-25T23:23"
   },
   {
     "fonte": "celsocunha",
@@ -9432,7 +9482,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2009,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 100.0,
+    "lance_atual": 150.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9440,14 +9490,14 @@
     "km": "",
     "descricao": "Lote: #284 - HONDA/CG 125 FAN ES | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().g",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/992/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-25T14:08"
+    "data_leilao": "2026-06-25T20:44"
   },
   {
     "fonte": "celsocunha",
@@ -9490,7 +9540,7 @@
     "km": "",
     "descricao": "Lote: #286 - HONDA/CG 125 FAN | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getT",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -9507,7 +9557,7 @@
     "modelo": "T115 Crypton K",
     "ano": 2010,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 50.0,
+    "lance_atual": 100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9515,14 +9565,14 @@
     "km": "",
     "descricao": "Lote: #287 - YAMAHA/T115 CRYPTON K | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date()",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/995/yamaha-t115-crypton-k",
-    "data_leilao": "2026-06-23T20:08"
+    "data_leilao": "2026-06-25T20:44"
   },
   {
     "fonte": "celsocunha",
@@ -9532,7 +9582,7 @@
     "modelo": "Cg 125 Fan Es",
     "ano": 2011,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 150.0,
+    "lance_atual": 200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -9547,7 +9597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/996/honda-cg-125-fan-es",
-    "data_leilao": "2026-06-25T14:04"
+    "data_leilao": "2026-06-25T20:45"
   },
   {
     "fonte": "celsocunha",
@@ -9615,7 +9665,7 @@
     "km": "",
     "descricao": "Lote: #291 - HONDA/CG 160 START | Celso Cunha Leilões - leilões online, veículos, imóveis, materiais, aeronaves, embarcações... (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().ge",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -10022,7 +10072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1016/nissan-frontier-4x4-xe",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:01"
   },
   {
     "fonte": "celsocunha",
@@ -11172,7 +11222,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1062/chevrolet-s10-ls-dd4",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:09"
   },
   {
     "fonte": "celsocunha",
@@ -12297,7 +12347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1110/chevrolet-cruze-ltz-nb",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:12"
   },
   {
     "fonte": "celsocunha",
@@ -12797,7 +12847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1130/toyota-corolla",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:35"
   },
   {
     "fonte": "celsocunha",
@@ -13497,7 +13547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1158/gm-montana-tecform",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:17"
   },
   {
     "fonte": "celsocunha",
@@ -13897,7 +13947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1175/fiat-palio-fire",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:19"
   },
   {
     "fonte": "celsocunha",
@@ -13997,7 +14047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1179/troller-t4-tdi-3-0",
-    "data_leilao": ""
+    "data_leilao": "2026-06-26T00:52"
   },
   {
     "fonte": "celsocunha",
@@ -14747,7 +14797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1209/i-toyota-hilux-cd4x4",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T19:39"
   },
   {
     "fonte": "celsocunha",
@@ -15022,7 +15072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1220/ford-fiesta-1-6-flex",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:22"
   },
   {
     "fonte": "celsocunha",
@@ -15297,7 +15347,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1231/ford-fiesta-1-6-flex",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T20:00"
   },
   {
     "fonte": "celsocunha",
@@ -17197,7 +17247,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1307/ford-fiesta-1-6-flex",
-    "data_leilao": ""
+    "data_leilao": "2026-06-25T21:26"
   },
   {
     "fonte": "celsocunha",
