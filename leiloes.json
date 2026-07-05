@@ -207,10 +207,10 @@
     "modelo": "Celta 4P Spirit",
     "ano": 2010,
     "cidade": "Eusebio/CE",
-    "lance_atual": 25326.0,
+    "lance_atual": 7600.0,
     "fipe_valor": 22855.0,
     "fipe_str": "R$ 22.855,00",
-    "classificacao": "❌ RUIM",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/1/5/1767611725424_0fea0fb3-4c66-4885-b7fc-c6b5b08bc851.png",
     "km": "",
     "descricao": "Recuperado de Seguradora",
@@ -222,7 +222,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-4p-spirit-(2p%2F4p)/ano.2010/4e6e93bf-6666-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-07-07T13:30"
+    "data_leilao": "2026-07-07T13:29"
   },
   {
     "fonte": "leilo",
@@ -265,7 +265,7 @@
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -372,7 +372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/hilux-sw4-srv-4x4/ano.2014/0d2f80e1-698b-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-07-07T13:29"
+    "data_leilao": "2026-07-07T13:30"
   },
   {
     "fonte": "leilo",
@@ -465,7 +465,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -782,7 +782,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5800.0,
+    "lance_atual": 6000.0,
     "fipe_valor": 17694.0,
     "fipe_str": "R$ 17.694,00",
     "classificacao": "✅ ÓTIMO",
@@ -807,7 +807,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6900.0,
+    "lance_atual": 7300.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -815,7 +815,7 @@
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -832,7 +832,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 9200.0,
     "fipe_valor": 21686.0,
     "fipe_str": "R$ 21.686,00",
     "classificacao": "✅ ÓTIMO",
@@ -840,7 +840,7 @@
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -882,7 +882,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7000.0,
+    "lance_atual": 7200.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -907,7 +907,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6100.0,
+    "lance_atual": 6300.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -915,7 +915,7 @@
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -932,7 +932,7 @@
     "modelo": "Biz 125",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7900.0,
+    "lance_atual": 8300.0,
     "fipe_valor": 9064.0,
     "fipe_str": "R$ 9.064,00",
     "classificacao": "❌ RUIM",
@@ -1465,7 +1465,7 @@
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -1497,7 +1497,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(88-placas-/-1-inversor)/ano.2025/8e4cd306-7192-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-07-06T12:59"
+    "data_leilao": "2026-07-06T13:04"
   },
   {
     "fonte": "leilo",
@@ -1507,7 +1507,7 @@
     "modelo": "Mesa Inox 2,80X0,70",
     "ano": 2000,
     "cidade": "Eusebio/CE",
-    "lance_atual": 400.0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1515,14 +1515,14 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/mesa-inox-2,80x0,70/ano.2000/e383c68d-7589-11f1-87e3-02420a000009",
-    "data_leilao": "2026-07-06T12:59"
+    "data_leilao": "2026-07-06T13:08"
   },
   {
     "fonte": "leilo",
@@ -1547,7 +1547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-fotovoltaico-7.93-kwp/ano.2025/0a5d2b08-31c2-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-07-06T12:59"
+    "data_leilao": "2026-07-06T13:27"
   },
   {
     "fonte": "leilo",
@@ -2047,7 +2047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/sistema-fotovoltaico-(88-placas-/-1-inversor)/ano.2025/8e4cd306-7192-11f1-b7a7-02420a000006",
-    "data_leilao": ""
+    "data_leilao": "2026-07-06T13:04"
   },
   {
     "fonte": "pacto",
@@ -2057,7 +2057,7 @@
     "modelo": "Mesa Inox 2,80X0,70",
     "ano": 2000,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 600.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2072,7 +2072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/mesa-inox-2,80x0,70/ano.2000/e383c68d-7589-11f1-87e3-02420a000009",
-    "data_leilao": ""
+    "data_leilao": "2026-07-06T13:08"
   },
   {
     "fonte": "pacto",
@@ -2097,7 +2097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/gerador-fotovoltaico-7.93-kwp/ano.2025/0a5d2b08-31c2-11f1-86d7-0242ac50004b",
-    "data_leilao": ""
+    "data_leilao": "2026-07-06T13:27"
   },
   {
     "fonte": "pacto",
@@ -2257,7 +2257,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5800.0,
+    "lance_atual": 6000.0,
     "fipe_valor": 17694.0,
     "fipe_str": "R$ 17.694,00",
     "classificacao": "✅ ÓTIMO",
@@ -2382,7 +2382,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6900.0,
+    "lance_atual": 7300.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -2390,7 +2390,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -2407,7 +2407,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 9200.0,
     "fipe_valor": 21686.0,
     "fipe_str": "R$ 21.686,00",
     "classificacao": "✅ ÓTIMO",
@@ -2415,7 +2415,7 @@
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -2465,7 +2465,7 @@
     "km": "51.830 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
+    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -2532,7 +2532,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7000.0,
+    "lance_atual": 7200.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -2557,7 +2557,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6100.0,
+    "lance_atual": 6300.0,
     "fipe_valor": 17623.0,
     "fipe_str": "R$ 17.623,00",
     "classificacao": "✅ ÓTIMO",
@@ -2565,7 +2565,7 @@
     "km": "32.384 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
-    "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
@@ -2657,7 +2657,7 @@
     "modelo": "Biz 125",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7900.0,
+    "lance_atual": 8300.0,
     "fipe_valor": 9064.0,
     "fipe_str": "R$ 9.064,00",
     "classificacao": "❌ RUIM",
@@ -4372,7 +4372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1812/honda-cg-125-fan-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T08:09"
   },
   {
     "fonte": "celsocunha",
@@ -5272,7 +5272,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/1848/yamaha-factor-ybr125-k-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T08:27"
   },
   {
     "fonte": "celsocunha",
@@ -22097,7 +22097,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2517/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:32"
   },
   {
     "fonte": "celsocunha",
@@ -22297,7 +22297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2525/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:33"
   },
   {
     "fonte": "celsocunha",
@@ -22622,7 +22622,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2538/honda-biz-110i-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:35"
   },
   {
     "fonte": "celsocunha",
@@ -22972,7 +22972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2552/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:37"
   },
   {
     "fonte": "celsocunha",
@@ -23722,7 +23722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2582/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:45"
   },
   {
     "fonte": "celsocunha",
@@ -23772,7 +23772,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2584/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T10:20"
   },
   {
     "fonte": "celsocunha",
@@ -23822,7 +23822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2586/honda-cg-125-titan-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:46"
   },
   {
     "fonte": "celsocunha",
@@ -23847,7 +23847,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2587/honda-nxr150-bros-esd-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T10:21"
   },
   {
     "fonte": "celsocunha",
@@ -23872,7 +23872,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2588/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T12:44"
   },
   {
     "fonte": "celsocunha",
@@ -23972,7 +23972,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2592/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:46"
   },
   {
     "fonte": "celsocunha",
@@ -23997,7 +23997,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2593/honda-nxr150-bros-esd-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:46"
   },
   {
     "fonte": "celsocunha",
@@ -24072,7 +24072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2596/honda-cg-125i-fan-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:46"
   },
   {
     "fonte": "celsocunha",
@@ -24122,7 +24122,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2598/honda-cg-125-titan-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:47"
   },
   {
     "fonte": "celsocunha",
@@ -24372,7 +24372,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2608/yamaha-factor-ybr125-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:47"
   },
   {
     "fonte": "celsocunha",
@@ -24472,7 +24472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2612/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:39"
   },
   {
     "fonte": "celsocunha",
@@ -24647,7 +24647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2619/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:58"
   },
   {
     "fonte": "celsocunha",
@@ -24947,7 +24947,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2631/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:59"
   },
   {
     "fonte": "celsocunha",
@@ -25047,7 +25047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2635/honda-biz-125-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T14:59"
   },
   {
     "fonte": "celsocunha",
@@ -25072,7 +25072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2636/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T15:00"
   },
   {
     "fonte": "celsocunha",
@@ -25222,7 +25222,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2642/honda-biz-100-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:42"
   },
   {
     "fonte": "celsocunha",
@@ -25322,7 +25322,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2646/honda-biz-125-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:42"
   },
   {
     "fonte": "celsocunha",
@@ -25422,7 +25422,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2650/honda-cg-125-fan-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T13:05"
   },
   {
     "fonte": "celsocunha",
@@ -25647,7 +25647,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2659/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T13:09"
   },
   {
     "fonte": "celsocunha",
@@ -25672,7 +25672,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2660/honda-pop100-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:43"
   },
   {
     "fonte": "celsocunha",
@@ -28597,7 +28597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2777/honda-cb-300r-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:17"
   },
   {
     "fonte": "celsocunha",
@@ -28697,7 +28697,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2781/honda-biz-110i-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T12:02"
   },
   {
     "fonte": "celsocunha",
@@ -29047,7 +29047,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2795/honda-cg-125-fan-ks-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T13:32"
   },
   {
     "fonte": "celsocunha",
@@ -29547,7 +29547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2815/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T09:15"
   },
   {
     "fonte": "celsocunha",
@@ -30822,7 +30822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2866/honda-cg-160-fan",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T09:18"
   },
   {
     "fonte": "celsocunha",
@@ -31297,7 +31297,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2885/honda-nxr150-bros-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:23"
   },
   {
     "fonte": "celsocunha",
@@ -31472,7 +31472,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2892/honda-cg-125-fan-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T13:45"
   },
   {
     "fonte": "celsocunha",
@@ -31597,7 +31597,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2897/yamaha-factor-ybr125-k-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T15:12"
   },
   {
     "fonte": "celsocunha",
@@ -31797,7 +31797,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2905/honda-nxr150-bros-es-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T15:11"
   },
   {
     "fonte": "celsocunha",
@@ -31822,7 +31822,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2906/honda-nxr-160-bros-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T16:26"
   },
   {
     "fonte": "celsocunha",
@@ -32072,7 +32072,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2916/yamaha-t115-crypton-k-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T15:11"
   },
   {
     "fonte": "celsocunha",
@@ -32547,7 +32547,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2935/honda-cg-160-start",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T09:41"
   },
   {
     "fonte": "celsocunha",
@@ -32572,7 +32572,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2936/honda-nxr160-bros-esdd",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T09:41"
   },
   {
     "fonte": "celsocunha",
@@ -32722,7 +32722,7 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/2942/yamaha-factor-ybr125-k-",
-    "data_leilao": ""
+    "data_leilao": "2026-07-05T15:15"
   },
   {
     "fonte": "celsocunha",
