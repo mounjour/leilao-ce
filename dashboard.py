@@ -12,7 +12,38 @@ st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", init
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-* { font-family: 'Inter', sans-serif !important; }
+html, body, button, input, textarea, select {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Preserva a fonte dos ícones do Streamlit */
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    font-feature-settings: 'liga' !important;
+    -webkit-font-feature-settings: 'liga' !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    font-feature-settings: 'liga' !important;
+    -webkit-font-feature-settings: 'liga' !important;
+    -webkit-font-smoothing: antialiased !important;
+}
 .stApp { background: #f5f7fb; }
 
 /* ── SIDEBAR — fundo azul escuro ─────────────────────────────────── */
