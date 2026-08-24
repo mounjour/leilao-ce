@@ -166,8 +166,14 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
 .metric-yellow { background:#fefce8; border-color:#fde68a; }
 .metric-red    { background:#fef2f2; border-color:#fecaca; }
 
-/* ── OCULTAR ELEMENTOS DO STREAMLIT CLOUD ───────────────────────── */
-[data-testid="stHeader"],
+/* ── CABEÇALHO E ELEMENTOS DO STREAMLIT CLOUD ───────────────────── */
+/* O controle para reabrir a sidebar é renderizado dentro do header.
+   Por isso, o header não pode usar display:none. */
+[data-testid="stHeader"] {
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
 [data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
 footer[data-testid="stFooter"],
@@ -195,20 +201,35 @@ button[data-testid="baseButton-headerNoPadding"]::after {
     line-height: 1 !important; font-family: sans-serif !important;
 }
 [data-testid="collapsedControl"] {
+    display: block !important;
+    visibility: visible !important;
+    position: fixed !important;
+    top: .75rem !important;
+    left: 0 !important;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}
+[data-testid="collapsedControl"] button,
+button[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: #2563eb !important;
     border-radius: 0 8px 8px 0 !important;
-    min-width: 1.6rem !important; padding: 0 !important;
-    position: relative !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem !important;
+    padding: 0 !important;
+    border: none !important;
     box-shadow: 2px 0 8px rgba(37,99,235,.5) !important;
 }
-[data-testid="collapsedControl"] * {
-    visibility: hidden !important;
+[data-testid="collapsedControl"] svg {
+    display: none !important;
 }
-[data-testid="collapsedControl"]::after {
+[data-testid="collapsedControl"] button::after,
+button[data-testid="collapsedControl"]::after {
     content: "❯" !important;
-    position: absolute !important;
-    top: 50% !important; left: 50% !important;
-    transform: translate(-50%, -50%) !important;
     font-size: 14px !important; color: #fff !important;
     visibility: visible !important; display: block !important;
     line-height: 1 !important; font-family: sans-serif !important;
