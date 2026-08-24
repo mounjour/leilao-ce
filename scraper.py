@@ -214,33 +214,6 @@ def _analisar_cached(url, marca, modelo, ano, desc, km, lance, ref, categoria):
         return cached["analise"]
     return analisar(marca, modelo, ano, desc, km, lance, ref, categoria)
 
-def _zenrows_cache_ok(fonte, max_horas=24):
-    """
-    Retorna lotes do leiloes.json para o fonte se o último scrape foi há < max_horas.
-    Evita chamar o Zenrows desnecessariamente quando os dados ainda são recentes.
-    """
-    if not os.path.exists("leiloes.json"):
-        return []
-    try:
-        with open("leiloes.json", encoding="utf-8") as f:
-            todos = json.load(f)
-        lotes_fonte = [l for l in todos if l.get("fonte") == fonte]
-        if not lotes_fonte:
-            return []
-        datas = [l["scraped_at"] for l in lotes_fonte if l.get("scraped_at")]
-        if not datas:
-            return []
-        mais_recente = max(datas)
-        dt = datetime.fromisoformat(mais_recente)
-        horas_passadas = (datetime.now() - dt).total_seconds() / 3600
-        if horas_passadas < max_horas:
-            print(f"  [cache Zenrows] {fonte} — {len(lotes_fonte)} lotes reutilizados "
-                  f"(scraped há {horas_passadas:.1f}h, limite {max_horas}h)")
-            return lotes_fonte
-    except Exception as e:
-        print(f"  [cache Zenrows] erro ao checar cache de {fonte}: {e}")
-    return []
-
 def limpar_modelo(raw):
     m = unquote(raw)
     return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
@@ -656,411 +629,6 @@ def _raspar_pacto(pg, _pg_d, vistos):
 
     return lotes
 
-# ─── SCRAPER CONSTRUBEM ───────────────────────────────────────────────────────
-_CONSTRUBEM_BASES = [
-    "https://construbemleiloes.plataformasoleon.com.br",
-    "https://www.construbemleiloes.com.br",
-]
-_CONSTRUBEM_PATHS = ["/lotes", "/leiloes", "/veiculos", "/imoveis", "/"]
-
-def _raspar_construbem(pg_lista, pg_detalhe, vistos):
-    lotes = []
-    # Aplica stealth nas duas páginas para tentar passar pelo Cloudflare
-    try:
-        stealth_sync(pg_lista)
-        stealth_sync(pg_detalhe)
-    except Exception as e:
-        print(f"  ⚠️ Construbem stealth: {e}")
-
-    for base in _CONSTRUBEM_BASES:
-        encontrou = False
-
-        # Carrega a raiz e navega pelo menu de categorias (SPA React)
-        try:
-            pg_lista.goto(base + "/", timeout=40000, wait_until="domcontentloaded")
-            pg_lista.wait_for_timeout(6000)
-        except Exception as e:
-            print(f"  ⚠️ Construbem root {base}: {e}")
-            continue
-
-        print(f"📡 Construbem | {pg_lista.url}")
-
-        # Tenta clicar nos links de categoria (Veículos, Imóveis, etc.)
-        cats_clicadas = []
-        for sel in ['a[href*="veiculos"]', 'a[href*="imoveis"]', 'a[href*="lotes"]']:
-            try:
-                el = pg_lista.query_selector(sel)
-                if el:
-                    cats_clicadas.append(el.get_attribute('href') or '')
-            except:
-                pass
-
-        # Navega para cada categoria encontrada no menu
-        urls_tentadas = cats_clicadas or _CONSTRUBEM_PATHS[:3]
-        for cat_path in urls_tentadas:
-            cat_url = cat_path if cat_path.startswith('http') else base + cat_path
-            try:
-                pg_lista.goto(cat_url, timeout=40000, wait_until="domcontentloaded")
-                pg_lista.wait_for_timeout(6000)
-            except Exception as e:
-                print(f"  ⚠️ Construbem cat {cat_url}: {e}")
-                continue
-
-            for _ in range(6):
-                pg_lista.keyboard.press("End")
-                pg_lista.wait_for_timeout(800)
-
-            url_final = pg_lista.url
-            print(f"  categoria: {url_final}")
-
-            # Coleta hrefs de lotes — ID numérico no final = lote real
-            hrefs = []
-            todos_hrefs = []
-            for link in pg_lista.query_selector_all('a[href]'):
-                try:
-                    href = link.get_attribute('href') or ''
-                    full = href if href.startswith('http') else base + href
-                    todos_hrefs.append(href)
-                    if full in vistos:
-                        continue
-                    if re.search(r'/(lote[s]?|veiculo[s]?|bem[s]?|imovel|imoveis|produto[s]?)/[^/]*\d{4,}', href, re.I):
-                        hrefs.append(full)
-                        vistos.add(full)
-                except:
-                    continue
-
-            if not hrefs:
-                amostra = [h for h in todos_hrefs if h and not h.startswith('#')][:8]
-                texto = pg_lista.inner_text('body')
-                print(f"  [diag] links={amostra}")
-                print(f"  [diag] texto={texto[:200].replace(chr(10), ' ')}")
-                continue
-
-            print(f"  {len(hrefs)} lotes encontrados")
-            encontrou = True
-
-            for url_lote in hrefs[:40]:
-                try:
-                    try:
-                        pg_detalhe.goto(url_lote, timeout=15000, wait_until="domcontentloaded")
-                        pg_detalhe.wait_for_timeout(2000)
-                        texto = pg_detalhe.inner_text('body')
-                        html  = pg_detalhe.content()
-                    except:
-                        texto, html = "", ""
-
-                    # Tenta extrair marca/modelo do slug da URL
-                    slug = re.sub(r'\?.*', '', url_lote).rstrip('/').split('/')[-1]
-                    slug = re.sub(r'-\d+$', '', slug)           # remove ID numérico final
-                    palavras = [p for p in slug.split('-') if p]
-                    marca  = palavras[0].title() if palavras else "?"
-                    modelo = ' '.join(p.title() for p in palavras[1:3]) if len(palavras) > 1 else "?"
-
-                    # Ano no slug ou no texto
-                    ano = 0
-                    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + texto[:500])
-                    if m:
-                        ano = int(m.group())
-
-                    # Cidade
-                    cidade = "CE"
-                    for c in CIDADES_CE:
-                        if c.replace('-', ' ') in texto.lower():
-                            cidade = c.replace('-', ' ').title() + '/CE'
-                            break
-
-                    lance      = _extrair_lance(texto)
-                    foto       = _extrair_foto(html, ('construbem', 'soleon', 's3.amazonaws', 'cloudfront'))
-                    km         = _extrair_km(texto)
-                    descricao  = _extrair_descricao(texto)
-                    data_leilao = _extrair_data_leilao(texto)
-
-                    categoria = detectar_categoria(modelo, marca, "carros")
-                    icone     = ICONES.get(categoria, "📦")
-
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                    analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                    classif  = classificar(lance, ref_val, analise.get("estado", ""))
-
-                    print(f"  {icone} [Construbem/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif} | {data_leilao or 'sem data'}")
-                    lotes.append(_lote_dict("construbem", categoria, marca, modelo, ano,
-                                           cidade, lance, ref_val, ref_str,
-                                           classif, foto, km, descricao, analise, url_lote, data_leilao))
-                    time.sleep(0.5)
-                except Exception as e:
-                    print(f"  ⚠️ Construbem: {e}")
-                    continue
-
-            if hrefs:
-                encontrou = True
-
-        if encontrou:
-            break  # achou no primeiro base, não tenta o segundo
-
-    return lotes
-
-# ─── SCRAPER DANIEL GARCIA LEILÕES ───────────────────────────────────────────
-_DG_BASE  = "https://www.danielgarcialeiloes.com.br"
-_DG_PATHS = [
-    "/leiloes?estado=CE", "/leiloes?uf=ce", "/leiloes/ceara",
-    "/veiculos?estado=CE", "/lotes?estado=CE", "/leiloes", "/",
-]
-
-def _raspar_daniel_garcia(pg_lista, pg_detalhe, vistos):
-    lotes = []
-    try:
-        stealth_sync(pg_lista)
-        stealth_sync(pg_detalhe)
-    except Exception as e:
-        print(f"  ⚠️ DanielGarcia stealth: {e}")
-
-    for path in _DG_PATHS:
-        url = _DG_BASE + path
-        try:
-            pg_lista.goto(url, timeout=20000, wait_until="domcontentloaded")
-            pg_lista.wait_for_timeout(5000)
-        except Exception as e:
-            print(f"  ⚠️ DanielGarcia goto {url}: {e}")
-            continue
-
-        for _ in range(5):
-            pg_lista.keyboard.press("End")
-            pg_lista.wait_for_timeout(800)
-
-        url_final = pg_lista.url
-        print(f"📡 DanielGarcia | tentou={url} | final={url_final}")
-
-        # Filtra somente lotes com CE no texto (pode ser nacional)
-        hrefs = []
-        todos_hrefs = []
-        for link in pg_lista.query_selector_all('a[href]'):
-            try:
-                href = link.get_attribute('href') or ''
-                full = href if href.startswith('http') else _DG_BASE + href
-                todos_hrefs.append(href)
-                if full in vistos:
-                    continue
-                if re.search(r'/(lote[s]?|lot[s]?|veiculo[s]?|bem[s]?|item[s]?|produto[s]?)/\S', href, re.I):
-                    hrefs.append(full)
-                    vistos.add(full)
-            except:
-                continue
-
-        if not hrefs:
-            texto = pg_lista.inner_text('body')
-            amostra = [h for h in todos_hrefs if h and not h.startswith('#')][:10]
-            print(f"  [diag] links={amostra}")
-            print(f"  [diag] texto={texto[:300].replace(chr(10), ' ')}")
-            continue
-
-        # Filtra somente lotes com referência a CE/Ceará
-        hrefs_ce = [h for h in hrefs if any(
-            c in h.lower() for c in ['ceara', 'fortaleza', '/ce/', '-ce-', '-ce/']
-        )] or hrefs  # se não achou filtro CE, usa todos (podem não ter CE na URL)
-
-        print(f"  {len(hrefs_ce)} lotes CE de {len(hrefs)} totais")
-
-        for url_lote in hrefs_ce[:40]:
-            try:
-                try:
-                    pg_detalhe.goto(url_lote, timeout=15000, wait_until="domcontentloaded")
-                    pg_detalhe.wait_for_timeout(2000)
-                    texto = pg_detalhe.inner_text('body')
-                    html  = pg_detalhe.content()
-                except:
-                    texto, html = "", ""
-
-                # Verifica se o lote é do CE
-                if texto and not any(c in texto.lower() for c in ['ceará', 'ceara', 'fortaleza',
-                    'caucaia', 'maracanau', 'juazeiro', 'sobral', 'crato']):
-                    continue
-
-                slug    = re.sub(r'\?.*', '', url_lote).rstrip('/').split('/')[-1]
-                slug    = re.sub(r'-\d+$', '', slug)
-                palavras = [p for p in slug.split('-') if p]
-                marca   = palavras[0].title() if palavras else "?"
-                modelo  = ' '.join(p.title() for p in palavras[1:3]) if len(palavras) > 1 else "?"
-
-                ano = 0
-                m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + texto[:500])
-                if m:
-                    ano = int(m.group())
-
-                cidade = "CE"
-                for c in CIDADES_CE:
-                    if c.replace('-', ' ') in texto.lower():
-                        cidade = c.replace('-', ' ').title() + '/CE'
-                        break
-
-                lance      = _extrair_lance(texto)
-                foto       = _extrair_foto(html, ('danielgarcia', 's3.amazonaws', 'cloudfront'))
-                km         = _extrair_km(texto)
-                descricao  = _extrair_descricao(texto)
-                data_leilao = _extrair_data_leilao(texto)
-
-                categoria = detectar_categoria(modelo, marca, "carros")
-                icone     = ICONES.get(categoria, "📦")
-
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = analisar(marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                classif  = classificar(lance, ref_val, analise.get("estado", ""))
-
-                print(f"  {icone} [DanielGarcia/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif} | {data_leilao or 'sem data'}")
-                lotes.append(_lote_dict("danielgarcia", categoria, marca, modelo, ano,
-                                        cidade, lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
-                time.sleep(0.5)
-            except Exception as e:
-                print(f"  ⚠️ DanielGarcia: {e}")
-                continue
-
-        break  # achou lotes, não tenta próximo path
-
-    return lotes
-
-# ─── SOLEON (Playwright + ScraperAPI proxy) ───────────────────────────────────
-_SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
-              'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
-              'aquiraz','russas','iguatu','quixada','quixadá','limoeiro',
-              'tiangua','tianguá','caninde','canindé','itapipoca','aracati',
-              'trt-7','trt 7','7ª região','/ce','-ce']
-
-
-def _lote_de_html(html, url, fonte):
-    """Extrai dados básicos de um lote a partir do HTML renderizado."""
-    texto = re.sub(r'<[^>]+>', ' ', html)
-    texto = re.sub(r'\s+', ' ', texto).strip()
-
-    # Tenta extrair marca/modelo do título ou h1 da página
-    title_m = re.search(r'<title[^>]*>([^<]+)</title>', html, re.I)
-    h1_m    = re.search(r'<h1[^>]*>([^<]+)</h1>', html, re.I)
-    info_text = (h1_m.group(1) if h1_m else (title_m.group(1) if title_m else "")).strip()
-    info_text = re.split(r'[|\-–]', info_text)[0].strip()
-
-    slug = re.sub(r'\?.*', '', url).rstrip('/').split('/')[-1]
-    slug_limpo = re.sub(r'^\d+(-\d+)?$', '', slug)  # ignora se for só número
-    slug_limpo = re.sub(r'-\d+$', '', slug_limpo)
-    palavras_slug = [p for p in slug_limpo.split('-') if p and not p.isdigit()]
-
-    if palavras_slug:
-        marca  = palavras_slug[0].title()
-        modelo = ' '.join(p.title() for p in palavras_slug[1:3]) if len(palavras_slug) > 1 else "?"
-    elif info_text:
-        words  = info_text.split()
-        marca  = words[0].title() if words else "?"
-        modelo = ' '.join(w.title() for w in words[1:3]) if len(words) > 1 else "?"
-    else:
-        marca, modelo = "?", "?"
-
-    ano = 0
-    m = re.search(r'\b(19[89]\d|20[012]\d)\b', slug + ' ' + info_text + ' ' + texto[:500])
-    if m:
-        ano = int(m.group())
-
-    cidade = "CE"
-    for c in CIDADES_CE:
-        if c.replace('-', ' ') in texto.lower():
-            cidade = c.replace('-', ' ').title() + '/CE'
-            break
-
-    lance      = _extrair_lance(texto)
-    km         = _extrair_km(texto)
-    descricao  = _extrair_descricao(texto)
-    data_leilao = _extrair_data_leilao(texto)
-
-    fotos = re.findall(r'src=["\']([^"\']+\.(?:jpg|jpeg|png|webp))["\']', html, re.I)
-    foto = next((f for f in fotos if not any(x in f.lower() for x in ['logo','icon','avatar','banner'])), "")
-
-    return marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao
-
-def _raspar_soleon_playwright(pg, base, fonte, vistos):
-    """Scraper genérico para plataforma Soleon via Playwright + proxy residencial.
-    Funciona para Construbem e Daniel Garcia.
-    Fluxo: / → /leilao/{ID}/lotes (espera JS) → /item/{ID}/detalhes
-    """
-    lotes = []
-    nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte)
-
-    # Passo 1: homepage
-    print(f"📡 {nome} | {base}/")
-    try:
-        pg.goto(base + "/", timeout=45000, wait_until="domcontentloaded")
-        pg.wait_for_timeout(3000)
-    except Exception as e:
-        print(f"  ⚠️ {nome}: homepage erro: {e}")
-        return lotes
-
-    html_home   = pg.content()
-    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/lotes', html_home)))
-    if not auction_ids:
-        print(f"  ⚠️ {nome}: nenhum leilão encontrado na homepage")
-        return lotes
-    print(f"  {len(auction_ids)} leilão(ões): {auction_ids}")
-
-    # Passo 2: cada leilão
-    for auction_id in auction_ids[:20]:
-        url_auction = f"{base}/leilao/{auction_id}/lotes"
-        print(f"  📋 {nome} | leilão {auction_id}")
-        try:
-            pg.goto(url_auction, timeout=35000, wait_until="domcontentloaded")
-        except Exception as e:
-            print(f"    ⚠️ {nome} leilão {auction_id}: {e}")
-            continue
-
-        # Filtra CE pelo título (server-rendered, sem esperar JS)
-        if fonte == "danielgarcia":
-            title_m = re.search(r'<title[^>]*>([^<]+)</title>', pg.content(), re.I)
-            titulo  = (title_m.group(1) if title_m else "").lower()
-            if not any(c in titulo for c in _SOLEON_CE):
-                print(f"    [skip] não CE: {titulo[:70]}")
-                continue
-
-        # Aguarda JavaScript carregar os lotes
-        pg.wait_for_timeout(8000)
-        html_auction = pg.content()
-
-        lot_ids   = list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_auction)))
-        lot_hrefs = []
-        for item_id in lot_ids:
-            full = f"{base}/item/{item_id}/detalhes"
-            if full not in vistos:
-                lot_hrefs.append(full)
-                vistos.add(full)
-
-        if not lot_hrefs:
-            texto = pg.inner_text('body')
-            print(f"    [diag leilão {auction_id}] texto={texto[:300].replace(chr(10),' ')}")
-            continue
-
-        print(f"    {len(lot_hrefs)} lotes em leilão {auction_id}")
-
-        # Passo 3: detalhe de cada lote
-        for url_lote in lot_hrefs[:40]:
-            try:
-                try:
-                    pg.goto(url_lote, timeout=25000, wait_until="domcontentloaded")
-                    pg.wait_for_timeout(2000)
-                except Exception as e:
-                    print(f"    ⚠️ {nome} lote load: {e}")
-                    continue
-
-                html  = pg.content()
-                marca, modelo, ano, cidade, lance, km, descricao, foto, data_leilao = _lote_de_html(html, url_lote, fonte)
-                categoria = detectar_categoria(modelo, marca, "carros")
-                icone     = ICONES.get(categoria, "📦")
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                classif  = classificar(lance, ref_val, analise.get("estado", ""))
-                print(f"    {icone} [{nome}/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-                lotes.append(_lote_dict(fonte, categoria, marca, modelo, ano,
-                                        cidade, lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
-                time.sleep(0.3)
-            except Exception as e:
-                print(f"    ⚠️ {nome} lote: {e}")
-
-    return lotes
-
 # ─── SCRAPER MJ LEILÕES ──────────────────────────────────────────────────────
 _MJ_BASE    = "https://www.mjleiloes.com.br"
 _MJ_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -1269,7 +837,17 @@ def _raspar_celso_cunha(vistos):
 
     return lotes
 
-# ─── SCRAPER SOLEON VIA ZENROWS ──────────────────────────────────────────────
+# ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
+_SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
+              'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
+              'aquiraz','russas','iguatu','quixada','quixadá','limoeiro',
+              'tiangua','tianguá','caninde','canindé','itapipoca','aracati',
+              'trt-7','trt 7','7ª região']
+# "/ce" e "-ce" precisam de fronteira de palavra — sem isso, "-ce" também
+# casa com classes CSS como "align-self-center" e "text-center".
+_SOLEON_CE_RE = re.compile(
+    r'(?:' + '|'.join(re.escape(c) for c in _SOLEON_CE) + r')|[/-]ce\b'
+)
 
 def _extrair_veiculo_de_titulo(titulo):
     """Extrai marca, modelo, ano de título no formato Soleon (ex: 'PEUGEOT/207HB XR S - ANO: 2009/2010')."""
@@ -1303,7 +881,7 @@ def _parse_soleon_lots_from_listing(html, base):
     """
     Extrai dados de lotes do HTML da página de listagem Soleon.
     Cada lote tem: url, titulo, cidade, descricao, lance, km, data_leilao, foto.
-    Evita fetchs individuais de detalhe — economiza créditos Zenrows.
+    Evita fetchs individuais de detalhe — uma request por página de listagem.
     """
     texto = re.sub(r'<[^>]+>', ' ', html)
     texto = re.sub(r'\s+', ' ', texto)
@@ -1384,33 +962,31 @@ def _parse_soleon_lots_from_listing(html, base):
     return results
 
 
-def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
-    # Reutiliza dados do leiloes.json se o último scrape foi há < 24h
-    cached = _zenrows_cache_ok(fonte, max_horas=24)
-    if cached:
-        for l in cached:
-            vistos.add(l.get("url", ""))
-        return cached
+_SOLEON_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                  "Chrome/124.0.0.0 Safari/537.36"}
 
+def _raspar_soleon(base, fonte, vistos):
+    """Scraper para Construbem e Daniel Garcia (plataforma Soleon).
+    Ambos os sites são renderizados no servidor (sem JS necessário), então um
+    requests.get() simples resolve — não precisam de proxy nem de bypass de Cloudflare.
+    """
     lotes = []
     nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
+    sess  = requests.Session()
+    sess.headers.update(_SOLEON_HEADERS)
 
-    def _zget(url, wait_ms=5000):
+    def _get(url):
         try:
-            r = requests.get(
-                "https://api.zenrows.com/v1/",
-                params={"url": url, "apikey": zenrows_key,
-                        "js_render": "true", "wait": str(wait_ms)},
-                timeout=90,
-            )
+            r = sess.get(url, timeout=20)
             if r.status_code == 200:
                 return r.text
-            print(f"  ⚠️ Zenrows {r.status_code}: {r.text[:150]}")
+            print(f"  ⚠️ {nome} {r.status_code}: {url}")
         except Exception as e:
-            print(f"  ⚠️ Zenrows request: {e}")
+            print(f"  ⚠️ {nome} request: {e}")
         return ""
 
-    html_home = _zget(base + "/", wait_ms=5000)
+    html_home = _get(base + "/")
     if not html_home:
         print(f"  ⚠️ {nome}: homepage vazia")
         return lotes
@@ -1426,13 +1002,13 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
         url_auction = f"{base}/leilao/{auction_id}/lotes"
         print(f"  📋 {nome} | leilão {auction_id}")
 
-        html_p1 = _zget(url_auction, wait_ms=8000)
+        html_p1 = _get(url_auction)
         if not html_p1:
             continue
 
         if fonte == "danielgarcia":
             html_check = html_p1.lower()
-            if not any(c in html_check for c in _SOLEON_CE):
+            if not _SOLEON_CE_RE.search(html_check):
                 titulo_m = re.search(r'<title[^>]*>([^<]+)</title>', html_p1, re.I)
                 titulo   = (titulo_m.group(1) if titulo_m else "")[:70]
                 print(f"    [skip] não CE: {titulo}")
@@ -1442,7 +1018,8 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
         all_pages = [html_p1]
         for pg in range(2, 8):
             url_pg  = f"{url_auction}?page={pg}"
-            html_pg = _zget(url_pg, wait_ms=5000)
+            time.sleep(0.3)
+            html_pg = _get(url_pg)
             if not html_pg or not re.search(r'/item/\d+/detalhes', html_pg):
                 break
             if html_pg == html_p1:
@@ -1450,6 +1027,8 @@ def _raspar_soleon_zenrows(base, fonte, vistos, zenrows_key):
             n_pg = len(list(dict.fromkeys(re.findall(r'/item/(\d+)/detalhes', html_pg))))
             print(f"    Página {pg}: {n_pg} lotes")
             all_pages.append(html_pg)
+
+        time.sleep(0.3)
 
         for html_page in all_pages:
             lots_info = _parse_soleon_lots_from_listing(html_page, base)
@@ -1536,13 +1115,9 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
 
-    # Plataforma Soleon (Construbem + Daniel Garcia) — Zenrows JS rendering
-    zenrows_key = os.getenv("ZENROWS_API_KEY", "")
-    if zenrows_key:
-        lotes += _raspar_soleon_zenrows("https://www.construbemleiloes.com.br", "construbem", vistos, zenrows_key)
-        lotes += _raspar_soleon_zenrows("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos, zenrows_key)
-    else:
-        print("⚠️ ZENROWS_API_KEY não definida — Construbem e DanielGarcia ignorados")
+    # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
+    lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
+    lotes += _raspar_soleon("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos)
 
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)
