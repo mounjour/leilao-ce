@@ -576,16 +576,28 @@ def _raspar_pacto(pg, _pg_d, vistos):
             pg.keyboard.press("End")
             pg.wait_for_timeout(700)
 
-        # Concatena todos os textos de links com mesmo href (preço, km, data ficam juntos)
+        # Concatena todos os textos de links com mesmo href (preço, km, data ficam juntos).
+        # A foto do card é um background-image em div.q-img__image (componente Quasar),
+        # não uma tag <img> — precisa ler o style em vez de src.
         items = pg.eval_on_selector_all(
             'a[href*="/leilao/"][href*="/ano."]',
-            '''els => Object.entries(
-                els.reduce((acc, e) => {
+            '''els => {
+                const acc = {};
+                for (const e of els) {
                     const h = e.href;
-                    acc[h] = (acc[h] || "") + " " + e.innerText.trim();
-                    return acc;
-                }, {})
-            ).map(([href, text]) => ({href, text: text.trim()}))'''
+                    if (!acc[h]) acc[h] = {text: "", foto: ""};
+                    acc[h].text += " " + e.innerText.trim();
+                    if (!acc[h].foto) {
+                        const imgDiv = e.querySelector(".q-img__image");
+                        const bg = imgDiv ? imgDiv.style.backgroundImage : "";
+                        const m = bg.match(/url\\(["']?([^"')]+)["']?\\)/);
+                        if (m) acc[h].foto = m[1];
+                    }
+                }
+                return Object.entries(acc).map(([href, v]) => (
+                    {href, text: v.text.trim(), foto: v.foto}
+                ));
+            }'''
         )
         novos = [it for it in items if it['href'] not in vistos and '/ano.' in it['href']]
         for it in novos:
@@ -619,10 +631,11 @@ def _raspar_pacto(pg, _pg_d, vistos):
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
                 data_leilao = _extrair_data_leilao(it['text'])
+                foto = it.get('foto', '')
                 print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
                 lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
                                         f"{cidade_s}/CE", lance, ref_val, ref_str,
-                                        classif, "", km, "", analise, href, data_leilao))
+                                        classif, foto, km, "", analise, href, data_leilao))
                 time.sleep(0.1)
             except Exception as e:
                 print(f"  ⚠️ Pacto: {e}"); continue
