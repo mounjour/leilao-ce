@@ -174,65 +174,70 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
     pointer-events: none !important;
 }
 
-[data-testid="stToolbar"],
 .viewerBadge_container__1QSob,
 footer[data-testid="stFooter"],
 #stDecoration { display: none !important; }
 
-/* ── BOTÃO COLAPSO DA SIDEBAR ────────────────────────────────────── */
-button[data-testid="baseButton-headerNoPadding"] {
-    background: #2563eb !important;
-    border-radius: 50% !important;
-    width: 2rem !important; height: 2rem !important;
-    min-width: 0 !important; border: none !important;
-    padding: 0 !important; position: relative !important;
-    box-shadow: 0 2px 8px rgba(37,99,235,.5) !important;
-}
-button[data-testid="baseButton-headerNoPadding"] * {
-    visibility: hidden !important;
-}
-button[data-testid="baseButton-headerNoPadding"]::after {
-    content: "❮" !important;
-    position: absolute !important;
-    top: 50% !important; left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    font-size: 14px !important; color: #fff !important;
-    visibility: visible !important; display: block !important;
-    line-height: 1 !important; font-family: sans-serif !important;
-}
-[data-testid="collapsedControl"] {
-    display: block !important;
-    visibility: visible !important;
-    position: fixed !important;
-    top: .75rem !important;
-    left: 0 !important;
-    z-index: 999999 !important;
-    pointer-events: auto !important;
-}
-[data-testid="collapsedControl"] button,
-button[data-testid="collapsedControl"] {
+/* O botão de reabrir a sidebar fica dentro da toolbar. */
+[data-testid="stToolbar"] {
     display: flex !important;
     visibility: visible !important;
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
+/* Oculta somente os controles desnecessários da toolbar. */
+[data-testid="stAppDeployButton"],
+[data-testid="stMainMenu"],
+[data-testid="stStatusWidget"] {
+    display: none !important;
+}
+
+/* ── BOTÃO COLAPSO DA SIDEBAR ────────────────────────────────────── */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stExpandSidebarButton"],
+[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+[data-testid="stSidebarCollapseButton"] button,
+[data-testid="stExpandSidebarButton"] button,
+[data-testid="collapsedControl"] button,
+button[data-testid="baseButton-headerNoPadding"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     align-items: center !important;
     justify-content: center !important;
     background: #2563eb !important;
-    border-radius: 0 8px 8px 0 !important;
-    width: 2rem !important;
-    height: 2rem !important;
-    min-width: 2rem !important;
+    border-radius: 50% !important;
+    width: 2rem !important; height: 2rem !important;
+    min-width: 2rem !important; border: none !important;
     padding: 0 !important;
-    border: none !important;
-    box-shadow: 2px 0 8px rgba(37,99,235,.5) !important;
+    pointer-events: auto !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,.5) !important;
 }
-[data-testid="collapsedControl"] svg {
-    display: none !important;
+
+[data-testid="stSidebarCollapseButton"] button *,
+[data-testid="stExpandSidebarButton"] button *,
+[data-testid="collapsedControl"] button *,
+button[data-testid="baseButton-headerNoPadding"] * {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
-[data-testid="collapsedControl"] button::after,
-button[data-testid="collapsedControl"]::after {
-    content: "❯" !important;
-    font-size: 14px !important; color: #fff !important;
-    visibility: visible !important; display: block !important;
-    line-height: 1 !important; font-family: sans-serif !important;
+
+[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stExpandSidebarButton"] svg,
+[data-testid="collapsedControl"] svg,
+button[data-testid="baseButton-headerNoPadding"] svg {
+    display: block !important;
+    visibility: visible !important;
+    color: #fff !important;
+    fill: #fff !important;
 }
 
 
@@ -562,32 +567,6 @@ components.html("""
 <script>
 (function() {
   function applyFixes(doc) {
-    // ── Botão colapso da sidebar ─────────────────────────────────────
-    doc.querySelectorAll('button').forEach(function(btn) {
-      if (btn.textContent.includes('keyboard')) {
-        btn.style.setProperty('background', '#2563eb', 'important');
-        btn.style.setProperty('border-radius', '50%', 'important');
-        btn.style.setProperty('width', '2rem', 'important');
-        btn.style.setProperty('height', '2rem', 'important');
-        btn.style.setProperty('min-width', '0', 'important');
-        btn.style.setProperty('border', 'none', 'important');
-        btn.style.setProperty('position', 'relative', 'important');
-        btn.style.setProperty('overflow', 'hidden', 'important');
-        btn.style.setProperty('padding', '0', 'important');
-        btn.querySelectorAll('*').forEach(function(el) {
-          el.style.setProperty('visibility', 'hidden', 'important');
-          el.style.setProperty('font-size', '0', 'important');
-        });
-        if (!btn.querySelector('.lce-arrow')) {
-          var arrow = doc.createElement('span');
-          arrow.className = 'lce-arrow';
-          arrow.textContent = '❮';
-          arrow.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;color:#fff;visibility:visible!important;line-height:1;';
-          btn.appendChild(arrow);
-        }
-      }
-    });
-
     // ── Cor da estrela (☆ cinza / ★ amarelo) ─────────────────────────
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
