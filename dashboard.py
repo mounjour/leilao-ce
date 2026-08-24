@@ -15,35 +15,6 @@ st.markdown("""
 html, body, button, input, textarea, select {
     font-family: 'Inter', sans-serif !important;
 }
-
-/* Preserva a fonte dos ícones do Streamlit */
-.material-symbols-rounded {
-    font-family: 'Material Symbols Rounded' !important;
-    font-weight: normal !important;
-    font-style: normal !important;
-    letter-spacing: normal !important;
-    text-transform: none !important;
-    white-space: nowrap !important;
-    word-wrap: normal !important;
-    direction: ltr !important;
-    font-feature-settings: 'liga' !important;
-    -webkit-font-feature-settings: 'liga' !important;
-    -webkit-font-smoothing: antialiased !important;
-}
-
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined' !important;
-    font-weight: normal !important;
-    font-style: normal !important;
-    letter-spacing: normal !important;
-    text-transform: none !important;
-    white-space: nowrap !important;
-    word-wrap: normal !important;
-    direction: ltr !important;
-    font-feature-settings: 'liga' !important;
-    -webkit-font-feature-settings: 'liga' !important;
-    -webkit-font-smoothing: antialiased !important;
-}
 .stApp { background: #f5f7fb; }
 
 /* ── SIDEBAR — fundo azul escuro ─────────────────────────────────── */
@@ -129,7 +100,7 @@ div[data-testid="stButton"] button { background:#0f172a; color:#fff; border:none
 div[data-testid="stButton"] button:hover { background:#1e293b; }
 
 /* ── ESTRELA FAVORITAR ── última coluna de cada card ──────────────── */
-[data-testid="column"]:last-child > div > [data-testid="stButton"] button {
+div[class*="st-key-fav_"] button {
     background: transparent !important;
     background-color: transparent !important;
     border: none !important;
@@ -142,7 +113,7 @@ div[data-testid="stButton"] button:hover { background:#1e293b; }
     color: #f59e0b !important;
     line-height: 1 !important;
 }
-[data-testid="column"]:last-child > div > [data-testid="stButton"] button:hover {
+div[class*="st-key-fav_"] button:hover {
     background: transparent !important;
     opacity: .75;
 }
@@ -298,6 +269,424 @@ button[data-testid="baseButton-headerNoPadding"] svg {
     }
     .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
+
+/* ── TEMA ADAPTATIVO E RESPONSIVIDADE V3 ────────────────────────── */
+:root {
+    --lce-bg: var(--background-color, #f5f7fb);
+    --lce-surface: var(--secondary-background-color, #ffffff);
+    --lce-text: var(--text-color, #0f172a);
+    --lce-primary: var(--primary-color, #2563eb);
+    --lce-muted: color-mix(in srgb, var(--lce-text) 66%, transparent);
+    --lce-border: color-mix(in srgb, var(--lce-text) 18%, transparent);
+    --lce-hover: color-mix(in srgb, var(--lce-primary) 14%, var(--lce-surface));
+    --lce-shadow: 0 8px 24px color-mix(in srgb, #000 14%, transparent);
+    --lce-radius: 12px;
+}
+
+/* Base: usa as variáveis de tema fornecidas pelo Streamlit. */
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background: var(--lce-bg) !important;
+    color: var(--lce-text) !important;
+    color-scheme: light dark;
+}
+
+[data-testid="stMainBlockContainer"] {
+    max-width: 1440px !important;
+    padding-top: 2.5rem !important;
+    padding-right: clamp(1rem, 3vw, 3rem) !important;
+    padding-left: clamp(1rem, 3vw, 3rem) !important;
+}
+
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown li,
+[data-testid="stCaptionContainer"],
+[data-testid="stWidgetLabel"] {
+    color: var(--lce-text);
+}
+
+[data-testid="stCaptionContainer"] {
+    color: var(--lce-muted) !important;
+}
+
+/* Preserva as fontes de ícones; sem isso aparece o nome da seta. */
+.material-symbols-rounded {
+    font-family: "Material Symbols Rounded" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    font-feature-settings: "liga" !important;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.material-symbols-outlined {
+    font-family: "Material Symbols Outlined" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    font-feature-settings: "liga" !important;
+    -webkit-font-feature-settings: "liga" !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+/* Cards e contêineres. */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: color-mix(in srgb, var(--lce-surface) 92%, var(--lce-bg)) !important;
+    border-color: var(--lce-border) !important;
+    border-radius: var(--lce-radius) !important;
+    box-shadow: 0 2px 10px color-mix(in srgb, #000 7%, transparent);
+}
+
+.card-img-box,
+.ia-box {
+    background: color-mix(in srgb, var(--lce-surface) 82%, var(--lce-bg)) !important;
+    border-color: var(--lce-border) !important;
+    color: var(--lce-text) !important;
+}
+
+.ia-box .label { color: var(--lce-muted) !important; }
+.ia-box .rec { color: var(--lce-text) !important; }
+
+.orientation-box {
+    margin: 8px 0;
+    padding: 8px 12px;
+    background: color-mix(in srgb, var(--orientation-color) 12%, var(--lce-surface));
+    border-left: 3px solid var(--orientation-color);
+    border-radius: 6px;
+}
+
+.orientation-box span {
+    color: color-mix(in srgb, var(--orientation-color) 78%, var(--lce-text));
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.metric-card {
+    background: var(--lce-surface) !important;
+    border-color: var(--lce-border) !important;
+    box-shadow: 0 2px 10px color-mix(in srgb, #000 6%, transparent);
+}
+.metric-label { color: var(--lce-muted) !important; }
+.metric-card .metric-value { color: var(--lce-text) !important; }
+.metric-green {
+    background: color-mix(in srgb, #16a34a 13%, var(--lce-surface)) !important;
+    border-color: color-mix(in srgb, #16a34a 45%, var(--lce-border)) !important;
+}
+.metric-yellow {
+    background: color-mix(in srgb, #eab308 13%, var(--lce-surface)) !important;
+    border-color: color-mix(in srgb, #eab308 45%, var(--lce-border)) !important;
+}
+.metric-red {
+    background: color-mix(in srgb, #ef4444 13%, var(--lce-surface)) !important;
+    border-color: color-mix(in srgb, #ef4444 45%, var(--lce-border)) !important;
+}
+.metric-green .metric-value {
+    color: color-mix(in srgb, #22c55e 72%, var(--lce-text)) !important;
+}
+.metric-yellow .metric-value {
+    color: color-mix(in srgb, #eab308 72%, var(--lce-text)) !important;
+}
+.metric-red .metric-value {
+    color: color-mix(in srgb, #ef4444 72%, var(--lce-text)) !important;
+}
+
+.ia-box .ponto-pos {
+    color: color-mix(in srgb, #22c55e 72%, var(--lce-text)) !important;
+}
+.ia-box .ponto-neg {
+    color: color-mix(in srgb, #ef4444 72%, var(--lce-text)) !important;
+}
+
+.stMarkdown a {
+    color: var(--lce-primary);
+}
+
+hr, [data-testid="stDivider"] {
+    border-color: var(--lce-border) !important;
+}
+
+/* Entradas e listas abertas fora da sidebar. */
+input,
+textarea,
+[data-baseweb="select"] > div,
+[data-baseweb="input"] > div {
+    background: var(--lce-surface) !important;
+    color: var(--lce-text) !important;
+    border-color: var(--lce-border) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--lce-muted) !important;
+    opacity: 1 !important;
+}
+
+[data-baseweb="popover"],
+[data-baseweb="menu"],
+[role="listbox"] {
+    background: var(--lce-surface) !important;
+    color: var(--lce-text) !important;
+}
+
+[role="option"] {
+    background: transparent !important;
+    color: var(--lce-text) !important;
+}
+
+[role="option"]:hover,
+[role="option"][aria-selected="true"] {
+    background: var(--lce-hover) !important;
+    color: var(--lce-text) !important;
+}
+
+/* Botões gerais: contraste estável nos dois temas. */
+div[data-testid="stButton"] button,
+[data-testid="stFormSubmitButton"] button,
+[data-testid="stLinkButton"] a,
+[data-testid="stDownloadButton"] button {
+    min-height: 2.5rem !important;
+    background: var(--lce-primary) !important;
+    color: #ffffff !important;
+    border: 1px solid color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+div[data-testid="stButton"] button:hover,
+[data-testid="stFormSubmitButton"] button:hover,
+[data-testid="stLinkButton"] a:hover,
+[data-testid="stDownloadButton"] button:hover {
+    background: color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    color: #ffffff !important;
+    border-color: var(--lce-primary) !important;
+}
+
+div[data-testid="stButton"] button:focus-visible,
+[data-testid="stLinkButton"] a:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--lce-primary) 38%, transparent) !important;
+    outline-offset: 2px !important;
+}
+
+/* Favoritar: não afeta paginação nem outros últimos botões de colunas. */
+div[class*="st-key-fav_"] button,
+div[class*="st-key-fav_"] button:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    min-height: 0 !important;
+    color: #f59e0b !important;
+}
+
+/* Abas legíveis e roláveis em telas estreitas. */
+.stTabs [data-baseweb="tab-list"] {
+    gap: .25rem !important;
+    overflow-x: auto !important;
+    scrollbar-width: thin;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--lce-muted) !important;
+    flex: 0 0 auto !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    color: var(--lce-primary) !important;
+}
+
+/* Sidebar permanece azul-escura e independente do tema principal. */
+section[data-testid="stSidebar"] {
+    background: #172554 !important;
+    color: #e2e8f0 !important;
+    border-right: 1px solid rgba(255,255,255,.12) !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] div,
+section[data-testid="stSidebar"] label {
+    color: #e2e8f0;
+}
+
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.24) !important;
+    color: #ffffff !important;
+}
+
+/* Navegação da sidebar sobrescreve o estilo geral de botões. */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
+    background: transparent !important;
+    color: #e2e8f0 !important;
+    border: 1px solid transparent !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"]:hover {
+    background: rgba(255,255,255,.12) !important;
+    color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"] {
+    background: #ffffff !important;
+    color: #172554 !important;
+    border-color: #ffffff !important;
+}
+
+/* Header/toolbar e controle da sidebar. */
+[data-testid="stHeader"] {
+    display: block !important;
+    visibility: visible !important;
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
+[data-testid="stToolbar"] {
+    display: flex !important;
+    visibility: visible !important;
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stExpandSidebarButton"],
+[data-testid="collapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 999999 !important;
+}
+
+[data-testid="stSidebarCollapseButton"] button,
+[data-testid="stExpandSidebarButton"] button,
+[data-testid="collapsedControl"] button,
+button[data-testid="baseButton-headerNoPadding"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 2rem !important;
+    min-width: 2rem !important;
+    height: 2rem !important;
+    min-height: 2rem !important;
+    padding: 0 !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50% !important;
+    pointer-events: auto !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,.45) !important;
+}
+
+[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stExpandSidebarButton"] svg,
+[data-testid="collapsedControl"] svg,
+button[data-testid="baseButton-headerNoPadding"] svg {
+    display: block !important;
+    visibility: visible !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Tablet: dois cards por linha. */
+@media (min-width: 701px) and (max-width: 1100px) {
+    div[data-testid="stHorizontalBlock"]:has(
+      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+    }
+
+    div[data-testid="stHorizontalBlock"]:has(
+      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) > div[data-testid="column"] {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Mobile: uma coluna, áreas de toque maiores e menos espaçamento. */
+@media (max-width: 700px) {
+    [data-testid="stMainBlockContainer"] {
+        padding-top: 3.25rem !important;
+        padding-right: .75rem !important;
+        padding-left: .75rem !important;
+    }
+
+    section[data-testid="stSidebar"] {
+        width: min(88vw, 22rem) !important;
+        min-width: min(88vw, 22rem) !important;
+    }
+
+    div[data-testid="stHorizontalBlock"]:has(
+      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: .875rem !important;
+    }
+
+    div[data-testid="stHorizontalBlock"]:has(
+      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) > div[data-testid="column"] {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .metrics-grid,
+    .banner-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .metric-card { padding: 14px 10px !important; }
+    .metric-value { font-size: 22px !important; }
+    .banner-info { padding: 14px !important; }
+    .banner-tile { padding: 9px !important; }
+    .card-img-box { height: 150px !important; }
+    .card-img-box img { max-height: 150px !important; }
+
+    div[data-testid="stButton"] button,
+    [data-testid="stLinkButton"] a,
+    [data-testid="stDownloadButton"] button {
+        min-height: 44px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .metrics-grid,
+    .banner-info-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .metric-card { text-align: left !important; }
+    .metric-value { font-size: 20px !important; }
+    .pill { margin-bottom: 6px !important; }
+}
+
+/* Fallback para navegadores sem color-mix. */
+@supports not (color: color-mix(in srgb, white 50%, black)) {
+    :root {
+        --lce-muted: #64748b;
+        --lce-border: #cbd5e1;
+        --lce-hover: #dbeafe;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -428,8 +817,8 @@ def render_lotes(lotes_lista, key="main"):
 
                 # Orientação (destaque)
                 st.markdown(
-                    f"<div style='background:#f8fafc;border-left:3px solid {cor_o};padding:8px 12px;border-radius:6px;margin:8px 0'>"
-                    f"<span style='font-size:13px;color:{cor_o};font-weight:600'>{icone_o} {txt_o}</span>"
+                    f"<div class='orientation-box' style='--orientation-color:{cor_o}'>"
+                    f"<span>{icone_o} {txt_o}</span>"
                     f"</div>",
                     unsafe_allow_html=True
                 )
