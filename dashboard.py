@@ -127,6 +127,7 @@ div[class*="st-key-fav_"] button {
 div[class*="st-key-fav_"] button strong {
     font-size: 26px !important;
     line-height: 1 !important;
+    vertical-align: middle !important;
 }
 div[class*="st-key-fav_"] button:hover {
     background: rgba(245, 158, 11, .12) !important;
@@ -375,6 +376,35 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     border-color: var(--lce-border) !important;
     border-radius: var(--lce-radius) !important;
     box-shadow: 0 2px 10px color-mix(in srgb, #000 7%, transparent);
+}
+
+/* Cards da mesma linha com a mesma altura (evita "degrau" entre colunas). */
+div[data-testid="stHorizontalBlock"]:has(
+  > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+) {
+    align-items: stretch !important;
+}
+div[data-testid="column"]:has(> div > div[data-testid="stVerticalBlockBorderWrapper"]) {
+    display: flex !important;
+}
+div[data-testid="column"]:has(> div > div[data-testid="stVerticalBlockBorderWrapper"]) > div {
+    width: 100% !important;
+    display: flex !important;
+}
+[data-testid="stVerticalBlockBorderWrapper"] {
+    width: 100% !important;
+    height: 100% !important;
+}
+[data-testid="stVerticalBlockBorderWrapper"] > div {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
+[data-testid="stVerticalBlockBorderWrapper"] a,
+[data-testid="stVerticalBlockBorderWrapper"] a:hover {
+    text-decoration: none !important;
 }
 
 .card-img-box,
@@ -918,8 +948,9 @@ def render_lotes(lotes_lista, key="main"):
     start         = (page - 1) * ITEMS_PER_PAGE
     lotes_pagina  = lotes_lista[start : start + ITEMS_PER_PAGE]
 
-    cols = st.columns(3)
     for i, lote in enumerate(lotes_pagina):
+        if i % 3 == 0:
+            cols = st.columns(3)
         lance   = lote["lance_atual"]
         fipe    = lote["fipe_valor"]
         foto    = lote.get("foto","")
@@ -1114,7 +1145,7 @@ def pagina_favoritos():
     favs = list(get_favorites().values())
     st.markdown("## ⭐ Meus Favoritos")
     if not favs:
-        st.info("Você ainda não favoritou nenhum lote. Clique em 🤍 em qualquer card para favoritar.")
+        st.info("Você ainda não favoritou nenhum lote. Clique na ⭐ em qualquer card para favoritar.")
         return
     st.caption(f"{len(favs)} lote(s) favoritado(s)")
     render_lotes(favs, key="favs")
