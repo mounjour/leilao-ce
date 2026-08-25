@@ -276,7 +276,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 
     /* Cards: 1 por linha */
     div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
         min-width: 100% !important;
         flex: 1 1 100% !important;
     }
@@ -288,7 +288,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 
 @media (min-width: 641px) and (max-width: 1024px) {
     div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
         min-width: calc(50% - 8px) !important;
         flex: 1 1 calc(50% - 8px) !important;
     }
@@ -396,7 +396,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
    altura da maior por padrão (mesmo padrão já usado nas media queries de
    tablet/mobile abaixo, que sobrescrevem isto nessas larguras). */
 div[data-testid="stHorizontalBlock"]:has(
-  > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+  > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
 ) {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -404,12 +404,12 @@ div[data-testid="stHorizontalBlock"]:has(
     align-items: stretch !important;
 }
 div[data-testid="stHorizontalBlock"]:has(
-  > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
-) > div[data-testid="column"] {
+  > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+) > div[data-testid="stColumn"] {
     width: 100% !important;
     min-width: 0 !important;
 }
-div[data-testid="column"] > div:has(> div[data-testid="stVerticalBlockBorderWrapper"]) {
+div[data-testid="stColumn"] > div:has(> div[data-testid="stVerticalBlockBorderWrapper"]) {
     height: 100% !important;
 }
 [data-testid="stVerticalBlockBorderWrapper"] {
@@ -682,7 +682,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 /* Tablet: dois cards por linha. */
 @media (min-width: 701px) and (max-width: 1100px) {
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
     ) {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -690,8 +690,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
-    ) > div[data-testid="column"] {
+      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) > div[data-testid="stColumn"] {
         width: 100% !important;
         min-width: 0 !important;
     }
@@ -719,7 +719,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
     ) {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) !important;
@@ -727,8 +727,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
-    ) > div[data-testid="column"] {
+      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+    ) > div[data-testid="stColumn"] {
         width: 100% !important;
         min-width: 0 !important;
     }
