@@ -644,6 +644,14 @@ button[data-testid="baseButton-headerNoPadding"] svg {
         min-width: min(88vw, 22rem) !important;
     }
 
+    /* O Streamlit desloca a sidebar recolhida com base na largura padrão
+       dele (300px); como forçamos uma largura maior acima, sobrava uma
+       tira visível no canto. translateX(-100%) sempre soma a largura
+       real, então some por completo independente do valor forçado. */
+    section[data-testid="stSidebar"][aria-expanded="false"] {
+        transform: translateX(-100%) !important;
+    }
+
     div[data-testid="stHorizontalBlock"]:has(
       > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
     ) {
