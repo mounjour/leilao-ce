@@ -5,7 +5,7 @@ import os
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
-from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
+from auth import get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
@@ -72,7 +72,6 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     font-weight: 700 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
-    background: #dbeafe !important; }
     background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
@@ -1022,10 +1021,24 @@ def render_lotes(lotes_lista, key="main"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
                     if _usr and _ses:
-                        from auth import get_profile
                         _profile = get_profile() or {}
-                        toggle_favorite(_usr.id, _ses.access_token, lote, phone=_profile.get("phone", ""))
-                        st.rerun()
+                        _metadata = getattr(_usr, "user_metadata", None) or {}
+                        _phone = _profile.get("phone") or _metadata.get("phone", "")
+                        _ok, _favoritado, _erro = toggle_favorite(
+                            _usr.id,
+                            _ses.access_token,
+                            lote,
+                            phone=_phone,
+                        )
+                        if _ok:
+                            st.toast(
+                                "Adicionado aos favoritos ⭐"
+                                if _favoritado
+                                else "Removido dos favoritos"
+                            )
+                            st.rerun()
+                        else:
+                            st.error(_erro)
                     else:
                         st.toast("Faça login para favoritar ⭐")
 
@@ -1132,14 +1145,23 @@ O LeilãoCE não se responsabiliza por decisões de compra. As análises são or
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
 
-# Auth gate: temporarily disabled for public beta
-# if not get_user():
-#     render_auth_page()
-#     st.stop()
+# O conteúdo e os favoritos pertencem à sessão autenticada.
+# Exige uma conta válida antes de mostrar o painel.
+if not get_user():
+    render_auth_page()
+    if get_user():
+        st.rerun()
+    st.stop()
 
 _session = st.session_state.get("session")
-if "favorites" not in st.session_state and _session:
-    load_favorites(get_user().id, _session.access_token)
+_user = get_user()
+if _session and st.session_state.get("_favorites_owner") != _user.id:
+    _favoritos_ok, _favoritos_erro = load_favorites(
+        _user.id,
+        _session.access_token,
+    )
+    if not _favoritos_ok:
+        st.toast(_favoritos_erro, icon="⚠️")
 
 lotes = carregar()
 

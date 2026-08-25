@@ -56,6 +56,11 @@ def _sb() -> Client:
     return st.session_state["_supabase_client"]
 
 
+def get_supabase_client() -> Client:
+    """Expõe o cliente da sessão para módulos autenticados, como favoritos."""
+    return _sb()
+
+
 # ── Session helpers ──────────────────────────────────────────────────────────
 
 def get_user():
@@ -77,8 +82,14 @@ def _save_auth(auth_response) -> bool:
     if not user or not session:
         return False
 
+    usuario_anterior = st.session_state.get("_auth_user_id")
+    if usuario_anterior and usuario_anterior != user.id:
+        st.session_state.pop("favorites", None)
+        st.session_state.pop("_favorites_owner", None)
+
     st.session_state["user"] = user
     st.session_state["session"] = session
+    st.session_state["_auth_user_id"] = user.id
     _load_profile(user.id, session)
     return True
 
@@ -107,6 +118,12 @@ def _clear_local_auth() -> None:
         "profile",
         "_password_recovery",
         "_auth_callback_processed",
+        "_show_forgot",
+        "_auth_user_id",
+        "_favorites_owner",
+        "_favorites_error",
+        "favorites",
+        "_supabase_client",
     ):
         st.session_state.pop(key, None)
 
@@ -524,3 +541,4 @@ def render_paywall() -> None:
         if st.button("Sair", use_container_width=True):
             logout()
             st.rerun()
+
