@@ -2,10 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 import json
 import os
+from html import escape
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
-from auth import get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
+from auth import get_display_name, get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
@@ -72,6 +73,7 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     font-weight: 700 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
+    background: #dbeafe !important; }
     background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
@@ -1143,9 +1145,61 @@ def pagina_informacoes():
 O LeilãoCE não se responsabiliza por decisões de compra. As análises são orientativas.
 """)
 
+
+def render_user_menu():
+    """Conta no topo direito com avatar genérico e ação de logout."""
+    user = get_user()
+    if not user:
+        return
+
+    nome = get_display_name()
+    primeiro_nome = nome.split()[0] if nome.split() else "Usuário"
+    email = str(getattr(user, "email", "") or "")
+
+    _, menu_col = st.columns([8, 2])
+    with menu_col:
+        with st.popover(
+            f"👤  {primeiro_nome}",
+            use_container_width=True,
+        ):
+            st.markdown(
+                f"""
+                <div style="display:flex;align-items:center;gap:12px;padding:4px 2px 12px;">
+                  <div style="width:48px;height:48px;min-width:48px;border-radius:50%;
+                              background:linear-gradient(135deg,#2563eb,#1e3a8a);
+                              display:flex;align-items:center;justify-content:center;
+                              box-shadow:0 3px 10px rgba(37,99,235,.3);">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <circle cx="12" cy="8" r="4" fill="white"/>
+                      <path d="M4.5 20c.7-4.1 3.2-6 7.5-6s6.8 1.9 7.5 6"
+                            fill="white"/>
+                    </svg>
+                  </div>
+                  <div style="min-width:0;">
+                    <div style="font-size:14px;font-weight:700;line-height:1.3;">
+                      {escape(nome)}
+                    </div>
+                    <div style="font-size:11px;opacity:.7;white-space:nowrap;
+                                overflow:hidden;text-overflow:ellipsis;max-width:210px;">
+                      {escape(email)}
+                    </div>
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            st.divider()
+            if st.button(
+                "↪ Sair da conta",
+                key="top_user_logout",
+                use_container_width=True,
+            ):
+                logout()
+                st.rerun()
+
 # ─── APP ──────────────────────────────────────────────────────────────────────
 
-# O conteúdo e os favoritos pertencem à sessão autenticada.
 # Exige uma conta válida antes de mostrar o painel.
 if not get_user():
     render_auth_page()
@@ -1162,6 +1216,8 @@ if _session and st.session_state.get("_favorites_owner") != _user.id:
     )
     if not _favoritos_ok:
         st.toast(_favoritos_erro, icon="⚠️")
+
+render_user_menu()
 
 lotes = carregar()
 
@@ -1275,18 +1331,6 @@ with st.sidebar:
         st.rerun()
 
     st.markdown("---")
-
-    # ── USUÁRIO ──────────────────────────────────────────────────────────
-    if user:
-        st.markdown(f"""<div style="padding:.4rem 0;">
-          <div style="font-size:.72rem;color:#9ca3af;margin-bottom:.2rem;">Conta</div>
-          <div style="font-size:.82rem;color:#374151;font-weight:500;
-                      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            {user.email}</div>
-        </div>""", unsafe_allow_html=True)
-    if st.button("Sair", key="btn_sair", use_container_width=True):
-        logout()
-        st.rerun()
 
 pagina = st.session_state.get("pagina", "leiloes")
 if pagina == "favoritos":   pagina_favoritos(); st.stop()

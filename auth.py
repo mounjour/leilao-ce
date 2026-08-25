@@ -86,6 +86,25 @@ def get_profile():
     return st.session_state.get("profile")
 
 
+def get_display_name() -> str:
+    """Nome público da conta, com fallback seguro para usuários antigos."""
+    user = get_user()
+    profile = get_profile() or {}
+    metadata = getattr(user, "user_metadata", None) or {} if user else {}
+
+    for value in (
+        profile.get("name"),
+        profile.get("full_name"),
+        metadata.get("name"),
+        metadata.get("full_name"),
+    ):
+        if str(value or "").strip():
+            return str(value).strip()
+
+    email = str(getattr(user, "email", "") or "")
+    return email.split("@", 1)[0].replace(".", " ").replace("_", " ").title() or "Usuário"
+
+
 def is_subscribed() -> bool:
     profile = get_profile()
     return bool(profile and profile.get("subscription_status") == "active")
@@ -157,14 +176,23 @@ def login(email: str, password: str) -> tuple[bool, str]:
         return False, str(exc)
 
 
-def signup(email: str, password: str, phone: str = "") -> tuple[bool, str]:
+def signup(
+    email: str,
+    password: str,
+    phone: str = "",
+    name: str = "",
+) -> tuple[bool, str]:
     try:
         credentials = {
             "email": email.strip(),
             "password": password,
             "options": {
                 "email_redirect_to": f"{_APP_URL}/?mode=confirmed",
-                "data": {"phone": phone.strip()},
+                "data": {
+                    "phone": phone.strip(),
+                    "name": name.strip(),
+                    "full_name": name.strip(),
+                },
             },
         }
         response = _sb().auth.sign_up(credentials)
@@ -458,6 +486,9 @@ def render_auth_page() -> None:
 
         with tab_signup:
             with st.form("signup_form"):
+                name = st.text_input(
+                    "Nome", placeholder="Como você quer ser chamado", key="signup_name"
+                )
                 email = st.text_input(
                     "Email", placeholder="seu@email.com", key="signup_email"
                 )
@@ -481,7 +512,7 @@ def render_auth_page() -> None:
                 )
 
             if submitted:
-                if not email.strip() or not password or not confirmation:
+                if not name.strip() or not email.strip() or not password or not confirmation:
                     st.error("Preencha todos os campos obrigatórios.")
                 elif password != confirmation:
                     st.error("As senhas não conferem.")
@@ -489,7 +520,7 @@ def render_auth_page() -> None:
                     st.error("A senha deve ter pelo menos 6 caracteres.")
                 else:
                     with st.spinner("Criando conta…"):
-                        ok, status = signup(email, password, phone)
+                        ok, status = signup(email, password, phone, name)
 
                     if ok and status == "CONFIRM_EMAIL":
                         st.success(
