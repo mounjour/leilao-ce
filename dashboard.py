@@ -109,7 +109,7 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 .p-rec     { background:#e0f2fe; color:#0284c7; }
 .p-bat     { background:#ffedd5; color:#ea580c; }
 .p-sin     { background:#fee2e2; color:#dc2626; }
-.p-ni      { background:#f8fafc; color:#94a3b8; }
+.p-ni      { background:#f8fafc; color:#334155; }
 
 div[data-testid="stButton"] button { background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:500; width:100%; }
 div[data-testid="stButton"] button:hover { background:#1e293b; }
@@ -389,21 +389,30 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     box-shadow: 0 2px 10px color-mix(in srgb, #000 7%, transparent);
 }
 
-/* Cards da mesma linha com a mesma altura (evita "degrau" entre colunas). */
+/* Cards da mesma linha com a mesma altura, mesmo quando um deles tem bem
+   menos conteúdo que os outros. Um "esticamento" via flexbox (altura em %
+   encadeada por vários divs do Streamlit) não é confiável para cards bem
+   menores — troca para CSS Grid, que estica cada célula da linha para a
+   altura da maior por padrão (mesmo padrão já usado nas media queries de
+   tablet/mobile abaixo, que sobrescrevem isto nessas larguras). */
 div[data-testid="stHorizontalBlock"]:has(
   > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
 ) {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
     align-items: stretch !important;
 }
-div[data-testid="column"]:has(> div > div[data-testid="stVerticalBlockBorderWrapper"]) {
-    display: flex !important;
-}
-div[data-testid="column"]:has(> div > div[data-testid="stVerticalBlockBorderWrapper"]) > div {
+div[data-testid="stHorizontalBlock"]:has(
+  > div[data-testid="column"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+) > div[data-testid="column"] {
     width: 100% !important;
-    display: flex !important;
+    min-width: 0 !important;
+}
+div[data-testid="column"] > div:has(> div[data-testid="stVerticalBlockBorderWrapper"]) {
+    height: 100% !important;
 }
 [data-testid="stVerticalBlockBorderWrapper"] {
-    width: 100% !important;
     height: 100% !important;
 }
 [data-testid="stVerticalBlockBorderWrapper"] > div {
@@ -548,19 +557,29 @@ div[data-testid="stButton"] button:focus-visible,
     outline-offset: 2px !important;
 }
 
-/* Abas legíveis e roláveis em telas estreitas. */
-.stTabs [data-baseweb="tab-list"] {
+/* Abas legíveis e roláveis em telas estreitas.
+   O Streamlit não usa mais data-baseweb="tab"/"tab-list" nas versões atuais
+   (confirmado no site publicado: os elementos só têm role="tab"/"tablist" e
+   data-testid="stTab") — por isso os seletores cobrem os dois casos, e sem
+   eles a aba selecionada ficava com a cor padrão quase-preta do Streamlit
+   sobre o fundo escuro, praticamente invisível. */
+.stTabs [data-baseweb="tab-list"],
+.stTabs [role="tablist"] {
     gap: .25rem !important;
     overflow-x: auto !important;
     scrollbar-width: thin;
 }
 
-.stTabs [data-baseweb="tab"] {
+.stTabs [data-baseweb="tab"],
+.stTabs [data-testid="stTab"],
+.stTabs [role="tab"] {
     color: var(--lce-muted) !important;
     flex: 0 0 auto !important;
 }
 
-.stTabs [data-baseweb="tab"][aria-selected="true"] {
+.stTabs [data-baseweb="tab"][aria-selected="true"],
+.stTabs [data-testid="stTab"][aria-selected="true"],
+.stTabs [role="tab"][aria-selected="true"] {
     color: var(--lce-primary) !important;
 }
 
