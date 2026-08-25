@@ -31,6 +31,7 @@ _SUPABASE_KEY = _secret("SUPABASE_ANON_KEY")
 _PRICE_ID = _secret("STRIPE_PRICE_ID")
 _PUBLISHABLE = _secret("STRIPE_PUBLISHABLE_KEY")
 _APP_URL = _secret("APP_URL", "https://leilaoce.streamlit.app").rstrip("/")
+_PLAN_PRICE_LABEL = _secret("STRIPE_PLAN_PRICE_LABEL", "R$ 47")
 _SESSION_MAX_HOURS = float(_secret("SESSION_MAX_HOURS", "8") or 8)
 _SESSION_IDLE_MINUTES = float(_secret("SESSION_IDLE_MINUTES", "60") or 60)
 _SESSION_VERIFY_SECONDS = int(_secret("SESSION_VERIFY_SECONDS", "300") or 300)
@@ -111,7 +112,10 @@ def get_display_name() -> str:
 
 def is_subscribed() -> bool:
     profile = get_profile()
-    return bool(profile and profile.get("subscription_status") == "active")
+    if bool((profile or {}).get("billing_exempt")):
+        return True
+    status = str((profile or {}).get("subscription_status", "")).lower()
+    return status in {"active", "trialing"}
 
 
 def _save_auth(auth_response) -> bool:
@@ -136,7 +140,7 @@ def _save_auth(auth_response) -> bool:
     return True
 
 
-def _load_profile(user_id: str, session=None) -> None:
+def _load_profile(user_id: str, session=None) -> bool:
     try:
         sb = _sb()
         if session:
@@ -149,8 +153,19 @@ def _load_profile(user_id: str, session=None) -> None:
             .execute()
         )
         st.session_state["profile"] = response.data
+        return bool(response.data)
     except Exception:
-        st.session_state["profile"] = None
+        st.session_state.setdefault("profile", None)
+        return False
+
+
+def refresh_profile() -> bool:
+    """Recarrega o plano diretamente do Supabase usando a sessão autenticada."""
+    user = get_user()
+    session = st.session_state.get("session")
+    if not user or not session:
+        return False
+    return _load_profile(user.id, session)
 
 
 def _clear_local_auth() -> None:
@@ -169,6 +184,10 @@ def _clear_local_auth() -> None:
         "_session_started_at",
         "_session_last_activity",
         "_session_last_verified",
+        "_checkout_url",
+        "_checkout_url_created_at",
+        "_billing_portal_url",
+        "_billing_portal_created_at",
     ):
         st.session_state.pop(key, None)
 
@@ -224,6 +243,7 @@ def ensure_valid_session() -> tuple[bool, str]:
                 raise RuntimeError("Usuário não reconhecido pelo Supabase.")
             st.session_state["user"] = usuario_validado
             st.session_state["_session_last_verified"] = agora
+            _load_profile(usuario_validado.id, sessao_atual)
 
         st.session_state["_session_last_activity"] = agora
         return True, ""
@@ -336,27 +356,118 @@ def _process_auth_callback() -> tuple[bool, str]:
         return False, str(exc)
 
 
-# ── Stripe checkout ──────────────────────────────────────────────────────────
+# ── Stripe checkout e portal de cobrança ────────────────────────────────────
 
-def create_checkout_url(user_email: str) -> str:
+def _validate_stripe_config(require_price: bool = False) -> None:
     missing = []
     if not stripe.api_key:
         missing.append("STRIPE_SECRET_KEY")
-    if not _PRICE_ID:
+    if require_price and not _PRICE_ID:
         missing.append("STRIPE_PRICE_ID")
     if missing:
         raise RuntimeError(f"Configuração ausente: {', '.join(missing)}")
 
+
+class ExistingSubscriptionError(RuntimeError):
+    """Impede que o mesmo cliente crie uma segunda assinatura."""
+
+
+def create_checkout_url() -> str:
+    """Cria um Checkout vinculado ao ID imutável do usuário do Supabase."""
+    _validate_stripe_config(require_price=True)
+    user = get_user()
+    if not user:
+        raise RuntimeError("Entre na sua conta antes de assinar.")
+
+    # Evita criar várias sessões Stripe a cada rerun do Streamlit.
+    now = time.time()
+    cached_url = st.session_state.get("_checkout_url")
+    cached_at = float(st.session_state.get("_checkout_url_created_at", 0))
+    if cached_url and now - cached_at < 15 * 60:
+        return str(cached_url)
+
+    profile = get_profile() or {}
+    customer_id = str(profile.get("stripe_customer_id") or "").strip()
+    if customer_id:
+        subscriptions = stripe.Subscription.list(
+            customer=customer_id,
+            status="all",
+            limit=20,
+        )
+        blocking_statuses = {
+            "active", "trialing", "past_due", "unpaid", "incomplete", "paused"
+        }
+        existing = next(
+            (
+                subscription
+                for subscription in subscriptions.data
+                if subscription.status in blocking_statuses
+            ),
+            None,
+        )
+        if existing:
+            profile["subscription_status"] = existing.status
+            profile["stripe_subscription_id"] = existing.id
+            st.session_state["profile"] = profile
+            raise ExistingSubscriptionError(
+                "Já existe uma assinatura para esta conta. "
+                "Use o portal de cobrança para regularizar ou gerenciar o plano."
+            )
+
+    customer_args = (
+        {"customer": customer_id}
+        if customer_id
+        else {"customer_email": str(getattr(user, "email", "") or "")}
+    )
+    user_id = str(user.id)
+    user_email = str(getattr(user, "email", "") or "")
+
     checkout = stripe.checkout.Session.create(
         payment_method_types=["card"],
         mode="subscription",
-        customer_email=user_email,
+        **customer_args,
         line_items=[{"price": _PRICE_ID, "quantity": 1}],
-        success_url=f"{_APP_URL}/?payment=success",
+        client_reference_id=user_id,
+        success_url=(
+            f"{_APP_URL}/?payment=success"
+            "&session_id={CHECKOUT_SESSION_ID}"
+        ),
         cancel_url=f"{_APP_URL}/?payment=cancel",
-        metadata={"supabase_user_email": user_email},
+        metadata={
+            "supabase_user_id": user_id,
+            "supabase_user_email": user_email,
+        },
+        subscription_data={"metadata": {"supabase_user_id": user_id}},
+        locale="pt-BR",
+        idempotency_key=f"checkout:{user_id}:{int(now // 900)}",
     )
-    return checkout.url
+    st.session_state["_checkout_url"] = checkout.url
+    st.session_state["_checkout_url_created_at"] = now
+    return str(checkout.url)
+
+
+def create_billing_portal_url() -> str:
+    """Gera uma URL curta do portal Stripe para a conta autenticada."""
+    _validate_stripe_config()
+    profile = get_profile() or {}
+    customer_id = str(profile.get("stripe_customer_id") or "").strip()
+    if not customer_id:
+        raise RuntimeError("Cliente de cobrança ainda não sincronizado.")
+
+    now = time.time()
+    cached_url = st.session_state.get("_billing_portal_url")
+    cached_at = float(st.session_state.get("_billing_portal_created_at", 0))
+    if cached_url and now - cached_at < 5 * 60:
+        return str(cached_url)
+
+    portal = stripe.billing_portal.Session.create(
+        customer=customer_id,
+        return_url=_APP_URL,
+        locale="pt-BR",
+    )
+    st.session_state["_billing_portal_url"] = portal.url
+    st.session_state["_billing_portal_created_at"] = now
+    return str(portal.url)
 
 
 # ── Rendered pages ───────────────────────────────────────────────────────────
@@ -615,27 +726,29 @@ def render_paywall() -> None:
     _, column, _ = st.columns([1, 1.8, 1])
     with column:
         st.markdown(
-            """
+            f"""
             <style>
-            .paywall-box {
-                background:#1a1d27; border:1px solid #2d3149;
+            .paywall-box {{
+                background:var(--secondary-background-color);
+                color:var(--text-color);
+                border:1px solid color-mix(in srgb, var(--text-color) 18%, transparent);
                 border-radius:12px; padding:2rem; text-align:center;
                 margin-top:2rem;
-            }
-            .paywall-price { font-size:2.5rem; font-weight:800; color:#4ade80; }
-            .paywall-period { color:#888; font-size:.9rem; }
-            .paywall-feature {
+            }}
+            .paywall-price {{ font-size:2.5rem; font-weight:800; color:#16a34a; }}
+            .paywall-period {{ opacity:.72; font-size:.9rem; }}
+            .paywall-feature {{
                 display:flex; align-items:center; gap:.5rem;
-                color:#ccc; margin:.4rem 0;
-            }
+                color:var(--text-color); margin:.4rem 0; text-align:left;
+            }}
             </style>
             <div class="paywall-box">
-              <p style="font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem">
+              <p style="font-size:1.2rem;font-weight:700;color:var(--text-color);margin-bottom:.5rem">
                 Acesso completo ao LeilãoCE
               </p>
-              <div class="paywall-price">R$&nbsp;47</div>
+              <div class="paywall-price">{_PLAN_PRICE_LABEL}</div>
               <div class="paywall-period">por mês · cancele quando quiser</div>
-              <hr style="border-color:#2d3149;margin:1.25rem 0">
+              <hr style="opacity:.2;margin:1.25rem 0">
               <div class="paywall-feature">✅ Todos os leilões do Ceará em tempo real</div>
               <div class="paywall-feature">✅ Análise de oportunidade com IA</div>
               <div class="paywall-feature">✅ Comparação com tabela FIPE</div>
@@ -650,15 +763,42 @@ def render_paywall() -> None:
         user = get_user()
         if user:
             try:
-                checkout_url = create_checkout_url(user.email)
+                checkout_url = create_checkout_url()
                 st.link_button(
-                    "Assinar agora — R$47/mês",
+                    f"Assinar agora — {_PLAN_PRICE_LABEL}/mês",
                     checkout_url,
                     use_container_width=True,
                     type="primary",
                 )
+            except ExistingSubscriptionError as exc:
+                if is_subscribed():
+                    st.rerun()
+                st.warning(str(exc))
+                try:
+                    st.link_button(
+                        "Abrir portal de cobrança",
+                        create_billing_portal_url(),
+                        use_container_width=True,
+                    )
+                except Exception:
+                    pass
             except Exception as exc:
                 st.error(f"Erro ao gerar link de pagamento: {exc}")
+
+        payment_state = str(st.query_params.get("payment", ""))
+        if payment_state == "success":
+            st.info(
+                "Pagamento recebido. A confirmação pode levar alguns segundos. "
+                "Use o botão abaixo para atualizar seu acesso."
+            )
+            if st.button("Atualizar acesso", use_container_width=True, type="primary"):
+                refresh_profile()
+                if is_subscribed():
+                    st.query_params.clear()
+                    st.rerun()
+                st.warning("A confirmação ainda está sendo processada. Tente novamente em instantes.")
+        elif payment_state == "cancel":
+            st.warning("Pagamento cancelado. Nenhuma cobrança foi concluída.")
 
         if st.button("Sair", use_container_width=True):
             logout()

@@ -6,7 +6,18 @@ from html import escape
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
-from auth import ensure_valid_session, get_display_name, get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
+from auth import (
+    create_billing_portal_url,
+    ensure_valid_session,
+    get_display_name,
+    get_profile,
+    get_user,
+    is_subscribed,
+    logout,
+    refresh_profile,
+    render_auth_page,
+    render_paywall,
+)
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
@@ -1161,6 +1172,7 @@ def render_user_menu():
     nome = get_display_name()
     primeiro_nome = nome.split()[0] if nome.split() else "Usuário"
     email = str(getattr(user, "email", "") or "")
+    profile = get_profile() or {}
 
     _, menu_col = st.columns([8, 2])
     with menu_col:
@@ -1195,6 +1207,17 @@ def render_user_menu():
                 """,
                 unsafe_allow_html=True,
             )
+            if bool(profile.get("billing_exempt")):
+                st.caption("Conta especial · cobrança isenta")
+            elif is_subscribed() and profile.get("stripe_customer_id"):
+                try:
+                    st.link_button(
+                        "Gerenciar assinatura",
+                        create_billing_portal_url(),
+                        use_container_width=True,
+                    )
+                except Exception:
+                    st.caption("Portal de cobrança temporariamente indisponível.")
             st.divider()
             if st.button(
                 "↪ Sair da conta",
@@ -1214,6 +1237,15 @@ if not get_user():
     render_auth_page()
     if get_user():
         st.rerun()
+    st.stop()
+
+# Usuários comuns precisam de assinatura ativa. Contas com billing_exempt=true
+# passam por esta verificação sem cobrança.
+if st.query_params.get("payment") == "success":
+    refresh_profile()
+
+if not is_subscribed():
+    render_paywall()
     st.stop()
 
 _session = st.session_state.get("session")
