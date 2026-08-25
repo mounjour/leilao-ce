@@ -158,17 +158,117 @@ _FALLBACK_IA = {"estado":"NAO_INFORMADO","selo":"⚪ Não informado","oportunida
                 "uso_sugerido":"verificar presencialmente","positivos":[],"negativos":[],
                 "avaliacao_plataforma":"Sem dados. Recomendamos inspeção antes do leilão."}
 
+_HISTORICO_TOKENS_FILE = "historico_tokens_ia.jsonl"
+_METRICAS_IA = {}
+
+
+def _reset_metricas_ia():
+    """Zera as métricas antes de cada execução completa do scraper."""
+    _METRICAS_IA.clear()
+    _METRICAS_IA.update({
+        "api_tentativas": 0,
+        "api_sucessos": 0,
+        "api_erros": 0,
+        "cache_hits": 0,
+        "sem_dados": 0,
+        "circuit_breaker": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+    })
+
+
+def _registrar_uso_ia(resposta):
+    """Soma os números oficiais retornados no campo usage da Anthropic."""
+    uso = resposta.usage
+    _METRICAS_IA["api_sucessos"] += 1
+    _METRICAS_IA["input_tokens"] += int(
+        getattr(uso, "input_tokens", 0) or 0
+    )
+    _METRICAS_IA["output_tokens"] += int(
+        getattr(uso, "output_tokens", 0) or 0
+    )
+    _METRICAS_IA["cache_creation_input_tokens"] += int(
+        getattr(uso, "cache_creation_input_tokens", 0) or 0
+    )
+    _METRICAS_IA["cache_read_input_tokens"] += int(
+        getattr(uso, "cache_read_input_tokens", 0) or 0
+    )
+
+
+def _salvar_resumo_ia(total_lotes):
+    """Exibe e salva uma linha comparável para cada execução."""
+    input_total = (
+        _METRICAS_IA["input_tokens"]
+        + _METRICAS_IA["cache_creation_input_tokens"]
+        + _METRICAS_IA["cache_read_input_tokens"]
+    )
+    total_tokens = input_total + _METRICAS_IA["output_tokens"]
+    decisoes = (
+        _METRICAS_IA["cache_hits"]
+        + _METRICAS_IA["api_tentativas"]
+        + _METRICAS_IA["sem_dados"]
+        + _METRICAS_IA["circuit_breaker"]
+    )
+    taxa_cache = (
+        (_METRICAS_IA["cache_hits"] / decisoes) * 100
+        if decisoes else 0.0
+    )
+    tokens_por_chamada = (
+        total_tokens / _METRICAS_IA["api_sucessos"]
+        if _METRICAS_IA["api_sucessos"] else 0.0
+    )
+
+    resumo = {
+        "executado_em": datetime.now().isoformat(timespec="seconds"),
+        "total_lotes": total_lotes,
+        **_METRICAS_IA,
+        "input_total": input_total,
+        "total_tokens": total_tokens,
+        "taxa_cache_pct": round(taxa_cache, 2),
+        "tokens_por_chamada": round(tokens_por_chamada, 2),
+    }
+
+    print("\n📊 RESUMO DE USO DA IA")
+    print(f"  Lotes processados: {total_lotes}")
+    print(f"  Chamadas tentadas: {_METRICAS_IA['api_tentativas']}")
+    print(f"  Chamadas com resposta: {_METRICAS_IA['api_sucessos']}")
+    print(f"  Erros de IA/JSON: {_METRICAS_IA['api_erros']}")
+    print(f"  Reutilizados do cache: {_METRICAS_IA['cache_hits']}")
+    print(f"  Ignorados sem dados úteis: {_METRICAS_IA['sem_dados']}")
+    print(f"  Ignorados pelo circuit breaker: {_METRICAS_IA['circuit_breaker']}")
+    print(f"  Taxa de reaproveitamento: {taxa_cache:.1f}%")
+    print(f"  Tokens de entrada: {input_total}")
+    print(f"  Tokens de saída: {_METRICAS_IA['output_tokens']}")
+    print(f"  Total de tokens: {total_tokens}")
+    print(f"  Média por chamada: {tokens_por_chamada:.1f}")
+
+    try:
+        with open(_HISTORICO_TOKENS_FILE, "a", encoding="utf-8") as arquivo:
+            arquivo.write(json.dumps(resumo, ensure_ascii=False) + "\n")
+        print(f"  Histórico salvo em {_HISTORICO_TOKENS_FILE}")
+    except Exception as e:
+        print(f"  ⚠️ Não foi possível salvar o histórico de tokens: {e}")
+
+
+_reset_metricas_ia()
+
+
 def analisar(marca, modelo, ano, desc, km, lance, ref, categoria):
     global _IA_ATIVA
     if not _IA_ATIVA:
+        _METRICAS_IA["circuit_breaker"] += 1
         return _FALLBACK_IA.copy()
 
     # Sem descrição nem quilometragem, a IA só produziria uma análise genérica.
     # Evitar a chamada economiza tokens sem perder informação concreta.
     if not str(desc or "").strip() and not str(km or "").strip():
+        _METRICAS_IA["sem_dados"] += 1
         return _FALLBACK_IA.copy()
 
     try:
+        _METRICAS_IA["api_tentativas"] += 1
         r = cliente_ia.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=220,
@@ -180,6 +280,7 @@ Para recuperado de financiamento, recomende verificar restrições. Para caminh�
 Responda apenas JSON:
 {{"estado":"BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO","selo":"🟢 Bom estado|🟡 Batido|🔴 Sinistrado|🔵 Rec. Financiamento|⚫ Sucata|⚪ Não informado","uso_sugerido":"texto curto","positivos":["até 2"],"negativos":["até 2"],"avaliacao_plataforma":"1 frase objetiva"}}"""}]
         )
+        _registrar_uso_ia(r)
         texto = r.content[0].text.strip()
         match = re.search(r'\{.*\}', texto, re.DOTALL)
         dados = json.loads(match.group() if match else texto)
@@ -195,6 +296,7 @@ Responda apenas JSON:
         dados.setdefault("avaliacao_plataforma", "")
         return dados
     except Exception as e:
+        _METRICAS_IA["api_erros"] += 1
         msg = str(e)
         if "credit balance is too low" in msg or "insufficient_quota" in msg:
             _IA_ATIVA = False
@@ -411,6 +513,7 @@ def _analisar_cached(
         and cached.get("dados_hash") == dados_hash
         and isinstance(cached.get("analise"), dict)
     ):
+        _METRICAS_IA["cache_hits"] += 1
         print(
             f"  ♻️ IA reutilizada: {marca} {modelo} {ano}"
         )
@@ -1346,6 +1449,7 @@ def _raspar_soleon(base, fonte, vistos):
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
     print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
+    _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
 
@@ -1378,6 +1482,7 @@ def raspar_leiloes():
         json.dump(lotes, f, ensure_ascii=False, indent=2)
 
     print(f"\n✅ {len(lotes)} lotes salvos em leiloes.json")
+    _salvar_resumo_ia(len(lotes))
     return lotes
 
 if __name__ == "__main__":

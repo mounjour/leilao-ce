@@ -3,11 +3,14 @@ import streamlit.components.v1 as components
 import json
 import os
 from datetime import datetime, timedelta
+from pathlib import Path
 from urllib.parse import quote
 from auth import get_user, is_subscribed, logout, render_auth_page, render_paywall
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
+
+BASE_DIR = Path(__file__).resolve().parent
 
 st.markdown("""
 <style>
@@ -81,7 +84,6 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
     background: rgba(255,255,255,.12) !important; }
-
 .pill {
   display:inline-block; padding:4px 10px; border-radius:20px;
   font-size:11px; font-weight:600; margin-right:4px; margin-bottom:4px;
@@ -526,6 +528,12 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
     color: #ffffff !important;
 }
 
+/* Placeholder do multiselect "Marca" — mesma cor do texto padrão dos demais selects. */
+section[data-testid="stSidebar"] input::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
 /* Navegação da sidebar sobrescreve o estilo geral de botões. */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
@@ -694,10 +702,152 @@ button[data-testid="baseButton-headerNoPadding"] svg {
 
 @st.cache_data(ttl=1800)
 def carregar():
-    if os.path.exists("leiloes.json"):
-        with open("leiloes.json","r",encoding="utf-8") as f:
+    arquivo = BASE_DIR / "leiloes.json"
+    if arquivo.exists():
+        with arquivo.open("r", encoding="utf-8") as f:
             return json.load(f)
     return []
+
+
+@st.cache_data(ttl=60)
+def carregar_historico_tokens(limite=30):
+    """Lê as últimas execuções registradas pelo scraper."""
+    arquivo = BASE_DIR / "historico_tokens_ia.jsonl"
+    if not arquivo.exists():
+        return []
+
+    registros = []
+    try:
+        with arquivo.open("r", encoding="utf-8") as f:
+            linhas = f.readlines()[-limite:]
+
+        for linha in linhas:
+            linha = linha.strip()
+            if not linha:
+                continue
+            try:
+                registro = json.loads(linha)
+                if isinstance(registro, dict):
+                    registros.append(registro)
+            except json.JSONDecodeError:
+                continue
+    except Exception:
+        return []
+
+    return registros
+
+
+def _numero(valor):
+    try:
+        return int(valor or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _horario_execucao(valor):
+    if not valor:
+        return "Horário não informado"
+    try:
+        dt = datetime.fromisoformat(str(valor))
+        return dt.strftime("%d/%m/%Y às %H:%M")
+    except (TypeError, ValueError):
+        return str(valor)
+
+
+def render_painel_tokens():
+    historico = carregar_historico_tokens()
+
+    with st.expander("📊 Economia de tokens da IA", expanded=False):
+        if not historico:
+            st.info(
+                "Ainda não há histórico. Ele aparecerá depois que o scraper "
+                "das 03:00 ou das 15:00 terminar e enviar "
+                "historico_tokens_ia.jsonl para o repositório."
+            )
+            return
+
+        atual = historico[-1]
+        anterior = historico[-2] if len(historico) > 1 else None
+
+        tokens_atual = _numero(atual.get("total_tokens"))
+        chamadas_atual = _numero(atual.get("api_tentativas"))
+        cache_atual = _numero(atual.get("cache_hits"))
+        lotes_atual = _numero(atual.get("total_lotes"))
+        taxa_atual = float(atual.get("taxa_cache_pct", 0) or 0)
+
+        delta_tokens = None
+        delta_chamadas = None
+        reducao = None
+        if anterior:
+            tokens_anterior = _numero(anterior.get("total_tokens"))
+            chamadas_anterior = _numero(anterior.get("api_tentativas"))
+            delta_tokens = tokens_atual - tokens_anterior
+            delta_chamadas = chamadas_atual - chamadas_anterior
+            if tokens_anterior > 0:
+                reducao = ((tokens_anterior - tokens_atual) / tokens_anterior) * 100
+
+        st.caption(
+            f"Último scraper: {_horario_execucao(atual.get('executado_em'))} "
+            "• Execuções programadas: 03:00 e 15:00"
+        )
+
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric(
+            "Tokens usados",
+            f"{tokens_atual:,}".replace(",", "."),
+            delta=(f"{delta_tokens:+,}".replace(",", ".") + " vs. anterior")
+            if delta_tokens is not None else None,
+            delta_color="inverse",
+        )
+        c2.metric(
+            "Chamadas à IA",
+            chamadas_atual,
+            delta=f"{delta_chamadas:+d} vs. anterior"
+            if delta_chamadas is not None else None,
+            delta_color="inverse",
+        )
+        c3.metric("Reutilizados do cache", cache_atual)
+        c4.metric("Taxa de cache", f"{taxa_atual:.1f}%")
+
+        if chamadas_atual == 0 and cache_atual > 0:
+            st.success(
+                "Esta execução não gastou tokens com os veículos já analisados: "
+                "as análises foram recuperadas do cache."
+            )
+        elif reducao is not None and reducao > 0:
+            st.success(
+                f"O consumo caiu {reducao:.1f}% em relação à execução anterior."
+            )
+        elif reducao is not None and reducao < 0:
+            st.warning(
+                f"O consumo aumentou {abs(reducao):.1f}%. Verifique se entraram "
+                "lotes novos ou se descrições/quilometragens foram alteradas."
+            )
+        else:
+            st.info(
+                "Esta é a primeira execução registrada; a comparação ficará "
+                "disponível após o próximo scraper."
+            )
+
+        st.caption(
+            f"{lotes_atual} lotes processados • "
+            f"{_numero(atual.get('sem_dados'))} sem dados suficientes • "
+            f"{_numero(atual.get('api_erros'))} erros de IA/JSON"
+        )
+
+        if len(historico) > 1:
+            tabela = []
+            for item in reversed(historico[-8:]):
+                tabela.append({
+                    "Execução": _horario_execucao(item.get("executado_em")),
+                    "Lotes": _numero(item.get("total_lotes")),
+                    "Chamadas": _numero(item.get("api_tentativas")),
+                    "Cache": _numero(item.get("cache_hits")),
+                    "Taxa cache": f"{float(item.get('taxa_cache_pct', 0) or 0):.1f}%",
+                    "Tokens": _numero(item.get("total_tokens")),
+                })
+            st.markdown("##### Últimas execuções")
+            st.dataframe(tabela, use_container_width=True, hide_index=True)
 
 def pill_classif(c):
     if "ÓTIMO"       in c: return '<span class="pill p-otimo">✅ ÓTIMO</span>'
@@ -1166,6 +1316,8 @@ st.markdown(f"""
   </div>
 </div>
 """, unsafe_allow_html=True)
+
+render_painel_tokens()
 
 st.divider()
 
