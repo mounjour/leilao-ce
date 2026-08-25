@@ -268,16 +268,32 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 }
 
 /* ── TEMA ADAPTATIVO E RESPONSIVIDADE V3 ────────────────────────── */
+/* O Streamlit não expõe --background-color/--text-color/etc. como CSS
+   custom properties nesta versão (confirmado: não existem em nenhum
+   elemento da página) — var(--background-color, #f5f7fb) sempre caía
+   no fallback claro, então o tema nunca mudava de verdade. Detectamos
+   o modo escuro nós mesmos via prefers-color-scheme. */
 :root {
-    --lce-bg: var(--background-color, #f5f7fb);
-    --lce-surface: var(--secondary-background-color, #ffffff);
-    --lce-text: var(--text-color, #0f172a);
-    --lce-primary: var(--primary-color, #2563eb);
+    --lce-bg: #f5f7fb;
+    --lce-surface: #ffffff;
+    --lce-text: #0f172a;
+    --lce-primary: #2563eb;
     --lce-muted: color-mix(in srgb, var(--lce-text) 66%, transparent);
     --lce-border: color-mix(in srgb, var(--lce-text) 18%, transparent);
     --lce-hover: color-mix(in srgb, var(--lce-primary) 14%, var(--lce-surface));
     --lce-shadow: 0 8px 24px color-mix(in srgb, #000 14%, transparent);
     --lce-radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lce-bg: #0f1729;
+        --lce-surface: #1a2540;
+        --lce-text: #e2e8f0;
+        --lce-primary: #3b82f6;
+        --lce-hover: color-mix(in srgb, var(--lce-primary) 20%, var(--lce-surface));
+        --lce-shadow: 0 8px 24px rgba(0,0,0,.5);
+    }
 }
 
 /* Base: usa as variáveis de tema fornecidas pelo Streamlit. */
