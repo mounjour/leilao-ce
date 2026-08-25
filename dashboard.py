@@ -1389,8 +1389,40 @@ with st.sidebar:
     f_estado = st.selectbox("Estado", estados)
     f_cidade = st.selectbox("Cidade", cidades)
     f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
-    lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
-    f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
+
+    valores_lance = sorted(l["lance_atual"] for l in lotes if l["lance_atual"] > 0)
+    lance_teto = int(valores_lance[-1]) if valores_lance else 500000
+    if valores_lance:
+        # a régua do slider usa o p90 pra não esticar 35x por causa de 1 ou 2
+        # imóveis fora da curva — quem precisa de um valor maior digita no campo
+        idx_p90 = min(int(len(valores_lance) * 0.9), len(valores_lance) - 1)
+        lance_slider_max = max(int(valores_lance[idx_p90]), 10000)
+        lance_slider_max = -(-lance_slider_max // 1000) * 1000  # arredonda pra cima (múltiplo de 1000)
+    else:
+        lance_slider_max = 500000
+    lance_step = 500 if lance_slider_max <= 50000 else 1000
+
+    if "f_lance_num" not in st.session_state:
+        st.session_state["f_lance_num"] = lance_teto
+    if "f_lance_slider" not in st.session_state:
+        st.session_state["f_lance_slider"] = min(lance_teto, lance_slider_max)
+
+    def _sync_lance_do_campo():
+        st.session_state["f_lance_slider"] = min(st.session_state["f_lance_num"], lance_slider_max)
+
+    def _sync_lance_do_slider():
+        st.session_state["f_lance_num"] = st.session_state["f_lance_slider"]
+
+    st.number_input(
+        "Lance máximo (R$)", min_value=0, max_value=lance_teto, step=lance_step,
+        key="f_lance_num", on_change=_sync_lance_do_campo,
+    )
+    st.slider(
+        "Ajuste rápido", 0, lance_slider_max, step=lance_step,
+        key="f_lance_slider", on_change=_sync_lance_do_slider,
+        label_visibility="collapsed",
+    )
+    f_lance = st.session_state["f_lance_num"]
 
     fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
     if st.session_state.get("_fil_hash") != fil_hash:
