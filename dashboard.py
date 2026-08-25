@@ -45,10 +45,9 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
 
 /* opções do selectbox */
 section[data-testid="stSidebar"] [data-baseweb="menu"] {
-    background: transparent !important;
-    border: 1px solid rgba(255,255,255,.35) !important; border-radius: 8px !important; }
-section[data-testid="stSidebar"] [role="option"] { background: transparent !important; color: #e2e8f0 !important; }
-section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.12) !important; }
+    background: #1e3a8a !important; }
+section[data-testid="stSidebar"] [role="option"] { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.1) !important; }
 
 /* slider */
 section[data-testid="stSidebar"] [data-testid="stSlider"] * { color: #e2e8f0 !important; }
@@ -73,6 +72,7 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     font-weight: 700 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
+    background: #dbeafe !important; }
     background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
@@ -199,9 +199,11 @@ footer[data-testid="stFooter"],
 }
 
 /* ── BOTÃO COLAPSO DA SIDEBAR ────────────────────────────────────── */
+/* stExpandSidebarButton e stBaseButton-headerNoPadding JÁ SÃO o <button>
+   (não um wrapper); só stSidebarCollapseButton é um <div> com o botão
+   dentro. Por isso os seletores não são todos "... button". */
 [data-testid="stSidebarCollapseButton"],
-[data-testid="stExpandSidebarButton"],
-[data-testid="collapsedControl"] {
+[data-testid="stExpandSidebarButton"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -210,9 +212,8 @@ footer[data-testid="stFooter"],
 }
 
 [data-testid="stSidebarCollapseButton"] button,
-[data-testid="stExpandSidebarButton"] button,
-[data-testid="collapsedControl"] button,
-button[data-testid="baseButton-headerNoPadding"] {
+[data-testid="stExpandSidebarButton"],
+button[data-testid="stBaseButton-headerNoPadding"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -227,20 +228,13 @@ button[data-testid="baseButton-headerNoPadding"] {
     box-shadow: 0 2px 8px rgba(37,99,235,.5) !important;
 }
 
+/* O ícone é uma fonte de ícones (span), não um <svg>, nesta versão do
+   Streamlit — força a cor nele e em qualquer descendente. */
 [data-testid="stSidebarCollapseButton"] button *,
-[data-testid="stExpandSidebarButton"] button *,
-[data-testid="collapsedControl"] button *,
-button[data-testid="baseButton-headerNoPadding"] * {
+[data-testid="stExpandSidebarButton"] *,
+button[data-testid="stBaseButton-headerNoPadding"] * {
     visibility: visible !important;
     opacity: 1 !important;
-}
-
-[data-testid="stSidebarCollapseButton"] svg,
-[data-testid="stExpandSidebarButton"] svg,
-[data-testid="collapsedControl"] svg,
-button[data-testid="baseButton-headerNoPadding"] svg {
-    display: block !important;
-    visibility: visible !important;
     color: #fff !important;
     fill: #fff !important;
 }
@@ -523,15 +517,10 @@ section[data-testid="stSidebar"] label {
 
 section[data-testid="stSidebar"] input,
 section[data-testid="stSidebar"] [data-baseweb="select"] > div {
+    background: rgba(255,255,255,.10) !important;
     background: transparent !important;
     border-color: rgba(255,255,255,.35) !important;
     color: #ffffff !important;
-}
-
-/* Placeholder do multiselect "Marca" — mesma cor do texto padrão dos demais selects. */
-section[data-testid="stSidebar"] input::placeholder {
-    color: #ffffff !important;
-    opacity: 1 !important;
 }
 
 /* Navegação da sidebar sobrescreve o estilo geral de botões. */
@@ -572,8 +561,7 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 }
 
 [data-testid="stSidebarCollapseButton"],
-[data-testid="stExpandSidebarButton"],
-[data-testid="collapsedControl"] {
+[data-testid="stExpandSidebarButton"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -582,9 +570,8 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 }
 
 [data-testid="stSidebarCollapseButton"] button,
-[data-testid="stExpandSidebarButton"] button,
-[data-testid="collapsedControl"] button,
-button[data-testid="baseButton-headerNoPadding"] {
+[data-testid="stExpandSidebarButton"],
+button[data-testid="stBaseButton-headerNoPadding"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -603,12 +590,9 @@ button[data-testid="baseButton-headerNoPadding"] {
     box-shadow: 0 2px 8px rgba(37,99,235,.45) !important;
 }
 
-[data-testid="stSidebarCollapseButton"] svg,
-[data-testid="stExpandSidebarButton"] svg,
-[data-testid="collapsedControl"] svg,
-button[data-testid="baseButton-headerNoPadding"] svg {
-    display: block !important;
-    visibility: visible !important;
+[data-testid="stSidebarCollapseButton"] button *,
+[data-testid="stExpandSidebarButton"] *,
+button[data-testid="stBaseButton-headerNoPadding"] * {
     color: #ffffff !important;
     fill: #ffffff !important;
 }
@@ -1014,7 +998,7 @@ def render_lotes(lotes_lista, key="main"):
                         pass
 
                 col_link, col_fav = st.columns([4, 1])
-                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha"}.get(lote.get("fonte",""), "Leilão")
+                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha"}.get(lote.get("fonte",""), "Leilão")
                 col_link.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
