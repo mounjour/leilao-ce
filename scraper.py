@@ -4,10 +4,11 @@ from datetime import datetime, timedelta
 import anthropic
 import requests
 import json
+import hashlib
 import time
 import re
 import os
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -135,6 +136,21 @@ def classificar(lance, ref, estado):
     elif pct <= 75: return "⚠️ MEDIANO"
     else:           return "❌ RUIM"
 
+def oportunidade_preco(lance, ref, estado):
+    """Calcula oportunidade sem consumir tokens e sempre usa o lance atual."""
+    if estado in ["SINISTRADO", "BATIDO", "SUCATA"]:
+        return "INSPECIONAR"
+    if ref <= 0 or lance <= 0:
+        return "INSPECIONAR"
+    pct = (lance / ref) * 100
+    if pct <= 50:
+        return "OTIMA"
+    if pct <= 75:
+        return "BOA"
+    if pct <= 100:
+        return "REGULAR"
+    return "RUIM"
+
 # ─── ANÁLISE IA ───────────────────────────────────────────────────────────────
 _IA_ATIVA = True  # circuit breaker: False quando créditos esgotam
 
@@ -145,30 +161,39 @@ _FALLBACK_IA = {"estado":"NAO_INFORMADO","selo":"⚪ Não informado","oportunida
 def analisar(marca, modelo, ano, desc, km, lance, ref, categoria):
     global _IA_ATIVA
     if not _IA_ATIVA:
-        return _FALLBACK_IA
+        return _FALLBACK_IA.copy()
+
+    # Sem descrição nem quilometragem, a IA só produziria uma análise genérica.
+    # Evitar a chamada economiza tokens sem perder informação concreta.
+    if not str(desc or "").strip() and not str(km or "").strip():
+        return _FALLBACK_IA.copy()
+
     try:
-        pct = f"{round((lance/ref)*100,1)}% da referência" if ref > 0 and lance > 0 else "sem referência de preço"
         r = cliente_ia.messages.create(
-            model="claude-haiku-4-5-20251001", max_tokens=400,
-            messages=[{"role":"user","content":f"""Especialista em leilões no Brasil.
-Item: {marca} {modelo} {ano} | Categoria: {categoria}
-KM: {km or 'não informado'} | Lance: R$ {lance:,.0f} ({pct}) | Ref: R$ {ref:,.0f}
+            model="claude-haiku-4-5-20251001",
+            max_tokens=220,
+            messages=[{"role":"user","content":f"""Analise somente o estado e os riscos deste item de leilão brasileiro.
+Item: {marca} {modelo} {ano}; categoria: {categoria}; km: {km or 'não informado'}.
 Descrição: {desc or 'sem descrição'}
-REGRAS:
-- Sinistrado/batido/sucata: calcule economia (ref - lance) e estime custo de reparo. Se economia > reparo, pode valer; se reparo ≈ economia, risco alto. Seja específico.
-- Veículos bons: <=50%=ÓTIMO, 51-75%=BOA, >75%=REGULAR. Em leilão, 60-70% da FIPE já é bom negócio.
-- Rec. financiamento: risco de alienação/restrição; oriente consulta ao cartório e leilão especializado.
-- Para caminhões/equipamentos: use referência de mercado, avalie vida útil e custo de manutenção.
-- Seja direto como consultor experiente de leilões; foco em ROI real do arrematante.
-JSON apenas:
-{{"estado":"BOM","selo":"🟢 Bom estado","oportunidade":"OTIMA","uso_sugerido":"revenda","positivos":["p1","p2"],"negativos":["n1","n2"],"avaliacao_plataforma":"análise direta de 1-2 linhas"}}
-estado: BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO
-selo: 🟢 Bom estado|🟡 Batido|🔴 Sinistrado|🔵 Rec. Financiamento|⚫ Sucata|⚪ Não informado
-oportunidade: OTIMA|BOA|REGULAR|RUIM|INSPECIONAR"""}]
+Não avalie lance, preço, FIPE, desconto ou ROI. Não invente danos ausentes da descrição.
+Para recuperado de financiamento, recomende verificar restrições. Para caminhão ou equipamento, considere manutenção e vida útil.
+Responda apenas JSON:
+{{"estado":"BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO","selo":"🟢 Bom estado|🟡 Batido|🔴 Sinistrado|🔵 Rec. Financiamento|⚫ Sucata|⚪ Não informado","uso_sugerido":"texto curto","positivos":["até 2"],"negativos":["até 2"],"avaliacao_plataforma":"1 frase objetiva"}}"""}]
         )
         texto = r.content[0].text.strip()
         match = re.search(r'\{.*\}', texto, re.DOTALL)
-        return json.loads(match.group() if match else texto)
+        dados = json.loads(match.group() if match else texto)
+
+        # Mantém o formato esperado pelo restante do sistema. A oportunidade
+        # financeira continua sendo calculada localmente por classificar().
+        dados.setdefault("estado", "NAO_INFORMADO")
+        dados.setdefault("selo", "⚪ Não informado")
+        dados.setdefault("oportunidade", "INSPECIONAR")
+        dados.setdefault("uso_sugerido", "")
+        dados.setdefault("positivos", [])
+        dados.setdefault("negativos", [])
+        dados.setdefault("avaliacao_plataforma", "")
+        return dados
     except Exception as e:
         msg = str(e)
         if "credit balance is too low" in msg or "insufficient_quota" in msg:
@@ -176,43 +201,255 @@ oportunidade: OTIMA|BOA|REGULAR|RUIM|INSPECIONAR"""}]
             print("  ⚠️ IA desativada: créditos Anthropic esgotados. Recarregue em console.anthropic.com")
         else:
             print(f"  ⚠️ IA error: {e}")
-        return _FALLBACK_IA
+        return _FALLBACK_IA.copy()
 
+_CACHE_FILE = "analises_ia_cache.json"
+_CACHE_VERSION = 2
 _CACHE_ANALISE: dict = {}
+
+
+def _normalizar_texto(valor) -> str:
+    texto = unquote(str(valor or "")).lower().strip()
+    texto = re.sub(r"\s+", " ", texto)
+    return texto
+
+
+def _normalizar_url(url: str) -> str:
+    """
+    Remove query string, fragmento e diferenças de barra final.
+
+    Exemplo:
+    https://site.com/lote/123/?utm_source=x
+    https://site.com/lote/123
+
+    passam a representar o mesmo lote.
+    """
+    try:
+        partes = urlsplit(url.strip())
+
+        host = partes.netloc.lower().replace("www.", "")
+        caminho = re.sub(r"/+", "/", partes.path).rstrip("/")
+
+        return f"{host}{caminho}"
+    except Exception:
+        return url.strip().lower().rstrip("/")
+
+
+def _id_veiculo(url: str) -> str:
+    """
+    Identificador persistente do lote.
+
+    Não use somente marca/modelo/ano, pois podem existir vários veículos
+    iguais no mesmo leilão.
+    """
+    url_normalizada = _normalizar_url(url)
+
+    return hashlib.sha256(
+        url_normalizada.encode("utf-8")
+    ).hexdigest()
+
+
+def _hash_dados_veiculo(
+    marca,
+    modelo,
+    ano,
+    descricao,
+    km,
+    categoria,
+) -> str:
+    """
+    Detecta alterações relevantes no veículo.
+
+    Lance e FIPE não entram no hash porque a avaliação de preço já é
+    calculada localmente por classificar().
+    """
+    dados = {
+        "cache_version": _CACHE_VERSION,
+        "marca": _normalizar_texto(marca),
+        "modelo": _normalizar_texto(modelo),
+        "ano": int(ano or 0),
+        "descricao": _normalizar_texto(descricao),
+        "km": _normalizar_texto(km),
+        "categoria": _normalizar_texto(categoria),
+    }
+
+    serializado = json.dumps(
+        dados,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+
+    return hashlib.sha256(
+        serializado.encode("utf-8")
+    ).hexdigest()
+
 
 def _load_analise_cache():
     global _CACHE_ANALISE
-    _CACHE_ANALISE = {}
-    if not os.path.exists("leiloes.json"):
-        return
-    try:
-        with open("leiloes.json", encoding="utf-8") as f:
-            prev = json.load(f)
-        for lote in prev:
-            url   = lote.get("url", "")
-            lance = float(lote.get("lance_atual", 0) or 0)
-            if url and lance:
-                _CACHE_ANALISE[url] = {
-                    "lance": lance,
-                    "analise": {
-                        "recomendacao":         lote.get("recomendacao", ""),
-                        "positivos":            lote.get("positivos", []),
-                        "negativos":            lote.get("negativos", []),
-                        "uso_sugerido":         lote.get("uso_sugerido", ""),
-                        "estado":               lote.get("estado", ""),
-                        "avaliacao_plataforma": lote.get("avaliacao_plataforma", ""),
-                        "selo":                 lote.get("avaliacao_plataforma", ""),
-                    }
-                }
-        print(f"[cache] {len(_CACHE_ANALISE)} análises carregadas do run anterior")
-    except Exception as e:
-        print(f"[cache] erro: {e}")
 
-def _analisar_cached(url, marca, modelo, ano, desc, km, lance, ref, categoria):
-    cached = _CACHE_ANALISE.get(url)
-    if cached and abs(cached["lance"] - float(lance or 0)) < 1.0:
+    _CACHE_ANALISE = {}
+
+    if os.path.exists(_CACHE_FILE):
+        try:
+            with open(_CACHE_FILE, "r", encoding="utf-8") as arquivo:
+                dados = json.load(arquivo)
+
+            if isinstance(dados, dict):
+                _CACHE_ANALISE = dados
+
+            print(f"[cache IA] {len(_CACHE_ANALISE)} análises carregadas")
+            return
+        except Exception as e:
+            print(f"[cache IA] erro ao carregar {_CACHE_FILE}: {e}")
+
+    # Migração inicial: reaproveita análises que já foram pagas e estão no
+    # leiloes.json. Depois disso, o cache dedicado passa a ser usado.
+    if not os.path.exists("leiloes.json"):
+        print("[cache IA] nenhum cache anterior encontrado")
+        return
+
+    try:
+        with open("leiloes.json", "r", encoding="utf-8") as arquivo:
+            lotes_anteriores = json.load(arquivo)
+
+        for lote in lotes_anteriores:
+            url = lote.get("url", "")
+            avaliacao = lote.get("avaliacao_plataforma", "")
+            if not url or not avaliacao:
+                continue
+
+            veiculo_id = _id_veiculo(url)
+            dados_hash = _hash_dados_veiculo(
+                marca=lote.get("marca", ""),
+                modelo=lote.get("modelo", ""),
+                ano=lote.get("ano", 0),
+                descricao=lote.get("descricao", ""),
+                km=lote.get("km", ""),
+                categoria=lote.get("categoria", ""),
+            )
+
+            _CACHE_ANALISE[veiculo_id] = {
+                "cache_version": _CACHE_VERSION,
+                "url": _normalizar_url(url),
+                "dados_hash": dados_hash,
+                "analisado_em": lote.get("scraped_at", "migrado"),
+                "analise": {
+                    "estado": lote.get("estado", "NAO_INFORMADO"),
+                    "selo": lote.get("estado_selo", "⚪ Não informado"),
+                    "oportunidade": lote.get("oportunidade", "INSPECIONAR"),
+                    "uso_sugerido": lote.get("uso_sugerido", ""),
+                    "positivos": lote.get("positivos", []),
+                    "negativos": lote.get("negativos", []),
+                    "avaliacao_plataforma": avaliacao,
+                },
+            }
+
+        if _CACHE_ANALISE:
+            _save_analise_cache()
+        print(f"[cache IA] {len(_CACHE_ANALISE)} análises migradas de leiloes.json")
+    except Exception as e:
+        print(f"[cache IA] erro na migração: {e}")
+        _CACHE_ANALISE = {}
+
+
+def _save_analise_cache():
+    """
+    Grava primeiro em arquivo temporário para reduzir o risco de
+    corromper o cache caso o scraper seja interrompido.
+    """
+    temporario = f"{_CACHE_FILE}.tmp"
+
+    try:
+        with open(temporario, "w", encoding="utf-8") as arquivo:
+            json.dump(
+                _CACHE_ANALISE,
+                arquivo,
+                ensure_ascii=False,
+                indent=2,
+            )
+
+        os.replace(temporario, _CACHE_FILE)
+
+    except Exception as e:
+        print(f"[cache IA] erro ao salvar: {e}")
+
+        try:
+            if os.path.exists(temporario):
+                os.remove(temporario)
+        except Exception:
+            pass
+
+
+def _analisar_cached(
+    url,
+    marca,
+    modelo,
+    ano,
+    desc,
+    km,
+    lance,
+    ref,
+    categoria,
+):
+    veiculo_id = _id_veiculo(url)
+
+    dados_hash = _hash_dados_veiculo(
+        marca=marca,
+        modelo=modelo,
+        ano=ano,
+        descricao=desc,
+        km=km,
+        categoria=categoria,
+    )
+
+    cached = _CACHE_ANALISE.get(veiculo_id)
+
+    if (
+        cached
+        and cached.get("cache_version") == _CACHE_VERSION
+        and cached.get("dados_hash") == dados_hash
+        and isinstance(cached.get("analise"), dict)
+    ):
+        print(
+            f"  ♻️ IA reutilizada: {marca} {modelo} {ano}"
+        )
         return cached["analise"]
-    return analisar(marca, modelo, ano, desc, km, lance, ref, categoria)
+
+    print(
+        f"  🤖 Nova análise IA: {marca} {modelo} {ano}"
+    )
+
+    analise = analisar(
+        marca,
+        modelo,
+        ano,
+        desc,
+        km,
+        lance,
+        ref,
+        categoria,
+    )
+
+    # Não guardar falhas temporárias ou falta de créditos.
+    if analise == _FALLBACK_IA:
+        return analise
+
+    _CACHE_ANALISE[veiculo_id] = {
+        "cache_version": _CACHE_VERSION,
+        "url": _normalizar_url(url),
+        "dados_hash": dados_hash,
+        "analisado_em": datetime.now().isoformat(
+            timespec="minutes"
+        ),
+        "analise": analise,
+    }
+
+    # Salva imediatamente. Assim, se o mesmo veículo reaparecer durante
+    # a execução atual, ele já estará no cache.
+    _save_analise_cache()
+
+    return analise
 
 def limpar_modelo(raw):
     m = unquote(raw)
@@ -237,7 +474,7 @@ def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
         "descricao":            descricao,
         "estado":               analise.get("estado", "NAO_INFORMADO"),
         "estado_selo":          analise.get("selo", "⚪ Não informado"),
-        "oportunidade":         analise.get("oportunidade", "INSPECIONAR"),
+        "oportunidade":         oportunidade_preco(lance, ref_val, analise.get("estado", "")),
         "uso_sugerido":         analise.get("uso_sugerido", ""),
         "positivos":            analise.get("positivos", []),
         "negativos":            analise.get("negativos", []),
@@ -286,10 +523,15 @@ def _extrair_lance(texto):
     return 0
 
 def _extrair_foto(html, dominios=('cdndp.com.br',)):
+    # A CDN do Leilo serve um placeholder fixo (mesma URL em todos os lotes,
+    # sem "_media" no nome) para foto ausente/pendente — como o nome não tem
+    # nenhuma das palavras-chave abaixo, ele passava pelo filtro e virava a
+    # "foto" do card. Fotos reais dos lotes sempre têm "_media" no nome.
     for dom in dominios:
         pat = rf'https?://[^\s"\']+{re.escape(dom)}[^\s"\']*\.(?:jpg|jpeg|png|webp)'
         for f in re.findall(pat, html, re.IGNORECASE):
-            if not any(x in f.lower() for x in ['logo','icon','avatar','banner','no-image']):
+            fl = f.lower()
+            if '_media' in fl and not any(x in fl for x in ['logo','icon','avatar','banner','no-image']):
                 return f
     return ""
 
