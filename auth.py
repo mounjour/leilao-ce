@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import time
 
 import streamlit as st
 import stripe
@@ -30,6 +31,9 @@ _SUPABASE_KEY = _secret("SUPABASE_ANON_KEY")
 _PRICE_ID = _secret("STRIPE_PRICE_ID")
 _PUBLISHABLE = _secret("STRIPE_PUBLISHABLE_KEY")
 _APP_URL = _secret("APP_URL", "https://leilaoce.streamlit.app").rstrip("/")
+_SESSION_MAX_HOURS = float(_secret("SESSION_MAX_HOURS", "8") or 8)
+_SESSION_IDLE_MINUTES = float(_secret("SESSION_IDLE_MINUTES", "60") or 60)
+_SESSION_VERIFY_SECONDS = int(_secret("SESSION_VERIFY_SECONDS", "300") or 300)
 
 stripe.api_key = _secret("STRIPE_SECRET_KEY")
 
@@ -124,6 +128,10 @@ def _save_auth(auth_response) -> bool:
     st.session_state["user"] = user
     st.session_state["session"] = session
     st.session_state["_auth_user_id"] = user.id
+    agora = time.time()
+    st.session_state["_session_started_at"] = agora
+    st.session_state["_session_last_activity"] = agora
+    st.session_state["_session_last_verified"] = agora
     _load_profile(user.id, session)
     return True
 
@@ -158,8 +166,72 @@ def _clear_local_auth() -> None:
         "_favorites_error",
         "favorites",
         "_supabase_client",
+        "_session_started_at",
+        "_session_last_activity",
+        "_session_last_verified",
     ):
         st.session_state.pop(key, None)
+
+
+def ensure_valid_session() -> tuple[bool, str]:
+    """Renova o JWT e aplica limites locais no plano gratuito."""
+    user = get_user()
+    session = st.session_state.get("session")
+    if not user or not session:
+        return False, ""
+
+    agora = time.time()
+    st.session_state.setdefault("_session_started_at", agora)
+    st.session_state.setdefault("_session_last_activity", agora)
+    st.session_state.setdefault("_session_last_verified", 0)
+
+    inicio = float(st.session_state["_session_started_at"])
+    ultima_atividade = float(st.session_state["_session_last_activity"])
+
+    if _SESSION_MAX_HOURS > 0 and agora - inicio >= _SESSION_MAX_HOURS * 3600:
+        logout()
+        mensagem = "Sua sessão atingiu o limite de tempo. Entre novamente."
+        st.session_state["_auth_notice"] = mensagem
+        return False, mensagem
+
+    if _SESSION_IDLE_MINUTES > 0 and agora - ultima_atividade >= _SESSION_IDLE_MINUTES * 60:
+        logout()
+        mensagem = "Sua sessão expirou por inatividade. Entre novamente."
+        st.session_state["_auth_notice"] = mensagem
+        return False, mensagem
+
+    try:
+        sb = _sb()
+        sessao_atual = sb.auth.get_session()
+
+        if not sessao_atual:
+            resposta = sb.auth.set_session(
+                session.access_token,
+                session.refresh_token,
+            )
+            sessao_atual = getattr(resposta, "session", None)
+
+        if not sessao_atual:
+            raise RuntimeError("O Supabase não retornou uma sessão válida.")
+
+        st.session_state["session"] = sessao_atual
+
+        ultima_verificacao = float(st.session_state["_session_last_verified"])
+        if agora - ultima_verificacao >= _SESSION_VERIFY_SECONDS:
+            resposta_usuario = sb.auth.get_user(sessao_atual.access_token)
+            usuario_validado = getattr(resposta_usuario, "user", None)
+            if not usuario_validado:
+                raise RuntimeError("Usuário não reconhecido pelo Supabase.")
+            st.session_state["user"] = usuario_validado
+            st.session_state["_session_last_verified"] = agora
+
+        st.session_state["_session_last_activity"] = agora
+        return True, ""
+    except Exception:
+        logout()
+        mensagem = "Sua sessão não pôde ser renovada. Entre novamente."
+        st.session_state["_auth_notice"] = mensagem
+        return False, mensagem
 
 
 # ── Auth actions ─────────────────────────────────────────────────────────────
@@ -398,6 +470,10 @@ def render_auth_page() -> None:
 
     with column:
         _render_brand()
+
+        aviso_sessao = st.session_state.pop("_auth_notice", "")
+        if aviso_sessao:
+            st.warning(aviso_sessao)
 
         if not callback_ok:
             st.error(
