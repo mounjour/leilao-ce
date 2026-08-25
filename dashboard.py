@@ -42,9 +42,10 @@ section[data-testid="stSidebar"] [data-baseweb="select"] > div {
 
 /* opções do selectbox */
 section[data-testid="stSidebar"] [data-baseweb="menu"] {
-    background: #1e3a8a !important; }
-section[data-testid="stSidebar"] [role="option"] { color: #e2e8f0 !important; }
-section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.1) !important; }
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,.35) !important; border-radius: 8px !important; }
+section[data-testid="stSidebar"] [role="option"] { background: transparent !important; color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.12) !important; }
 
 /* slider */
 section[data-testid="stSidebar"] [data-testid="stSlider"] * { color: #e2e8f0 !important; }
@@ -69,17 +70,17 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     font-weight: 700 !important; font-size: .9rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
-    background: #dbeafe !important; }
+    background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"] {
-    background: rgba(255,255,255,.1) !important; color: #e2e8f0 !important;
-    border: 1px solid rgba(255,255,255,.2) !important; border-radius: 8px !important;
+    background: transparent !important; color: #e2e8f0 !important;
+    border: 1px solid rgba(255,255,255,.35) !important; border-radius: 8px !important;
     font-weight: 500 !important; font-size: .88rem !important; }
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
-    background: rgba(255,255,255,.2) !important; }
+    background: rgba(255,255,255,.12) !important; }
 
 .pill {
   display:inline-block; padding:4px 10px; border-radius:20px;
@@ -520,8 +521,8 @@ section[data-testid="stSidebar"] label {
 
 section[data-testid="stSidebar"] input,
 section[data-testid="stSidebar"] [data-baseweb="select"] > div {
-    background: rgba(255,255,255,.10) !important;
-    border-color: rgba(255,255,255,.24) !important;
+    background: transparent !important;
+    border-color: rgba(255,255,255,.35) !important;
     color: #ffffff !important;
 }
 
@@ -530,20 +531,21 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="second
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
     background: transparent !important;
     color: #e2e8f0 !important;
-    border: 1px solid transparent !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
 }
 
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"]:hover {
-    background: rgba(255,255,255,.12) !important;
+    background: transparent !important;
+    border-color: rgba(255,255,255,.7) !important;
     color: #ffffff !important;
 }
 
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"],
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"] {
-    background: #ffffff !important;
-    color: #172554 !important;
-    border-color: #ffffff !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
 }
 
 /* Header/toolbar e controle da sidebar. */
