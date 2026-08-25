@@ -103,23 +103,38 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 div[data-testid="stButton"] button { background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:500; width:100%; }
 div[data-testid="stButton"] button:hover { background:#1e293b; }
 
-/* ── ESTRELA FAVORITAR ── última coluna de cada card ──────────────── */
+/* ── BOTÃO FAVORITAR ── estrela grande + texto, última coluna de cada card ── */
 div[class*="st-key-fav_"] button {
     background: transparent !important;
     background-color: transparent !important;
-    border: none !important;
+    border: 2px solid #f59e0b !important;
     box-shadow: none !important;
-    width: auto !important;
+    width: 100% !important;
     height: auto !important;
-    min-height: 0 !important;
-    padding: 2px 6px !important;
-    font-size: 48px !important;
+    min-height: 44px !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
     color: #f59e0b !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+}
+div[class*="st-key-fav_"] button strong {
+    font-size: 26px !important;
     line-height: 1 !important;
 }
 div[class*="st-key-fav_"] button:hover {
-    background: transparent !important;
-    opacity: .75;
+    background: rgba(245, 158, 11, .12) !important;
+    opacity: 1 !important;
+}
+@media (max-width: 430px) {
+    div[class*="st-key-fav_"] button { font-size: 12px !important; gap: 4px !important; padding: 6px 8px !important; }
+    div[class*="st-key-fav_"] button strong { font-size: 22px !important; }
 }
 
 .card-img-box {
@@ -490,16 +505,6 @@ div[data-testid="stButton"] button:focus-visible,
 [data-testid="stLinkButton"] a:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--lce-primary) 38%, transparent) !important;
     outline-offset: 2px !important;
-}
-
-/* Favoritar: não afeta paginação nem outros últimos botões de colunas. */
-div[class*="st-key-fav_"] button,
-div[class*="st-key-fav_"] button:hover {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    min-height: 0 !important;
-    color: #f59e0b !important;
 }
 
 /* Abas legíveis e roláveis em telas estreitas. */
@@ -1014,12 +1019,13 @@ def render_lotes(lotes_lista, key="main"):
                     except:
                         pass
 
-                col_link, col_fav = st.columns([4, 1])
+                col_link, col_fav = st.columns([3, 2])
                 _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha"}.get(lote.get("fonte",""), "Leilão")
                 col_link.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
-                if col_fav.button(heart, key=f"fav_{key}_{i}", help="Favoritar"):
+                fav_label = f"**{heart}** Favoritar"
+                if col_fav.button(fav_label, key=f"fav_{key}_{i}", help="Favoritar"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
                     if _usr and _ses:
