@@ -6,7 +6,7 @@ from html import escape
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
-from auth import get_display_name, get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
+from auth import ensure_valid_session, get_display_name, get_profile, get_user, is_subscribed, logout, render_auth_page, render_paywall
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
@@ -1205,6 +1205,9 @@ def render_user_menu():
                 st.rerun()
 
 # ─── APP ──────────────────────────────────────────────────────────────────────
+
+# Renova o token, valida a conta e aplica os limites locais de sessão.
+ensure_valid_session()
 
 # Exige uma conta válida antes de mostrar o painel.
 if not get_user():
