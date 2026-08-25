@@ -1446,9 +1446,253 @@ def _raspar_soleon(base, fonte, vistos):
 
     return lotes
 
+# ─── SCRAPER MGL LEILÕES ─────────────────────────────────────────────────────
+_MGL_BUSCA_VEICULOS_CE = (
+    "https://www.mgl.com.br/busca/"
+    "#Engine=StartMGL&modelo=Ve%C3%ADculos&estado=23&Pagina=0&PaginaIndex=1&"
+)
+
+
+def _raspar_mgl(pg_lista, pg_detalhe, vistos):
+    """Busca somente veículos localizados no Ceará na MGL."""
+    lotes = []
+    try:
+        print("📡 MGL | veículos no Ceará")
+        pg_lista.goto(_MGL_BUSCA_VEICULOS_CE, wait_until="domcontentloaded", timeout=60000)
+        pg_lista.wait_for_selector(".dg-leiloes-item", timeout=30000)
+        pg_lista.wait_for_timeout(1500)
+
+        urls = pg_lista.locator('a[href*="/lote/"]').evaluate_all(
+            "els => [...new Set(els.map(e => e.href))]"
+        )
+    except Exception as e:
+        print(f"  ⚠️ MGL listagem: {e}")
+        return lotes
+
+    print(f"  {len(urls)} lote(s) encontrado(s)")
+    for url_lote in urls:
+        if url_lote in vistos:
+            continue
+        vistos.add(url_lote)
+
+        try:
+            pg_detalhe.goto(url_lote, wait_until="domcontentloaded", timeout=45000)
+            pg_detalhe.wait_for_timeout(700)
+            texto = pg_detalhe.locator("body").inner_text()
+
+            mm = re.search(
+                r'MARCA/MODELO:\s*([^\n/]+?)\s*/\s*([^\n]+)',
+                texto, re.IGNORECASE
+            )
+            if not mm:
+                print(f"  [skip] MGL sem marca/modelo: {url_lote}")
+                continue
+
+            marca = mm.group(1).strip().title()
+            modelo = mm.group(2).strip().title()
+
+            ano = 0
+            am = re.search(r'ANO/MODELO:\s*(\d{4})\s*/\s*(\d{4})', texto, re.IGNORECASE)
+            if am:
+                ano = int(am.group(2))
+
+            lance = _extrair_lance(texto)
+            km = _extrair_km(texto)
+            data_leilao = _extrair_data_leilao(texto)
+
+            descricao = ""
+            dm = re.search(
+                r'(?:OBS\.|Ônus)[:\s]*(.{20,1200}?)(?=\n(?:Condições|Documentos|Encontre no mapa|Histórico de Lances)\b)',
+                texto, re.IGNORECASE | re.DOTALL
+            )
+            if dm:
+                descricao = re.sub(r'\s+', ' ', dm.group(1)).strip()[:700]
+            if not descricao:
+                descricao = _extrair_descricao(texto)
+
+            cidade = "CE"
+            cm = re.search(r'\b([A-ZÀ-Ú][A-ZÀ-Ú \'-]{2,})/CE\s*-', texto)
+            if cm:
+                cidade = cm.group(1).strip().title() + "/CE"
+
+            foto = ""
+            fotos = pg_detalhe.locator('img[src*="/imagens-complete/"]').evaluate_all(
+                "els => els.map(e => e.src).filter(Boolean)"
+            )
+            if fotos:
+                foto = fotos[0]
+
+            categoria = detectar_categoria(modelo, marca, "carros")
+            icone = ICONES.get(categoria, "📦")
+            ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+            analise = _analisar_cached(
+                url_lote, marca, modelo, ano, descricao, km,
+                lance, ref_val, categoria
+            )
+            classif = classificar(lance, ref_val, analise.get("estado", ""))
+            print(f"  {icone} [MGL/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+            lotes.append(_lote_dict(
+                "mgl", categoria, marca, modelo, ano, cidade,
+                lance, ref_val, ref_str, classif, foto, km,
+                descricao, analise, url_lote, data_leilao
+            ))
+        except Exception as e:
+            print(f"  ⚠️ MGL lote: {e}")
+
+    return lotes
+
+
+# ─── SCRAPER MONTENEGRO LEILÕES ───────────────────────────────────────────────
+_MONTENEGRO_BASE = "https://montenegroleiloes.com.br"
+
+
+def _scroll_ate_carregar_todos(pg, seletor, tentativas=12):
+    """Carrega os cartões adicionados por rolagem infinita."""
+    anterior = -1
+    for _ in range(tentativas):
+        atual = pg.locator(seletor).count()
+        if atual == anterior:
+            break
+        anterior = atual
+        pg.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+        pg.wait_for_timeout(700)
+
+
+def _raspar_montenegro(pg_lista, pg_detalhe, vistos):
+    """Descobre leilões abertos com veículos e coleta seus lotes."""
+    lotes = []
+    try:
+        print("📡 Montenegro | leilões com veículos")
+        pg_lista.goto(_MONTENEGRO_BASE + "/", wait_until="domcontentloaded", timeout=60000)
+        pg_lista.wait_for_selector(".q-card.cursor-pointer", timeout=30000)
+        pg_lista.wait_for_timeout(1200)
+
+        cards = pg_lista.locator(".q-card.cursor-pointer").evaluate_all(
+            "els => els.map(e => (e.innerText || '').trim())"
+        )
+        leiloes = []
+        for card in cards:
+            if "Nº do Leilão:" not in card or not re.search(r've[ií]culos?', card, re.I):
+                continue
+            lm = re.search(r'Nº do Leilão:\s*(\d+)', card, re.I)
+            if lm and lm.group(1) not in leiloes:
+                leiloes.append(lm.group(1))
+    except Exception as e:
+        print(f"  ⚠️ Montenegro listagem: {e}")
+        return lotes
+
+    print(f"  {len(leiloes)} leilão(ões) com veículos")
+    for leilao_id in leiloes:
+        url_leilao = f"{_MONTENEGRO_BASE}/leiloes/{leilao_id}"
+        try:
+            pg_lista.goto(url_leilao, wait_until="domcontentloaded", timeout=60000)
+            pg_lista.wait_for_selector("[data-lote-id]", timeout=30000)
+            _scroll_ate_carregar_todos(pg_lista, "[data-lote-id]")
+            cards_lote = pg_lista.locator("[data-lote-id]").evaluate_all(
+                "els => els.map(e => ({id: e.getAttribute('data-lote-id'), texto: (e.innerText || '').trim()}))"
+            )
+        except Exception as e:
+            print(f"  ⚠️ Montenegro leilão {leilao_id}: {e}")
+            continue
+
+        print(f"  Leilão {leilao_id}: {len(cards_lote)} lote(s)")
+        for card in cards_lote:
+            lote_id = card.get("id")
+            resumo = card.get("texto", "")
+            if not lote_id:
+                continue
+
+            # Leilões mistos também contêm imóveis. Este scraper processa
+            # somente os lotes de veículos para evitar IA e FIPE indevidas.
+            if any(p in resumo.lower() for p in PALAVRAS_IMOVEL):
+                continue
+
+            url_lote = f"{url_leilao}/lotes/{lote_id}"
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+
+            try:
+                pg_detalhe.goto(url_lote, wait_until="domcontentloaded", timeout=45000)
+                pg_detalhe.wait_for_timeout(700)
+                texto = pg_detalhe.locator("body").inner_text()
+
+                marca_m = re.search(r'\nMarca\s*\n([^\n]+)', texto, re.IGNORECASE)
+                modelo_m = re.search(r'\nModelo\s*\n([^\n]+)', texto, re.IGNORECASE)
+                ano_m = re.search(
+                    r'Ano Fabrica[çc][aã]o\s*/\s*Modelo\s*\n\s*(\d{4})\s*/\s*(\d{4})',
+                    texto, re.IGNORECASE
+                )
+
+                marca = marca_m.group(1).strip().title() if marca_m else "?"
+                modelo = modelo_m.group(1).strip().title() if modelo_m else "?"
+                ano = int(ano_m.group(2)) if ano_m else 0
+
+                # Alguns lotes antigos não têm os campos estruturados; usa o
+                # título do cartão como fallback sem acionar a IA duas vezes.
+                if marca == "?" or modelo == "?":
+                    linhas = [x.strip() for x in resumo.splitlines() if x.strip()]
+                    titulo = next((x for x in linhas if re.search(r'\b(?:19|20)\d{2}/(?:19|20)\d{2}\b', x)), "")
+                    fm, fmod, fa = _extrair_veiculo_de_titulo(titulo)
+                    marca = fm if marca == "?" else marca
+                    modelo = fmod if modelo == "?" else modelo
+                    ano = ano or fa
+
+                lance = _extrair_lance(texto)
+                km = _extrair_km(texto)
+                data_leilao = _extrair_data_leilao(texto)
+
+                descricao = ""
+                dm = re.search(
+                    r'Detalhes do Lote\s*-\s*[^\n]+\n(.{20,1800}?)(?=\nCondições de Venda\b)',
+                    texto, re.IGNORECASE | re.DOTALL
+                )
+                if dm:
+                    descricao = re.sub(r'\s+', ' ', dm.group(1)).strip()[:700]
+                if not descricao:
+                    descricao = _extrair_descricao(texto)
+
+                cidade = "Fortaleza/CE"
+                base_cidade = (descricao + " " + texto[:1200]).lower()
+                for nome_cidade in CIDADES_CE:
+                    nome_legivel = nome_cidade.replace('-', ' ')
+                    if nome_legivel in base_cidade:
+                        cidade = nome_legivel.title() + "/CE"
+                        break
+                else:
+                    cm = re.search(r'\b([A-ZÀ-Ú][^\n,/]{2,45})/CE\b', descricao, re.IGNORECASE)
+                    if cm:
+                        cidade = cm.group(1).strip().title() + "/CE"
+
+                foto = ""
+                fotos = pg_detalhe.locator("img").evaluate_all(
+                    "els => els.map(e => e.src).filter(u => u && !/logo|icon|avatar|banner/i.test(u))"
+                )
+                if fotos:
+                    foto = fotos[0]
+
+                categoria = detectar_categoria(modelo, marca, "carros")
+                icone = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise = _analisar_cached(
+                    url_lote, marca, modelo, ano, descricao, km,
+                    lance, ref_val, categoria
+                )
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [Montenegro/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict(
+                    "montenegro", categoria, marca, modelo, ano, cidade,
+                    lance, ref_val, ref_str, classif, foto, km,
+                    descricao, analise, url_lote, data_leilao
+                ))
+            except Exception as e:
+                print(f"  ⚠️ Montenegro lote {lote_id}: {e}")
+
+    return lotes
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
     _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
@@ -1466,6 +1710,8 @@ def raspar_leiloes():
         lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
+        lotes += _raspar_mgl(pg_lista, pg_detalhe, vistos)
+        lotes += _raspar_montenegro(pg_lista, pg_detalhe, vistos)
 
         ctx.close()
         browser.close()
