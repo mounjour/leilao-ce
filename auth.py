@@ -6,7 +6,12 @@ import streamlit as st
 import stripe
 from dotenv import load_dotenv
 from supabase import Client, create_client
-from supabase.lib.client_options import ClientOptions
+
+try:
+    # Caminho documentado nas versões atuais do supabase-py.
+    from supabase.client import ClientOptions
+except ImportError:
+    ClientOptions = None
 
 
 load_dotenv()
@@ -47,12 +52,22 @@ def _sb() -> Client:
     """
     _validate_supabase_config()
     if "_supabase_client" not in st.session_state:
-        options = ClientOptions(flow_type="pkce")
-        st.session_state["_supabase_client"] = create_client(
-            _SUPABASE_URL,
-            _SUPABASE_KEY,
-            options=options,
-        )
+        try:
+            if ClientOptions is None:
+                raise AttributeError("ClientOptions indisponível")
+            options = ClientOptions(flow_type="pkce")
+            st.session_state["_supabase_client"] = create_client(
+                _SUPABASE_URL,
+                _SUPABASE_KEY,
+                options=options,
+            )
+        except (AttributeError, TypeError):
+            # Compatibilidade com versões como 2.22/2.24, nas quais
+            # ClientOptions pode gerar "object has no attribute storage".
+            st.session_state["_supabase_client"] = create_client(
+                _SUPABASE_URL,
+                _SUPABASE_KEY,
+            )
     return st.session_state["_supabase_client"]
 
 
@@ -541,4 +556,3 @@ def render_paywall() -> None:
         if st.button("Sair", use_container_width=True):
             logout()
             st.rerun()
-
