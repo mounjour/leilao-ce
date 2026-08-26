@@ -7,7 +7,7 @@
     "modelo": "Kicks Sv Cvt",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 45600.0,
+    "lance_atual": 48100.0,
     "fipe_valor": 78092.0,
     "fipe_str": "R$ 78.092,00",
     "classificacao": "⚠️ MEDIANO",
@@ -23,7 +23,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/kicks-sv-cvt/ano.2018/ed16e4ab-84f9-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:49"
+    "scraped_at": "2026-08-26T07:00"
   },
   {
     "fonte": "leilo",
@@ -33,7 +33,7 @@
     "modelo": "Toro Freedom Automatico",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 39000.0,
+    "lance_atual": 39500.0,
     "fipe_valor": 80545.0,
     "fipe_str": "R$ 80.545,00",
     "classificacao": "✅ ÓTIMO",
@@ -49,7 +49,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2017/fd7befd2-5aa6-11f1-99e0-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:49"
+    "scraped_at": "2026-08-26T07:00"
   },
   {
     "fonte": "leilo",
@@ -59,7 +59,7 @@
     "modelo": "Onix Joye",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26300.0,
+    "lance_atual": 26700.0,
     "fipe_valor": 43790.0,
     "fipe_str": "R$ 43.790,00",
     "classificacao": "⚠️ MEDIANO",
@@ -75,7 +75,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-joye-(4p)/ano.2018/8c69a5a0-6982-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:49"
+    "scraped_at": "2026-08-26T07:00"
   },
   {
     "fonte": "leilo",
@@ -85,7 +85,7 @@
     "modelo": "Hb20X Style",
     "ano": 2016,
     "cidade": "Eusebio/CE",
-    "lance_atual": 33500.0,
+    "lance_atual": 34000.0,
     "fipe_valor": 63771.0,
     "fipe_str": "R$ 63.771,00",
     "classificacao": "⚠️ MEDIANO",
@@ -101,7 +101,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20x-style-(4p)/ano.2016/dcacebff-4ad4-11f1-8621-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:49"
+    "scraped_at": "2026-08-26T07:00"
   },
   {
     "fonte": "leilo",
@@ -111,23 +111,23 @@
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18000.0,
+    "lance_atual": 18800.0,
     "fipe_valor": 37295.0,
     "fipe_str": "R$ 37.295,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/21/1787322121383_4e0d49d9-abb0-43f2-b55b-1acdd8f9585e_media.webp",
     "km": "78.901 km",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
+    "oportunidade": "BOA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2019/bfbce7d2-8d9d-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:49"
+    "scraped_at": "2026-08-26T07:00"
   },
   {
     "fonte": "leilo",
@@ -137,7 +137,7 @@
     "modelo": "Gol Trendline Mc",
     "ano": 2016,
     "cidade": "Eusebio/CE",
-    "lance_atual": 27600.0,
+    "lance_atual": 28000.0,
     "fipe_valor": 40504.0,
     "fipe_str": "R$ 40.504,00",
     "classificacao": "⚠️ MEDIANO",
@@ -153,7 +153,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mc-(4p%2F2p)/ano.2016/cfd7c3cd-8ff8-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -163,12 +163,12 @@
     "modelo": "Nivus Highline Tsi Ad",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 65000.0,
+    "lance_atual": 66500.0,
     "fipe_valor": 102017.0,
     "fipe_str": "R$ 102.017,00",
     "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/22/1787407324552_dcb846f6-3ae5-4ed7-a7a9-43f62820456b_media.webp",
-    "km": "172.398 km",
+    "km": "98.010 km",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
@@ -179,33 +179,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/nivus-highline-tsi-ad/ano.2021/eba66f46-fae4-11f0-af6c-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Ford",
-    "modelo": "Ka Hatch Se 1.0",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 14000.0,
-    "fipe_valor": 35452.0,
-    "fipe_str": "R$ 35.452,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilomaster.cdndp.com.br/v1/arquivo/2023/7/31/1690815875895_dfc71988-370e-4a75-8a36-cb1a907bfe4e_media.webp",
-    "km": "98.010 km",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/25583eb7-2f73-11f0-9f79-02420a000005",
-    "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -215,7 +189,7 @@
     "modelo": "Mobi Like",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26200.0,
+    "lance_atual": 26600.0,
     "fipe_valor": 43369.0,
     "fipe_str": "R$ 43.369,00",
     "classificacao": "⚠️ MEDIANO",
@@ -231,7 +205,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2019/9cfc8019-7ad0-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -257,7 +231,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0-(4p)/ano.2020/7a0cf81a-9edb-11f0-bcb1-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -267,11 +241,11 @@
     "modelo": "Seal Awd Gs 590Ev",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 130000.0,
+    "lance_atual": 131500.0,
     "fipe_valor": 308461.0,
     "fipe_str": "R$ 308.461,00",
     "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilomaster.cdndp.com.br/v1/arquivo/2023/7/31/1690815875895_dfc71988-370e-4a75-8a36-cb1a907bfe4e_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/25/1787684702911_3f5c2d2c-a4d3-4fc0-a896-66321d8e1ec0_media.webp",
     "km": "11.088 km",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -283,7 +257,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/byd/seal-awd-gs-590ev-(4p)/ano.2025/79591982-8469-11f1-959d-02420a00000e",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -309,7 +283,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/renegade-sport-automatico/ano.2016/55997e50-6e42-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -319,7 +293,7 @@
     "modelo": "Argo Drive 1.0",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 19800.0,
+    "lance_atual": 20200.0,
     "fipe_valor": 50503.0,
     "fipe_str": "R$ 50.503,00",
     "classificacao": "✅ ÓTIMO",
@@ -335,7 +309,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0-(4p)/ano.2019/99a77090-f56e-11f0-af6c-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -361,7 +335,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c3-glx-14-flex-(2p%2F4p)/ano.2010/7462effb-eaf5-11ef-bd15-02420a00000b",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -371,7 +345,7 @@
     "modelo": "Strada Fire Flex",
     "ano": 2011,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5300.0,
+    "lance_atual": 5900.0,
     "fipe_valor": 49786.0,
     "fipe_str": "R$ 49.786,00",
     "classificacao": "✅ ÓTIMO",
@@ -387,7 +361,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-flex/ano.2011/bce1d532-1417-11f1-a639-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -413,7 +387,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c3-origine-pack-(4p)/ano.2015/55f02815-8839-11f0-b593-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:50"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -439,7 +413,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/agile-ltz-(2p%2F4p)/ano.2011/b53f39eb-7b96-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -465,7 +439,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/renegade-sport-automatico/ano.2016/a619b892-5387-11f1-8cef-02420a000008",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:01"
   },
   {
     "fonte": "leilo",
@@ -491,7 +465,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/408-griffe-(4p)/ano.2012/9dd0059f-22fa-11f1-a639-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -517,7 +491,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/doblo-adventure-flex/ano.2011/9a3b7338-29df-11f1-8174-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -527,7 +501,7 @@
     "modelo": "Strada Working",
     "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 27400.0,
+    "lance_atual": 27800.0,
     "fipe_valor": 20321.0,
     "fipe_str": "R$ 20.321,00",
     "classificacao": "❌ RUIM",
@@ -543,7 +517,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/strada-working/ano.2015/f06eb148-5932-11f1-99e0-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -569,7 +543,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-s-edition/ano.2023/5f7b3cd7-8474-11f1-959d-02420a00000e",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -595,7 +569,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/uno-vivace-1.0-(2p%2F4p)/ano.2015/f13dae40-39a3-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -621,7 +595,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/cruze-sedan-lt-nb-(4p)/ano.2012/8db2f752-64c8-11f1-99e0-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -631,7 +605,7 @@
     "modelo": "Palio Attractive 1.0",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18000.0,
+    "lance_atual": 19600.0,
     "fipe_valor": 42077.0,
     "fipe_str": "R$ 42.077,00",
     "classificacao": "✅ ÓTIMO",
@@ -647,7 +621,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/palio-attractive-1.0-(4p%2F2p)/ano.2017/31bd5049-34d6-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -673,7 +647,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-volcano-at9-d4-cabine-dupla/ano.2020/c392607c-4e1f-11f1-8cef-02420a000008",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -699,7 +673,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/tiida-sl-flex-(4p)/ano.2012/a4792675-005e-11f1-8a4c-0242ac50000b",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:51"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -725,7 +699,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/siena-tetrafuel-1.4-(4p)/ano.2014/b0c77fc8-32b5-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -751,7 +725,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-sce-(4p)/ano.2018/fc87582c-7b98-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:02"
   },
   {
     "fonte": "leilo",
@@ -777,7 +751,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/kia/sportage-ex2-g2/ano.2010/e2eafeb0-6f34-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:02"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Golf Sportline",
+    "ano": 2012,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 23000.0,
+    "fipe_valor": 54510.0,
+    "fipe_str": "R$ 54.510,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/21/1787322030722_4baa8975-0b82-4037-8730-1329e469a4b4_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/golf-sportline-(4p)/ano.2012/07dded8d-7194-11f1-b7a7-02420a000006",
+    "data_leilao": "2026-08-26T12:30",
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -803,7 +803,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2022/42952161-7572-11f1-87e3-02420a000009",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -813,23 +813,23 @@
     "modelo": "Ybr 150 Factor",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8000.0,
+    "lance_atual": 10400.0,
     "fipe_valor": 16193.0,
     "fipe_str": "R$ 16.193,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/22/1787407265872_3fd3e006-d1e2-4d44-8738-75551cb08c96_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "oportunidade": "OTIMA",
+    "oportunidade": "BOA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-150-factor/ano.2025/e2b82d74-7a04-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -855,7 +855,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/pop-110i/ano.2020/9cc93506-6ca1-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -865,7 +865,7 @@
     "modelo": "Biz Es",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10500.0,
+    "lance_atual": 10700.0,
     "fipe_valor": 11166.0,
     "fipe_str": "R$ 11.166,00",
     "classificacao": "❌ RUIM",
@@ -881,7 +881,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-es/ano.2025/97d7489d-5ddc-11f1-99e0-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -907,7 +907,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2023/36a4a6b3-718e-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:52"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -917,23 +917,23 @@
     "modelo": "Cg 160 Fan",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12400.0,
+    "lance_atual": 15400.0,
     "fipe_valor": 19446.0,
     "fipe_str": "R$ 19.446,00",
-    "classificacao": "⚠️ MEDIANO",
+    "classificacao": "❌ RUIM",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/22/1787407323532_0f32069d-ad64-4d78-aaac-fb6bc386d456_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "oportunidade": "BOA",
+    "oportunidade": "REGULAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2025/16bac671-6f1e-11f1-b7a7-02420a000006",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -943,7 +943,7 @@
     "modelo": "Jta/Zontes T350",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18700.0,
+    "lance_atual": 19300.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -959,7 +959,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/zontes/jta%2Fzontes-t350/ano.2026/b8a78b57-9673-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -969,7 +969,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10200.0,
+    "lance_atual": 10600.0,
     "fipe_valor": 17781.0,
     "fipe_str": "R$ 17.781,00",
     "classificacao": "⚠️ MEDIANO",
@@ -985,7 +985,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2024/60ba8f6f-7b8f-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:03"
   },
   {
     "fonte": "leilo",
@@ -1011,7 +1011,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2023/3bd629e1-8b7d-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1021,7 +1021,7 @@
     "modelo": "Basham Bm T 180",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7500.0,
+    "lance_atual": 8400.0,
     "fipe_valor": 9707.0,
     "fipe_str": "R$ 9.707,00",
     "classificacao": "❌ RUIM",
@@ -1037,7 +1037,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bull/basham-bm-t-180/ano.2025/cf1a53d7-8476-11f1-959d-02420a00000e",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1063,7 +1063,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2025/daa25064-85f8-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1073,7 +1073,7 @@
     "modelo": "Jincheng Avelloz Az125",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6600.0,
+    "lance_atual": 6800.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -1089,7 +1089,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/jincheng-avelloz-az125/ano.2025/a0cc23b0-585b-11f1-8cef-02420a000008",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1115,7 +1115,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-titan/ano.2024/6ed2242e-8471-11f1-959d-02420a00000e",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1141,7 +1141,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-150/ano.2026/f5a12b8e-8ce3-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1167,7 +1167,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy-50q-2/ano.2024/f5c24e7b-8abd-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1193,7 +1193,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bajaj/dominar-d250/ano.2026/6a5cd9bb-74a9-11f1-87e3-02420a000009",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1203,7 +1203,7 @@
     "modelo": "50Q",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4400.0,
+    "lance_atual": 4800.0,
     "fipe_valor": 3152.0,
     "fipe_str": "R$ 3.152,00",
     "classificacao": "❌ RUIM",
@@ -1219,7 +1219,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/50q/ano.2026/08494fc2-90d1-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:53"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1229,7 +1229,7 @@
     "modelo": "Xy125 6A",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5100.0,
+    "lance_atual": 5700.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -1245,7 +1245,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2025/ffdf5ed0-8c12-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1271,7 +1271,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/xtz250-lander/ano.2023/ae688099-90c6-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1281,7 +1281,7 @@
     "modelo": "Cg 160 Fan",
     "ano": 2023,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10000.0,
+    "lance_atual": 10400.0,
     "fipe_valor": 16607.0,
     "fipe_str": "R$ 16.607,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1297,7 +1297,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2023/f58ec841-86b9-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1307,7 +1307,7 @@
     "modelo": "Biz Es",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8900.0,
+    "lance_atual": 9300.0,
     "fipe_valor": 11166.0,
     "fipe_str": "R$ 11.166,00",
     "classificacao": "❌ RUIM",
@@ -1323,7 +1323,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-es/ano.2026/59322ea0-9713-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:04"
   },
   {
     "fonte": "leilo",
@@ -1333,7 +1333,7 @@
     "modelo": "Nxr 160 Bros Cbs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 14600.0,
+    "lance_atual": 15500.0,
     "fipe_valor": 23194.0,
     "fipe_str": "R$ 23.194,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1349,7 +1349,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2025/d57eca62-7bc6-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1375,7 +1375,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bajaj/dominar-d250/ano.2025/0ddd8119-85cb-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1401,7 +1401,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-fan/ano.2024/6e6aa266-8da0-11f1-bba6-02420a00000f",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1427,7 +1427,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2023/a4d4f8ec-9647-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1453,7 +1453,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-xy125-6a/ano.2025/67424e57-91b6-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1479,7 +1479,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/mt03-abs/ano.2024/8c6ede28-8f37-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1505,7 +1505,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/xtz-250-lander/ano.2025/0f1c6582-8047-11f1-a78c-02420a000008",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1515,7 +1515,7 @@
     "modelo": "Cg 160 Titan",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10300.0,
+    "lance_atual": 10900.0,
     "fipe_valor": 21824.0,
     "fipe_str": "R$ 21.824,00",
     "classificacao": "✅ ÓTIMO",
@@ -1531,7 +1531,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-titan/ano.2024/7d6bd2d7-81d7-11f1-959d-02420a00000e",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:54"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1545,7 +1545,7 @@
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilomaster.cdndp.com.br/v1/arquivo/2023/7/31/1690815875895_dfc71988-370e-4a75-8a36-cb1a907bfe4e_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/25/1787689410252_a3e3c6fe-95e3-421a-8faa-e09de6176553_media.webp",
     "km": "163.256 km",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -1557,7 +1557,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/ducato-minibus/ano.2012/95cd0a85-3802-11f0-bd5d-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:55"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1583,7 +1583,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/volkswagen/19.370-clm-t-4x2/ano.2008/b4c1d9b4-d793-11f0-913b-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:55"
+    "scraped_at": "2026-08-26T07:05"
   },
   {
     "fonte": "leilo",
@@ -1593,11 +1593,11 @@
     "modelo": "Hilux  Cd4X4  Srv",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 58000.0,
+    "lance_atual": 59500.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://leilomaster.cdndp.com.br/v1/arquivo/2023/7/31/1690815875895_dfc71988-370e-4a75-8a36-cb1a907bfe4e_media.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/25/1787684765050_e5925267-6849-40fa-9861-308c5b9b5fc1_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -1609,7 +1609,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/toyota/hilux--cd4x4--srv/ano.2014/e454a68c-3d8d-11f0-b593-02420a000005",
     "data_leilao": "2026-08-26T12:30",
-    "scraped_at": "2026-08-25T18:55"
+    "scraped_at": "2026-08-26T07:06"
   },
   {
     "fonte": "mega",
@@ -1635,7 +1635,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/terrenos-e-lotes/ce/eusebio/terreno-em-condominio-253-m2-lt-11-qd-05-mangabeira-eusebio-ce-x128263",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1661,7 +1661,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-63-m2-unid-107s-itaperi-fortaleza-ce-x128278",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1687,7 +1687,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/itapiuna/casa-392-m2-alto-das-umburana-itapiuna-ce-x128301",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1713,7 +1713,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/camocim/casa-98-m2-cidade-com-deus-camocim-ce-x128115",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1739,7 +1739,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/pindoretama/casa-273-m2-loteamento-brisas-do-pindoretama-pindoretama-ce-x128132",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1765,7 +1765,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/araripe/casa-49-m2-sipauba-i-araripe-ce-x128149",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1791,7 +1791,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/horizonte/casa-em-condominio-78-m2-unid-804-l-mal-cozinhado-horizonte-ce-x128168",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1817,7 +1817,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/jaguaribara/casa-146-m2-nossa-senhora-de-fatima-jaguaribara-ce-x128172",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1843,7 +1843,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/jaguaretama/casa-144-m2-padre-sebastiao-marleno-jaguaretama-ce-x128202",
     "data_leilao": "2026-08-26T12:00",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "mega",
@@ -1869,7 +1869,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/sobral/casa-211-m2-sobral-ce-rua-francisco-de-souza-mororo-1336-jeronimo-prado-x128312",
     "data_leilao": "2026-09-02T15:04",
-    "scraped_at": "2026-08-25T19:11"
+    "scraped_at": "2026-08-26T07:21"
   },
   {
     "fonte": "pacto",
@@ -1879,7 +1879,7 @@
     "modelo": "Kicks Sv Cvt",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 45600.0,
+    "lance_atual": 48100.0,
     "fipe_valor": 78092.0,
     "fipe_str": "R$ 78.092,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1895,7 +1895,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/nissan/kicks-sv-cvt/ano.2018/ed16e4ab-84f9-11f1-bba6-02420a00000f",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -1905,7 +1905,7 @@
     "modelo": "Toro Freedom Automatico",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 39000.0,
+    "lance_atual": 39500.0,
     "fipe_valor": 80545.0,
     "fipe_str": "R$ 80.545,00",
     "classificacao": "✅ ÓTIMO",
@@ -1921,7 +1921,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2017/fd7befd2-5aa6-11f1-99e0-02420a00000a",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -1931,7 +1931,7 @@
     "modelo": "Onix Joye",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26300.0,
+    "lance_atual": 26700.0,
     "fipe_valor": 43790.0,
     "fipe_str": "R$ 43.790,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1947,7 +1947,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/onix-joye-(4p)/ano.2018/8c69a5a0-6982-11f1-b7a7-02420a000006",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -1957,7 +1957,7 @@
     "modelo": "Hb20X Style",
     "ano": 2016,
     "cidade": "Eusebio/CE",
-    "lance_atual": 33500.0,
+    "lance_atual": 34000.0,
     "fipe_valor": 63771.0,
     "fipe_str": "R$ 63.771,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1973,7 +1973,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20x-style-(4p)/ano.2016/dcacebff-4ad4-11f1-8621-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -1983,23 +1983,23 @@
     "modelo": "Kwid Zen 1.0 Mecanico",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18000.0,
+    "lance_atual": 18800.0,
     "fipe_valor": 37295.0,
     "fipe_str": "R$ 37.295,00",
-    "classificacao": "✅ ÓTIMO",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/21/1787322121383_4e0d49d9-abb0-43f2-b55b-1acdd8f9585e_pequena_pacto.webp",
     "km": "85.386 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
+    "oportunidade": "BOA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/kwid-zen-1.0-mecanico-(4p)/ano.2019/bfbce7d2-8d9d-11f1-bba6-02420a00000f",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -2009,7 +2009,7 @@
     "modelo": "Gol Trendline Mc",
     "ano": 2016,
     "cidade": "Eusebio/CE",
-    "lance_atual": 27600.0,
+    "lance_atual": 28000.0,
     "fipe_valor": 40504.0,
     "fipe_str": "R$ 40.504,00",
     "classificacao": "⚠️ MEDIANO",
@@ -2025,7 +2025,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/gol-trendline-mc-(4p%2F2p)/ano.2016/cfd7c3cd-8ff8-11f1-8e8a-02420a00000a",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -2035,7 +2035,7 @@
     "modelo": "Nivus Highline Tsi Ad",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 65000.0,
+    "lance_atual": 66500.0,
     "fipe_valor": 102017.0,
     "fipe_str": "R$ 102.017,00",
     "classificacao": "⚠️ MEDIANO",
@@ -2051,33 +2051,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/nivus-highline-tsi-ad/ano.2021/eba66f46-fae4-11f0-af6c-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Ford",
-    "modelo": "Ka Hatch Se 1.0",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 14000.0,
-    "fipe_valor": 35452.0,
-    "fipe_str": "R$ 35.452,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://www.pactoleiloes.com.br/lote/fotos-modelo/carro.webp",
-    "km": "172.398 km",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-hatch-se-1.0-(4p)/ano.2015/25583eb7-2f73-11f0-9f79-02420a000005",
-    "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -2087,7 +2061,7 @@
     "modelo": "Mobi Like",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26200.0,
+    "lance_atual": 26600.0,
     "fipe_valor": 43369.0,
     "fipe_str": "R$ 43.369,00",
     "classificacao": "⚠️ MEDIANO",
@@ -2103,7 +2077,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2019/9cfc8019-7ad0-11f1-9bf3-0242ac500277",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:22"
   },
   {
     "fonte": "pacto",
@@ -2129,7 +2103,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0-(4p)/ano.2020/7a0cf81a-9edb-11f0-bcb1-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2139,7 +2113,7 @@
     "modelo": "Seal Awd Gs 590Ev",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 130000.0,
+    "lance_atual": 131500.0,
     "fipe_valor": 308461.0,
     "fipe_str": "R$ 308.461,00",
     "classificacao": "✅ ÓTIMO",
@@ -2155,7 +2129,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/byd/seal-awd-gs-590ev-(4p)/ano.2025/79591982-8469-11f1-959d-02420a00000e",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2169,7 +2143,7 @@
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
-    "foto": "https://www.pactoleiloes.com.br/lote/fotos-modelo/carro.webp",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/25/1787689410252_a3e3c6fe-95e3-421a-8faa-e09de6176553_pequena_pacto.webp",
     "km": "542.756 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
@@ -2181,7 +2155,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/fiat/ducato-minibus/ano.2012/95cd0a85-3802-11f0-bd5d-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2207,7 +2181,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/renegade-sport-automatico/ano.2016/55997e50-6e42-11f1-b7a7-02420a000006",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2217,7 +2191,7 @@
     "modelo": "Argo Drive 1.0",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 19800.0,
+    "lance_atual": 20200.0,
     "fipe_valor": 50503.0,
     "fipe_str": "R$ 50.503,00",
     "classificacao": "✅ ÓTIMO",
@@ -2233,7 +2207,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/argo-drive-1.0-(4p)/ano.2019/99a77090-f56e-11f0-af6c-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2259,7 +2233,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c3-glx-14-flex-(2p%2F4p)/ano.2010/7462effb-eaf5-11ef-bd15-02420a00000b",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2269,7 +2243,7 @@
     "modelo": "Strada Fire Flex",
     "ano": 2011,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5300.0,
+    "lance_atual": 5900.0,
     "fipe_valor": 49786.0,
     "fipe_str": "R$ 49.786,00",
     "classificacao": "✅ ÓTIMO",
@@ -2285,7 +2259,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-flex/ano.2011/bce1d532-1417-11f1-a639-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2311,7 +2285,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/volkswagen/19.370-clm-t-4x2/ano.2008/b4c1d9b4-d793-11f0-913b-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2337,7 +2311,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/c3-origine-pack-(4p)/ano.2015/55f02815-8839-11f0-b593-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:12"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2363,7 +2337,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/agile-ltz-(2p%2F4p)/ano.2011/b53f39eb-7b96-11f1-9bf3-0242ac500277",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2389,7 +2363,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/renegade-sport-automatico/ano.2016/a619b892-5387-11f1-8cef-02420a000008",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2415,7 +2389,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/408-griffe-(4p)/ano.2012/9dd0059f-22fa-11f1-a639-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2441,7 +2415,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/doblo-adventure-flex/ano.2011/9a3b7338-29df-11f1-8174-02420a000006",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2451,7 +2425,7 @@
     "modelo": "Strada Working",
     "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 27400.0,
+    "lance_atual": 27800.0,
     "fipe_valor": 20321.0,
     "fipe_str": "R$ 20.321,00",
     "classificacao": "❌ RUIM",
@@ -2467,7 +2441,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/strada-working/ano.2015/f06eb148-5932-11f1-99e0-02420a00000a",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2493,7 +2467,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/sandero-s-edition/ano.2023/5f7b3cd7-8474-11f1-959d-02420a00000e",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2503,7 +2477,7 @@
     "modelo": "Hilux  Cd4X4  Srv",
     "ano": 2014,
     "cidade": "Eusebio/CE",
-    "lance_atual": 58000.0,
+    "lance_atual": 59500.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2519,7 +2493,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/toyota/hilux--cd4x4--srv/ano.2014/e454a68c-3d8d-11f0-b593-02420a000005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2545,7 +2519,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/uno-vivace-1.0-(2p%2F4p)/ano.2015/f13dae40-39a3-11f1-86d7-0242ac50004b",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2571,7 +2545,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/cruze-sedan-lt-nb-(4p)/ano.2012/8db2f752-64c8-11f1-99e0-02420a00000a",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2581,7 +2555,7 @@
     "modelo": "Palio Attractive 1.0",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18000.0,
+    "lance_atual": 19600.0,
     "fipe_valor": 42077.0,
     "fipe_str": "R$ 42.077,00",
     "classificacao": "✅ ÓTIMO",
@@ -2597,7 +2571,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/palio-attractive-1.0-(4p%2F2p)/ano.2017/31bd5049-34d6-11f1-86d7-0242ac50004b",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:23"
   },
   {
     "fonte": "pacto",
@@ -2623,7 +2597,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-volcano-at9-d4-cabine-dupla/ano.2020/c392607c-4e1f-11f1-8cef-02420a000008",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:24"
   },
   {
     "fonte": "pacto",
@@ -2649,7 +2623,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/nissan/tiida-sl-flex-(4p)/ano.2012/a4792675-005e-11f1-8a4c-0242ac50000b",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:13"
+    "scraped_at": "2026-08-26T07:24"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Siena Tetrafuel 1.4",
+    "ano": 2014,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 12000.0,
+    "fipe_valor": 32826.0,
+    "fipe_str": "R$ 32.826,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/20/1787232664996_340285b1-6782-4dba-ac53-5b467426a857_pequena_pacto.webp",
+    "km": "371.825 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/siena-tetrafuel-1.4-(4p)/ano.2014/b0c77fc8-32b5-11f1-86d7-0242ac50004b",
+    "data_leilao": "",
+    "scraped_at": "2026-08-26T07:24"
   },
   {
     "fonte": "celsocunha",
@@ -2675,7 +2675,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3395/chevrolet-ipanem#1040-",
     "data_leilao": "2026-08-21T11:29",
-    "scraped_at": "2026-08-25T19:17"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2701,7 +2701,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3396/piramide-constituida-por-02-veiculos-fusca-ew4662-ford-ka-gxu1980-",
     "data_leilao": "2026-08-21T11:30",
-    "scraped_at": "2026-08-25T19:17"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2727,7 +2727,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3397/piramide-constituida-por-02-veiculos-saveiro-epo4353-gol-gnc7505-",
     "data_leilao": "2026-08-21T21:30",
-    "scraped_at": "2026-08-25T19:17"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2753,7 +2753,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3398/piramide-constituida-por-03-veiculos-gol-s-placa-carcaca-fiorino-bue5289-cordob#1040-lba7063-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2779,7 +2779,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3399/piramide-constituida-por-02-veiculos-corsa-jff5716-gm-kadett-s-placa-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2805,7 +2805,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3400/piramide-constituida-por-02-veiculos-fusca-buv0341-monza-bhf7001-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2831,7 +2831,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3401/piramide-constituida-por-02-veiculos-parati-bpw0390-s-motor-e-s-caixa-de-cambio-escort-s-placa-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2857,7 +2857,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3402/piramide-constituida-por-02-veiculos-marea-ble8784-monza-s-placa-e-s-motor-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2883,7 +2883,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3403/piramide-constituida-por-02-veiculos-chevete-bpw1740-picape-corsa-s-placa-e-s-motor-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2909,7 +2909,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3404/piramide-constituida-por-02-veiculos-gol-carcaca-fiat-tipo-s-placa-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2935,7 +2935,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3405/peugeot-206-",
     "data_leilao": "2026-08-21T11:33",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2961,7 +2961,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3406/gol-sem-placa-e-sem-motor-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -2987,7 +2987,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3407/piramide-constituida-por-03-veiculos-santana-bpx7537-santana-hrj3202-belina-coq1631-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3013,7 +3013,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3408/piramide-constituida-por-02-veiculos-corcel-ii-bke4718-fiat-uno-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3039,7 +3039,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3409/piramide-constituida-por-03-veiculos-kadet-cjz7881-gol-dxd5639-monza-bqi2787-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3065,7 +3065,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3410/piramide-constituida-por-02-veiculos-kadet-bvr0719-clio-dcb7380-",
     "data_leilao": "2026-08-21T11:36",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3091,7 +3091,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3411/piramide-constituida-por-02-veiculos-escort-ceh7869-gol-s-placa-",
     "data_leilao": "2026-08-21T09:30",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3117,7 +3117,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3412/gol-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3143,7 +3143,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3413/piramide-constituida-por-03-veiculos-celta-alw5822-clio-cma4046-voyage-carcaca-",
     "data_leilao": "2026-08-21T11:36",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3169,7 +3169,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3414/piramide-constituida-por-02-veiculos-golf-cky9264-s-motor-tucson-ebs2296-",
     "data_leilao": "2026-08-21T09:30",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3195,7 +3195,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3415/piramide-constituida-por-02-veiculos-parati-cmh5044-belina-guq2254-",
     "data_leilao": "2026-08-21T11:37",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3221,7 +3221,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3416/piramide-constituida-por-03-veiculos-brasilia-cqo2179-corcel-i-s-placa-escort-s-placa-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3247,7 +3247,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3417/piramide-constituida-por-02-veiculos-kadet-bpk1170-fiat-147-bmo0754-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3273,7 +3273,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3418/piramide-constituida-por-03-veiculos-versailles-byb3561-monza-bhc2077-monza-s-placa-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3299,7 +3299,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3419/piramide-constituida-por-03-veiculos-monza-cbb9915-palio-w-lbo6185-opala-s-placa-",
     "data_leilao": "2026-08-21T09:31",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3325,7 +3325,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3420/piramide-constituida-por-03-veiculos-palio-bkf6013-santana-cox6267-escort-bkr1184-",
     "data_leilao": "2026-08-21T11:38",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3351,7 +3351,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3421/piramide-constituida-por-03-veiculos-tempra-kgs2109-gol-cxj9535-chevete-s-placa-",
     "data_leilao": "2026-08-21T11:39",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3377,7 +3377,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3422/piramide-constituida-por-03-veiculos-fusca-bpx5910-logus-bov5944-tempra-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3403,7 +3403,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3423/piramide-constituida-por-03-veiculos-fiat-uno-bpw0955-escort-carcaca-gol-s-placa-e-sem-motor-",
     "data_leilao": "2026-08-21T11:40",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3429,7 +3429,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3424/citroen-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3455,7 +3455,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3425/gm-celta-",
     "data_leilao": "2026-08-21T09:32",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3481,7 +3481,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3426/ford-verona-",
     "data_leilao": "2026-08-21T11:40",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3507,7 +3507,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3427/renault-scenic-",
     "data_leilao": "2026-08-21T09:32",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:28"
   },
   {
     "fonte": "celsocunha",
@@ -3533,7 +3533,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3428/piramide-constituida-por-04-veiculos-fiat-uno-cqo4820-chevete-carcaca-tempra-carcaca-gol-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3559,7 +3559,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3429/piramide-constituida-por-03-veiculos-passat-bpw2169-fusca-carcaca-escort-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3585,7 +3585,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3430/chevrolet-kadet-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3611,7 +3611,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3431/piramide-constituida-por-03-veiculos-gol-cjd8153-fiat-uno-dbv3709-fiat-147-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3637,7 +3637,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3432/piramide-constituida-por-03-veiculos-del-rey-carcaca-passat-carcaca-escort-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3663,7 +3663,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3433/piramide-constituida-por-02-veiculos-monza-gmk9112-brasilia-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3689,7 +3689,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3434/piramide-constituida-por-04-veiculos-monza-cpc1107-monza-bqd9465-kadet-carcaca-corsa-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3715,7 +3715,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3435/piramide-constituida-por-04-veiculos-gol-jma2460-escort-bkw0097-monza-carcaca-honda-carcaca-",
     "data_leilao": "2026-08-21T11:43",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3741,7 +3741,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3436/piramide-constituida-por-02-veiculos-fiat-147-pick-up-ceh8161-monza-got0130-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3767,7 +3767,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3437/piramide-constituida-por-02-veiculos-santana-cqi0686-monza-carcaca-",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3793,7 +3793,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3438/piramide-constituida-por-02-veiculos-opala-bjp8225-delrey-bkj1480-",
     "data_leilao": "2026-08-21T11:44",
-    "scraped_at": "2026-08-25T19:18"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3819,7 +3819,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3321/volkswagen-saveiro-1998",
     "data_leilao": "2026-08-20T21:19",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3845,7 +3845,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3322/fiat-palio-1999",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3871,7 +3871,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3323/mercedes-benz-1972",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3897,7 +3897,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3324/chevrolet-1985",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3923,7 +3923,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3325/general-motors",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3949,7 +3949,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3326/ford-f-11-000",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -3975,7 +3975,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3327/mercedes-benz-1981",
     "data_leilao": "2026-08-25T06:21",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4001,7 +4001,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3328/chevrolet",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4027,7 +4027,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3329/volkswagen-santana-2001",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4053,7 +4053,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3330/fiat-strada-2001",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4079,7 +4079,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3331/volkswagen-comil-svelto-u-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4105,7 +4105,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3332/fiat-uno-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4131,7 +4131,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3333/fiat-uno-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4157,7 +4157,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3334/fiat-uno-2005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:29"
   },
   {
     "fonte": "celsocunha",
@@ -4183,7 +4183,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3335/fiat-uno-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4209,7 +4209,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3336/volkswagen-gol-2004",
     "data_leilao": "2026-08-25T15:55",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4235,7 +4235,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3337/volkswagen-kombi",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4261,7 +4261,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3338/volkswagen-kombi",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4287,7 +4287,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3339/volkswagen-kombi",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4297,7 +4297,7 @@
     "modelo": "Strada",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1900.0,
+    "lance_atual": 2100.0,
     "fipe_valor": 13582.0,
     "fipe_str": "R$ 13.582,00",
     "classificacao": "✅ ÓTIMO",
@@ -4312,8 +4312,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3340/fiat-strada-2007",
-    "data_leilao": "2026-08-25T11:26",
-    "scraped_at": "2026-08-25T19:19"
+    "data_leilao": "2026-08-25T19:45",
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4339,7 +4339,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3341/fiat-uno-2007",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:19"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4365,7 +4365,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3342/volkswagen-santana-1999",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4391,7 +4391,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3343/fiat-palio-2010",
     "data_leilao": "2026-08-21T14:55",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4417,7 +4417,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3344/fiat-palio-week-trekking-2010",
     "data_leilao": "2026-08-21T14:55",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4443,7 +4443,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3345/fiat-palio-2010",
     "data_leilao": "2026-08-21T14:56",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4469,7 +4469,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3346/fiat-palio-2010",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4495,7 +4495,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3347/fiat-palio-2010",
     "data_leilao": "2026-08-21T14:57",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4521,7 +4521,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3348/general-motors",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4547,7 +4547,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3349/fiat-ducato",
     "data_leilao": "2026-08-21T14:57",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4573,7 +4573,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3350/renault-master-2010",
     "data_leilao": "2026-08-21T14:58",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:30"
   },
   {
     "fonte": "celsocunha",
@@ -4599,7 +4599,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3351/peugeot-boxer",
     "data_leilao": "2026-08-21T14:58",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4625,7 +4625,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3352/general-motors",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4651,7 +4651,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3353/fiat-uno-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4677,7 +4677,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3354/volkswagen-kombi",
     "data_leilao": "2026-08-21T14:59",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4703,7 +4703,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3355/volkswagen-kombi",
     "data_leilao": "2026-08-21T14:59",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4729,7 +4729,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3356/fiat-uno-2007",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4755,7 +4755,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3357/fiat-uno-2007",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4781,7 +4781,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3358/volkswagen-kombi",
     "data_leilao": "2026-08-21T14:59",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4807,7 +4807,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3359/fiat-palio-week-trekking-2010",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4833,7 +4833,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3360/fiat-palio-week-trekking-2010",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:20"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4859,7 +4859,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3361/fiat-palio-week-trekking-2010",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4869,7 +4869,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 7000.0,
+    "lance_atual": 7500.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -4884,8 +4884,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3362/peugeot-boxer",
-    "data_leilao": "2026-08-21T15:00",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T20:06",
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4911,7 +4911,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3363/citroen-jumper-marimar",
     "data_leilao": "2026-08-21T15:00",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4937,7 +4937,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3364/fiat-ducato",
     "data_leilao": "2026-08-20T22:04",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4963,7 +4963,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3365/fiat-weekend-attractive-2016",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -4989,7 +4989,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3366/fiat-weekend-attractive-2016",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5015,7 +5015,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3367/fiat-weekend-attractive-2016",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5041,7 +5041,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3368/hyundai-tucson-2016",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5067,7 +5067,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3369/hyundai-tucson-2016",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5093,7 +5093,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3370/fiat-uno-2005",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5119,7 +5119,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3371/ducato-van",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5145,7 +5145,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3372/general-motors",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5171,7 +5171,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3373/volkswagen-2002",
     "data_leilao": "2026-08-25T16:02",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5197,7 +5197,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3374/volkswagen-2002",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5207,7 +5207,7 @@
     "modelo": "?",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 4000.0,
+    "lance_atual": 5000.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5222,8 +5222,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3375/ducato-van",
-    "data_leilao": "2026-08-25T16:01",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T19:47",
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5249,7 +5249,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3376/ford-ranger-2010",
     "data_leilao": "2026-08-25T16:00",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5275,7 +5275,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3377/sprinter-van",
     "data_leilao": "2026-08-25T16:00",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5301,7 +5301,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3378/ford-f-11000",
     "data_leilao": "2026-08-25T15:59",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:31"
   },
   {
     "fonte": "celsocunha",
@@ -5327,7 +5327,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3379/agrale-ma-b-5-2008",
     "data_leilao": "2026-08-25T15:59",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5353,7 +5353,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3380/ford-cargo-1619",
     "data_leilao": "2026-08-25T15:58",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5379,7 +5379,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3381/chevrolet-d60",
     "data_leilao": "2026-08-25T15:56",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5405,7 +5405,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3382/massey-fergunson-mf-275",
     "data_leilao": "2026-08-21T09:45",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5431,7 +5431,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3383/rolo-compactador-dynapac",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5457,7 +5457,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3384/volkswagen-2002",
     "data_leilao": "2026-08-21T15:04",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5483,7 +5483,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3385/ford-f-1000",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5509,7 +5509,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3386/volkswagen-parati-1986",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5535,7 +5535,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3387/carroceiro-ab-9107",
     "data_leilao": "2026-08-21T12:24",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5561,7 +5561,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3388/tanque-para-piche",
     "data_leilao": "2026-08-21T21:34",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5571,7 +5571,7 @@
     "modelo": "2006",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 700.0,
+    "lance_atual": 800.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5586,8 +5586,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3389/honda-xr-250-tornado-2006",
-    "data_leilao": "2026-08-25T11:38",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T20:17",
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5597,7 +5597,7 @@
     "modelo": "2006",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1000.0,
+    "lance_atual": 1200.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5612,8 +5612,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3390/honda-xr-250-tornado-2006",
-    "data_leilao": "2026-08-22T16:54",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T20:17",
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5623,7 +5623,7 @@
     "modelo": "2006",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 1500.0,
+    "lance_atual": 1700.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5638,8 +5638,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3391/honda-xr-250-tornado-2006",
-    "data_leilao": "2026-08-22T16:55",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T20:17",
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5649,7 +5649,7 @@
     "modelo": "2010",
     "ano": 0,
     "cidade": "Fortaleza/CE",
-    "lance_atual": 2000.0,
+    "lance_atual": 2100.0,
     "fipe_valor": 0,
     "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
@@ -5664,8 +5664,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3392/honda-xr-300-2010",
-    "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "data_leilao": "2026-08-25T22:26",
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5691,7 +5691,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3393/honda-xr-300-2010",
     "data_leilao": "2026-08-21T15:05",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5717,7 +5717,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3394/honda-xr-300-2010",
     "data_leilao": "2026-08-24T21:49",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   },
   {
     "fonte": "celsocunha",
@@ -5743,6 +5743,6 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://celsocunhaleiloes.com.br/lote/3320/aeronave-n-de-serie-810468-fabricante-neiva-modelo-emb-810d-descricao-aeronave-emb-810d-registrada-na-anac-com-o-prefixo-pt-wth-motor",
     "data_leilao": "",
-    "scraped_at": "2026-08-25T19:21"
+    "scraped_at": "2026-08-26T07:32"
   }
 ]
