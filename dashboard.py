@@ -1379,7 +1379,7 @@ with st.sidebar:
         # a régua do slider usa o p90 pra não esticar 35x por causa de 1 ou 2
         # imóveis fora da curva — quem precisa de um valor maior digita no campo
         idx_p90 = min(int(len(valores_lance) * 0.9), len(valores_lance) - 1)
-        lance_slider_max = max(int(valores_lance[idx_p90]), 10000)
+        lance_slider_max = max(int(valores_lance[idx_p90]), 100000)
         lance_slider_max = -(-lance_slider_max // 1000) * 1000  # arredonda pra cima (múltiplo de 1000)
     else:
         lance_slider_max = 500000
