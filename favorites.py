@@ -91,7 +91,7 @@ def _whatsapp_favorito(phone: str, lote: dict) -> None:
     lance = float(lote.get("lance_atual", 0) or 0)
     url_lote = lote.get("url", "")
     msg = (
-        "⭐ *Lote favoritado no Achados & Leilões!*\n\n"
+        "⭐ *Lote favoritado no Achadinhos & Leilões!*\n\n"
         f"*{marca} {modelo} {ano}*\n"
         f"💰 Lance atual: R$ {lance:,.0f}\n\n"
         "Você receberá alertas quando o lance mudar.\n"

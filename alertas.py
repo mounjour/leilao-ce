@@ -57,7 +57,7 @@ def build_message(lote: dict, old_lance: float, new_lance: float) -> str:
     pct_fipe = f"\n💡 {(new_lance/fipe*100):.0f}% da FIPE" if fipe > 0 else ""
 
     return (
-        f"🚗 *Achados & Leilões — Lance Atualizado*\n\n"
+        f"🚗 *Achadinhos & Leilões — Lance Atualizado*\n\n"
         f"*{marca} {modelo} {ano}*\n"
         f"📍 {cidade}\n\n"
         f"Lance anterior: R$ {old_lance:,.0f}\n"
