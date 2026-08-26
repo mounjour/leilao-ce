@@ -1561,19 +1561,40 @@ _MONTENEGRO_BASE = "https://montenegroleiloes.com.br"
 
 
 def _scroll_ate_carregar_todos(pg, seletor, tentativas=12):
-    """Carrega os cartões adicionados por rolagem infinita."""
+    """Carrega os cartões adicionados por rolagem infinita.
+
+    Só considera "estabilizou" quando ja apareceu pelo menos 1 item — do
+    contrario, uma pagina lenta pra iniciar o carregamento (ex.: atras de
+    um desafio JS do Cloudflare) fica presa em 0==0 na primeira leitura e
+    desiste antes mesmo do primeiro scroll fazer efeito.
+    """
     anterior = -1
     for _ in range(tentativas):
         atual = pg.locator(seletor).count()
-        if atual == anterior:
+        if atual == anterior and atual > 0:
             break
         anterior = atual
         pg.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         pg.wait_for_timeout(700)
 
 
-def _raspar_montenegro(pg_lista, pg_detalhe, vistos):
-    """Descobre leilões abertos com veículos e coleta seus lotes."""
+_MONTENEGRO_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) "
+                   "Chrome/124.0.0.0 Safari/537.36")
+
+
+def _raspar_montenegro(pg_lista, vistos, browser):
+    """Descobre leilões abertos com veículos e coleta seus lotes.
+
+    O Cloudflare da Montenegro bane a SESSÃO (não o IP) depois de poucas
+    requisições automatizadas seguidas: confirmado ao vivo que reaproveitar
+    a mesma página/contexto para a listagem de um leilão + as páginas de
+    detalhe dos lotes já é suficiente pra derrubar tudo em 403 na metade do
+    caminho, mesmo com pausas entre requisições. Um contexto novo (cookies
+    limpos) por navegação, porém, funciona de forma consistente. Por isso
+    cada leilão e cada lote abrem seu próprio contexto descartável — pg_lista
+    só é usada pra homepage, que é sempre a primeira requisição da execução.
+    """
     lotes = []
     try:
         print("📡 Montenegro | leilões com veículos")
@@ -1598,16 +1619,30 @@ def _raspar_montenegro(pg_lista, pg_detalhe, vistos):
     print(f"  {len(leiloes)} leilão(ões) com veículos")
     for leilao_id in leiloes:
         url_leilao = f"{_MONTENEGRO_BASE}/leiloes/{leilao_id}"
-        try:
-            pg_lista.goto(url_leilao, wait_until="domcontentloaded", timeout=60000)
-            pg_lista.wait_for_selector("[data-lote-id]", timeout=30000)
-            _scroll_ate_carregar_todos(pg_lista, "[data-lote-id]")
-            cards_lote = pg_lista.locator("[data-lote-id]").evaluate_all(
-                "els => els.map(e => ({id: e.getAttribute('data-lote-id'), texto: (e.innerText || '').trim()}))"
-            )
-        except Exception as e:
-            print(f"  ⚠️ Montenegro leilão {leilao_id}: {e}")
-            continue
+
+        # O Cloudflare ocasionalmente atrasa/derruba uma navegação isolada mesmo
+        # com contexto limpo — 1 retry com contexto novo cobre esse caso sem
+        # mascarar uma falha real (leilão sem lote nenhum continua indo pra 0).
+        cards_lote = []
+        for tentativa in range(2):
+            ctx_leilao = browser.new_context(user_agent=_MONTENEGRO_UA)
+            try:
+                pg_leilao = ctx_leilao.new_page()
+                pg_leilao.goto(url_leilao, wait_until="domcontentloaded", timeout=60000)
+                pg_leilao.wait_for_timeout(1200)
+                # Os lotes só entram no DOM depois que a página é rolada (a Montenegro
+                # passou a renderizar via infinite-scroll do Quasar) — rolar tem que vir
+                # antes de esperar o seletor, senão o wait_for_selector nunca resolve.
+                _scroll_ate_carregar_todos(pg_leilao, "[data-lote-id]")
+                cards_lote = pg_leilao.locator("[data-lote-id]").evaluate_all(
+                    "els => els.map(e => ({id: e.getAttribute('data-lote-id'), texto: (e.innerText || '').trim()}))"
+                )
+            except Exception as e:
+                print(f"  ⚠️ Montenegro leilão {leilao_id} (tentativa {tentativa + 1}): {e}")
+            finally:
+                ctx_leilao.close()
+            if cards_lote:
+                break
 
         print(f"  Leilão {leilao_id}: {len(cards_lote)} lote(s)")
         for card in cards_lote:
@@ -1626,7 +1661,9 @@ def _raspar_montenegro(pg_lista, pg_detalhe, vistos):
                 continue
             vistos.add(url_lote)
 
+            ctx_lote = browser.new_context(user_agent=_MONTENEGRO_UA)
             try:
+                pg_detalhe = ctx_lote.new_page()
                 pg_detalhe.goto(url_lote, wait_until="domcontentloaded", timeout=45000)
                 pg_detalhe.wait_for_timeout(700)
                 texto = pg_detalhe.locator("body").inner_text()
@@ -1701,6 +1738,8 @@ def _raspar_montenegro(pg_lista, pg_detalhe, vistos):
                 ))
             except Exception as e:
                 print(f"  ⚠️ Montenegro lote {lote_id}: {e}")
+            finally:
+                ctx_lote.close()
 
     return lotes
 
@@ -1725,7 +1764,7 @@ def raspar_leiloes():
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mgl(pg_lista, pg_detalhe, vistos)
-        lotes += _raspar_montenegro(pg_lista, pg_detalhe, vistos)
+        lotes += _raspar_montenegro(pg_lista, vistos, browser)
 
         ctx.close()
         browser.close()
