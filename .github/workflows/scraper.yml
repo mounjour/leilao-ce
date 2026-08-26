@@ -56,13 +56,18 @@ jobs:
           echo "Quantidade de lotes:"
           python -c "import json; d=json.load(open('leiloes.json')); print(len(d))"
 
-      - name: Commit e push do leiloes.json (se mudou)
+      - name: Commit e push dos dados do scraper (se mudou)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add leiloes.json
+          # historico_tokens_ia.jsonl e analises_ia_cache.json alimentam o painel
+          # "Economia de tokens da IA" do dashboard — sem commitar eles, o painel
+          # nunca teria dado nenhum pra mostrar (o runner do Actions e efemero).
+          [ -f historico_tokens_ia.jsonl ] && git add historico_tokens_ia.jsonl
+          [ -f analises_ia_cache.json ] && git add analises_ia_cache.json
           if git diff --staged --quiet; then
-            echo "Nenhuma mudança no leiloes.json — pulando commit."
+            echo "Nenhuma mudança nos dados do scraper — pulando commit."
           else
             git commit -m "chore: atualiza leiloes.json [auto $(date -u +%Y-%m-%dT%H:%MZ)]"
             git pull --rebase origin main
