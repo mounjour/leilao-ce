@@ -6,12 +6,7 @@ from urllib.parse import urlsplit, urlunsplit
 import requests
 import streamlit as st
 
-try:
-    # Nome usado no projeto real.
-    from auth import get_supabase_client
-except ImportError:
-    # Nome do arquivo revisado entregue nesta pasta de saída.
-    from auth_revisado import get_supabase_client
+from auth import get_supabase_client
 
 
 def _secret(key: str, default: str = "") -> str:

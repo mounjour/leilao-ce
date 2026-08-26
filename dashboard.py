@@ -85,7 +85,6 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
     background: #dbeafe !important; }
-    background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
