@@ -975,6 +975,15 @@ def desconto_str(lance, fipe, qtd=1):
 
 ITEMS_PER_PAGE = 50
 
+# Hosts que servem uma logo genérica da plataforma em vez de foto real do
+# lote quando não há foto cadastrada — a imagem carrega normalmente (não é
+# "quebrada", o navegador não detecta erro nenhum), então trata-se como se
+# não houvesse foto, para cair no mesmo ícone de categoria. Confirmado
+# olhando leiloes.json: a mesma URL exata dessa origem se repete em lotes
+# diferentes, o que uma foto real nunca faria.
+_FOTOS_PLACEHOLDER_HOSTS = ("leilomaster.cdndp.com.br",)
+
+
 def render_lotes(lotes_lista, key="main"):
     icones_cat = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
                   "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","outros":"📦"}
@@ -996,6 +1005,8 @@ def render_lotes(lotes_lista, key="main"):
         lance   = lote["lance_atual"]
         fipe    = lote["fipe_valor"]
         foto    = lote.get("foto","")
+        if any(host in foto for host in _FOTOS_PLACEHOLDER_HOSTS):
+            foto = ""
         km      = lote.get("km","")
         qtd     = lote.get("quantidade", 1)
         selo    = lote.get("estado_selo","⚪ Não informado")
@@ -1203,7 +1214,7 @@ def pagina_favoritos():
     favs = list(get_favorites().values())
     st.markdown("## ⭐ Meus Favoritos")
     if not favs:
-        st.info("Você ainda não favoritou nenhum lote. Clique em 🤍 em qualquer card para favoritar.")
+        st.info("Você ainda não favoritou nenhum lote. Clique em ⭐ em qualquer card para favoritar.") # não alterar ⭐
         return
     st.caption(f"{len(favs)} lote(s) favoritado(s)")
     render_lotes(favs, key="favs")
