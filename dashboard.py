@@ -975,13 +975,13 @@ def desconto_str(lance, fipe, qtd=1):
 
 ITEMS_PER_PAGE = 50
 
-# Hosts que servem uma logo genérica da plataforma em vez de foto real do
-# lote quando não há foto cadastrada — a imagem carrega normalmente (não é
-# "quebrada", o navegador não detecta erro nenhum), então trata-se como se
-# não houvesse foto, para cair no mesmo ícone de categoria. Confirmado
-# olhando leiloes.json: a mesma URL exata dessa origem se repete em lotes
-# diferentes, o que uma foto real nunca faria.
-_FOTOS_PLACEHOLDER_HOSTS = ("leilomaster.cdndp.com.br",)
+# Trechos de URL que indicam uma logo/placeholder genérico da plataforma em
+# vez de foto real do lote — a imagem carrega normalmente (não é "quebrada",
+# o navegador não detecta erro nenhum), então trata-se como se não houvesse
+# foto, para cair no mesmo ícone de categoria. Rede de segurança do lado do
+# dashboard: o scraper já filtra esses casos na origem (ver _extrair_foto e
+# _raspar_pacto em scraper.py), isso aqui só cobre dado antigo/já salvo.
+_FOTOS_PLACEHOLDER_PATTERNS = ("leilomaster.cdndp.com.br", "/fotos-modelo/")
 
 
 def render_lotes(lotes_lista, key="main"):
@@ -1005,7 +1005,7 @@ def render_lotes(lotes_lista, key="main"):
         lance   = lote["lance_atual"]
         fipe    = lote["fipe_valor"]
         foto    = lote.get("foto","")
-        if any(host in foto for host in _FOTOS_PLACEHOLDER_HOSTS):
+        if any(pat in foto for pat in _FOTOS_PLACEHOLDER_PATTERNS):
             foto = ""
         km      = lote.get("km","")
         qtd     = lote.get("quantidade", 1)

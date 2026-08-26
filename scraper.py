@@ -670,14 +670,21 @@ def _extrair_data_leilao(texto):
             return datetime.strptime(f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
         except:
             pass
-    # Pacto: "Finaliza em 18h3m42s"
-    m = re.search(r'Finaliza em\s*(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?', texto, re.IGNORECASE)
-    if m and any(m.group(i) for i in range(1, 4)):
+    # Pacto: "Finaliza em 18h3m42s" (leilão já em andamento) ou
+    # "Leilão inicia em 1 dia 2h14m12s" (ainda não começou — o site trocou
+    # a frase e passou a incluir dias, o regex antigo só cobria h/m/s e
+    # nunca mais batia com nada, deixando data_leilao vazio em todo lote).
+    m = re.search(
+        r'(?:Finaliza em|Leil[ãa]o inicia em)\s*(?:(\d+)\s*dias?)?\s*(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?',
+        texto, re.IGNORECASE
+    )
+    if m and any(m.group(i) for i in range(1, 5)):
         try:
             dt = datetime.now() + timedelta(
-                hours=int(m.group(1) or 0),
-                minutes=int(m.group(2) or 0),
-                seconds=int(m.group(3) or 0)
+                days=int(m.group(1) or 0),
+                hours=int(m.group(2) or 0),
+                minutes=int(m.group(3) or 0),
+                seconds=int(m.group(4) or 0)
             )
             return dt.strftime("%Y-%m-%dT%H:%M")
         except:
@@ -987,6 +994,12 @@ def _raspar_pacto(pg, _pg_d, vistos):
 
                 data_leilao = _extrair_data_leilao(it['text'])
                 foto = it.get('foto', '')
+                # A Pacto usa /lote/fotos-modelo/<categoria>.webp como imagem
+                # generica ("Fotos em breve") quando o lote nao tem foto real
+                # cadastrada — carrega com sucesso (nao e "quebrada"), so nao
+                # e do veiculo, entao trata como se nao houvesse foto.
+                if '/fotos-modelo/' in foto:
+                    foto = ''
                 print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
                 lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
                                         f"{cidade_s}/CE", lance, ref_val, ref_str,
