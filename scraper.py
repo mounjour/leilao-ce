@@ -630,11 +630,16 @@ def _extrair_foto(html, dominios=('cdndp.com.br',)):
     # sem "_media" no nome) para foto ausente/pendente — como o nome não tem
     # nenhuma das palavras-chave abaixo, ele passava pelo filtro e virava a
     # "foto" do card. Fotos reais dos lotes sempre têm "_media" no nome.
+    # "leilomaster" tambem exclui: e o dominio antigo (pre-rebranding pra
+    # Leilo) que ainda aparece no cabecalho de algumas paginas — sem essa
+    # exclusao, uma corrida entre esse dominio e a galeria de fotos real
+    # (que carrega via JS, mais devagar) podia fazer o regex pegar a logo
+    # antiga em vez da foto do lote.
     for dom in dominios:
         pat = rf'https?://[^\s"\']+{re.escape(dom)}[^\s"\']*\.(?:jpg|jpeg|png|webp)'
         for f in re.findall(pat, html, re.IGNORECASE):
             fl = f.lower()
-            if '_media' in fl and not any(x in fl for x in ['logo','icon','avatar','banner','no-image']):
+            if '_media' in fl and not any(x in fl for x in ['logo','icon','avatar','banner','no-image','leilomaster']):
                 return f
     return ""
 
@@ -771,7 +776,12 @@ def _raspar_leilo(pg_lista, pg_detalhe, vistos):
 
                 try:
                     pg_detalhe.goto(url_lote, timeout=12000, wait_until="domcontentloaded")
-                    pg_detalhe.wait_for_timeout(2000)
+                    # A galeria de fotos do lote carrega via JS depois do resto da
+                    # pagina — com so 2s de espera, as vezes ainda nao tinha
+                    # renderizado nenhuma foto real, e o _extrair_foto caia pra
+                    # uma logo antiga da epoca "LeiloMaster" que sobrou no cabecalho
+                    # da pagina (mesmo dominio cdndp.com.br, mas nao e foto do lote).
+                    pg_detalhe.wait_for_timeout(4500)
                     texto = pg_detalhe.inner_text('body')
                     html  = pg_detalhe.content()
                 except:
