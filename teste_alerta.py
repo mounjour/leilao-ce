@@ -15,7 +15,7 @@ load_dotenv()
 def test_whatsapp(phone: str):
     print(f"\n[1/3] Enviando mensagem de teste para {phone}...")
     msg = (
-        "✅ *LeilãoCE — Teste de Alerta*\n\n"
+        "✅ *Achados & Leilões — Teste de Alerta*\n\n"
         "Alertas configurados com sucesso!\n\n"
         "Você receberá uma mensagem como esta sempre que o lance "
         "de um lote favoritado mudar. 🚗"
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     print("=" * 50)
-    print("LeilãoCE — Teste de Alertas WhatsApp")
+    print("Achados & Leilões — Teste de Alertas WhatsApp")
     print("=" * 50)
 
     ok = test_whatsapp(phone)

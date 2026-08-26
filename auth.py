@@ -474,34 +474,39 @@ def create_billing_portal_url() -> str:
 
 _AUTH_CSS = """
 <style>
-[data-testid="stAppViewContainer"] { background: #ffffff !important; }
+/* Antes disso forçava background:#ffffff, mas dashboard.py já aplica seu
+   próprio tema (--lce-*, claro/escuro) na página inteira antes do gate de
+   login rodar — o fundo fixo branco brigava com esse tema e deixava título,
+   labels e placeholders (pensados pra fundo branco) ilegíveis no dark mode.
+   Usar as mesmas variáveis do resto do app resolve os dois lados. */
+[data-testid="stAppViewContainer"] { background: var(--lce-bg, #ffffff) !important; }
 [data-testid="stHeader"], [data-testid="stToolbar"],
 #stDecoration, footer { display: none !important; }
 
 .stTextInput label {
-    color: #374151 !important; font-size: .85rem !important;
+    color: var(--lce-muted, #374151) !important; font-size: .85rem !important;
     font-weight: 500 !important;
 }
 .stTextInput input {
-    background: #f9fafb !important; color: #111827 !important;
-    border: 1.5px solid #e5e7eb !important; border-radius: 8px !important;
+    background: var(--lce-surface, #f9fafb) !important; color: var(--lce-text, #111827) !important;
+    border: 1.5px solid var(--lce-border, #e5e7eb) !important; border-radius: 8px !important;
     font-size: .95rem !important;
 }
-.stTextInput input::placeholder { color: #9ca3af !important; }
+.stTextInput input::placeholder { color: var(--lce-muted, #9ca3af) !important; }
 .stTextInput input:focus {
     border-color: #2563eb !important;
     box-shadow: 0 0 0 3px rgba(37,99,235,.1) !important;
 }
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
-    border-bottom: 1.5px solid #e5e7eb !important;
+    border-bottom: 1.5px solid var(--lce-border, #e5e7eb) !important;
 }
 .stTabs [data-baseweb="tab"] {
-    color: #9ca3af !important; font-size: .9rem !important;
+    color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
     font-weight: 500 !important;
 }
 .stTabs [aria-selected="true"] {
-    color: #111827 !important; font-weight: 600 !important;
+    color: var(--lce-text, #111827) !important; font-weight: 600 !important;
 }
 .stTabs [data-baseweb="tab-border"] {
     background: #2563eb !important; height: 2px !important;
@@ -521,7 +526,7 @@ div[data-testid="stButton"] button {
     box-shadow: none !important;
 }
 div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
-hr { border-color: #f3f4f6 !important; }
+hr { border-color: var(--lce-border, #f3f4f6) !important; }
 </style>
 """
 
@@ -530,10 +535,10 @@ def _render_brand() -> None:
     st.markdown(
         """
         <div style="text-align:center;padding:2.5rem 0 1.5rem;">
-          <div style="font-size:2rem;font-weight:800;color:#111827;margin-bottom:.25rem;">
-            🚗 LeilãoCE
+          <div style="font-size:2rem;font-weight:800;color:var(--lce-text, #111827);margin-bottom:.25rem;">
+            🚗 Achados & Leilões
           </div>
-          <div style="color:#6b7280;font-size:.9rem;">
+          <div style="color:var(--lce-muted, #6b7280);font-size:.9rem;">
             Monitoramento inteligente de leilões no Ceará
           </div>
         </div>
@@ -744,7 +749,7 @@ def render_paywall() -> None:
             </style>
             <div class="paywall-box">
               <p style="font-size:1.2rem;font-weight:700;color:var(--text-color);margin-bottom:.5rem">
-                Acesso completo ao LeilãoCE
+                Acesso completo ao Achados & Leilões
               </p>
               <div class="paywall-price">{_PLAN_PRICE_LABEL}</div>
               <div class="paywall-period">por mês · cancele quando quiser</div>

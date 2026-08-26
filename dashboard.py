@@ -20,7 +20,7 @@ from auth import (
 )
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
-st.set_page_config(page_title="LeilãoCE", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Achados & Leilões", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -1055,7 +1055,7 @@ def render_lotes(lotes_lista, key="main"):
                         _ds    = _dt.strftime("%Y%m%dT%H%M00")
                         _de    = _dt_e.strftime("%Y%m%dT%H%M00")
                         _title = quote(f"{lote.get('marca','')} {lote.get('modelo','')} {lote.get('ano','')}")
-                        _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | LeilãoCE")
+                        _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | Achados & Leilões")
                         _loc   = quote(lote.get('cidade',''))
                         _cal   = (f"https://calendar.google.com/calendar/render?action=TEMPLATE"
                                   f"&text={_title}&dates={_ds}/{_de}&details={_det}&location={_loc}")
@@ -1113,9 +1113,9 @@ def render_lotes(lotes_lista, key="main"):
                 st.rerun()
 
 def pagina_sobre():
-    st.markdown("## 📌 Sobre o LeilãoCE")
+    st.markdown("## 📌 Sobre o Achados & Leilões")
     st.markdown("""
-O **LeilãoCE** é uma plataforma de **análise e direcionamento** de oportunidades em leilões de veículos, imóveis e equipamentos no Ceará.
+O **Achados & Leilões** é uma plataforma de **análise e direcionamento** de oportunidades em leilões de veículos, imóveis e equipamentos no Ceará.
 
 ### Como funcionamos
 - **Não vendemos nada.** Somos um sistema independente de análise.
@@ -1134,7 +1134,7 @@ def pagina_como_comprar():
     st.markdown("## 🛒 Como Comprar em Leilões")
     st.markdown("""
 ### Passo a passo
-1. **Encontre o lote no LeilãoCE** — use os filtros e análises
+1. **Encontre o lote no Achados & Leilões** — use os filtros e análises
 2. **Clique em "Ver lote na Leilo"** — você será direcionado ao site oficial
 3. **Cadastre-se na plataforma do leilão**
 4. **Verifique a documentação completa do lote:**
@@ -1192,7 +1192,7 @@ def pagina_informacoes():
 ✅ Sinistrados só valem se você tiver oficina ou contato com mecânico
 
 ### Aviso legal
-O LeilãoCE não se responsabiliza por decisões de compra. As análises são orientativas.
+O Achados & Leilões não se responsabiliza por decisões de compra. As análises são orientativas.
 """)
 
 
@@ -1331,7 +1331,7 @@ with st.sidebar:
 
     st.markdown("""
     <div style="padding:1rem 0 .5rem;">
-      <div style="font-size:1.15rem;font-weight:800;color:#111827;">🚗 LeilãoCE</div>
+      <div style="font-size:1.15rem;font-weight:800;color:#e2e8f0;">🚗 Achados & Leilões</div>
       <div style="font-size:.75rem;color:#9ca3af;margin-top:2px;">Monitor de Leilões do Ceará</div>
     </div>
     """, unsafe_allow_html=True)
