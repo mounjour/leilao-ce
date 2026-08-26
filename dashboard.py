@@ -85,7 +85,6 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
     background: #dbeafe !important; }
-    background: rgba(255,255,255,.12) !important; }
 
 /* Sair e Atualizar dados */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
@@ -268,30 +267,12 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 }
 
 
-/* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
-@media (max-width: 640px) {
-    /* Métricas: 2×2 no mobile */
-    .metrics-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .metric-value { font-size: 22px !important; }
-
-    /* Cards: 1 por linha */
-    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
-        min-width: 100% !important;
-        flex: 1 1 100% !important;
-    }
-    .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .banner-tile .pct { font-size: 13px !important; }
-    .banner-tile .lbl { font-size: 10px !important; }
-    .card-img-box    { height: 140px !important; }
-}
-
+/* Layout de cards/métricas em telas pequenas e médias é tratado pelo
+   bloco "TEMA ADAPTATIVO E RESPONSIVIDADE V3" abaixo (grid + :has()).
+   Esta regra fica isolada porque cobre uma faixa (701-1024px) que o V3
+   não toca — o V3 só ajusta stHorizontalBlock, não .banner-info-grid,
+   nesse intervalo de tablet. */
 @media (min-width: 641px) and (max-width: 1024px) {
-    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
-        min-width: calc(50% - 8px) !important;
-        flex: 1 1 calc(50% - 8px) !important;
-    }
     .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
@@ -742,6 +723,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     .metric-value { font-size: 22px !important; }
     .banner-info { padding: 14px !important; }
     .banner-tile { padding: 9px !important; }
+    .banner-tile .pct { font-size: 13px !important; }
+    .banner-tile .lbl { font-size: 10px !important; }
     .card-img-box { height: 150px !important; }
     .card-img-box img { max-height: 150px !important; }
 
@@ -1389,8 +1372,40 @@ with st.sidebar:
     f_estado = st.selectbox("Estado", estados)
     f_cidade = st.selectbox("Cidade", cidades)
     f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
-    lance_max = max((l["lance_atual"] for l in lotes if l["lance_atual"] > 0), default=500000)
-    f_lance  = st.slider("Lance máximo (R$)", 0, int(lance_max), int(lance_max), step=1000)
+
+    valores_lance = sorted(l["lance_atual"] for l in lotes if l["lance_atual"] > 0)
+    lance_teto = int(valores_lance[-1]) if valores_lance else 500000
+    if valores_lance:
+        # a régua do slider usa o p90 pra não esticar 35x por causa de 1 ou 2
+        # imóveis fora da curva — quem precisa de um valor maior digita no campo
+        idx_p90 = min(int(len(valores_lance) * 0.9), len(valores_lance) - 1)
+        lance_slider_max = max(int(valores_lance[idx_p90]), 10000)
+        lance_slider_max = -(-lance_slider_max // 1000) * 1000  # arredonda pra cima (múltiplo de 1000)
+    else:
+        lance_slider_max = 500000
+    lance_step = 500 if lance_slider_max <= 50000 else 1000
+
+    if "f_lance_num" not in st.session_state:
+        st.session_state["f_lance_num"] = lance_teto
+    if "f_lance_slider" not in st.session_state:
+        st.session_state["f_lance_slider"] = min(lance_teto, lance_slider_max)
+
+    def _sync_lance_do_campo():
+        st.session_state["f_lance_slider"] = min(st.session_state["f_lance_num"], lance_slider_max)
+
+    def _sync_lance_do_slider():
+        st.session_state["f_lance_num"] = st.session_state["f_lance_slider"]
+
+    st.number_input(
+        "Lance máximo (R$)", min_value=0, max_value=lance_teto, step=lance_step,
+        key="f_lance_num", on_change=_sync_lance_do_campo,
+    )
+    st.slider(
+        "Ajuste rápido", 0, lance_slider_max, step=lance_step,
+        key="f_lance_slider", on_change=_sync_lance_do_slider,
+        label_visibility="collapsed",
+    )
+    f_lance = st.session_state["f_lance_num"]
 
     fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
     if st.session_state.get("_fil_hash") != fil_hash:
