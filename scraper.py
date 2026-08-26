@@ -1323,20 +1323,34 @@ def _parse_soleon_lots_from_listing(html, base):
 _SOLEON_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                                   "Chrome/124.0.0.0 Safari/537.36"}
+_ZENROWS_API_URL = "https://api.zenrows.com/v1/"
 
 def _raspar_soleon(base, fonte, vistos):
     """Scraper para Construbem e Daniel Garcia (plataforma Soleon).
-    Ambos os sites são renderizados no servidor (sem JS necessário), então um
-    requests.get() simples resolve — não precisam de proxy nem de bypass de Cloudflare.
+    Ambos os sites são renderizados no servidor (sem JS necessário) — mas o
+    Cloudflare deles bloqueia especificamente a faixa de IP dos runners do
+    GitHub Actions (confirmado: o mesmo requests.get() com os mesmos headers
+    funciona normalmente de outros IPs, então não é um bloqueio por
+    fingerprint de user-agent nem exige renderizar JS). Por isso a requisição
+    passa pelo Zenrows quando ZENROWS_API_KEY está configurada; sem a chave
+    (ex.: dev local), cai de volta pro requests direto.
     """
     lotes = []
     nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
     sess  = requests.Session()
     sess.headers.update(_SOLEON_HEADERS)
+    zenrows_key = os.getenv("ZENROWS_API_KEY", "").strip()
 
     def _get(url):
         try:
-            r = sess.get(url, timeout=20)
+            if zenrows_key:
+                r = sess.get(
+                    _ZENROWS_API_URL,
+                    params={"apikey": zenrows_key, "url": url},
+                    timeout=30,
+                )
+            else:
+                r = sess.get(url, timeout=20)
             if r.status_code == 200:
                 return r.text
             print(f"  ⚠️ {nome} {r.status_code}: {url}")
