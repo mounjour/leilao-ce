@@ -527,8 +527,61 @@ div[data-testid="stButton"] button {
 }
 div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
 hr { border-color: var(--lce-border, #f3f4f6) !important; }
+
+/* Abaixo de ~tablet, o painel de marca ao lado do form vira peso morto
+   (empurra o form pra baixo sem espaço pra respirar) — some, e o form
+   volta a ocupar a coluna inteira, como era antes desse painel existir. */
+@media (max-width: 1024px) {
+    div[data-testid="stColumn"]:has(div[class*="st-key-auth_brand_panel"]) {
+        display: none !important;
+    }
+}
 </style>
 """
+
+
+def _render_brand_panel() -> None:
+    """Painel de marca/valor ao lado do form, só em telas largas (ver media query acima).
+
+    Preenche o espaço vazio que sobrava nos dois lados do form em telas wide —
+    o texto reaproveita os mesmos 3 pontos usados em pagina_sobre()/dashboard.py,
+    sem inventar promessa nova.
+    """
+    itens = [
+        ("📡", "Leilões de vários sites, num só lugar",
+         "Veículos, imóveis e equipamentos monitorados automaticamente todos os dias."),
+        ("🤖", "Análise de cada lote por IA",
+         "Estado, riscos e oportunidade antes de você decidir dar um lance."),
+        ("🔔", "Alertas no WhatsApp",
+         "Avisamos assim que o lance de um lote favoritado mudar."),
+    ]
+    linhas_itens = "".join(
+        f"""
+        <div style="display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.4rem;">
+          <div style="font-size:1.4rem;line-height:1.4;">{icone}</div>
+          <div>
+            <div style="font-weight:700;color:var(--lce-text, #111827);font-size:.95rem;">{titulo}</div>
+            <div style="color:var(--lce-muted, #6b7280);font-size:.85rem;margin-top:.15rem;">{desc}</div>
+          </div>
+        </div>"""
+        for icone, titulo, desc in itens
+    )
+    st.markdown(
+        f"""
+        <div style="background:var(--lce-surface, #f9fafb);border:1px solid var(--lce-border, #e5e7eb);
+                    border-radius:var(--lce-radius, 12px);padding:2.75rem 2.25rem;">
+          <div style="font-size:2.1rem;font-weight:800;color:var(--lce-text, #111827);
+                      margin-bottom:.4rem;line-height:1.2;">
+            🚗 Achados & Leilões
+          </div>
+          <div style="color:var(--lce-muted, #6b7280);font-size:1rem;margin-bottom:2.25rem;">
+            Monitoramento inteligente de leilões no Ceará
+          </div>
+          {linhas_itens}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 def _render_brand() -> None:
@@ -582,7 +635,11 @@ def render_auth_page() -> None:
     st.markdown(_AUTH_CSS, unsafe_allow_html=True)
 
     callback_ok, callback_error = _process_auth_callback()
-    _, column, _ = st.columns([1, 1.2, 1])
+    col_brand, column = st.columns([1.1, 1], gap="large")
+
+    with col_brand:
+        with st.container(key="auth_brand_panel"):
+            _render_brand_panel()
 
     with column:
         _render_brand()
