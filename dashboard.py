@@ -404,6 +404,15 @@ div[data-testid="stColumn"] > div:has(> div[data-testid="stVerticalBlockBorderWr
     flex-direction: column !important;
 }
 
+/* Cards da mesma linha ficam com altura igual (regra acima), mas o
+   conteúdo interno varia (nem todo lote tem análise de IA, calendário
+   etc.) — sem isto, a linha "Ver lote / Favoritar" ficava na altura
+   onde o conteúdo daquele card específico terminava, em vez de sempre
+   no rodapé, desalinhando os botões entre os cards de uma mesma linha. */
+[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stHorizontalBlock"]:last-child {
+    margin-top: auto !important;
+}
+
 /* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
 [data-testid="stVerticalBlockBorderWrapper"] a,
 [data-testid="stVerticalBlockBorderWrapper"] a:hover {
@@ -992,9 +1001,19 @@ def render_lotes(lotes_lista, key="main"):
 
         with cols[i % 3]:
             with st.container(border=True):
-                # Foto
+                # Foto — se a URL falhar (link caído, hotlink bloqueado etc.),
+                # o onerror troca pro mesmo ícone de categoria usado quando
+                # não há foto nenhuma, em vez de deixar o ícone de imagem
+                # quebrada do navegador.
                 if foto:
-                    st.markdown(f'<div class="card-img-box"><img src="{foto}"></div>', unsafe_allow_html=True)
+                    _icone_fb = icones_cat.get(cat, "📦")
+                    st.markdown(
+                        f"<div class='card-img-box'>"
+                        f"<img src='{foto}' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\">"
+                        f"<span style='display:none;font-size:48px;width:100%;height:100%;align-items:center;justify-content:center'>{_icone_fb}</span>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
                 else:
                     st.markdown(f'<div class="card-img-box" style="font-size:48px">{icones_cat.get(cat,"📦")}</div>', unsafe_allow_html=True)
 
@@ -1110,6 +1129,7 @@ def render_lotes(lotes_lista, key="main"):
         with c1:
             if page > 1 and st.button("← Anterior", key=f"prev_{key}"):
                 st.session_state[page_key] = page - 1
+                st.session_state["_scroll_to_top"] = True
                 st.rerun()
         with c2:
             st.markdown(
@@ -1120,6 +1140,7 @@ def render_lotes(lotes_lista, key="main"):
         with c3:
             if page < total_pages and st.button("Próxima →", key=f"next_{key}"):
                 st.session_state[page_key] = page + 1
+                st.session_state["_scroll_to_top"] = True
                 st.rerun()
 
 def pagina_sobre():
@@ -1305,9 +1326,16 @@ render_user_menu()
 
 lotes = carregar()
 
+# Paginação troca de conteúdo mas o navegador mantém a posição de rolagem
+# (st.rerun() não reseta scroll) — sem isso, "Próxima"/"Anterior" trocavam
+# os cards mas deixavam o usuário olhando pro meio da página anterior.
+_rolar_ao_topo = st.session_state.pop("_scroll_to_top", False)
+_scroll_snippet = "window.parent.scrollTo({top: 0, behavior: 'instant'});" if _rolar_ao_topo else ""
+
 components.html("""
 <script>
 (function() {
+  """ + _scroll_snippet + """
   function applyFixes(doc) {
     // ── Cor da estrela (☆ cinza / ★ amarelo) ─────────────────────────
     doc.querySelectorAll('button').forEach(function(btn) {
