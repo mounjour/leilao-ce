@@ -267,30 +267,12 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 }
 
 
-/* ── RESPONSIVIDADE ─────────────────────────────────────────────── */
-@media (max-width: 640px) {
-    /* Métricas: 2×2 no mobile */
-    .metrics-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .metric-value { font-size: 22px !important; }
-
-    /* Cards: 1 por linha */
-    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:has(div[data-testid="stVerticalBlockBorderWrapper"]) {
-        min-width: 100% !important;
-        flex: 1 1 100% !important;
-    }
-    .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .banner-tile .pct { font-size: 13px !important; }
-    .banner-tile .lbl { font-size: 10px !important; }
-    .card-img-box    { height: 140px !important; }
-}
-
+/* Layout de cards/métricas em telas pequenas e médias é tratado pelo
+   bloco "TEMA ADAPTATIVO E RESPONSIVIDADE V3" abaixo (grid + :has()).
+   Esta regra fica isolada porque cobre uma faixa (701-1024px) que o V3
+   não toca — o V3 só ajusta stHorizontalBlock, não .banner-info-grid,
+   nesse intervalo de tablet. */
 @media (min-width: 641px) and (max-width: 1024px) {
-    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
-        min-width: calc(50% - 8px) !important;
-        flex: 1 1 calc(50% - 8px) !important;
-    }
     .banner-info-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
@@ -741,6 +723,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     .metric-value { font-size: 22px !important; }
     .banner-info { padding: 14px !important; }
     .banner-tile { padding: 9px !important; }
+    .banner-tile .pct { font-size: 13px !important; }
+    .banner-tile .lbl { font-size: 10px !important; }
     .card-img-box { height: 150px !important; }
     .card-img-box img { max-height: 150px !important; }
 
