@@ -364,12 +364,22 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     -webkit-font-smoothing: antialiased !important;
 }
 
-/* Cards e contêineres. */
-[data-testid="stVerticalBlockBorderWrapper"] {
+/* Cards e contêineres.
+   O Streamlit 1.57 parou de gerar um elemento dedicado
+   [data-testid="stVerticalBlockBorderWrapper"] pra st.container(border=True)
+   — agora é só mais um stVerticalBlock (com border/radius nativos do
+   próprio Streamlit), dentro de um stLayoutWrapper. Como
+   st.container(border=True) só é usado pros cards de lote neste arquivo,
+   a cadeia completa stColumn > stVerticalBlock > stLayoutWrapper >
+   stVerticalBlock identifica o card com segurança — confirmado ao vivo
+   que bate 1:1 com o número de cards renderizados, sem pegar nenhum
+   outro bloco vertical da página (sidebar, outras colunas etc.). */
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] {
     background: color-mix(in srgb, var(--lce-surface) 92%, var(--lce-bg)) !important;
     border-color: var(--lce-border) !important;
     border-radius: var(--lce-radius) !important;
     box-shadow: 0 2px 10px color-mix(in srgb, #000 7%, transparent);
+    height: 100% !important;
 }
 
 /* Cards da mesma linha com a mesma altura, mesmo quando um deles tem bem
@@ -379,7 +389,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
    altura da maior por padrão (mesmo padrão já usado nas media queries de
    tablet/mobile abaixo, que sobrescrevem isto nessas larguras). */
 div[data-testid="stHorizontalBlock"]:has(
-  > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+  > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
 ) {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -387,18 +397,18 @@ div[data-testid="stHorizontalBlock"]:has(
     align-items: stretch !important;
 }
 div[data-testid="stHorizontalBlock"]:has(
-  > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+  > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
 ) > div[data-testid="stColumn"] {
     width: 100% !important;
     min-width: 0 !important;
 }
-div[data-testid="stColumn"] > div:has(> div[data-testid="stVerticalBlockBorderWrapper"]) {
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"]:has(> div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]) {
     height: 100% !important;
 }
-[data-testid="stVerticalBlockBorderWrapper"] {
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"]:has(> div[data-testid="stVerticalBlock"]) {
     height: 100% !important;
 }
-[data-testid="stVerticalBlockBorderWrapper"] > div {
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div {
     height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
@@ -409,13 +419,13 @@ div[data-testid="stColumn"] > div:has(> div[data-testid="stVerticalBlockBorderWr
    etc.) — sem isto, a linha "Ver lote / Favoritar" ficava na altura
    onde o conteúdo daquele card específico terminava, em vez de sempre
    no rodapé, desalinhando os botões entre os cards de uma mesma linha. */
-[data-testid="stVerticalBlockBorderWrapper"] > div > div[data-testid="stHorizontalBlock"]:last-child {
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child {
     margin-top: auto !important;
 }
 
 /* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
-[data-testid="stVerticalBlockBorderWrapper"] a,
-[data-testid="stVerticalBlockBorderWrapper"] a:hover {
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] a,
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] a:hover {
     text-decoration: none !important;
 }
 
@@ -682,7 +692,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
 /* Tablet: dois cards por linha. */
 @media (min-width: 701px) and (max-width: 1100px) {
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
     ) {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -690,7 +700,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
     ) > div[data-testid="stColumn"] {
         width: 100% !important;
         min-width: 0 !important;
@@ -719,7 +729,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
     ) {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) !important;
@@ -727,7 +737,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     }
 
     div[data-testid="stHorizontalBlock"]:has(
-      > div[data-testid="stColumn"] > div > div[data-testid="stVerticalBlockBorderWrapper"]
+      > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"]
     ) > div[data-testid="stColumn"] {
         width: 100% !important;
         min-width: 0 !important;
@@ -1002,15 +1012,19 @@ def render_lotes(lotes_lista, key="main"):
         with cols[i % 3]:
             with st.container(border=True):
                 # Foto — se a URL falhar (link caído, hotlink bloqueado etc.),
-                # o onerror troca pro mesmo ícone de categoria usado quando
-                # não há foto nenhuma, em vez de deixar o ícone de imagem
-                # quebrada do navegador.
+                # troca pro mesmo ícone de categoria usado quando não há foto
+                # nenhuma, em vez de deixar o ícone de imagem quebrada do
+                # navegador. O fallback é preenchido por JS (script perto do
+                # fim do arquivo) e não por onerror inline: o
+                # unsafe_allow_html=True do Streamlit remove atributos
+                # on* do HTML por segurança, então onerror="..." aqui
+                # nunca chegava a existir de verdade no DOM renderizado.
                 if foto:
                     _icone_fb = icones_cat.get(cat, "📦")
                     st.markdown(
                         f"<div class='card-img-box'>"
-                        f"<img src='{foto}' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex'\">"
-                        f"<span style='display:none;font-size:48px;width:100%;height:100%;align-items:center;justify-content:center'>{_icone_fb}</span>"
+                        f"<img src='{foto}'>"
+                        f"<span class='card-img-fallback' style='display:none;font-size:48px;width:100%;height:100%;align-items:center;justify-content:center'>{_icone_fb}</span>"
                         f"</div>",
                         unsafe_allow_html=True,
                     )
@@ -1350,6 +1364,24 @@ components.html("""
           el.style.setProperty('color', cor, 'important');
         });
       }
+    });
+
+    // ── Foto quebrada → ícone de categoria ────────────────────────────
+    // Precisa ser feito por JS de verdade: o unsafe_allow_html=True do
+    // Streamlit remove atributos onerror="..." do HTML por seguranca,
+    // entao um onerror inline no <img> nunca chega a existir no DOM.
+    doc.querySelectorAll('.card-img-box img').forEach(function(img) {
+      if (img.dataset.fallbackBound) return;
+      img.dataset.fallbackBound = '1';
+      var mostrarFallback = function() {
+        img.style.display = 'none';
+        var fallback = img.parentElement.querySelector('.card-img-fallback');
+        if (fallback) fallback.style.display = 'flex';
+      };
+      img.addEventListener('error', mostrarFallback);
+      // A imagem pode ja ter falhado antes do listener ser anexado
+      // (a MutationObserver so roda depois que o <img> entra no DOM).
+      if (img.complete && img.naturalWidth === 0) mostrarFallback();
     });
   }
 
