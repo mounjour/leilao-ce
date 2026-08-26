@@ -110,21 +110,18 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
 .p-sin     { background:#fee2e2; color:#dc2626; }
 .p-ni      { background:#f8fafc; color:#334155; }
 
-div[data-testid="stButton"] button { background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:13px; font-weight:500; width:100%; }
-div[data-testid="stButton"] button:hover { background:#1e293b; }
-
 /* ── BOTÃO FAVORITAR ── estrela grande + texto, última coluna de cada card ── */
 div[class*="st-key-fav_"] button {
     background: transparent !important;
     background-color: transparent !important;
-    border: 2px solid #f59e0b !important;
+    border: 2px solid var(--lce-amber, #f59e0b) !important;
     box-shadow: none !important;
     width: 100% !important;
     height: auto !important;
     min-height: 44px !important;
     padding: 6px 12px !important;
     border-radius: 8px !important;
-    color: #f59e0b !important;
+    color: var(--lce-amber, #f59e0b) !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
@@ -140,7 +137,7 @@ div[class*="st-key-fav_"] button strong {
     vertical-align: middle !important;
 }
 div[class*="st-key-fav_"] button:hover {
-    background: rgba(245, 158, 11, .12) !important;
+    background: color-mix(in srgb, var(--lce-amber, #f59e0b) 12%, transparent) !important;
     opacity: 1 !important;
 }
 @media (max-width: 430px) {
@@ -292,6 +289,10 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     --lce-hover: color-mix(in srgb, var(--lce-primary) 14%, var(--lce-surface));
     --lce-shadow: 0 8px 24px color-mix(in srgb, #000 14%, transparent);
     --lce-radius: 12px;
+    /* f59e0b (o amber "vivo" usado no escuro) so tem 2:1 de contraste
+       contra fundo claro — b45309 mantem a mesma familia de cor e passa
+       WCAG AA (4.68:1+) no claro. */
+    --lce-amber: #b45309;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -302,6 +303,7 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
         --lce-primary: #3b82f6;
         --lce-hover: color-mix(in srgb, var(--lce-primary) 20%, var(--lce-surface));
         --lce-shadow: 0 8px 24px rgba(0,0,0,.5);
+        --lce-amber: #f59e0b;
     }
 }
 
@@ -510,24 +512,32 @@ textarea::placeholder {
     color: var(--lce-text) !important;
 }
 
-/* Botões gerais: contraste estável nos dois temas. */
+/* Botões gerais: contraste estável nos dois temas.
+   --lce-primary puro so da 3.68:1 de texto branco no escuro (abaixo dos
+   4.5:1 do WCAG AA) - a mesma mistura de 82% que ja era usada so no hover
+   passa em 5.15:1 (escuro) / 6.99:1 (claro), entao virou o estado padrao;
+   o hover ficou um pouco mais escuro ainda (70%) pra continuar dando
+   feedback visivel de interacao. */
 div[data-testid="stButton"] button,
 [data-testid="stFormSubmitButton"] button,
 [data-testid="stLinkButton"] a,
 [data-testid="stDownloadButton"] button {
     min-height: 2.5rem !important;
-    background: var(--lce-primary) !important;
+    background: color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
     color: #ffffff !important;
-    border: 1px solid color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    border: 1px solid var(--lce-primary) !important;
     border-radius: 8px !important;
     box-shadow: none !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
 }
 
 div[data-testid="stButton"] button:hover,
 [data-testid="stFormSubmitButton"] button:hover,
 [data-testid="stLinkButton"] a:hover,
 [data-testid="stDownloadButton"] button:hover {
-    background: color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    background: color-mix(in srgb, var(--lce-primary) 70%, #000) !important;
     color: #ffffff !important;
     border-color: var(--lce-primary) !important;
 }
@@ -1303,7 +1313,10 @@ components.html("""
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
       if (t.includes('★') || t.includes('☆')) {
-        var cor = t.includes('★') ? '#f59e0b' : '#9ca3af';
+        // Referencia a variavel em vez de um hex fixo, senao o inline
+        // !important daqui vence o !important do CSS e ignora o tema
+        // (foi assim que o amber ficou ilegivel no modo claro antes).
+        var cor = t.includes('★') ? 'var(--lce-amber)' : 'var(--lce-muted)';
         btn.style.setProperty('color', cor, 'important');
         btn.querySelectorAll('*').forEach(function(el) {
           el.style.setProperty('color', cor, 'important');
