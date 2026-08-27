@@ -505,20 +505,32 @@ _AUTH_CSS = """
     color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
     font-weight: 500 !important;
 }
-/* "Entrar" e "Criar conta" distribuídos com espaço igual antes, entre e
-   depois das abas (space-evenly) — nem colados no canto esquerdo, nem
-   encostados nas bordas. dashboard.py força gap/overflow-x na tab-list mas
-   não mexe em justify-content, então aqui não há disputa de !important — a
-   ordem de injeção das folhas não importa. */
-.stTabs [data-baseweb="tab-list"],
-.stTabs [role="tablist"] {
-    justify-content: space-evenly !important;
+/* Cada aba ocupa metade da largura (flex:1) com o texto centralizado —
+   "Entrar" na metade esquerda, "Criar conta" na metade direita. */
+.stTabs [data-baseweb="tab-list"] > [data-baseweb="tab"],
+.stTabs [role="tablist"] > [role="tab"] {
+    flex: 1 1 0 !important;
+    justify-content: center !important;
 }
 .stTabs [aria-selected="true"] {
     color: var(--lce-text, #111827) !important; font-weight: 600 !important;
 }
-.stTabs [data-baseweb="tab-border"] {
-    background: #2563eb !important; height: 2px !important;
+/* Traço vermelho da aba ativa = borda inferior da própria aba, cobrindo a
+   metade correspondente da linha. Feito com box-shadow inset (não com o
+   tab-highlight nativo do baseweb, que é posicionado por animação JS e
+   ignora qualquer override de CSS). Segue [aria-selected], que o Streamlit
+   atualiza a cada rerun — sem `~`/`:has` frágil. */
+.stTabs [data-baseweb="tab-list"] [data-baseweb="tab-highlight"],
+.stTabs [role="tablist"] [data-baseweb="tab-highlight"] {
+    display: none !important;
+}
+/* Sem transition aqui de propósito: com `transition: box-shadow` o
+   Streamlit deixa a CSSTransition presa em currentTime 0 (rerender
+   constante) e o box-shadow renderiza no valor inicial zerado. Sem
+   transição o traço só aparece/some na troca de aba. */
+.stTabs [data-baseweb="tab"][aria-selected="true"],
+.stTabs [role="tab"][aria-selected="true"] {
+    box-shadow: inset 0 -2px 0 0 #ff4b4b !important;
 }
 .stTabs [data-baseweb="tab-panel"] { padding-top: 1.5rem !important; }
 .stFormSubmitButton button {
