@@ -871,11 +871,15 @@ def _raspar_mega(pg, vistos):
             except:
                 break
 
-            cards = pg.query_selector_all('.card.open')
+            # `.card open` = pregão rodando; `.card waiting` = "EM BREVE"
+            # (1ª praça no futuro). Antes só pegava `.open` e todo lote
+            # futuro do Mega era descartado.
+            cards = pg.query_selector_all('.card.open, .card.waiting')
             if not cards:
                 break
             print(f"📡 Mega {url_base.split('/')[-1]} p.{pagina} | {len(cards)} cards")
 
+            antes = len(lotes)
             for card in cards:
                 try:
                     title_el = card.query_selector('.card-title')
@@ -914,6 +918,12 @@ def _raspar_mega(pg, vistos):
                     time.sleep(0.3)
                 except Exception as e:
                     print(f"  ⚠️ Mega: {e}"); continue
+
+            # Se a pagina nao trouxe nenhum lote novo, o site ja clampou pra
+            # ultima pagina (ele repete a p.1 pra `?pagina=N` fora do range)
+            # — parar em vez de repetir goto ate `range(1, 15)` acabar.
+            if len(lotes) == antes:
+                break
 
     return lotes
 
