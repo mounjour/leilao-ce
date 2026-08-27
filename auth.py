@@ -528,12 +528,32 @@ div[data-testid="stButton"] button {
 div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
 hr { border-color: var(--lce-border, #f3f4f6) !important; }
 
+/* dashboard.py injeta (bloco "V3" dos cards de lote) uma regra que força
+   TODO stHorizontalBlock cujo filho case
+   stColumn > stVerticalBlock > stLayoutWrapper > stVerticalBlock
+   para display:grid + grid-template-columns:repeat(3, 1fr). O
+   st.container(key="auth_brand_panel") tem exatamente essa estrutura, então
+   a tela de login herdava a grade de 3 colunas: o par [painel | formulário]
+   preenchia só 2 trilhas e a 3ª sobrava vazia à direita, empurrando tudo
+   pra esquerda (a tela "desentralizada"). A regra abaixo é mais específica
+   (mesma cadeia + a classe da key) e vem depois, então devolve as 2 colunas
+   reais desta tela. */
+div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"].st-key-auth_brand_panel) {
+    grid-template-columns: 1.1fr 1fr !important;
+    gap: 3rem !important;
+}
+
 /* Abaixo de ~tablet, o painel de marca ao lado do form vira peso morto
    (empurra o form pra baixo sem espaço pra respirar) — some, e o form
    volta a ocupar a coluna inteira, como era antes desse painel existir. */
 @media (max-width: 1024px) {
     div[data-testid="stColumn"]:has(div[class*="st-key-auth_brand_panel"]) {
         display: none !important;
+    }
+    /* Sem o painel, a grade não pode continuar com 2 trilhas (o form ficaria
+       só na primeira, com metade da largura) — colapsa pra coluna única. */
+    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"].st-key-auth_brand_panel) {
+        grid-template-columns: 1fr !important;
     }
 }
 </style>
