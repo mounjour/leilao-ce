@@ -32,69 +32,9 @@ html, body, button, input, textarea, select {
 }
 .stApp { background: #f5f7fb; }
 
-/* ── SIDEBAR — fundo azul escuro ─────────────────────────────────── */
-section[data-testid="stSidebar"] {
-    background: #1e3a8a !important;
-    border-right: none !important; }
-section[data-testid="stSidebar"] * { color: #e2e8f0 !important; }
-section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,.15) !important; }
-
-/* logo */
-section[data-testid="stSidebar"] h2 { color: #fff !important;
-    font-size: 1.1rem !important; font-weight: 700 !important; }
-
-/* labels de seção (FILTROS, INFORMAÇÕES) */
-section[data-testid="stSidebar"] label { color: #93c5fd !important;
-    font-size: .78rem !important; font-weight: 600 !important;
-    text-transform: uppercase !important; letter-spacing: .05em !important; }
-
-/* inputs e selects no fundo azul */
-section[data-testid="stSidebar"] input,
-section[data-testid="stSidebar"] [data-baseweb="select"] > div {
-    background: rgba(255,255,255,.12) !important;
-    border-color: rgba(255,255,255,.25) !important;
-    border-radius: 8px !important; color: #fff !important; }
-
-/* opções do selectbox */
-section[data-testid="stSidebar"] [data-baseweb="menu"] {
-    background: #1e3a8a !important; }
-section[data-testid="stSidebar"] [role="option"] { color: #e2e8f0 !important; }
-section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.1) !important; }
-
-/* slider */
-section[data-testid="stSidebar"] [data-testid="stSlider"] * { color: #e2e8f0 !important; }
-
-/* ── BOTÕES DE NAVEGAÇÃO ─────────────────────────────────────────── */
-
-/* inativo — texto claro, fundo transparente */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"] {
-    background: transparent !important; color: #e2e8f0 !important;
-    border: none !important; border-radius: 8px !important;
-    font-weight: 500 !important; font-size: .9rem !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-secondary"]:hover {
-    background: rgba(255,255,255,.12) !important; }
-
-/* ativo — fundo branco, texto azul escuro */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"],
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"] {
-    background: #fff !important; color: #1e3a8a !important;
-    border: none !important; border-radius: 8px !important;
-    font-weight: 700 !important; font-size: .9rem !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
-    background: #dbeafe !important; }
-
-/* Sair e Atualizar dados */
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"] {
-    background: transparent !important; color: #e2e8f0 !important;
-    border: 1px solid rgba(255,255,255,.35) !important; border-radius: 8px !important;
-    font-weight: 500 !important; font-size: .88rem !important; }
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
-section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
-    background: rgba(255,255,255,.12) !important; }
+/* O estilo da sidebar foi consolidado num bloco unico mais abaixo neste
+   <style> (procure por "SIDEBAR (bloco unico)"). Antes ficava dividido
+   entre aqui e la, com regras conflitantes. */
 .pill {
   display:inline-block; padding:4px 10px; border-radius:20px;
   font-size:11px; font-weight:600; margin-right:4px; margin-bottom:4px;
@@ -593,12 +533,22 @@ div[data-testid="stButton"] button:focus-visible,
     color: var(--lce-primary) !important;
 }
 
-/* Sidebar permanece azul-escura e independente do tema principal. */
+/* ── SIDEBAR (bloco unico) ───────────────────────────────────────────
+   Consolidado: antes o estilo da sidebar vivia em DOIS lugares deste
+   <style> — um bloco "legado" no topo e este. Para selectors iguais,
+   quem vinha depois (este) vencia, entao o render era uma mistura dos
+   dois. Aqui ficam so os valores que de fato venciam + as regras que so
+   existiam no bloco legado (h2, hr, label uppercase, menu/option,
+   slider, primary:hover, tertiary). Verificado via getComputedStyle
+   (light + dark): identico ao render anterior.
+   Sidebar e azul-escura e independente do tema principal. */
 section[data-testid="stSidebar"] {
     background: #172554 !important;
     color: #e2e8f0 !important;
     border-right: 1px solid rgba(255,255,255,.12) !important;
 }
+section[data-testid="stSidebar"] * { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,.15) !important; }
 
 section[data-testid="stSidebar"] p,
 section[data-testid="stSidebar"] span,
@@ -607,13 +557,37 @@ section[data-testid="stSidebar"] label {
     color: #e2e8f0;
 }
 
+/* logo */
+section[data-testid="stSidebar"] h2 {
+    color: #fff !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+}
+
+/* labels de secao (FILTROS, INFORMACOES) */
+section[data-testid="stSidebar"] label {
+    color: #93c5fd !important;
+    font-size: .78rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .05em !important;
+}
+
 section[data-testid="stSidebar"] input,
 section[data-testid="stSidebar"] [data-baseweb="select"] > div {
-    background: rgba(255,255,255,.10) !important;
     background: transparent !important;
     border-color: rgba(255,255,255,.35) !important;
+    border-radius: 8px !important;
     color: #ffffff !important;
 }
+
+/* opcoes do selectbox */
+section[data-testid="stSidebar"] [data-baseweb="menu"] { background: #1e3a8a !important; }
+section[data-testid="stSidebar"] [role="option"] { color: #e2e8f0 !important; }
+section[data-testid="stSidebar"] [role="option"]:hover { background: rgba(255,255,255,.1) !important; }
+
+/* slider */
+section[data-testid="stSidebar"] [data-testid="stSlider"] * { color: #e2e8f0 !important; }
 
 /* Navegação da sidebar sobrescreve o estilo geral de botões. */
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"],
@@ -621,6 +595,9 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     background: transparent !important;
     color: #e2e8f0 !important;
     border: 1px solid rgba(255,255,255,.22) !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: .9rem !important;
 }
 
 section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="secondary"]:hover,
@@ -635,6 +612,29 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     background: transparent !important;
     color: #ffffff !important;
     border: 2px solid #ffffff !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: .9rem !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-primary"]:hover {
+    background: #dbeafe !important;
+}
+
+/* Sair e Atualizar dados */
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"],
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"] {
+    background: transparent !important;
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(255,255,255,.35) !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    font-size: .88rem !important;
+}
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="tertiary"]:hover,
+section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid="baseButton-tertiary"]:hover {
+    background: rgba(255,255,255,.12) !important;
 }
 
 /* Header/toolbar e controle da sidebar. */
