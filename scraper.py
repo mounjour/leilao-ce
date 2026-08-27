@@ -1447,7 +1447,8 @@ def _parse_soleon_lots_from_listing(html, base):
 _SOLEON_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                                   "Chrome/124.0.0.0 Safari/537.36"}
-_ZENROWS_API_URL = "https://api.zenrows.com/v1/"
+_ZENROWS_API_URL   = "https://api.zenrows.com/v1/"
+_SCRAPERAPI_API_URL = "https://api.scraperapi.com/"
 
 def _raspar_soleon(base, fonte, vistos):
     """Scraper para Construbem e Daniel Garcia (plataforma Soleon).
@@ -1455,31 +1456,36 @@ def _raspar_soleon(base, fonte, vistos):
     Cloudflare deles bloqueia especificamente a faixa de IP dos runners do
     GitHub Actions (confirmado: o mesmo requests.get() com os mesmos headers
     funciona normalmente de outros IPs, então não é um bloqueio por
-    fingerprint de user-agent nem exige renderizar JS). Por isso a requisição
-    passa pelo Zenrows quando ZENROWS_API_KEY está configurada; sem a chave
-    (ex.: dev local), cai de volta pro requests direto.
+    fingerprint de user-agent nem exige renderizar JS).
+
+    Ordem de tentativa por URL: Zenrows -> ScraperAPI -> requests direto.
+    Os dois proxies só entram se a respectiva chave estiver configurada; se
+    um falhar (ex.: Zenrows sem crédito -> HTTP 402), cai pro próximo. Em
+    dev local, sem nenhuma chave, o requests direto basta.
     """
     lotes = []
     nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
     sess  = requests.Session()
     sess.headers.update(_SOLEON_HEADERS)
-    zenrows_key = os.getenv("ZENROWS_API_KEY", "").strip()
+    zenrows_key    = os.getenv("ZENROWS_API_KEY", "").strip()
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "").strip()
+
+    def _fetch_variants(url):
+        if zenrows_key:
+            yield "Zenrows", _ZENROWS_API_URL, {"apikey": zenrows_key, "url": url}
+        if scraperapi_key:
+            yield "ScraperAPI", _SCRAPERAPI_API_URL, {"api_key": scraperapi_key, "url": url}
+        yield "direto", url, None
 
     def _get(url):
-        try:
-            if zenrows_key:
-                r = sess.get(
-                    _ZENROWS_API_URL,
-                    params={"apikey": zenrows_key, "url": url},
-                    timeout=30,
-                )
-            else:
-                r = sess.get(url, timeout=20)
-            if r.status_code == 200:
-                return r.text
-            print(f"  ⚠️ {nome} {r.status_code}: {url}")
-        except Exception as e:
-            print(f"  ⚠️ {nome} request: {e}")
+        for label, endpoint, params in _fetch_variants(url):
+            try:
+                r = sess.get(endpoint, params=params, timeout=30 if params else 20)
+                if r.status_code == 200:
+                    return r.text
+                print(f"  ⚠️ {nome} [{label}] {r.status_code}: {url}")
+            except Exception as e:
+                print(f"  ⚠️ {nome} [{label}] request: {e}")
         return ""
 
     html_home = _get(base + "/")
