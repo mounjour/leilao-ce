@@ -1153,6 +1153,35 @@ def _demojibake(s):
     except UnicodeError:
         return s
 
+# A data do pregao do CelsoCunha so aparece na pagina do LEILAO, nunca na
+# do lote. Alem disso o _extrair_data_leilao generico as vezes casa antes
+# num contador regressivo da pagina e devolve data errada (era o motivo
+# de ~metade dos lotes CelsoCunha ficarem sem data ou com data furada).
+# Aqui a regex e ancorada em "data:" / "1a Praca".
+def _cc_data_leilao(texto):
+    m = re.search(
+        r'(?:\bdata:|1[ªa]\s*pra[çc]a)[^\d]{0,8}(\d{2}/\d{2}/\d{4})[^\d]{0,12}(\d{2}:\d{2})',
+        texto, re.I,
+    )
+    if m:
+        try:
+            return datetime.strptime(
+                f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M"
+            ).strftime("%Y-%m-%dT%H:%M")
+        except ValueError:
+            pass
+    return _extrair_data_leilao(texto)
+
+# Lote "pacote": varios veiculos vendidos juntos ("Piramide constituida
+# por 03 veiculos ..."). Marca/modelo/ano nao se aplicam e a FIPE nunca
+# resolve — o lote e mantido (pode ser oportunidade real) mas rotulado
+# como pacote e sem tentar referencia de preco.
+_CC_BUNDLE_RE = re.compile(
+    r'pir[aâ]mide|constitu[íi]d[ao]\s+por\s+\d+\s+ve[íi]culos|'
+    r'\b\d+\s+ve[íi]culos\b|lote\s+com\s+v[áa]rios',
+    re.I,
+)
+
 # Slug de leilao terminando em UF que nao e o Ceara (ex.: ".../leilao-
 # prefeitura-municipal-de-sertaozinho-sp"). CelsoCunha e uma leiloeira de
 # Sertaozinho-SP e publica muito leilao de fora; o filtro do projeto e
@@ -1183,12 +1212,18 @@ def _raspar_celso_cunha(vistos):
         url_auction = _CC_BASE + auction_path
         print(f"📡 CelsoCunha | {auction_path}")
 
+        data_leilao_auction = ""
         for page in range(1, 30):
             try:
                 html_pg = _cc_get(f"{url_auction}?page={page}", timeout=20)
             except Exception as e:
                 print(f"  ⚠️ CelsoCunha {auction_path} p{page}: {e}")
                 break
+
+            if page == 1:
+                texto_pg1 = _demojibake(html.unescape(
+                    re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html_pg))))
+                data_leilao_auction = _cc_data_leilao(texto_pg1)
 
             lot_paths = list(dict.fromkeys(re.findall(r'/lote/\d+/[^"\'<>\s]+', html_pg)))
             if not lot_paths:
@@ -1212,18 +1247,29 @@ def _raspar_celso_cunha(vistos):
                         m = re.search(rf'»\s*{field}:\s*([^<\n]+)', html_lote, re.I)
                         return _demojibake(html.unescape(m.group(1).strip())) if m else ""
 
-                    marca  = _li_val("Marca").title() or "?"
-                    modelo = _li_val("Modelo").title() or "?"
-                    ano_str = _li_val("Ano")
+                    marca_raw  = _li_val("Marca")
+                    modelo_raw = _li_val("Modelo")
+                    ano_str    = _li_val("Ano")
+                    bundle = bool(_CC_BUNDLE_RE.search(
+                        f"{marca_raw} {modelo_raw} {lot_path}"))
                     ano = 0
-                    ano_m = re.search(r'(\d{4})', ano_str)
-                    if ano_m:
-                        ano = int(ano_m.group(1))
+                    if bundle:
+                        titulo = " ".join(t for t in (marca_raw, modelo_raw) if t).strip(" -")
+                        if len(titulo) < 8:
+                            titulo = re.sub(r'-', ' ', lot_path.split('/', 3)[-1])
+                        marca  = "Lote com vários veículos"
+                        modelo = titulo.title()[:90] or "?"
+                    else:
+                        marca  = marca_raw.title() or "?"
+                        modelo = modelo_raw.title() or "?"
+                        ano_m = re.search(r'(\d{4})', ano_str)
+                        if ano_m:
+                            ano = int(ano_m.group(1))
 
                     lance = _extrair_lance(texto)
                     km    = _extrair_km(texto)
                     descricao = _extrair_descricao(texto)
-                    data_leilao = _extrair_data_leilao(texto)
+                    data_leilao = data_leilao_auction or _extrair_data_leilao(texto)
 
                     fotos = re.findall(
                         r'https://(?:www\.)?celsocunhaleiloes\.com\.br/imgTmp/[^\s"\'<>]+',
@@ -1257,7 +1303,10 @@ def _raspar_celso_cunha(vistos):
 
                     categoria = detectar_categoria(modelo, marca, "carros")
                     icone     = ICONES.get(categoria, "📦")
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    if bundle:
+                        ref_val, ref_str = 0, ""
+                    else:
+                        ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                     analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                     classif  = classificar(lance, ref_val, analise.get("estado", ""))
                     print(f"  {icone} [CelsoCunha/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
