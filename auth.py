@@ -505,14 +505,14 @@ _AUTH_CSS = """
     color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
     font-weight: 500 !important;
 }
-/* dashboard.py força gap:.25rem !important na tab-list (pros cards), deixando
-   "Entrar" e "Criar conta" quase colados. gap com a mesma especificidade não
-   vencia de forma confiável (depende da ordem de injeção das duas folhas),
-   então o espaçamento vai como margin na própria aba: seletor (0,3,0), acima
-   de qualquer regra de aba do dashboard, e sem concorrente pra margin. */
-.stTabs [data-baseweb="tab-list"] > [data-baseweb="tab"],
-.stTabs [role="tablist"] > [role="tab"] {
-    margin-right: 1.75rem !important;
+/* "Entrar" encostado à esquerda e "Criar conta" empurrado até a borda
+   direita da coluna (space-between), em vez das duas abas coladas no canto
+   esquerdo. dashboard.py força gap/overflow-x na tab-list mas não mexe em
+   justify-content, então aqui não há disputa de !important — a ordem de
+   injeção das folhas não importa. */
+.stTabs [data-baseweb="tab-list"],
+.stTabs [role="tablist"] {
+    justify-content: space-between !important;
 }
 .stTabs [aria-selected="true"] {
     color: var(--lce-text, #111827) !important; font-weight: 600 !important;
