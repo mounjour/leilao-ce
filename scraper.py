@@ -5,6 +5,7 @@ import anthropic
 import requests
 import json
 import hashlib
+import html
 import time
 import re
 import os
@@ -1130,11 +1131,41 @@ _CC_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                               "AppleWebKit/537.36 (KHTML, like Gecko) "
                               "Chrome/124.0.0.0 Safari/537.36"}
 
+# A pagina do CelsoCunha e de encoding MISTO: o bullet "»" que separa os
+# campos da ficha e um byte solto 0xBB (Latin-1), mas o texto do banco
+# (Descricao, Serie...) vem em UTF-8. Ler r.text como UTF-8 (o que o
+# header manda) acerta os acentos mas troca o "»" por "�" — e sem o
+# "»" o _li_val nunca casa, deixando marca/modelo/ano vazios e derrubando
+# a FIPE (era ~1/3 dos lotes em producao). Entao decodifica como Latin-1
+# aqui (preserva o "»") e conserta os acentos depois com _demojibake.
+def _cc_get(url, timeout=20):
+    r = requests.get(url, headers=_CC_HEADERS, timeout=timeout)
+    r.encoding = "iso-8859-1"
+    return r.text
+
+def _demojibake(s):
+    """Reverte acento UTF-8 lido como Latin-1 (ex.: 'Ã©' -> 'é'). Deixa a
+    string intacta se nao houver sinal de mojibake ou se a conversao falhar."""
+    if "Ã" not in s and "Â" not in s:
+        return s
+    try:
+        return s.encode("latin-1", "ignore").decode("utf-8", "ignore")
+    except UnicodeError:
+        return s
+
+# Slug de leilao terminando em UF que nao e o Ceara (ex.: ".../leilao-
+# prefeitura-municipal-de-sertaozinho-sp"). CelsoCunha e uma leiloeira de
+# Sertaozinho-SP e publica muito leilao de fora; o filtro do projeto e
+# "so Ceara", entao esses leiloes sao pulados inteiros.
+_CC_UF_FORA_CE = re.compile(
+    r'-(ac|al|ap|am|ba|df|es|go|ma|mt|ms|mg|pa|pb|pr|pe|pi|rj|rn|rs|ro|rr|sc|sp|se|to)(?=$|[/?#])',
+    re.I,
+)
+
 def _raspar_celso_cunha(vistos):
     lotes = []
     try:
-        r = requests.get(_CC_BASE + "/", headers=_CC_HEADERS, timeout=20)
-        html_home = r.text
+        html_home = _cc_get(_CC_BASE + "/", timeout=20)
     except Exception as e:
         print(f"⚠️ CelsoCunha: {e}")
         return lotes
@@ -1145,13 +1176,16 @@ def _raspar_celso_cunha(vistos):
         return lotes
 
     for auction_path in auction_paths:
+        if _CC_UF_FORA_CE.search(auction_path):
+            print(f"  [skip] CelsoCunha leilão fora do CE: {auction_path}")
+            continue
+
         url_auction = _CC_BASE + auction_path
         print(f"📡 CelsoCunha | {auction_path}")
 
         for page in range(1, 30):
             try:
-                r = requests.get(f"{url_auction}?page={page}", headers=_CC_HEADERS, timeout=20)
-                html_pg = r.text
+                html_pg = _cc_get(f"{url_auction}?page={page}", timeout=20)
             except Exception as e:
                 print(f"  ⚠️ CelsoCunha {auction_path} p{page}: {e}")
                 break
@@ -1170,14 +1204,13 @@ def _raspar_celso_cunha(vistos):
                 url_lote = _CC_BASE + lot_path
                 vistos.add(url_lote)
                 try:
-                    r = requests.get(url_lote, headers=_CC_HEADERS, timeout=15)
-                    html_lote = r.text
+                    html_lote = _cc_get(url_lote, timeout=15)
                     texto = re.sub(r'<[^>]+>', ' ', html_lote)
-                    texto = re.sub(r'\s+', ' ', texto).strip()
+                    texto = _demojibake(html.unescape(re.sub(r'\s+', ' ', texto).strip()))
 
                     def _li_val(field):
                         m = re.search(rf'»\s*{field}:\s*([^<\n]+)', html_lote, re.I)
-                        return m.group(1).strip() if m else ""
+                        return _demojibake(html.unescape(m.group(1).strip())) if m else ""
 
                     marca  = _li_val("Marca").title() or "?"
                     modelo = _li_val("Modelo").title() or "?"
@@ -1198,10 +1231,29 @@ def _raspar_celso_cunha(vistos):
                     )
                     foto = fotos[0] if fotos else ""
 
-                    cidade = "Fortaleza/CE"
-                    m_cid = re.search(r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)*)\s*/\s*Cear[aá]', html_lote)
-                    if m_cid:
-                        cidade = m_cid.group(1).strip() + "/CE"
+                    # Localizacao real do lote. Antes isto era "Fortaleza/CE"
+                    # fixo — todo lote (inclusive os de SP) entrava carimbado
+                    # como Fortaleza. Agora exige evidencia positiva de Ceara
+                    # e, sem ela, descarta o lote (filtro "so CE").
+                    #
+                    # A evidencia so pode vir de partes especificas do lote
+                    # (slug do leilao, slug do lote, campo "» Patio:"). NAO
+                    # da pra procurar no texto inteiro da pagina: o rodape
+                    # traz fixo o endereco do escritorio da leiloeira em
+                    # Fortaleza/CE, o que faria todo lote "parecer" do CE.
+                    patio_m = re.search(r'»\s*P[áa]tio:\s*([^<\n]+)', html_lote, re.I)
+                    patio = _demojibake(patio_m.group(1).strip()) if patio_m else ""
+                    loc_blob = _demojibake(f"{auction_path} {lot_path} {patio}").lower()
+
+                    cidade_ce = next(
+                        (c.replace('-', ' ').title() for c in CIDADES_CE
+                         if c in loc_blob or c.replace('-', ' ') in loc_blob),
+                        "",
+                    )
+                    if not cidade_ce and not re.search(r'[/\-\s]ce\b|cear[aá]', loc_blob):
+                        print(f"  [skip] CelsoCunha lote sem evidência de CE: {url_lote}")
+                        continue
+                    cidade = f"{cidade_ce}/CE" if cidade_ce else "CE"
 
                     categoria = detectar_categoria(modelo, marca, "carros")
                     icone     = ICONES.get(categoria, "📦")
