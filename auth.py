@@ -568,6 +568,9 @@ div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"] > div[dat
     gap: 3rem !important;
     align-items: start !important;
 }
+/* O card de marca começa na altura dos campos do formulário (não das
+   abas), como na referência — desce ~a altura da faixa de abas. */
+.st-key-auth_brand_panel { margin-top: 3rem !important; }
 
 /* Abaixo de ~tablet, o painel de marca ao lado do form vira peso morto
    (empurra o form pra baixo sem espaço pra respirar) — some, e o form
@@ -633,7 +636,7 @@ def _render_brand_panel() -> None:
 def _render_brand() -> None:
     st.markdown(
         """
-        <div style="text-align:center;padding:2.5rem 0 1.5rem;">
+        <div style="text-align:center;padding:.25rem 0 2rem;">
           <div style="font-size:2rem;font-weight:800;color:var(--lce-text, #111827);margin-bottom:.25rem;">
             🚗 Achadinhos & Leilões
           </div>
@@ -681,6 +684,10 @@ def render_auth_page() -> None:
     st.markdown(_AUTH_CSS, unsafe_allow_html=True)
 
     callback_ok, callback_error = _process_auth_callback()
+
+    # Cabecalho da marca ocupa a largura toda, centralizado, acima das colunas.
+    _render_brand()
+
     col_brand, column = st.columns([1.1, 1], gap="large")
 
     with col_brand:
@@ -688,8 +695,6 @@ def render_auth_page() -> None:
             _render_brand_panel()
 
     with column:
-        _render_brand()
-
         aviso_sessao = st.session_state.pop("_auth_notice", "")
         if aviso_sessao:
             st.warning(aviso_sessao)
