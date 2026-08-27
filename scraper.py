@@ -5,6 +5,7 @@ import anthropic
 import requests
 import json
 import hashlib
+import html
 import time
 import re
 import os
@@ -870,11 +871,15 @@ def _raspar_mega(pg, vistos):
             except:
                 break
 
-            cards = pg.query_selector_all('.card.open')
+            # `.card open` = pregão rodando; `.card waiting` = "EM BREVE"
+            # (1ª praça no futuro). Antes só pegava `.open` e todo lote
+            # futuro do Mega era descartado.
+            cards = pg.query_selector_all('.card.open, .card.waiting')
             if not cards:
                 break
             print(f"📡 Mega {url_base.split('/')[-1]} p.{pagina} | {len(cards)} cards")
 
+            antes = len(lotes)
             for card in cards:
                 try:
                     title_el = card.query_selector('.card-title')
@@ -913,6 +918,12 @@ def _raspar_mega(pg, vistos):
                     time.sleep(0.3)
                 except Exception as e:
                     print(f"  ⚠️ Mega: {e}"); continue
+
+            # Se a pagina nao trouxe nenhum lote novo, o site ja clampou pra
+            # ultima pagina (ele repete a p.1 pra `?pagina=N` fora do range)
+            # — parar em vez de repetir goto ate `range(1, 15)` acabar.
+            if len(lotes) == antes:
+                break
 
     return lotes
 
@@ -1130,11 +1141,70 @@ _CC_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                               "AppleWebKit/537.36 (KHTML, like Gecko) "
                               "Chrome/124.0.0.0 Safari/537.36"}
 
+# A pagina do CelsoCunha e de encoding MISTO: o bullet "»" que separa os
+# campos da ficha e um byte solto 0xBB (Latin-1), mas o texto do banco
+# (Descricao, Serie...) vem em UTF-8. Ler r.text como UTF-8 (o que o
+# header manda) acerta os acentos mas troca o "»" por "�" — e sem o
+# "»" o _li_val nunca casa, deixando marca/modelo/ano vazios e derrubando
+# a FIPE (era ~1/3 dos lotes em producao). Entao decodifica como Latin-1
+# aqui (preserva o "»") e conserta os acentos depois com _demojibake.
+def _cc_get(url, timeout=20):
+    r = requests.get(url, headers=_CC_HEADERS, timeout=timeout)
+    r.encoding = "iso-8859-1"
+    return r.text
+
+def _demojibake(s):
+    """Reverte acento UTF-8 lido como Latin-1 (ex.: 'Ã©' -> 'é'). Deixa a
+    string intacta se nao houver sinal de mojibake ou se a conversao falhar."""
+    if "Ã" not in s and "Â" not in s:
+        return s
+    try:
+        return s.encode("latin-1", "ignore").decode("utf-8", "ignore")
+    except UnicodeError:
+        return s
+
+# A data do pregao do CelsoCunha so aparece na pagina do LEILAO, nunca na
+# do lote. Alem disso o _extrair_data_leilao generico as vezes casa antes
+# num contador regressivo da pagina e devolve data errada (era o motivo
+# de ~metade dos lotes CelsoCunha ficarem sem data ou com data furada).
+# Aqui a regex e ancorada em "data:" / "1a Praca".
+def _cc_data_leilao(texto):
+    m = re.search(
+        r'(?:\bdata:|1[ªa]\s*pra[çc]a)[^\d]{0,8}(\d{2}/\d{2}/\d{4})[^\d]{0,12}(\d{2}:\d{2})',
+        texto, re.I,
+    )
+    if m:
+        try:
+            return datetime.strptime(
+                f"{m.group(1)} {m.group(2)}", "%d/%m/%Y %H:%M"
+            ).strftime("%Y-%m-%dT%H:%M")
+        except ValueError:
+            pass
+    return _extrair_data_leilao(texto)
+
+# Lote "pacote": varios veiculos vendidos juntos ("Piramide constituida
+# por 03 veiculos ..."). Marca/modelo/ano nao se aplicam e a FIPE nunca
+# resolve — o lote e mantido (pode ser oportunidade real) mas rotulado
+# como pacote e sem tentar referencia de preco.
+_CC_BUNDLE_RE = re.compile(
+    r'pir[aâ]mide|constitu[íi]d[ao]\s+por\s+\d+\s+ve[íi]culos|'
+    r'\b\d+\s+ve[íi]culos\b|lote\s+com\s+v[áa]rios',
+    re.I,
+)
+
+# Slug de leilao terminando em UF que nao e o Ceara (ex.: ".../leilao-
+# prefeitura-municipal-de-sertaozinho-sp"). CelsoCunha e uma leiloeira de
+# Sertaozinho-SP e publica muito leilao de fora; o filtro do projeto e
+# "so Ceara", entao esses leiloes sao pulados inteiros.
+_CC_UF_FORA_CE = re.compile(
+    r'-(ac|al|ap|am|ba|df|es|go|ma|mt|ms|mg|pa|pb|pr|pe|pi|rj|rn|rs|ro|rr|sc|sp|se|to)(?=$|[/?#])',
+    re.I,
+)
+
 def _raspar_celso_cunha(vistos):
     lotes = []
     try:
-        r = requests.get(_CC_BASE + "/", headers=_CC_HEADERS, timeout=20)
-        html_home = r.text
+        html_home = _cc_get(_CC_BASE + "/", timeout=20)
     except Exception as e:
         print(f"⚠️ CelsoCunha: {e}")
         return lotes
@@ -1145,16 +1215,25 @@ def _raspar_celso_cunha(vistos):
         return lotes
 
     for auction_path in auction_paths:
+        if _CC_UF_FORA_CE.search(auction_path):
+            print(f"  [skip] CelsoCunha leilão fora do CE: {auction_path}")
+            continue
+
         url_auction = _CC_BASE + auction_path
         print(f"📡 CelsoCunha | {auction_path}")
 
+        data_leilao_auction = ""
         for page in range(1, 30):
             try:
-                r = requests.get(f"{url_auction}?page={page}", headers=_CC_HEADERS, timeout=20)
-                html_pg = r.text
+                html_pg = _cc_get(f"{url_auction}?page={page}", timeout=20)
             except Exception as e:
                 print(f"  ⚠️ CelsoCunha {auction_path} p{page}: {e}")
                 break
+
+            if page == 1:
+                texto_pg1 = _demojibake(html.unescape(
+                    re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', html_pg))))
+                data_leilao_auction = _cc_data_leilao(texto_pg1)
 
             lot_paths = list(dict.fromkeys(re.findall(r'/lote/\d+/[^"\'<>\s]+', html_pg)))
             if not lot_paths:
@@ -1170,27 +1249,37 @@ def _raspar_celso_cunha(vistos):
                 url_lote = _CC_BASE + lot_path
                 vistos.add(url_lote)
                 try:
-                    r = requests.get(url_lote, headers=_CC_HEADERS, timeout=15)
-                    html_lote = r.text
+                    html_lote = _cc_get(url_lote, timeout=15)
                     texto = re.sub(r'<[^>]+>', ' ', html_lote)
-                    texto = re.sub(r'\s+', ' ', texto).strip()
+                    texto = _demojibake(html.unescape(re.sub(r'\s+', ' ', texto).strip()))
 
                     def _li_val(field):
                         m = re.search(rf'»\s*{field}:\s*([^<\n]+)', html_lote, re.I)
-                        return m.group(1).strip() if m else ""
+                        return _demojibake(html.unescape(m.group(1).strip())) if m else ""
 
-                    marca  = _li_val("Marca").title() or "?"
-                    modelo = _li_val("Modelo").title() or "?"
-                    ano_str = _li_val("Ano")
+                    marca_raw  = _li_val("Marca")
+                    modelo_raw = _li_val("Modelo")
+                    ano_str    = _li_val("Ano")
+                    bundle = bool(_CC_BUNDLE_RE.search(
+                        f"{marca_raw} {modelo_raw} {lot_path}"))
                     ano = 0
-                    ano_m = re.search(r'(\d{4})', ano_str)
-                    if ano_m:
-                        ano = int(ano_m.group(1))
+                    if bundle:
+                        titulo = " ".join(t for t in (marca_raw, modelo_raw) if t).strip(" -")
+                        if len(titulo) < 8:
+                            titulo = re.sub(r'-', ' ', lot_path.split('/', 3)[-1])
+                        marca  = "Lote com vários veículos"
+                        modelo = titulo.title()[:90] or "?"
+                    else:
+                        marca  = marca_raw.title() or "?"
+                        modelo = modelo_raw.title() or "?"
+                        ano_m = re.search(r'(\d{4})', ano_str)
+                        if ano_m:
+                            ano = int(ano_m.group(1))
 
                     lance = _extrair_lance(texto)
                     km    = _extrair_km(texto)
                     descricao = _extrair_descricao(texto)
-                    data_leilao = _extrair_data_leilao(texto)
+                    data_leilao = data_leilao_auction or _extrair_data_leilao(texto)
 
                     fotos = re.findall(
                         r'https://(?:www\.)?celsocunhaleiloes\.com\.br/imgTmp/[^\s"\'<>]+',
@@ -1198,14 +1287,36 @@ def _raspar_celso_cunha(vistos):
                     )
                     foto = fotos[0] if fotos else ""
 
-                    cidade = "Fortaleza/CE"
-                    m_cid = re.search(r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+)*)\s*/\s*Cear[aá]', html_lote)
-                    if m_cid:
-                        cidade = m_cid.group(1).strip() + "/CE"
+                    # Localizacao real do lote. Antes isto era "Fortaleza/CE"
+                    # fixo — todo lote (inclusive os de SP) entrava carimbado
+                    # como Fortaleza. Agora exige evidencia positiva de Ceara
+                    # e, sem ela, descarta o lote (filtro "so CE").
+                    #
+                    # A evidencia so pode vir de partes especificas do lote
+                    # (slug do leilao, slug do lote, campo "» Patio:"). NAO
+                    # da pra procurar no texto inteiro da pagina: o rodape
+                    # traz fixo o endereco do escritorio da leiloeira em
+                    # Fortaleza/CE, o que faria todo lote "parecer" do CE.
+                    patio_m = re.search(r'»\s*P[áa]tio:\s*([^<\n]+)', html_lote, re.I)
+                    patio = _demojibake(patio_m.group(1).strip()) if patio_m else ""
+                    loc_blob = _demojibake(f"{auction_path} {lot_path} {patio}").lower()
+
+                    cidade_ce = next(
+                        (c.replace('-', ' ').title() for c in CIDADES_CE
+                         if c in loc_blob or c.replace('-', ' ') in loc_blob),
+                        "",
+                    )
+                    if not cidade_ce and not re.search(r'[/\-\s]ce\b|cear[aá]', loc_blob):
+                        print(f"  [skip] CelsoCunha lote sem evidência de CE: {url_lote}")
+                        continue
+                    cidade = f"{cidade_ce}/CE" if cidade_ce else "CE"
 
                     categoria = detectar_categoria(modelo, marca, "carros")
                     icone     = ICONES.get(categoria, "📦")
-                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                    if bundle:
+                        ref_val, ref_str = 0, ""
+                    else:
+                        ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                     analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                     classif  = classificar(lance, ref_val, analise.get("estado", ""))
                     print(f"  {icone} [CelsoCunha/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
@@ -1346,7 +1457,8 @@ def _parse_soleon_lots_from_listing(html, base):
 _SOLEON_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                   "AppleWebKit/537.36 (KHTML, like Gecko) "
                                   "Chrome/124.0.0.0 Safari/537.36"}
-_ZENROWS_API_URL = "https://api.zenrows.com/v1/"
+_ZENROWS_API_URL   = "https://api.zenrows.com/v1/"
+_SCRAPERAPI_API_URL = "https://api.scraperapi.com/"
 
 def _raspar_soleon(base, fonte, vistos):
     """Scraper para Construbem e Daniel Garcia (plataforma Soleon).
@@ -1354,31 +1466,36 @@ def _raspar_soleon(base, fonte, vistos):
     Cloudflare deles bloqueia especificamente a faixa de IP dos runners do
     GitHub Actions (confirmado: o mesmo requests.get() com os mesmos headers
     funciona normalmente de outros IPs, então não é um bloqueio por
-    fingerprint de user-agent nem exige renderizar JS). Por isso a requisição
-    passa pelo Zenrows quando ZENROWS_API_KEY está configurada; sem a chave
-    (ex.: dev local), cai de volta pro requests direto.
+    fingerprint de user-agent nem exige renderizar JS).
+
+    Ordem de tentativa por URL: Zenrows -> ScraperAPI -> requests direto.
+    Os dois proxies só entram se a respectiva chave estiver configurada; se
+    um falhar (ex.: Zenrows sem crédito -> HTTP 402), cai pro próximo. Em
+    dev local, sem nenhuma chave, o requests direto basta.
     """
     lotes = []
     nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
     sess  = requests.Session()
     sess.headers.update(_SOLEON_HEADERS)
-    zenrows_key = os.getenv("ZENROWS_API_KEY", "").strip()
+    zenrows_key    = os.getenv("ZENROWS_API_KEY", "").strip()
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "").strip()
+
+    def _fetch_variants(url):
+        if zenrows_key:
+            yield "Zenrows", _ZENROWS_API_URL, {"apikey": zenrows_key, "url": url}
+        if scraperapi_key:
+            yield "ScraperAPI", _SCRAPERAPI_API_URL, {"api_key": scraperapi_key, "url": url}
+        yield "direto", url, None
 
     def _get(url):
-        try:
-            if zenrows_key:
-                r = sess.get(
-                    _ZENROWS_API_URL,
-                    params={"apikey": zenrows_key, "url": url},
-                    timeout=30,
-                )
-            else:
-                r = sess.get(url, timeout=20)
-            if r.status_code == 200:
-                return r.text
-            print(f"  ⚠️ {nome} {r.status_code}: {url}")
-        except Exception as e:
-            print(f"  ⚠️ {nome} request: {e}")
+        for label, endpoint, params in _fetch_variants(url):
+            try:
+                r = sess.get(endpoint, params=params, timeout=30 if params else 20)
+                if r.status_code == 200:
+                    return r.text
+                print(f"  ⚠️ {nome} [{label}] {r.status_code}: {url}")
+            except Exception as e:
+                print(f"  ⚠️ {nome} [{label}] request: {e}")
         return ""
 
     html_home = _get(base + "/")
