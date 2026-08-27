@@ -500,15 +500,19 @@ _AUTH_CSS = """
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
     border-bottom: 1.5px solid var(--lce-border, #e5e7eb) !important;
-    /* dashboard.py força gap:0.25rem !important nas tab-lists (pros cards);
-       aqui "Entrar" e "Criar conta" ficavam quase colados. Esta folha é
-       emitida depois da global, então o !important com mesma especificidade
-       vence. */
-    gap: 1.75rem !important;
 }
 .stTabs [data-baseweb="tab"] {
     color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
     font-weight: 500 !important;
+}
+/* dashboard.py força gap:.25rem !important na tab-list (pros cards), deixando
+   "Entrar" e "Criar conta" quase colados. gap com a mesma especificidade não
+   vencia de forma confiável (depende da ordem de injeção das duas folhas),
+   então o espaçamento vai como margin na própria aba: seletor (0,3,0), acima
+   de qualquer regra de aba do dashboard, e sem concorrente pra margin. */
+.stTabs [data-baseweb="tab-list"] > [data-baseweb="tab"],
+.stTabs [role="tablist"] > [role="tab"] {
+    margin-right: 1.75rem !important;
 }
 .stTabs [aria-selected="true"] {
     color: var(--lce-text, #111827) !important; font-weight: 600 !important;
