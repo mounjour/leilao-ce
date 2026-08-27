@@ -60,6 +60,20 @@ async function updateProfile(
     if (error) throw error;
     if (data?.length) return;
   }
+
+  // Nenhuma linha bateu. Se conhecemos o id do usuario (a PK de profiles),
+  // cria/atualiza a linha via upsert — cobre o caso raro de o trigger
+  // handle_new_user nao ter rodado no signup. Sem o id nao da pra inserir
+  // com seguranca (customerId/email nao sao a PK).
+  if (identity.userId) {
+    const { error } = await supabase.from("profiles").upsert(
+      { id: identity.userId, email: identity.email ?? null, ...values },
+      { onConflict: "id" },
+    );
+    if (error) throw error;
+    return;
+  }
+
   throw new Error("Nenhum perfil corresponde à identidade do evento Stripe.");
 }
 
