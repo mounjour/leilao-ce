@@ -505,14 +505,14 @@ _AUTH_CSS = """
     color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
     font-weight: 500 !important;
 }
-/* "Entrar" encostado à esquerda e "Criar conta" empurrado até a borda
-   direita da coluna (space-between), em vez das duas abas coladas no canto
-   esquerdo. dashboard.py força gap/overflow-x na tab-list mas não mexe em
-   justify-content, então aqui não há disputa de !important — a ordem de
-   injeção das folhas não importa. */
+/* "Entrar" e "Criar conta" distribuídos com espaço igual antes, entre e
+   depois das abas (space-evenly) — nem colados no canto esquerdo, nem
+   encostados nas bordas. dashboard.py força gap/overflow-x na tab-list mas
+   não mexe em justify-content, então aqui não há disputa de !important — a
+   ordem de injeção das folhas não importa. */
 .stTabs [data-baseweb="tab-list"],
 .stTabs [role="tablist"] {
-    justify-content: space-between !important;
+    justify-content: space-evenly !important;
 }
 .stTabs [aria-selected="true"] {
     color: var(--lce-text, #111827) !important; font-weight: 600 !important;
