@@ -500,6 +500,11 @@ _AUTH_CSS = """
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
     border-bottom: 1.5px solid var(--lce-border, #e5e7eb) !important;
+    /* dashboard.py força gap:0.25rem !important nas tab-lists (pros cards);
+       aqui "Entrar" e "Criar conta" ficavam quase colados. Esta folha é
+       emitida depois da global, então o !important com mesma especificidade
+       vence. */
+    gap: 1.75rem !important;
 }
 .stTabs [data-baseweb="tab"] {
     color: var(--lce-muted, #9ca3af) !important; font-size: .9rem !important;
@@ -537,10 +542,15 @@ hr { border-color: var(--lce-border, #f3f4f6) !important; }
    preenchia só 2 trilhas e a 3ª sobrava vazia à direita, empurrando tudo
    pra esquerda (a tela "desentralizada"). A regra abaixo é mais específica
    (mesma cadeia + a classe da key) e vem depois, então devolve as 2 colunas
-   reais desta tela. */
+   reais desta tela. A mesma regra do dashboard também impõe
+   align-items:stretch, que esticava o painel de marca até a altura do
+   formulário (bem mais alto na aba "Criar conta") — sobrava um vão enorme
+   sob o card. align-items:start deixa o painel na altura do próprio
+   conteúdo. */
 div[data-testid="stHorizontalBlock"]:has(> div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"].st-key-auth_brand_panel) {
     grid-template-columns: 1.1fr 1fr !important;
     gap: 3rem !important;
+    align-items: start !important;
 }
 
 /* Abaixo de ~tablet, o painel de marca ao lado do form vira peso morto
