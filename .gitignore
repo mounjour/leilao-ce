@@ -37,6 +37,7 @@ test-results/
 # IDEs e editores
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 .DS_Store
