@@ -854,6 +854,11 @@ def _horario_execucao(valor):
 
 
 def render_painel_tokens():
+    # Painel interno de custo: visível apenas para contas especiais (isentas
+    # de cobrança). Usuários comuns nao veem a economia de tokens da IA.
+    if not bool((get_profile() or {}).get("billing_exempt")):
+        return
+
     historico = carregar_historico_tokens()
 
     with st.expander("📊 Economia de tokens da IA", expanded=False):
