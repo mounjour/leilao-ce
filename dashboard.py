@@ -56,18 +56,18 @@ html, body, button, input, textarea, select {
 .p-sin     { background:#fee2e2; color:#dc2626; }
 .p-ni      { background:#f8fafc; color:#334155; }
 
-/* ── BOTÃO FAVORITAR ── estrela grande + texto, última coluna de cada card ── */
+/* ── BOTÃO FAVORITAR ── azul solido (estrela + texto), ultima coluna do card ── */
 div[class*="st-key-fav_"] button {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 2px solid var(--lce-amber, #f59e0b) !important;
+    background: color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    background-color: color-mix(in srgb, var(--lce-primary) 82%, #000) !important;
+    border: 1px solid var(--lce-primary) !important;
     box-shadow: none !important;
     width: 100% !important;
     height: auto !important;
     min-height: 44px !important;
     padding: 6px 12px !important;
     border-radius: 8px !important;
-    color: var(--lce-amber, #f59e0b) !important;
+    color: #ffffff !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
@@ -78,17 +78,17 @@ div[class*="st-key-fav_"] button {
     white-space: nowrap !important;
 }
 div[class*="st-key-fav_"] button strong {
-    font-size: 26px !important;
+    font-size: 20px !important;
     line-height: 1 !important;
     vertical-align: middle !important;
 }
 div[class*="st-key-fav_"] button:hover {
-    background: color-mix(in srgb, var(--lce-amber, #f59e0b) 12%, transparent) !important;
+    background: color-mix(in srgb, var(--lce-primary) 70%, #000) !important;
     opacity: 1 !important;
 }
 @media (max-width: 430px) {
     div[class*="st-key-fav_"] button { font-size: 12px !important; gap: 4px !important; padding: 6px 8px !important; }
-    div[class*="st-key-fav_"] button strong { font-size: 22px !important; }
+    div[class*="st-key-fav_"] button strong { font-size: 18px !important; }
 }
 
 .card-img-box {
@@ -1382,13 +1382,16 @@ components.html("""
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
       if (t.includes('★') || t.includes('☆')) {
-        // Referencia a variavel em vez de um hex fixo, senao o inline
-        // !important daqui vence o !important do CSS e ignora o tema
-        // (foi assim que o amber ficou ilegivel no modo claro antes).
-        var cor = t.includes('★') ? 'var(--lce-amber)' : 'var(--lce-muted)';
-        btn.style.setProperty('color', cor, 'important');
+        // Botao azul solido (o fundo/borda vem do CSS). O texto fica
+        // sempre branco; a estrela fica dourada quando favoritado (★) e
+        // branca quando nao (☆) — unico sinal visual de estado.
+        var starCor = t.includes('★') ? 'var(--lce-amber)' : '#ffffff';
+        btn.style.setProperty('color', '#ffffff', 'important');
         btn.querySelectorAll('*').forEach(function(el) {
-          el.style.setProperty('color', cor, 'important');
+          el.style.setProperty('color', '#ffffff', 'important');
+        });
+        btn.querySelectorAll('strong').forEach(function(el) {
+          el.style.setProperty('color', starCor, 'important');
         });
       }
     });
