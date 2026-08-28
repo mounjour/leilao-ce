@@ -36,9 +36,15 @@ html, body, button, input, textarea, select {
    <style> (procure por "SIDEBAR (bloco unico)"). Antes ficava dividido
    entre aqui e la, com regras conflitantes. */
 .pill {
-  display:inline-block; padding:4px 10px; border-radius:20px;
-  font-size:11px; font-weight:600; margin-right:4px; margin-bottom:4px;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:7px 15px; border-radius:999px;
+  font-size:12.5px; font-weight:600; line-height:1.1;
+  margin-right:6px; margin-bottom:4px; white-space:nowrap;
+  border:1px solid color-mix(in srgb, currentColor 24%, transparent);
 }
+/* Linha dos dois selos (classificacao + estado) no topo do card. */
+.pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 10px; }
+.pill-row .pill { margin:0; }
 .p-otimo   { background:#dcfce7; color:#15803d; }
 .p-mediano { background:#fef9c3; color:#a16207; }
 .p-ruim    { background:#fee2e2; color:#b91c1c; }
@@ -229,6 +235,11 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     --lce-hover: color-mix(in srgb, var(--lce-primary) 14%, var(--lce-surface));
     --lce-shadow: 0 8px 24px color-mix(in srgb, #000 14%, transparent);
     --lce-radius: 12px;
+    /* Fundo/borda dos cards de lote. Separado de --lce-surface pra permitir
+       um card mais "fundo" (proximo do fundo da pagina) no tema escuro,
+       como na referencia de estilizacao. */
+    --lce-card: #ffffff;
+    --lce-card-border: var(--lce-border);
     /* f59e0b (o amber "vivo" usado no escuro) so tem 2:1 de contraste
        contra fundo claro — b45309 mantem a mesma familia de cor e passa
        WCAG AA (4.68:1+) no claro. */
@@ -243,6 +254,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
         --lce-primary: #3b82f6;
         --lce-hover: color-mix(in srgb, var(--lce-primary) 20%, var(--lce-surface));
         --lce-shadow: 0 8px 24px rgba(0,0,0,.5);
+        --lce-card: #0d1526;
+        --lce-card-border: color-mix(in srgb, var(--lce-text) 14%, transparent);
         --lce-amber: #f59e0b;
     }
 }
@@ -315,8 +328,8 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
    que bate 1:1 com o número de cards renderizados, sem pegar nenhum
    outro bloco vertical da página (sidebar, outras colunas etc.). */
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] {
-    background: color-mix(in srgb, var(--lce-surface) 92%, var(--lce-bg)) !important;
-    border-color: var(--lce-border) !important;
+    background: var(--lce-card) !important;
+    border: 1px solid var(--lce-card-border) !important;
     border-radius: var(--lce-radius) !important;
     box-shadow: 0 2px 10px color-mix(in srgb, #000 7%, transparent);
     height: 100% !important;
@@ -1047,7 +1060,10 @@ def render_lotes(lotes_lista, key="main"):
                     st.markdown(f'<span class="qtd-tag">📦 {qtd} unidades neste lote</span>', unsafe_allow_html=True)
 
                 # Badges
-                st.markdown(f"{pill_classif(classif)} {pill_estado(selo)}", unsafe_allow_html=True)
+                st.markdown(
+                    f"<div class='pill-row'>{pill_classif(classif)}{pill_estado(selo)}</div>",
+                    unsafe_allow_html=True,
+                )
 
                 # Título
                 st.markdown(f"**{lote['marca']} {lote['modelo']}**")
