@@ -32,9 +32,10 @@ html, body, button, input, textarea, select {
 }
 .stApp { background: #f5f7fb; }
 
-/* O estilo da sidebar foi consolidado num bloco unico mais abaixo neste
-   <style> (procure por "SIDEBAR (bloco unico)"). Antes ficava dividido
-   entre aqui e la, com regras conflitantes. */
+/* O estilo da sidebar foi consolidado mais abaixo neste <style>, em dois
+   blocos unicos: "SIDEBAR (bloco unico)" (o painel) e "HEADER/TOOLBAR E
+   BOTÃO DE COLAPSO DA SIDEBAR (bloco unico)" (a moldura). Antes ficava
+   dividido entre aqui e la, com regras conflitantes. */
 .pill {
   display:inline-flex; align-items:center; justify-content:center;
   padding:7px 15px; border-radius:999px;
@@ -141,72 +142,20 @@ div[class*="st-key-fav_"] button:hover {
 .metric-yellow { background:#fefce8; border-color:#fde68a; }
 .metric-red    { background:#fef2f2; border-color:#fecaca; }
 
-/* ── CABEÇALHO E ELEMENTOS DO STREAMLIT CLOUD ───────────────────── */
-/* O controle para reabrir a sidebar é renderizado dentro do header.
-   Por isso, o header não pode usar display:none. */
-[data-testid="stHeader"] {
-    background: transparent !important;
-    pointer-events: none !important;
-}
-
+/* ── ELEMENTOS DO STREAMLIT CLOUD A OCULTAR ─────────────────────── */
+/* stHeader/stToolbar e o botão de colapso da sidebar sao estilizados
+   num bloco unico mais abaixo neste <style> (procure por "HEADER/
+   TOOLBAR E BOTÃO DE COLAPSO DA SIDEBAR"). Aqui ficam so os elementos
+   que nao tem contrapartida la: os controles que a gente esconde. */
 .viewerBadge_container__1QSob,
 footer[data-testid="stFooter"],
 #stDecoration { display: none !important; }
-
-/* O botão de reabrir a sidebar fica dentro da toolbar. */
-[data-testid="stToolbar"] {
-    display: flex !important;
-    visibility: visible !important;
-    background: transparent !important;
-    pointer-events: none !important;
-}
 
 /* Oculta somente os controles desnecessários da toolbar. */
 [data-testid="stAppDeployButton"],
 [data-testid="stMainMenu"],
 [data-testid="stStatusWidget"] {
     display: none !important;
-}
-
-/* ── BOTÃO COLAPSO DA SIDEBAR ────────────────────────────────────── */
-/* stExpandSidebarButton e stBaseButton-headerNoPadding JÁ SÃO o <button>
-   (não um wrapper); só stSidebarCollapseButton é um <div> com o botão
-   dentro. Por isso os seletores não são todos "... button". */
-[data-testid="stSidebarCollapseButton"],
-[data-testid="stExpandSidebarButton"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    z-index: 999999 !important;
-}
-
-[data-testid="stSidebarCollapseButton"] button,
-[data-testid="stExpandSidebarButton"],
-button[data-testid="stBaseButton-headerNoPadding"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #2563eb !important;
-    border-radius: 50% !important;
-    width: 2rem !important; height: 2rem !important;
-    min-width: 2rem !important; border: none !important;
-    padding: 0 !important;
-    pointer-events: auto !important;
-    box-shadow: 0 2px 8px rgba(37,99,235,.5) !important;
-}
-
-/* O ícone é uma fonte de ícones (span), não um <svg>, nesta versão do
-   Streamlit — força a cor nele e em qualquer descendente. */
-[data-testid="stSidebarCollapseButton"] button *,
-[data-testid="stExpandSidebarButton"] *,
-button[data-testid="stBaseButton-headerNoPadding"] * {
-    visibility: visible !important;
-    opacity: 1 !important;
-    color: #fff !important;
-    fill: #fff !important;
 }
 
 
@@ -650,7 +599,17 @@ section[data-testid="stSidebar"] div[data-testid="stButton"] button[data-testid=
     background: rgba(255,255,255,.12) !important;
 }
 
-/* Header/toolbar e controle da sidebar. */
+/* ── HEADER/TOOLBAR E BOTÃO DE COLAPSO DA SIDEBAR (bloco unico) ───────
+   Consolidado: antes estas regras viviam em DOIS lugares deste <style>
+   (aqui e um bloco no topo, sob "CABEÇALHO E ELEMENTOS DO STREAMLIT
+   CLOUD" / "BOTÃO COLAPSO DA SIDEBAR"). Seletores iguais, mesma
+   especificidade -> o de baixo vencia e o de cima era codigo morto,
+   com valores levemente diferentes (box-shadow .5 vs .45). Aqui ficam
+   os valores que de fato venciam + o visibility/opacity do icone que
+   so existia no bloco do topo. */
+
+/* O controle para reabrir a sidebar é renderizado dentro do header;
+   por isso o header não pode usar display:none. */
 [data-testid="stHeader"] {
     display: block !important;
     visibility: visible !important;
@@ -695,9 +654,13 @@ button[data-testid="stBaseButton-headerNoPadding"] {
     box-shadow: 0 2px 8px rgba(37,99,235,.45) !important;
 }
 
+/* O ícone é uma fonte de ícones (span), não um <svg>, nesta versão do
+   Streamlit — força cor/visibilidade nele e em qualquer descendente. */
 [data-testid="stSidebarCollapseButton"] button *,
 [data-testid="stExpandSidebarButton"] *,
 button[data-testid="stBaseButton-headerNoPadding"] * {
+    visibility: visible !important;
+    opacity: 1 !important;
     color: #ffffff !important;
     fill: #ffffff !important;
 }
