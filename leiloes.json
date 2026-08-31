@@ -23,7 +23,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/mobi-trekking-mt-(4p)/ano.2024/112c38fa-27e1-42f5-a35d-61ed883eeed6",
     "data_leilao": "2026-09-01T12:16",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -49,7 +49,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
     "data_leilao": "2026-09-01T12:16",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -75,7 +75,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
     "data_leilao": "2026-09-01T12:18",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -101,7 +101,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-comfortline-(4p)/ano.2016/0d377466-b363-4793-a2fc-5df0fbada8f9",
     "data_leilao": "2026-09-01T12:20",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -127,7 +127,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
     "data_leilao": "2026-09-01T12:24",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -153,7 +153,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo7-sport/ano.2026/cc6899fc-aa24-4108-8875-09dcaa57dc29",
     "data_leilao": "2026-09-01T12:27",
-    "scraped_at": "2026-08-30T20:55"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -179,7 +179,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:28",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -205,7 +205,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei/ano.2021/9cc8868e-6b33-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:28",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:25"
   },
   {
     "fonte": "leilo",
@@ -231,7 +231,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/basalt-feel-t200/ano.2025/be596855-8153-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-01T12:29",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -257,7 +257,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:30",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Mobi Like",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 24400.0,
+    "fipe_valor": 44454.0,
+    "fipe_str": "R$ 44.454,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2020/d49e01b3-7a01-11f1-9bf3-0242ac500277",
+    "data_leilao": "2026-09-01T12:31",
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -283,7 +309,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/jeep/compass-limited-flex-h/ano.2020/420e3cac-6374-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:32",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Comfortline",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 28400.0,
+    "fipe_valor": 43763.0,
+    "fipe_str": "R$ 43.763,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfortline-(4p)/ano.2015/060101f3-9a53-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-01T12:33",
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -293,7 +345,7 @@
     "modelo": "Saveiro Cs",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12400.0,
+    "lance_atual": 13300.0,
     "fipe_valor": 8776.0,
     "fipe_str": "R$ 8.776,00",
     "classificacao": "❌ RUIM",
@@ -309,7 +361,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/saveiro-cs-(2p)/ano.2013/8bad432b-73c7-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:33",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -335,7 +387,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-trendline-mcv-(4p)/ano.2017/68237e0f-7543-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:35",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Doblo Hlx Flex",
+    "ano": 2009,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17600.0,
+    "fipe_valor": 33029.0,
+    "fipe_str": "R$ 33.029,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/doblo-hlx-flex/ano.2009/1229e053-2de4-11f1-8174-02420a000006",
+    "data_leilao": "2026-09-01T12:35",
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -345,7 +423,7 @@
     "modelo": "Hilux  Cabine Dupla Sra 4Fd",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 53700.0,
+    "lance_atual": 54700.0,
     "fipe_valor": 58527.0,
     "fipe_str": "R$ 58.527,00",
     "classificacao": "❌ RUIM",
@@ -361,7 +439,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/hilux--cabine-dupla-sra-4fd/ano.2020/c8cff893-6c1b-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:36",
-    "scraped_at": "2026-08-30T20:56"
+    "scraped_at": "2026-08-31T13:26"
   },
   {
     "fonte": "leilo",
@@ -371,7 +449,7 @@
     "modelo": "Fox",
     "ano": 2009,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7100.0,
+    "lance_atual": 7400.0,
     "fipe_valor": 22630.0,
     "fipe_str": "R$ 22.630,00",
     "classificacao": "✅ ÓTIMO",
@@ -387,33 +465,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/fox-(2p%2F4p)/ano.2009/314170a0-2df0-11f1-8174-02420a000006",
     "data_leilao": "2026-09-01T12:38",
-    "scraped_at": "2026-08-30T20:57"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Clio Expression 10 16Vh",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 16000.0,
-    "fipe_valor": 13625.0,
-    "fipe_str": "R$ 13.625,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787949226864_cbc23de3-5c9b-47ab-9654-534c2cef6ddd_media.webp",
-    "km": "",
-    "descricao": "Simule seu financiamento agora",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "RUIM",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-01T12:38",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -439,7 +491,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-01T12:41",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Clio Expression 10 16Vh",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 16000.0,
+    "fipe_valor": 13625.0,
+    "fipe_str": "R$ 13.625,00",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787949226864_cbc23de3-5c9b-47ab-9654-534c2cef6ddd_media.webp",
+    "km": "",
+    "descricao": "Simule seu financiamento agora",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-01T12:42",
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -465,7 +543,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo7-sport/ano.2025/3f3c1222-7c60-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-09-01T12:43",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -491,7 +569,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2016/2f2e545c-409d-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-09-01T12:45",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -517,7 +595,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:46",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -543,7 +621,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f35466aa-a474-11f0-bcb1-02420a000005",
     "data_leilao": "2026-09-01T12:47",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -569,7 +647,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-01T12:49",
-    "scraped_at": "2026-08-30T20:57"
+    "scraped_at": "2026-08-31T13:27"
   },
   {
     "fonte": "leilo",
@@ -595,7 +673,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/citroen/c4-lounge-a-thp-exclusive-(4p)/ano.2014/42512615-8699-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:52",
-    "scraped_at": "2026-08-30T20:58"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -621,33 +699,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/audi/q3/ano.2016/294826ba-8831-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:54",
-    "scraped_at": "2026-08-30T20:58"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Nissan",
-    "modelo": "Livina X Gear",
-    "ano": 2014,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 12000.0,
-    "fipe_valor": 30378.0,
-    "fipe_str": "R$ 30.378,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/29/1788005253387_e26b5fe5-2ec1-47c5-8900-b286388ec786_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/livina-x-gear/ano.2014/b1812d9c-56a6-11f1-8cef-02420a000008",
-    "data_leilao": "2026-09-01T12:55",
-    "scraped_at": "2026-08-30T20:58"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -657,7 +709,7 @@
     "modelo": "Strada Adventure Cabine Dupla",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 17200.0,
+    "lance_atual": 17600.0,
     "fipe_valor": 53270.0,
     "fipe_str": "R$ 53.270,00",
     "classificacao": "✅ ÓTIMO",
@@ -673,7 +725,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/strada-adventure-cabine-dupla/ano.2013/bd5e9e9f-6bd8-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:55",
-    "scraped_at": "2026-08-30T20:58"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -699,33 +751,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo7-pro16ta/ano.2023/40bc1f11-8476-11f1-959d-02420a00000e",
     "data_leilao": "2026-09-01T12:55",
-    "scraped_at": "2026-08-30T20:58"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Sandero Stepway Sce",
-    "ano": 2020,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 28000.0,
-    "fipe_valor": 39443.0,
-    "fipe_str": "R$ 39.443,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/29/1788006031801_3d4708fe-a08b-490f-8344-3bdfb9173336_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "BOA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/sandero-stepway-sce-(4p)/ano.2020/6e92c950-5902-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-09-01T12:56",
-    "scraped_at": "2026-08-30T20:58"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -751,33 +777,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/suzuki/jimny/ano.2012/4af00852-8149-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-01T12:57",
-    "scraped_at": "2026-08-30T20:58"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Ford",
-    "modelo": "Fiesta Se",
-    "ano": 2017,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 22000.0,
-    "fipe_valor": 57912.0,
-    "fipe_str": "R$ 57.912,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/29/1788005220699_3959f0dc-c348-469f-b626-dc773dceed95_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/fiesta-se-(4p)/ano.2017/261ea621-61a8-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-09-01T12:58",
-    "scraped_at": "2026-08-30T20:58"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -787,7 +787,7 @@
     "modelo": "Xj6 N",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18900.0,
+    "lance_atual": 19500.0,
     "fipe_valor": 35573.0,
     "fipe_str": "R$ 35.573,00",
     "classificacao": "⚠️ MEDIANO",
@@ -803,7 +803,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/xj6-n/ano.2013/0a750cb0-6be7-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:35",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:28"
   },
   {
     "fonte": "leilo",
@@ -829,7 +829,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz25-fazer/ano.2024/5161a165-8db7-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:41",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -855,7 +855,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/elite-125/ano.2027/daf0d81a-8043-11f1-a78c-02420a000008",
     "data_leilao": "2026-09-01T12:48",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -865,7 +865,7 @@
     "modelo": "Himalayan",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 8800.0,
+    "lance_atual": 9000.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -881,7 +881,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/royal-enfield/himalayan/ano.2026/95fc554d-8dab-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:49",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -891,7 +891,7 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7100.0,
+    "lance_atual": 8100.0,
     "fipe_valor": 21350.0,
     "fipe_str": "R$ 21.350,00",
     "classificacao": "✅ ÓTIMO",
@@ -907,7 +907,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2024/c6b1d626-7544-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:51",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -917,7 +917,7 @@
     "modelo": "Nxr160 Bros Esdd",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 5800.0,
+    "lance_atual": 6000.0,
     "fipe_valor": 17046.0,
     "fipe_str": "R$ 17.046,00",
     "classificacao": "✅ ÓTIMO",
@@ -933,7 +933,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2020/c16783fb-5926-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:53",
-    "scraped_at": "2026-08-30T20:59"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -943,7 +943,7 @@
     "modelo": "Biz 125 Es",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4800.0,
+    "lance_atual": 5400.0,
     "fipe_valor": 11304.0,
     "fipe_str": "R$ 11.304,00",
     "classificacao": "✅ ÓTIMO",
@@ -959,7 +959,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-125-es/ano.2013/0c9438d5-7969-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:58",
-    "scraped_at": "2026-08-30T21:00"
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -969,7 +969,7 @@
     "modelo": "Xy125 6A",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4000.0,
+    "lance_atual": 4200.0,
     "fipe_valor": 0,
     "fipe_str": "Modelo não encontrado",
     "classificacao": "Sem referência",
@@ -984,8 +984,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2026/3733666b-8aa8-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-01T13:13",
-    "scraped_at": "2026-08-30T21:00"
+    "data_leilao": "2026-09-01T13:23",
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
@@ -995,7 +995,7 @@
     "modelo": "Fz25 Fazer",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 13300.0,
+    "lance_atual": 13600.0,
     "fipe_valor": 23797.0,
     "fipe_str": "R$ 23.797,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1010,24 +1010,50 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz25-fazer/ano.2025/ac0b6428-8b70-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-01T13:32",
-    "scraped_at": "2026-08-30T21:00"
+    "data_leilao": "2026-09-01T13:44",
+    "scraped_at": "2026-08-31T13:29"
   },
   {
     "fonte": "leilo",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Nome-Padrao",
-    "modelo": "Playstation 4   1Tb",
-    "ano": 2023,
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Haojue",
+    "modelo": "Jtz/Nex 115",
+    "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 1100.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/29/1788007440437_84e5dd16-0e46-4a3e-87fb-b07aac2f2807_media.webp",
+    "lance_atual": 4000.0,
+    "fipe_valor": 10570.0,
+    "fipe_str": "R$ 10.570,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/haojue/jtz%2Fnex-115/ano.2024/2e2963e6-593c-11f1-99e0-02420a00000a",
+    "data_leilao": "2026-09-09T12:36",
+    "scraped_at": "2026-08-31T13:30"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Shineray-50Q",
+    "modelo": "Xy125 6A",
+    "ano": 2024,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 3900.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
     "oportunidade": "INSPECIONAR",
@@ -1035,9 +1061,9 @@
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/playstation-4---1tb/ano.2023/00d55f33-a239-11f1-9a18-02420a000006",
-    "data_leilao": "2026-08-31T13:01",
-    "scraped_at": "2026-08-30T21:00"
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-50q/xy125-6a/ano.2024/c66a40bf-52d1-11f1-8cef-02420a000008",
+    "data_leilao": "2026-09-09T12:39",
+    "scraped_at": "2026-08-31T13:30"
   },
   {
     "fonte": "leilo",
@@ -1063,7 +1089,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
     "data_leilao": "2026-09-01T12:15",
-    "scraped_at": "2026-08-30T21:00"
+    "scraped_at": "2026-08-31T13:30"
   },
   {
     "fonte": "leilo",
@@ -1089,7 +1115,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/volkswagen/24.250-cnc-6x2/ano.2011/c1f8d8c1-5eb2-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:33",
-    "scraped_at": "2026-08-30T21:00"
+    "scraped_at": "2026-08-31T13:30"
   },
   {
     "fonte": "mega",
@@ -1115,7 +1141,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/veiculos/carros/ce/fortaleza/carro-volkswagen-fox-20092010-j127929",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1141,7 +1167,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-62-m2-novo-maranguape-ii-maranguape-ce-x127849",
     "data_leilao": "2026-08-31T15:00",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1167,7 +1193,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/sobral/casa-211-m2-sobral-ce-rua-francisco-de-souza-mororo-1336-jeronimo-prado-x128312",
     "data_leilao": "2026-09-02T15:04",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1193,7 +1219,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-74-m2-lameirao-maranguape-ce-x128670",
     "data_leilao": "2026-09-08T11:15",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1219,7 +1245,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/missao-velha/casa-72-m2-loteamento-conquista-aeroporto-missao-velha-ce-x128671",
     "data_leilao": "2026-09-08T11:16",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1245,7 +1271,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/horizonte/apartamento-78-m2-unid-804-l-mal-cozinhado-horizonte-ce-x128675",
     "data_leilao": "2026-09-08T11:20",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1271,7 +1297,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-86-m2-guajeru-fortaleza-ce-x128684",
     "data_leilao": "2026-09-08T11:29",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1297,7 +1323,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-professora-maria-geli-sa-barreto-juazeiro-do-norte-ce-x128692",
     "data_leilao": "2026-09-08T11:37",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1323,7 +1349,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/iguatu/casa-77-m2-vila-brasilia-iguatu-ce-x128701",
     "data_leilao": "2026-09-08T11:46",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1349,7 +1375,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/paracuru/casa-em-condominio-79-m2-unid-08-centro-paracuru-ce-x128712",
     "data_leilao": "2026-09-08T11:57",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1375,7 +1401,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-99-m2-mirante-de-serra-maranguape-ce-x128721",
     "data_leilao": "2026-09-08T12:06",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1401,7 +1427,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/aquiraz/casa-96-m2-patacas-aquiraz-ce-x128730",
     "data_leilao": "2026-09-08T12:15",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1427,7 +1453,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-campo-alegre-juazeiro-do-norte-ce-x128775",
     "data_leilao": "2026-09-08T12:56",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1453,7 +1479,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-47-m2-fortaleza-ce-rua-amancio-pereira-55-apto-806-passare-x128540",
     "data_leilao": "2026-09-16T15:12",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "mega",
@@ -1479,33 +1505,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/maranguape/direitos-sobre-apartamento-41-m2-novo-maranguape-ii-maranguape-ce-j128068",
     "data_leilao": "2026-09-24T11:30",
-    "scraped_at": "2026-08-30T21:16"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "equipamentos",
-    "icone": "⚙️",
-    "marca": "Nome-Padrao",
-    "modelo": "Playstation 4   1Tb",
-    "ano": 2023,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 1100.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/29/1788007440437_84e5dd16-0e46-4a3e-87fb-b07aac2f2807_pequena_pacto.webp",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/equipamentos/nome-padrao/playstation-4---1tb/ano.2023/00d55f33-a239-11f1-9a18-02420a000006",
-    "data_leilao": "2026-08-31T13:01",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:46"
   },
   {
     "fonte": "pacto",
@@ -1531,7 +1531,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
     "data_leilao": "2026-09-01T12:15",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1557,7 +1557,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/mobi-trekking-mt-(4p)/ano.2024/112c38fa-27e1-42f5-a35d-61ed883eeed6",
     "data_leilao": "2026-09-01T12:16",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1583,7 +1583,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
     "data_leilao": "2026-09-01T12:16",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1609,7 +1609,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
     "data_leilao": "2026-09-01T12:18",
-    "scraped_at": "2026-08-30T21:16"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1635,7 +1635,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-comfortline-(4p)/ano.2016/0d377466-b363-4793-a2fc-5df0fbada8f9",
     "data_leilao": "2026-09-01T12:20",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1661,7 +1661,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
     "data_leilao": "2026-09-01T12:24",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1687,7 +1687,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo7-sport/ano.2026/cc6899fc-aa24-4108-8875-09dcaa57dc29",
     "data_leilao": "2026-09-01T12:27",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1713,7 +1713,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:28",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1739,7 +1739,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei/ano.2021/9cc8868e-6b33-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:28",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1765,7 +1765,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/citroen/basalt-feel-t200/ano.2025/be596855-8153-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-01T12:29",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1791,7 +1791,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:30",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Mobi Like",
+    "ano": 2020,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 24400.0,
+    "fipe_valor": 44454.0,
+    "fipe_str": "R$ 44.454,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "94.490 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/mobi-like-(4p)/ano.2020/d49e01b3-7a01-11f1-9bf3-0242ac500277",
+    "data_leilao": "2026-09-01T12:31",
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1817,7 +1843,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/jeep/compass-limited-flex-h/ano.2020/420e3cac-6374-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:32",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Hyundai",
+    "modelo": "Hb20 Comfortline",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 28400.0,
+    "fipe_valor": 43763.0,
+    "fipe_str": "R$ 43.763,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "82.272 km",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-comfortline-(4p)/ano.2015/060101f3-9a53-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-01T12:33",
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1843,7 +1895,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/volkswagen/24.250-cnc-6x2/ano.2011/c1f8d8c1-5eb2-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-01T12:33",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1853,7 +1905,7 @@
     "modelo": "Saveiro Cs",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 12400.0,
+    "lance_atual": 13300.0,
     "fipe_valor": 8776.0,
     "fipe_str": "R$ 8.776,00",
     "classificacao": "❌ RUIM",
@@ -1869,7 +1921,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/saveiro-cs-(2p)/ano.2013/8bad432b-73c7-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-01T12:33",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1895,7 +1947,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-trendline-mcv-(4p)/ano.2017/68237e0f-7543-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-01T12:35",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Doblo Hlx Flex",
+    "ano": 2009,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 17600.0,
+    "fipe_valor": 33029.0,
+    "fipe_str": "R$ 33.029,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/doblo-hlx-flex/ano.2009/1229e053-2de4-11f1-8174-02420a000006",
+    "data_leilao": "2026-09-01T12:35",
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1905,7 +1983,7 @@
     "modelo": "Xj6 N",
     "ano": 2013,
     "cidade": "Eusebio/CE",
-    "lance_atual": 18900.0,
+    "lance_atual": 19500.0,
     "fipe_valor": 35573.0,
     "fipe_str": "R$ 35.573,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1920,8 +1998,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/xj6-n/ano.2013/0a750cb0-6be7-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-09-01T12:35",
-    "scraped_at": "2026-08-30T21:17"
+    "data_leilao": "2026-09-01T12:36",
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1931,7 +2009,7 @@
     "modelo": "Hilux  Cabine Dupla Sra 4Fd",
     "ano": 2020,
     "cidade": "Eusebio/CE",
-    "lance_atual": 53700.0,
+    "lance_atual": 54700.0,
     "fipe_valor": 58527.0,
     "fipe_str": "R$ 58.527,00",
     "classificacao": "❌ RUIM",
@@ -1946,8 +2024,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/hilux--cabine-dupla-sra-4fd/ano.2020/c8cff893-6c1b-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-09-01T12:36",
-    "scraped_at": "2026-08-30T21:17"
+    "data_leilao": "2026-09-01T12:37",
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -1957,7 +2035,7 @@
     "modelo": "Fox",
     "ano": 2009,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7100.0,
+    "lance_atual": 7400.0,
     "fipe_valor": 22630.0,
     "fipe_str": "R$ 22.630,00",
     "classificacao": "✅ ÓTIMO",
@@ -1973,33 +2051,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/fox-(2p%2F4p)/ano.2009/314170a0-2df0-11f1-8174-02420a000006",
     "data_leilao": "2026-09-01T12:38",
-    "scraped_at": "2026-08-30T21:17"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Renault",
-    "modelo": "Clio Expression 10 16Vh",
-    "ano": 2015,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 16000.0,
-    "fipe_valor": 13625.0,
-    "fipe_str": "R$ 13.625,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787949226864_cbc23de3-5c9b-47ab-9654-534c2cef6ddd_pequena_pacto.webp",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "RUIM",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-01T12:39",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -2025,7 +2077,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/fz25-fazer/ano.2024/5161a165-8db7-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:41",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:47"
   },
   {
     "fonte": "pacto",
@@ -2051,7 +2103,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-01T12:42",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:48"
+  },
+  {
+    "fonte": "pacto",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Clio Expression 10 16Vh",
+    "ano": 2015,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 16000.0,
+    "fipe_valor": 13625.0,
+    "fipe_str": "R$ 13.625,00",
+    "classificacao": "❌ RUIM",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787949226864_cbc23de3-5c9b-47ab-9654-534c2cef6ddd_pequena_pacto.webp",
+    "km": "",
+    "descricao": "",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-01T12:42",
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2077,7 +2155,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/caoa-chery/tiggo7-sport/ano.2025/3f3c1222-7c60-11f1-9bf3-0242ac500277",
     "data_leilao": "2026-09-01T12:44",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2102,8 +2180,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2016/2f2e545c-409d-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-09-01T12:45",
-    "scraped_at": "2026-08-30T21:17"
+    "data_leilao": "2026-09-01T12:46",
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2129,7 +2207,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-01T12:47",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2155,7 +2233,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f35466aa-a474-11f0-bcb1-02420a000005",
     "data_leilao": "2026-09-01T12:48",
-    "scraped_at": "2026-08-30T21:17"
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2181,7 +2259,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/elite-125/ano.2027/daf0d81a-8043-11f1-a78c-02420a000008",
     "data_leilao": "2026-09-01T12:49",
-    "scraped_at": "2026-08-30T21:18"
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "pacto",
@@ -2207,345 +2285,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-01T12:50",
-    "scraped_at": "2026-08-30T21:18"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Royal-Enfield",
-    "modelo": "Himalayan",
-    "ano": 2026,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 8800.0,
-    "fipe_valor": 0,
-    "fipe_str": "Marca não encontrada",
-    "classificacao": "Sem referência",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787926865688_8fd0692f-c641-4bfb-8fd5-f3a52447c132_pequena_pacto.webp",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/royal-enfield/himalayan/ano.2026/95fc554d-8dab-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-01T12:50",
-    "scraped_at": "2026-08-30T21:18"
-  },
-  {
-    "fonte": "pacto",
-    "categoria": "motos",
-    "icone": "🏍️",
-    "marca": "Honda",
-    "modelo": "Nxr160 Bros Esdd",
-    "ano": 2024,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 7100.0,
-    "fipe_valor": 21350.0,
-    "fipe_str": "R$ 21.350,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/8/28/1787926958958_09286133-bca4-46d3-9c82-75a3f35f7df5_pequena_pacto.webp",
-    "km": "",
-    "descricao": "",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/honda/nxr160-bros-esdd/ano.2024/c6b1d626-7544-11f1-87e3-02420a000009",
-    "data_leilao": "2026-09-01T12:52",
-    "scraped_at": "2026-08-30T21:18"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "caminhoes",
-    "icone": "🚛",
-    "marca": "Sr",
-    "modelo": "Randon Sr Ca",
-    "ano": 2010,
-    "cidade": "Crato/CE",
-    "lance_atual": 10000.0,
-    "fipe_valor": 0,
-    "fipe_str": "Sem referência",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/4940d4d5-9235-4b14-973a-6addde027c77?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "16ª Vara Federal CE Processo: 0800304-35.2017.4.05.8102. Um veículo marca/modelo SR/RANDON SR CA, placa ASL-2731 ano/modelo 2010/2010, tipo SEMIRREBOQUE/CARGA, está em estado ruim de conservação, não possuindo mais as rodas ou pneus, possuindo apenas as que compõem o estepe. Localização: Rua Maria Carmem Gonçalves Esmeraldo, 175, Muriti, Crato/CE. Além do valor ofertado e da comissão do leiloeiro, o arrematante arcará com o pagamento dos seguintes acréscimos: - Custas judiciais de arrematação, no percentual de 0,5% do respectivo valor (Lei nº 9.289/1996), sendo o mínimo de R$ 10,64 e o máximo de R$ 1.915,38, a serem pagas antes da expedição da Carta de Arrematação, através de GRU, disponível",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102940",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Nissan",
-    "modelo": "Frontier Svatk 4X2",
-    "ano": 2014,
-    "cidade": "Fortaleza/CE",
-    "lance_atual": 34000.0,
-    "fipe_valor": 77693.0,
-    "fipe_str": "R$ 77.693,00",
-    "classificacao": "✅ ÓTIMO",
-    "foto": "https://montenegroleiloes.com.br/midia/9222729c-704f-48de-b3ec-a121200a9f1d?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "16ª Vara Federal CE Processo: 0000180-61.2012.4.05.8102. Veículo NISSAN/FRONTIER SVATK4X2 DIESEL (caminhoneta aberta, cabine dupla), placa PMY9510, ano fabricação/modelo 2014/2014, cor branca, CHASSI 94DVCGD40EJ366298. Constatação: conforme vistoria original, a qual relatou o veículo parado desde 23/10/2023, confirma-se o seu estado de inatividade prolongado. A lataria e a pintura estão em estado regular, com alguns amassados leves e a lanterna traseira direita quebrada. Os pneus estão secos e ressecados, devido ao tempo sem uso. O assoalho e os bancos também estão em estado regular. Não foi possível verificar a quilometragem ou ligar o motor, pois o veículo esta sem bateria. Localização: Ru",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "OTIMA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102941",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Vw",
-    "modelo": "13.150",
-    "ano": 2002,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 53500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/624f6d33-cfd8-4477-80b6-309f2b1caef8?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "386.685 km",
-    "descricao": "16ª Vara Federal CE Processo: 0801533-83.2024.4.05.8102. Um veículo caminhão marca/modelo VW/13.150, placa atual HXR3J79, placa anterior HXR3979, ano/modelo 2002, cor BRANCA, a Diesel, hodômetro marcando 386.685 km, veículo em regular estado de uso e conservação, encontrando-se com pneus e pintura em bom estado. Localização: Rua Padre Cícero Coutinho, 46, Tiradentes, Juazeiro do Norte/CE. Além do valor ofertado e da comissão do leiloeiro, o arrematante arcará com o pagamento dos seguintes acréscimos: - Custas judiciais de arrematação, no percentual de 0,5% do respectivo valor (Lei nº 9.289/1996), sendo o mínimo de R$ 10,64 e o máximo de R$ 1.915,38, a serem pagas antes da expedição da Carta ",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102951",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volvo",
-    "modelo": "Nl 10 340 4X2",
-    "ano": 1995,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 17500.0,
-    "fipe_valor": 28152.0,
-    "fipe_str": "R$ 28.152,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://montenegroleiloes.com.br/midia/d576af40-1a1e-4808-bb94-88828a77c645?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca VOLVO modelo NL 10 340 4x2, cor branca, ano 1995/1995, diesel, placa HUX-1411. O veículo está em péssimo estado de conservação, encontrando-se fora de operação (não esta em",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "BOA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102952",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "L1113",
-    "ano": 1974,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 12500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/72833813-9fec-4461-912a-39167970674a?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca MERCEDES-BENZ modelo L1113, cor azul, ano 1974, diesel, placa HUD-2360. O veículo esta em péssimo estado de conservação, encontrando-se fora de operação (não esta em funcio",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102953",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "La1113",
-    "ano": 1977,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 12500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/b85da734-1ece-406c-927a-15b3355caba9?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca MERCEDES-BENZ modelo LA1113, cor amarela, ano 1977, diesel, placa HVP-2133. O veículo esta em péssimo estado de conservação, encontrando-se fora de operação (não esta em fu",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102954",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "La1113",
-    "ano": 1976,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 12500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/ecde127b-b953-43cd-9911-fb53c68ce1bb?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca MERCEDES-BENZ modelo LA1113, cor laranja, ano 1976, diesel, placa HVX-8950. O veículo esta em péssimo estado de conservação, encontrando-se fora de operação (não esta emfun",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102955",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "L608D",
-    "ano": 1981,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 7500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/fd4e6e01-f4e3-4b2d-b55d-230467212a9d?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca MERCEDES-BENZ modelo L608D, cor vermelha, ano 1981/1981, diesel, placa HWE-5878. O veículo esta em péssimo estado de conservação, encontrando-se fora de operação (não está ",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102956",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "L608D",
-    "ano": 1982,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 7500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/89230426-44c7-4be9-b18f-6c375f0b24b4?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA: Um caminhão marca MERCEDES-BENZ modelo L608D, cor amarela, ano 1982, diesel, placa LVJ-8675. O veículo esta em péssimo estado de conservação, encontrando-se fora de operação (não está em fun",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102957",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Mercedes-Benz",
-    "modelo": "L1113",
-    "ano": 1976,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 12500.0,
-    "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
-    "classificacao": "Sem referência",
-    "foto": "https://montenegroleiloes.com.br/midia/98c22344-5baf-4b27-a6f8-73079cb58bf3?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- SUCATA Um caminhão marca MERCEDES-BENZ modelo L1113, cor azul, ano 1976, diesel, placa KGE-7096. O veículo está em péssimo estado de conservação, encontrando-se fora de operação (não está em funcion",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102958",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
-  },
-  {
-    "fonte": "montenegro",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Gm",
-    "modelo": "D20 Custom L",
-    "ano": 1991,
-    "cidade": "Juazeiro Do Norte/CE",
-    "lance_atual": 30000.0,
-    "fipe_valor": 13740.0,
-    "fipe_str": "R$ 13.740,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://montenegroleiloes.com.br/midia/4476a071-8c4b-41d3-8c6c-02a062c20063?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
-    "km": "",
-    "descricao": "- Os veículos classificados como SUCATA, submetem-se às disposições da Lei Federal nº 12.977/2014 (Lei do Desmonte), da Resolução CONTRAN nº 810/2020, da Resolução CONTRAN nº 11/1998, do art. 126 da L",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "RUIM",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://montenegroleiloes.com.br/leiloes/2644/lotes/102959",
-    "data_leilao": "2026-08-31T10:00",
-    "scraped_at": "2026-08-30T21:20"
+    "scraped_at": "2026-08-31T13:48"
   },
   {
     "fonte": "montenegro",
@@ -2571,7 +2311,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102170",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-08-30T21:20"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2597,7 +2337,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102347",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-08-30T21:20"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2623,7 +2363,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102353",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2649,7 +2389,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102934",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2675,7 +2415,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/103080",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2701,7 +2441,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102565",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2727,7 +2467,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102903",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2753,7 +2493,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102904",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2779,7 +2519,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102932",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2805,7 +2545,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102935",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:50"
   },
   {
     "fonte": "montenegro",
@@ -2831,7 +2571,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103227",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:51"
   },
   {
     "fonte": "montenegro",
@@ -2857,7 +2597,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103228",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:51"
   },
   {
     "fonte": "montenegro",
@@ -2883,7 +2623,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103229",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:51"
   },
   {
     "fonte": "montenegro",
@@ -2909,6 +2649,6 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103131",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-08-30T21:21"
+    "scraped_at": "2026-08-31T13:51"
   }
 ]
