@@ -4,20 +4,25 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-08-27):
+STATUS (atualizado 2026-09-02):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões e Celso Cunha implementados. MGL quebrado (ver
-  MGL_SCRAPER_PENDENTE.md); Construbem/Daniel Garcia dependem de crédito
-  Zenrows. Sodré Santoro investigado em 2026-08-31 e descartado: pátios só
-  em SP/PR, sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md).
+  MJ Leilões e Celso Cunha implementados. MGL CONSERTADO em 2026-09-02:
+  reescrito para usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23),
+  agora traz veículos E imóveis do CE (a MGL só tinha imóveis retomados Caixa
+  no estado). Ver MGL_SCRAPER_PENDENTE.md. Construbem/Daniel Garcia dependem
+  de crédito Zenrows. Sodré Santoro investigado em 2026-08-31 e descartado:
+  pátios só em SP/PR, sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md).
 - Favoritos: pronto, sincronizando com Supabase (upsert por user_id,lote_url).
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
   tem assinatura ativa. Portal de cobrança e webhook funcionando.
 
 BACKLOG:
-- Consertar scraper MGL. Achar outro leiloeiro que de fato opere no CE
-  (Sodré Santoro foi descartado — ver STATUS).
+- Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
+  descartado — ver STATUS).
+- MGL: validar no próximo run agendado do GitHub Actions se a API
+  /apiplugin/GetBusca passa pelo Cloudflare a partir do IP do runner. Se
+  voltar a dar 0, rotear pelo Zenrows (ver MGL_SCRAPER_PENDENTE.md).
 - stripe-webhook: o INSERT/UPSERT em profiles já foi feito (commit fe877d2,
   updateProfile faz upsert por id quando nenhuma linha bate). Resta endurecer
   o fallback: o upsert de emergência não grava phone/name, então alertas.py

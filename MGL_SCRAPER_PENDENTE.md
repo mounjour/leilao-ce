@@ -1,104 +1,69 @@
-# MGL Leilões — scraper quebrado (investigação de 2026-08-27)
+# MGL Leilões — scraper CONSERTADO (2026-09-02)
 
-`_raspar_mgl` em `scraper.py` retorna **0 lotes** em produção há semanas.
-Log do GitHub Actions: `⚠️ MGL listagem: Page.wait_for_selector: Timeout
-30000ms exceeded` esperando `.dg-leiloes-item`.
+`_raspar_mgl` estava retornando 0 lotes e estourando `wait_for_selector`
+(`.dg-leiloes-item`, Timeout 30000ms) no GitHub Actions. **Reescrito em
+2026-09-02** para usar a API JSON da busca em vez de raspar o DOM.
 
-Esta investigação foi feita ao vivo pelo Browser pane contra o site real.
-Ainda **não corrigido** — fix é de várias etapas e envolve decisão de
-infra (Zenrows). Documentado aqui pra retomar depois.
+## Causa raiz
 
-## O que foi descoberto
+1. **URL de busca obsoleta.** O `#hash` mudou de esquema
+   (`Engine=StartMGL&modelo=Veículos&estado=23` → `Engine=Start&ID_Categoria=N`),
+   então a listagem antiga carregava vazia e o `wait_for_selector` nunca
+   resolvia.
+2. **O filtro de estado só funciona no corpo do POST, não no hash.** Passar
+   `estado=23`/`ID_Estado=23` na URL não filtra nada (a SPA ignora). No corpo
+   JSON de `POST /apiplugin/GetBusca`, `ID_Estado: 23` filtra o Ceará
+   corretamente.
+3. **A página de detalhe mudou de layout.** Não existe mais `MARCA/MODELO:`
+   nem `ANO/MODELO:`; agora é `MODELO: <marca modelo>`, `ANO: <aaaa>/<aaaa>`,
+   `KM: <n>`. As duas regexes antigas não casavam mais nada.
+4. **Cloudflare bloqueia IP de datacenter.** `requests.get` numa página de
+   lote retorna **403**. Só funciona via navegador real (Playwright), que
+   passa o desafio JS ao abrir `/busca/` e mantém o cookie `cf_clearance`.
 
-### 1. A URL de busca do scraper está obsoleta
+## Como funciona agora
 
-`_MGL_BUSCA_VEICULOS_CE` hoje é:
+`_raspar_mgl` (em `scraper.py`):
+
+1. `pg_lista.goto(_MGL_BUSCA_URL)` uma vez (passa o Cloudflare).
+2. Pagina a listagem com `pg_lista.evaluate(fetch POST /apiplugin/GetBusca/…)`
+   — mesma origem, reaproveita o clearance. Corpo = `_MGL_BUSCA_PARAMS` com
+   `ID_Estado: 23`, `ID_Categoria: 0` (traz veículos **e** imóveis).
+3. Para cada lote: `_mgl_categoria_lote` decide `imoveis` / `carros` / `motos`
+   / `caminhoes` / `equipamentos`, ou `None` para bens diversos (fora do
+   escopo). Filtro de segurança extra: descarta `UF != "CE"`.
+4. Página de detalhe via `pg_lista.evaluate(fetch <url_lote>)` (HTML cru, sem
+   navegar) → `_html_para_texto` → parsers:
+   - **veículo:** `_mgl_parse_detalhe_veiculo` (MODELO/ANO/KM) +
+     `_mgl_descricao` (specs + bloco "Ônus" com IPVA/restrições).
+   - **imóvel:** `_mgl_avaliacao_imovel` (`Avaliação: R$ …` do bloco de
+     valores) vira o `ref_val`; descrição fica vazia (o resto é só o edital).
+5. `data_leilao` sai de `GetLoteRealTime[0]` (abertura da 1ª praça; para venda
+   direta, o encerramento). Foto: `imagens-complete/605x487/<Foto>`.
+
+## Contrato da API (para manutenção futura)
 
 ```
-https://www.mgl.com.br/busca/#Engine=StartMGL&modelo=Ve%C3%ADculos&estado=23&Pagina=0&PaginaIndex=1&
+POST https://www.mgl.com.br/apiplugin/GetBusca/{Pagina}/{PaginaIndex}/0?
+Content-Type: application/json
+Corpo: window.JsonParametrosBusca  (ver _MGL_BUSCA_PARAMS)
 ```
 
-O site trocou o esquema de parâmetros do hash. Formato atual (tirado dos
-links reais do menu do site):
+Campos por lote usados: `Lote` (título), `URLlote`, `UF`, `Cidade`,
+`IconeCategoria`, `ValorInicialPrimeiraPraca` / `ValorVendaDireta`, `Fotos[].Foto`,
+`GetLoteRealTime[0].DataHoraAberturaPrimeiraPraca` /
+`…EncerramentoPrimeiraPraca`. Sentinela de data ausente: `1900-01-01T00:00:00`.
 
-```
-https://www.mgl.com.br/busca/#Engine=Start&Pagina=1&Busca=&Mapa=&ID_Categoria=<N>
-```
+## Situação do inventário (2026-09-02)
 
-Mudanças:
+A MGL tinha **0 veículos no CE** — os 23 lotes do estado eram 21 imóveis
+(retomados Caixa) + 2 bens diversos. Por isso o scraper agora inclui imóveis
+(decisão do dono do projeto). Quando a MGL tiver veículo no CE, o mesmo código
+já traz — sem mudança.
 
-| Antigo | Atual |
-|---|---|
-| `Engine=StartMGL` | `Engine=Start` |
-| `modelo=Veículos` | removido — agora é `ID_Categoria=<N>` |
-| `estado=23` | **não existe mais como parâmetro de hash** (ver item 3) |
+## Se voltar a dar 0 no GitHub Actions
 
-IDs de categoria observados no menu:
-
-| ID_Categoria | Rótulo |
-|---|---|
-| 88 | CARROS E MOTOS |
-| 108 | Carros |
-| 116 | Motos |
-| 117 | Caminhonetes |
-| 189 | CAMINHÕES, ÔNIBUS E VANS |
-| 223 | MÁQUINAS PESADAS & AGRÍCOLAS |
-| 226 | IMÓVEIS |
-
-### 2. O seletor `.dg-leiloes-item` continua existindo
-
-Não foi renomeado. Com a URL nova (`#Engine=Start&...&ID_Categoria=88`)
-a página renderiza 24 `.dg-leiloes-item` normalmente e mostra
-"Encontrados (3374) resultados". O timeout de 30s acontece porque a URL
-antiga não retorna resultado nenhum, não porque o seletor sumiu.
-
-URLs de lote agora são `https://www.mgl.com.br/lote/ferro/<id>/`
-(antes `/lote/<id>/`). O `a[href*="/lote/"]` do scraper ainda casa.
-
-### 3. Filtro de estado (Ceará) — ainda não resolvido
-
-- O select de estado na página ainda usa **código 23 = Ceará**
-  (`23=Ceará` nas `<option>`).
-- Mas passar `&ID_Estado=23` no hash **não filtra** — testado ao vivo:
-  continua "Encontrados (3374)" com resultados de MG/PE/SP.
-- `window.JsonParametrosBusca` (objeto de filtros da SPA) fica com
-  `ID_Estado: 0` mesmo com `ID_Estado=23` no hash → a página não lê esse
-  parâmetro do hash. Os campos que ela parece ler são `ID_Categoria`,
-  `Pagina`, `Busca`, `Mapa`.
-- Existe um `<input type="hidden" id="Mapa" name="Mapa">` e a API Google
-  Maps é carregada — o filtro geográfico atual pode passar por `Mapa=`
-  (formato desconhecido) ou por um POST à API `apiplugin/GetBusca/...`.
-- **Próximo passo:** abrir `/busca/`, selecionar "Ceará" no filtro de
-  estado pela UI e capturar (a) como o hash muda e (b) o payload da
-  chamada XHR `apiplugin/GetBusca`. Aí dá pra montar a URL/He request
-  correta.
-
-### 4. Provável bloqueio no runner do GitHub Actions
-
-`document.documentElement.innerHTML` tem referência a Cloudflare. No
-Browser pane (IP residencial, Chrome real) a página renderiza sem
-desafio. No runner do GHA (IP de datacenter) o timeout de 30s pode ser
-**bloqueio de WAF/Cloudflare**, mesma classe do problema do Daniel
-Garcia/Construbem (que só dá 403/402 a partir do IP dos runners — ver
-`project-scraper-sources-status` na memória).
-
-Não dá pra confirmar isso do Browser pane. Formas de checar:
-- rodar `_raspar_mgl` isolado a partir de um IP de datacenter, ou
-- adicionar um dump de `page.content()` no `except` do `_raspar_mgl` e
-  olhar o HTML que o runner recebe no próximo run agendado.
-
-## Plano de correção (quando for retomado)
-
-1. Descobrir via UI o parâmetro real de filtro por estado (item 3) e
-   atualizar `_MGL_BUSCA_VEICULOS_CE` — provavelmente uma URL por
-   categoria (carros/motos, caminhões, máquinas), como as outras fontes.
-2. Trocar `wait_until`/espera: a SPA carrega os itens por XHR após o
-   `domcontentloaded`. Ou esperar o texto "Encontrados (" aparecer, ou
-   dar um scroll (padrão Montenegro em `_scroll_ate_carregar_todos`).
-3. Se o item 4 se confirmar (bloqueio no runner): rotear a listagem
-   pelo Zenrows quando `ZENROWS_API_KEY` estiver setada — reaproveitar
-   o padrão já usado em `_raspar_soleon`. **Depende do crédito Zenrows
-   estar recarregado** (hoje está zerado — retorna HTTP 402).
-4. Revalidar o parser da página de detalhe (`MARCA/MODELO:`,
-   `ANO/MODELO:`, `img[src*="/imagens-complete/"]`) contra a página
-   `/lote/ferro/<id>/` atual — pode ter mudado junto.
+Provável bloqueio de Cloudflare no runner mesmo com Chromium headless. Nesse
+caso, rotear a chamada de `/apiplugin/GetBusca` e das páginas de lote pelo
+Zenrows quando `ZENROWS_API_KEY` estiver setada (padrão de `_raspar_soleon`).
+Depende de crédito Zenrows recarregado.

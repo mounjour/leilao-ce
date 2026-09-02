@@ -1601,98 +1601,284 @@ def _raspar_soleon(base, fonte, vistos):
     return lotes
 
 # ─── SCRAPER MGL LEILÕES ─────────────────────────────────────────────────────
-_MGL_BUSCA_VEICULOS_CE = (
-    "https://www.mgl.com.br/busca/"
-    "#Engine=StartMGL&modelo=Ve%C3%ADculos&estado=23&Pagina=0&PaginaIndex=1&"
-)
+# A busca da MGL e uma SPA: a listagem vem de POST /apiplugin/GetBusca com um
+# corpo JSON (o objeto window.JsonParametrosBusca). O filtro por estado so
+# funciona nesse corpo (ID_Estado); passar "estado=23" no #hash da URL nao
+# filtra nada — por isso a versao antiga sempre via o inventario nacional e
+# estourava o wait_for_selector de 30s no runner do GitHub Actions. Aqui a API
+# e chamada direto, de dentro da pagina (fetch same-origin), reaproveitando os
+# cookies/clearance do Cloudflare obtidos no goto inicial. Traz veiculos E
+# imoveis do Ceara (a MGL costuma ter so imoveis retomados Caixa no estado).
+_MGL_BASE = "https://www.mgl.com.br"
+_MGL_BUSCA_URL = _MGL_BASE + "/busca/#Engine=Start&Pagina=1&Busca=&Mapa=&ID_Categoria=0"
+_MGL_ID_ESTADO_CE = 23
+
+# Corpo base do POST — mesmos campos que a SPA envia (window.JsonParametrosBusca).
+_MGL_BUSCA_PARAMS = {
+    "Bairro": "", "Busca": "", "BuscaProcesso": "", "CFGs": "",
+    "CamposDinamicos": [], "CodLeilao": "", "DataAbertura": "",
+    "DataEncerramento": "", "ID_Categoria": 0, "ID_Cidade": 0,
+    "ID_Estado": _MGL_ID_ESTADO_CE, "ID_Leiloes_Status": [], "ID_Modelo": 0,
+    "ID_Regiao": 0, "IgnoreScopo": 0, "Mapa": "", "NomesPartes": "",
+    "OrdSt": 0, "Ordem": 0, "OrientacaoBusca": 0, "Pagina": 1,
+    "PaginaIndex": 1, "PracaAtual": 0, "QtdPorPagina": 48, "RangeValores": 0,
+    "Scopo": 0, "SubStatus": [], "TiposLeiloes": [], "ValorMaxSelecionado": 0,
+    "ValorMinSelecionado": 0, "sInL": "",
+}
+
+_MGL_FETCH_BUSCA_JS = """async (body) => {
+    try {
+        const r = await fetch(
+            `/apiplugin/GetBusca/${body.Pagina}/${body.PaginaIndex}/0?`,
+            { method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(body) });
+        if (!r.ok) return { __erro: r.status };
+        return await r.json();
+    } catch (e) { return { __erro: String(e) }; }
+}"""
+
+_MGL_FETCH_HTML_JS = """async (url) => {
+    try {
+        const r = await fetch(url, { headers: { 'Accept': 'text/html' } });
+        if (!r.ok) return { __erro: r.status };
+        return { html: await r.text() };
+    } catch (e) { return { __erro: String(e) }; }
+}"""
+
+_MGL_ICONES_IMOVEL = ("residenci", "imove", "imóve", "terreno", "apartament",
+                      "comerci", "rural", "predio", "galpao")
+_MGL_ICONES_VEICULO = ("carro", "moto", "caminho", "van", "onibus", "ônibus",
+                       "veic", "maquin", "máquin", "trator", "agricol")
 
 
-def _raspar_mgl(pg_lista, pg_detalhe, vistos):
-    """Busca somente veículos localizados no Ceará na MGL."""
+def _html_para_texto(h):
+    """HTML cru -> texto tipo innerText, preservando quebras de bloco."""
+    h = re.sub(r'(?is)<(script|style|noscript)[^>]*>.*?</\1>', ' ', h)
+    h = re.sub(r'(?i)<(br|/p|/div|/li|/tr|/h[1-6]|/td|/ul)[^>]*>', '\n', h)
+    h = re.sub(r'(?s)<[^>]+>', ' ', h)
+    h = html.unescape(h)
+    h = re.sub(r'[ \t\xa0​]+', ' ', h)
+    h = re.sub(r' *\n[ \n]*', '\n', h)
+    return h.strip()
+
+
+def _mgl_url_foto(fotos):
+    for f in fotos or []:
+        nome = (f or {}).get("Foto") or ""
+        low = nome.lower()
+        if nome and not low.endswith(".svg") and "semfoto" not in low:
+            return f"{_MGL_BASE}/imagens-complete/605x487/{nome}"
+    return ""
+
+
+def _mgl_categoria_lote(lote):
+    """Categoria do projeto para um lote da MGL; None se estiver fora do escopo
+    (bens diversos, sucata avulsa etc.)."""
+    titulo = lote.get("Lote") or ""
+    icone  = (lote.get("IconeCategoria") or "").lower()
+    tl     = titulo.lower()
+
+    if any(t in icone for t in _MGL_ICONES_IMOVEL) or \
+       any(p in tl for p in PALAVRAS_IMOVEL):
+        return "imoveis"
+
+    eh_veiculo = (
+        any(t in icone for t in _MGL_ICONES_VEICULO)
+        or re.search(r'\b(?:19|20)\d{2}\s*/\s*(?:19|20)\d{2}\b', titulo)
+    )
+    if not eh_veiculo:
+        return None
+    return detectar_categoria(titulo, "", "carros")
+
+
+def _mgl_data_leilao(realtime):
+    """Data do pregao a partir do bloco GetLoteRealTime da API (abertura da 1a
+    praca; encerramento como fallback para lotes de venda direta)."""
+    if not isinstance(realtime, dict):
+        return ""
+    agora = datetime.now()
+    for campo in ("DataHoraAberturaPrimeiraPraca",
+                  "DataHoraEncerramentoPrimeiraPraca"):
+        bruto = realtime.get(campo) or ""
+        if not bruto or bruto[:4] in ("1900", "0001"):
+            continue
+        try:
+            dt = datetime.fromisoformat(bruto[:19])
+        except ValueError:
+            continue
+        if dt > agora - timedelta(days=1):
+            return dt.strftime("%Y-%m-%dT%H:%M")
+    return ""
+
+
+def _mgl_parse_detalhe_veiculo(texto):
+    """Extrai marca/modelo/ano/km do bloco 'Informações' da pagina de detalhe
+    (rotulos atuais: 'MODELO:', 'ANO:', 'KM:')."""
+    marca = modelo = ""
+    ano = 0
+    m = re.search(r'MODELO:\s*([^\n]+)', texto, re.IGNORECASE)
+    if m:
+        partes = re.sub(r'\s+', ' ', m.group(1)).strip(" .-").split()
+        if partes:
+            marca  = partes[0].title()
+            modelo = " ".join(partes[1:]).title() if len(partes) > 1 else marca
+    a = re.search(r'ANO:\s*(\d{4})\s*/\s*(\d{4})', texto, re.IGNORECASE)
+    if a:
+        ano = int(a.group(2))
+    km = ""
+    k = re.search(r'KM:\s*(\d{1,3}(?:\.\d{3})+|\d{3,})', texto, re.IGNORECASE)
+    if k and int(k.group(1).replace(".", "")) >= 1000:
+        km = f"{k.group(1)} km"
+    return marca, modelo, ano, km
+
+
+def _mgl_descricao(texto):
+    """Texto util do bloco 'Informações' (+ 'Ônus') da pagina de detalhe,
+    sem as linhas de marketing/boilerplate."""
+    # Termina numa LINHA que seja so o titulo da proxima secao — o cabecalho
+    # "Condicoes" aparece isolado, enquanto "condicoes" no meio de uma frase do
+    # boilerplate ("No estado e condicoes que se encontra") nao deve cortar.
+    m = re.search(
+        r'Informa[çc][õo]es\b(.*?)(?:\n[ \t]*(?:Condi[çc][õo]es|Documenta[çc]|Documentos|Hist[óo]rico de Lances|Encontre no mapa)[ \t]*\n|\Z)',
+        texto, re.IGNORECASE | re.DOTALL
+    )
+    if not m:
+        return ""
+    linhas = []
+    for linha in m.group(1).splitlines():
+        l = linha.strip()
+        if not l:
+            continue
+        low = l.lower()
+        if low.startswith(("modelo:", "ano:", "agende sua visita", "venda voc",
+                           "a descri", "despesa administrativa", "0800")):
+            continue
+        linhas.append(l)
+    return re.sub(r'\s+', ' ', " ".join(linhas)).strip()[:700]
+
+
+def _mgl_avaliacao_imovel(texto):
+    m = re.search(r'Avalia[çc][ãa]o:?\s*R\$\s*([\d.]+,\d{2})', texto, re.IGNORECASE)
+    return _parse_brl(m.group(1)) if m else 0
+
+
+def _raspar_mgl(pg_lista, _pg_detalhe, vistos):
+    """Veiculos e imoveis localizados no Ceara na MGL (via /apiplugin/GetBusca)."""
     lotes = []
     try:
-        print("📡 MGL | veículos no Ceará")
-        pg_lista.goto(_MGL_BUSCA_VEICULOS_CE, wait_until="domcontentloaded", timeout=60000)
-        pg_lista.wait_for_selector(".dg-leiloes-item", timeout=30000)
-        pg_lista.wait_for_timeout(1500)
-
-        urls = pg_lista.locator('a[href*="/lote/"]').evaluate_all(
-            "els => [...new Set(els.map(e => e.href))]"
-        )
+        print("📡 MGL | veículos e imóveis no Ceará")
+        pg_lista.goto(_MGL_BUSCA_URL, wait_until="domcontentloaded", timeout=60000)
+        pg_lista.wait_for_timeout(2500)  # deixa o Cloudflare/JS challenge resolver
     except Exception as e:
-        print(f"  ⚠️ MGL listagem: {e}")
+        print(f"  ⚠️ MGL abertura: {e}")
         return lotes
 
-    print(f"  {len(urls)} lote(s) encontrado(s)")
-    for url_lote in urls:
+    brutos, total = [], None
+    for pagina in range(1, 16):
+        params = dict(_MGL_BUSCA_PARAMS, Pagina=pagina, PaginaIndex=pagina)
+        try:
+            data = pg_lista.evaluate(_MGL_FETCH_BUSCA_JS, params)
+        except Exception as e:
+            print(f"  ⚠️ MGL busca p{pagina}: {e}")
+            break
+        if not isinstance(data, dict) or data.get("__erro"):
+            erro = data.get("__erro") if isinstance(data, dict) else data
+            print(f"  ⚠️ MGL busca p{pagina}: {erro}")
+            break
+        pagina_lotes = data.get("Lotes") or []
+        if total is None:
+            total = data.get("CountTotal") or 0
+        brutos.extend(pagina_lotes)
+        if not pagina_lotes or len(brutos) >= (total or 0):
+            break
+
+    print(f"  {len(brutos)} lote(s) no CE (bruto)")
+
+    for lote in brutos:
+        uf = (lote.get("UF") or "").strip().upper()
+        if uf and uf != "CE":
+            continue
+
+        url_rel = (lote.get("URLlote") or "").lstrip("/")
+        if not url_rel:
+            continue
+        url_lote = f"{_MGL_BASE}/{url_rel}"
         if url_lote in vistos:
             continue
         vistos.add(url_lote)
 
-        try:
-            pg_detalhe.goto(url_lote, wait_until="domcontentloaded", timeout=45000)
-            pg_detalhe.wait_for_timeout(700)
-            texto = pg_detalhe.locator("body").inner_text()
+        categoria = _mgl_categoria_lote(lote)
+        if categoria is None:
+            continue
 
-            mm = re.search(
-                r'MARCA/MODELO:\s*([^\n/]+?)\s*/\s*([^\n]+)',
-                texto, re.IGNORECASE
-            )
-            if not mm:
+        cidade_nome = (lote.get("Cidade") or "").strip()
+        cidade = f"{cidade_nome}/CE" if cidade_nome else "CE"
+
+        try:
+            lance = float(lote.get("ValorInicialPrimeiraPraca")
+                          or lote.get("ValorVendaDireta") or 0)
+        except (TypeError, ValueError):
+            lance = 0.0
+
+        rt = lote.get("GetLoteRealTime") or []
+        data_leilao = _mgl_data_leilao(rt[0] if rt else {})
+        foto = _mgl_url_foto(lote.get("Fotos"))
+
+        # Pagina de detalhe: fetch same-origin (sem navegar) para km/ano/restricoes
+        # (veiculo) ou avaliacao + edital (imovel).
+        texto = ""
+        try:
+            res = pg_lista.evaluate(_MGL_FETCH_HTML_JS, url_lote)
+            if isinstance(res, dict) and res.get("html"):
+                texto = _html_para_texto(res["html"])
+        except Exception as e:
+            print(f"  ⚠️ MGL detalhe {url_lote}: {e}")
+
+        if categoria == "imoveis":
+            marca = "Imóvel"
+            modelo = re.sub(r'\s*\([^)]*\)\s*$', '', lote.get("Lote") or "").strip() or "Imóvel"
+            ano, km = 0, ""
+            descricao = _mgl_descricao(texto) if texto else ""
+            ref_val = _mgl_avaliacao_imovel(texto) if texto else 0
+            ref_str = f"R$ {ref_val:,.0f} (avaliação)" if ref_val else "Sem referência"
+            if not data_leilao and texto:
+                data_leilao = _extrair_data_leilao(texto)
+        else:
+            marca = modelo = ""
+            ano, km = 0, ""
+            if texto:
+                marca, modelo, ano, km = _mgl_parse_detalhe_veiculo(texto)
+            if not marca:
+                # fallback: titulo "CIDADE/UF - MARCA MODELO ANO/ANO - COD"
+                bruto = re.sub(r'^[^-]*-\s*', '', lote.get("Lote") or "")
+                bruto = re.sub(r'\b(?:19|20)\d{2}\s*/\s*(?:19|20)\d{2}.*$', '', bruto).strip(" .-")
+                partes = bruto.split()
+                if partes:
+                    marca  = partes[0].title()
+                    modelo = " ".join(partes[1:]).title() if len(partes) > 1 else marca
+            if not ano:
+                am = re.search(r'\b(?:19|20)\d{2}\s*/\s*((?:19|20)\d{2})\b', lote.get("Lote") or "")
+                if am:
+                    ano = int(am.group(1))
+            if not marca or not modelo:
                 print(f"  [skip] MGL sem marca/modelo: {url_lote}")
                 continue
-
-            marca = mm.group(1).strip().title()
-            modelo = mm.group(2).strip().title()
-
-            ano = 0
-            am = re.search(r'ANO/MODELO:\s*(\d{4})\s*/\s*(\d{4})', texto, re.IGNORECASE)
-            if am:
-                ano = int(am.group(2))
-
-            lance = _extrair_lance(texto)
-            km = _extrair_km(texto)
-            data_leilao = _extrair_data_leilao(texto)
-
-            descricao = ""
-            dm = re.search(
-                r'(?:OBS\.|Ônus)[:\s]*(.{20,1200}?)(?=\n(?:Condições|Documentos|Encontre no mapa|Histórico de Lances)\b)',
-                texto, re.IGNORECASE | re.DOTALL
-            )
-            if dm:
-                descricao = re.sub(r'\s+', ' ', dm.group(1)).strip()[:700]
-            if not descricao:
-                descricao = _extrair_descricao(texto)
-
-            cidade = "CE"
-            cm = re.search(r'\b([A-ZÀ-Ú][A-ZÀ-Ú \'-]{2,})/CE\s*-', texto)
-            if cm:
-                cidade = cm.group(1).strip().title() + "/CE"
-
-            foto = ""
-            fotos = pg_detalhe.locator('img[src*="/imagens-complete/"]').evaluate_all(
-                "els => els.map(e => e.src).filter(Boolean)"
-            )
-            if fotos:
-                foto = fotos[0]
-
-            categoria = detectar_categoria(modelo, marca, "carros")
-            icone = ICONES.get(categoria, "📦")
+            descricao = _mgl_descricao(texto) if texto else ""
             ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-            analise = _analisar_cached(
-                url_lote, marca, modelo, ano, descricao, km,
-                lance, ref_val, categoria
-            )
-            classif = classificar(lance, ref_val, analise.get("estado", ""))
-            print(f"  {icone} [MGL/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
-            lotes.append(_lote_dict(
-                "mgl", categoria, marca, modelo, ano, cidade,
-                lance, ref_val, ref_str, classif, foto, km,
-                descricao, analise, url_lote, data_leilao
-            ))
-        except Exception as e:
-            print(f"  ⚠️ MGL lote: {e}")
 
+        icone = ICONES.get(categoria, "📦")
+        analise = _analisar_cached(url_lote, marca, modelo, ano, descricao, km,
+                                   lance, ref_val, categoria)
+        classif = classificar(lance, ref_val, analise.get("estado", ""))
+        print(f"  {icone} [MGL/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
+        lotes.append(_lote_dict(
+            "mgl", categoria, marca, modelo, ano, cidade,
+            lance, ref_val, ref_str, classif, foto, km,
+            descricao, analise, url_lote, data_leilao
+        ))
+
+    print(f"  ✅ MGL: {len(lotes)} lote(s)")
     return lotes
 
 
