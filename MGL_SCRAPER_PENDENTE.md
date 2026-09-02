@@ -1,8 +1,17 @@
-# MGL Leilões — scraper CONSERTADO (2026-09-02)
+# MGL Leilões — código reescrito, mas BLOQUEADO no runner (2026-09-02)
 
 `_raspar_mgl` estava retornando 0 lotes e estourando `wait_for_selector`
 (`.dg-leiloes-item`, Timeout 30000ms) no GitHub Actions. **Reescrito em
 2026-09-02** para usar a API JSON da busca em vez de raspar o DOM.
+
+> **Status: o código novo funciona (validado contra dados reais via
+> navegador), MAS o Cloudflare bloqueia o site inteiro a partir do IP do
+> GitHub Actions.** 2 runs manuais (17:23Z e 18:22Z) confirmaram: a SPA nem
+> inicializa no runner (`window.JsonParametrosBusca` nunca aparece) e a API
+> devolve 403. Stealth + espera + retry não passam — é bloqueio na borda.
+> **Parado até ter proxy residencial** (Zenrows/ScraperAPI, hoje 402/timeout —
+> mesmo muro do Construbem/Daniel Garcia). MGL só tem imóvel no CE agora
+> (zero veículo), então a prioridade é baixa.
 
 ## Causa raiz
 
@@ -63,27 +72,27 @@ já traz — sem mudança.
 
 ## Cloudflare no runner do GitHub Actions (pendente)
 
-**1º run manual (workflow_dispatch, 2026-09-02 17:23Z):** o `goto` em `/busca/`
-passou, mas o `fetch` para `/apiplugin/GetBusca` levou **HTTP 403** — bloqueio
-do Cloudflare/WAF a partir do IP de datacenter do runner. Log:
+**1º run (17:23Z):** `goto` passou, mas `fetch /apiplugin/GetBusca` → **403**.
+
+**Endurecimento aplicado** (`stealth_sync`, espera por `JsonParametrosBusca`,
+headers de XHR + `credentials:'include'` + retry 3x no fetch).
+
+**2º run (18:22Z), com o endurecimento:**
 
 ```
 📡 MGL | veículos e imóveis no Ceará
+  ⚠️ MGL: SPA nao inicializou (possivel bloqueio Cloudflare no runner)
   ⚠️ MGL busca p1: 403
   ✅ MGL: 0 lote(s)
 ```
 
-(No mesmo run, ScraperAPI dava timeout e Zenrows dava 402 — proxies fora.)
+`window.JsonParametrosBusca` nunca apareceu → a página real da SPA **não
+carrega** no runner (Cloudflare serve a interstitial/bloqueio antes de
+qualquer desafio resolvível pelo headless). Confirmado: **bloqueio duro por
+IP de datacenter**.
 
-**Endurecimento aplicado depois (ainda não testado no runner):**
-
-- `stealth_sync(pg_lista)` antes do `goto` (reduz detecção de headless).
-- Espera por `window.JsonParametrosBusca` (prova de que a SPA real carregou,
-  não a interstitial do Cloudflare) + settle de 3s.
-- `fetch` com `X-Requested-With: XMLHttpRequest`, `Accept: application/json`,
-  `credentials: 'include'` e **retry** (3x, intervalo de 4s) em 403/429.
-
-**Se o próximo run ainda der 403:** é bloqueio duro de IP; a única saída é
-proxy residencial — rotear `/apiplugin/GetBusca` e as páginas de lote pelo
-Zenrows/ScraperAPI quando a key estiver setada e com crédito (padrão de
-`_raspar_soleon`).
+**Único caminho:** proxy residencial — rotear `/apiplugin/GetBusca` e as
+páginas de lote pelo Zenrows/ScraperAPI quando a key estiver setada e com
+crédito (padrão de `_raspar_soleon`). Hoje ambos estão fora (402/timeout no
+mesmo run). O código atual faz bail rápido com mensagem clara quando a SPA
+não inicializa.

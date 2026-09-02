@@ -1785,19 +1785,22 @@ def _raspar_mgl(pg_lista, _pg_detalhe, vistos):
             stealth_sync(pg_lista)  # reduz deteccao de headless (desafio Cloudflare)
         except Exception:
             pass
-        pg_lista.goto(_MGL_BUSCA_URL, wait_until="domcontentloaded", timeout=90000)
+        pg_lista.goto(_MGL_BUSCA_URL, wait_until="domcontentloaded", timeout=60000)
         # A SPA da busca so define window.JsonParametrosBusca depois que o bundle
         # roda — se ele existe, o desafio do Cloudflare passou e a pagina real
-        # carregou (nao a interstitial). networkidle nao serve aqui: a pagina tem
-        # websocket (LancesHub) e polling do challenge-platform, nunca fica idle.
+        # carregou (nao a interstitial). Se nao aparecer, o runner esta sendo
+        # bloqueado na borda pelo Cloudflare — bail rapido, sem insistir.
+        # (Confirmado em 2026-09-02: IP do GitHub Actions e barrado; so com
+        #  proxy residencial. Ver MGL_SCRAPER_PENDENTE.md.)
         try:
             pg_lista.wait_for_function(
                 "() => typeof window.JsonParametrosBusca !== 'undefined'",
-                timeout=30000,
+                timeout=12000,
             )
         except Exception:
-            print("  ⚠️ MGL: SPA nao inicializou (possivel bloqueio Cloudflare no runner)")
-        pg_lista.wait_for_timeout(3000)
+            print("  ⚠️ MGL: SPA nao inicializou — bloqueio Cloudflare no runner (precisa de proxy)")
+            return lotes
+        pg_lista.wait_for_timeout(2000)
     except Exception as e:
         print(f"  ⚠️ MGL abertura: {e}")
         return lotes

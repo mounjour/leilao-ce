@@ -6,12 +6,17 @@ CONTEXTO DO PROJETO:
 
 STATUS (atualizado 2026-09-02):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões e Celso Cunha implementados. MGL CONSERTADO em 2026-09-02:
-  reescrito para usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23),
-  agora traz veículos E imóveis do CE (a MGL só tinha imóveis retomados Caixa
-  no estado). Ver MGL_SCRAPER_PENDENTE.md. Construbem/Daniel Garcia dependem
-  de crédito Zenrows. Sodré Santoro investigado em 2026-08-31 e descartado:
-  pátios só em SP/PR, sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md).
+  MJ Leilões e Celso Cunha implementados. MGL reescrito em 2026-09-02 para
+  usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23, veículos +
+  imóveis do CE) — código validado com dados reais, MAS 2 runs manuais
+  confirmaram que o Cloudflare bloqueia o site inteiro a partir do IP do
+  GitHub Actions (SPA nao inicializa + 403). Parado até ter proxy residencial
+  (ver MGL_SCRAPER_PENDENTE.md). Construbem/Daniel Garcia = mesmo muro;
+  Zenrows sem crédito (402) e ScraperAPI com timeout nos runs de 2026-09-02.
+  Sodré Santoro investigado em 2026-08-31 e descartado: pátios só em SP/PR,
+  sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md).
+- IA (Anthropic): créditos esgotados nos runs de 2026-09-02 — circuit breaker
+  desliga a análise e usa fallback "Não informado" em todos os lotes.
 - Favoritos: pronto, sincronizando com Supabase (upsert por user_id,lote_url).
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
@@ -20,9 +25,11 @@ STATUS (atualizado 2026-09-02):
 BACKLOG:
 - Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
   descartado — ver STATUS).
-- MGL: validar no próximo run agendado do GitHub Actions se a API
-  /apiplugin/GetBusca passa pelo Cloudflare a partir do IP do runner. Se
-  voltar a dar 0, rotear pelo Zenrows (ver MGL_SCRAPER_PENDENTE.md).
+- MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
+  (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
+  Depende de recarregar crédito Zenrows/ScraperAPI.
+- Recarregar crédito Zenrows/ScraperAPI (destrava MGL + Construbem +
+  Daniel Garcia de uma vez) e crédito Anthropic (destrava a análise de IA).
 - stripe-webhook: o INSERT/UPSERT em profiles já foi feito (commit fe877d2,
   updateProfile faz upsert por id quando nenhuma linha bate). Resta endurecer
   o fallback: o upsert de emergência não grava phone/name, então alertas.py
