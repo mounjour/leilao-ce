@@ -1341,9 +1341,62 @@ _SOLEON_CE_RE = re.compile(
     r'(?:' + '|'.join(re.escape(c) for c in _SOLEON_CE) + r')|[/-]ce\b'
 )
 
+# Titulos da Soleon que sao rotulo generico de categoria ou lote-pacote, sem
+# bem identificavel — a Construbem publica muitos junto com os veiculos
+# ("Semoventes ?", "Cotas ?", "Diversos A) 01 (Um) Frigobar...", "Piramide
+# Constituida De Carteiras Escolares...", "Salas Comerciais", "Sucata De Pecas").
+_SOLEON_LIXO_EXATO = {
+    "", "?", "diversos", "varios", "vários", "semovente", "semoventes",
+    "cota", "cotas", "sucata", "sucatas", "terreno", "terrenos", "lote",
+    "lotes", "salas comerciais", "bens diversos", "materiais", "acervo",
+    "estoque", "pecas diversas", "peças diversas",
+}
+_SOLEON_LIXO_PREFIXOS = (
+    "diversos", "piramide", "pirâmide", "semovente", "cota ", "cotas ",
+    "bens diversos", "sucata de pec", "sucata de peç", "sucata ", "lote de",
+    "salas comerciais", "materiais ", "material de", "acervo ", "estoque de",
+)
+_UFS_NAO_CE = (r"AC|AL|AP|AM|BA|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|"
+               r"RO|RR|SC|SP|SE|TO")
+# Campo "Cidade": aceita "Natal/RN", "Natal - RN", "Natal RN".
+_UF_NAO_CE_CIDADE_RE = re.compile(rf"[/\-\s](?:{_UFS_NAO_CE})\b", re.I)
+# Titulo livre: so conta "Cidade/UF" com barra — um " SE"/" ES" solto no
+# titulo costuma ser sufixo de versao ("Ford Ka SE"), nao a UF Sergipe.
+_UF_NAO_CE_TITULO_RE = re.compile(rf"/\s*(?:{_UFS_NAO_CE})\b", re.I)
+
+
+def _soleon_fora_ce(texto, no_titulo=False):
+    """True se o texto tem UF explicita que nao e CE (ex.: 'Natal/RN')."""
+    c = (texto or "").strip()
+    if re.search(r"[/\-\s]ce\b", c, re.I) or c.upper().rstrip("/").endswith("CE"):
+        return False
+    rx = _UF_NAO_CE_TITULO_RE if no_titulo else _UF_NAO_CE_CIDADE_RE
+    return bool(rx.search(c))
+
+
+def _soleon_lote_util(titulo, categoria, marca, modelo):
+    """False para rotulo generico / lote-pacote / veiculo sem marca-modelo."""
+    t = re.sub(r"\s+", " ", (titulo or "")).strip().lower()
+    t = t.rstrip(" ?").strip()
+    if len(t) < 4 or t in _SOLEON_LIXO_EXATO or "semovente" in t:
+        return False
+    if t.startswith(_SOLEON_LIXO_PREFIXOS) and not re.search(
+        r"\b(?:19[89]\d|20[0-3]\d)\b", titulo or ""
+    ):
+        return False
+    if categoria in ("carros", "motos", "caminhoes") and (
+        marca in ("", "?", None) or modelo in ("", "?", None)
+    ):
+        return False
+    return True
+
+
 def _extrair_veiculo_de_titulo(titulo):
     """Extrai marca, modelo, ano de título no formato Soleon (ex: 'PEUGEOT/207HB XR S - ANO: 2009/2010')."""
     t = re.sub(r'\s+', ' ', titulo.strip()).upper()
+    # Descarta contadores no inicio ("01 ", "1 (UMA) ", "205 (DUZENTOS...) ") —
+    # exige espaco depois, pra nao comer numero de modelo ("207HB", "125 FAN").
+    t = re.sub(r'^\s*\d{1,3}\s*(?:\([^)]*\)\s*)?[-)ºª.:]*\s+', '', t).strip()
     ano = 0
     # "ANO: 2009/2010" ou "ANO/MODELO: 2009" — captura ambos os formatos
     ano_m = re.search(r'ANO(?:/MODELO)?[:\s]+(\d{4})(?:/\d+)?', t)
@@ -1588,6 +1641,13 @@ def _raspar_soleon(base, fonte, vistos):
                 else:
                     categoria = "carros"
                     marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+
+                if _soleon_fora_ce(cidade) or _soleon_fora_ce(titulo, no_titulo=True):
+                    print(f"    [skip] {nome} fora do CE: {cidade} | {titulo[:50]}")
+                    continue
+                if not _soleon_lote_util(titulo, categoria, marca, modelo):
+                    print(f"    [skip] {nome} lixo/incompleto: {titulo[:60]}")
+                    continue
 
                 icone    = ICONES.get(categoria, "📦")
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
@@ -1940,7 +2000,7 @@ _MONTENEGRO_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                    "Chrome/124.0.0.0 Safari/537.36")
 
 
-def _raspar_montenegro(pg_lista, vistos, browser):
+def _raspar_montenegro(_pg_lista, vistos, browser):
     """Descobre leilões abertos com veículos e coleta seus lotes.
 
     O Cloudflare da Montenegro bane a SESSÃO (não o IP) depois de poucas
@@ -1949,28 +2009,47 @@ def _raspar_montenegro(pg_lista, vistos, browser):
     detalhe dos lotes já é suficiente pra derrubar tudo em 403 na metade do
     caminho, mesmo com pausas entre requisições. Um contexto novo (cookies
     limpos) por navegação, porém, funciona de forma consistente. Por isso
-    cada leilão e cada lote abrem seu próprio contexto descartável — pg_lista
-    só é usada pra homepage, que é sempre a primeira requisição da execução.
+    cada navegação (homepage, leilão, lote) abre seu próprio contexto
+    descartável — a página compartilhada não é usada aqui.
     """
     lotes = []
-    try:
-        print("📡 Montenegro | leilões com veículos")
-        pg_lista.goto(_MONTENEGRO_BASE + "/", wait_until="domcontentloaded", timeout=60000)
-        pg_lista.wait_for_selector(".q-card.cursor-pointer", timeout=30000)
-        pg_lista.wait_for_timeout(1200)
+    print("📡 Montenegro | leilões com veículos")
 
-        cards = pg_lista.locator(".q-card.cursor-pointer").evaluate_all(
-            "els => els.map(e => (e.innerText || '').trim())"
-        )
-        leiloes = []
-        for card in cards:
-            if "Nº do Leilão:" not in card or not re.search(r've[ií]culos?', card, re.I):
-                continue
-            lm = re.search(r'Nº do Leilão:\s*(\d+)', card, re.I)
-            if lm and lm.group(1) not in leiloes:
-                leiloes.append(lm.group(1))
-    except Exception as e:
-        print(f"  ⚠️ Montenegro listagem: {e}")
+    # A homepage é uma SPA Quasar atrás do Cloudflare da Montenegro, que às
+    # vezes atrasa a primeira renderização além dos 30s. Contexto novo +
+    # retry, no mesmo padrão do resto da função. O seletor certo é
+    # ".q-card.cursor-pointer" (confirmado em 2026-09-02); ".q-card" entra só
+    # como rede de segurança — o filtro por "Nº do Leilão:" descarta o resto.
+    cards = []
+    for tentativa in range(3):
+        ctx_home = browser.new_context(user_agent=_MONTENEGRO_UA)
+        try:
+            pg_home = ctx_home.new_page()
+            pg_home.goto(_MONTENEGRO_BASE + "/", wait_until="domcontentloaded", timeout=60000)
+            try:
+                pg_home.wait_for_selector(".q-card.cursor-pointer", timeout=45000)
+            except Exception:
+                pg_home.wait_for_selector(".q-card", timeout=15000)
+            pg_home.wait_for_timeout(1200)
+            cards = pg_home.locator(".q-card.cursor-pointer, .q-card").evaluate_all(
+                "els => [...new Set(els.map(e => (e.innerText || '').trim()))]"
+            )
+        except Exception as e:
+            print(f"  ⚠️ Montenegro homepage (tentativa {tentativa + 1}): {e}")
+        finally:
+            ctx_home.close()
+        if cards:
+            break
+
+    leiloes = []
+    for card in cards:
+        if "Nº do Leilão:" not in card or not re.search(r've[ií]culos?', card, re.I):
+            continue
+        lm = re.search(r'Nº do Leilão:\s*(\d+)', card, re.I)
+        if lm and lm.group(1) not in leiloes:
+            leiloes.append(lm.group(1))
+    if not leiloes:
+        print("  ⚠️ Montenegro: nenhum leilão de veículos encontrado na homepage")
         return lotes
 
     print(f"  {len(leiloes)} leilão(ões) com veículos")
