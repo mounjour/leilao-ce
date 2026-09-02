@@ -61,9 +61,29 @@ A MGL tinha **0 veículos no CE** — os 23 lotes do estado eram 21 imóveis
 (decisão do dono do projeto). Quando a MGL tiver veículo no CE, o mesmo código
 já traz — sem mudança.
 
-## Se voltar a dar 0 no GitHub Actions
+## Cloudflare no runner do GitHub Actions (pendente)
 
-Provável bloqueio de Cloudflare no runner mesmo com Chromium headless. Nesse
-caso, rotear a chamada de `/apiplugin/GetBusca` e das páginas de lote pelo
-Zenrows quando `ZENROWS_API_KEY` estiver setada (padrão de `_raspar_soleon`).
-Depende de crédito Zenrows recarregado.
+**1º run manual (workflow_dispatch, 2026-09-02 17:23Z):** o `goto` em `/busca/`
+passou, mas o `fetch` para `/apiplugin/GetBusca` levou **HTTP 403** — bloqueio
+do Cloudflare/WAF a partir do IP de datacenter do runner. Log:
+
+```
+📡 MGL | veículos e imóveis no Ceará
+  ⚠️ MGL busca p1: 403
+  ✅ MGL: 0 lote(s)
+```
+
+(No mesmo run, ScraperAPI dava timeout e Zenrows dava 402 — proxies fora.)
+
+**Endurecimento aplicado depois (ainda não testado no runner):**
+
+- `stealth_sync(pg_lista)` antes do `goto` (reduz detecção de headless).
+- Espera por `window.JsonParametrosBusca` (prova de que a SPA real carregou,
+  não a interstitial do Cloudflare) + settle de 3s.
+- `fetch` com `X-Requested-With: XMLHttpRequest`, `Accept: application/json`,
+  `credentials: 'include'` e **retry** (3x, intervalo de 4s) em 403/429.
+
+**Se o próximo run ainda der 403:** é bloqueio duro de IP; a única saída é
+proxy residencial — rotear `/apiplugin/GetBusca` e as páginas de lote pelo
+Zenrows/ScraperAPI quando a key estiver setada e com crédito (padrão de
+`_raspar_soleon`).

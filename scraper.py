@@ -1626,13 +1626,24 @@ _MGL_BUSCA_PARAMS = {
     "ValorMinSelecionado": 0, "sInL": "",
 }
 
+# Cabecalhos que a SPA usa nas chamadas XHR — sem eles o WAF/Cloudflare tende a
+# devolver 403 para POST "cru" em /apiplugin/. `credentials: 'include'` garante
+# que o cookie cf_clearance vai junto. Em 403 (desafio ainda nao resolvido no
+# runner), tenta de novo algumas vezes com intervalo.
 _MGL_FETCH_BUSCA_JS = """async (body) => {
+    const call = () => fetch(
+        `/apiplugin/GetBusca/${body.Pagina}/${body.PaginaIndex}/0?`,
+        { method: 'POST', credentials: 'include',
+          headers: { 'Content-Type': 'application/json',
+                     'X-Requested-With': 'XMLHttpRequest',
+                     'Accept': 'application/json, text/javascript, */*; q=0.01' },
+          body: JSON.stringify(body) });
     try {
-        const r = await fetch(
-            `/apiplugin/GetBusca/${body.Pagina}/${body.PaginaIndex}/0?`,
-            { method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(body) });
+        let r = await call();
+        for (let i = 0; i < 3 && (r.status === 403 || r.status === 429); i++) {
+            await new Promise(s => setTimeout(s, 4000));
+            r = await call();
+        }
         if (!r.ok) return { __erro: r.status };
         return await r.json();
     } catch (e) { return { __erro: String(e) }; }
@@ -1640,7 +1651,9 @@ _MGL_FETCH_BUSCA_JS = """async (body) => {
 
 _MGL_FETCH_HTML_JS = """async (url) => {
     try {
-        const r = await fetch(url, { headers: { 'Accept': 'text/html' } });
+        const r = await fetch(url, { credentials: 'include',
+            headers: { 'Accept': 'text/html,application/xhtml+xml',
+                       'X-Requested-With': 'XMLHttpRequest' } });
         if (!r.ok) return { __erro: r.status };
         return { html: await r.text() };
     } catch (e) { return { __erro: String(e) }; }
@@ -1768,8 +1781,23 @@ def _raspar_mgl(pg_lista, _pg_detalhe, vistos):
     lotes = []
     try:
         print("📡 MGL | veículos e imóveis no Ceará")
-        pg_lista.goto(_MGL_BUSCA_URL, wait_until="domcontentloaded", timeout=60000)
-        pg_lista.wait_for_timeout(2500)  # deixa o Cloudflare/JS challenge resolver
+        try:
+            stealth_sync(pg_lista)  # reduz deteccao de headless (desafio Cloudflare)
+        except Exception:
+            pass
+        pg_lista.goto(_MGL_BUSCA_URL, wait_until="domcontentloaded", timeout=90000)
+        # A SPA da busca so define window.JsonParametrosBusca depois que o bundle
+        # roda — se ele existe, o desafio do Cloudflare passou e a pagina real
+        # carregou (nao a interstitial). networkidle nao serve aqui: a pagina tem
+        # websocket (LancesHub) e polling do challenge-platform, nunca fica idle.
+        try:
+            pg_lista.wait_for_function(
+                "() => typeof window.JsonParametrosBusca !== 'undefined'",
+                timeout=30000,
+            )
+        except Exception:
+            print("  ⚠️ MGL: SPA nao inicializou (possivel bloqueio Cloudflare no runner)")
+        pg_lista.wait_for_timeout(3000)
     except Exception as e:
         print(f"  ⚠️ MGL abertura: {e}")
         return lotes
