@@ -49,9 +49,10 @@ STATUS (atualizado 2026-09-03):
 BACKLOG:
 - Achar outro leiloeiro que de fato opere no CE: FEITO em 2026-09-03 —
   HastaPública (grupo TJ-CE) implementada. Ver STATUS e
-  HASTAPUBLICA_ADICIONADO.md. Próximos alvos possíveis se precisar de mais
-  volume: Nasar Leilões (precisa de proxy, Cloudflare) e Lopes Leilões
-  (não validado).
+  HASTAPUBLICA_ADICIONADO.md. Próximo alvo possível se precisar de mais
+  volume: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
+  Cloudflare). Lopes Leilões verificado em 2026-09-03 e descartado: site sem
+  Cloudflare mas dormente (zero lotes, zero histórico).
 - MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
   (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
   Depende de recarregar crédito Zenrows/ScraperAPI.

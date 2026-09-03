@@ -36,7 +36,11 @@ scraper implementado em `scraper.py` (`_raspar_hastapublica`).
   bloqueio por IP do runner que travou MGL/Construbem/Daniel Garcia. Só viável
   com proxy. Fica no radar se algum dia houver crédito de proxy sobrando.
 - **Lopes Leilões / João Lopes Cavalcante** (`lopesleiloes.net.br`, JUCEC
-  10/2004) — não chegou a ser validado; terceira opção.
+  10/2004) — **verificado em 2026-09-03: dormente.** Escritório em Fortaleza/CE,
+  site nginx server-rendered e **sem Cloudflare** (seria fácil de raspar), MAS
+  "NENHUM LEILÃO NO MOMENTO" em Leilões Atuais, Encerrados **e** Venda Direta —
+  zero lotes, zero histórico. Descartado por ora; se o site voltar a publicar
+  leilão é trivial adicionar (mesma faixa do MJ/Celso Cunha).
 - DETRAN-CE / AMC Fortaleza fazem leilão de veículo mas terceirizam para
   leiloeiros — os últimos usaram o pátio da Celso Cunha, que já raspamos.
 
