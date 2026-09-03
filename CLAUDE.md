@@ -34,11 +34,9 @@ STATUS (atualizado 2026-09-03):
   supabase/migrations/20260903000000_billing_columns.sql (idempotente) com
   subscription_status, stripe_customer_id, stripe_subscription_id,
   subscription_current_period_end, updated_at, billing_exempt, índices e a
-  tabela billing_webhook_events. PENDENTE: rodar no SQL Editor do Supabase
-  (não há deploy automático de migrations). O projeto ja esta linkado
-  (supabase link), entao "supabase db push" tambem serve — mas roda TODAS
-  as migrations locais, e a 20260826000000 foi aplicada a mao (nao esta no
-  historico do CLI); as duas sao idempotentes, o risco e baixo.
+  tabela billing_webhook_events. APLICADA em 2026-09-03 pelo dono via SQL
+  Editor. (Nao esta no historico do CLI; se algum dia rodar "supabase db
+  push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
 - Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
@@ -48,9 +46,9 @@ BACKLOG:
   Depende de recarregar crédito Zenrows/ScraperAPI.
 - Recarregar crédito Zenrows/ScraperAPI (destrava MGL + Construbem +
   Daniel Garcia de uma vez) e crédito Anthropic (destrava a análise de IA).
-- stripe-webhook: endurecimento do fallback (phone/name) e migration das
-  colunas de cobrança FEITOS em 2026-09-03 (commit 3e1694a). Resta o deploy
-  da Edge Function e rodar a migration no painel do Supabase (ver STATUS).
+- stripe-webhook: endurecimento do fallback (phone/name), migration das
+  colunas de cobrança, deploy da Edge Function e aplicação da migration
+  CONCLUÍDOS em 2026-09-03 (ver STATUS). Nada pendente aqui.
 - dashboard.py: CSS de sidebar consolidado (painel em "SIDEBAR (bloco
   unico)"; moldura header/toolbar/colapso em "HEADER/TOOLBAR E BOTÃO DE
   COLAPSO DA SIDEBAR (bloco unico)"). Sem duplicatas pendentes.
