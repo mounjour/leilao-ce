@@ -39,6 +39,37 @@ const isoFromUnix = (value: unknown): string | null => {
     : null;
 };
 
+type AuthContact = {
+  email?: string | null;
+  phone?: string;
+  name?: string;
+  full_name?: string;
+};
+
+// Le phone/name/full_name/email de auth.users.raw_user_meta_data via admin API.
+// Usado so no fallback de emergencia, quando o trigger handle_new_user nao
+// gravou a linha em public.profiles e alertas.py ficaria sem telefone.
+async function authUserContact(userId: string): Promise<AuthContact> {
+  try {
+    const { data, error } = await supabase.auth.admin.getUserById(userId);
+    if (error || !data?.user) return {};
+    const meta = (data.user.user_metadata ?? {}) as Record<string, unknown>;
+    const pick = (key: string): string | undefined => {
+      const value = meta[key];
+      return typeof value === "string" && value.trim() ? value.trim() : undefined;
+    };
+    return {
+      email: data.user.email ?? null,
+      phone: pick("phone"),
+      name: pick("name"),
+      full_name: pick("full_name"),
+    };
+  } catch (error) {
+    console.error("Falha ao ler auth.users no fallback do webhook", userId, error);
+    return {};
+  }
+}
+
 async function updateProfile(
   values: ProfileUpdate,
   identity: { userId?: string | null; customerId?: string | null; email?: string | null },
@@ -66,10 +97,22 @@ async function updateProfile(
   // handle_new_user nao ter rodado no signup. Sem o id nao da pra inserir
   // com seguranca (customerId/email nao sao a PK).
   if (identity.userId) {
-    const { error } = await supabase.from("profiles").upsert(
-      { id: identity.userId, email: identity.email ?? null, ...values },
-      { onConflict: "id" },
-    );
+    // O trigger perdeu o signup: puxa contato de auth.users para a linha
+    // nao nascer sem phone/name (senao alertas.py nunca manda WhatsApp).
+    const contact = await authUserContact(identity.userId);
+    const row: Record<string, unknown> = {
+      id: identity.userId,
+      email: identity.email ?? contact.email ?? null,
+      ...values,
+    };
+    // So grava contato quando temos valor — nunca sobrescreve com null.
+    if (contact.phone) row.phone = contact.phone;
+    if (contact.name) row.name = contact.name;
+    if (contact.full_name) row.full_name = contact.full_name;
+
+    const { error } = await supabase
+      .from("profiles")
+      .upsert(row, { onConflict: "id" });
     if (error) throw error;
     return;
   }
