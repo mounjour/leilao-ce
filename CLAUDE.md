@@ -6,7 +6,15 @@ CONTEXTO DO PROJETO:
 
 STATUS (atualizado 2026-09-03):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões e Celso Cunha implementados. MGL reescrito em 2026-09-02 para
+  MJ Leilões, Celso Cunha e HastaPública implementados. HastaPública
+  adicionada em 2026-09-03 (_raspar_hastapublica): plataforma nacional que
+  detém o contrato dos leilões judiciais do TJ-CE via o leiloeiro Silvio
+  Cesar Maraschi (JUCEC 020); os lotes do CE ficam no "grupo 11"
+  (/grupos/11). Site renderizado no servidor, SEM Cloudflare — requests
+  direto, mesma faixa do MJ/Celso Cunha. Testado com dados reais (4 leilões,
+  imóveis + 1 máquina). Nasar Leilões (Fortaleza, muito imóvel no CE) foi
+  visto na mesma investigação mas está atrás de Cloudflare — fica no radar
+  se houver proxy. Ver HASTAPUBLICA_ADICIONADO.md. MGL reescrito em 2026-09-02 para
   usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23, veículos +
   imóveis do CE) — código validado com dados reais, MAS 2 runs manuais
   confirmaram que o Cloudflare bloqueia o site inteiro a partir do IP do
@@ -39,8 +47,11 @@ STATUS (atualizado 2026-09-03):
   push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
-- Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
-  descartado — ver STATUS).
+- Achar outro leiloeiro que de fato opere no CE: FEITO em 2026-09-03 —
+  HastaPública (grupo TJ-CE) implementada. Ver STATUS e
+  HASTAPUBLICA_ADICIONADO.md. Próximos alvos possíveis se precisar de mais
+  volume: Nasar Leilões (precisa de proxy, Cloudflare) e Lopes Leilões
+  (não validado).
 - MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
   (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
   Depende de recarregar crédito Zenrows/ScraperAPI.

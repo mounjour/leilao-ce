@@ -1329,6 +1329,219 @@ def _raspar_celso_cunha(vistos):
 
     return lotes
 
+# ─── SCRAPER HASTAPÚBLICA (grupo TJ-CE — leiloeiro Silvio Cesar Maraschi) ─────
+# A HastaPública e uma plataforma nacional (leiloeiros de SP/PR), mas detem o
+# contrato dos leiloes judiciais do TJ-CE via o leiloeiro Silvio Cesar Maraschi
+# (JUCEC 020). Esses leiloes — e so eles — ficam no "grupo 11" do site. Hoje e
+# quase tudo imovel (varas civeis de Fortaleza, Acopiara etc.), mas a plataforma
+# tambem comporta veiculo/maquina, entao o scraper trata as tres categorias.
+#
+# Site 100% renderizado no servidor (jQuery, plataforma Prism), SEM Cloudflare
+# nem SPA — mesma faixa de dificuldade do MJ Leiloes / Celso Cunha: requests
+# direto, sem Playwright nem proxy. O portal regional hastaceara.com.br esta
+# vazio; os lotes do CE aparecem so no site nacional, dentro do grupo 11.
+_HP_BASE    = "https://www.hastapublica.com.br"
+_HP_GRUPO   = "/grupos/11"
+_HP_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                             "AppleWebKit/537.36 (KHTML, like Gecko) "
+                             "Chrome/124.0.0.0 Safari/537.36"}
+# Evidencia de Ceara no texto do lote. O rodape da HastaPublica e generico (sem
+# endereco de escritorio), entao da pra procurar na pagina inteira sem o falso
+# positivo que obrigou o filtro ancorado do Celso Cunha.
+_HP_CE_RE = re.compile(
+    r'cear[aá]|[/\-\s]CE\b|fortaleza|caucaia|maracana[uú]|sobral|crato|'
+    r'juazeiro|eus[eé]bio|horizonte|pacajus|aquiraz|russas|iguatu|quixad[aá]|'
+    r'acopiara|catarina|aracati|itapipoca|caninde|canind[eé]|tiangu[aá]|'
+    r'limoeiro|pacatuba|itaitinga',
+    re.I,
+)
+
+
+def _hp_get(url, timeout=20):
+    r = requests.get(url, headers=_HP_HEADERS, timeout=timeout)
+    r.raise_for_status()
+    r.encoding = "utf-8"
+    return r.text
+
+
+def _hp_texto(html_str):
+    t = re.sub(r'(?is)<(script|style|noscript)[^>]*>.*?</\1>', ' ', html_str)
+    t = re.sub(r'<[^>]+>', ' ', t)
+    return re.sub(r'\s+', ' ', html.unescape(t)).strip()
+
+
+def _hp_data_leilao(texto):
+    # Pagina do lote: "Encerra em 15/09/2026 16:00:00" (1a praca).
+    m = re.search(r'Encerra em\s*(\d{2}/\d{2}/\d{4})\s+(\d{2}:\d{2})', texto, re.I)
+    if m:
+        try:
+            return datetime.strptime(f"{m.group(1)} {m.group(2)}",
+                                     "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
+        except ValueError:
+            pass
+    # Fallback: "Valor - 1a Praca (15/09/2026)" — sem hora.
+    m = re.search(r'1[ªa]\s*Pra[çc]a\s*\((\d{2}/\d{2}/\d{4})\)', texto, re.I)
+    if m:
+        try:
+            return datetime.strptime(m.group(1), "%d/%m/%Y").strftime("%Y-%m-%dT%H:%M")
+        except ValueError:
+            pass
+    return _extrair_data_leilao(texto)
+
+
+def _hp_cidade(titulo, texto):
+    blob = f"{titulo} ||| {texto[:1500]}"
+    for c in CIDADES_CE:
+        alvo = c.replace('-', ' ')
+        if re.search(rf'\b{re.escape(alvo)}\b', blob, re.I):
+            return alvo.title() + '/CE'
+    m = re.search(
+        r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+){0,2})\s*/\s*CE\b', titulo)
+    if m:
+        return m.group(1).strip() + '/CE'
+    return "CE"
+
+
+def _hp_lance(texto):
+    for rx in (r'Lance Inicial[^R]{0,20}R\$\s*([\d.]+,\d{2})',
+               r'Avalia[çc][ãa]o do Bem[^R]{0,20}R\$\s*([\d.]+,\d{2})',
+               r'1[ªa]\s*Pra[çc]a\s*\([^)]*\)\s*R\$\s*([\d.]+,\d{2})'):
+        m = re.search(rx, texto, re.I)
+        if m:
+            v = _parse_brl(m.group(1))
+            if v > 0:
+                return v
+    return _extrair_lance(texto)
+
+
+def _hp_categoria(top, titulo, cidade):
+    """(categoria, marca, modelo, ano) a partir do breadcrumb + titulo.
+    Imovel segue a convencao da Soleon: marca=titulo, modelo=cidade, ano=0."""
+    tl = titulo.lower()
+    t  = (top or "").lower()
+    if t.startswith(("imó", "imo")) or any(p in tl for p in PALAVRAS_IMOVEL):
+        # marca = titulo sem o sufixo " - Cidade/CE" (a cidade ja vai no modelo)
+        nome = re.sub(r'\s*[-–]\s*[A-Za-zÀ-ú.\s]+/CE\s*$', '', titulo).strip()
+        return "imoveis", (nome or titulo).title()[:90], cidade, 0
+    if (any(p in tl for p in PALAVRAS_MAQUINA) or "máquina" in tl or "maquina" in tl
+            or t.startswith(("máq", "maq", "equip", "div"))):
+        marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+        return "equipamentos", marca, modelo, ano
+    if (any(p in tl for p in PALAVRAS_CAMINHAO)
+            or "caminh" in tl or "ônibus" in tl or "onibus" in tl):
+        marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+        return "caminhoes", marca, modelo, ano
+    if any(p in tl for p in PALAVRAS_MOTO) or "motocicleta" in tl:
+        marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+        return "motos", marca, modelo, ano
+    marca, modelo, ano = _extrair_veiculo_de_titulo(titulo)
+    return detectar_categoria(modelo, marca, "carros"), marca, modelo, ano
+
+
+def _raspar_hastapublica(vistos):
+    lotes = []
+    try:
+        html_grupo = _hp_get(_HP_BASE + _HP_GRUPO)
+    except Exception as e:
+        print(f"⚠️ HastaPública: {e}")
+        return lotes
+
+    auction_ids = list(dict.fromkeys(re.findall(r'/leilao/(\d+)/', html_grupo)))
+    if not auction_ids:
+        print("⚠️ HastaPública: nenhum leilão no grupo TJ-CE")
+        return lotes
+
+    print(f"📡 HastaPública | {len(auction_ids)} leilão(ões) no grupo TJ-CE")
+
+    for auction_id in auction_ids[:30]:
+        url_auction = f"{_HP_BASE}/leilao/{auction_id}/x"
+        try:
+            html_auction = _hp_get(url_auction)
+        except Exception as e:
+            print(f"  ⚠️ HastaPública leilão {auction_id}: {e}")
+            continue
+
+        if not _HP_CE_RE.search(_hp_texto(html_auction)):
+            print(f"  [skip] HastaPública leilão {auction_id} sem evidência de CE")
+            continue
+
+        lot_ids = list(dict.fromkeys(re.findall(r'/lote/(\d+)/', html_auction)))
+        if not lot_ids:
+            print(f"  ⚠️ HastaPública: nenhum lote no leilão {auction_id}")
+            continue
+        print(f"  leilão {auction_id}: {len(lot_ids)} lote(s)")
+
+        for lot_id in lot_ids[:80]:
+            url_lote = f"{_HP_BASE}/lote/{lot_id}/x"
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+            try:
+                html_lote = _hp_get(url_lote, timeout=15)
+                texto = _hp_texto(html_lote)
+
+                # O titulo do lote e um <h1-4> que comeca com "N.N - ..." (numero
+                # do lote). Ancorar nesse prefixo evita pegar o "<h4>Faça seu
+                # login</h4>" do modal, que vem antes no DOM.
+                h_m = re.search(
+                    r'<h[1-4][^>]*>\s*\d+\.\d+\s*[-–]\s*([^<]{4,200}?)\s*</h[1-4]>',
+                    html_lote, re.I)
+                if not h_m:
+                    h_m = re.search(
+                        r'pageLote.*?<h[1-4][^>]*>\s*(?:\d+\.\d+\s*[-–]\s*)?'
+                        r'([^<]{6,200}?)\s*</h[1-4]>',
+                        html_lote, re.I | re.S)
+                titulo = html.unescape(h_m.group(1)).strip() if h_m else ""
+                if len(titulo) < 6:
+                    print(f"  [skip] HastaPública lote {lot_id} sem título")
+                    continue
+                if _soleon_fora_ce(titulo, no_titulo=True):
+                    print(f"  [skip] HastaPública lote fora do CE: {titulo[:60]}")
+                    continue
+
+                bc_m = re.search(
+                    r'Pra[çc]a\s+([A-Za-zÀ-ú]+)\s*>\s*([A-Za-zÀ-ú /]+?)\s+Leiloeiro',
+                    texto, re.I)
+                top = bc_m.group(1).strip() if bc_m else ""
+
+                cidade = _hp_cidade(titulo, texto)
+                categoria, marca, modelo, ano = _hp_categoria(top, titulo, cidade)
+
+                lance       = _hp_lance(texto)
+                km          = _extrair_km(texto)
+                data_leilao = _hp_data_leilao(texto)
+
+                desc_m = re.search(
+                    r'Descri[çc][ãa]o do Lote:\s*(.+?)\s+(?:[ÔÓO]nus:|Local Depositado:|'
+                    r'Localiza[çc][ãa]o\b|LISTA DE LOTES|Status do Lote)',
+                    texto, re.I)
+                descricao = (desc_m.group(1).strip()[:400] if desc_m
+                             else _extrair_descricao(texto))
+
+                fotos = re.findall(
+                    r'https://s3-sa-east-1\.amazonaws\.com/cdnhp/content/'
+                    r'[0-9a-f]{16,}\.(?:jpg|jpeg|png|webp)',
+                    html_lote, re.I)
+                foto = next((f for f in fotos if not any(
+                    x in f.lower() for x in ('logo', 'banner', 'icon'))), "")
+
+                icone = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise = _analisar_cached(url_lote, marca, modelo, ano,
+                                           descricao, km, lance, ref_val, categoria)
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [HastaPública/{categoria}] {marca} {modelo} "
+                      f"{ano} — R${lance:,.0f} | {classif}")
+                lotes.append(_lote_dict("hastapublica", categoria, marca, modelo,
+                                        ano, cidade, lance, ref_val, ref_str,
+                                        classif, foto, km, descricao, analise,
+                                        url_lote, data_leilao))
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"  ⚠️ HastaPública lote: {e}")
+
+    return lotes
+
 # ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
@@ -2181,7 +2394,7 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha + HastaPublica\n")
     _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
@@ -2208,6 +2421,7 @@ def raspar_leiloes():
     # Sites simples — requests direto, sem Playwright nem ScraperAPI
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
+    lotes += _raspar_hastapublica(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
