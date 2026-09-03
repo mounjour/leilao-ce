@@ -4,7 +4,7 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-02):
+STATUS (atualizado 2026-09-03):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
   MJ Leilões e Celso Cunha implementados. MGL reescrito em 2026-09-02 para
   usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23, veículos +
@@ -21,6 +21,21 @@ STATUS (atualizado 2026-09-02):
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
   tem assinatura ativa. Portal de cobrança e webhook funcionando.
+- stripe-webhook (commit 3e1694a, 2026-09-03): fallback de emergência do
+  updateProfile agora puxa phone/name/full_name de auth.users
+  (raw_user_meta_data via admin API) quando cria a linha de profiles — antes
+  nascia sem telefone e alertas.py não mandava WhatsApp se o trigger
+  handle_new_user tivesse falhado no signup. Type-check com deno check =
+  OK (exit 0, 2026-09-03). deno 2.9.6 instalado via winget; supabase CLI
+  2.116.0 instalado via scoop (bucket main). PENDENTE (precisa das
+  credenciais do dono): supabase login / supabase link --project-ref <ref> /
+  supabase functions deploy stripe-webhook.
+- Migration das colunas de cobrança: criada
+  supabase/migrations/20260903000000_billing_columns.sql (idempotente) com
+  subscription_status, stripe_customer_id, stripe_subscription_id,
+  subscription_current_period_end, updated_at, billing_exempt, índices e a
+  tabela billing_webhook_events. PENDENTE: rodar no SQL Editor do Supabase
+  (não há deploy automático de migrations).
 
 BACKLOG:
 - Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
@@ -30,13 +45,9 @@ BACKLOG:
   Depende de recarregar crédito Zenrows/ScraperAPI.
 - Recarregar crédito Zenrows/ScraperAPI (destrava MGL + Construbem +
   Daniel Garcia de uma vez) e crédito Anthropic (destrava a análise de IA).
-- stripe-webhook: o INSERT/UPSERT em profiles já foi feito (commit fe877d2,
-  updateProfile faz upsert por id quando nenhuma linha bate). Resta endurecer
-  o fallback: o upsert de emergência não grava phone/name, então alertas.py
-  não manda WhatsApp se o trigger handle_new_user tiver falhado no signup.
-- Colunas de cobrança em profiles (subscription_status, stripe_customer_id,
-  stripe_subscription_id, subscription_current_period_end) não têm migration
-  versionada — só existem no painel do Supabase.
+- stripe-webhook: endurecimento do fallback (phone/name) e migration das
+  colunas de cobrança FEITOS em 2026-09-03 (commit 3e1694a). Resta o deploy
+  da Edge Function e rodar a migration no painel do Supabase (ver STATUS).
 - dashboard.py: CSS de sidebar consolidado (painel em "SIDEBAR (bloco
   unico)"; moldura header/toolbar/colapso em "HEADER/TOOLBAR E BOTÃO DE
   COLAPSO DA SIDEBAR (bloco unico)"). Sem duplicatas pendentes.
