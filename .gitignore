@@ -34,6 +34,11 @@ playwright-report/
 test-results/
 .playwright/
 
+# Supabase CLI (estado local do link)
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+
 # IDEs e editores
 .vscode/
 .idea/
