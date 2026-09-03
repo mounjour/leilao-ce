@@ -27,15 +27,18 @@ STATUS (atualizado 2026-09-03):
   nascia sem telefone e alertas.py não mandava WhatsApp se o trigger
   handle_new_user tivesse falhado no signup. Type-check com deno check =
   OK (exit 0, 2026-09-03). deno 2.9.6 instalado via winget; supabase CLI
-  2.116.0 instalado via scoop (bucket main). PENDENTE (precisa das
-  credenciais do dono): supabase login / supabase link --project-ref <ref> /
-  supabase functions deploy stripe-webhook.
+  2.116.0 instalado via scoop (bucket main). DEPLOY FEITO em 2026-09-03
+  (supabase functions deploy stripe-webhook, projeto tybfusbovbihrkmcncux,
+  via API sem Docker) — o fallback que grava phone/name ja esta no ar.
 - Migration das colunas de cobrança: criada
   supabase/migrations/20260903000000_billing_columns.sql (idempotente) com
   subscription_status, stripe_customer_id, stripe_subscription_id,
   subscription_current_period_end, updated_at, billing_exempt, índices e a
   tabela billing_webhook_events. PENDENTE: rodar no SQL Editor do Supabase
-  (não há deploy automático de migrations).
+  (não há deploy automático de migrations). O projeto ja esta linkado
+  (supabase link), entao "supabase db push" tambem serve — mas roda TODAS
+  as migrations locais, e a 20260826000000 foi aplicada a mao (nao esta no
+  historico do CLI); as duas sao idempotentes, o risco e baixo.
 
 BACKLOG:
 - Achar outro leiloeiro que de fato opere no CE (Sodré Santoro foi
