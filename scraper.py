@@ -1542,6 +1542,237 @@ def _raspar_hastapublica(vistos):
 
     return lotes
 
+# ─── SCRAPER RECEITA FEDERAL (SLE — Sistema de Leilão Eletrônico) ────────────
+# Leilão de mercadoria apreendida da Receita Federal. A DRF Fortaleza (órgão
+# "317900") cobre o Ceará mas também Piauí e Maranhão — o campo "cidade" do
+# EDITAL é só a sede administrativa, NÃO a localização do lote (ex.: um
+# edital "FORTALEZA" pode ter veículo depositado em São Luís/MA). Por isso o
+# filtro CE é feito por LOTE, exigindo "Cidade/CE" no texto do próprio lote
+# (mesma lógica anti-falso-positivo do Celso Cunha) — nunca confia no campo
+# "cidade" do edital.
+#
+# API JSON limpa, .gov, sem Cloudflare/anti-bot, sem cookie/sessão —
+# confirmado com curl "cru" (sem apoio de navegador). Modelo de proposta
+# fechada (não tem lance ao vivo): "lance_atual" aqui é o valor mínimo de
+# venda, igual a MJ/CelsoCunha/HastaPública quando não há lance registrado.
+#
+# A maioria absoluta dos lotes de um edital é eletrônico (celular, TV etc.)
+# — fora do escopo de um monitor de veículo/imóvel/máquina. Só entram lotes
+# cujo "tipo" é veículo/máquina pesada; o resto nem baixa o detalhe.
+_RF_BASE    = "https://www25.receita.fazenda.gov.br/sle-sociedade"
+_RF_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                             "AppleWebKit/537.36 (KHTML, like Gecko) "
+                             "Chrome/124.0.0.0 Safari/537.36",
+               "Accept": "application/json"}
+_RF_CIDADE_EDITAL = "FORTALEZA"  # única unidade da RFB que fica no CE
+_RF_TIPO_RE = re.compile(
+    r'CAMINH|[ÔO]NIBUS|VE[ÍI]CULO|AUTOM[ÓO]VEL|MOTOC|TRATOR|M[ÁA]QUINA|'
+    r'REBOQUE|EMBARCA[ÇC][ÃA]O|EQUIPAMENTO', re.I)
+
+# Prefixo de tipo de veículo no início da descrição (formato de dump do
+# RENAVAM/DETRAN, ex.: "CAMINHAO VOLVO/VM 260 ...", "AUTOMOVEL DE PASSEIO
+# FIAT STRADA ..."). Removido antes de isolar marca/modelo.
+_RF_PREFIXO_RE = re.compile(
+    r'^\s*(?:CAMINH[ÃA]O|AUTOM[ÓO]VEL(?:\s+DE\s+PASSEIO)?|MOTOCICLETA|'
+    r'MICRO[- ][ÔO]NIBUS|[ÔO]NIBUS|CARRETA(?:\s+SEMI[- ]REBOQUE)?|'
+    r'SEMI[- ]REBOQUE|REBOQUE|TRATOR|CAVALO\s+MEC[ÂA]NICO|VE[ÍI]CULO|'
+    r'UTILIT[ÁA]RIO)\s+', re.I)
+
+
+def _rf_get(url, timeout=20):
+    r = requests.get(url, headers=_RF_HEADERS, timeout=timeout)
+    r.raise_for_status()
+    return r.json()
+
+
+def _rf_cidade_ce(descricao):
+    """'Cidade/CE' encontrada no texto do lote, ou "" se não houver
+    nenhum endereço com /CE (endereço de outra UF, ou nenhum endereço)."""
+    m = re.search(r'([A-ZÀ-Ú][a-zà-ú]+(?:\s+[A-ZÀ-Ú][a-zà-ú]+){0,3})\s*/\s*CE\b', descricao)
+    return (m.group(1).strip() + '/CE') if m else ""
+
+
+def _rf_data_leilao(edital):
+    data = edital.get("dataAberturaLances") or edital.get("dataFimPropostas") or ""
+    try:
+        return datetime.strptime(data, "%Y-%m-%d %H:%M").strftime("%Y-%m-%dT%H:%M")
+    except ValueError:
+        return ""
+
+
+def _rf_categoria(tipo, marca, modelo):
+    t = (tipo or "").upper()
+    if "CAMINH" in t or "ÔNIBUS" in t or "ONIBUS" in t or "REBOQUE" in t:
+        return "caminhoes"
+    if "MOTOC" in t:
+        return "motos"
+    if ("TRATOR" in t or "MÁQUINA" in t or "MAQUINA" in t
+            or "EQUIPAMENTO" in t or "EMBARCA" in t):
+        return "equipamentos"
+    return detectar_categoria(modelo, marca, "carros")
+
+
+# Fim do trecho "veiculo" da descricao — a partir daqui e endereco/visitacao/
+# telefone, texto livre que nao deve ser usado nem pra achar ano nem
+# marca/modelo (tem data de visitacao tipo "21/09/2026", que um regex de ano
+# ingenuo pegaria como se fosse o ano do veiculo).
+_RF_LIMITE_ENDERECO_RE = re.compile(
+    r'SEM RESTRI[ÇC][ÕO]ES|VISITA[ÇC][ÃA]O|Endere[çc]o:|Dep[óo]sito', re.I)
+
+# Marcadores que tipicamente vem logo apos "MARCA/MODELO" no dump do
+# RENAVAM/DETRAN — o que vier ANTES do primeiro desses e o nome do veiculo.
+# Um ano valido de 4 digitos entra na lista (para modelos como "ACTROS 2546"
+# nao serem cortados no meio: 2546 nao e ano valido, mas 2008/2009 sao).
+_RF_MARCADORES_FIM_NOME = (
+    r'\bDIESEL\b', r'\bGASOLINA\b', r'\bFLEX\b', r'\b[ÁA]LCOOL\b',
+    r'\bANO\b', r'\bRENAVAM\b', r'\bCHASSI\b', r'\bPLACA\b', r'\bREN\b',
+    r'\b(?:19[5-9]\d|20[0-4]\d)\b',   # ano valido de 4 digitos
+    r'\b\d{5,}\b',                     # renavam/chassi so numerico e longo
+    r'\b[A-Z0-9]{8,}\b',                # chassi alfanumerico (VIN)
+)
+
+
+def _rf_parse_veiculo(descricao):
+    """Extrai (marca, modelo, ano) do texto-dump de veículo apreendido.
+    Formato típico: "<TIPO> <MARCA>[/<MODELO...>] ... ANO FAB dd | ANO/MODELO
+    dddd/dddd ... PLACA/CHASSI/RENAVAM ... COR ... SEM RESTRIÇÕES -
+    VISITAÇÃO ... Endereço: ..." — não segue o padrão Soleon/MJ ("MARCA/MODELO
+    - ANO: dddd"), por isso um parser dedicado em vez de reaproveitar
+    _extrair_veiculo_de_titulo. So opera dentro do trecho antes do endereco
+    (_RF_LIMITE_ENDERECO_RE), pra nao confundir data de visitacao com ano
+    do veiculo."""
+    fim_m = _RF_LIMITE_ENDERECO_RE.search(descricao)
+    d = descricao[:fim_m.start()].strip() if fim_m else descricao.strip()
+
+    ano = 0
+    m = re.search(r'ANO/MODELO\s*(\d{4})/(\d{4})', d, re.I)
+    if m:
+        ano = int(m.group(2))
+    else:
+        m = re.search(r'ANO/MODELO\s*(\d{4})', d, re.I)
+        if m:
+            ano = int(m.group(1))
+        else:
+            # "ANO FAB 91" (RENAVAM antigo, so 2 digitos)
+            m = re.search(r'ANO\s*FAB\.?\s*(\d{2})\b', d, re.I)
+            if m:
+                yy = int(m.group(1))
+                corte_seculo = (datetime.now().year % 100) + 1
+                ano = (2000 if yy <= corte_seculo else 1900) + yy
+            else:
+                m = re.search(r'\b(19[5-9]\d|20[0-4]\d)\b', d)
+                if m:
+                    ano = int(m.group(1))
+
+    # Remove o prefixo de tipo ANTES de procurar os marcadores de corte —
+    # senão "CAMINHAO"/"MOTOCICLETA" (8+ letras maiúsculas) batem no próprio
+    # marcador [A-Z0-9]{8,} e cortam tudo, zerando marca/modelo.
+    resto = _RF_PREFIXO_RE.sub('', d, count=1)
+    corte = len(resto)
+    for marcador in _RF_MARCADORES_FIM_NOME:
+        m2 = re.search(marcador, resto, re.I)
+        if m2 and m2.start() < corte:
+            corte = m2.start()
+    nome = resto[:corte].strip(' -,/')
+    # Prefixo de importação/nacionalidade do RENAVAM ("I/", "N/") antes da
+    # marca — sem remover, "I/M.BENZ" viraria marca="I".
+    nome = re.sub(r'^[IN]/', '', nome, flags=re.I)
+
+    if '/' in nome:
+        marca, _, resto = nome.partition('/')
+        modelo = resto.strip()
+    else:
+        partes = nome.split(None, 1)
+        marca  = partes[0] if partes else ""
+        modelo = partes[1] if len(partes) > 1 else ""
+
+    marca  = marca.title().strip() or "?"
+    modelo = re.sub(r'\s+', ' ', modelo).title()[:60].strip() or "?"
+    return marca, modelo, ano
+
+
+def _raspar_receita_sle(vistos):
+    lotes = []
+    try:
+        dados = _rf_get(f"{_RF_BASE}/api/editais-disponiveis")
+    except Exception as e:
+        print(f"⚠️ Receita SLE: {e}")
+        return lotes
+
+    editais_ce = []
+    for grupo in dados.get("situacoes", []):
+        if grupo.get("situacao") != 2:   # só leilão aberto p/ proposta
+            continue
+        for ed in grupo.get("lista", []):
+            if (ed.get("cidade") or "").upper() == _RF_CIDADE_EDITAL:
+                editais_ce.append(ed)
+
+    if not editais_ce:
+        print("⚠️ Receita SLE: nenhum edital aberto em Fortaleza")
+        return lotes
+
+    print(f"📡 Receita SLE | {len(editais_ce)} edital(is) em Fortaleza")
+
+    for ed in editais_ce:
+        orgao, num, ano_ed = ed["edle"].split("/")
+        try:
+            edital = _rf_get(f"{_RF_BASE}/api/edital/{orgao}/{num}/{ano_ed}")
+        except Exception as e:
+            print(f"  ⚠️ Receita SLE edital {ed['edle']}: {e}")
+            continue
+
+        todos_lotes = edital.get("listaLotes", [])
+        candidatos  = [l for l in todos_lotes if _RF_TIPO_RE.search(l.get("tipo") or "")]
+        print(f"  edital {ed['edle']} ({ed.get('uaNm','')}): "
+              f"{len(candidatos)}/{len(todos_lotes)} lote(s) veículo/máquina")
+
+        for lote_resumo in candidatos:
+            nr = lote_resumo["nrAtribuido"]
+            url_lote = (f"https://www25.receita.fazenda.gov.br/sle-sociedade/"
+                       f"portal/edital/{orgao}/{num}/{ano_ed}/lote/{nr}")
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+            try:
+                detalhe = _rf_get(f"{_RF_BASE}/api/lote/{orgao}/{num}/{ano_ed}/{nr}")
+                descricao = " ".join(
+                    i.get("descricao") or "" for i in detalhe.get("itensDetalhesLote", [])
+                ).strip()
+                if not descricao:
+                    continue
+
+                cidade = _rf_cidade_ce(descricao)
+                if not cidade:
+                    print(f"    [skip] Receita SLE lote {nr}: sem evidência de CE")
+                    continue
+
+                tipo = lote_resumo.get("tipo") or detalhe.get("tipo") or ""
+                marca, modelo, ano = _rf_parse_veiculo(descricao)
+                categoria = _rf_categoria(tipo, marca, modelo)
+
+                lance = float(lote_resumo.get("valorMinimo") or detalhe.get("valorMinimo") or 0)
+                data_leilao = _rf_data_leilao(ed)
+                km = _extrair_km(descricao)
+
+                fotos = detalhe.get("imagens") or []
+                foto  = fotos[0]["src"] if fotos else ""
+
+                icone = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise = _analisar_cached(url_lote, marca, modelo, ano,
+                                           descricao[:400], km, lance, ref_val, categoria)
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"    {icone} [ReceitaSLE/{categoria}] {marca} {modelo} "
+                      f"{ano} — R${lance:,.0f} | {classif} | {cidade}")
+                lotes.append(_lote_dict("receita_sle", categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str, classif, foto,
+                                        km, descricao[:400], analise, url_lote, data_leilao))
+                time.sleep(0.2)
+            except Exception as e:
+                print(f"    ⚠️ Receita SLE lote {nr}: {e}")
+
+    return lotes
+
 # ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
@@ -2394,7 +2625,7 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha + HastaPublica\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha + HastaPublica + ReceitaSLE\n")
     _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
@@ -2422,6 +2653,7 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     lotes += _raspar_celso_cunha(vistos)
     lotes += _raspar_hastapublica(vistos)
+    lotes += _raspar_receita_sle(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)

@@ -6,8 +6,19 @@ CONTEXTO DO PROJETO:
 
 STATUS (atualizado 2026-09-03):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões, Celso Cunha e HastaPública implementados. HastaPública
-  adicionada em 2026-09-03 (_raspar_hastapublica): plataforma nacional que
+  MJ Leilões, Celso Cunha, HastaPública e Receita Federal (SLE) implementados.
+  Receita Federal adicionada em 2026-09-03 (_raspar_receita_sle): leilão de
+  mercadoria apreendida, API JSON pública em www25.receita.fazenda.gov.br
+  (.gov, sem Cloudflare/sessão, confirmado com curl cru). A DRF Fortaleza
+  (edital "317900") cobre CE+PI+MA, então o filtro CE é por LOTE (exige
+  "Cidade/CE" na descrição de cada lote, nunca confia no campo "cidade" do
+  edital) — testado com dados reais: de 10 lotes de veículo/máquina num
+  edital de 411 lotes, só 5 eram de fato Fortaleza/CE (os outros eram
+  São Luís/MA e Teresina/PI). Modelo de proposta fechada (sem lance ao
+  vivo) — lance_atual = valor mínimo. Só entram lotes tipo veículo/máquina
+  pesada; ~93% do edital é eletrônico (celular, TV) e fica de fora por
+  categoria não se encaixar no produto. Ver RECEITA_SLE_ADICIONADO.md.
+  HastaPública adicionada em 2026-09-03 (_raspar_hastapublica): plataforma nacional que
   detém o contrato dos leilões judiciais do TJ-CE via o leiloeiro Silvio
   Cesar Maraschi (JUCEC 020); os lotes do CE ficam no "grupo 11"
   (/grupos/11). Site renderizado no servidor, SEM Cloudflare — requests
@@ -47,12 +58,15 @@ STATUS (atualizado 2026-09-03):
   push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
-- Achar outro leiloeiro que de fato opere no CE: FEITO em 2026-09-03 —
-  HastaPública (grupo TJ-CE) implementada. Ver STATUS e
-  HASTAPUBLICA_ADICIONADO.md. Próximo alvo possível se precisar de mais
-  volume: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
-  Cloudflare). Lopes Leilões verificado em 2026-09-03 e descartado: site sem
-  Cloudflare mas dormente (zero lotes, zero histórico).
+- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO em 2026-09-03 —
+  HastaPública (grupo TJ-CE) e Receita Federal (SLE, edital Fortaleza)
+  implementadas. Ver STATUS, HASTAPUBLICA_ADICIONADO.md e
+  RECEITA_SLE_ADICIONADO.md. Candidatos avaliados e descartados por ora:
+  Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
+  Cloudflare), Lopes Leilões (site sem Cloudflare mas dormente, zero lotes),
+  Copart (login obrigatório + anti-bot agressivo), VIP Leilões (venda
+  direta, não leilão). Freitas Leiloeiro (ASP.NET raspável, SSL quebrado
+  contornável) ficou sem investigar — volume no CE não confirmado.
 - MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
   (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
   Depende de recarregar crédito Zenrows/ScraperAPI.
