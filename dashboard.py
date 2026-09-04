@@ -64,7 +64,7 @@ div[class*="st-key-fav_"] button {
     border: 1px solid var(--lce-primary) !important;
     box-shadow: none !important;
     width: 100% !important;
-    height: 100% !important;
+    flex: 1 !important;
     min-height: 58px !important;
     padding: 6px 12px !important;
     border-radius: 8px !important;
@@ -344,16 +344,20 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
     margin-top: auto !important;
     align-items: stretch !important;
 }
+/* Coluna do botão Favoritar estica pra altura das duas linhas de link ao
+   lado (Calendário/Ver lote) via flex-grow — % de altura aqui já causou um
+   loop de dimensionamento (uma div chegou a calcular ~5582px de altura),
+   por isso o encadeamento usa só flex, nunca height:100%. */
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child > div[data-testid="stColumn"] {
     display: flex !important;
     flex-direction: column !important;
 }
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] {
-    height: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex: 1 !important;
 }
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] > div {
+    display: flex !important;
     flex: 1 !important;
 }
 
