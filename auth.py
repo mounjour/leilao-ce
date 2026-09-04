@@ -621,7 +621,7 @@ def _render_brand_panel() -> None:
                     border-radius:var(--lce-radius, 12px);padding:2.75rem 2.25rem;">
           <div style="font-size:2.1rem;font-weight:800;color:var(--lce-text, #111827);
                       margin-bottom:.4rem;line-height:1.2;">
-            🚗 Achadinhos & Leilões
+            🚗 Achadin Leilões
           </div>
           <div style="color:var(--lce-muted, #6b7280);font-size:1rem;margin-bottom:2.25rem;">
             Monitoramento inteligente de leilões no Ceará
@@ -638,7 +638,7 @@ def _render_brand() -> None:
         """
         <div style="text-align:center;padding:.25rem 0 2rem;">
           <div style="font-size:2rem;font-weight:800;color:var(--lce-text, #111827);margin-bottom:.25rem;">
-            🚗 Achadinhos & Leilões
+            🚗 Achadin Leilões
           </div>
           <div style="color:var(--lce-muted, #6b7280);font-size:.9rem;">
             Monitoramento inteligente de leilões no Ceará
@@ -857,7 +857,7 @@ def render_paywall() -> None:
             </style>
             <div class="paywall-box">
               <p style="font-size:1.2rem;font-weight:700;color:var(--text-color);margin-bottom:.5rem">
-                Acesso completo ao Achadinhos & Leilões
+                Acesso completo ao Achadin Leilões
               </p>
               <div class="paywall-price">{_PLAN_PRICE_LABEL}</div>
               <div class="paywall-period">por mês · cancele quando quiser</div>

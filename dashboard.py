@@ -20,7 +20,7 @@ from auth import (
 )
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
-st.set_page_config(page_title="Achadinhos & Leilões", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Achadin Leilões", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -1152,7 +1152,7 @@ def render_lotes(lotes_lista, key="main"):
                             _ds    = _dt.strftime("%Y%m%dT%H%M00")
                             _de    = _dt_e.strftime("%Y%m%dT%H%M00")
                             _title = quote(f"{lote.get('marca','')} {lote.get('modelo','')} {lote.get('ano','')}")
-                            _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | Achadinhos & Leilões")
+                            _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | Achadin Leilões")
                             _loc   = quote(lote.get('cidade',''))
                             _cal   = (f"https://calendar.google.com/calendar/render?action=TEMPLATE"
                                       f"&text={_title}&dates={_ds}/{_de}&details={_det}&location={_loc}")
@@ -1210,9 +1210,9 @@ def render_lotes(lotes_lista, key="main"):
                 st.rerun()
 
 def pagina_sobre():
-    st.markdown("## 📌 Sobre o Achadinhos & Leilões")
+    st.markdown("## 📌 Sobre o Achadin Leilões")
     st.markdown("""
-O **Achadinhos & Leilões** é uma plataforma de **análise e direcionamento** de oportunidades em leilões de veículos, imóveis e equipamentos no Ceará.
+O **Achadin Leilões** é uma plataforma de **análise e direcionamento** de oportunidades em leilões de veículos, imóveis e equipamentos no Ceará.
 
 ### Como funcionamos
 - **Não vendemos nada.** Somos um sistema independente de análise.
@@ -1231,7 +1231,7 @@ def pagina_como_comprar():
     st.markdown("## 🛒 Como Comprar em Leilões")
     st.markdown("""
 ### Passo a passo
-1. **Encontre o lote no Achadinhos & Leilões** — use os filtros e análises
+1. **Encontre o lote no Achadin Leilões** — use os filtros e análises
 2. **Clique em "Ver lote na Leilo"** — você será direcionado ao site oficial
 3. **Cadastre-se na plataforma do leilão**
 4. **Verifique a documentação completa do lote:**
@@ -1289,7 +1289,7 @@ def pagina_informacoes():
 ✅ Sinistrados só valem se você tiver oficina ou contato com mecânico
 
 ### Aviso legal
-O Achadinhos & Leilões não se responsabiliza por decisões de compra. As análises são orientativas.
+O Achadin Leilões não se responsabiliza por decisões de compra. As análises são orientativas.
 """)
 
 
@@ -1459,7 +1459,7 @@ with st.sidebar:
 
     st.markdown("""
     <div style="padding:1rem 0 .5rem;">
-      <div style="font-size:1.15rem;font-weight:800;color:#e2e8f0;">🚗 Achadinhos & Leilões</div>
+      <div style="font-size:1.15rem;font-weight:800;color:#e2e8f0;">🚗 Achadin Leilões</div>
       <div style="font-size:.75rem;color:#9ca3af;margin-top:2px;">Monitor de Leilões do Ceará</div>
     </div>
     """, unsafe_allow_html=True)
