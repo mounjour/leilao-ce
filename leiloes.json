@@ -23,7 +23,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
     "data_leilao": "2026-09-08T12:11",
-    "scraped_at": "2026-09-04T11:04"
+    "scraped_at": "2026-09-04T17:33"
   },
   {
     "fonte": "leilo",
@@ -49,7 +49,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-ltz-1.4-mecanico-(4p)/ano.2018/dd013add-c172-4fdf-82d4-cd30d1c23bbf",
     "data_leilao": "2026-09-08T12:12",
-    "scraped_at": "2026-09-04T11:04"
+    "scraped_at": "2026-09-04T17:33"
   },
   {
     "fonte": "leilo",
@@ -75,7 +75,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
     "data_leilao": "2026-09-08T12:15",
-    "scraped_at": "2026-09-04T11:04"
+    "scraped_at": "2026-09-04T17:33"
   },
   {
     "fonte": "leilo",
@@ -101,7 +101,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-ce-flex/ano.2007/03de7dcf-1d9b-4b85-a420-8ea1d78abd20",
     "data_leilao": "2026-09-08T12:16",
-    "scraped_at": "2026-09-04T11:04"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -127,7 +127,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f45a3cad-a015-4e60-a39a-292606ff8d40",
     "data_leilao": "2026-09-08T12:17",
-    "scraped_at": "2026-09-04T11:04"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -153,7 +153,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-track-(4p)/ano.2024/980d90e9-9f10-4999-b0b4-2c6b5c55e028",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -179,7 +179,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2018/8742c8f5-39cf-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -205,7 +205,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/voyage-mb5-(4p)/ano.2019/ab1abedf-b5f5-45a9-a521-5da1fff7d67c",
     "data_leilao": "2026-09-08T12:20",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -231,7 +231,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
     "data_leilao": "2026-09-08T12:24",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -257,7 +257,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei-flex-(4p)/ano.2019/8e74a4b2-a118-4e94-98c1-495946dae84c",
     "data_leilao": "2026-09-08T12:25",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:34"
   },
   {
     "fonte": "leilo",
@@ -268,22 +268,22 @@
     "ano": 2012,
     "cidade": "Eusebio/CE",
     "lance_atual": 9100.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
+    "fipe_valor": 14466.0,
+    "fipe_str": "R$ 14.466,00",
+    "classificacao": "⚠️ MEDIANO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788456841292_59582307-0eda-4e81-b737-578e1aa90361_media.webp",
     "km": "",
     "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "BOA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-lt-1.0l-(2p%2F4p)/ano.2012/55b261be-16d8-4723-acb4-4af453b84a4d",
     "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -309,7 +309,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/byd/song-pro-gs-dm-(4p)/ano.2025/f7c3dae2-8daa-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:27",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -335,7 +335,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -361,7 +361,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c/ano.2020/86a16c7c-928b-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:29",
-    "scraped_at": "2026-09-04T11:05"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -387,7 +387,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-08T12:30",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -413,7 +413,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/kia/picanto-ex3-(4p)/ano.2011/8fe10d04-7fa1-11f1-a78c-02420a000008",
     "data_leilao": "2026-09-08T12:36",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -439,7 +439,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/bmw/320i-sport-gp-flex/ano.2023/91d15efe-76fa-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:35"
   },
   {
     "fonte": "leilo",
@@ -465,7 +465,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -491,7 +491,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -517,7 +517,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at9-cabine-dupla/ano.2018/9f79b38a-8db4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:39",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -543,7 +543,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/kicks-play-adv/ano.2025/f9e97b3c-77ab-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:41",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -569,7 +569,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:43",
-    "scraped_at": "2026-09-04T11:06"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -595,7 +595,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/palio-fire-(4p%2F2p)/ano.2014/a3c09d2f-6665-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:54",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -621,7 +621,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-(4p)/ano.2013/130c3113-73c8-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-08T12:55",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:36"
   },
   {
     "fonte": "leilo",
@@ -631,7 +631,7 @@
     "modelo": "Clio Expression 10 16Vh",
     "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 16000.0,
+    "lance_atual": 15000.0,
     "fipe_valor": 13601.0,
     "fipe_str": "R$ 13.601,00",
     "classificacao": "❌ RUIM",
@@ -646,8 +646,34 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-08T13:26",
-    "scraped_at": "2026-09-04T11:07"
+    "data_leilao": "2026-09-08T13:29",
+    "scraped_at": "2026-09-04T17:36"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Volkswagen",
+    "modelo": "Novo Voyage Comfortline Mbv",
+    "ano": 2017,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 26000.0,
+    "fipe_valor": 42569.0,
+    "fipe_str": "R$ 42.569,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788521014549_c321df7d-4dbf-4d85-af83-aa39262eaf77_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-comfortline-mbv-(4p)/ano.2017/ac0a96ee-8788-11f1-bba6-02420a00000f",
+    "data_leilao": "2026-09-08T13:56",
+    "scraped_at": "2026-09-04T17:37"
   },
   {
     "fonte": "leilo",
@@ -673,7 +699,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/kicks-sl-cvt/ano.2019/d170d89f-561b-11f1-8cef-02420a000008",
     "data_leilao": "2026-09-09T12:30",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:37"
   },
   {
     "fonte": "leilo",
@@ -699,7 +725,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix--ltz-1.4-automatico-(4p)/ano.2019/8a93d740-9813-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T12:30",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:37"
   },
   {
     "fonte": "leilo",
@@ -725,7 +751,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/creta-attitude-1.6-automatico/ano.2019/0c9f5494-8b6f-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-09T12:31",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:37"
   },
   {
     "fonte": "leilo",
@@ -751,33 +777,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-comfortline-(4p)/ano.2017/7963b1f2-6a82-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-09T12:31",
-    "scraped_at": "2026-09-04T11:07"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Golf Comfortline Aa",
-    "ano": 2016,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 44500.0,
-    "fipe_valor": 75802.0,
-    "fipe_str": "R$ 75.802,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788437882040_af3f3b61-0fb1-4cd0-a59a-fab6daabb17e_media.webp",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "BOA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/golf-comfortline-aa/ano.2016/a27c0b3d-8f62-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T12:32",
-    "scraped_at": "2026-09-04T11:07"
+    "scraped_at": "2026-09-04T17:37"
   },
   {
     "fonte": "leilo",
@@ -803,7 +803,33 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz15-fazer-abs/ano.2025/af5811f0-2527-11f1-a639-02420a000005",
     "data_leilao": "2026-09-08T12:35",
-    "scraped_at": "2026-09-04T11:08"
+    "scraped_at": "2026-09-04T17:38"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Yamaha",
+    "modelo": "Ybr 125I Factor Ed",
+    "ano": 2024,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 8800.0,
+    "fipe_valor": 14986.0,
+    "fipe_str": "R$ 14.986,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-125i-factor-ed/ano.2024/c0e9f75b-bf24-11f0-a1d0-0242ac500062",
+    "data_leilao": "2026-09-09T12:38",
+    "scraped_at": "2026-09-04T17:38"
   },
   {
     "fonte": "leilo",
@@ -828,8 +854,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/haojue/jtz%2Fnex-115/ano.2024/2e2963e6-593c-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-09-09T12:57",
-    "scraped_at": "2026-09-04T11:08"
+    "data_leilao": "2026-09-09T13:03",
+    "scraped_at": "2026-09-04T17:38"
   },
   {
     "fonte": "leilo",
@@ -854,8 +880,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2025/2c6e2627-9e2d-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:01",
-    "scraped_at": "2026-09-04T11:08"
+    "data_leilao": "2026-09-09T13:06",
+    "scraped_at": "2026-09-04T17:38"
   },
   {
     "fonte": "leilo",
@@ -880,8 +906,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2025/4a979bb3-9e2a-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:02",
-    "scraped_at": "2026-09-04T11:08"
+    "data_leilao": "2026-09-09T13:08",
+    "scraped_at": "2026-09-04T17:38"
   },
   {
     "fonte": "leilo",
@@ -906,8 +932,34 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-es/ano.2025/ee4aab61-9e28-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:04",
-    "scraped_at": "2026-09-04T11:08"
+    "data_leilao": "2026-09-09T13:10",
+    "scraped_at": "2026-09-04T17:38"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cg 160 Start",
+    "ano": 2024,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 9100.0,
+    "fipe_valor": 16330.0,
+    "fipe_str": "R$ 16.330,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788527493760_f5951b4e-c765-4764-b2e6-055dd6613e97_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2024/c57ff908-964d-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-09T13:13",
+    "scraped_at": "2026-09-04T17:38"
   },
   {
     "fonte": "leilo",
@@ -932,8 +984,34 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-50q/xy125-6a/ano.2024/c66a40bf-52d1-11f1-8cef-02420a000008",
-    "data_leilao": "2026-09-09T13:07",
-    "scraped_at": "2026-09-04T11:08"
+    "data_leilao": "2026-09-09T13:15",
+    "scraped_at": "2026-09-04T17:38"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Jincheng",
+    "modelo": "Avelloz Az 125",
+    "ano": 2025,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 5000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788527460856_3ccbd2a6-bece-4700-aed8-2e43678aab67_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/jincheng/avelloz-az-125/ano.2025/913a24af-971b-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-09T13:18",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -958,8 +1036,34 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bull/basham-bm-t-180/ano.2025/cf1a53d7-8476-11f1-959d-02420a00000e",
-    "data_leilao": "2026-09-09T13:11",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:21",
+    "scraped_at": "2026-09-04T17:39"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Cg 160 Start",
+    "ano": 2018,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 7000.0,
+    "fipe_valor": 12527.0,
+    "fipe_str": "R$ 12.527,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788527404780_265073de-b159-490f-9aba-db1d7c90647f_media.webp",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2018/69ca61d6-a154-11f1-8e8a-02420a00000a",
+    "data_leilao": "2026-09-09T13:21",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -984,8 +1088,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2026/07945114-9804-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:21",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:31",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -1010,8 +1114,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/xre-300-abs/ano.2021/50a1a149-9a44-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:22",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:32",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -1036,8 +1140,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/crosser-z-abs/ano.2025/f3d08901-9805-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:23",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:33",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -1062,8 +1166,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-150-factor/ano.2025/7c7430cf-9802-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:24",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:34",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -1088,8 +1192,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2025/b7307c30-9a75-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:25",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:35",
+    "scraped_at": "2026-09-04T17:39"
   },
   {
     "fonte": "leilo",
@@ -1114,8 +1218,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/9f213e9e-9bec-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-09T13:26",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:36",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1140,8 +1244,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2025/6ce90144-8ced-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-09T13:32",
-    "scraped_at": "2026-09-04T11:09"
+    "data_leilao": "2026-09-09T13:42",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1166,8 +1270,34 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-shi-175/ku-xun-tq/ano.2025/c8713a4d-2f3f-11f0-9f79-02420a000005",
-    "data_leilao": "2026-09-09T13:34",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:44",
+    "scraped_at": "2026-09-04T17:40"
+  },
+  {
+    "fonte": "leilo",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Nome-Padrao",
+    "modelo": "Honda Cb300F Twister Cbs",
+    "ano": 2024,
+    "cidade": "Eusebio/CE",
+    "lance_atual": 13800.0,
+    "fipe_valor": 0,
+    "fipe_str": "Marca não encontrada",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Recuperado de Financiamento",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/honda-cb300f-twister-cbs/ano.2024/822165c0-4b9a-11f0-b593-02420a000005",
+    "data_leilao": "2026-09-09T13:45",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1192,8 +1322,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/yamaha-ybr150-factor/ano.2025/256c2295-a868-11f0-bcb1-02420a000005",
-    "data_leilao": "2026-09-09T13:36",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:47",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1207,7 +1337,7 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788521344692_0f7e8985-7e8b-45cd-9dc6-f3406b0f9e8e_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -1218,8 +1348,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/haojian-avelloz-az1/ano.2025/1cbce5c4-c545-11f0-a1d0-0242ac500062",
-    "data_leilao": "2026-09-09T13:37",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:48",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1244,8 +1374,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/970ed0d0-ca2a-11f0-913b-02420a000005",
-    "data_leilao": "2026-09-09T13:37",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:48",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1270,8 +1400,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/xre-190-se/ano.2024/db64b1fa-8b87-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-09T13:40",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:52",
+    "scraped_at": "2026-09-04T17:40"
   },
   {
     "fonte": "leilo",
@@ -1281,11 +1411,11 @@
     "modelo": "Yzf R 15 Abs",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 10800.0,
+    "lance_atual": 11100.0,
     "fipe_valor": 19565.0,
     "fipe_str": "R$ 19.565,00",
     "classificacao": "⚠️ MEDIANO",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788521342711_141eb1f4-0c19-43f5-93bb-7e05e6b737cd_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -1296,8 +1426,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/yzf-r-15-abs/ano.2024/d847482d-a22b-11f1-9a18-02420a000006",
-    "data_leilao": "2026-09-09T13:46",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:58",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1307,7 +1437,7 @@
     "modelo": "Pcx 150 Dlx",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7100.0,
+    "lance_atual": 7300.0,
     "fipe_valor": 13018.0,
     "fipe_str": "R$ 13.018,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1322,8 +1452,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/pcx-150-dlx/ano.2017/7cf301c1-9844-11ef-9088-02420a0000e0",
-    "data_leilao": "2026-09-09T13:48",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T13:59",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1337,7 +1467,7 @@
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
-    "foto": "",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/4/1788521281803_d80399cf-2b0e-4b76-828c-d4e8b5677ff2_media.webp",
     "km": "",
     "descricao": "Recuperado de Financiamento",
     "estado": "NAO_INFORMADO",
@@ -1348,8 +1478,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-xy125-6a/xy150-8/ano.2025/c21a68ac-7180-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-09-09T13:48",
-    "scraped_at": "2026-09-04T11:10"
+    "data_leilao": "2026-09-09T14:00",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1374,8 +1504,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
-    "data_leilao": "2026-09-08T12:19",
-    "scraped_at": "2026-09-04T11:11"
+    "data_leilao": "2026-09-08T12:20",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1385,7 +1515,7 @@
     "modelo": "Eclipse Cr Hpesb Awd",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 56000.0,
+    "lance_atual": 57200.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1400,8 +1530,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/mitsubishi/eclipse-cr-hpesb-awd/ano.2026/2da4a8f9-665f-48b2-98c3-855e53ebb998",
-    "data_leilao": "2026-09-08T12:24",
-    "scraped_at": "2026-09-04T11:11"
+    "data_leilao": "2026-09-08T12:26",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1426,8 +1556,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/fiorino-hard-working-e/ano.2020/86478bf2-8474-11f1-959d-02420a00000e",
-    "data_leilao": "2026-09-08T12:36",
-    "scraped_at": "2026-09-04T11:11"
+    "data_leilao": "2026-09-08T12:38",
+    "scraped_at": "2026-09-04T17:41"
   },
   {
     "fonte": "leilo",
@@ -1452,8 +1582,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/peugeot/207-passion-xs-(4p)/ano.2012/752a3331-3ad2-11ef-b7fa-02420a00001f",
-    "data_leilao": "2026-09-08T12:49",
-    "scraped_at": "2026-09-04T11:11"
+    "data_leilao": "2026-09-08T12:51",
+    "scraped_at": "2026-09-04T17:42"
   },
   {
     "fonte": "leilo",
@@ -1478,34 +1608,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2014/d9a706dd-bb13-11f0-ae59-02420a000008",
-    "data_leilao": "2026-09-08T12:49",
-    "scraped_at": "2026-09-04T11:11"
-  },
-  {
-    "fonte": "leilo",
-    "categoria": "carros",
-    "icone": "🚗",
-    "marca": "Volkswagen",
-    "modelo": "Novo Voyage Comfortline Mbv",
-    "ano": 2017,
-    "cidade": "Eusebio/CE",
-    "lance_atual": 26600.0,
-    "fipe_valor": 42569.0,
-    "fipe_str": "R$ 42.569,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "",
-    "km": "",
-    "descricao": "Recuperado de Financiamento",
-    "estado": "NAO_INFORMADO",
-    "estado_selo": "⚪ Não informado",
-    "oportunidade": "BOA",
-    "uso_sugerido": "verificar presencialmente",
-    "positivos": [],
-    "negativos": [],
-    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
-    "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-comfortline-mbv-(4p)/ano.2017/ac0a96ee-8788-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-08T14:18",
-    "scraped_at": "2026-09-04T11:16"
+    "data_leilao": "2026-09-08T12:51",
+    "scraped_at": "2026-09-04T17:42"
   },
   {
     "fonte": "mega",
@@ -1531,7 +1635,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/veiculos/carros/ce/fortaleza/carro-volkswagen-fox-20092010-j127929",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:57"
   },
   {
     "fonte": "mega",
@@ -1557,7 +1661,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/sobral/casa-211-m2-sobral-ce-rua-francisco-de-souza-mororo-1336-jeronimo-prado-x128312",
     "data_leilao": "2026-09-02T15:04",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1583,7 +1687,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-74-m2-lameirao-maranguape-ce-x128670",
     "data_leilao": "2026-09-08T11:15",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1609,7 +1713,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/missao-velha/casa-72-m2-loteamento-conquista-aeroporto-missao-velha-ce-x128671",
     "data_leilao": "2026-09-08T11:16",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1635,7 +1739,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/horizonte/apartamento-78-m2-unid-804-l-mal-cozinhado-horizonte-ce-x128675",
     "data_leilao": "2026-09-08T11:20",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1661,7 +1765,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-86-m2-guajeru-fortaleza-ce-x128684",
     "data_leilao": "2026-09-08T11:29",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1687,7 +1791,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-professora-maria-geli-sa-barreto-juazeiro-do-norte-ce-x128692",
     "data_leilao": "2026-09-08T11:37",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1713,7 +1817,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/iguatu/casa-77-m2-vila-brasilia-iguatu-ce-x128701",
     "data_leilao": "2026-09-08T11:46",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1739,7 +1843,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/paracuru/casa-em-condominio-79-m2-unid-08-centro-paracuru-ce-x128712",
     "data_leilao": "2026-09-08T11:57",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1765,7 +1869,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-99-m2-mirante-de-serra-maranguape-ce-x128721",
     "data_leilao": "2026-09-08T12:05",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1791,7 +1895,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/aquiraz/casa-96-m2-patacas-aquiraz-ce-x128730",
     "data_leilao": "2026-09-08T12:14",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1817,7 +1921,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-campo-alegre-juazeiro-do-norte-ce-x128775",
     "data_leilao": "2026-09-08T12:55",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1843,7 +1947,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/itaitinga/apartamento-47-m2-01-vaga-gererau-itaitinga-ce-x128912",
     "data_leilao": "2026-09-14T10:04",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1869,7 +1973,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-95-m2-area-construida-benfica-fortaleza-ce-x128918",
     "data_leilao": "2026-09-14T10:08",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1895,7 +1999,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-131-m2-henrique-jorge-fortaleza-ce-x128929",
     "data_leilao": "2026-09-14T10:15",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1921,7 +2025,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/iguatu/casa-60-m2-vila-santo-antonio-iguatu-ce-x128853",
     "data_leilao": "2026-09-14T10:31",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1947,7 +2051,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-41-m2-01-vaga-vila-peri-fortaleza-ce-x128855",
     "data_leilao": "2026-09-14T10:32",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1973,7 +2077,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-23-m2-unid-1212-centro-fortaleza-ce-x128866",
     "data_leilao": "2026-09-14T10:43",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -1999,7 +2103,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-19-m2-unid-1301-do-edificio-general-tiburcio-centro-fortaleza-ce-x128952",
     "data_leilao": "2026-09-14T11:27",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -2025,7 +2129,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-25-m2-unid-803-do-edificio-general-tiburcio-centro-fortaleza-ce-x128953",
     "data_leilao": "2026-09-14T11:28",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -2051,7 +2155,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-47-m2-fortaleza-ce-rua-amancio-pereira-55-apto-806-passare-x128540",
     "data_leilao": "2026-09-16T15:12",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "mega",
@@ -2077,7 +2181,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/maranguape/direitos-sobre-apartamento-41-m2-novo-maranguape-ii-maranguape-ce-j128068",
     "data_leilao": "2026-09-24T11:30",
-    "scraped_at": "2026-09-04T11:27"
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2102,8 +2206,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
-    "data_leilao": "2026-09-08T12:11",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:12",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2128,8 +2232,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-ltz-1.4-mecanico-(4p)/ano.2018/dd013add-c172-4fdf-82d4-cd30d1c23bbf",
-    "data_leilao": "2026-09-08T12:12",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:14",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2154,8 +2258,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
-    "data_leilao": "2026-09-08T12:15",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:17",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2180,8 +2284,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-ce-flex/ano.2007/03de7dcf-1d9b-4b85-a420-8ea1d78abd20",
-    "data_leilao": "2026-09-08T12:16",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:18",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2206,8 +2310,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f45a3cad-a015-4e60-a39a-292606ff8d40",
-    "data_leilao": "2026-09-08T12:17",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:18",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2232,8 +2336,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-track-(4p)/ano.2024/980d90e9-9f10-4999-b0b4-2c6b5c55e028",
-    "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:19",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2258,8 +2362,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2018/8742c8f5-39cf-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:20",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2284,8 +2388,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
-    "data_leilao": "2026-09-08T12:19",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:20",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2310,8 +2414,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/voyage-mb5-(4p)/ano.2019/ab1abedf-b5f5-45a9-a521-5da1fff7d67c",
-    "data_leilao": "2026-09-08T12:20",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:22",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2336,8 +2440,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
-    "data_leilao": "2026-09-08T12:24",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:25",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2347,7 +2451,7 @@
     "modelo": "Eclipse Cr Hpesb Awd",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 56000.0,
+    "lance_atual": 57200.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2362,8 +2466,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/mitsubishi/eclipse-cr-hpesb-awd/ano.2026/2da4a8f9-665f-48b2-98c3-855e53ebb998",
-    "data_leilao": "2026-09-08T12:24",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:26",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2388,8 +2492,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei-flex-(4p)/ano.2019/8e74a4b2-a118-4e94-98c1-495946dae84c",
-    "data_leilao": "2026-09-08T12:25",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:26",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2414,8 +2518,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-lt-1.0l-(2p%2F4p)/ano.2012/55b261be-16d8-4723-acb4-4af453b84a4d",
-    "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T11:27"
+    "data_leilao": "2026-09-08T12:28",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2440,8 +2544,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/byd/song-pro-gs-dm-(4p)/ano.2025/f7c3dae2-8daa-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-08T12:27",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:28",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2466,8 +2570,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:29",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2492,8 +2596,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c/ano.2020/86a16c7c-928b-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-08T12:29",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:31",
+    "scraped_at": "2026-09-04T17:58"
   },
   {
     "fonte": "pacto",
@@ -2518,8 +2622,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
-    "data_leilao": "2026-09-08T12:30",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:32",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2544,8 +2648,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/fz15-fazer-abs/ano.2025/af5811f0-2527-11f1-a639-02420a000005",
-    "data_leilao": "2026-09-08T12:35",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:37",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2570,8 +2674,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/kia/picanto-ex3-(4p)/ano.2011/8fe10d04-7fa1-11f1-a78c-02420a000008",
-    "data_leilao": "2026-09-08T12:36",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:38",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2596,8 +2700,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/fiat/fiorino-hard-working-e/ano.2020/86478bf2-8474-11f1-959d-02420a00000e",
-    "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:38",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2622,8 +2726,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/bmw/320i-sport-gp-flex/ano.2023/91d15efe-76fa-11f1-87e3-02420a000009",
-    "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:39",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2648,8 +2752,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:39",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2674,8 +2778,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
-    "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:40",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2700,8 +2804,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at9-cabine-dupla/ano.2018/9f79b38a-8db4-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-08T12:40",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:41",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2726,8 +2830,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/nissan/kicks-play-adv/ano.2025/f9e97b3c-77ab-11f1-87e3-02420a000009",
-    "data_leilao": "2026-09-08T12:42",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:43",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2752,8 +2856,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-08T12:44",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:46",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2778,8 +2882,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/peugeot/207-passion-xs-(4p)/ano.2012/752a3331-3ad2-11ef-b7fa-02420a00001f",
-    "data_leilao": "2026-09-08T12:50",
-    "scraped_at": "2026-09-04T11:28"
+    "data_leilao": "2026-09-08T12:52",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2804,8 +2908,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2014/d9a706dd-bb13-11f0-ae59-02420a000008",
-    "data_leilao": "2026-09-08T12:50",
-    "scraped_at": "2026-09-04T11:29"
+    "data_leilao": "2026-09-08T12:52",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2830,8 +2934,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/palio-fire-(4p%2F2p)/ano.2014/a3c09d2f-6665-11f1-99e0-02420a00000a",
-    "data_leilao": "2026-09-08T12:55",
-    "scraped_at": "2026-09-04T11:29"
+    "data_leilao": "2026-09-08T12:57",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "pacto",
@@ -2856,8 +2960,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-(4p)/ano.2013/130c3113-73c8-11f1-b7a7-02420a000006",
-    "data_leilao": "2026-09-08T12:56",
-    "scraped_at": "2026-09-04T11:29"
+    "data_leilao": "2026-09-08T12:59",
+    "scraped_at": "2026-09-04T17:59"
   },
   {
     "fonte": "montenegro",
@@ -2883,7 +2987,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103230",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -2909,7 +3013,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103231",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -2935,7 +3039,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103232",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -2961,7 +3065,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103233",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -2987,7 +3091,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103234",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -3013,7 +3117,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103235",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:01"
   },
   {
     "fonte": "montenegro",
@@ -3025,7 +3129,7 @@
     "cidade": "Juazeiro Do Norte/CE",
     "lance_atual": 7500.0,
     "fipe_valor": 0,
-    "fipe_str": "Modelo não encontrado",
+    "fipe_str": "FIPE indisponível",
     "classificacao": "Sem referência",
     "foto": "https://montenegroleiloes.com.br/midia/89230426-44c7-4be9-b18f-6c375f0b24b4?largura=600&altura=413&alinhamento=center&marca_dagua=1&formato=webp",
     "km": "",
@@ -3039,7 +3143,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103236",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3065,7 +3169,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103237",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3091,7 +3195,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103238",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3117,7 +3221,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2663/lotes/103245",
     "data_leilao": "2026-09-11T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3143,7 +3247,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102170",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3169,7 +3273,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102347",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3195,7 +3299,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102353",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3221,7 +3325,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102934",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3247,7 +3351,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/103080",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3273,7 +3377,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102565",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:31"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3299,7 +3403,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102903",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3325,7 +3429,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102904",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3351,7 +3455,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102932",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3377,7 +3481,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102935",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3403,7 +3507,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103227",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3429,7 +3533,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103228",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3455,7 +3559,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103229",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3481,7 +3585,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103131",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:02"
   },
   {
     "fonte": "montenegro",
@@ -3507,7 +3611,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103247",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "montenegro",
@@ -3533,7 +3637,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103248",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3559,7 +3663,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1182/fiat-uno-evolution-1-4-cor-branca-combustivel-flex-ano-mod-2014-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3585,7 +3689,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1181/fiat-palio-fire-1-0-cor-branca-combustivel-flex-ano-mod-2014-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3611,7 +3715,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1180/fiat-strad-tecform-ambulancia-1-4-cor-branca-combustivel-flex-ano-mod-2011-2011-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3637,7 +3741,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1178/toyota-etios-hb-xs-1-5-cor-prata-combustivel-flex-ano-mod-2015-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3663,7 +3767,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1179/fiat-siena-attractiv-1-4-cor-branca-combustivel-flex-ano-mod-2012-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:32"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3689,7 +3793,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1177/volkswagen-15-190-eod-esc-super-capacidade-57-passageiros-cor-amarela-combustivel-diesel-ano-mod-2009-2010-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3715,7 +3819,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1176/ford-cargo-1319-cor-prata-combustivel-diesel-ano-mod-2013-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3741,7 +3845,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1175/fiat-mobi-like-1-0-cor-branca-combustivel-flex-ano-mod-2017-2018-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3767,7 +3871,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1174/fiat-ducato-greencar-mo3-2-3-ambulancia-capacidade-8-passageiros-cor-branca-combustivel-diesel-ano-mod-2016-2017-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3793,7 +3897,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1173/retroescavadeira-jbc-3c-chassi-9b9214t74dbdt4663",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3819,7 +3923,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1172/mercedes-benz-sprinterm-313cdi-capacidade-16-passageiros-cor-branca-combustivel-diesel-ano-mod-2011-2012-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3845,7 +3949,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1171/fiat-strad-modificar-ambulancia-1-4-capacidade-5-passageiro-cor-branca-combustivel-flex-ano-mod-2013-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3871,7 +3975,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1170/sucata-de-compressor-de-ar",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3897,7 +4001,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1168/sucata-de-eletronica-televisao-fontes-de-computador-ventilador-impressoras-ar-condicionados-etc",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3923,7 +4027,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1169/materiais-escolares-mesas-cadeiras",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "mj",
@@ -3949,7 +4053,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1167/aparelhos-eletronicos-computadores-radios-caixa-de-som-impressoras-ar-condicionado-e-ventiladores",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "hastapublica",
@@ -3975,7 +4079,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104457/x",
     "data_leilao": "2026-09-15T16:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "hastapublica",
@@ -4001,7 +4105,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104351/x",
     "data_leilao": "2026-09-22T16:00",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "hastapublica",
@@ -4027,7 +4131,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104459/x",
     "data_leilao": "2026-09-23T10:30",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:03"
   },
   {
     "fonte": "hastapublica",
@@ -4053,6 +4157,2138 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104631/x",
     "data_leilao": "2026-10-02T14:30",
-    "scraped_at": "2026-09-04T11:33"
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "receita_sle",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Volvo",
+    "modelo": "Vm 260 6X2R Jrk3C11",
+    "ano": 2008,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 40000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://storagegw.estaleiro.serpro.gov.br/sle-pro-publico/arquivos/images/2026/317900/3/foto_317900_2026_3_38_543132_d78ec798ae18fbca9f58a83ef0a775f3.jpg",
+    "km": "",
+    "descricao": "CAMINHAO VOLVO/VM 260 6X2R JRK3C11 2008 93KP0E0C58E114347 00966490223 DIESEL MT F1A022951 VERMELH PT260 BA2CW10782800065////SEM RESTRIÇÕES - VISITAÇÃO - J. LOG. Logística, Endereço: Rua Trairi, 1500, Pedras, CEP 61.880-000, Fortaleza/CE. Visitação de 21/09/2026 a 25/09/2026, Dias úteis, das 08:00 às 11:00hs. Telefone (85) 9.9922-0949 (Yara Silva), (85) 9.9159-4163 (Welson) ou (85) 9.9196-2081",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/38",
+    "data_leilao": "2026-09-28T10:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "receita_sle",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Vw",
+    "modelo": "7.90 S",
+    "ano": 1991,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 10000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://storagegw.estaleiro.serpro.gov.br/sle-pro-publico/arquivos/images/2026/317900/3/foto_317900_2026_3_39_543133_b7e683bd87d6a629c15b06d58eba5d6b.jpg",
+    "km": "",
+    "descricao": "CAMINHAO VW/7.90 S DIESEL HUN8A39 ANO FAB 91 BRANCA 91CV 9BWLTH737MDB30593 REN 001621 62111 MT00229042746290305 CIL3920//// SEM RESTRIÇÕES - VISITAÇÃO - J. LOG. Logística, Endereço: Rua Trairi, 1500, Pedras, CEP 61.880-000, Fortaleza/CE. Visitação de 21/09/2026 a 25/09/2026, Dias úteis, das 08:00 às 11:00hs. Telefone (85) 9.9922-0949 (Yara Silva), (85) 9.9159-4163 (Welson) ou (85) 9.9196-2081",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/39",
+    "data_leilao": "2026-09-28T10:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "receita_sle",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "M.Benz",
+    "modelo": "Actros 2546 Ls",
+    "ano": 2011,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 40000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://storagegw.estaleiro.serpro.gov.br/sle-pro-publico/arquivos/images/2026/317900/3/foto_317900_2026_3_40_543134_9a237ee50b1c9aae8677f9dd2cf433b7.jpg",
+    "km": "",
+    "descricao": "CAMINHAO I/M.BENZ ACTROS 2546 LS DIESEL 2011/10 456CV WDB934251BL493111 MT541948713931 REN 00259871826////PLACAS RN HOA1G26   SEM RESTRIÇÕES - VISITAÇÃO - J. LOG. Logística, Endereço: Rua Trairi, 1500, Pedras, CEP 61.880-000, Fortaleza/CE. Visitação de 21/09/2026 a 25/09/2026, Dias úteis, das 08:00 às 11:00hs. Telefone (85) 9.9922-0949 (Yara Silva), (85) 9.9159-4163 (Welson) ou (85) 9.9196-2081",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/40",
+    "data_leilao": "2026-09-28T10:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "receita_sle",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Sr",
+    "modelo": "Randon Sr Ca Branca",
+    "ano": 2007,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 10000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://storagegw.estaleiro.serpro.gov.br/sle-pro-publico/arquivos/images/2026/317900/3/foto_317900_2026_3_41_543143_49482dc17f4c814c583bde197d76e33b.jpg",
+    "km": "",
+    "descricao": "CARRETA SEMI-REBOQUE SR/RANDON SR CA BRANCA 2007 INP3J85 9ADG124377M242114 C ABERTA REN 00908184549//// SEM RESTRIÇÕES - VISITAÇÃO - J. LOG. Logística, Endereço: Rua Trairi, 1500, Pedras, CEP 61.880-000, Fortaleza/CE. Visitação de 21/09/2026 a 25/09/2026, Dias úteis, das 08:00 às 11:00hs. Telefone (85) 9.9922-0949 (Yara Silva), (85) 9.9159-4163 (Welson) ou (85) 9.9196-2081",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/41",
+    "data_leilao": "2026-09-28T10:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "receita_sle",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Ford",
+    "modelo": "Cargo 815 E",
+    "ano": 2009,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 40000.0,
+    "fipe_valor": 140000,
+    "fipe_str": "R$ 140,000 (ref. mercado)",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://storagegw.estaleiro.serpro.gov.br/sle-pro-publico/arquivos/images/2026/317900/3/foto_317900_2026_3_42_543146_27eedf5ba931e5bfdfdced0a5c7200cf.jpg",
+    "km": "",
+    "descricao": "CAMINHAO FORD/CARGO 815 E DIESEL 2009 KHW6I63 9BFVCE1N19BB30545 3922CIL 150CV 00129698105 MT 36103123 BRANCA//// SEM RESTRIÇÕES - VISITAÇÃO - J. LOG. Logística, Endereço: Rua Trairi, 1500, Pedras, CEP 61.880-000, Fortaleza/CE. Visitação de 21/09/2026 a 25/09/2026, Dias úteis, das 08:00 às 11:00hs. Telefone (85) 9.9922-0949 (Yara Silva), (85) 9.9159-4163 (Welson) ou (85) 9.9196-2081",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/42",
+    "data_leilao": "2026-09-28T10:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sítio C/ 25,7 Hectares",
+    "modelo": "Mauriti/CE",
+    "ano": 0,
+    "cidade": "Mauriti/CE",
+    "lance_atual": 100000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Sítio c/ 25,7 hectares, s/ benfeitorias, terra seca de plantar e criar, cercada de madeira, Sítio Areião, Mauriti/CE, INCRA nº 161.063.000.601-00, CCIR nº 00803526028, CRI local sob nº 4.196. (Proc. 0007468-39.2016.8.06.0122) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Conforme Laudo de Avaliação, o imóvel está enquadrado em área geográfica de média valoriza",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97266/lote/211316",
+    "data_leilao": "2026-09-04T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Prédio C/ 02 Pontos Comerciais",
+    "modelo": "Itatira/CE",
+    "ano": 0,
+    "cidade": "Itatira/CE",
+    "lance_atual": 228482.52,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Prédio c/ 02 pontos comerciais, terreno c/ área total de 217,83m², foreiro ao Patrimônio do Menino Deus, situado à Rua \"25 de Março\", S/Nº, Centro, Itatira/CE. CRI local sob o nº 703. (Proc. 0003459-17.2018.8.06.0105) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Conforme AV.03: Foi realizada a seguinte construção: 01 (um) Ponto Comercial, todo coberto com laje e pi",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98673/lote/213072",
+    "data_leilao": "2026-09-04T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Prédio Comercial C/ 98M²",
+    "modelo": "ITATIRA/CE",
+    "ano": 0,
+    "cidade": "ITATIRA/CE",
+    "lance_atual": 125000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Prédio Comercial c/ 98,00m², terreno c/ 140,00m², situado na Rua 02, S/Nº, do Loteamento Nossa Senhora do Carmo, Distrito de Lagoa do Mato, Itatira/CE. CRI local sob nº 656. (Proc. 0002773-64.2014.8.06.0105) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitoria Averbada (AV-2): Um ponto comercial de tijolos e coberto com laje, com piso de cimento, situado na Rua",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98673/lote/213071",
+    "data_leilao": "2026-09-04T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 430M²",
+    "modelo": "Itatira/CE",
+    "ano": 0,
+    "cidade": "Itatira/CE",
+    "lance_atual": 20000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Terreno c/ 430m², próprio p/ edificação, situado à Rua Padre João Scopell, Centro, foreiro ao Patrimônio Menino Deus, Itatira/CE. CRI local sob o nº 945. (Proc. 0003828-45.2017.8.06.0105) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES)",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98673/lote/213073",
+    "data_leilao": "2026-09-04T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Edificação Coml/Res.",
+    "modelo": "Novo Oriente/CE",
+    "ano": 0,
+    "cidade": "Novo Oriente/CE",
+    "lance_atual": 280000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Prédio comercial constituído de 02 (dois) pavimentos, terreno com 288m², situado na Avenida Antônio Carlos, s/n°, Praça José Sebastião, na cidade de Novo Oriente/CE, com uma área total de 255,60 m², CRI 2º Ofício de Novo Oriente/CE sob o n° 2.208. (Proc. 0007672-13.2017.8.06.0134 ) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) BENFEITORIAS AVERBADAS: Edificação de u",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/96358/lote/211350",
+    "data_leilao": "2026-09-08T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Chácara C/ Aprox. 1,93 Ha",
+    "modelo": "Barbalha/CE",
+    "ano": 0,
+    "cidade": "Barbalha/CE",
+    "lance_atual": 345572.05,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27307_161437_B.jpg",
+    "km": "",
+    "descricao": "Chácara com aprox; 1,93 hectares (19.371,47m²), c/ 2 poçilgas, poço artesiano e estrutura de irrigação, área remanescente do Sítio São Paulo, Barbalha/CE, CRI 13.096. (Proc. 0201878-96.2023.8.06.0043) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitorias: 02 pocilgas, sendo uma com capacidade para 10 a 12 animais adultos e outra com capacidade para até 40 anima",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98732/lote/213733",
+    "data_leilao": "2026-09-08T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa C/ 55,05M²",
+    "modelo": "Ubajara/CE",
+    "ano": 0,
+    "cidade": "Ubajara/CE",
+    "lance_atual": 37220.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26972_638220_A.jpg",
+    "km": "",
+    "descricao": "Casa de adobes c/ 55,05m², terreno c/ 800m², localizado no Sítio Cajueiro da Jaburuna, zona rural, Ubajara/CE. (Proc. 0050979-46.2021.8.06.0176) Benfeitorias: Uma casa com paredes de adobes, sem revestimentos, de chão terra batida, localizada no Sítio Cajueiro da Jaburuna, num lote encravado na parte dos fundos, de uma casa do lado direito onde fica situada a Areninha do Cajueiro da Jaburuna, Coma",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98836/lote/213963",
+    "data_leilao": "2026-09-08T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sítio C/ 97,6 Hectares",
+    "modelo": "Itapiúna/CE",
+    "ano": 0,
+    "cidade": "Itapiúna/CE",
+    "lance_atual": 315000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Sítio c/ área remanescente de 97,6 hectares, denominado Fazenda “Altinho”, antiga Fazenda “Velha’, Itapiúna/CE. Imóvel matriculado sob o nº. AV-07/210. (Proc. 0002996-28.2011.8.06.0103) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitorias não averbadas na matrícula: 20 (vinte) Casas em alvenaria em regular estado de conservação; 04 (quatro) Açudes; 10 (dez) Ci",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98837/lote/213964",
+    "data_leilao": "2026-09-08T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "M.Benz",
+    "modelo": "312D Sprinter",
+    "ano": 0,
+    "cidade": "Acopiara/CE",
+    "lance_atual": 7500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_20956_353720_A.jpg",
+    "km": "",
+    "descricao": "Microonibus, I/M.Benz 312D Sprinter M, Ano Modelo 2000, Cor branca, Combustível diesel. (Proc. 0019424-40.2016.8.06.0029) Obs¹: Veículo em péssimo estado de conservação, funilaria em bom estado de conservação, bancos com avarias, sem faróis dianteiros, sem a tampa do motor, sem o motor (informação que se encontra na retífica), com aparência de um longo período de tempo sem funcionamento. O bem enc",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98838/lote/213965",
+    "data_leilao": "2026-09-08T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Imóvel Comercial/Residencial",
+    "modelo": "Santana do Acaraú/CE",
+    "ano": 0,
+    "cidade": "Santana do Acaraú/CE",
+    "lance_atual": 1500000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Imóvel Comercial/Residencial de 02 andares, c/ 4 apartamentos, terreno, situado na Rua João Cordeiro, nº 320, Santana do Acaraú/CE, 2º CRI local sob o nº 854. (Proc. 0020047-27.2004.4.05.8100) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitorias: Um prédio com dois andares, no piso térreo está instalado um estabelecimento comercial com denominação SR Imóveis, ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/214890",
+    "data_leilao": "2026-09-10T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Galpão",
+    "modelo": "Santana do Acaraú/CE",
+    "ano": 0,
+    "cidade": "Santana do Acaraú/CE",
+    "lance_atual": 1200000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Galpão, medindo 15,00 x 33,00m, terreno c/ 217,14m², situado na Rua Dr. Manoel Joaquim, Santana do Acaraú/CE, 2º CRI local sob o nº 1012. (Proc. 0020047-27.2004.4.05.8100) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitorias: Um prédio construído de tijolo (galpão sem subdivisão), medindo 15,00 x 33,00m, constituído por um depósito na lateral esquerda sem cerâ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/214891",
+    "data_leilao": "2026-09-10T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Direito Imóvel Comercial (3 Salas)",
+    "modelo": "Pacujá/CE",
+    "ano": 0,
+    "cidade": "Pacujá/CE",
+    "lance_atual": 105825.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Direito real de enfiteuse em relação a um imóvel comercial composto por 03 salas, terreno c/ 141,10m², na esquina da Rua Raimundo Ferreira Gomes com a Rua Francisco Filizola, Centro, Pacujá/CE, 2º CRI 288 de Mucambo/CE. (Proc. 0013512-48.2005.4.05.8100) BENFEITORIAS NÃO AVERBADAS NA MATRÍCULA: um imóvel de tijolos e telhas, composto por três salas comerciais, situado na esquina da Rua Raimundo Fer",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/212829",
+    "data_leilao": "2026-09-10T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sítio C/ 24,35 Hectares",
+    "modelo": "Apuiarés/CE",
+    "ano": 0,
+    "cidade": "Apuiarés/CE",
+    "lance_atual": 824050.16,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Sítio c/ 24,35 hectares, c/ 04 casas, 03 currais, cacimbão, barreiro, estábulo de madeira, 1.000 pés de coqueiros, galinheiro, tanque e 03 cisternas, denominado \"Fazenda Entre-Rios\", Apuiarés/CE, Incra sob o n° 153.052.100.641-5, CRI sob o n° 2.185 de Pentecoste/CE. (Proc. 0000294-05.2019.8.06.0144) Benfeitorias: Uma casa sede com 10 compartimentos, tijolo, madeira cerrada, telha colonial, piso de",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98934/lote/214240",
+    "data_leilao": "2026-09-10T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Fazenda C/ 225,59 Hectares",
+    "modelo": "Choró/CE",
+    "ano": 0,
+    "cidade": "Choró/CE",
+    "lance_atual": 850000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Fazenda c/ área de 225,59 hectares, denominada Fazenda \"Ingá\", zona rural de Choró/CE. CRI local sob nº 081. (Proc. 0000637-54.2026.5.07.0022) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES)",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97278/lote/214900",
+    "data_leilao": "2026-09-11T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "equipamentos",
+    "icone": "⚙️",
+    "marca": "Equipamentos De Irrigação",
+    "modelo": "Aracati/CE",
+    "ano": 0,
+    "cidade": "Aracati/CE",
+    "lance_atual": 2445.2,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/equipamentos/196x146/E_12022_987328_B.webp",
+    "km": "",
+    "descricao": "Equipamentos de irrigação, contendo 7 Und de Tubos PVC PN 125 200mm; 6 Und de Tubos PVC Roscavel de 3”; 6 Und de Luvas Galvanizada de 3”; 1 Und Bombeador; 1 Und Motor Bomba 10CV; 1 Und Quadro Eletrico; 30 m Fio EPP 3X6 mm. (Proc. 0052107-73.2020.8.06.0035) LOCALIZAÇÃO DO BEM: Sitio Halza,Vila Cajazeiras, Zona Rural, Aracati–CE, CEP 62.800-000.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98978/lote/214354",
+    "data_leilao": "2026-09-11T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Prédio Comercial De Esquina",
+    "modelo": "Iguatu/CE",
+    "ano": 0,
+    "cidade": "Iguatu/CE",
+    "lance_atual": 80000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27759_500106_A.webp",
+    "km": "",
+    "descricao": "PRÉDIO COMERCIAL - Rua Treze de Maio, nº 274, cruzamento com Rua Julio Cavalcante, Centro, Iguatu/CE, com área de 227,66m². Matrícula: 11869 FUNCIONAMENTO DO LEILÃO : 1ª E 2ª FASE · 1ª Fase de proposta Após a liberação do anúncio, o imóvel já fica disponível para receber lances. A primeira fase se encerra às 07h59min59sda manhã do dia seguinte à ativação do anúncio. Importante: Na primeira fase se",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97715/lote/209459",
+    "data_leilao": "2026-09-14T08:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 14.652M²",
+    "modelo": "Beberibe/CE",
+    "ano": 0,
+    "cidade": "Beberibe/CE",
+    "lance_atual": 85274.64,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Terreno c/ 14.652m², quadra 49, situado no lugar denominado Amarela, distrito de Itapeim, Fazenda Mosquito, integrante do Loteamento Santa Inês, Beberibe/CE, 2º CRI 5.187. (Proc. 0000343-60.2026.5.07.0035) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES)",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97283/lote/214896",
+    "data_leilao": "2026-09-14T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 600M²",
+    "modelo": "Penaforte/CE",
+    "ano": 0,
+    "cidade": "Penaforte/CE",
+    "lance_atual": 72000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Terreno c/ 600m² de área total, composto por seis lotes de 100 m² cada, próprio para construção, situados entre a Rua Projetada 02 e Rua Projetada 05, Bairro Padre Cícero, Penaforte/CE. CRI local sob o nº 1.149. (Proc. 0000199-48.2017.8.06.0207 ) PAGAMENTO PARCELADO: I) Bens arrematados em até R$ 7.500,00: 25% do valor da arrematação à vista e o máximo de mais 2 prestações; II) Bens arrematados en",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99140/lote/215212",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 1210 C/ 69,30M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 339570.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26789_770950_A.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 1210 c/ 69,30m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento imobiliár",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215223",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 519 C/ 48,61M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 266000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26788_771148_A.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 519 c/ área de 48,61m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento im",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215222",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 1319 C/ 48,61M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 245000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26787_771401_A.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 1319 c/ área de 48,61m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento i",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215221",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 1307 C/ 34,38M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 168000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26786_771641_B.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 1307 c/ área de 34,38m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento i",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215220",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 1203 C/ 34,38M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 168000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26785_772022_B.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 1203 c/ área de 34,38m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento i",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215219",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 913 C/ 34,38M²",
+    "modelo": "SOBRAL/CE",
+    "ano": 0,
+    "cidade": "SOBRAL/CE",
+    "lance_atual": 144200.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26784_772198_B.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 913 c/ área de 34,38m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento im",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215218",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 907 C/ 34,38M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 144200.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26783_772323_B.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 907 c/ área de 34,38m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento im",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215217",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala Comercial Nº 503 C/ 34,38M²",
+    "modelo": "Sobral/CE",
+    "ano": 0,
+    "cidade": "Sobral/CE",
+    "lance_atual": 144200.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_26782_772475_B.jpg",
+    "km": "",
+    "descricao": "Sala Comercial nº 503 c/ área de 34,38m², do Edifício João Evangelista Business Center-JEBC, situado na Avenida Senador José Ermírio de Morais, no Bairro Padre Ibiapina, Sobral/CE. 6º CRI local sob o n° 4.643 (matrícula mãe). (Proc. 0001703-36.2017.5.07.0038) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: As salas acima descritas pertencem ao empreendimento im",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215216",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 720,00M²",
+    "modelo": "São Gonçalo do Amarante/CE",
+    "ano": 0,
+    "cidade": "São Gonçalo do Amarante/CE",
+    "lance_atual": 42000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Terreno c/ área total de 720,00m², lotes nºs 15 e 16, da quadra nº 13, loteamento denominado Pecém Sul, situado no distrito de PECÉM, São Gonçalo do Amarante/CE. CRI local sob o n° 3.623. (Proc. 0001586-58.2015.5.07.0024) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES)",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215215",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Fazenda C/ 119,7165 Hectares",
+    "modelo": "Tamboril/CE",
+    "ano": 0,
+    "cidade": "Tamboril/CE",
+    "lance_atual": 145000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27188_335275_A.jpg",
+    "km": "",
+    "descricao": "Fazenda c/ 119,7165 hectares, c/ 02 casas, cacimbão, plantação de palma incluindo 02 ha e curral, denominado “Fazenda Várzea do Touro”, Gleba B, Tamboril/CE. CRI local sob o n° 3.501. (Proc. 3000471-24.2025.8.06.0170) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Benfeitorias: 01 cacimbão, 02 casas de alvenaria, 01 plantação de palma incluindo 02 ha, curral de madei",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99143/lote/215225",
+    "data_leilao": "2026-09-14T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Fiesta Há 1.5L Sb",
+    "ano": 2016,
+    "cidade": "Juazeiro do Norte/CE",
+    "lance_atual": 22000.0,
+    "fipe_valor": 9653.0,
+    "fipe_str": "R$ 9.653,00",
+    "classificacao": "❌ RUIM",
+    "foto": "",
+    "km": "",
+    "descricao": "Ford/Fiesta HÁ 1.5L SB, ano de fabricação/modelo 2016, cor branca, placa PNE-7374, combustível àlcool/gasolina. (Proc. 0800216-16.2016.4.05.8107) (O VEÍCULO PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 06 MESES - MEDIANTE APRESENTAÇÃO DE CAUÇÃO) Obs.: O veículo encontra-se em bom estado de uso e conservação, com odômetro marcando 86.368,00 Km. LOCALIZAÇÃO DO BEM: Rua Francisco Vicente",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99187/lote/215337",
+    "data_leilao": "2026-09-15T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Nxr150 Bros Es",
+    "ano": 2009,
+    "cidade": "Icó/CE",
+    "lance_atual": 3600.0,
+    "fipe_valor": 10805.0,
+    "fipe_str": "R$ 10.805,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_24006_562787_A.webp",
+    "km": "",
+    "descricao": "Honda/NXR150 BROS ES, ano de fabricação/modelo 2009/2009, cor amarela, combustível gasolina, placa NQR-6765/CE. (Proc. 0800120-25.2021.4.05.8107) Obs.: O veículo encontra-se em bom estado de conservação. LOCALIZAÇÃO DO BEM: Rua General Piragibe, nº 1.774, Centro, Município de Icó/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99187/lote/215338",
+    "data_leilao": "2026-09-15T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 2400",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 3250000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28389_310242_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 2400, Edifício Mucuripe Plaza, Av. Beira Mar, nº 4400, Mucuripe, Fortaleza/CE, 4º CRI local sob nº R-15-16.131. (Proc. 0000831-19.2014.5.07.0008 - 8ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) OBS: NÃO HÁ DÉBITOS CONDOMINIAIS ATÉ A DATA DE 20/072026. INFORMAÇÕES RETIRADAS DO AUTO DE REAVALIAÇÃO: Apartamento nº 2400 do Condomínio Mu",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212927",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Imóvel Comercial",
+    "modelo": "Maracanaú/CE",
+    "ano": 0,
+    "cidade": "Maracanaú/CE",
+    "lance_atual": 945500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Imóvel Comercial, terreno c/ área de 1.270,50m², lotes nº 04, 05 e 06, quadra 10, Av. Padre José Holanda do Vale, nº 1743, Jardim Piratininga, situado no lugar Pajuçara, Maracanaú/CE, CRI local sob nº 3069. (Proc. 0000896-27.2014.5.07.0036 - 2ª VT de Caucaia) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Ocupação atual: Atualmente o imóvel está ocupado por dois esta",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212928",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 692500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28396_311185_A.webp",
+    "km": "",
+    "descricao": "Casa, encravada no terreno c/ 774,40m², Av. Capistrano de Abreu, nº 6242, antiga Av. João Pessoa, Distrito de Parangaba, Fortaleza/CE, 3º CRI local sob nº 50872. (Proc. 0000589-95.2021.5.07.0014 - 14ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Casa de tijolo e telha, de um só pavimento, com duas portas de frente, bem como duas janelas, esti",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212929",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 640000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28403_326052_A.webp",
+    "km": "",
+    "descricao": "Casa, encravada no terreno c/ 330m², Av. Sargento Hermínio, nº 1632, Bairro Monte Castelo, na Vila Odete, Fortaleza/CE. 3º CRI local nº 15.177. (Proc. 0000790-25.2024.5.07.0033 - 2ª VT de Maracanaú) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Chegando ao local foi declarado que devido a reforma da Avenida Sargenta Hermínio, o imovel mede 10,00m²x21,00m². Foi",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212942",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Chácara C/ 2,50 Hectares",
+    "modelo": "Caucaia/CE",
+    "ano": 0,
+    "cidade": "Caucaia/CE",
+    "lance_atual": 612500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28383_678024_A.webp",
+    "km": "",
+    "descricao": "Chácara c/ 2,50 hectares, terreno T-14, situado no lugar Lagoa dos Porcos, frente p/ a Estrada Carroçável, Caucaia/CE. CRI local sob n° 37.817. (Proc. 0000912-75.2017.5.07.0003 - 3ªV T de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) ATENÇÃO: No cotejamento entre a proposta à vista e parcelada, essa deverá ser no mínimo de 20% superior àquela e contemplar",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212931",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Inacabado Nº 101 C/ 287,18M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 505000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28400_312390_B.webp",
+    "km": "",
+    "descricao": "Apartamento nº 101 c/ 411,55m² (área privativa 287,18m² e área comum 124,37m²), tipo C, direito às vagas de garagem nºs 01, 02, 03 e 04, Edifício Fenix, R. Doutor Francisco Gadelha, nº 1480, Luciano Cavalcante, Fortaleza/CE, CRI local sob nº 80769. (Proc. 0000964-55.2015.5.07.0031 - VÚ de Pacajus) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Observação: Trata-se de",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212932",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 604 C/ 136,20M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 425000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28401_312917_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 604 c/ área privativa de 136,20m², 6º pavimento, 03 vagas de estacionamento (subsolo e pilotis coberta), Edifício Assis França, Rua José Barreto Parente, nº 725, Bairro Água Fria, Fortaleza/CE, 1º CRI local sob nº 76.385. (Proc. 0136900-96.2008.5.07.0031 - VÚ de Pacajus) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Sem débito condominial até ab",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212933",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 390000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_7153_705745_A.jpg",
+    "km": "",
+    "descricao": "Casa, terreno c/ 243,75m², parte do lote nº 07, da quadra nº 09, Rua Lindolfo Braga, nº 313, Bairro Parque José de Alencar, distrito de messejana, Fortaleza/CE. Inscrição da PMF nº 388.870-3, 1º CRI local sob nº 55.167. (Proc. 0009200-63.2004.5.07.0004 - 4ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Tem como benfeitoria não averbada no imóv",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212935",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 3.705M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 370500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28394_659500_A.webp",
+    "km": "",
+    "descricao": "Terreno c/ 3.705m², lotes nºs 01 a 10, da quadra 21, Rua I, Parque Novo Ceará (antigo bairro Messejana), Fortaleza/CE, 6º CRI local sob nº 45411. (Proc. 0000691-34.2018.5.07.0011 - 11ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) ATENÇÃO: No cotejamento entre a proposta à vista e parcelada, essa deverá ser no mínimo de 20% superior àquela e contemp",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212936",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 802 C/ 87,80M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 350000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28393_327715_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 802 c/ área própria de 87,80m² e área comum de 37,75m², Tipo B, vaga p/ estacionamento, Edifício Village Porto Seguro, Avenida Antônio Justa, n° 3550, Bairro da Varjota, Fortaleza/CE. 4º CRI local sob nº 2264. (Proc. 0000775-98.2019.5.07.0011 - 11ª VT de Fortaleza). (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) OBS: CONDOMÍNIO: QUITADO ATÉ A DATA DE 1",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212948",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Duplex N° B4-303 C/ 113,06M²",
+    "modelo": "Aquiraz/CE",
+    "ano": 0,
+    "cidade": "Aquiraz/CE",
+    "lance_atual": 325000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28385_661879_A.webp",
+    "km": "",
+    "descricao": "Apartamento Duplex n° B4-303 c/ 151,55m² (área privativa de 113,06m² e área comum 38,49m²), tipo B, bloco 04, Cond. Palm Beach Residence, direito às vagas estacionamento nºs 58 e 59, Rua Água Viva, nº 445, Porto das Dunas, Aquiraz/CE, Insc. Municipal nº 105386, CRI local sob nº 27.105. (Proc. 0000397-92.2021.5.07.0005 - 5ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTAN",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212938",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa C/ 02 Pav.",
+    "modelo": "Aquiraz/CE",
+    "ano": 0,
+    "cidade": "Aquiraz/CE",
+    "lance_atual": 325000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_25403_033203_A.jpg",
+    "km": "",
+    "descricao": "Casa de grande porte e médio padrão de 02 pavs. c/ piscina, terreno, lotes nº 05, 06, 07, 16, 17 e 18, da quadra 03, Rua 02, S/N, Loteamento Praia do Iguape II, Curralinho, Tapera, Iguape, Aquiraz/CE, 3° CRI local sob nº 429. (Proc. 0000658-96.2023.5.07.0034 - VT de Eusébio) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs¹.: Foi possível identificar as seguintes b",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212941",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 205 C/ 79,09M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 300000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28382_658085_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 205 c/ 142,92m² (área privativa de 79,09m² e área comum de 63,83m²), 2º pavimento, do bloco 02 - Venir, tipo 2A, 02 vagas de garagem nºs 118 e 119 (subsolo 2), Condomínio Parc de Liberté, Rua Professor Jacinto Botelho, nº 650, Guararapes, Fortaleza/CE, Insc. Municipal nº 705.138-7, 1º CRI local sob nº 75.345. (Proc. 0000603-26.2018.5.07.0001 - 1ª VT de Fortaleza) (O IMÓVEL PODE SER ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212943",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 101 C/ 70,26M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 300000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28398_674517_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 101 c/ 125,50m² (área privativa real de 70,26m² e área comum real de 55,24m²), da Torre I, 1º pavimento, 02 vagas de garagem de nºs P-01 e P-02 (localizados no pilotis), Empreendimento Isla Jardim, Rua Chico Feitosa do Cococi, nº 210, Bairro Água Fria, Fortaleza/CE. 1º CRI local sob nº 95.533. (Proc. 0000286-78.2022.5.07.0036 - 2ª VT de Caucaia) (O IMÓVEL PODE SER PARCELADO COM 25% ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212944",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 501 C/ 140,36M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 255000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28390_681072_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 501 c/ 140,36m², 5º andar, Edifício San Marcos, Rua Julio Azevedo, nº 1516, Bairro Cocó, Fortaleza/CE. 3º CRI local sob nº 38.395. (Proc. 0001155-95.2017.5.07.0010 - 10ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) DÉBITO DE CONDOMÍNIO: R$ 19.000,00 (ATUALIZADO EM ABRIL 2026). ATENÇÃO: No cotejamento entre a proposta à vista e parcel",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212945",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento N° 202 C/ 116M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 190000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_25380_116408_A.jpg",
+    "km": "",
+    "descricao": "Apartamento n° 202 c/ 116m², do bloco “A”, no 2° pavimento, Conjunto Morada dos Coqueiros, Avenida Pontes Vieira, Bairro da Aldeota, Fortaleza/CE. CRI local sob n° 4.542. (Proc. 0000335-35.2015.5.07.0014 - 14ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: O IMÓVEL POSSUI DÉBITOS CONDOMINIAIS NO VALOR DE 107.121,36 ATÉ A DATA DE 10/01/2026. Obs",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212946",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Imóvel Coml. De 02 Pav. 350M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 175000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28395_256337_A.webp",
+    "km": "",
+    "descricao": "Imóvel Comercial de 02 pav. c/ aprox. 350m² (funcionava uma escola), terreno c/ aprox. 265m², Rua 24 de Outubro, nº 270, Fortaleza/CE. (Proc. 0000312-48.2022.5.07.0013 - 13ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: No momento da vistoria realizada pelo Oficial de Justiça, ao adentrar no imóvel, foi constatado que as características são be",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212949",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa Duplex Nº 31 C/ 91,26M²",
+    "modelo": "Aquiraz/CE",
+    "ano": 0,
+    "cidade": "Aquiraz/CE",
+    "lance_atual": 175000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28404_255868_A.webp",
+    "km": "",
+    "descricao": "Casa Duplex nº 31 c/ 92,8565m² (área privativa de 91,26m² e área comum de 1,5965m²), tipo A, Condomínio Residencial Vida Boa Orquídeas, Rua João de Castro, nº 705, Cabeceiras da Roça, Aquiraz/CE, Insc. Municipal sob o nº 110245, 2º CRI local sob nº 22.573. (Proc. 0001897-04.2024.5.07.0034 - VÚ de Eusébio) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Composto ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212947",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 1.050M²",
+    "modelo": "Aquiraz/CE",
+    "ano": 0,
+    "cidade": "Aquiraz/CE",
+    "lance_atual": 150000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28392_254718_A.webp",
+    "km": "",
+    "descricao": "Terreno c/ área de 1.050m², lotes nº 24 e 25, da quadra “A”, situado no lugar Prainha, outrora Morrinho ou Barra do Catú, desmembramento Alto da Prainha, localizado do lado ímpar da Rodovia CE-210, Aquiraz/CE. 2º CRI local sob nº 12.137. (Proc. 0000938-39.2023.5.07.0011 - 11ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs: As benfeitorias não est",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212951",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa C/ 76,18M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 95000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28397_253625_A.webp",
+    "km": "",
+    "descricao": "Casa c/ 76,18m², localizada na parte térrea de construção duplex, Rua Copérnico, n° 444, Messejana, Fortaleza/CE. Inscrita na PMF sob o n° 653.431-7, CRI local sob nº 68.341. (Proc. 0000189-41.2022.5.07.0016 - 16ªVT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) ATENÇÃO: No cotejamento entre a proposta à vista e parcelada, essa deverá ser no mínimo de 2",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212952",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa C/ 150M²",
+    "modelo": "Caucaia/CE",
+    "ano": 0,
+    "cidade": "Caucaia/CE",
+    "lance_atual": 90000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28384_253515_A.webp",
+    "km": "",
+    "descricao": "Casa c/ aprox. 150m², terreno c/ 204m², situado no Parque Deodato (Pacheco), Caucaia/CE. CRI local sob nº 2.724. (Proc. 0160800-39.2001.5.07.0004 - 4ªVT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Casa tem uma pequena sala, cozinha, dois quartos, dois banheiros e uma varanda grande em “L”. Localizada na Rua Escritor Antônio Abuchaim, nº 325, co",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212954",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sala N° 901 C/ 35,30M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 75000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28386_252631_A.webp",
+    "km": "",
+    "descricao": "Sala n° 901 c/ 35,30m², 9° Andar, Edifício C. Rolim, Rua Dr. Pedro Borges, n° 30, Centro, Fortaleza/CE. 2º CRI local sob n° 3.097. (Proc. 0266700-08.2001.5.07.0005 - 5ª VT de Fortaleza/CE) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: DÉBITOS CONDOMINIAIS QUITADO ATÉ A DATA DE 20/08/2025 (ID 6FI547E) ATENÇÃO: No cotejamento entre a proposta à vista e parcelada",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212955",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Unidade N° 204 C/ 48M²",
+    "modelo": "Itapipoca/CE",
+    "ano": 0,
+    "cidade": "Itapipoca/CE",
+    "lance_atual": 70000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28388_585131_A.webp",
+    "km": "",
+    "descricao": "Unidade n° 204 c/ 48m², localizado na Rua Frei Cassiano, nº 739, Boa vista, Itapipoca/CE. (Proc. 0000993-48.2013.5.07.0008 - 8ªVT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Com sala, dois quartos, um banheiro social, cozinha e área de serviço. Obs.: No despacho de ID 462587 está consignado que o imóvel não possui matrícula e, portanto, na hipó",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212957",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "equipamentos",
+    "icone": "⚙️",
+    "marca": "Tv'S E Refrigeradores",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 40508.19,
+    "fipe_valor": 30000,
+    "fipe_str": "R$ 30,000 (ref. mercado)",
+    "classificacao": "❌ RUIM",
+    "foto": "",
+    "km": "",
+    "descricao": "Lote c/ TV LG 65, 65UH7650, Led Smart, 4K; 02 TVs LG 70, 70UK6540PSA, Led Smart, 4K.; TV Samsung 75, UN75TU8000, Led Smart, 4K; 02 TVs Samsung 75, UN75MU7000, Led Smart, 4K; 02 TVs Samsung 65, QN65Q8CAM, Qled Smart 4K; 02 TVs Samsung 75, QN75Q8CAM, Qled Smart 4K.; Ref. Samsung 536l, Inox French Door, 127V, FFree; Ref. Brastemp, 573l, Evox Inverse Maxi Frost free; 02 Ref. Eletrolux, 454L, Inox FFre",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "RUIM",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212973",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento Nº 203-A C/ 41,97M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 30000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28387_251918_A.webp",
+    "km": "",
+    "descricao": "Apartamento nº 203-A c/ 43,95m² (área privativa/parcial de 41.97m² e área comum de 1,9783m²), pavimento superior do Bloco A, Residencial Independência, Rua Guararema, n°401, Bairro Granja Lisboa, Fortaleza/CE. 3º CRI local sob nº 79.503. (Proc. 0000955-90.2023.5.07.0006 - 6ª VT de Fortaleza) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) OBS: NÃO POSSUI DÉBITOS CONDO",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212958",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 200M²",
+    "modelo": "Pacatuba/CE",
+    "ano": 0,
+    "cidade": "Pacatuba/CE",
+    "lance_atual": 15000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_25393_125470_A.jpg",
+    "km": "",
+    "descricao": "Terreno c/ 200m², lote nº 01, da quadra nº 01, Senador Pompeu, nº 912, Condomínio Bairro Verde, Pavuna, Pacatuba/CE. CRI local sob nº 1575. (Proc. 0000343-18.2016.5.07.0033 - 2ª VT de Maracanaú) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.¹: O terreno está encravado no bairro pajuçara, município de pacatuba, e corresponde a um loteamento denominado condomínio ",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212959",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "M. Benz",
+    "modelo": "M Polo Torino Gvu",
+    "ano": 2008,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 13500.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_19301_290568_A.jpg",
+    "km": "",
+    "descricao": "Ônibus M.Benz/M Polo Torino GVU, 2007/2008, cor predominante branca, diesel, placa HYT-9912. O veículo estava em regular estado de conservação, sem os pneus dianteiros, porém sem funcionamento, necessitando reparos mecânicos. (Proc. 0000142-04.2021.5.07.0016 - 16ª VT de Fortaleza) ENDEREÇO: Rua Escrivão Azevedo, 55, Cidade dos Funcionários, Fortaleza/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212961",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "M.Benz",
+    "modelo": "I Mpolo Torino Gvu",
+    "ano": 2008,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 11250.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_19298_289461_A.jpg",
+    "km": "",
+    "descricao": "M.BENZ/I MPOLO TORINO GVU, ônibus passageiro, 2007/2008, cor predominante azul, diesel, placa HYY-2642, em ruim estado de conservação, faltando um dos pneus, com a lataria apresentando início de pontos de ferrugem, porém o motor e caixa de marchas estavam abertos e à mostra, sem condições de funcionamento, necessitando reparos mecânicos. (Proc. 0000142-04.2021.5.07.0016 - 16ª VT de Fortaleza) ENDE",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212962",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Ford",
+    "modelo": "Ecosport Xls 1.6 Flex",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 11250.0,
+    "fipe_valor": 30421.0,
+    "fipe_str": "R$ 30.421,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_24504_250569_A.webp",
+    "km": "",
+    "descricao": "Ford/Ecosport XLS 1.6 FLEX, placa HYN-6234, corbege metálico. (Proc. 0001046-71.2023.5.07.0010 - 10ª VT de Fortaleza) LOCALIZAÇÃO DO BEM: AV. CARAPINIMA, N° 1751, BENFICA, FORTALEZA - CE. OBS: O VEÍCULO ENCONTRA-SE NO DEPÓSITO JUDICIAL DO LEILOEIRO IVES HARRISSON NASAR DOS SANTOS",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212963",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "equipamentos",
+    "icone": "⚙️",
+    "marca": "Empilhadeira",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 10500.0,
+    "fipe_valor": 60000,
+    "fipe_str": "R$ 60,000 (ref. mercado)",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/equipamentos/196x146/E_12350_243372_A.webp",
+    "km": "",
+    "descricao": "Empilhadeira HYSTER HSOFT, amarela. (Proc. 0000315-39.2018.5.07.0014 - 14ª VT de Fortaleza) LOCALIZAÇÃO DO BEM: RUA CORONEL DIONÍSIO ALENCAR, 16, MESSEJANA, FORTALEZA/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212975",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "R",
+    "modelo": "Vicr Vt01",
+    "ano": 2010,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 10350.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_24503_250586_A.webp",
+    "km": "",
+    "descricao": "Reboque, R/VICR VT01, placa NVE-8305, ano 2010. (Proc. 0001046-71.2023.5.07.0010 - 10ª VT de Fortaleza) LOCALIZAÇÃO DO BEM: AV. CARAPINIMA, N° 1751, BENFICA, FORTALEZA - CE. OBS: O VEÍCULO ENCONTRA-SE NO DEPÓSITO JUDICIAL DO LEILOEIRO IVES HARRISSON NASAR DOS SANTOS",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212964",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Nissan",
+    "modelo": "Versa 1-6 Sc",
+    "ano": 2016,
+    "cidade": "Canindé/CE",
+    "lance_atual": 10200.0,
+    "fipe_valor": 78675.0,
+    "fipe_str": "R$ 78.675,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_24505_250121_A.webp",
+    "km": "",
+    "descricao": "Nissan/Versa 1-6 SC, 2015/2016, placa PMP-2161, cor branca, com pintura desgastada, boa conservação interna, bateria descarregada, não podendo atestar funcionamento do motor. (Proc. 0000240-06.2018.5.07.0012 - 12ª VT de Fortaleza) OBS: O ARREMATANTE PEGARÁ O VEÍCULO NO PÁTIO DA EMPRESA QUE GUARDA VEÍCULOS APREENDIDOS PELA PRF (AUTO RESGATE MONTEIRO). LOCALIZAÇÃO DO BEM: RUA LUIS BALBINO, 2417, BEL",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212965",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "equipamentos",
+    "icone": "⚙️",
+    "marca": "07 Máquinas Industriais Costura De Calçados",
+    "modelo": "Irauçuba/CE",
+    "ano": 0,
+    "cidade": "Irauçuba/CE",
+    "lance_atual": 9800.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "07 Máquinas Industriais de costura de calçados. (Proc. 0002344-40.2025.5.07.0039 - VÚ de São Gonçalo do Amarante) OBS: OS BENS SERÃO ENTREGUES NO ESTADO QUE SE ENCONTRAM. LOCALIZAÇÃO DO BEM: RUA LUCAS BATISTA MOTA,155, BAIRRO ESPERANÇA, EM FRENTE AO PRÉ-MOLDADO BARBOSA, IRAUÇUBA/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212976",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "equipamentos",
+    "icone": "⚙️",
+    "marca": "Maquina De Corte Mecânica P/ Moldura",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 9100.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/equipamentos/196x146/E_12353_242977_A.webp",
+    "km": "",
+    "descricao": "Maquina de corte mecânica para moldura estreita 380 volts trifásica, marca bramold, modelo mcbr - 300 - ME, sem exaustor, capacidade de corte 75 mm(l) x 80mm(a), escala em inox, acompanha 1 batente móvel, prolongador esquerdo e direito de 1 metro. ( Proc. 0000218-83.2025.5.07.0017 - 17ª VT de Fortaleza) LOCALIZAÇÃO DO BEM: RUA VINTE E CINCO DE MARÇO, 375, CENTRO, FORTALEZA/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212977",
+    "data_leilao": "2026-09-16T09:03",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Fazenda C/ 133,98 Hectares",
+    "modelo": "Catunda/CE",
+    "ano": 0,
+    "cidade": "Catunda/CE",
+    "lance_atual": 300000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Fazenda c/ 133,98 hectares, c/ todas as benfeitorias e servidões existentes, denominado Passagem, Catunda/CE. Cadastrado na Receita Federal de n. 7.564.168-2. INCRA 149.063.000.612-1. CRI local sob o n° 449. (Proc. 0000080-49.2014.8.06.0189) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: O Lance Mínimo foi calculado considerando os termos do Art. 843, do CPC/20",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99292/lote/216798",
+    "data_leilao": "2026-09-17T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "motos",
+    "icone": "🏍️",
+    "marca": "Honda",
+    "modelo": "Nxr 150 Bros Mix Es",
+    "ano": 2010,
+    "cidade": "Aiuaba/CE",
+    "lance_atual": 4500.0,
+    "fipe_valor": 10734.0,
+    "fipe_str": "R$ 10.734,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "",
+    "km": "",
+    "descricao": "Honda/NXR 150 Bros Mix ES, placa NRC-2914/CE, ano de fabricação/modelo 2010/2010, cor laranja, flex, em estado de conservação regular. (Proc. 0000237-72.2018.8.06.0030) LOCALIZAÇÃO DO BEM: Rua Armando de Matos Arraes, s/n°, Centro, Aiuaba/CE.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97490/lote/215975",
+    "data_leilao": "2026-09-17T16:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Casa",
+    "modelo": "Madalena/CE",
+    "ano": 0,
+    "cidade": "Madalena/CE",
+    "lance_atual": 43799.1,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27351_955409_A.webp",
+    "km": "",
+    "descricao": "Casa medindo 5,00 metros de frente por 22,00 metros de fundos, Rua Simone Aparecida Rocha, nº 116, Bairro São José, Madalena/CE. (Proc. 0000886-36.2019.8.06.0116) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) A casa é constituída de duas salas, dois quartos, um corredor, uma cozinha e um banheiro, construída de alvenaria de tijolos de barro, com piso lajotado, pared",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99249/lote/216061",
+    "data_leilao": "2026-09-17T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "caminhoes",
+    "icone": "🚛",
+    "marca": "Chevrolet",
+    "modelo": "S10 Lt Dd4A",
+    "ano": 2019,
+    "cidade": "Acopiara/CE",
+    "lance_atual": 106017.1,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_22425_594343_B.webp",
+    "km": "",
+    "descricao": "CHEVROLET/S10 LT DD4A, placa P**-**93, cor branca, 2018/2019, diesel. (Proc. 0014407-28.2013.8.06.0029) (O VEÍCULO PODE SER PARCELADO COM 30% DE ENTRADA E O RESTANTE EM ATÉ 10 MESES - MEDIANTE APRESENTAÇÃO DE CAUÇÃO) LOCALIZAÇÃO DO BEM: Rua José Pereira, 606, Acopiara/CE. Obs.: P/ ver placa e demais dados do veículo, consulte o edital.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99251/lote/216064",
+    "data_leilao": "2026-09-17T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Fiat",
+    "modelo": "Cronos Drive",
+    "ano": 2019,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 38468.5,
+    "fipe_valor": 64012.0,
+    "fipe_str": "R$ 64.012,00",
+    "classificacao": "⚠️ MEDIANO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_22426_205231_C.webp",
+    "km": "",
+    "descricao": "I/FIAT CRONOS DRIVE 1.3, placa P**-**61, cor branca, 2018/2019, álcool/gasolina. (Proc. 0014407-28.2013.8.06.0029) (O VEÍCULO PODE SER PARCELADO COM 30% DE ENTRADA E O RESTANTE EM ATÉ 10 MESES - MEDIANTE APRESENTAÇÃO DE CAUÇÃO) LOCALIZAÇÃO DO BEM: Rua Osvaldo Cruz, 918, apto. 201, Meireles, Fortaleza/CE. Obs.: P/ ver placa e demais dados do veículo, consulte o edital.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "BOA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99251/lote/216063",
+    "data_leilao": "2026-09-17T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sítio C/ 61,4 Hectares",
+    "modelo": "Quixadá/CE",
+    "ano": 0,
+    "cidade": "Quixadá/CE",
+    "lance_atual": 70000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28507_755637_A.webp",
+    "km": "",
+    "descricao": "Sítio c/ 61,4 hectares, terras de criar e plantar, casas, açude, bem como quaisquer outras benfeitorias existentes, Gleba “B”, denominado “Cachoeira”, situado no distrito de Cipó dos Anjos, Quixadá/CE. Cadastrado no INCRA sob nº 153 036 023 329 e 153 036 023 353, 2º CRI local sob nº 3.272. (Proc. 0002266-48.2003.8.06.0151) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESE",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97491/lote/214209",
+    "data_leilao": "2026-09-18T16:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Sítio C/ 75,83 Hectares",
+    "modelo": "Icó/CE",
+    "ano": 0,
+    "cidade": "Icó/CE",
+    "lance_atual": 100676.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_13647_590404_A.jpg",
+    "km": "",
+    "descricao": "Sítio c/ 75,83 hectares, localizado no Sítio Caiçara, Icó/CE, CRI n° 2.930. (Proc. 0014736-12.2017.8.06.0090) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) BENFEITORIAS NÃO AVERBADAS: Aproximadamente 2.500 metros de cerca com 04 fios, em regular estado de conservação.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99312/lote/216871",
+    "data_leilao": "2026-09-18T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento C/ 79,15M²",
+    "modelo": "Fortaleza/CE",
+    "ano": 0,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 180000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27967_827328_B.webp",
+    "km": "",
+    "descricao": "Apartamento n° 104 c/ 79,15m², 1° andar do Bloco A, Edifício Condomínio Bene VI, Rua 04, denominação não oficial, n° 101, Bairro São Geraldo, Fortaleza/CE, 3ª CRI n° 015719.2.0041607-94 (antiga 41.607). (Proc. 0004737-39.2008.4.05.8100) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 30 MESES) Obs.: Conforme Auto de Avaliação, a denominação atual da via é Rua Maria Mirian F. de",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99319/lote/216888",
+    "data_leilao": "2026-09-18T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "carros",
+    "icone": "🚗",
+    "marca": "Renault",
+    "modelo": "Logan Aut 1.0 16V",
+    "ano": 2012,
+    "cidade": "Fortaleza/CE",
+    "lance_atual": 8500.0,
+    "fipe_valor": 21800.0,
+    "fipe_str": "R$ 21.800,00",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/veiculos/196x146/V_23984_766432_B.webp",
+    "km": "",
+    "descricao": "RENAULT/LOGAN AUT 1.0 16V, álcool/gasolina, 2011/2012, cor bege, placa OCK-5596. (Proc. 0015523-55.2002.4.05.8100) Obs.: O veículo se encontra no seguinte estado de conservação: rodas (bom), pintura (regular), estofamento (regular), bateria (bom), painel de instrumentos (bom), sistema de ignição (bom), motor (bom), escapamento (bom), buzina (bom), retrovisores (regular), piscas e lanternas (regula",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "OTIMA",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99319/lote/216887",
+    "data_leilao": "2026-09-18T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Conjunto De 5 Prédios Comerciais C/ 3.150 M²",
+    "modelo": "Orós/CE",
+    "ano": 0,
+    "cidade": "Orós/CE",
+    "lance_atual": 254805.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_28524_839304_A.webp",
+    "km": "",
+    "descricao": "PRÉDIOS COMERCIAIS DO TIPO GALPÕES - Travessa Eliba, nº 215, na cidade de Orós/CE, com área total de 3.150 m². Matrícula do Bem: 39 A imagem tem fins apenas ilustrativos. Sobre PARCELAMENTO (ATÉ EM 60 MESES), caso tenha interesse, entrar em contato com o leiloeiro para consultar a possibilidade no referido imóvel. Para acesso à descrição completa como Auto de Penhora/RGI e outras informações compl",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98948/lote/214269",
+    "data_leilao": "2026-10-05T08:00",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Edificação",
+    "modelo": "SOBRAL/CE",
+    "ano": 0,
+    "cidade": "SOBRAL/CE",
+    "lance_atual": 249900.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_27471_323957_A.jpg",
+    "km": "",
+    "descricao": "Terreno c/ 238m², Rua Othon de Alencar, nº 3809, Centro, esquina com a Rua Oriano Mendes e Avenida Dr. Guarany, Sobral/CE, CRI local n° 13959. (Proc. 0000639-78.2023.5.07.0038) Informações complementares: Conforme as fotos anexadas ao laudo de avaliação, verifica-se a existência de uma edificação no imóvel descrito.",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97130/lote/207213",
+    "data_leilao": "2026-10-05T16:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Apartamento C/ 87,99M²",
+    "modelo": "Aurora/CE",
+    "ano": 0,
+    "cidade": "Aurora/CE",
+    "lance_atual": 250000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "",
+    "km": "",
+    "descricao": "Apartamento c/ área construída de 87,99m², pavimento superior (1º andar), situado na Rua Cel. Xavier, nº 124 - A, Centro, Aurora/CE. 2º CRI local sob o nº 4.167. (Proc. 0005332-21.2016.8.06.0041) (O IMÓVEL PODE SER PARCELADO COM 25% DE ENTRADA E O RESTANTE EM ATÉ 12 MESES) Obs.: Apartamento c/ varanda, uma porta e um janelão em frente, com uma sala, dois quartos, dois banheiros, copa/cozinha, área",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97492/lote/216079",
+    "data_leilao": "2026-10-06T15:30",
+    "scraped_at": "2026-09-04T18:04"
+  },
+  {
+    "fonte": "francisco_freitas",
+    "categoria": "imoveis",
+    "icone": "🏠",
+    "marca": "Terreno C/ 403M²",
+    "modelo": "Aurora/CE",
+    "ano": 0,
+    "cidade": "Aurora/CE",
+    "lance_atual": 90000.0,
+    "fipe_valor": 0,
+    "fipe_str": "Sem referência",
+    "classificacao": "Sem referência",
+    "foto": "https://s3-sa-east-1.amazonaws.com/906de634c48fb7d34136160b4c353ae4/public/fotos/imoveis/196x146/I_8842_900970_A.jpg",
+    "km": "",
+    "descricao": "Terreno c/ área total de 403m², situado na Rua Projetada (antiga Rua Bela Vista), Bairro Araçá, Aurora/CE. 2º CRI sob nº R.7 - 3.933. (Proc. 0005332-21.2016.8.06.0041) O pagamento poderá ser parcelado nas seguintes condições: - O arrematante deverá pagar para bens arrematados entre R$ 20.000,01 e R$ 50.000,00, entrada de 25% (vinte e cinco por cento) e o restante parcelado em no máximo 6 (seis) pr",
+    "estado": "NAO_INFORMADO",
+    "estado_selo": "⚪ Não informado",
+    "oportunidade": "INSPECIONAR",
+    "uso_sugerido": "verificar presencialmente",
+    "positivos": [],
+    "negativos": [],
+    "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
+    "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97492/lote/216080",
+    "data_leilao": "2026-10-06T15:30",
+    "scraped_at": "2026-09-04T18:04"
   }
 ]
