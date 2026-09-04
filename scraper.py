@@ -2159,7 +2159,9 @@ def _raspar_soleon(base, fonte, vistos):
         if zenrows_key:
             yield "Zenrows", _ZENROWS_API_URL, {"apikey": zenrows_key, "url": url}
         if scraperapi_key:
-            yield "ScraperAPI", _SCRAPERAPI_API_URL, {"api_key": scraperapi_key, "url": url}
+            yield "ScraperAPI", _SCRAPERAPI_API_URL, {
+                "api_key": scraperapi_key, "url": url, "keep_headers": "true",
+            }
         yield "direto", url, None
 
     def _get(url):
