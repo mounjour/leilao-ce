@@ -64,8 +64,8 @@ div[class*="st-key-fav_"] button {
     border: 1px solid var(--lce-primary) !important;
     box-shadow: none !important;
     width: 100% !important;
-    height: auto !important;
-    min-height: 44px !important;
+    height: 100% !important;
+    min-height: 58px !important;
     padding: 6px 12px !important;
     border-radius: 8px !important;
     color: #ffffff !important;
@@ -113,6 +113,25 @@ div[class*="st-key-fav_"] button:hover {
   display:inline-block; background:#fef3c7; color:#92400e;
   padding:3px 8px; border-radius:12px; font-size:11px; font-weight:600;
   margin-bottom:4px;
+}
+
+/* Bloco de preço (Lance atual / FIPE-Referência) no card de lote. */
+.price-row { display:flex; gap:20px; margin:2px 0 6px; }
+.price-block { flex:1; min-width:0; }
+.price-label {
+  font-size:12.5px; font-weight:600; color:var(--lce-muted);
+  margin-bottom:4px;
+}
+.price-value {
+  font-size:28px; font-weight:800; color:var(--lce-text);
+  line-height:1.15; letter-spacing:-0.02em;
+}
+.price-old {
+  font-size:19px; font-weight:600; color:var(--lce-muted);
+  text-decoration:line-through; line-height:1.3;
+}
+.price-unavailable {
+  font-size:14px; font-style:italic; color:var(--lce-muted);
 }
 
 .ia-box {
@@ -323,6 +342,19 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
    no rodapé, desalinhando os botões entre os cards de uma mesma linha. */
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child {
     margin-top: auto !important;
+    align-items: stretch !important;
+}
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child > div[data-testid="stColumn"] {
+    display: flex !important;
+    flex-direction: column !important;
+}
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] > div {
+    flex: 1 !important;
 }
 
 /* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
@@ -343,14 +375,14 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
 
 .orientation-box {
     margin: 8px 0;
-    padding: 8px 12px;
-    background: color-mix(in srgb, var(--orientation-color) 12%, var(--lce-surface));
-    border-left: 3px solid var(--orientation-color);
-    border-radius: 6px;
+    padding: 12px 14px;
+    background: color-mix(in srgb, var(--orientation-color) 18%, var(--lce-surface));
+    border: 1px solid color-mix(in srgb, var(--orientation-color) 32%, transparent);
+    border-radius: 10px;
 }
 
 .orientation-box span {
-    color: color-mix(in srgb, var(--orientation-color) 78%, var(--lce-text));
+    color: color-mix(in srgb, var(--orientation-color) 82%, var(--lce-text));
     font-size: 13px;
     font-weight: 700;
 }
@@ -389,6 +421,12 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
 }
 .ia-box .ponto-neg {
     color: color-mix(in srgb, #ef4444 72%, var(--lce-text)) !important;
+}
+.ia-box .uso {
+    color: color-mix(in srgb, #db2777 72%, var(--lce-text)) !important;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .stMarkdown a {
@@ -1047,18 +1085,32 @@ def render_lotes(lotes_lista, key="main"):
                 st.caption(meta)
 
                 # Preços
-                col_l, col_f = st.columns(2)
                 if qtd > 1:
-                    col_l.markdown(f"**Lance total**\n\n### R$ {lance:,.0f}")
-                    col_f.markdown(f"**Por unidade**\n\n### R$ {lance/qtd:,.0f}")
+                    st.markdown(
+                        f"<div class='price-row'>"
+                        f"<div class='price-block'><div class='price-label'>Lance total</div>"
+                        f"<div class='price-value'>R$ {lance:,.0f}</div></div>"
+                        f"<div class='price-block'><div class='price-label'>Por unidade</div>"
+                        f"<div class='price-value'>R$ {lance/qtd:,.0f}</div></div>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
                     if fipe > 0:
                         st.caption(f"FIPE/Ref por unidade: R$ {fipe:,.0f}")
                 else:
-                    col_l.markdown(f"**Lance atual**\n\n### R$ {lance:,.0f}")
-                    if fipe > 0:
-                        col_f.markdown(f"**FIPE / Referência**\n\n~~R$ {fipe:,.0f}~~")
-                    else:
-                        col_f.markdown("**FIPE / Referência**\n\n*Indisponível*")
+                    fipe_html = (
+                        f"<div class='price-old'>R$ {fipe:,.0f}</div>" if fipe > 0
+                        else "<div class='price-unavailable'>Indisponível</div>"
+                    )
+                    st.markdown(
+                        f"<div class='price-row'>"
+                        f"<div class='price-block'><div class='price-label'>Lance atual</div>"
+                        f"<div class='price-value'>R$ {lance:,.0f}</div></div>"
+                        f"<div class='price-block'><div class='price-label'>FIPE / Referência</div>"
+                        f"{fipe_html}</div>"
+                        f"</div>",
+                        unsafe_allow_html=True,
+                    )
 
                 if desc_txt:
                     st.markdown(f"<p style='color:{desc_cor};font-weight:600;font-size:12px;margin:4px 0 8px'>{desc_txt}</p>", unsafe_allow_html=True)
@@ -1077,7 +1129,7 @@ def render_lotes(lotes_lista, key="main"):
                     if rec:
                         ia_html += f'<div class="rec">{rec}</div>'
                     if uso:
-                        ia_html += f'<div style="font-size:11px;color:#1d4ed8;font-weight:600;margin-bottom:6px">🎯 Uso sugerido: {uso}</div>'
+                        ia_html += f'<div class="uso">🎯 Uso sugerido: {uso}</div>'
                     for pt in pos[:2]:
                         ia_html += f'<div class="ponto-pos">✅ {pt}</div>'
                     for nt in neg[:2]:
@@ -1085,25 +1137,26 @@ def render_lotes(lotes_lista, key="main"):
                     ia_html += '</div>'
                     st.markdown(ia_html, unsafe_allow_html=True)
 
-                # Botão Google Calendar (quando há data disponível)
-                if _data:
-                    try:
-                        _dt    = datetime.fromisoformat(_data)
-                        _dt_e  = _dt + timedelta(hours=1)
-                        _ds    = _dt.strftime("%Y%m%dT%H%M00")
-                        _de    = _dt_e.strftime("%Y%m%dT%H%M00")
-                        _title = quote(f"{lote.get('marca','')} {lote.get('modelo','')} {lote.get('ano','')}")
-                        _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | Achadinhos & Leilões")
-                        _loc   = quote(lote.get('cidade',''))
-                        _cal   = (f"https://calendar.google.com/calendar/render?action=TEMPLATE"
-                                  f"&text={_title}&dates={_ds}/{_de}&details={_det}&location={_loc}")
-                        st.markdown(f"[📅 Salvar no Google Calendar]({_cal})")
-                    except:
-                        pass
-
-                col_link, col_fav = st.columns([3, 2])
-                _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha", "hastapublica": "HastaPública", "receita_sle": "Receita Federal", "francisco_freitas": "Francisco Freitas Leilões"}.get(lote.get("fonte",""), "Leilão")
-                col_link.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
+                # Rodapé: links (Calendário + Ver lote) empilhados à esquerda,
+                # botão Favoritar ocupando a altura das duas linhas à direita.
+                col_links, col_fav = st.columns([3, 2])
+                with col_links:
+                    if _data:
+                        try:
+                            _dt    = datetime.fromisoformat(_data)
+                            _dt_e  = _dt + timedelta(hours=1)
+                            _ds    = _dt.strftime("%Y%m%dT%H%M00")
+                            _de    = _dt_e.strftime("%Y%m%dT%H%M00")
+                            _title = quote(f"{lote.get('marca','')} {lote.get('modelo','')} {lote.get('ano','')}")
+                            _det   = quote(f"Lance: R$ {lance:,.0f} | {lote.get('cidade','')} | Achadinhos & Leilões")
+                            _loc   = quote(lote.get('cidade',''))
+                            _cal   = (f"https://calendar.google.com/calendar/render?action=TEMPLATE"
+                                      f"&text={_title}&dates={_ds}/{_de}&details={_det}&location={_loc}")
+                            st.markdown(f"[📅 Salvar no Google Calendar]({_cal})")
+                        except:
+                            pass
+                    _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha", "hastapublica": "HastaPública", "receita_sle": "Receita Federal", "francisco_freitas": "Francisco Freitas Leilões"}.get(lote.get("fonte",""), "Leilão")
+                    st.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
                 fav_label = f"**{heart}** Favoritar"
