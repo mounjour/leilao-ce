@@ -1,4 +1,28 @@
-# MGL Leilões — código reescrito, mas BLOQUEADO no runner (2026-09-02)
+# MGL Leilões — bloqueio do runner contornado via Zenrows (2026-09-04)
+
+> **Atualização 2026-09-04:** `_raspar_mgl` foi mudado pra abrir sua própria
+> sessão de browser remota na **Zenrows Scraping Browser**
+> (`p.chromium.connect_over_cdp("wss://browser.zenrows.com?apikey=...")`,
+> reaproveitando a `ZENROWS_API_KEY` que já existia pro Construbem/Daniel
+> Garcia) em vez do Chromium local (`p.chromium.launch(headless=True)`)
+> compartilhado com os outros scrapers Playwright. Motivo de precisar de uma
+> abordagem diferente da usada no Construbem: lá o bloqueio era só no fetch
+> HTTP (resolvido com proxy de URL simples via `_raspar_soleon`); aqui o
+> Cloudflare bloqueia a **navegação inteira** — a SPA não inicializa nem no
+> `goto` inicial — então só um proxy residencial na camada do próprio
+> navegador resolve. Avaliado e descartado dar fallback via ScraperAPI:
+> não tem produto de navegador remoto via CDP, só uma API HTTP stateless
+> (`render=true` + DSL de instruções), o que exigiria reescrever o scraper
+> inteiro num paradigma sem sessão persistente — não compensa pro MGL, que
+> hoje só tem imóvel no CE (decisão do dono do projeto: mesmo assim vale
+> investir, porque o problema era de código, e pode aparecer veículo no
+> futuro). Sem crédito/chave, o scraper faz bail limpo e não trava o resto
+> do run. **Ainda não validado num run real do GitHub Actions** — só
+> revisado por leitura de código.
+
+---
+
+# Histórico: código reescrito, mas BLOQUEADO no runner (2026-09-02)
 
 `_raspar_mgl` estava retornando 0 lotes e estourando `wait_for_selector`
 (`.dg-leiloes-item`, Timeout 30000ms) no GitHub Actions. **Reescrito em

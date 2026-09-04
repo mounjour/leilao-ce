@@ -54,7 +54,18 @@ STATUS (atualizado 2026-09-04):
   (ver MGL_SCRAPER_PENDENTE.md). Construbem/Daniel Garcia = mesmo muro;
   Zenrows sem crédito (402) e ScraperAPI com timeout nos runs de 2026-09-02.
   Sodré Santoro investigado em 2026-08-31 e descartado: pátios só em SP/PR,
-  sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md).
+  sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md). MGL destravado em
+  2026-09-04: `_raspar_mgl` agora abre sua própria sessão via Zenrows
+  Scraping Browser (`p.chromium.connect_over_cdp("wss://browser.zenrows.com?apikey=...")`,
+  reaproveita `ZENROWS_API_KEY`) em vez do Chromium local — o Cloudflare
+  bloqueava a navegação inteira (SPA não inicializava) a partir do IP do
+  GitHub Actions, não só o fetch, por isso o proxy simples de URL do
+  Construbem não servia aqui. Sem fallback ScraperAPI (não tem produto de
+  navegador remoto via CDP, só HTTP stateless com `render=true` — reescrever
+  pra isso não compensa pro volume/prioridade do MGL). Se `ZENROWS_API_KEY`
+  faltar ou a conexão falhar, faz bail limpo (mensagem clara, sem travar o
+  resto do scraper). Ainda não testado num run real do GitHub Actions — ver
+  MGL_SCRAPER_PENDENTE.md.
 - IA (Anthropic): créditos esgotados nos runs de 2026-09-02 — circuit breaker
   desliga a análise e usa fallback "Não informado" em todos os lotes.
 - Favoritos: pronto, sincronizando com Supabase (upsert por user_id,lote_url).
@@ -89,11 +100,14 @@ BACKLOG:
   Copart (login obrigatório + anti-bot agressivo), VIP Leilões (venda
   direta, não leilão), freitasleiloeiro.com.br de Santo André/SP (não
   confundir com o Francisco Freitas — quase zero CE).
-- MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
-  (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
-  Depende de recarregar crédito Zenrows/ScraperAPI.
-- Recarregar crédito Zenrows/ScraperAPI (destrava MGL + Construbem +
-  Daniel Garcia de uma vez) e crédito Anthropic (destrava a análise de IA).
+- MGL: FEITO (2026-09-04) — `_raspar_mgl` roteado pela Zenrows Scraping
+  Browser (`connect_over_cdp`), não pelo padrão de proxy de URL do
+  _raspar_soleon (esse não bastava pro MGL, que precisa da navegação
+  inteira passando pelo proxy, não só o fetch). Falta validar num run real
+  do GitHub Actions. Ver STATUS e MGL_SCRAPER_PENDENTE.md.
+- Recarregar crédito Anthropic (destrava a análise de IA). Zenrows/ScraperAPI
+  já em uso nos planos de entrada (dono do projeto confirmou em 2026-09-04
+  que preço não é uma preocupação aqui).
 - stripe-webhook: endurecimento do fallback (phone/name), migration das
   colunas de cobrança, deploy da Edge Function e aplicação da migration
   CONCLUÍDOS em 2026-09-03 (ver STATUS). Nada pendente aqui.
