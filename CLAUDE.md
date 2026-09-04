@@ -4,10 +4,31 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-03):
+STATUS (atualizado 2026-09-04):
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões, Celso Cunha, HastaPública e Receita Federal (SLE) implementados.
-  Receita Federal adicionada em 2026-09-03 (_raspar_receita_sle): leilão de
+  MJ Leilões, Celso Cunha, HastaPública, Receita Federal (SLE) e Francisco
+  Freitas Leilões implementados. Francisco Freitas adicionada em 2026-09-04
+  (_raspar_francisco_freitas): leiloeiro forte no Nordeste, plataforma
+  "Norte Nordeste Leilões" (nortenordesteleiloes.com.br == mesmo backend de
+  franciscofreitasleiloes.com.br). MAIOR fonte já integrada: 91 lotes CE
+  ativos na investigação (12 veículos, 60 imóveis, ~9 equipamentos), 77
+  mantidos após filtro de categoria. API JSON com campos estruturados
+  (nm_estado/nm_cidade prontos, sem regex de endereço) e lance real
+  (vl_lance) quando já tem gente lançando — melhor qualidade de dado das
+  fontes novas. O parâmetro estado= do endpoint get-leiloes NÃO filtra de
+  verdade (testado, sempre retorna os mesmos 75 leilões) — o filtro CE é
+  feito lote a lote via get-lotes. Site do leiloeiro está em migração
+  ("MUDANÇA DE SITE"), front-end quebrado, mas a API funciona normal; URL
+  do lote usa o padrão legado /leilao/index/leilao_id/X/lote/Y (pode não
+  renderizar até a migração terminar). NÃO confundir com o "Freitas
+  Leiloeiro" de Santo André/SP (mesmo sobrenome, leiloeiro diferente,
+  investigado e descartado — só 1 imóvel no CE, ainda em loteamento). Nota:
+  robots.txt do site desautoriza nominalmente crawlers de IA (ClaudeBot
+  incluso, bloco padrão Cloudflare "AI Bots"); User-agent:* é Allow:/ e o
+  scraper não se identifica como nenhum bot de IA (mesmo UA de navegador
+  das outras fontes) — registrado por transparência. Ver
+  FRANCISCO_FREITAS_ADICIONADO.md. Receita Federal adicionada em 2026-09-03
+  (_raspar_receita_sle): leilão de
   mercadoria apreendida, API JSON pública em www25.receita.fazenda.gov.br
   (.gov, sem Cloudflare/sessão, confirmado com curl cru). A DRF Fortaleza
   (edital "317900") cobre CE+PI+MA, então o filtro CE é por LOTE (exige
@@ -58,15 +79,16 @@ STATUS (atualizado 2026-09-03):
   push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
-- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO em 2026-09-03 —
-  HastaPública (grupo TJ-CE) e Receita Federal (SLE, edital Fortaleza)
-  implementadas. Ver STATUS, HASTAPUBLICA_ADICIONADO.md e
-  RECEITA_SLE_ADICIONADO.md. Candidatos avaliados e descartados por ora:
-  Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
+- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — HastaPública
+  (grupo TJ-CE), Receita Federal (SLE, edital Fortaleza) e Francisco Freitas
+  Leilões (91 lotes CE, maior fonte) implementadas. Ver STATUS,
+  HASTAPUBLICA_ADICIONADO.md, RECEITA_SLE_ADICIONADO.md e
+  FRANCISCO_FREITAS_ADICIONADO.md. Candidatos avaliados e descartados por
+  ora: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
   Cloudflare), Lopes Leilões (site sem Cloudflare mas dormente, zero lotes),
   Copart (login obrigatório + anti-bot agressivo), VIP Leilões (venda
-  direta, não leilão). Freitas Leiloeiro (ASP.NET raspável, SSL quebrado
-  contornável) ficou sem investigar — volume no CE não confirmado.
+  direta, não leilão), freitasleiloeiro.com.br de Santo André/SP (não
+  confundir com o Francisco Freitas — quase zero CE).
 - MGL: rotear /apiplugin/GetBusca e as páginas de lote pelo Zenrows/ScraperAPI
   (padrão de _raspar_soleon) — é a única saída, o IP do runner é bloqueado.
   Depende de recarregar crédito Zenrows/ScraperAPI.

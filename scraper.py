@@ -1773,6 +1773,184 @@ def _raspar_receita_sle(vistos):
 
     return lotes
 
+# ─── SCRAPER FRANCISCO FREITAS LEILÕES (plataforma "Norte Nordeste Leilões") ─
+# Leiloeiro Francisco Freitas — NÃO confundir com o "Freitas Leiloeiro" de
+# Santo André/SP (mesmo sobrenome, leiloeiro diferente; investigado e
+# descartado por ter só 1 imóvel no CE, ainda "em loteamento"). Este aqui é
+# forte no Nordeste: investigação em 2026-09-04 achou 91 lotes no CE ativos
+# (12 veículos, 60 imóveis, ~9 equipamentos), a maior fonte já adicionada.
+#
+# API JSON limpa (franciscofreitasleiloes.com.br == nortenordesteleiloes.com.br,
+# mesmo backend), sem Cloudflare/sessão — confirmado com curl cru. O site
+# está em migração ("MUDANÇA DE SITE") e a grade de leilões do front-end
+# está quebrada (JS com erro, "Carregando leilões..." nunca resolve), mas a
+# API por trás funciona normal.
+#
+# get-leiloes NÃO filtra de verdade por estado/tipo (parâmetros são
+# ignorados pelo backend — testado: mesmo total sempre, com ou sem
+# filtro). Por isso o scraper busca a lista COMPLETA de leilões ativos e
+# filtra lote a lote via get-lotes, que traz nm_estado/nm_cidade
+# estruturados — sem precisar caçar endereço em texto livre (diferente da
+# Receita Federal).
+_FF_BASE    = "https://www.franciscofreitasleiloes.com.br"
+_FF_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                             "AppleWebKit/537.36 (KHTML, like Gecko) "
+                             "Chrome/124.0.0.0 Safari/537.36",
+               "Accept": "application/json"}
+
+
+def _ff_get(url, timeout=20):
+    r = requests.get(url, headers=_FF_HEADERS, timeout=timeout)
+    r.raise_for_status()
+    return r.json()
+
+
+def _ff_get_lotes(leilao_id, timeout=20):
+    r = requests.post(f"{_FF_BASE}/core/api/get-lotes?leilao_id={leilao_id}",
+                      headers={**_FF_HEADERS, "Content-Type": "application/json"},
+                      data="{}", timeout=timeout)
+    r.raise_for_status()
+    return r.json()
+
+
+def _ff_num(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _ff_categoria(nm_categoria, nm_subcategoria, titulo):
+    cat = (nm_categoria or "").strip().lower()
+    sub = (nm_subcategoria or "").strip().lower()
+    if cat.startswith(("imó", "imo")):
+        return "imoveis"
+    if cat.startswith(("veí", "vei")):
+        if "moto" in sub:
+            return "motos"
+        if "caminh" in sub or "ônibus" in sub or "onibus" in sub or "reboque" in sub:
+            return "caminhoes"
+        return "carros"
+    if cat.startswith("bens divers"):
+        tl = (titulo or "").lower()
+        if any(p in tl for p in PALAVRAS_MAQUINA) or "máquina" in tl or "maquina" in tl or "equipamento" in tl:
+            return "equipamentos"
+    return ""   # semoventes / bens diversos genéricos (TV, combustível...) — fora de escopo
+
+
+def _ff_html_para_texto(h):
+    t = re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>', ' ', h or '')
+    t = re.sub(r'<[^>]+>', ' ', t)
+    return re.sub(r'\s+', ' ', html.unescape(t)).strip()
+
+
+def _ff_parse_veiculo(titulo):
+    """Título típico: 'MARCA/MODELO - ANO - Cidade/UF' ou 'MARCA/MODELO -
+    AA/AA - Cidade/UF' (ex.: 'Ford/Fiesta HÁ 1.5L SB - 2016 - Juazeiro do
+    Norte/CE', 'I/M.Benz 312D Sprinter M - 00/00 - Acopiara/CE'). Formato
+    bem próximo do padrão Soleon ('MARCA/MODELO - ANO: dddd') — reaproveita
+    _extrair_veiculo_de_titulo pra marca/modelo; só o ano é extraído aqui
+    (vem antes da cidade, sem rótulo "ANO:")."""
+    partes = re.split(r'\s+-\s+', titulo.strip())
+    nome_bruto = re.sub(r'^[IN]/', '', partes[0], flags=re.I) if partes else titulo
+    marca, modelo, _ = _extrair_veiculo_de_titulo(nome_bruto)
+
+    ano = 0
+    if len(partes) >= 2:
+        tok = partes[1]
+        m = re.fullmatch(r'(\d{4})', tok)
+        if m:
+            ano = int(m.group(1))
+        else:
+            m = re.fullmatch(r'(\d{2})/(\d{2})', tok)
+            if m and tok != '00/00':
+                yy = int(m.group(2))
+                corte_seculo = (datetime.now().year % 100) + 1
+                ano = (2000 if yy <= corte_seculo else 1900) + yy
+    return marca, modelo, ano
+
+
+def _raspar_francisco_freitas(vistos):
+    lotes = []
+    leilao_ids, pg = [], 1
+    while True:
+        try:
+            dados = _ff_get(f"{_FF_BASE}/core/api/get-leiloes?pg={pg}&itens_pagina=100")
+        except Exception as e:
+            print(f"⚠️ Francisco Freitas pg={pg}: {e}")
+            break
+        novos = [it["id"] for it in dados.get("items", []) if it["id"] not in leilao_ids]
+        leilao_ids += novos
+        if pg >= (dados.get("totalPages") or 1) or not novos:
+            break
+        pg += 1
+
+    if not leilao_ids:
+        print("⚠️ Francisco Freitas: nenhum leilão ativo")
+        return lotes
+
+    print(f"📡 Francisco Freitas | {len(leilao_ids)} leilão(ões) ativo(s) no Brasil")
+
+    for leilao_id in leilao_ids:
+        try:
+            resp = _ff_get_lotes(leilao_id)
+        except Exception as e:
+            print(f"  ⚠️ Francisco Freitas leilão {leilao_id}: {e}")
+            continue
+
+        for it in resp.get("items", []):
+            if (it.get("nm_estado") or "").upper() != "CE":
+                continue
+
+            lote_id = it.get("lote_id")
+            url_lote = f"{_FF_BASE}/leilao/index/leilao_id/{leilao_id}/lote/{lote_id}"
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+            try:
+                titulo    = it.get("nm_titulo_lote") or ""
+                categoria = _ff_categoria(it.get("nm_categoria"), it.get("nm_subcategoria"), titulo)
+                if not categoria:
+                    continue
+
+                cidade = f"{(it.get('nm_cidade') or '').strip()}/CE"
+
+                if categoria in ("carros", "motos", "caminhoes"):
+                    marca, modelo, ano = _ff_parse_veiculo(titulo)
+                else:
+                    nome = re.split(r'\s+-\s+', titulo.strip())[0]
+                    marca, modelo, ano = (nome.title()[:90] or "?"), cidade, 0
+
+                lance = (_ff_num(it.get("vl_lance")) or _ff_num(it.get("vl_lanceinicial"))
+                        or _ff_num(it.get("vl_lanceminimo")) or 0)
+                descricao = _ff_html_para_texto(it.get("nm_descricao"))[:400]
+                km = _extrair_km(descricao)
+
+                data_leilao = ""
+                m_dt = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})', it.get("dt_fechamento") or "")
+                if m_dt:
+                    data_leilao = f"{m_dt.group(1)}T{m_dt.group(2)}"
+
+                fotos = it.get("fotos") or []
+                foto  = fotos[0].get("nm_path_completo", "") if fotos else ""
+
+                icone = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise = _analisar_cached(url_lote, marca, modelo, ano,
+                                           descricao, km, lance, ref_val, categoria)
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [FranciscoFreitas/{categoria}] {marca} {modelo} "
+                      f"{ano} — R${lance:,.0f} | {classif} | {cidade}")
+                lotes.append(_lote_dict("francisco_freitas", categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str, classif, foto,
+                                        km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.1)
+            except Exception as e:
+                print(f"  ⚠️ Francisco Freitas lote {lote_id}: {e}")
+        time.sleep(0.2)
+
+    return lotes
+
 # ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
@@ -2625,7 +2803,7 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha + HastaPublica + ReceitaSLE\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + CelsoCunha + HastaPublica + ReceitaSLE + FranciscoFreitas\n")
     _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
@@ -2654,6 +2832,7 @@ def raspar_leiloes():
     lotes += _raspar_celso_cunha(vistos)
     lotes += _raspar_hastapublica(vistos)
     lotes += _raspar_receita_sle(vistos)
+    lotes += _raspar_francisco_freitas(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
