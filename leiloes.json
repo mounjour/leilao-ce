@@ -23,7 +23,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
     "data_leilao": "2026-09-08T12:12",
-    "scraped_at": "2026-09-04T20:40"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -49,7 +49,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-ltz-1.4-mecanico-(4p)/ano.2018/dd013add-c172-4fdf-82d4-cd30d1c23bbf",
     "data_leilao": "2026-09-08T12:14",
-    "scraped_at": "2026-09-04T20:40"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -75,7 +75,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
     "data_leilao": "2026-09-08T12:17",
-    "scraped_at": "2026-09-04T20:40"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -101,7 +101,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-ce-flex/ano.2007/03de7dcf-1d9b-4b85-a420-8ea1d78abd20",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -127,7 +127,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f45a3cad-a015-4e60-a39a-292606ff8d40",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -137,7 +137,7 @@
     "modelo": "Polo Track",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 20900.0,
+    "lance_atual": 21300.0,
     "fipe_valor": 68570.0,
     "fipe_str": "R$ 68.570,00",
     "classificacao": "✅ ÓTIMO",
@@ -153,7 +153,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-track-(4p)/ano.2024/980d90e9-9f10-4999-b0b4-2c6b5c55e028",
     "data_leilao": "2026-09-08T12:19",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -163,23 +163,23 @@
     "modelo": "208 Allure",
     "ano": 2018,
     "cidade": "Eusebio/CE",
-    "lance_atual": 0,
+    "lance_atual": 14400.0,
     "fipe_valor": 45184.0,
     "fipe_str": "R$ 45.184,00",
-    "classificacao": "Sem referência",
-    "foto": "",
+    "classificacao": "✅ ÓTIMO",
+    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788456450621_cd7e7333-7407-4cf6-b741-57162e4aeb31_media.webp",
     "km": "",
-    "descricao": "",
+    "descricao": "Recuperado de Seguradora",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "OTIMA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2018/8742c8f5-39cf-11f1-86d7-0242ac50004b",
-    "data_leilao": "2026-09-08T12:12",
-    "scraped_at": "2026-09-04T20:41"
+    "data_leilao": "2026-09-08T12:20",
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -205,7 +205,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/voyage-mb5-(4p)/ano.2019/ab1abedf-b5f5-45a9-a521-5da1fff7d67c",
     "data_leilao": "2026-09-08T12:22",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:26"
   },
   {
     "fonte": "leilo",
@@ -231,7 +231,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
     "data_leilao": "2026-09-08T12:25",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -257,7 +257,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei-flex-(4p)/ano.2019/8e74a4b2-a118-4e94-98c1-495946dae84c",
     "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T20:41"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -283,7 +283,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-lt-1.0l-(2p%2F4p)/ano.2012/55b261be-16d8-4723-acb4-4af453b84a4d",
     "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -309,7 +309,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/byd/song-pro-gs-dm-(4p)/ano.2025/f7c3dae2-8daa-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -335,7 +335,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:29",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -361,7 +361,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c/ano.2020/86a16c7c-928b-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:30",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -387,7 +387,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-08T12:31",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -413,7 +413,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/kia/picanto-ex3-(4p)/ano.2011/8fe10d04-7fa1-11f1-a78c-02420a000008",
     "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -439,7 +439,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/bmw/320i-sport-gp-flex/ano.2023/91d15efe-76fa-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:27"
   },
   {
     "fonte": "leilo",
@@ -465,7 +465,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:39",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -491,7 +491,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:39",
-    "scraped_at": "2026-09-04T20:42"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -517,7 +517,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at9-cabine-dupla/ano.2018/9f79b38a-8db4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:40",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -543,7 +543,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/kicks-play-adv/ano.2025/f9e97b3c-77ab-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:42",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -569,7 +569,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:45",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -595,7 +595,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/fiat/palio-fire-(4p%2F2p)/ano.2014/a3c09d2f-6665-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:56",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -621,7 +621,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-(4p)/ano.2013/130c3113-73c8-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-08T12:57",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:28"
   },
   {
     "fonte": "leilo",
@@ -631,23 +631,23 @@
     "modelo": "Clio Expression 10 16Vh",
     "ano": 2015,
     "cidade": "Eusebio/CE",
-    "lance_atual": 15000.0,
+    "lance_atual": 0,
     "fipe_valor": 13601.0,
     "fipe_str": "R$ 13.601,00",
-    "classificacao": "❌ RUIM",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788458431367_b7a623d9-3779-482f-aa52-2131c6823e4c_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Simule seu financiamento agora",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "RUIM",
+    "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/renault/clio-expression-10-16vh-(4p%2F2p)/ano.2015/4593901c-9afc-11f1-8e8a-02420a00000a",
-    "data_leilao": "2026-09-08T13:30",
-    "scraped_at": "2026-09-04T20:43"
+    "data_leilao": "2026-09-08T12:12",
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -657,7 +657,7 @@
     "modelo": "Novo Voyage Comfortline Mbv",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 26000.0,
+    "lance_atual": 26800.0,
     "fipe_valor": 42569.0,
     "fipe_str": "R$ 42.569,00",
     "classificacao": "⚠️ MEDIANO",
@@ -672,8 +672,8 @@
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/volkswagen/novo-voyage-comfortline-mbv-(4p)/ano.2017/ac0a96ee-8788-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-08T13:57",
-    "scraped_at": "2026-09-04T20:43"
+    "data_leilao": "2026-09-08T13:58",
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -699,7 +699,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/nissan/kicks-sl-cvt/ano.2019/d170d89f-561b-11f1-8cef-02420a000008",
     "data_leilao": "2026-09-09T12:30",
-    "scraped_at": "2026-09-04T20:43"
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -725,7 +725,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/chevrolet/onix--ltz-1.4-automatico-(4p)/ano.2019/8a93d740-9813-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T12:30",
-    "scraped_at": "2026-09-04T20:44"
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -735,23 +735,23 @@
     "modelo": "Creta Attitude 1.6 Automatico",
     "ano": 2019,
     "cidade": "Eusebio/CE",
-    "lance_atual": 44900.0,
+    "lance_atual": 0,
     "fipe_valor": 81236.0,
     "fipe_str": "R$ 81.236,00",
-    "classificacao": "⚠️ MEDIANO",
-    "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788437887546_5c7f14ff-b73c-4b51-8d98-f34ba7b0658b_media.webp",
+    "classificacao": "Sem referência",
+    "foto": "",
     "km": "",
-    "descricao": "Recuperado de Financiamento",
+    "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "BOA",
+    "oportunidade": "INSPECIONAR",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/creta-attitude-1.6-automatico/ano.2019/0c9f5494-8b6f-11f1-bba6-02420a00000f",
-    "data_leilao": "2026-09-09T12:31",
-    "scraped_at": "2026-09-04T20:44"
+    "data_leilao": "2026-09-08T12:12",
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -777,7 +777,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-comfortline-(4p)/ano.2017/7963b1f2-6a82-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-09T12:31",
-    "scraped_at": "2026-09-04T20:44"
+    "scraped_at": "2026-09-05T10:29"
   },
   {
     "fonte": "leilo",
@@ -787,7 +787,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6500.0,
+    "lance_atual": 7100.0,
     "fipe_valor": 17107.0,
     "fipe_str": "R$ 17.107,00",
     "classificacao": "✅ ÓTIMO",
@@ -803,7 +803,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/fz15-fazer-abs/ano.2025/af5811f0-2527-11f1-a639-02420a000005",
     "data_leilao": "2026-09-08T12:36",
-    "scraped_at": "2026-09-04T20:44"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -829,7 +829,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-125i-factor-ed/ano.2024/c0e9f75b-bf24-11f0-a1d0-0242ac500062",
     "data_leilao": "2026-09-09T12:38",
-    "scraped_at": "2026-09-04T20:44"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -855,7 +855,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/haojue/jtz%2Fnex-115/ano.2024/2e2963e6-593c-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-09T13:03",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -881,7 +881,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2025/2c6e2627-9e2d-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:06",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -907,7 +907,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/xy125-6a/ano.2025/4a979bb3-9e2a-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:08",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -933,7 +933,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/biz-es/ano.2025/ee4aab61-9e28-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:10",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -943,7 +943,7 @@
     "modelo": "Cg 160 Start",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 9100.0,
+    "lance_atual": 9500.0,
     "fipe_valor": 16330.0,
     "fipe_str": "R$ 16.330,00",
     "classificacao": "⚠️ MEDIANO",
@@ -959,7 +959,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2024/c57ff908-964d-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:13",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:30"
   },
   {
     "fonte": "leilo",
@@ -969,7 +969,7 @@
     "modelo": "Xy125 6A",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4300.0,
+    "lance_atual": 4500.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -985,7 +985,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-50q/xy125-6a/ano.2024/c66a40bf-52d1-11f1-8cef-02420a000008",
     "data_leilao": "2026-09-09T13:15",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1011,7 +1011,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/jincheng/avelloz-az-125/ano.2025/913a24af-971b-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:18",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1037,7 +1037,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/bull/basham-bm-t-180/ano.2025/cf1a53d7-8476-11f1-959d-02420a00000e",
     "data_leilao": "2026-09-09T13:21",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1063,7 +1063,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/cg-160-start/ano.2018/69ca61d6-a154-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:21",
-    "scraped_at": "2026-09-04T20:45"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1089,7 +1089,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2026/07945114-9804-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:31",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1099,7 +1099,7 @@
     "modelo": "Xre 300 Abs",
     "ano": 2021,
     "cidade": "Eusebio/CE",
-    "lance_atual": 15500.0,
+    "lance_atual": 16100.0,
     "fipe_valor": 27436.0,
     "fipe_str": "R$ 27.436,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1115,7 +1115,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/xre-300-abs/ano.2021/50a1a149-9a44-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:32",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1141,7 +1141,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/crosser-z-abs/ano.2025/f3d08901-9805-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:33",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1167,7 +1167,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/ybr-150-factor/ano.2025/7c7430cf-9802-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:34",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1193,7 +1193,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray/shi-175/ano.2025/b7307c30-9a75-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:35",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:31"
   },
   {
     "fonte": "leilo",
@@ -1219,7 +1219,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/9f213e9e-9bec-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-09T13:36",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1229,7 +1229,7 @@
     "modelo": "Nxr 160 Bros Cbs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 15200.0,
+    "lance_atual": 15500.0,
     "fipe_valor": 23218.0,
     "fipe_str": "R$ 23.218,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1245,7 +1245,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/nxr-160-bros-cbs/ano.2025/6ce90144-8ced-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-09T13:42",
-    "scraped_at": "2026-09-04T20:46"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1271,7 +1271,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-shi-175/ku-xun-tq/ano.2025/c8713a4d-2f3f-11f0-9f79-02420a000005",
     "data_leilao": "2026-09-09T13:44",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1281,7 +1281,7 @@
     "modelo": "Honda Cb300F Twister Cbs",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 13800.0,
+    "lance_atual": 14100.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -1297,7 +1297,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/honda-cb300f-twister-cbs/ano.2024/822165c0-4b9a-11f0-b593-02420a000005",
     "data_leilao": "2026-09-09T13:45",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1323,7 +1323,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/yamaha-ybr150-factor/ano.2025/256c2295-a868-11f0-bcb1-02420a000005",
     "data_leilao": "2026-09-09T13:47",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1349,7 +1349,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/haojian-avelloz-az1/ano.2025/1cbce5c4-c545-11f0-a1d0-0242ac500062",
     "data_leilao": "2026-09-09T13:48",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1359,7 +1359,7 @@
     "modelo": "Shineray 50Q",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 4500.0,
+    "lance_atual": 4700.0,
     "fipe_valor": 0,
     "fipe_str": "Marca não encontrada",
     "classificacao": "Sem referência",
@@ -1375,7 +1375,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/nome-padrao/shineray-50q/ano.2026/970ed0d0-ca2a-11f0-913b-02420a000005",
     "data_leilao": "2026-09-09T13:48",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1401,7 +1401,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/xre-190-se/ano.2024/db64b1fa-8b87-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-09T13:52",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:32"
   },
   {
     "fonte": "leilo",
@@ -1427,7 +1427,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/yamaha/yzf-r-15-abs/ano.2024/d847482d-a22b-11f1-9a18-02420a000006",
     "data_leilao": "2026-09-09T13:58",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1437,7 +1437,7 @@
     "modelo": "Pcx 150 Dlx",
     "ano": 2017,
     "cidade": "Eusebio/CE",
-    "lance_atual": 7300.0,
+    "lance_atual": 7700.0,
     "fipe_valor": 13018.0,
     "fipe_str": "R$ 13.018,00",
     "classificacao": "⚠️ MEDIANO",
@@ -1453,7 +1453,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/honda/pcx-150-dlx/ano.2017/7cf301c1-9844-11ef-9088-02420a0000e0",
     "data_leilao": "2026-09-09T13:59",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1479,7 +1479,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/motos/shineray-xy125-6a/xy150-8/ano.2025/c21a68ac-7180-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-09T14:00",
-    "scraped_at": "2026-09-04T20:47"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1505,7 +1505,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
     "data_leilao": "2026-09-08T12:20",
-    "scraped_at": "2026-09-04T20:48"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1515,7 +1515,7 @@
     "modelo": "Eclipse Cr Hpesb Awd",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 57500.0,
+    "lance_atual": 57800.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -1531,7 +1531,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/mitsubishi/eclipse-cr-hpesb-awd/ano.2026/2da4a8f9-665f-48b2-98c3-855e53ebb998",
     "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T20:48"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1557,7 +1557,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/utilitarios/fiat/fiorino-hard-working-e/ano.2020/86478bf2-8474-11f1-959d-02420a00000e",
     "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T20:48"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1583,7 +1583,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/peugeot/207-passion-xs-(4p)/ano.2012/752a3331-3ad2-11ef-b7fa-02420a00001f",
     "data_leilao": "2026-09-08T12:51",
-    "scraped_at": "2026-09-04T20:48"
+    "scraped_at": "2026-09-05T10:33"
   },
   {
     "fonte": "leilo",
@@ -1609,7 +1609,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://leilo.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2014/d9a706dd-bb13-11f0-ae59-02420a000008",
     "data_leilao": "2026-09-08T12:51",
-    "scraped_at": "2026-09-04T20:48"
+    "scraped_at": "2026-09-05T10:34"
   },
   {
     "fonte": "mega",
@@ -1635,7 +1635,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/veiculos/carros/ce/fortaleza/carro-volkswagen-fox-20092010-j127929",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1661,7 +1661,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-74-m2-lameirao-maranguape-ce-x128670",
     "data_leilao": "2026-09-08T11:15",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1687,7 +1687,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/missao-velha/casa-72-m2-loteamento-conquista-aeroporto-missao-velha-ce-x128671",
     "data_leilao": "2026-09-08T11:16",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1713,7 +1713,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/horizonte/apartamento-78-m2-unid-804-l-mal-cozinhado-horizonte-ce-x128675",
     "data_leilao": "2026-09-08T11:20",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1739,7 +1739,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-86-m2-guajeru-fortaleza-ce-x128684",
     "data_leilao": "2026-09-08T11:29",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1765,7 +1765,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-professora-maria-geli-sa-barreto-juazeiro-do-norte-ce-x128692",
     "data_leilao": "2026-09-08T11:37",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1791,7 +1791,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/iguatu/casa-77-m2-vila-brasilia-iguatu-ce-x128701",
     "data_leilao": "2026-09-08T11:46",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1817,7 +1817,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/paracuru/casa-em-condominio-79-m2-unid-08-centro-paracuru-ce-x128712",
     "data_leilao": "2026-09-08T11:57",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1843,7 +1843,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/maranguape/casa-99-m2-mirante-de-serra-maranguape-ce-x128721",
     "data_leilao": "2026-09-08T12:05",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1869,7 +1869,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/aquiraz/casa-96-m2-patacas-aquiraz-ce-x128730",
     "data_leilao": "2026-09-08T12:14",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1895,7 +1895,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/juazeiro-do-norte/casa-120-m2-campo-alegre-juazeiro-do-norte-ce-x128775",
     "data_leilao": "2026-09-08T12:55",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1921,7 +1921,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/itaitinga/apartamento-47-m2-01-vaga-gererau-itaitinga-ce-x128912",
     "data_leilao": "2026-09-14T10:04",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1947,7 +1947,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-95-m2-area-construida-benfica-fortaleza-ce-x128918",
     "data_leilao": "2026-09-14T10:08",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1973,7 +1973,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/fortaleza/casa-131-m2-henrique-jorge-fortaleza-ce-x128929",
     "data_leilao": "2026-09-14T10:15",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -1999,7 +1999,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/casas/ce/iguatu/casa-60-m2-vila-santo-antonio-iguatu-ce-x128853",
     "data_leilao": "2026-09-14T10:31",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2025,7 +2025,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-41-m2-01-vaga-vila-peri-fortaleza-ce-x128855",
     "data_leilao": "2026-09-14T10:32",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2051,7 +2051,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-23-m2-unid-1212-centro-fortaleza-ce-x128866",
     "data_leilao": "2026-09-14T10:43",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2077,7 +2077,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-19-m2-unid-1301-do-edificio-general-tiburcio-centro-fortaleza-ce-x128952",
     "data_leilao": "2026-09-14T11:27",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2103,7 +2103,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/imoveis-comerciais/ce/fortaleza/sala-comercial-25-m2-unid-803-do-edificio-general-tiburcio-centro-fortaleza-ce-x128953",
     "data_leilao": "2026-09-14T11:28",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2129,7 +2129,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/fortaleza/apartamento-47-m2-fortaleza-ce-rua-amancio-pereira-55-apto-806-passare-x128540",
     "data_leilao": "2026-09-16T15:12",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "mega",
@@ -2155,7 +2155,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.megaleiloes.com.br/imoveis/apartamentos/ce/maranguape/direitos-sobre-apartamento-41-m2-novo-maranguape-ii-maranguape-ce-j128068",
     "data_leilao": "2026-09-24T11:30",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "pacto",
@@ -2181,7 +2181,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/3008-griffe-thp/ano.2016/13885201-0fcf-4c7f-ab0e-ad324a1a3489",
     "data_leilao": "2026-09-08T12:12",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:49"
   },
   {
     "fonte": "pacto",
@@ -2207,7 +2207,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/prisma-ltz-1.4-mecanico-(4p)/ano.2018/dd013add-c172-4fdf-82d4-cd30d1c23bbf",
     "data_leilao": "2026-09-08T12:14",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2233,7 +2233,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-gli-flex-(4p)/ano.2011/17dc572e-fa1a-48ef-b038-e4623a989516",
     "data_leilao": "2026-09-08T12:17",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2259,7 +2259,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/strada-fire-ce-flex/ano.2007/03de7dcf-1d9b-4b85-a420-8ea1d78abd20",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2285,7 +2285,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20s-unique-(4p)/ano.2019/f45a3cad-a015-4e60-a39a-292606ff8d40",
     "data_leilao": "2026-09-08T12:18",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2295,7 +2295,7 @@
     "modelo": "Polo Track",
     "ano": 2024,
     "cidade": "Eusebio/CE",
-    "lance_atual": 20900.0,
+    "lance_atual": 21300.0,
     "fipe_valor": 68570.0,
     "fipe_str": "R$ 68.570,00",
     "classificacao": "✅ ÓTIMO",
@@ -2311,7 +2311,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/polo-track-(4p)/ano.2024/980d90e9-9f10-4999-b0b4-2c6b5c55e028",
     "data_leilao": "2026-09-08T12:19",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2337,7 +2337,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-allure-(4p)/ano.2018/8742c8f5-39cf-11f1-86d7-0242ac50004b",
     "data_leilao": "2026-09-08T12:20",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2363,7 +2363,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/pesados/mercedes-benz/atego-1419-cl/ano.2024/1152c40a-bde7-4f24-8d25-3f6ed4a173a7",
     "data_leilao": "2026-09-08T12:20",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2389,7 +2389,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volkswagen/voyage-mb5-(4p)/ano.2019/ab1abedf-b5f5-45a9-a521-5da1fff7d67c",
     "data_leilao": "2026-09-08T12:22",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2415,7 +2415,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/peugeot/208-griffe-(4p)/ano.2017/3ecf2efc-b52a-42ed-9b9c-4c4d3c62c061",
     "data_leilao": "2026-09-08T12:25",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2425,7 +2425,7 @@
     "modelo": "Eclipse Cr Hpesb Awd",
     "ano": 2026,
     "cidade": "Eusebio/CE",
-    "lance_atual": 57500.0,
+    "lance_atual": 57800.0,
     "fipe_valor": 0,
     "fipe_str": "Sem referência",
     "classificacao": "Sem referência",
@@ -2441,7 +2441,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/mitsubishi/eclipse-cr-hpesb-awd/ano.2026/2da4a8f9-665f-48b2-98c3-855e53ebb998",
     "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2467,7 +2467,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/toyota/corolla-xei-flex-(4p)/ano.2019/8e74a4b2-a118-4e94-98c1-495946dae84c",
     "data_leilao": "2026-09-08T12:26",
-    "scraped_at": "2026-09-04T21:04"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2493,7 +2493,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/chevrolet/celta-lt-1.0l-(2p%2F4p)/ano.2012/55b261be-16d8-4723-acb4-4af453b84a4d",
     "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2519,7 +2519,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/byd/song-pro-gs-dm-(4p)/ano.2025/f7c3dae2-8daa-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:28",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2545,7 +2545,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-automatico/ano.2019/06f70af1-86c4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:29",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2571,7 +2571,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/ford/ka-se-c/ano.2020/86a16c7c-928b-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:30",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2597,7 +2597,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/renault/logan-expression-(4p)/ano.2017/30489b2f-8148-11f1-b885-02420a00000b",
     "data_leilao": "2026-09-08T12:32",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2607,7 +2607,7 @@
     "modelo": "Fz15 Fazer Abs",
     "ano": 2025,
     "cidade": "Eusebio/CE",
-    "lance_atual": 6500.0,
+    "lance_atual": 7100.0,
     "fipe_valor": 17107.0,
     "fipe_str": "R$ 17.107,00",
     "classificacao": "✅ ÓTIMO",
@@ -2623,7 +2623,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/motos/yamaha/fz15-fazer-abs/ano.2025/af5811f0-2527-11f1-a639-02420a000005",
     "data_leilao": "2026-09-08T12:37",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2649,7 +2649,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/kia/picanto-ex3-(4p)/ano.2011/8fe10d04-7fa1-11f1-a78c-02420a000008",
     "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2675,7 +2675,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/utilitarios/fiat/fiorino-hard-working-e/ano.2020/86478bf2-8474-11f1-959d-02420a00000e",
     "data_leilao": "2026-09-08T12:38",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2701,7 +2701,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/bmw/320i-sport-gp-flex/ano.2023/91d15efe-76fa-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:39",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2727,7 +2727,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/creta-1-ta-comfort/ano.2025/a7fdae06-5eb1-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:39",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2753,7 +2753,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at6-cabine-dupla/ano.2021/c0bdb012-76f9-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:40",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:50"
   },
   {
     "fonte": "pacto",
@@ -2779,7 +2779,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/toro-freedom-at9-cabine-dupla/ano.2018/9f79b38a-8db4-11f1-bba6-02420a00000f",
     "data_leilao": "2026-09-08T12:41",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2805,7 +2805,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/nissan/kicks-play-adv/ano.2025/f9e97b3c-77ab-11f1-87e3-02420a000009",
     "data_leilao": "2026-09-08T12:43",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2831,7 +2831,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/volvo/xc90-t8-ultimate/ano.2024/2a22a8e1-9286-11f1-8e8a-02420a00000a",
     "data_leilao": "2026-09-08T12:46",
-    "scraped_at": "2026-09-04T21:05"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2857,7 +2857,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/peugeot/207-passion-xs-(4p)/ano.2012/752a3331-3ad2-11ef-b7fa-02420a00001f",
     "data_leilao": "2026-09-08T12:52",
-    "scraped_at": "2026-09-04T21:06"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2868,22 +2868,22 @@
     "ano": 2014,
     "cidade": "Eusebio/CE",
     "lance_atual": 2100.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
+    "fipe_valor": 70593.0,
+    "fipe_str": "R$ 70.593,00",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788456667457_34a9ee77-f51c-4c42-9037-2f9b87ca1a20_pequena_pacto.webp",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "OTIMA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/sucatas/hyundai/hb20-comfort-(4p)/ano.2014/d9a706dd-bb13-11f0-ae59-02420a000008",
     "data_leilao": "2026-09-08T12:52",
-    "scraped_at": "2026-09-04T21:06"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2894,22 +2894,22 @@
     "ano": 2014,
     "cidade": "Eusebio/CE",
     "lance_atual": 8900.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
+    "fipe_valor": 39102.0,
+    "fipe_str": "R$ 39.102,00",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788456030434_f129d72b-6e4a-41bd-a7f2-fda5fd2c949c_pequena_pacto.webp",
     "km": "53.781 km",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "OTIMA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/fiat/palio-fire-(4p%2F2p)/ano.2014/a3c09d2f-6665-11f1-99e0-02420a00000a",
     "data_leilao": "2026-09-08T12:57",
-    "scraped_at": "2026-09-04T21:06"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "pacto",
@@ -2920,22 +2920,22 @@
     "ano": 2013,
     "cidade": "Eusebio/CE",
     "lance_atual": 12000.0,
-    "fipe_valor": 0,
-    "fipe_str": "FIPE indisponível",
-    "classificacao": "Sem referência",
+    "fipe_valor": 40488.0,
+    "fipe_str": "R$ 40.488,00",
+    "classificacao": "✅ ÓTIMO",
     "foto": "https://leilo.cdndp.com.br/v1/arquivo/2026/9/3/1788456031091_a533b6ed-244a-4ca5-83f0-ab6c0f73d63b_pequena_pacto.webp",
     "km": "",
     "descricao": "",
     "estado": "NAO_INFORMADO",
     "estado_selo": "⚪ Não informado",
-    "oportunidade": "INSPECIONAR",
+    "oportunidade": "OTIMA",
     "uso_sugerido": "verificar presencialmente",
     "positivos": [],
     "negativos": [],
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.pactoleiloes.com.br/leilao/eusebio-ceara/carros/hyundai/hb20-(4p)/ano.2013/130c3113-73c8-11f1-b7a7-02420a000006",
     "data_leilao": "2026-09-08T12:58",
-    "scraped_at": "2026-09-04T21:06"
+    "scraped_at": "2026-09-05T10:51"
   },
   {
     "fonte": "montenegro",
@@ -2961,7 +2961,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103230",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -2987,7 +2987,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103231",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3013,7 +3013,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103232",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3039,7 +3039,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103233",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3065,7 +3065,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103234",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3091,7 +3091,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103235",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3117,7 +3117,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103236",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3143,7 +3143,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103237",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3169,7 +3169,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2661/lotes/103238",
     "data_leilao": "2026-09-10T10:00",
-    "scraped_at": "2026-09-04T21:07"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3195,7 +3195,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2663/lotes/103245",
     "data_leilao": "2026-09-11T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3221,7 +3221,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2666/lotes/103290",
     "data_leilao": "2026-09-11T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3247,7 +3247,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102170",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3273,7 +3273,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102347",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3299,7 +3299,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102353",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3325,7 +3325,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/102934",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3351,7 +3351,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2610/lotes/103080",
     "data_leilao": "2026-09-22T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3377,7 +3377,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102565",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3403,7 +3403,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102903",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3429,7 +3429,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102904",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:53"
   },
   {
     "fonte": "montenegro",
@@ -3455,7 +3455,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102932",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3481,7 +3481,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/102935",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3507,7 +3507,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103227",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3533,7 +3533,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103228",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3559,7 +3559,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2627/lotes/103229",
     "data_leilao": "2026-10-20T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3585,7 +3585,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103131",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T21:08"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3611,7 +3611,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103247",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "montenegro",
@@ -3637,7 +3637,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://montenegroleiloes.com.br/leiloes/2653/lotes/103248",
     "data_leilao": "2026-11-17T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3663,7 +3663,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1182/fiat-uno-evolution-1-4-cor-branca-combustivel-flex-ano-mod-2014-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3689,7 +3689,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1181/fiat-palio-fire-1-0-cor-branca-combustivel-flex-ano-mod-2014-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3715,7 +3715,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1180/fiat-strad-tecform-ambulancia-1-4-cor-branca-combustivel-flex-ano-mod-2011-2011-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3741,7 +3741,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1178/toyota-etios-hb-xs-1-5-cor-prata-combustivel-flex-ano-mod-2015-2015-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3767,7 +3767,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1179/fiat-siena-attractiv-1-4-cor-branca-combustivel-flex-ano-mod-2012-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3793,7 +3793,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1177/volkswagen-15-190-eod-esc-super-capacidade-57-passageiros-cor-amarela-combustivel-diesel-ano-mod-2009-2010-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3819,7 +3819,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1176/ford-cargo-1319-cor-prata-combustivel-diesel-ano-mod-2013-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3845,7 +3845,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1175/fiat-mobi-like-1-0-cor-branca-combustivel-flex-ano-mod-2017-2018-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3871,7 +3871,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1174/fiat-ducato-greencar-mo3-2-3-ambulancia-capacidade-8-passageiros-cor-branca-combustivel-diesel-ano-mod-2016-2017-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3897,7 +3897,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1173/retroescavadeira-jbc-3c-chassi-9b9214t74dbdt4663",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3923,7 +3923,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1172/mercedes-benz-sprinterm-313cdi-capacidade-16-passageiros-cor-branca-combustivel-diesel-ano-mod-2011-2012-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:54"
   },
   {
     "fonte": "mj",
@@ -3949,7 +3949,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1171/fiat-strad-modificar-ambulancia-1-4-capacidade-5-passageiro-cor-branca-combustivel-flex-ano-mod-2013-2013-dir-a-documento",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "mj",
@@ -3975,7 +3975,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1170/sucata-de-compressor-de-ar",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "mj",
@@ -4001,7 +4001,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1168/sucata-de-eletronica-televisao-fontes-de-computador-ventilador-impressoras-ar-condicionados-etc",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "mj",
@@ -4027,7 +4027,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1169/materiais-escolares-mesas-cadeiras",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "mj",
@@ -4053,7 +4053,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.mjleiloes.com.br/lote/1167/aparelhos-eletronicos-computadores-radios-caixa-de-som-impressoras-ar-condicionado-e-ventiladores",
     "data_leilao": "2026-09-14T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "hastapublica",
@@ -4079,7 +4079,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104457/x",
     "data_leilao": "2026-09-15T16:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "hastapublica",
@@ -4105,7 +4105,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104351/x",
     "data_leilao": "2026-09-22T16:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "hastapublica",
@@ -4131,7 +4131,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104459/x",
     "data_leilao": "2026-09-23T10:30",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "hastapublica",
@@ -4157,7 +4157,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.hastapublica.com.br/lote/104631/x",
     "data_leilao": "2026-10-02T14:30",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "receita_sle",
@@ -4183,7 +4183,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/38",
     "data_leilao": "2026-09-28T10:00",
-    "scraped_at": "2026-09-04T21:09"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "receita_sle",
@@ -4209,7 +4209,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/39",
     "data_leilao": "2026-09-28T10:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "receita_sle",
@@ -4235,7 +4235,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/40",
     "data_leilao": "2026-09-28T10:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "receita_sle",
@@ -4261,7 +4261,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/41",
     "data_leilao": "2026-09-28T10:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "receita_sle",
@@ -4287,7 +4287,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www25.receita.fazenda.gov.br/sle-sociedade/portal/edital/317900/3/2026/lote/42",
     "data_leilao": "2026-09-28T10:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4313,7 +4313,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/96358/lote/211350",
     "data_leilao": "2026-09-08T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4339,7 +4339,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98732/lote/213733",
     "data_leilao": "2026-09-08T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4365,7 +4365,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98836/lote/213963",
     "data_leilao": "2026-09-08T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4391,7 +4391,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98837/lote/213964",
     "data_leilao": "2026-09-08T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4417,7 +4417,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98838/lote/213965",
     "data_leilao": "2026-09-08T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4443,7 +4443,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/214890",
     "data_leilao": "2026-09-10T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4469,7 +4469,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/214891",
     "data_leilao": "2026-09-10T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4495,7 +4495,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/93956/lote/212829",
     "data_leilao": "2026-09-10T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4521,7 +4521,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98934/lote/214240",
     "data_leilao": "2026-09-10T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4547,7 +4547,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97278/lote/214900",
     "data_leilao": "2026-09-11T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4573,7 +4573,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98978/lote/214354",
     "data_leilao": "2026-09-11T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4599,7 +4599,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97715/lote/209459",
     "data_leilao": "2026-09-14T08:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4625,7 +4625,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97283/lote/214896",
     "data_leilao": "2026-09-14T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4651,7 +4651,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99140/lote/215212",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4677,7 +4677,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215223",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4703,7 +4703,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215222",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4729,7 +4729,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215221",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4755,7 +4755,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215220",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4781,7 +4781,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215219",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4807,7 +4807,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215218",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4833,7 +4833,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215217",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4859,7 +4859,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215216",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4885,7 +4885,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99141/lote/215215",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4911,7 +4911,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99143/lote/215225",
     "data_leilao": "2026-09-14T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4937,7 +4937,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99187/lote/215337",
     "data_leilao": "2026-09-15T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4963,7 +4963,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99187/lote/215338",
     "data_leilao": "2026-09-15T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -4989,7 +4989,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212927",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5015,7 +5015,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212928",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5041,7 +5041,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212929",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5067,7 +5067,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212942",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5093,7 +5093,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212931",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5119,7 +5119,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212932",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5145,7 +5145,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212933",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5171,7 +5171,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212935",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5197,7 +5197,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212936",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5223,7 +5223,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212948",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5249,7 +5249,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212938",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5275,7 +5275,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212941",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5301,7 +5301,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212943",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5327,7 +5327,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212944",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5353,7 +5353,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212945",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5379,7 +5379,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212946",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5405,7 +5405,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212949",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5431,7 +5431,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212947",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5457,7 +5457,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212951",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5483,7 +5483,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212952",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5509,7 +5509,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212954",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5535,7 +5535,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212955",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5561,7 +5561,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212957",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5587,7 +5587,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212973",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5613,7 +5613,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212958",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5639,7 +5639,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212959",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5665,7 +5665,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212961",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5691,7 +5691,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212962",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5717,7 +5717,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212963",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5743,7 +5743,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212975",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5769,7 +5769,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212964",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5795,7 +5795,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212965",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5821,7 +5821,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212976",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5847,7 +5847,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/94851/lote/212977",
     "data_leilao": "2026-09-16T09:03",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5873,7 +5873,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99292/lote/216798",
     "data_leilao": "2026-09-17T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5899,7 +5899,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97490/lote/215975",
     "data_leilao": "2026-09-17T16:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5925,7 +5925,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99249/lote/216061",
     "data_leilao": "2026-09-17T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5951,7 +5951,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99251/lote/216064",
     "data_leilao": "2026-09-17T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -5977,7 +5977,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99251/lote/216063",
     "data_leilao": "2026-09-17T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6003,7 +6003,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99354/lote/216963",
     "data_leilao": "2026-09-18T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6029,7 +6029,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97491/lote/214209",
     "data_leilao": "2026-09-18T16:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6055,7 +6055,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99312/lote/216871",
     "data_leilao": "2026-09-18T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6081,7 +6081,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99319/lote/216888",
     "data_leilao": "2026-09-18T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6107,7 +6107,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99319/lote/216887",
     "data_leilao": "2026-09-18T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6133,7 +6133,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99368/lote/217002",
     "data_leilao": "2026-09-21T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6159,7 +6159,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99368/lote/217001",
     "data_leilao": "2026-09-21T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6185,7 +6185,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/99368/lote/217000",
     "data_leilao": "2026-09-21T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6211,7 +6211,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/98948/lote/214269",
     "data_leilao": "2026-10-05T08:00",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6237,7 +6237,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97130/lote/207213",
     "data_leilao": "2026-10-05T16:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6263,7 +6263,7 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97492/lote/216079",
     "data_leilao": "2026-10-06T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   },
   {
     "fonte": "francisco_freitas",
@@ -6289,6 +6289,6 @@
     "avaliacao_plataforma": "Sem dados. Recomendamos inspeção antes do leilão.",
     "url": "https://www.franciscofreitasleiloes.com.br/leilao/index/leilao_id/97492/lote/216080",
     "data_leilao": "2026-10-06T15:30",
-    "scraped_at": "2026-09-04T21:10"
+    "scraped_at": "2026-09-05T10:55"
   }
 ]
