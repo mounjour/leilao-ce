@@ -848,6 +848,17 @@ def _numero(valor):
         return 0
 
 
+def _brl(valor):
+    """Formata um número como moeda brasileira: 241245 -> 'R$ 241.245,00'."""
+    try:
+        n = float(valor or 0)
+    except (TypeError, ValueError):
+        n = 0.0
+    # formata no padrão en_US (1,234,567.00) e troca os separadores pelo pt-BR
+    txt = f"{n:,.2f}".replace(",", "@").replace(".", ",").replace("@", ".")
+    return f"R$ {txt}"
+
+
 def _horario_execucao(valor):
     if not valor:
         return "Horário não informado"
@@ -1507,39 +1518,42 @@ with st.sidebar:
     f_cidade = st.selectbox("Cidade", cidades)
     f_marca  = st.multiselect("Marca", marcas, placeholder="Todas")
 
-    valores_lance = sorted(l["lance_atual"] for l in lotes if l["lance_atual"] > 0)
-    lance_teto = int(valores_lance[-1]) if valores_lance else 500000
-    if valores_lance:
-        # a régua do slider usa o p90 pra não esticar 35x por causa de 1 ou 2
-        # imóveis fora da curva — quem precisa de um valor maior digita no campo
-        idx_p90 = min(int(len(valores_lance) * 0.9), len(valores_lance) - 1)
-        lance_slider_max = max(int(valores_lance[idx_p90]), 100000)
-        lance_slider_max = -(-lance_slider_max // 1000) * 1000  # arredonda pra cima (múltiplo de 1000)
-    else:
-        lance_slider_max = 500000
-    lance_step = 500 if lance_slider_max <= 50000 else 1000
+    # Limites FIXOS do filtro de lance. Não dependem dos dados carregados, então
+    # o valor não "sobe sozinho" a cada scrape / reload da página. O slider vai
+    # sempre de 0 a R$ 1.000.000 e o campo aceita no máximo esse mesmo teto.
+    LANCE_MAX = 1_000_000          # teto definitivo do filtro
+    LANCE_STEP = 1_000
+    LANCE_PADRAO = LANCE_MAX       # valor inicial fixo (equivale a "sem limite")
 
     if "f_lance_num" not in st.session_state:
-        st.session_state["f_lance_num"] = lance_teto
+        st.session_state["f_lance_num"] = LANCE_PADRAO
     if "f_lance_slider" not in st.session_state:
-        st.session_state["f_lance_slider"] = min(lance_teto, lance_slider_max)
+        st.session_state["f_lance_slider"] = LANCE_PADRAO
+
+    # sanitiza valores herdados de sessões antigas (quando o teto era dinâmico)
+    st.session_state["f_lance_num"] = min(int(st.session_state["f_lance_num"]), LANCE_MAX)
+    st.session_state["f_lance_slider"] = min(int(st.session_state["f_lance_slider"]), LANCE_MAX)
 
     def _sync_lance_do_campo():
-        st.session_state["f_lance_slider"] = min(st.session_state["f_lance_num"], lance_slider_max)
+        st.session_state["f_lance_slider"] = min(st.session_state["f_lance_num"], LANCE_MAX)
 
     def _sync_lance_do_slider():
         st.session_state["f_lance_num"] = st.session_state["f_lance_slider"]
 
     st.number_input(
-        "Lance máximo (R$)", min_value=0, max_value=lance_teto, step=lance_step,
-        key="f_lance_num", on_change=_sync_lance_do_campo,
+        "Lance máximo (R$)", min_value=0, max_value=LANCE_MAX, step=LANCE_STEP,
+        format="%d", key="f_lance_num", on_change=_sync_lance_do_campo,
     )
     st.slider(
-        "Ajuste rápido", 0, lance_slider_max, step=lance_step,
+        "Ajuste rápido", 0, LANCE_MAX, step=LANCE_STEP,
         key="f_lance_slider", on_change=_sync_lance_do_slider,
         label_visibility="collapsed",
     )
-    f_lance = st.session_state["f_lance_num"]
+    f_lance = int(st.session_state["f_lance_num"])
+    if f_lance < LANCE_MAX:
+        st.caption(f"Filtrando lotes com lance até **{_brl(f_lance)}**")
+    else:
+        st.caption(f"Sem limite de lance (até **{_brl(LANCE_MAX)}**)")
 
     fil_hash = (f_cat, f_class, f_estado, f_cidade, tuple(f_marca), f_lance)
     if st.session_state.get("_fil_hash") != fil_hash:
@@ -1588,7 +1602,8 @@ if f_marca:             fil = [l for l in fil if l["marca"] in f_marca]
 if f_class != "Todas":  fil = [l for l in fil if f_class in l.get("classificacao","")]
 if f_estado != "Todos": fil = [l for l in fil if f_estado in l.get("estado_selo","")]
 if f_cidade != "Todas": fil = [l for l in fil if l.get("cidade") == f_cidade]
-fil = [l for l in fil if l["lance_atual"] <= f_lance]
+if f_lance < LANCE_MAX:  # no topo do slider o filtro fica desligado
+    fil = [l for l in fil if l["lance_atual"] <= f_lance]
 
 st.markdown("### 🚗 Monitor de Leilões — Ceará")
 st.caption(f"Análise com IA • Comparação com FIPE/mercado • {len(fil)} lotes exibidos")
