@@ -20,7 +20,7 @@ def test_whatsapp(phone: str):
         "Você receberá uma mensagem como esta sempre que o lance "
         "de um lote favoritado mudar. 🚗"
     )
-    ok = send_whatsapp(phone, msg)
+    ok = send_whatsapp(phone, msg, origem="teste")
     print("  ✓ Mensagem enviada!" if ok else "  ✗ Falhou — verifique as credenciais Evolution API")
     return ok
 
@@ -59,7 +59,7 @@ def test_alert_simulation(phone: str, favs: list):
     print(f"  Lance simulado: R$ {lance_fake:,.0f} → R$ {lance_atual:,.0f}")
 
     msg = build_message(lote, lance_fake, lance_atual)
-    ok = send_whatsapp(phone, msg)
+    ok = send_whatsapp(phone, msg, origem="teste")
     print("  ✓ Alerta simulado enviado!" if ok else "  ✗ Falhou")
 
 

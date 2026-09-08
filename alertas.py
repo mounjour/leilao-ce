@@ -4,6 +4,8 @@ import requests
 from supabase import create_client
 from dotenv import load_dotenv
 
+from whatsapp_log import registrar_falha
+
 load_dotenv()
 
 SUPABASE_URL         = os.getenv("SUPABASE_URL", "")
@@ -26,10 +28,47 @@ def _format_phone(phone: str) -> str:
     return digits
 
 
-def send_whatsapp(phone: str, message: str) -> bool:
+def _log_falha(
+    phone: str,
+    erro: str,
+    *,
+    origem: str,
+    user_id: str | None = None,
+    lote_url: str = "",
+    http_status: int | None = None,
+    corpo: str = "",
+) -> None:
+    """Registra a falha na tabela whatsapp_send_log (service role). Nunca levanta."""
+    try:
+        registrar_falha(
+            _sb(),
+            origem=origem,
+            telefone=phone,
+            lote_url=lote_url,
+            erro=erro,
+            http_status=http_status,
+            user_id=user_id,
+            corpo=corpo,
+        )
+    except Exception as e:
+        print(f"  [whatsapp_log] não foi possível registrar falha: {e}")
+
+
+def send_whatsapp(
+    phone: str,
+    message: str,
+    *,
+    origem: str = "alerta_lance",
+    user_id: str | None = None,
+    lote_url: str = "",
+) -> bool:
     number = _format_phone(phone)
     if not number or len(number) < 12:
         print(f"  Telefone inválido: {phone!r}")
+        _log_falha(
+            str(phone), f"telefone inválido: {phone!r}",
+            origem=origem, user_id=user_id, lote_url=lote_url,
+        )
         return False
     try:
         url = f"{EVOLUTION_URL}/message/sendText/{EVOLUTION_INSTANCE}"
@@ -39,9 +78,18 @@ def send_whatsapp(phone: str, message: str) -> bool:
         if r.status_code in (200, 201):
             return True
         print(f"  Evolution API erro {r.status_code}: {r.text[:200]}")
+        _log_falha(
+            number, f"Evolution API HTTP {r.status_code}",
+            origem=origem, user_id=user_id, lote_url=lote_url,
+            http_status=r.status_code, corpo=r.text,
+        )
         return False
     except Exception as e:
         print(f"  WhatsApp exception: {e}")
+        _log_falha(
+            number, str(e),
+            origem=origem, user_id=user_id, lote_url=lote_url,
+        )
         return False
 
 
@@ -124,7 +172,12 @@ def run():
             print(f"  Lance mudou: {url[:60]} | {old_lance:.0f} → {new_lance:.0f}")
             if phone:
                 msg = build_message(current_lot, old_lance, new_lance)
-                if send_whatsapp(phone, msg):
+                if send_whatsapp(
+                    phone, msg,
+                    origem="alerta_lance",
+                    user_id=fav["user_id"],
+                    lote_url=url,
+                ):
                     sent += 1
                     print(f"  ✓ Alerta enviado para {phone[:4]}***")
             else:
