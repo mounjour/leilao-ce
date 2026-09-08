@@ -48,6 +48,15 @@ jobs:
           SCRAPERAPI_KEY:    ${{ secrets.SCRAPERAPI_KEY }}
           ZENROWS_API_KEY:   ${{ secrets.ZENROWS_API_KEY }}
           PYTHONUNBUFFERED: '1'
+          # scraper_health.processar() alerta o dono se uma fonte ativa zerar.
+          # OWNER_WHATSAPP ausente = só ::warning:: no log, sem WhatsApp.
+          # SUPABASE_* são para o send_whatsapp registrar falha de envio.
+          EVOLUTION_API_URL:         ${{ secrets.EVOLUTION_API_URL }}
+          EVOLUTION_API_KEY:         ${{ secrets.EVOLUTION_API_KEY }}
+          EVOLUTION_INSTANCE:        ${{ secrets.EVOLUTION_INSTANCE }}
+          OWNER_WHATSAPP:            ${{ secrets.OWNER_WHATSAPP }}
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scraper.py
 
       - name: Verificar se leiloes.json foi gerado
@@ -71,6 +80,9 @@ jobs:
           # nunca teria dado nenhum pra mostrar (o runner do Actions e efemero).
           [ -f historico_tokens_ia.jsonl ] && git add historico_tokens_ia.jsonl
           [ -f analises_ia_cache.json ] && git add analises_ia_cache.json
+          # placar por fonte do health check (runner é efêmero — sem commit,
+          # a streak reinicia todo run e o alerta nunca dispara).
+          [ -f scraper_health.json ] && git add scraper_health.json
           if git diff --staged --quiet; then
             echo "Nenhuma mudança nos dados do scraper — pulando commit."
           else

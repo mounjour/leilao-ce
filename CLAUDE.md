@@ -28,6 +28,18 @@ STATUS (atualizado 2026-09-08):
   `raspar_leiloes()`; funcao e helpers mantidos como base. Reescrever estilo
   MGL (sessao propria) quando o site voltar a ter leilao. Ver
   CELSO_CUNHA_DORMENTE.md.
+- Health check do scraper (2026-09-08): novo `scraper_health.py`, chamado no
+  fim de `raspar_leiloes()` (best-effort, nunca derruba o run). Mantem um
+  placar por fonte em `scraper_health.json` (commitado junto do leiloes.json,
+  runner e efemero). Quando uma fonte de `FONTES_ATIVAS` (leilo/mega/pacto/
+  montenegro/mj/hastapublica/receita_sle/francisco_freitas) fica 3 runs
+  seguidos com 0 lote, loga `::warning::` e manda 1 WhatsApp pro dono via
+  `alertas.send_whatsapp(origem="scraper_health")`; re-alerta a cada ~14 runs
+  enquanto seguir zerada; zera ao voltar. `FONTES_ESPERADAS_ZERO`
+  (mgl/construbem/danielgarcia/celsocunha) sao rastreadas mas nunca alertam —
+  tirar de la quando uma voltar. Secret novo `OWNER_WHATSAPP` no passo "Rodar
+  scraper" do workflow (ausente = so `::warning::`, sem WhatsApp). NAO falha o
+  job de proposito. Testes: `tests/test_scraper_health.py` (10 casos).
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
