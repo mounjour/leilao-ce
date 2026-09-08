@@ -24,7 +24,8 @@ URLS = [(f"https://leilo.com.br/leilao/{c}-ceara/{cat}", cat)
 
 FIPE_API   = "https://parallelum.com.br/fipe/api/v1"
 cliente_ia = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-ICONES     = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠","equipamentos":"⚙️"}
+ICONES     = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
+              "equipamentos":"⚙️","eletronicos":"📱"}
 
 # ─── CATEGORIZAÇÃO REAL ───────────────────────────────────────────────────────
 PALAVRAS_MOTO = ['cg ','fan ','bros','titan','pcx','fazer','crosser','biz','lead',
@@ -130,7 +131,7 @@ def buscar_fipe(marca, modelo, ano, categoria):
 
 # ─── CLASSIFICAÇÃO ────────────────────────────────────────────────────────────
 def classificar(lance, ref, estado):
-    if estado in ["SINISTRADO","BATIDO","SUCATA"]: return "⚠️ INSPECIONAR"
+    if estado in ["SINISTRADO","BATIDO","SUCATA","DEFEITO"]: return "⚠️ INSPECIONAR"
     if ref == 0 or lance == 0: return "Sem referência"
     pct = (lance / ref) * 100
     if pct <= 50:   return "✅ ÓTIMO"
@@ -139,7 +140,7 @@ def classificar(lance, ref, estado):
 
 def oportunidade_preco(lance, ref, estado):
     """Calcula oportunidade sem consumir tokens e sempre usa o lance atual."""
-    if estado in ["SINISTRADO", "BATIDO", "SUCATA"]:
+    if estado in ["SINISTRADO", "BATIDO", "SUCATA", "DEFEITO"]:
         return "INSPECIONAR"
     if ref <= 0 or lance <= 0:
         return "INSPECIONAR"
@@ -268,18 +269,29 @@ def analisar(marca, modelo, ano, desc, km, lance, ref, categoria):
         _METRICAS_IA["sem_dados"] += 1
         return _FALLBACK_IA.copy()
 
-    try:
-        _METRICAS_IA["api_tentativas"] += 1
-        r = cliente_ia.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=220,
-            messages=[{"role":"user","content":f"""Analise somente o estado e os riscos deste item de leilão brasileiro.
+    if categoria == "eletronicos":
+        prompt = f"""Analise somente o estado e os riscos deste lote de eletrônico apreendido em leilão da Receita Federal do Brasil.
+Item: {marca} {modelo}.
+Descrição: {desc or 'sem descrição'}
+Não avalie lance, preço, valor de mercado, desconto ou ROI. Não invente defeitos ausentes da descrição.
+Considere sinais como: lacrado/novo x usado, "sem caixa"/"sem acessórios", origem estrangeira sem nota, risco de bloqueio de conta (iCloud, Google, MDM), e que a Receita não testa nem garante funcionamento.
+Responda apenas JSON:
+{{"estado":"LACRADO|USADO|DEFEITO|NAO_INFORMADO","selo":"📦 Lacrado|🔧 Usado|🔴 Com defeito|⚪ Não informado","uso_sugerido":"texto curto","positivos":["até 2"],"negativos":["até 2"],"avaliacao_plataforma":"1 frase objetiva"}}"""
+    else:
+        prompt = f"""Analise somente o estado e os riscos deste item de leilão brasileiro.
 Item: {marca} {modelo} {ano}; categoria: {categoria}; km: {km or 'não informado'}.
 Descrição: {desc or 'sem descrição'}
 Não avalie lance, preço, FIPE, desconto ou ROI. Não invente danos ausentes da descrição.
 Para recuperado de financiamento, recomende verificar restrições. Para caminhão ou equipamento, considere manutenção e vida útil.
 Responda apenas JSON:
-{{"estado":"BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO","selo":"🟢 Bom estado|🟡 Batido|🔴 Sinistrado|🔵 Rec. Financiamento|⚫ Sucata|⚪ Não informado","uso_sugerido":"texto curto","positivos":["até 2"],"negativos":["até 2"],"avaliacao_plataforma":"1 frase objetiva"}}"""}]
+{{"estado":"BOM|BATIDO|SINISTRADO|RECUPERADO_FINANCIAMENTO|SUCATA|NAO_INFORMADO","selo":"🟢 Bom estado|🟡 Batido|🔴 Sinistrado|🔵 Rec. Financiamento|⚫ Sucata|⚪ Não informado","uso_sugerido":"texto curto","positivos":["até 2"],"negativos":["até 2"],"avaliacao_plataforma":"1 frase objetiva"}}"""
+
+    try:
+        _METRICAS_IA["api_tentativas"] += 1
+        r = cliente_ia.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=220,
+            messages=[{"role":"user","content":prompt}]
         )
         _registrar_uso_ia(r)
         texto = r.content[0].text.strip()
@@ -1556,9 +1568,12 @@ def _raspar_hastapublica(vistos):
 # fechada (não tem lance ao vivo): "lance_atual" aqui é o valor mínimo de
 # venda, igual a MJ/CelsoCunha/HastaPública quando não há lance registrado.
 #
-# A maioria absoluta dos lotes de um edital é eletrônico (celular, TV etc.)
-# — fora do escopo de um monitor de veículo/imóvel/máquina. Só entram lotes
-# cujo "tipo" é veículo/máquina pesada; o resto nem baixa o detalhe.
+# Entram lotes de veículo/máquina pesada E de eletrônico (celular, áudio/vídeo,
+# informática, videogame) — categoria "eletronicos". Eletrônico não tem FIPE: a
+# referência de preço é o valorAvaliacao da própria RFB, quando existe. O filtro
+# CE do eletrônico é pelo recintoArmazenador (ver _rf_eletronico_ce), já que a
+# descrição do item não traz endereço. Ficam de fora têxtil, produto mineral/
+# químico, bazar e utensílio doméstico.
 _RF_BASE    = "https://www25.receita.fazenda.gov.br/sle-sociedade"
 _RF_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                              "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -1568,6 +1583,38 @@ _RF_CIDADE_EDITAL = "FORTALEZA"  # única unidade da RFB que fica no CE
 _RF_TIPO_RE = re.compile(
     r'CAMINH|[ÔO]NIBUS|VE[ÍI]CULO|AUTOM[ÓO]VEL|MOTOC|TRATOR|M[ÁA]QUINA|'
     r'REBOQUE|EMBARCA[ÇC][ÃA]O|EQUIPAMENTO', re.I)
+
+# Eletrônico apreendido (celular, TV, áudio/vídeo, informática, videogame). O
+# "." cobre a vogal acentuada venha ela como Ô/O ou como mojibake. Fica FORA
+# deste balde o "bazar"/"têxtil"/"mineral"/"químico" — sem valor de revenda
+# relevante pro produto.
+_RF_TIPO_ELETRONICO_RE = re.compile(
+    r'CELULAR|ELETR.NIC|.UDIO|V.DEO|INFORM.TICA|VIDEOGAME|'
+    r'COMPUTADOR|NOTEBOOK|TABLET|COMPONENTE ELETR', re.I)
+
+# Marcador de que o lote esta fisicamente em OUTRA UF (a DRF Fortaleza cobre
+# CE+PI+MA e o campo "cidade" do lote sempre diz FORTALEZA, entao o unico
+# sinal confiavel e o recinto armazenador / algum endereco no texto). Sem
+# nenhum destes = tratado como CE.
+_RF_NAO_CE_RE = re.compile(
+    r'S[ÃA]O\s+LU[ÍI]S|TERESINA|MARANH[ÃA]O|PIAU[ÍI]|'
+    r'/\s*MA\b|/\s*PI\b|\bIRF\s+PORTO\s+DE\s+S[ÃA]O', re.I)
+
+# Prefixo de tipo de produto no inicio da descricao do item de eletronico
+# ("SMARTPHONE APPLE IPHONE...", "TELEFONE CELULAR XIAOMI..."). Removido antes
+# de isolar marca/modelo, igual ao _RF_PREFIXO_RE dos veiculos.
+_RF_ELETRO_PREFIXO_RE = re.compile(
+    r'^\s*(?:SMARTPHONE|TELEFONE\s+CELULAR|CELULAR|SMARTWATCH(?:\s*\([^)]*\))?|'
+    r'REL[ÓO]GIO(?:\s+INTELIGENTE)?|FONE\s+DE\s+OUVIDO|CAIXA\s+DE\s+SOM|'
+    r'NOTEBOOK|COMPUTADOR|TABLET|MONITOR|TELEVISOR|TV|C[ÂA]MERA|'
+    r'CALCULADORA|DRONE|CONSOLE|VIDEOGAME)\s+', re.I)
+
+# Fim do nome do produto: a partir daqui e numero de serie / IMEI / pais de
+# origem / observacao, nao faz parte de marca+modelo.
+_RF_ELETRO_CORTE_RE = re.compile(
+    r'////|"|\bNS[:\-]|\bN[ºO]?\s*S[ÉE]RIE|\bIMEI|\bS/N\b|\bSERIAL|'
+    r'\bPA[ÍI]S[:\-]|\bORIGEM[:\-]|\bORIG\.?\s*ESTRANG|\bS/\s*ACESS|'
+    r'\bSEM\s+CAIXA|\bSEM\s+ACESS|\(RM|[-\s]\d{6,}', re.I)
 
 # Prefixo de tipo de veículo no início da descrição (formato de dump do
 # RENAVAM/DETRAN, ex.: "CAMINHAO VOLVO/VM 260 ...", "AUTOMOVEL DE PASSEIO
@@ -1609,7 +1656,58 @@ def _rf_categoria(tipo, marca, modelo):
     if ("TRATOR" in t or "MÁQUINA" in t or "MAQUINA" in t
             or "EQUIPAMENTO" in t or "EMBARCA" in t):
         return "equipamentos"
+    if _RF_TIPO_ELETRONICO_RE.search(tipo or ""):
+        return "eletronicos"
     return detectar_categoria(modelo, marca, "carros")
+
+
+def _rf_eletronico_ce(detalhe):
+    """CE para lote de eletrônico: os itens não têm endereço na descrição, e o
+    campo 'cidade' do lote é sempre a sede da DRF (FORTALEZA). O sinal real é o
+    recintoArmazenador. Retorna a cidade rotulada, ou "" se houver marcador de
+    outra UF (São Luís/MA, Teresina/PI). Sem marcador de fora = CE (o edital é
+    da DRF Fortaleza)."""
+    itens = detalhe.get("itensDetalhesLote", []) or []
+    blob = " ".join(
+        (i.get("recintoArmazenador") or "") + " " + (i.get("descricao") or "")
+        for i in itens
+    ) + " " + (detalhe.get("cidade") or "")
+    if _RF_NAO_CE_RE.search(blob):
+        return ""
+    m = re.search(
+        r'\b(FORTALEZA|CAUCAIA|MARACANA[ÚU]|PEC[ÉE]M|SOBRAL|EUS[ÉE]BIO|'
+        r'JUAZEIRO DO NORTE|CRATO|IGUATU|HORIZONTE|PACAJUS|AQUIRAZ|RUSSAS)\b',
+        blob, re.I)
+    return (m.group(1).title() + "/CE") if m else "Fortaleza/CE"
+
+
+def _rf_parse_eletronico(itens):
+    """(marca, modelo) do primeiro item de um lote de eletrônico. Lote com mais
+    de um item ganha sufixo '(+N itens)' no modelo — a lista completa continua
+    inteira no campo descricao."""
+    descricoes = [(i.get("descricao") or "").strip() for i in (itens or [])]
+    descricoes = [d for d in descricoes if d]
+    if not descricoes:
+        return "?", "?"
+
+    d = descricoes[0]
+    corte = _RF_ELETRO_CORTE_RE.search(d)
+    nome = (d[:corte.start()] if corte else d).strip(' -,/')
+    # remove o prefixo de tipo ("SMARTPHONE", "TELEFONE CELULAR"...) só se
+    # sobrar coisa suficiente pra ainda ter marca + modelo depois.
+    sem_prefixo = _RF_ELETRO_PREFIXO_RE.sub('', nome, count=1).strip()
+    if len(sem_prefixo.split()) >= 2:
+        nome = sem_prefixo
+
+    partes = nome.split(None, 1)
+    marca  = (partes[0].title() if partes else "?") or "?"
+    modelo = (re.sub(r'\s+', ' ', partes[1]).title()[:60].strip()
+              if len(partes) > 1 else "?") or "?"
+
+    n = len(descricoes)
+    if n > 1:
+        modelo = f"{modelo} (+{n - 1} {'item' if n == 2 else 'itens'})"
+    return marca, modelo
 
 
 # Fim do trecho "veiculo" da descricao — a partir daqui e endereco/visitacao/
@@ -1722,9 +1820,16 @@ def _raspar_receita_sle(vistos):
             continue
 
         todos_lotes = edital.get("listaLotes", [])
-        candidatos  = [l for l in todos_lotes if _RF_TIPO_RE.search(l.get("tipo") or "")]
+        candidatos = [
+            l for l in todos_lotes
+            if _RF_TIPO_RE.search(l.get("tipo") or "")
+            or _RF_TIPO_ELETRONICO_RE.search(l.get("tipo") or "")
+        ]
+        n_elet = sum(1 for l in candidatos
+                     if _RF_TIPO_ELETRONICO_RE.search(l.get("tipo") or ""))
         print(f"  edital {ed['edle']} ({ed.get('uaNm','')}): "
-              f"{len(candidatos)}/{len(todos_lotes)} lote(s) veículo/máquina")
+              f"{len(candidatos)}/{len(todos_lotes)} lote(s) no escopo "
+              f"({len(candidatos) - n_elet} veículo/máquina, {n_elet} eletrônico)")
 
         for lote_resumo in candidatos:
             nr = lote_resumo["nrAtribuido"]
@@ -1735,30 +1840,44 @@ def _raspar_receita_sle(vistos):
             vistos.add(url_lote)
             try:
                 detalhe = _rf_get(f"{_RF_BASE}/api/lote/{orgao}/{num}/{ano_ed}/{nr}")
-                descricao = " ".join(
-                    i.get("descricao") or "" for i in detalhe.get("itensDetalhesLote", [])
-                ).strip()
+                itens = detalhe.get("itensDetalhesLote", []) or []
+                descricao = " ".join(i.get("descricao") or "" for i in itens).strip()
                 if not descricao:
                     continue
 
-                cidade = _rf_cidade_ce(descricao)
-                if not cidade:
-                    print(f"    [skip] Receita SLE lote {nr}: sem evidência de CE")
-                    continue
-
                 tipo = lote_resumo.get("tipo") or detalhe.get("tipo") or ""
-                marca, modelo, ano = _rf_parse_veiculo(descricao)
-                categoria = _rf_categoria(tipo, marca, modelo)
-
-                lance = float(lote_resumo.get("valorMinimo") or detalhe.get("valorMinimo") or 0)
+                eh_eletronico = bool(_RF_TIPO_ELETRONICO_RE.search(tipo))
                 data_leilao = _rf_data_leilao(ed)
-                km = _extrair_km(descricao)
-
                 fotos = detalhe.get("imagens") or []
                 foto  = fotos[0]["src"] if fotos else ""
 
+                if eh_eletronico:
+                    cidade = _rf_eletronico_ce(detalhe)
+                    if not cidade:
+                        print(f"    [skip] Receita SLE lote {nr}: recinto fora do CE")
+                        continue
+                    marca, modelo = _rf_parse_eletronico(itens)
+                    ano, km, categoria = 0, "", "eletronicos"
+                    lance = float(lote_resumo.get("valorMinimo")
+                                  or detalhe.get("valorMinimo") or 0)
+                    aval = float(lote_resumo.get("valorAvaliacao")
+                                 or detalhe.get("valorAvaliacao") or 0)
+                    ref_val = aval
+                    ref_str = (f"R$ {aval:,.0f} (avaliação RFB)" if aval > 0
+                               else "Sem referência")
+                else:
+                    cidade = _rf_cidade_ce(descricao)
+                    if not cidade:
+                        print(f"    [skip] Receita SLE lote {nr}: sem evidência de CE")
+                        continue
+                    marca, modelo, ano = _rf_parse_veiculo(descricao)
+                    categoria = _rf_categoria(tipo, marca, modelo)
+                    km = _extrair_km(descricao)
+                    lance = float(lote_resumo.get("valorMinimo")
+                                  or detalhe.get("valorMinimo") or 0)
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+
                 icone = ICONES.get(categoria, "📦")
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise = _analisar_cached(url_lote, marca, modelo, ano,
                                            descricao[:400], km, lance, ref_val, categoria)
                 classif = classificar(lance, ref_val, analise.get("estado", ""))

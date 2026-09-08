@@ -970,10 +970,13 @@ def pill_estado(s):
     if "Rec. Financiamento" in s: return '<span class="pill p-rec">🔵 Rec. Financiamento</span>'
     if "Batido"             in s: return '<span class="pill p-bat">🟡 Batido</span>'
     if "Sinistrado"         in s: return '<span class="pill p-sin">🔴 Sinistrado</span>'
+    if "Lacrado"            in s: return '<span class="pill p-ebom">📦 Lacrado</span>'
+    if "Com defeito"        in s: return '<span class="pill p-sin">🔴 Com defeito</span>'
+    if "Usado"              in s: return '<span class="pill p-bat">🔧 Usado</span>'
     return '<span class="pill p-ni">⚪ Não informado</span>'
 
 def orientacao_uso(lance, fipe, estado, qtd=1):
-    if estado in ["SINISTRADO","BATIDO","SUCATA"]:
+    if estado in ["SINISTRADO","BATIDO","SUCATA","DEFEITO"]:
         economia = fipe - lance if fipe > lance > 0 else 0
         economia_str = f" (economia ~R$ {economia:,.0f})" if economia > 0 else ""
         return "🔧", f"Verifique custo de reparo antes de arrematar{economia_str}", "#c2410c"
@@ -1077,7 +1080,9 @@ def render_lotes(lotes_lista, key="main"):
 
                 # Título
                 st.markdown(f"**{lote['marca']} {lote['modelo']}**")
-                meta = f"📅 {lote['ano']} • 📍 {lote.get('cidade','')}"
+                _ano = lote.get("ano") or 0
+                meta = (f"📅 {_ano} • 📍 {lote.get('cidade','')}" if _ano
+                        else f"📍 {lote.get('cidade','')}")
                 if km: meta += f" • 🛣️ {km}"
                 _data = lote.get("data_leilao", "")
                 if _data:
@@ -1493,7 +1498,8 @@ with st.sidebar:
     marcas  = sorted(set(l["marca"] for l in lotes))
     cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
     classes = ["Todas","✅ ÓTIMO","⚠️ MEDIANO","❌ RUIM","⚠️ INSPECIONAR","Sem referência"]
-    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado","Não informado"]
+    estados = ["Todos","Bom estado","Rec. Financiamento","Batido","Sinistrado",
+               "Lacrado","Usado","Com defeito","Não informado"]
 
     f_cat    = st.selectbox("Categoria", cats)
     f_class  = st.selectbox("Classificação", classes)

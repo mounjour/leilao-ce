@@ -24,6 +24,9 @@ from scraper import (
     _extrair_km,
     buscar_referencia_mercado,
     detectar_categoria,
+    _rf_categoria,
+    _rf_eletronico_ce,
+    _rf_parse_eletronico,
 )
 
 
@@ -62,10 +65,15 @@ class TestScoreModelo:
 
 # --- classificar ---------------------------------------------------------------
 class TestClassificar:
-    @pytest.mark.parametrize("estado", ["SINISTRADO", "BATIDO", "SUCATA"])
+    @pytest.mark.parametrize("estado", ["SINISTRADO", "BATIDO", "SUCATA", "DEFEITO"])
     def test_estado_ruim_forca_inspecionar(self, estado):
         # mesmo com preco otimo (10% da referencia), estado ruim manda inspecionar
         assert classificar(10000, 100000, estado) == "⚠️ INSPECIONAR"
+
+    def test_eletronico_lacrado_usa_a_referencia_normal(self):
+        # estado de eletronico que nao e "defeito" nao muda a regra de preco
+        assert classificar(1000, 3000, "LACRADO") == "✅ ÓTIMO"
+        assert classificar(2500, 3000, "USADO") == "❌ RUIM"
 
     def test_sem_referencia_quando_ref_zero(self):
         assert classificar(10000, 0, "BOM") == "Sem referência"
@@ -88,7 +96,7 @@ class TestClassificar:
 
 # --- oportunidade_preco ------------------------------------------------------
 class TestOportunidadePreco:
-    @pytest.mark.parametrize("estado", ["SINISTRADO", "BATIDO", "SUCATA"])
+    @pytest.mark.parametrize("estado", ["SINISTRADO", "BATIDO", "SUCATA", "DEFEITO"])
     def test_estado_ruim_inspecionar(self, estado):
         assert oportunidade_preco(10000, 100000, estado) == "INSPECIONAR"
 
@@ -184,3 +192,64 @@ class TestDetectarCategoria:
 
     def test_fallback_para_categoria_da_url(self):
         assert detectar_categoria("Onix 1.0 LT", "Chevrolet", "carros") == "carros"
+
+
+# --- Receita Federal: eletronicos -----------------------------------------
+class TestReceitaCategoria:
+    @pytest.mark.parametrize("tipo", [
+        "CELULAR/ACESSÓRIO",
+        "ELETRÔNICO/ÁUDIO/VÍDEO",
+        "COMPONENTE ELETRÔNICO",
+        "VIDEOGAME",
+    ])
+    def test_tipos_eletronico(self, tipo):
+        assert _rf_categoria(tipo, "", "") == "eletronicos"
+
+    def test_tipo_caminhao_nao_e_eletronico(self):
+        assert _rf_categoria("CAMINHÃO/ÔNIBUS", "Volvo", "FH") == "caminhoes"
+
+    def test_tipo_fora_de_escopo_cai_no_fallback(self):
+        # TÊXTIL / MINERAL nunca chegam aqui (filtrados antes), mas se chegarem
+        # nao devem virar "eletronicos"
+        assert _rf_categoria("TÊXTIL", "", "") != "eletronicos"
+
+
+class TestReceitaEletronicoCE:
+    def _detalhe(self, recinto, desc="SMARTPHONE APPLE IPHONE"):
+        return {"cidade": "FORTALEZA",
+                "itensDetalhesLote": [{"recintoArmazenador": recinto, "descricao": desc}]}
+
+    def test_porto_de_fortaleza_e_ce(self):
+        assert _rf_eletronico_ce(self._detalhe("DMA DO PORTO DE FORTALEZA")) == "Fortaleza/CE"
+
+    def test_recinto_sem_cidade_assume_ce(self):
+        # edital e da DRF Fortaleza; recinto sem marcador de outra UF = CE
+        assert _rf_eletronico_ce(self._detalhe("J. Log Logística")) == "Fortaleza/CE"
+
+    def test_sao_luis_nao_e_ce(self):
+        assert _rf_eletronico_ce(self._detalhe("IRF PORTO DE SÃO LUÍS")) == ""
+
+    def test_teresina_nao_e_ce(self):
+        assert _rf_eletronico_ce(self._detalhe("DMA Teresina")) == ""
+
+
+class TestReceitaParseEletronico:
+    def test_smartphone_simples(self):
+        itens = [{"descricao": 'SMARTPHONE APPLE IPHONE 14 PRO 128GB NS:SK3XXL9N4D5////"VEDADA A COMERCIALIZAÇÃO"'}]
+        assert _rf_parse_eletronico(itens) == ("Apple", "Iphone 14 Pro 128Gb")
+
+    def test_prefixo_telefone_celular_removido(self):
+        itens = [{"descricao": "TELEFONE CELULAR XIAOMI REDMI 12 8/256GB PAIS:CHINA-IMEI:861043070113525"}]
+        assert _rf_parse_eletronico(itens) == ("Xiaomi", "Redmi 12 8/256Gb")
+
+    def test_lote_com_varios_itens_ganha_sufixo(self):
+        itens = [
+            {"descricao": "TELEFONE CELULAR APPLE IPHONE 14 128GB ORIGEM:ESTRANGEIRA-3542485"},
+            {"descricao": "SMARTPHONE APPLE IPHONE 12 PRO MAX 128GB S/ACESS NS:3531676"},
+        ]
+        marca, modelo = _rf_parse_eletronico(itens)
+        assert marca == "Apple"
+        assert modelo.endswith("(+1 item)")
+
+    def test_lista_vazia(self):
+        assert _rf_parse_eletronico([]) == ("?", "?")

@@ -19,7 +19,28 @@ STATUS (atualizado 2026-09-08):
   (dispara WhatsApp real, nao e parte da suite).
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
   MJ Leilões, Celso Cunha, HastaPública, Receita Federal (SLE) e Francisco
-  Freitas Leilões implementados. Francisco Freitas adicionada em 2026-09-04
+  Freitas Leilões implementados.
+- Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
+  lotes de eletronico da Receita (celular, audio/video, informatica,
+  videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
+  trazer tudo, sem piso de valor, sem selo de "vedada a comercializacao".
+  Filtro de tipo ganhou 2o balde (`_RF_TIPO_ELETRONICO_RE`); filtro CE do
+  eletronico e pelo `recintoArmazenador` (`_rf_eletronico_ce` — descarta so se
+  tiver marcador de Sao Luis/MA ou Teresina/PI; sem marcador = CE, pois o
+  edital e da DRF Fortaleza), diferente do veiculo que exige `/CE` no texto.
+  Referencia de preco = `valorAvaliacao` da RFB (lido do listaLotes/resumo;
+  no detalhe vem null) no lugar da FIPE. Parser proprio `_rf_parse_eletronico`
+  (marca/modelo do 1o item, sufixo "(+N itens)"). `analisar()` ramifica por
+  categoria e usa prompt de eletronico (estados LACRADO/USADO/DEFEITO/
+  NAO_INFORMADO; selos 📦/🔧/🔴/⚪). `DEFEITO` entrou na lista de estados que
+  forcam INSPECIONAR em classificar/oportunidade_preco/orientacao_uso.
+  Dashboard: pill_estado + filtro "Estado" reconhecem os selos novos; card
+  omite `📅 ano` quando ano==0. Testado com 60 lotes reais do edital
+  0317900/000003/2026 (60/60 montados, com valorAvaliacao). Um edital de
+  exemplo pula de ~10 candidatos para ~396 (+2-3 min no run). IA em fallback
+  (credito Anthropic zerado), entao todo eletronico sai como NAO_INFORMADO
+  ate recarregar. Ver RECEITA_SLE_ADICIONADO.md, secao "Eletronicos".
+- Francisco Freitas adicionada em 2026-09-04
   (_raspar_francisco_freitas): leiloeiro forte no Nordeste, plataforma
   "Norte Nordeste Leilões" (nortenordesteleiloes.com.br == mesmo backend de
   franciscofreitasleiloes.com.br). MAIOR fonte já integrada: 91 lotes CE
@@ -48,9 +69,11 @@ STATUS (atualizado 2026-09-08):
   edital) — testado com dados reais: de 10 lotes de veículo/máquina num
   edital de 411 lotes, só 5 eram de fato Fortaleza/CE (os outros eram
   São Luís/MA e Teresina/PI). Modelo de proposta fechada (sem lance ao
-  vivo) — lance_atual = valor mínimo. Só entram lotes tipo veículo/máquina
-  pesada; ~93% do edital é eletrônico (celular, TV) e fica de fora por
-  categoria não se encaixar no produto. Ver RECEITA_SLE_ADICIONADO.md.
+  vivo) — lance_atual = valor mínimo. Desde 2026-09-08 entram lotes de
+  veículo/máquina pesada E de eletrônico (~93% do edital) na categoria
+  `eletronicos` — ver o bullet "Eletrônicos" acima e a seção "Eletrônicos"
+  do RECEITA_SLE_ADICIONADO.md. Ficam de fora só têxtil/mineral/químico/
+  bazar/utensílio. Ver RECEITA_SLE_ADICIONADO.md.
   HastaPública adicionada em 2026-09-03 (_raspar_hastapublica): plataforma nacional que
   detém o contrato dos leilões judiciais do TJ-CE via o leiloeiro Silvio
   Cesar Maraschi (JUCEC 020); os lotes do CE ficam no "grupo 11"

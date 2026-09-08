@@ -91,7 +91,7 @@ back-end ao mesmo tempo.
 
 - Scraper multi-fonte com dedupe por URL normalizada (`vistos`), rodando 2×/dia via GitHub
   Actions.
-- Classificação por categoria (carros/motos/caminhões/imóveis/equipamentos), extração de
+- Classificação por categoria (carros/motos/caminhões/imóveis/equipamentos/eletrônicos), extração de
   marca/modelo/ano/km/lance/foto/descrição por regex e parsing de HTML por fonte.
 - Comparação com a **tabela FIPE** (`parallelum.com.br/fipe`) e cálculo de
   `oportunidade_preco` (ótimo/mediano/ruim/inspecionar).
@@ -201,7 +201,7 @@ sem isso, `alertas.py` não teria telefone pra mandar WhatsApp.
 | **MJ Leilões** | `requests` | ✅ Ativa | Sem Cloudflare. |
 | **Celso Cunha** | `requests` | ✅ Ativa | Trata mojibake de encoding (`_demojibake`). |
 | **HastaPública** | `requests` | ✅ Ativa | Contrato dos leilões judiciais do TJ-CE (leiloeiro Silvio Cesar Maraschi); lotes do CE no "grupo 11". |
-| **Receita Federal (SLE)** | `requests` (API `.gov`) | ✅ Ativa | Filtro CE por lote (exige "Cidade/CE" na descrição); só entram veículo/máquina pesada. |
+| **Receita Federal (SLE)** | `requests` (API `.gov`) | ✅ Ativa | Filtro CE por lote. Veículo/máquina: exige "Cidade/CE" na descrição. Eletrônico (desde 08/09, categoria `eletronicos`): filtro CE pelo `recintoArmazenador`, referência de preço = `valorAvaliacao` da RFB. Ver RECEITA_SLE_ADICIONADO.md. |
 | **Francisco Freitas** (Norte Nordeste) | `requests` (API JSON) | ✅ Ativa | **Maior fonte já integrada** — 91 lotes CE na investigação, 77 após filtro de categoria. |
 | **MGL** | Playwright + API JSON | ❌ Bloqueada | Cloudflare barra o IP do runner do GitHub Actions (403 confirmado em 2 runs). Precisa de proxy residencial. |
 | **Construbem** (Soleon) | `requests` | ❌ Bloqueada | Zenrows sem crédito (402). |
@@ -230,7 +230,7 @@ scraper e commitada no git.
 | Campo | Observação |
 | :---- | :---- |
 | `fonte` | Slug do leiloeiro (`leilo`, `mega`, `hastapublica`, ...). |
-| `categoria` / `icone` | carros/motos/caminhoes/imoveis/equipamentos + emoji. |
+| `categoria` / `icone` | carros/motos/caminhoes/imoveis/equipamentos/eletronicos + emoji. |
 | `marca` / `modelo` / `ano` / `cidade` / `km` | Extraídos do HTML/API de cada fonte. |
 | `lance_atual` | Valor numérico do lance/proposta no momento da raspagem. |
 | `fipe_valor` / `fipe_str` | Referência FIPE casada por aproximação de texto. |
