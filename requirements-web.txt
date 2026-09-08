@@ -1,0 +1,15 @@
+# Dependencias SO do site (dashboard.py + auth.py + favorites.py), usadas no
+# deploy do Render. Deliberadamente NAO inclui playwright/playwright-stealth
+# (scraper), anthropic (IA do scraper) nem as libs de proxy — o dashboard nao
+# importa nada disso, e tira-las derruba o tempo de build no Render de minutos
+# para ~30s.
+#
+# requirements.txt (a lista completa) continua sendo a fonte para rodar o
+# scraper localmente e no GitHub Actions. Ao mexer em versao aqui, alinhe la
+# tambem.
+
+streamlit==1.62.0
+supabase>=2.4,<3.0
+stripe>=8.0,<10.0
+python-dotenv>=1.0,<2.0
+requests>=2.31,<3.0
