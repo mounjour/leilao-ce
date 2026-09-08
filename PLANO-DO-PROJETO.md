@@ -48,9 +48,9 @@ back-end ao mesmo tempo.
 
 - **Deploy:** hoje em [leilaoce.streamlit.app](https://leilaoce.streamlit.app) (Streamlit
   Community Cloud), atualiza a cada push no `main`. **Migração para o Render em andamento**
-  (blueprint `render.yaml` + `requirements-web.txt` + [`SETUP_RENDER.md`](SETUP_RENDER.md) na
-  branch `chore/op4-higiene`) — quando concluir, este documento precisa ser revisado nas
-  seções 7 e 13.
+  (blueprint `render.yaml`, `requirements-web.txt` e [`SETUP_RENDER.md`](SETUP_RENDER.md)) —
+  enquanto a URL de produção não mudar, o deploy vigente ainda é o Streamlit Cloud. Ao
+  concluir, revisar as seções 7 e 13.
 - **Repositório:** [github.com/mounjour/leilao-ce](https://github.com/mounjour/leilao-ce).
 - **Coleta:** GitHub Actions (`.github/workflows/scraper.yml`) roda `scraper.py` 2×/dia
   (03h e 15h de Fortaleza), sobrescreve `leiloes.json` e faz commit automático — ver
@@ -308,10 +308,10 @@ persistem entre rodadas):
 - **Alertas de operação**: `scraper_health.py` avisa o dono por WhatsApp se uma fonte ativa
   para de render lote por 3 runs seguidos (não falha o job).
 - **Hospedagem**: hoje Streamlit Community Cloud (deploy automático no push do `main`);
-  **migração para o Render em andamento** (`render.yaml`, `requirements-web.txt`,
-  `SETUP_RENDER.md` na branch `chore/op4-higiene`). Em qualquer um dos dois: sem ambiente
-  de **staging** — todo push no `main` vai direto pra produção. O gate de testes (`pytest`
-  no `tests.yml` e no `scraper.yml`) é a única barreira; não há smoke test do app em si.
+  **migração para o Render em andamento** (blueprint `render.yaml`, `requirements-web.txt`,
+  `SETUP_RENDER.md`). Em qualquer um dos dois: sem ambiente de **staging** — todo push no
+  `main` vai direto pra produção. O gate de testes (`pytest` no `tests.yml` e no
+  `scraper.yml`) é a única barreira; não há smoke test do app em si.
 - **Backup**: fica a cargo do que o plano do Supabase oferece — **não há rotina própria**.
   Confirmar o tier: no Free não há backup automático; no Pro há backup diário com retenção
   de 7 dias (PITR é add-on). `leiloes.json` e afins estão versionados no git (histórico
@@ -401,9 +401,9 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 
 ## 12. Próximos passos imediatos
 
-1. **Concluir a migração para o Render** — em andamento (`render.yaml`, `requirements-web.txt`,
-   `SETUP_RENDER.md` na branch `chore/op4-higiene`). Ao terminar, revisar as seções 1, 7 e 13
-   deste documento.
+1. **Concluir a migração para o Render** — blueprint pronto (`render.yaml`,
+   `requirements-web.txt`, `SETUP_RENDER.md`); falta subir o serviço, apontar a URL de
+   produção e desligar o deploy do Streamlit Cloud. Ao terminar, revisar as seções 1, 7 e 13.
 2. **Recarregar crédito Zenrows/ScraperAPI** — destrava Construbem e Daniel Garcia de uma vez
    (ambos já têm código pronto, só falta a rota de proxy funcionar).
 3. **Avaliar proxy residencial para MGL** — é a única saída, já que o Cloudflare bloqueia o IP

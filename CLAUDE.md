@@ -48,10 +48,10 @@ STATUS (atualizado 2026-09-08):
   (nao-bloqueantes) no backlog do PLANO: retencao do `whatsapp_send_log`,
   confirmar tier de backup do Supabase, observar Construbem (rendeu 7 lotes em 1
   run 08/09 — se firmar, tirar de `FONTES_ESPERADAS_ZERO`).
-- Migracao de deploy para o Render EM ANDAMENTO (outra sessao): `render.yaml`,
-  `requirements-web.txt`, `SETUP_RENDER.md` na branch `chore/op4-higiene`. Quando
-  concluir, revisar a linha "Deploy" no topo deste arquivo e as secoes 1/7/13 do
-  PLANO-DO-PROJETO.md.
+- Migracao de deploy para o Render EM ANDAMENTO: blueprint `render.yaml`,
+  `requirements-web.txt`, `SETUP_RENDER.md` (adicionados fora deste PR). Falta
+  subir o servico e apontar a URL de producao. Quando concluir, revisar a linha
+  "Deploy" no topo deste arquivo e as secoes 1/7/13 do PLANO-DO-PROJETO.md.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
