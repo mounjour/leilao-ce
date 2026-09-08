@@ -1212,8 +1212,9 @@ def render_lotes(lotes_lista, key="main"):
                     _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha", "hastapublica": "HastaPública", "receita_sle": "Receita Federal", "francisco_freitas": "Francisco Freitas Leilões"}.get(lote.get("fonte",""), "Leilão")
                     st.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
-                heart = "★" if is_favorite(lote_url) else "☆"
-                fav_label = f"**{heart}** Favoritar"
+                _favoritado = is_favorite(lote_url)
+                heart = "★" if _favoritado else "☆"
+                fav_label = f"**{heart}** {'Favoritado' if _favoritado else 'Favoritar'}"
                 if col_fav.button(fav_label, key=f"fav_{key}_{i}"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
@@ -1453,20 +1454,17 @@ components.html("""
 (function() {
   """ + _scroll_snippet + """
   function applyFixes(doc) {
-    // ── Cor da estrela (☆ cinza / ★ amarelo) ─────────────────────────
+    // ── Botao Favoritar: cor por estado ──────────────────────────────
+    // Botao azul solido (fundo/borda vem do CSS). Nao favoritado (☆
+    // "Favoritar"): estrela + texto brancos. Favoritado (★ "Favoritado"):
+    // estrela + texto na cor ambar — unico sinal visual de estado.
     doc.querySelectorAll('button').forEach(function(btn) {
       var t = btn.textContent.trim();
       if (t.includes('★') || t.includes('☆')) {
-        // Botao azul solido (o fundo/borda vem do CSS). O texto fica
-        // sempre branco; a estrela fica dourada quando favoritado (★) e
-        // branca quando nao (☆) — unico sinal visual de estado.
-        var starCor = t.includes('★') ? 'var(--lce-amber)' : '#ffffff';
-        btn.style.setProperty('color', '#ffffff', 'important');
+        var cor = t.includes('★') ? 'var(--lce-amber)' : '#ffffff';
+        btn.style.setProperty('color', cor, 'important');
         btn.querySelectorAll('*').forEach(function(el) {
-          el.style.setProperty('color', '#ffffff', 'important');
-        });
-        btn.querySelectorAll('strong').forEach(function(el) {
-          el.style.setProperty('color', starCor, 'important');
+          el.style.setProperty('color', cor, 'important');
         });
       }
     });
