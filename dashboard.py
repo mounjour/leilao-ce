@@ -348,28 +348,37 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
     margin-top: auto !important;
     align-items: stretch !important;
 }
-/* Coluna do botão Favoritar estica pra altura das duas linhas de link ao
-   lado (Calendário/Ver lote) via flex-grow — % de altura encadeada aqui já
-   causou um loop de dimensionamento (uma div chegou a calcular ~5582px),
-   por isso a cadeia toda usa só flex-grow. A coluna já recebe a altura da
-   linha irmã (os links) pelo align-items:stretch do stHorizontalBlock. */
+/* Rodapé do card: o botão Favoritar fica com altura fixa (~2 linhas de
+   texto), alinhado ao bloco de links ao lado (Calendário / Ver lote). NÃO
+   estica pra altura total da coluna — quando os links têm mais espaçamento
+   o botão virava um bloco gigante. (height:% encadeada aqui já causou loop
+   de dimensionamento, por isso nada de height:100% na cadeia.) */
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child > div[data-testid="stColumn"] {
     display: flex !important;
     flex-direction: column !important;
+    justify-content: center !important;
+}
+/* Links do rodapé mais juntos, pra coluna não ficar bem mais alta que o botão. */
+div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child > div[data-testid="stColumn"]:first-child div[data-testid="stVerticalBlock"] {
+    gap: 6px !important;
 }
 div[class*="st-key-fav_"],
 div[class*="st-key-fav_"] > div,
 div[class*="st-key-fav_"] div[data-testid="stButton"],
 div[class*="st-key-fav_"] div[data-testid="stButton"] > div {
     display: flex !important;
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
     flex-direction: column !important;
     width: 100% !important;
 }
-div[class*="st-key-fav_"] button {
-    flex: 1 1 auto !important;
-    align-self: stretch !important;
-    height: 100% !important;
+div[class*="st-key-fav_"] div[data-testid="stButton"] { justify-content: center !important; }
+/* seletor com stButton no meio: sobe a especificidade acima da regra
+   generica de botao (min-height 2.5rem) que vem depois neste <style>. */
+div[class*="st-key-fav_"] div[data-testid="stButton"] button {
+    flex: 0 0 auto !important;
+    align-self: center !important;
+    height: auto !important;
+    min-height: 54px !important;
 }
 
 /* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
