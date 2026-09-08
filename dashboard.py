@@ -859,6 +859,20 @@ def _brl(valor):
     return f"R$ {txt}"
 
 
+def _agrupa(valor):
+    """Só os dígitos, com ponto de milhar: 1000000 -> '1.000.000'."""
+    try:
+        return f"{int(valor or 0):,}".replace(",", ".")
+    except (TypeError, ValueError):
+        return "0"
+
+
+def _so_digitos(texto):
+    """Extrai o inteiro de um texto digitado ('R$ 1.000,00' -> 100000)."""
+    d = "".join(c for c in str(texto or "") if c.isdigit())
+    return int(d) if d else 0
+
+
 def _horario_execucao(valor):
     if not valor:
         return "Horário não informado"
@@ -1454,13 +1468,27 @@ components.html("""
       // (a MutationObserver so roda depois que o <img> entra no DOM).
       if (img.complete && img.naturalWidth === 0) mostrarFallback();
     });
+
+    // ── Rotulos do slider de lance com separador de milhar ────────────
+    // O st.slider so aceita format printf (%d), sem agrupamento. Aqui os
+    // textos "0 / 1000000 / <balao>" viram "0 / 1.000.000 / <balao>".
+    // So reescreve quando muda de fato, entao nao entra em loop com o
+    // proprio MutationObserver.
+    doc.querySelectorAll(
+      '[data-testid="stSliderThumbValue"] p, [data-testid="stSliderTickBar"] p'
+    ).forEach(function(p) {
+      var digitos = p.textContent.replace(/\\./g, '');
+      if (!/^\\d+$/.test(digitos)) return;
+      var novo = Number(digitos).toLocaleString('pt-BR');
+      if (p.textContent !== novo) p.textContent = novo;
+    });
   }
 
   try {
     var doc = window.parent.document;
     applyFixes(doc);
     new MutationObserver(function() { applyFixes(doc); })
-      .observe(doc.body, {childList:true, subtree:true});
+      .observe(doc.body, {childList:true, subtree:true, characterData:true});
   } catch(e) {}
 })();
 </script>
@@ -1525,31 +1553,38 @@ with st.sidebar:
     LANCE_STEP = 1_000
     LANCE_PADRAO = LANCE_MAX       # valor inicial fixo (equivale a "sem limite")
 
-    if "f_lance_num" not in st.session_state:
-        st.session_state["f_lance_num"] = LANCE_PADRAO
-    if "f_lance_slider" not in st.session_state:
-        st.session_state["f_lance_slider"] = LANCE_PADRAO
-
-    # sanitiza valores herdados de sessões antigas (quando o teto era dinâmico)
-    st.session_state["f_lance_num"] = min(int(st.session_state["f_lance_num"]), LANCE_MAX)
-    st.session_state["f_lance_slider"] = min(int(st.session_state["f_lance_slider"]), LANCE_MAX)
+    # f_lance_val = valor canônico (int). f_lance_txt (campo) e f_lance_slider
+    # são só as duas faces do widget e derivam sempre de f_lance_val.
+    if "f_lance_val" not in st.session_state:
+        st.session_state["f_lance_val"] = LANCE_PADRAO
+        # limpa chaves de versões antigas (campo numérico + teto dinâmico)
+        for _k in ("f_lance_num", "f_lance_txt", "f_lance_slider"):
+            st.session_state.pop(_k, None)
+    # sanitiza valor herdado de sessão antiga (quando o teto era dinâmico)
+    st.session_state["f_lance_val"] = min(int(st.session_state["f_lance_val"]), LANCE_MAX)
+    st.session_state.setdefault("f_lance_txt", _agrupa(st.session_state["f_lance_val"]))
+    st.session_state.setdefault("f_lance_slider", st.session_state["f_lance_val"])
 
     def _sync_lance_do_campo():
-        st.session_state["f_lance_slider"] = min(st.session_state["f_lance_num"], LANCE_MAX)
+        v = min(_so_digitos(st.session_state["f_lance_txt"]), LANCE_MAX)
+        st.session_state["f_lance_val"] = v
+        st.session_state["f_lance_slider"] = v
+        st.session_state["f_lance_txt"] = _agrupa(v)  # normaliza o que foi digitado
 
     def _sync_lance_do_slider():
-        st.session_state["f_lance_num"] = st.session_state["f_lance_slider"]
+        v = int(st.session_state["f_lance_slider"])
+        st.session_state["f_lance_val"] = v
+        st.session_state["f_lance_txt"] = _agrupa(v)
 
-    st.number_input(
-        "Lance máximo (R$)", min_value=0, max_value=LANCE_MAX, step=LANCE_STEP,
-        format="%d", key="f_lance_num", on_change=_sync_lance_do_campo,
+    st.text_input(
+        "Lance máximo (R$)", key="f_lance_txt", on_change=_sync_lance_do_campo,
     )
     st.slider(
-        "Ajuste rápido", 0, LANCE_MAX, step=LANCE_STEP,
+        "Ajuste rápido", 0, LANCE_MAX, step=LANCE_STEP, format="%d",
         key="f_lance_slider", on_change=_sync_lance_do_slider,
         label_visibility="collapsed",
     )
-    f_lance = int(st.session_state["f_lance_num"])
+    f_lance = int(st.session_state["f_lance_val"])
     if f_lance < LANCE_MAX:
         st.caption(f"Filtrando lotes com lance até **{_brl(f_lance)}**")
     else:
