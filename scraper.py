@@ -12,6 +12,8 @@ import os
 from urllib.parse import unquote, urlsplit
 from dotenv import load_dotenv
 
+import scraper_health
+
 load_dotenv()
 
 CIDADES_CE = [
@@ -2999,6 +3001,14 @@ def raspar_leiloes():
 
     print(f"\n✅ {len(lotes)} lotes salvos em leiloes.json")
     _salvar_resumo_ia(len(lotes))
+
+    # Health check: fonte ativa que parou de render lote -> ::warning:: + WhatsApp
+    # pro dono. Best-effort, nunca derruba o run.
+    try:
+        scraper_health.processar(lotes)
+    except Exception as e:
+        print(f"⚠️ scraper_health falhou (ignorado): {e}")
+
     return lotes
 
 if __name__ == "__main__":
