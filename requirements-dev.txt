@@ -1,0 +1,9 @@
+# Dependencias so para rodar a suite de testes (pytest). NAO entram na imagem
+# do scraper em producao.
+#
+# As libs pesadas que scraper.py importa no topo (playwright, playwright-stealth,
+# anthropic, python-dotenv) nao sao instaladas aqui: conftest.py faz stub delas
+# em sys.modules, porque os testes exercitam so as funcoes puras de scraper.py.
+# Mantem o job de teste em segundos, sem baixar o Chromium do Playwright.
+pytest>=8.0,<9.0
+requests>=2.31,<3.0

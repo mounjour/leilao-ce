@@ -409,9 +409,14 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 
 ### Técnico
 
-- [ ] Cobertura de testes automatizados para os parsers críticos (`classificar`,
-  `oportunidade_preco`, `_extrair_lance`, `_score_modelo`) — hoje não há suite, só
-  `teste_alerta.py` como script manual
+- [x] Cobertura de testes automatizados para os parsers críticos (`classificar`,
+  `oportunidade_preco`, `_extrair_lance`, `_extrair_km`, `_score_modelo`,
+  `_parse_brl`, `buscar_referencia_mercado`, `detectar_categoria`) — feito em
+  08/09: `tests/test_scraper.py` (46 casos, `python -m pytest -q`, ~0,4s).
+  `conftest.py` faz stub de Playwright/anthropic/dotenv para o teste não precisar
+  de browser nem chave de API. CI em `.github/workflows/tests.yml` (push/PR) e um
+  gate antes do scraper em `scraper.yml`. `teste_alerta.py` segue como script
+  manual à parte.
 - [ ] Reavaliar se `leiloes.json` commitado no git ainda é a estrutura certa se o volume de
   lotes crescer significativamente
 - [ ] Log persistente de falha de envio de WhatsApp (hoje a exceção é engolida silenciosamente

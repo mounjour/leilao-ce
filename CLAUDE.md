@@ -4,7 +4,19 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-04):
+STATUS (atualizado 2026-09-08):
+- Testes: adicionado tests/test_scraper.py em 2026-09-08 (46 casos, pytest,
+  ~0,4s) cobrindo as funcoes puras de scraper.py: classificar,
+  oportunidade_preco, _score_modelo, _parse_brl, _extrair_lance, _extrair_km,
+  buscar_referencia_mercado, detectar_categoria. conftest.py na raiz faz stub
+  de Playwright/anthropic/dotenv (setdefault em sys.modules) para o import de
+  scraper nao exigir browser nem ANTHROPIC_API_KEY. Deps de teste em
+  requirements-dev.txt (so pytest + requests; as libs pesadas ficam de fora
+  por causa do stub). CI: .github/workflows/tests.yml roda em push/PR;
+  scraper.yml roda "python -m pytest -q" como gate antes de raspar (falha
+  rapido sem gastar os ~30min de scraping se um parser quebrou). Rodar local:
+  python -m pytest -q. teste_alerta.py continua sendo script manual separado
+  (dispara WhatsApp real, nao e parte da suite).
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
   MJ Leilões, Celso Cunha, HastaPública, Receita Federal (SLE) e Francisco
   Freitas Leilões implementados. Francisco Freitas adicionada em 2026-09-04
