@@ -18,8 +18,16 @@ STATUS (atualizado 2026-09-08):
   python -m pytest -q. teste_alerta.py continua sendo script manual separado
   (dispara WhatsApp real, nao e parte da suite).
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões, Celso Cunha, HastaPública, Receita Federal (SLE) e Francisco
-  Freitas Leilões implementados.
+  MJ Leilões, HastaPública, Receita Federal (SLE) e Francisco
+  Freitas Leilões implementados. Celso Cunha DORMENTE (ver abaixo).
+- Celso Cunha DORMENTE (2026-09-08): rendeu 119 lotes/run ate 26/08, 0 desde
+  28/08. O site foi reconstruido — o esquema server-rendered
+  /leilao/<id>/<slug> que `_raspar_celso_cunha` raspava sumiu (404), os lotes
+  agora vem por AJAX (web/buscarLotes.php etc.) e nao ha leilao ativo
+  (/agenda-de-leiloes so tem editais de 2019 "EM BREVE"). Chamada comentada em
+  `raspar_leiloes()`; funcao e helpers mantidos como base. Reescrever estilo
+  MGL (sessao propria) quando o site voltar a ter leilao. Ver
+  CELSO_CUNHA_DORMENTE.md.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
