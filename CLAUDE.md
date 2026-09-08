@@ -40,6 +40,18 @@ STATUS (atualizado 2026-09-08):
   tirar de la quando uma voltar. Secret novo `OWNER_WHATSAPP` no passo "Rodar
   scraper" do workflow (ausente = so `::warning::`, sem WhatsApp). NAO falha o
   job de proposito. Testes: `tests/test_scraper_health.py` (10 casos).
+- Higiene (2026-09-08): `debug.py` removido (script solto de dev, nao importado).
+  `PLANO-DO-PROJETO.md` atualizado (snapshot, secoes 1/3/5/7/9/10/11/12/13/14).
+  Decisoes do dono registradas como FORA DE ESCOPO: relatorios/exportacao,
+  notificacao de lote novo por filtro salvo, migrar WhatsApp p/ Cloud API oficial
+  da Meta. Mantido: `leiloes.json` versionado no git. Pendencias novas
+  (nao-bloqueantes) no backlog do PLANO: retencao do `whatsapp_send_log`,
+  confirmar tier de backup do Supabase, observar Construbem (rendeu 7 lotes em 1
+  run 08/09 — se firmar, tirar de `FONTES_ESPERADAS_ZERO`).
+- Migracao de deploy para o Render EM ANDAMENTO (outra sessao): `render.yaml`,
+  `requirements-web.txt`, `SETUP_RENDER.md` na branch `chore/op4-higiene`. Quando
+  concluir, revisar a linha "Deploy" no topo deste arquivo e as secoes 1/7/13 do
+  PLANO-DO-PROJETO.md.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
