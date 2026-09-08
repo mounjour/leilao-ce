@@ -38,14 +38,18 @@ html, body, button, input, textarea, select {
    dividido entre aqui e la, com regras conflitantes. */
 .pill {
   display:inline-flex; align-items:center; justify-content:center;
-  padding:7px 15px; border-radius:999px;
-  font-size:12.5px; font-weight:600; line-height:1.1;
-  margin-right:6px; margin-bottom:4px; white-space:nowrap;
+  padding:7px 12px; border-radius:999px;
+  font-size:12px; font-weight:600; line-height:1.15;
+  margin-right:6px; margin-bottom:4px;
   border:1px solid color-mix(in srgb, currentColor 24%, transparent);
 }
-/* Linha dos dois selos (classificacao + estado) no topo do card. */
-.pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 10px; }
-.pill-row .pill { margin:0; }
+/* Linha dos dois selos (classificacao + estado) no topo do card: cada selo
+   ocupa metade da largura, os dois preenchendo a linha inteira. */
+.pill-row { display:flex; gap:8px; margin:2px 0 10px; align-items:stretch; }
+.pill-row .pill {
+  flex:1 1 0; min-width:0; margin:0;
+  white-space:normal; text-align:center;
+}
 .p-otimo   { background:#dcfce7; color:#15803d; }
 .p-mediano { background:#fef9c3; color:#a16207; }
 .p-ruim    { background:#fee2e2; color:#b91c1c; }
@@ -345,20 +349,27 @@ div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-test
     align-items: stretch !important;
 }
 /* Coluna do botão Favoritar estica pra altura das duas linhas de link ao
-   lado (Calendário/Ver lote) via flex-grow — % de altura aqui já causou um
-   loop de dimensionamento (uma div chegou a calcular ~5582px de altura),
-   por isso o encadeamento usa só flex, nunca height:100%. */
+   lado (Calendário/Ver lote) via flex-grow — % de altura encadeada aqui já
+   causou um loop de dimensionamento (uma div chegou a calcular ~5582px),
+   por isso a cadeia toda usa só flex-grow. A coluna já recebe a altura da
+   linha irmã (os links) pelo align-items:stretch do stHorizontalBlock. */
 div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child > div[data-testid="stColumn"] {
     display: flex !important;
     flex-direction: column !important;
 }
-div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] {
+div[class*="st-key-fav_"],
+div[class*="st-key-fav_"] > div,
+div[class*="st-key-fav_"] div[data-testid="stButton"],
+div[class*="st-key-fav_"] div[data-testid="stButton"] > div {
     display: flex !important;
-    flex: 1 !important;
+    flex: 1 1 auto !important;
+    flex-direction: column !important;
+    width: 100% !important;
 }
-div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] > div > div[data-testid="stHorizontalBlock"]:last-child div[class*="st-key-fav_"] > div {
-    display: flex !important;
-    flex: 1 !important;
+div[class*="st-key-fav_"] button {
+    flex: 1 1 auto !important;
+    align-self: stretch !important;
+    height: 100% !important;
 }
 
 /* Links dentro do card (Google Calendar / Ver lote) sem sublinhado. */
@@ -1194,7 +1205,7 @@ def render_lotes(lotes_lista, key="main"):
                 lote_url = lote.get("url", "")
                 heart = "★" if is_favorite(lote_url) else "☆"
                 fav_label = f"**{heart}** Favoritar"
-                if col_fav.button(fav_label, key=f"fav_{key}_{i}", help="Favoritar"):
+                if col_fav.button(fav_label, key=f"fav_{key}_{i}"):
                     _usr = get_user()
                     _ses = st.session_state.get("session")
                     if _usr and _ses:
