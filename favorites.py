@@ -7,6 +7,7 @@ import requests
 import streamlit as st
 
 from auth import get_supabase_client
+from whatsapp_log import registrar_falha
 
 
 def _secret(key: str, default: str = "") -> str:
@@ -72,7 +73,7 @@ def is_favorite(lote_url: str) -> bool:
     return _normalizar_url(lote_url) in get_favorites()
 
 
-def _whatsapp_favorito(phone: str, lote: dict) -> None:
+def _whatsapp_favorito(sb, user_id: str, phone: str, lote: dict) -> None:
     ev_url = _secret("EVOLUTION_API_URL").rstrip("/")
     ev_key = _secret("EVOLUTION_API_KEY")
     ev_inst = _secret("EVOLUTION_INSTANCE")
@@ -98,16 +99,28 @@ def _whatsapp_favorito(phone: str, lote: dict) -> None:
         f"🔗 {url_lote}"
     )
 
+    resposta = None
     try:
-        requests.post(
+        resposta = requests.post(
             f"{ev_url}/message/sendText/{ev_inst}",
             json={"number": digits, "text": msg},
             headers={"apikey": ev_key, "Content-Type": "application/json"},
             timeout=8,
-        ).raise_for_status()
-    except Exception:
-        # O WhatsApp é opcional e não deve desfazer um favorito já salvo.
-        pass
+        )
+        resposta.raise_for_status()
+    except Exception as exc:
+        # O WhatsApp é opcional e não deve desfazer um favorito já salvo, mas
+        # a falha precisa deixar rastro (antes era engolida com um pass).
+        registrar_falha(
+            sb,
+            origem="favorito",
+            telefone=digits,
+            lote_url=url_lote,
+            erro=str(exc),
+            http_status=getattr(resposta, "status_code", None),
+            user_id=user_id,
+            corpo=(resposta.text if resposta is not None else ""),
+        )
 
 
 def toggle_favorite(
@@ -156,7 +169,7 @@ def toggle_favorite(
             .execute()
         )
         favoritos[url] = dados_lote
-        _whatsapp_favorito(phone, dados_lote)
+        _whatsapp_favorito(sb, user_id, phone, dados_lote)
         return True, True, ""
     except Exception as exc:
         st.session_state["_favorites_error"] = str(exc)

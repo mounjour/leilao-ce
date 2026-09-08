@@ -104,6 +104,18 @@ STATUS (atualizado 2026-09-08):
 - IA (Anthropic): créditos esgotados nos runs de 2026-09-02 — circuit breaker
   desliga a análise e usa fallback "Não informado" em todos os lotes.
 - Favoritos: pronto, sincronizando com Supabase (upsert por user_id,lote_url).
+- Log de falha de WhatsApp (2026-09-08): antes o erro de envio era engolido
+  (`favorites._whatsapp_favorito` com `except: pass`; `alertas.send_whatsapp`
+  so `print` no stdout efemero). Agora as duas rotas gravam a FALHA na tabela
+  `public.whatsapp_send_log` via o novo modulo `whatsapp_log.registrar_falha`
+  (nunca levanta — se o insert falhar cai num print). `favorites.py` insere
+  com o JWT do usuario (RLS: policy de insert `user_id = auth.uid()`);
+  `alertas.py` insere com service role (ignora RLS). Colunas: origem
+  (`favorito`|`alerta_lance`|`teste`), telefone, lote_url, erro, http_status,
+  corpo. Migration `supabase/migrations/20260908000000_whatsapp_send_log.sql`
+  (idempotente) — PENDENTE rodar no Supabase SQL Editor. Testes:
+  `tests/test_whatsapp_log.py` (5 casos, sb falso). So entram linhas de
+  falha; o dono consulta pelo painel do Supabase.
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
   tem assinatura ativa. Portal de cobrança e webhook funcionando.
