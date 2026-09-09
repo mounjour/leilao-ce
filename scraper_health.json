@@ -4,74 +4,74 @@
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 1
+      "zero_streak": 2
     },
     "construbem": {
       "alertado_streak": 0,
-      "ultima_contagem": 21,
+      "ultima_contagem": 0,
       "ultimo_nonzero": "2026-09-08T21:44Z",
-      "zero_streak": 0
+      "zero_streak": 1
     },
     "danielgarcia": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 1
+      "zero_streak": 2
     },
     "francisco_freitas": {
       "alertado_streak": 0,
       "ultima_contagem": 76,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "hastapublica": {
       "alertado_streak": 0,
       "ultima_contagem": 4,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "leilo": {
       "alertado_streak": 0,
       "ultima_contagem": 61,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "mega": {
       "alertado_streak": 0,
       "ultima_contagem": 21,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "mgl": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 1
+      "zero_streak": 2
     },
     "mj": {
       "alertado_streak": 0,
       "ultima_contagem": 16,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "montenegro": {
       "alertado_streak": 0,
-      "ultima_contagem": 27,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultima_contagem": 22,
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "pacto": {
       "alertado_streak": 0,
       "ultima_contagem": 30,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     },
     "receita_sle": {
       "alertado_streak": 0,
       "ultima_contagem": 287,
-      "ultimo_nonzero": "2026-09-08T21:44Z",
+      "ultimo_nonzero": "2026-09-09T11:45Z",
       "zero_streak": 0
     }
   },
-  "ultimo_run": "2026-09-08T21:44Z"
+  "ultimo_run": "2026-09-09T11:45Z"
 }
