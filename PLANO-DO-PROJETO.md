@@ -48,9 +48,10 @@ back-end ao mesmo tempo.
 
 - **Deploy:** hoje em [leilaoce.streamlit.app](https://leilaoce.streamlit.app) (Streamlit
   Community Cloud), atualiza a cada push no `main`. **Migração para o Render em andamento**
-  (blueprint `render.yaml`, `requirements-web.txt` e [`SETUP_RENDER.md`](SETUP_RENDER.md)) —
-  enquanto a URL de produção não mudar, o deploy vigente ainda é o Streamlit Cloud. Ao
-  concluir, revisar as seções 7 e 13.
+  (blueprint [`render.yaml`](render.yaml) → Web Service, plano **Starter** US$ 7/mês;
+  `requirements-web.txt`; [`SETUP_RENDER.md`](SETUP_RENDER.md)) — enquanto a URL de produção
+  não mudar, o deploy vigente ainda é o Streamlit Cloud. Passo a passo do que falta em
+  [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao concluir, revisar as seções 7 e 13.
 - **Repositório:** [github.com/mounjour/leilao-ce](https://github.com/mounjour/leilao-ce).
 - **Coleta:** GitHub Actions (`.github/workflows/scraper.yml`) roda `scraper.py` 2×/dia
   (03h e 15h de Fortaleza), sobrescreve `leiloes.json` e faz commit automático — ver
@@ -308,10 +309,16 @@ persistem entre rodadas):
 - **Alertas de operação**: `scraper_health.py` avisa o dono por WhatsApp se uma fonte ativa
   para de render lote por 3 runs seguidos (não falha o job).
 - **Hospedagem**: hoje Streamlit Community Cloud (deploy automático no push do `main`);
-  **migração para o Render em andamento** (blueprint `render.yaml`, `requirements-web.txt`,
-  `SETUP_RENDER.md`). Em qualquer um dos dois: sem ambiente de **staging** — todo push no
-  `main` vai direto pra produção. O gate de testes (`pytest` no `tests.yml` e no
-  `scraper.yml`) é a única barreira; não há smoke test do app em si.
+  **migração para o Render em andamento** — blueprint `render.yaml` cria **1 Web Service**
+  Python (`streamlit run dashboard.py`), plano **Starter** (512 MB / 0.5 CPU, US$ 7/mês,
+  sempre ligado; subir pra Standard no painel se a aba Metrics acusar pressão de RAM/CPU),
+  região `virginia`, autodeploy no push. Não cria banco (Supabase é externo) nem cron (o
+  scraper continua no GitHub Actions). `requirements-web.txt` enxuto (sem
+  playwright/anthropic) derruba o build pra ~30 s. Deps externas: `SETUP_RENDER.md`
+  (passo a passo), `DEPLOY_CHECKLIST.md` (tudo que falta pra virar a chave). Em qualquer
+  um dos dois: sem ambiente de **staging** — todo push no `main` vai direto pra produção.
+  O gate de testes (`pytest` no `tests.yml` e no `scraper.yml`) é a única barreira; não há
+  smoke test do app em si.
 - **Backup**: o plano do Supabase é **Free** — **sem backup automático** (confirmado
   09/09/2026). Rotina própria adicionada em 09/09: [`.github/workflows/backup-db.yml`](.github/workflows/backup-db.yml)
   roda `pg_dump` (schemas `public` + `auth`, via container `postgres:17-alpine`) 1×/dia às
@@ -405,9 +412,11 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 
 ## 12. Próximos passos imediatos
 
-1. **Concluir a migração para o Render** — blueprint pronto (`render.yaml`,
-   `requirements-web.txt`, `SETUP_RENDER.md`); falta subir o serviço, apontar a URL de
-   produção e desligar o deploy do Streamlit Cloud. Ao terminar, revisar as seções 1, 7 e 13.
+1. **Concluir a migração para o Render** — blueprint pronto (`render.yaml` → Web Service
+   plano Starter, `requirements-web.txt`, `SETUP_RENDER.md`); falta subir o serviço, apontar
+   a URL de produção e desligar o deploy do Streamlit Cloud. Checklist completo (Render +
+   Evolution API + backup + IA) em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao terminar,
+   revisar as seções 1, 7 e 13.
 2. **Recarregar crédito Zenrows/ScraperAPI** — destrava Construbem e Daniel Garcia de uma vez
    (ambos já têm código pronto, só falta a rota de proxy funcionar).
 3. **Avaliar proxy residencial para MGL** — é a única saída, já que o Cloudflare bloqueia o IP
@@ -439,7 +448,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Cobrança | **Stripe** (Checkout + Billing Portal + Webhook) | Webhook roda como Supabase Edge Function em **Deno**. |
 | Alertas | **WhatsApp via Evolution API** (não oficial) | Ver risco na seção 11. |
 | Automação | **GitHub Actions** (cron 2×/dia) | Scraper → commit `leiloes.json` → alertas, tudo em um workflow. |
-| Hospedagem | **Streamlit Community Cloud** (migração pro **Render** em andamento) | Deploy automático no push do `main`. Ver `SETUP_RENDER.md` / `render.yaml`. |
+| Hospedagem | **Streamlit Community Cloud** (migração pro **Render** em andamento — Web Service plano Starter, US$ 7/mês) | Deploy automático no push do `main`. Ver `SETUP_RENDER.md`, `DEPLOY_CHECKLIST.md`, `render.yaml`. |
 | Dados | `leiloes.json` + `analises_ia_cache.json` + `historico_tokens_ia.jsonl` + `scraper_health.json` **commitados no git** | Funciona como banco de dados versionado para os lotes; ver riscos. |
 
 ---
