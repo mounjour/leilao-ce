@@ -13,9 +13,11 @@ services:
   - type: web
     name: leilao-ce
     runtime: python
-    plan: standard          # 2 GB RAM / 1 CPU, sempre ligado. Trocar para
-                            # "starter" (US$ 7) ou "pro" no painel nao exige
-                            # mudar codigo.
+    plan: starter           # 512 MB RAM / 0.5 CPU, sempre ligado. Suficiente
+                            # para o footprint atual (dashboard.py + ~530
+                            # lotes). Subir para "standard" (2 GB, US$ 25) no
+                            # painel se a aba Metrics acusar pressao de RAM/CPU
+                            # — nao exige mudar codigo.
     region: virginia        # US-East: menor latencia para o Ceara entre as
                             # regioes do Render (nao ha regiao no Brasil).
     branch: main

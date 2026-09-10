@@ -20,7 +20,7 @@ O scraper **não** muda: continua no GitHub Actions 2×/dia (ver
 
 | Peça | Onde roda | Muda? |
 |---|---|---|
-| Site (`dashboard.py`, Streamlit) | **Render** (Web Service, plano Standard) | ✅ sai do Community Cloud |
+| Site (`dashboard.py`, Streamlit) | **Render** (Web Service, plano Starter) | ✅ sai do Community Cloud |
 | Scraper (`scraper.py`) | GitHub Actions (cron 2×/dia) | ❌ |
 | Banco + Auth | Supabase | só Redirect URLs |
 | Cobrança (Checkout + Portal) | Stripe | só as URLs de retorno (via `APP_URL`) |
@@ -103,8 +103,9 @@ O Render vai pedir estes valores ao aplicar o Blueprint:
 6. Quando o deploy ficar **Live**, abra
    `https://SEU-APP.onrender.com/_stcore/health` — tem que responder `ok`.
 
-> **Plano:** o `render.yaml` vem com `plan: standard` (2 GB / 1 CPU, US$ 25/mês,
-> sempre ligado). Para baixar para `starter` (US$ 7), troque no painel em
+> **Plano:** o `render.yaml` vem com `plan: starter` (512 MB / 0.5 CPU,
+> US$ 7/mês, sempre ligado) — suficiente para o footprint atual. Para subir
+> para `standard` (2 GB / 1 CPU, US$ 25) troque no painel em
 > **Settings → Instance Type** — sem mexer em código.
 
 ---
@@ -193,13 +194,14 @@ ou passa o dashboard a carregar o `leiloes.json` em runtime (GitHub raw ou um
 bucket do Supabase Storage).
 
 **Logs:** Render → serviço → **Logs**. **Métricas** (CPU/RAM): aba **Metrics** —
-olhar na 1ª semana para confirmar que 2 GB sobra.
+olhar na 1ª semana para confirmar que 512 MB / 0.5 CPU do Starter aguentam.
 
 **Rollback:** Render → **Deploys** → num deploy anterior → **Rollback to this
 deploy**.
 
-**Custos:** Standard US$ 25/mês + banda (100 GB/mês inclusos, depois
-US$ 0,10/GB — irrelevante aqui). URL `onrender.com` e TLS: grátis.
+**Custos:** Starter US$ 7/mês + banda (100 GB/mês inclusos, depois
+US$ 0,10/GB — irrelevante aqui). URL `onrender.com` e TLS: grátis. Subir para
+Standard (US$ 25) só se a aba Metrics acusar pressão de RAM/CPU.
 
 ---
 
@@ -226,5 +228,5 @@ Render e a lista de **Redirect URLs** no Supabase precisam bater
 `healthCheckPath: /_stcore/health` e que o `startCommand` usa
 `--server.port $PORT`.
 
-**OOM / reinícios frequentes.** Aba Metrics → se a RAM encostar em 2 GB, subir
-o Instance Type no painel.
+**OOM / reinícios frequentes.** Aba Metrics → se a RAM encostar em 512 MB,
+subir o Instance Type no painel (Starter → Standard, 2 GB).
