@@ -1,0 +1,70 @@
+name: Backup do banco (Supabase)
+
+on:
+  schedule:
+    # 08:00 UTC = 05:00 horário de Fortaleza (UTC-3), fora dos horários do scraper (06/18 UTC)
+    - cron: '0 8 * * *'
+  workflow_dispatch:        # permite rodar manualmente pela aba Actions
+
+concurrency:
+  group: backup-db
+  cancel-in-progress: false
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Gerar dump do Postgres
+        env:
+          # Connection string do Supabase na porta 5432 (Session pooler OU
+          # Direct connection). O Transaction pooler (6543) NÃO funciona com pg_dump.
+          # Painel: botão "Connect" na barra superior > Connection string.
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_DB_URL:-}" ]; then
+            echo "::error::Secret SUPABASE_DB_URL não configurado — ver SETUP_BACKUP_DB.md"
+            exit 1
+          fi
+
+          STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+          OUT="supabase-${STAMP}.sql.gz"
+
+          # pg_dump roda dentro do container postgres:17-alpine para garantir uma
+          # versão de cliente compatível com o servidor do Supabase (>= a dele).
+          # Schemas public + auth cobrem tudo que não tem cópia em lugar nenhum:
+          # profiles, favorites, billing_webhook_events, whatsapp_send_log e auth.users.
+          echo "Rodando pg_dump (schemas public + auth)..."
+          docker run --rm -i postgres:17-alpine \
+            pg_dump "$SUPABASE_DB_URL" \
+              --schema=public \
+              --schema=auth \
+              --no-owner \
+              --no-privileges \
+              --clean \
+              --if-exists \
+          | gzip -9 > "$OUT"
+
+          SIZE="$(stat -c%s "$OUT")"
+          echo "Gerado $OUT ($SIZE bytes)"
+
+          # Sanidade: um dump real desses schemas não sai com poucos bytes.
+          # Se o pg_dump falhou no meio, o set -o pipefail já teria abortado;
+          # esta checagem pega o caso de um dump "vazio mas bem-formado".
+          if [ "$SIZE" -lt 2000 ]; then
+            echo "::error::Dump suspeito de estar vazio ($SIZE bytes)"
+            exit 1
+          fi
+
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+
+      - name: Publicar dump como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.OUT }}
+          path: ${{ env.OUT }}
+          retention-days: 90        # teto do GitHub; nada mais velho que isso sobrevive
+          if-no-files-found: error
