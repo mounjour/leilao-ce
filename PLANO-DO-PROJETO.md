@@ -1,6 +1,6 @@
 # Plano do Projeto — Achadin Leilões (leilao-ce)
 
-> **Documento de análise/status** · atualizado 08/09/2026
+> **Documento de análise/status** · atualizado 09/09/2026
 > **Base:** leitura direta do código (`scraper.py`, `scraper_health.py`, `dashboard.py`,
 > `auth.py`, `favorites.py`, `alertas.py`, `whatsapp_log.py`), do `CLAUDE.md`, das
 > migrations/Edge Functions do Supabase e do histórico do git.
@@ -312,11 +312,15 @@ persistem entre rodadas):
   `SETUP_RENDER.md`). Em qualquer um dos dois: sem ambiente de **staging** — todo push no
   `main` vai direto pra produção. O gate de testes (`pytest` no `tests.yml` e no
   `scraper.yml`) é a única barreira; não há smoke test do app em si.
-- **Backup**: fica a cargo do que o plano do Supabase oferece — **não há rotina própria**.
-  Confirmar o tier: no Free não há backup automático; no Pro há backup diário com retenção
-  de 7 dias (PITR é add-on). `leiloes.json` e afins estão versionados no git (histórico
-  completo), então o risco real de perda é o Postgres (usuários, favoritos, cobrança,
-  `whatsapp_send_log`).
+- **Backup**: o plano do Supabase é **Free** — **sem backup automático** (confirmado
+  09/09/2026). Rotina própria adicionada em 09/09: [`.github/workflows/backup-db.yml`](.github/workflows/backup-db.yml)
+  roda `pg_dump` (schemas `public` + `auth`, via container `postgres:17-alpine`) 1×/dia às
+  08:00 UTC e sob demanda, publicando o dump gzipado como **artifact do GitHub Actions**
+  com retenção de **90 dias**. Secret `SUPABASE_DB_URL` (connection string do Session
+  pooler). `leiloes.json` e afins já estão versionados no git; o dump cobre o Postgres
+  (usuários, favoritos, cobrança, `whatsapp_send_log`, `auth.users`). Ver
+  [`SETUP_BACKUP_DB.md`](SETUP_BACKUP_DB.md). Falta: configurar o secret, testar 1
+  restauração e decidir cópia off-site mensal (o artifact expira em 90 dias).
 
 ---
 
@@ -393,7 +397,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Falha silenciosa de `_whatsapp_favorito` / `alertas.send_whatsapp` (exceção engolida). | **Mitigado (08/09):** as duas rotas gravam a falha em `whatsapp_send_log` (Supabase) via `whatsapp_log.registrar_falha` — auditável pelo painel, sem cavar log do Actions. |
 | Fonte de leilão muda de site e para de render lote sem ninguém notar (aconteceu com a Celso Cunha: 12 dias em 0). | **Mitigado (08/09):** `scraper_health.py` alerta o dono por WhatsApp se uma fonte de `FONTES_ATIVAS` fica 3 runs seguidos zerada. |
 | Deploy direto em produção (sem staging) — um push quebrado no `main` derruba o app. | Parcial: o gate de `pytest` pega regressão de lógica pura; não há smoke test do app. Aceito por ora (app pequeno, rollback = revert + push). Vale reavaliar na migração pro Render. |
-| Perda do Postgres do Supabase (usuários/favoritos/cobrança). | Sem rotina própria de backup — depende do tier do Supabase (confirmar; Free não faz backup). `leiloes.json` e afins estão no git. |
+| Perda do Postgres do Supabase (usuários/favoritos/cobrança). | **Mitigado (09/09):** `pg_dump` diário (schemas `public` + `auth`) via `.github/workflows/backup-db.yml`, dump gzipado como artifact do Actions, retenção 90 dias. Plano Supabase é Free (sem backup nativo). Falta: teste de restauração num projeto novo + eventual cópia off-site mensal (artifact expira em 90 dias). |
 | Cobrança duplicada de assinatura Stripe. | Já mitigado: `create_checkout_url` verifica assinaturas existentes (`ExistingSubscriptionError`) antes de criar uma nova sessão. |
 | Falha do trigger `handle_new_user` deixando profile sem telefone. | Já mitigado: fallback no webhook do Stripe lê `auth.users.raw_user_meta_data`. |
 
@@ -410,8 +414,9 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
    do runner mesmo com o código validado.
 4. **Recarregar crédito Anthropic** — reativa a análise de estado do item (`estado`/`selo`)
    em todos os lotes, hoje em fallback "Não informado".
-5. **Confirmar o tier de backup do Supabase** (Free = sem backup; Pro = diário 7 dias). Se
-   Free, decidir se vale um `pg_dump` agendado.
+5. ~~**Confirmar o tier de backup do Supabase**~~ — FEITO (09/09): plano é **Free**; `pg_dump`
+   diário agendado em `.github/workflows/backup-db.yml` (artifact, 90 dias). Falta configurar
+   o secret `SUPABASE_DB_URL` e validar 1 restauração.
 6. **Observar Construbem** nos próximos runs — se firmar (>1 run com lote), tirar de
    `FONTES_ESPERADAS_ZERO` em `scraper_health.py` e voltar ao status "Ativa" na seção 5.
 7. **Checar `/agenda-de-leiloes` da Celso Cunha** de vez em quando — se voltar a ter leilão
@@ -477,8 +482,11 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 - [ ] **Retenção do `whatsapp_send_log`** — cresce sem limite. Ok por ora (falha é rara);
   revisitar se passar de alguns milhares de linhas. Sem visão no app — dono consulta pelo
   painel do Supabase.
-- [ ] **Backup do Postgres do Supabase** — confirmar o tier (Free = sem backup automático).
-  Se necessário, `pg_dump` agendado.
+- [x] **Backup do Postgres do Supabase** — 09/09. Plano é **Free** (sem backup nativo).
+  `.github/workflows/backup-db.yml`: `pg_dump` (schemas `public` + `auth`) 1×/dia, dump
+  gzipado como artifact do Actions (retenção 90 dias). Secret `SUPABASE_DB_URL`. Ver
+  `SETUP_BACKUP_DB.md`. Pendente: configurar o secret, testar 1 restauração e decidir
+  cópia off-site mensal (o artifact expira em 90 dias).
 - [ ] **`leiloes.json` como "banco" no git** — decisão do dono: **manter**. Reavaliar só se
   o volume passar de milhares de lotes.
 - [ ] **Sem staging / smoke test do app** — aceito por ora; rollback = `git revert` + push.
