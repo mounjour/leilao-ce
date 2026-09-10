@@ -1,6 +1,6 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: leilaoce.streamlit.app (Streamlit Community Cloud, atualiza no push do main)
+- Deploy: leilao-ce.onrender.com (Render, Web Service plano Starter US$ 7/mes, autodeploy no push do main). Migracao do Streamlit Community Cloud (leilaoce.streamlit.app) em andamento — ver SETUP_RENDER.md e o bullet "Migracao de deploy para o Render" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
 
@@ -145,9 +145,19 @@ STATUS (atualizado 2026-09-08):
   `alertas.py` insere com service role (ignora RLS). Colunas: origem
   (`favorito`|`alerta_lance`|`teste`), telefone, lote_url, erro, http_status,
   corpo. Migration `supabase/migrations/20260908000000_whatsapp_send_log.sql`
-  (idempotente) — PENDENTE rodar no Supabase SQL Editor. Testes:
+  (idempotente) — APLICADA no Supabase (dono confirmou 2026-09-09, tabela
+  `whatsapp_send_log` existe). Testes:
   `tests/test_whatsapp_log.py` (5 casos, sb falso). So entram linhas de
   falha; o dono consulta pelo painel do Supabase.
+- Backup do Postgres (2026-09-09): plano do Supabase e Free (sem backup
+  nativo). Novo `.github/workflows/backup-db.yml` roda `pg_dump` (schemas
+  `public` + `auth`, via container `postgres:17-alpine`) 1x/dia as 08:00 UTC
+  e sob demanda; dump sai gzipado como artifact do Actions com retencao de
+  90 dias. Secret novo `SUPABASE_DB_URL` = connection string do Session
+  pooler (porta 5432; o Transaction pooler nao serve pra pg_dump). Job falha
+  alto se o secret faltar ou o dump vier vazio. PENDENTE: configurar o
+  secret, testar 1 restauracao, e decidir copia off-site mensal (o artifact
+  expira em 90 dias). Ver SETUP_BACKUP_DB.md.
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
   tem assinatura ativa. Portal de cobrança e webhook funcionando.
