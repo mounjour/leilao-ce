@@ -56,8 +56,8 @@ back-end ao mesmo tempo.
 - **Coleta:** GitHub Actions (`.github/workflows/scraper.yml`) roda `scraper.py` 2×/dia
   (03h e 15h de Fortaleza), sobrescreve `leiloes.json` e faz commit automático — ver
   [`SETUP_GITHUB_ACTIONS.md`](SETUP_GITHUB_ACTIONS.md).
-- **8 fontes de leilão ativas** hoje (Leilo, Mega, Pacto, Montenegro, MJ Leilões,
-  HastaPública, Receita Federal/SLE, Francisco Freitas) + **3 bloqueadas** por
+- **7 fontes de leilão ativas** hoje (Leilo, Mega, Pacto, Montenegro, MJ Leilões,
+  Receita Federal/SLE, Francisco Freitas) + **3 bloqueadas** por
   Cloudflare/crédito de proxy (MGL, Construbem, Daniel Garcia — Construbem voltou a
   render em 1 run em 08/09, em observação) + **1 dormente** (Celso Cunha — site
   reconstruído, sem leilão ativo; ver [`CELSO_CUNHA_DORMENTE.md`](CELSO_CUNHA_DORMENTE.md))
@@ -147,10 +147,10 @@ back-end ao mesmo tempo.
 
 ### 4.1 — Scraper (`scraper.py`, ~3000 linhas)
 
-Um `_raspar_<fonte>()` por leiloeiro (13 no total; 8 ativos, 3 bloqueados, 1 dormente e a
+Um `_raspar_<fonte>()` por leiloeiro (12 no total; 7 ativos, 3 bloqueados, 1 dormente e a
 chamada da Celso Cunha comentada), rodando ou via **Playwright**
 (sites com JS pesado: Leilo, Mega, Pacto, MGL, Montenegro) ou via **`requests` puro** (sites
-renderizados no servidor, sem Cloudflare: MJ, Celso Cunha, HastaPública, Receita SLE,
+renderizados no servidor, sem Cloudflare: MJ, Celso Cunha, Receita SLE,
 Francisco Freitas, e a plataforma Soleon usada por Construbem/Daniel Garcia). Todas convergem
 para `_lote_dict()`, o formato único de saída — ver [seção 6](#6-modelo-de-dados).
 
@@ -227,7 +227,6 @@ rastreadas mas nunca alertam.
 | **Montenegro** | Playwright (scroll infinito) | ✅ Ativa | `_scroll_ate_carregar_todos`. |
 | **MJ Leilões** | `requests` | ✅ Ativa | Sem Cloudflare. |
 | **Celso Cunha** | `requests` | 😴 Dormente | Site reconstruído ~28/08 (esquema de URL antigo removido, lotes por AJAX) e **sem leilão ativo** (`/agenda-de-leiloes` só tem editais de 2019). Rendia 119 lotes/run até 26/08, 0 desde então. Chamada comentada. Reativar estilo MGL quando voltar. Ver [`CELSO_CUNHA_DORMENTE.md`](CELSO_CUNHA_DORMENTE.md). |
-| **HastaPública** | `requests` | ✅ Ativa | Contrato dos leilões judiciais do TJ-CE (leiloeiro Silvio Cesar Maraschi); lotes do CE no "grupo 11". |
 | **Receita Federal (SLE)** | `requests` (API `.gov`) | ✅ Ativa | Filtro CE por lote. Veículo/máquina: exige "Cidade/CE" na descrição. Eletrônico (desde 08/09, categoria `eletronicos`): filtro CE pelo `recintoArmazenador`, referência de preço = `valorAvaliacao` da RFB. **287 lotes no snapshot de 08/09** (era 5 antes dos eletrônicos). Ver RECEITA_SLE_ADICIONADO.md. |
 | **Francisco Freitas** (Norte Nordeste) | `requests` (API JSON) | ✅ Ativa | **Maior fonte de veículo/imóvel** — 77 lotes CE estáveis. |
 | **MGL** | Playwright + API JSON | ❌ Bloqueada | Cloudflare barra o IP do runner do GitHub Actions (403 confirmado em 2 runs). Precisa de proxy residencial. |
@@ -240,9 +239,9 @@ rastreadas mas nunca alertam.
 | VIP Leilões | — | 🚫 Descartada | Venda direta, não é leilão. |
 | freitasleiloeiro.com.br (Santo André/SP) | — | 🚫 Descartada | Sobrenome parecido com Francisco Freitas, leiloeiro diferente — quase zero CE. |
 
-**Snapshot do `leiloes.json` em 08/09/2026:** 529 lotes — Receita Federal 287 (com
+**Snapshot do `leiloes.json` em 08/09/2026:** 525 lotes — Receita Federal 287 (com
 eletrônicos), Francisco Freitas 77, Leilo 61, Pacto 30, Montenegro 27, Mega 20, MJ 16,
-Construbem 7, HastaPública 4. Celso Cunha, MGL e Daniel Garcia em 0 (dormente/bloqueadas).
+Construbem 7. Celso Cunha, MGL e Daniel Garcia em 0 (dormente/bloqueadas).
 
 ---
 
@@ -255,7 +254,7 @@ scraper e commitada no git.
 
 | Campo | Observação |
 | :---- | :---- |
-| `fonte` | Slug do leiloeiro (`leilo`, `mega`, `hastapublica`, ...). |
+| `fonte` | Slug do leiloeiro (`leilo`, `mega`, `receita_sle`, ...). |
 | `categoria` / `icone` | carros/motos/caminhoes/imoveis/equipamentos/eletronicos + emoji. |
 | `marca` / `modelo` / `ano` / `cidade` / `km` | Extraídos do HTML/API de cada fonte. |
 | `lance_atual` | Valor numérico do lance/proposta no momento da raspagem. |
@@ -363,7 +362,7 @@ formalmente no repo, mas dá pra ler a ordem real de entrega:
 | **Cobrança (Stripe)** | ✅ | Checkout + Billing Portal + enforcement no dashboard + webhook Edge Function. |
 | **Automação 2×/dia** | ✅ | GitHub Actions: scraper → commit do `leiloes.json` → alertas WhatsApp, tudo num workflow. |
 | **Expansão de fontes (rodada 1)** | ✅ | Construbem/Daniel Garcia (Soleon), MJ Leilões, Celso Cunha — mas Construbem/Daniel Garcia acabaram bloqueados por Cloudflare depois. |
-| **Expansão de fontes (rodada 2)** | ✅ | HastaPública (03/09), Receita Federal/SLE (03/09), Francisco Freitas (04/09) — as três somam mais fontes CE reais sem depender de proxy pago. |
+| **Expansão de fontes (rodada 2)** | ✅ | Receita Federal/SLE (03/09), Francisco Freitas (04/09) — somam mais fontes CE reais sem depender de proxy pago. HastaPública, adicionada em 03/09, foi retirada do projeto em 11/09 por decisão do dono. |
 | **Endurecimento da cobrança** | ✅ | Migration `billing_columns`, fallback de telefone/nome no webhook, deploy da Edge Function (03/09). |
 | **Eletrônicos da Receita Federal** | ✅ | Categoria `eletronicos`; `receita_sle` foi de 5 → 287 lotes (08/09). |
 | **Dívida técnica fechada** | ✅ | Testes (`tests/`, `pytest` no CI, 08/09) · log de falha de WhatsApp (`whatsapp_send_log`, 08/09) · health check do scraper (`scraper_health.py`, 08/09) · Celso Cunha marcada dormente (08/09). |
@@ -439,7 +438,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | :---- | :---- | :---- |
 | Front-end + back-end | **Streamlit 1.62** | Single-file por responsabilidade; sem separação cliente/servidor. |
 | Scraping (JS pesado) | **Playwright** + `playwright-stealth` | Leilo, Mega, Pacto, MGL, Montenegro. |
-| Scraping (server-rendered) | `requests` puro | MJ, HastaPública, Receita SLE, Francisco Freitas, Soleon (Construbem/Daniel Garcia). Celso Cunha (dormente). |
+| Scraping (server-rendered) | `requests` puro | MJ, Receita SLE, Francisco Freitas, Soleon (Construbem/Daniel Garcia). Celso Cunha (dormente). |
 | Proxy anti-bloqueio | Zenrows / ScraperAPI | Só usados quando `requests` puro apanha de Cloudflare; ambos sem crédito hoje. |
 | Saúde da coleta | `scraper_health.py` + `scraper_health.json` | Alerta o dono por WhatsApp se fonte ativa fica 3 runs seguidos sem lote. |
 | IA | **Anthropic Claude Haiku 4.5** | Só análise de estado do item; classificação de oportunidade é local (sem IA). |

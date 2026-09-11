@@ -109,8 +109,7 @@ luxos 125, judiciais 32, imóveis 18.
   CE poderia cair na mão deles. Mas a carteira bancária deles é
   concentradíssima em SP; hoje, zero mandato no CE.
 - Judicial: improvável — exigiria uma vara cearense nomear o Sodré Santoro
-  especificamente, disputando com leiloeiros locais da JUCEC (o TJ-CE já
-  está com HastaPública / Silvio Maraschi).
+  especificamente, disputando com leiloeiros locais da JUCEC.
 
 ### Recomendação
 

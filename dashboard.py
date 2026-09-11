@@ -1209,7 +1209,7 @@ def render_lotes(lotes_lista, key="main"):
                             st.markdown(f"[📅 Salvar no Google Calendar]({_cal})")
                         except:
                             pass
-                    _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha", "hastapublica": "HastaPública", "receita_sle": "Receita Federal", "francisco_freitas": "Francisco Freitas Leilões"}.get(lote.get("fonte",""), "Leilão")
+                    _fonte_label = {"mega": "Mega Leilões", "pacto": "Pacto", "leilo": "Leilo", "mgl": "MGL Leilões", "montenegro": "Montenegro Leilões", "construbem": "Construbem", "danielgarcia": "Daniel Garcia", "mj": "MJ Leilões", "celsocunha": "Celso Cunha", "receita_sle": "Receita Federal", "francisco_freitas": "Francisco Freitas Leilões"}.get(lote.get("fonte",""), "Leilão")
                     st.markdown(f"[🔗 Ver lote na {_fonte_label} →]({lote['url']})")
                 lote_url = lote.get("url", "")
                 _favoritado = is_favorite(lote_url)

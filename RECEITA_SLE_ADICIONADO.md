@@ -24,8 +24,8 @@ BACKLOG do `CLAUDE.md` para o motivo dos outros terem ficado de fora.
 - Modelo de **proposta fechada**, não lance ao vivo: os interessados mandam
   proposta num prazo, depois tem uma sessão de classificação/lances. Não dá
   pra saber o "lance atual" em tempo real — `lance_atual` aqui é o **valor
-  mínimo de venda** (mesma convenção já usada quando MJ/CelsoCunha/
-  HastaPública não têm lance registrado).
+  mínimo de venda** (mesma convenção já usada quando MJ/CelsoCunha
+  não têm lance registrado).
 - Um edital típico tem centenas de lotes, mas **~93% é eletrônico**
   (celular, TV, componente) — fora do escopo de um monitor de veículo/
   imóvel/máquina. Amostra real (edital `0317900/000003/2026`, 411 lotes):
@@ -36,8 +36,8 @@ BACKLOG do `CLAUDE.md` para o motivo dos outros terem ficado de fora.
 
 - API JSON pública, `.gov`, **sem Cloudflare, sem cookie/sessão** —
   confirmado com `curl` "cru" (sem apoio de navegador nem headers especiais
-  além de User-Agent/Accept). Mesma faixa do MJ Leilões/Celso Cunha/
-  HastaPública: `requests` puro, sem Playwright, sem proxy.
+  além de User-Agent/Accept). Mesma faixa do MJ Leilões/Celso Cunha:
+  `requests` puro, sem Playwright, sem proxy.
 - Três endpoints, todos JSON limpo:
   - `GET /api/editais-disponiveis` → todos os editais abertos no Brasil,
     agrupados por `situacao` (2 = aberto p/ proposta — o único que interessa;
