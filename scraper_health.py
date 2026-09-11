@@ -29,7 +29,7 @@ _RENOTIFICAR_A_CADA = 14
 # Fontes que se espera render lote todo run. Se uma destas zerar, alerta.
 FONTES_ATIVAS = {
     "leilo", "mega", "pacto", "montenegro",
-    "mj", "hastapublica", "receita_sle", "francisco_freitas",
+    "mj", "receita_sle", "francisco_freitas",
 }
 
 # Fontes rastreadas mas que NAO disparam alerta ao ficar em zero — hoje nao

@@ -46,7 +46,7 @@ def test_fontes_ativas_rastreadas_desde_o_cold_start():
     # toda FONTE_ATIVA entra no placar mesmo sem ter rendido lote
     for fonte in sh.FONTES_ATIVAS:
         assert fonte in estado["fontes"]
-    assert estado["fontes"]["hastapublica"]["zero_streak"] == 1
+    assert estado["fontes"]["receita_sle"]["zero_streak"] == 1
 
 
 def test_recuperacao_zera_alertado_streak():

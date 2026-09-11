@@ -59,7 +59,7 @@ Ceará. Descartado.
     palavra-chave (Veículos/Imóveis/Bens diversos/Semoventes, com
     subcategoria tipo Carros/Motos/Ônibus/Sítios/Casas...).
   - `vl_lance`: lance **atual real** quando já tem gente lançando (não só
-    valor mínimo — diferente de HastaPública/Receita Federal, que são
+    valor mínimo — diferente da Receita Federal, que é
     proposta fechada).
   - `fotos[]`, `anexos[]` (edital/laudo em PDF), `dt_fechamento`.
 - Título do veículo já vem quase no formato Soleon: `"MARCA/MODELO - ANO -

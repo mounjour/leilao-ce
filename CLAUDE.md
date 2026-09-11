@@ -18,8 +18,10 @@ STATUS (atualizado 2026-09-08):
   python -m pytest -q. teste_alerta.py continua sendo script manual separado
   (dispara WhatsApp real, nao e parte da suite).
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leilões, HastaPública, Receita Federal (SLE) e Francisco
+  MJ Leilões, Receita Federal (SLE) e Francisco
   Freitas Leilões implementados. Celso Cunha DORMENTE (ver abaixo).
+  HastaPública removida (2026-09-11): decisão do dono, fonte retirada do
+  projeto (scraper, testes, `leiloes.json`/`scraper_health.json` e docs).
 - Celso Cunha DORMENTE (2026-09-08): rendeu 119 lotes/run ate 26/08, 0 desde
   28/08. O site foi reconstruido — o esquema server-rendered
   /leilao/<id>/<slug> que `_raspar_celso_cunha` raspava sumiu (404), os lotes
@@ -32,7 +34,7 @@ STATUS (atualizado 2026-09-08):
   fim de `raspar_leiloes()` (best-effort, nunca derruba o run). Mantem um
   placar por fonte em `scraper_health.json` (commitado junto do leiloes.json,
   runner e efemero). Quando uma fonte de `FONTES_ATIVAS` (leilo/mega/pacto/
-  montenegro/mj/hastapublica/receita_sle/francisco_freitas) fica 3 runs
+  montenegro/mj/receita_sle/francisco_freitas) fica 3 runs
   seguidos com 0 lote, loga `::warning::` e manda 1 WhatsApp pro dono via
   `alertas.send_whatsapp(origem="scraper_health")`; re-alerta a cada ~14 runs
   enquanto seguir zerada; zera ao voltar. `FONTES_ESPERADAS_ZERO`
@@ -109,14 +111,9 @@ STATUS (atualizado 2026-09-08):
   `eletronicos` — ver o bullet "Eletrônicos" acima e a seção "Eletrônicos"
   do RECEITA_SLE_ADICIONADO.md. Ficam de fora só têxtil/mineral/químico/
   bazar/utensílio. Ver RECEITA_SLE_ADICIONADO.md.
-  HastaPública adicionada em 2026-09-03 (_raspar_hastapublica): plataforma nacional que
-  detém o contrato dos leilões judiciais do TJ-CE via o leiloeiro Silvio
-  Cesar Maraschi (JUCEC 020); os lotes do CE ficam no "grupo 11"
-  (/grupos/11). Site renderizado no servidor, SEM Cloudflare — requests
-  direto, mesma faixa do MJ/Celso Cunha. Testado com dados reais (4 leilões,
-  imóveis + 1 máquina). Nasar Leilões (Fortaleza, muito imóvel no CE) foi
-  visto na mesma investigação mas está atrás de Cloudflare — fica no radar
-  se houver proxy. Ver HASTAPUBLICA_ADICIONADO.md. MGL reescrito em 2026-09-02 para
+  Nasar Leilões (Fortaleza, muito imóvel no CE) foi visto em investigação
+  mas está atrás de Cloudflare — fica no radar se houver proxy. MGL
+  reescrito em 2026-09-02 para
   usar a API JSON (POST /apiplugin/GetBusca com ID_Estado:23, veículos +
   imóveis do CE) — código validado com dados reais, MAS 2 runs manuais
   confirmaram que o Cloudflare bloqueia o site inteiro a partir do IP do
@@ -182,10 +179,10 @@ STATUS (atualizado 2026-09-08):
   push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
-- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — HastaPública
-  (grupo TJ-CE), Receita Federal (SLE, edital Fortaleza) e Francisco Freitas
+- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — Receita
+  Federal (SLE, edital Fortaleza) e Francisco Freitas
   Leilões (91 lotes CE, maior fonte) implementadas. Ver STATUS,
-  HASTAPUBLICA_ADICIONADO.md, RECEITA_SLE_ADICIONADO.md e
+  RECEITA_SLE_ADICIONADO.md e
   FRANCISCO_FREITAS_ADICIONADO.md. Candidatos avaliados e descartados por
   ora: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
   Cloudflare), Lopes Leilões (site sem Cloudflare mas dormente, zero lotes),
