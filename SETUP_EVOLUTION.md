@@ -51,14 +51,26 @@ especial nem de os dois "se conhecerem".
 
 ## 1. Contratar a VPS
 
-Mesma Hostinger, plano menor — essa máquina só roda a Evolution.
+**Hetzner Cloud**, plano **CX22** (2 vCPU, 4 GB RAM, 40 GB NVMe, ~€4,35/mês)
+— mais barata e com specs melhores que qualquer plano de 2 GB do mercado (a
+Hetzner reestruturou as linhas de preço em 2026 e o CX22 ficou mais barato
+que o próprio plano de 2 GB deles). Essa VPS só roda a Evolution.
 
-1. Hostinger → **VPS** → **Hospedagem VPS** → **Configurar VPS**.
-2. Plano **KVM 1** (1 vCPU, 4 GB RAM, 50 GB) — sobra pra Evolution + Postgres + Redis (é uma carga leve: um único WhatsApp, poucas mensagens/dia).
-3. Localização: **São Paulo**.
-4. Sistema operacional: aba **SO puro** → **Ubuntu 24.04 LTS**.
-5. Senha de root — defina e guarde.
-6. **Não** contrate backup automático nem "gerenciador Docker" da Hostinger — instalamos o Docker puro na mão.
+1. Crie a conta em <https://console.hetzner.cloud> (precisa de cartão —
+   pode pedir verificação manual na 1ª compra, às vezes leva algumas horas).
+2. **New Project** → dá um nome (ex.: `achadin-evolution`).
+3. Dentro do projeto, **Add Server**.
+4. **Location**: qualquer uma (Ashburn/EUA costuma ser a de menor latência
+   pro Brasil entre as opções da Hetzner) — não importa muito, ninguém acessa
+   essa VPS diretamente, é só a API respondendo chamadas.
+5. **Image**: **Ubuntu 24.04**.
+6. **Type**: aba **Shared vCPU** → **CX22**.
+7. **SSH Key**: se já tiver uma chave pública sua, cole aqui (evita ter que
+   trocar de senha pra chave depois, no [passo 2](#2-travar-o-servidor)). Se
+   não tiver, pode pular e criar no passo 2.
+8. **Volumes / Firewalls / Backups**: deixe tudo desmarcado — configuramos
+   firewall por `ufw` na mão, e backup fica como melhoria futura.
+9. **Create & Buy now**.
 
 ## 2. Travar o servidor
 
