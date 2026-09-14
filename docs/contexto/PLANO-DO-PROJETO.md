@@ -47,11 +47,14 @@ do Stripe. Não há framework web nem back-end separado: o Streamlit *é* o fron
 back-end ao mesmo tempo.
 
 - **Deploy:** hoje em [leilaoce.streamlit.app](https://leilaoce.streamlit.app) (Streamlit
-  Community Cloud), atualiza a cada push no `main`. **Migração para o Render em andamento**
-  (blueprint [`render.yaml`](render.yaml) → Web Service, plano **Starter** US$ 7/mês;
-  `requirements-web.txt`; [`SETUP_RENDER.md`](SETUP_RENDER.md)) — enquanto a URL de produção
-  não mudar, o deploy vigente ainda é o Streamlit Cloud. Passo a passo do que falta em
-  [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao concluir, revisar as seções 7 e 13.
+  Community Cloud), atualiza a cada push no `main`. **Migração para uma VPS Hostinger em
+  andamento** (plano **KVM 1**, 1 vCPU/4GB RAM; `requirements-web.txt`;
+  [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md); deploy automático via
+  [`deploy.yml`](../../.github/workflows/deploy.yml), SSH no push do `main`) — enquanto a URL
+  de produção não mudar, o deploy vigente ainda é o Streamlit Cloud. A migração anterior
+  para o Render foi abandonada sem chegar a subir o serviço (decisão do dono, 2026-09-14).
+  Passo a passo do que falta em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao concluir,
+  revisar as seções 7 e 13.
 - **Repositório:** [github.com/mounjour/leilao-ce](https://github.com/mounjour/leilao-ce).
 - **Coleta:** GitHub Actions (`.github/workflows/scraper.yml`) roda `scraper.py` 2×/dia
   (03h e 15h de Fortaleza), sobrescreve `leiloes.json` e faz commit automático — ver
@@ -308,16 +311,21 @@ persistem entre rodadas):
 - **Alertas de operação**: `scraper_health.py` avisa o dono por WhatsApp se uma fonte ativa
   para de render lote por 3 runs seguidos (não falha o job).
 - **Hospedagem**: hoje Streamlit Community Cloud (deploy automático no push do `main`);
-  **migração para o Render em andamento** — blueprint `render.yaml` cria **1 Web Service**
-  Python (`streamlit run dashboard.py`), plano **Starter** (512 MB / 0.5 CPU, US$ 7/mês,
-  sempre ligado; subir pra Standard no painel se a aba Metrics acusar pressão de RAM/CPU),
-  região `virginia`, autodeploy no push. Não cria banco (Supabase é externo) nem cron (o
-  scraper continua no GitHub Actions). `requirements-web.txt` enxuto (sem
-  playwright/anthropic) derruba o build pra ~30 s. Deps externas: `SETUP_RENDER.md`
-  (passo a passo), `DEPLOY_CHECKLIST.md` (tudo que falta pra virar a chave). Em qualquer
-  um dos dois: sem ambiente de **staging** — todo push no `main` vai direto pra produção.
-  O gate de testes (`pytest` no `tests.yml` e no `scraper.yml`) é a única barreira; não há
-  smoke test do app em si.
+  **migração para uma VPS Hostinger em andamento** (plano **KVM 1**: 1 vCPU / 4 GB RAM /
+  50 GB NVMe, ~R$ 28/mês; subir pra KVM 2 no painel se sobrar pouca RAM, ou se decidir
+  self-host da Evolution API na mesma máquina), processo `streamlit run dashboard.py` sob
+  **systemd**, atrás de **Nginx** com TLS via **Let's Encrypt/Certbot** num endereço
+  `sslip.io` (sem domínio próprio por ora). Deploy automático via GitHub Actions
+  (`deploy.yml`, SSH no push do `main`: `git reset --hard` + reinstala deps + restart do
+  systemd). Não cria banco (Supabase é externo) nem cron (o scraper continua no GitHub
+  Actions). `requirements-web.txt` enxuto (sem playwright/anthropic) mantém o ambiente do
+  site leve. A migração anterior para o Render foi abandonada sem chegar a subir o serviço
+  (decisão do dono, 2026-09-14). Deps externas: `SETUP_HOSTINGER_VPS.md` (passo a passo),
+  `DEPLOY_CHECKLIST.md` (tudo que falta pra virar a chave). Sem ambiente de **staging** —
+  todo push no `main` vai direto pra produção. O gate de testes (`pytest` no `tests.yml` e
+  no `scraper.yml`) é a única barreira; não há smoke test do app em si. Diferente do
+  Render, o restart do systemd não é zero-downtime (~2–5 s de corte por deploy) e não há
+  botão de rollback com 1 clique (é `git checkout` + restart na mão).
 - **Backup**: o plano do Supabase é **Free** — **sem backup automático** (confirmado
   09/09/2026). Rotina própria adicionada em 09/09: [`.github/workflows/backup-db.yml`](.github/workflows/backup-db.yml)
   roda `pg_dump` (schemas `public` + `auth`, via container `postgres:17-alpine`) 1×/dia às
@@ -398,11 +406,11 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | `leiloes.json` como "banco" cresce demais e o commit/diff fica pesado. | Ok para o volume atual (centenas de lotes); se crescer para milhares, migrar os lotes para uma tabela no Postgres. |
 | Evolution API (WhatsApp não oficial) pode ser bloqueada pela Meta a qualquer momento. | Migrar para WhatsApp Cloud API oficial via BSP quando o volume de alertas justificar o custo/verificação de empresa. |
 | Runner do GitHub Actions tem IP de datacenter — vulnerável a bloqueio por Cloudflare em qualquer fonte nova, não só nas 3 já bloqueadas. | Avaliar proxy residencial compartilhado entre todas as fontes bloqueadas, em vez de resolver uma de cada vez. |
-| `_IA_ATIVA` desliga globalmente ao primeiro erro de crédito e só volta a `True` em um novo processo do scraper — uma rodada inteira pode ficar sem IA mesmo depois de recarregar crédito no meio dela. | Aceitável dado que o scraper roda do zero a cada execução (2×/dia); não vale complexidade de detectar recarga em tempo real. |
+| `_IA_ATIVA` desliga globalmente ao primeiro erro de crédito e só volta a `True` em um novo processo do scraper — uma rodada inteira pode ficar sem IA mesmo depois de recarregar crédito no meio dela. | Aceitável dado que o scraper roda do zero a cada execução (1×/dia); não vale complexidade de detectar recarga em tempo real. |
 | Dependência de uma única pessoa entendendo o sistema (arquivos grandes). | **Mitigado (08/09):** `tests/` com pytest cobrindo os parsers/classificação críticos de `scraper.py`, `whatsapp_log` e `scraper_health`; roda no `tests.yml` (push/PR) e como gate no `scraper.yml`. `teste_alerta.py` segue como script manual à parte. |
 | Falha silenciosa de `_whatsapp_favorito` / `alertas.send_whatsapp` (exceção engolida). | **Mitigado (08/09):** as duas rotas gravam a falha em `whatsapp_send_log` (Supabase) via `whatsapp_log.registrar_falha` — auditável pelo painel, sem cavar log do Actions. |
 | Fonte de leilão muda de site e para de render lote sem ninguém notar (aconteceu com a Celso Cunha: 12 dias em 0). | **Mitigado (08/09):** `scraper_health.py` alerta o dono por WhatsApp se uma fonte de `FONTES_ATIVAS` fica 3 runs seguidos zerada. |
-| Deploy direto em produção (sem staging) — um push quebrado no `main` derruba o app. | Parcial: o gate de `pytest` pega regressão de lógica pura; não há smoke test do app. Aceito por ora (app pequeno, rollback = revert + push). Vale reavaliar na migração pro Render. |
+| Deploy direto em produção (sem staging) — um push quebrado no `main` derruba o app. | Parcial: o gate de `pytest` pega regressão de lógica pura; não há smoke test do app. Aceito por ora (app pequeno, rollback = `git checkout` + restart do systemd na VPS). Vale reavaliar na migração pra VPS Hostinger. |
 | Perda do Postgres do Supabase (usuários/favoritos/cobrança). | **Mitigado (09/09):** `pg_dump` diário (schemas `public` + `auth`) via `.github/workflows/backup-db.yml`, dump gzipado como artifact do Actions, retenção 90 dias. Plano Supabase é Free (sem backup nativo). Falta: teste de restauração num projeto novo + eventual cópia off-site mensal (artifact expira em 90 dias). |
 | Cobrança duplicada de assinatura Stripe. | Já mitigado: `create_checkout_url` verifica assinaturas existentes (`ExistingSubscriptionError`) antes de criar uma nova sessão. |
 | Falha do trigger `handle_new_user` deixando profile sem telefone. | Já mitigado: fallback no webhook do Stripe lê `auth.users.raw_user_meta_data`. |
@@ -411,9 +419,10 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 
 ## 12. Próximos passos imediatos
 
-1. **Concluir a migração para o Render** — blueprint pronto (`render.yaml` → Web Service
-   plano Starter, `requirements-web.txt`, `SETUP_RENDER.md`); falta subir o serviço, apontar
-   a URL de produção e desligar o deploy do Streamlit Cloud. Checklist completo (Render +
+1. **Concluir a migração para a VPS Hostinger** — guia pronto (`SETUP_HOSTINGER_VPS.md`,
+   plano KVM 1, `requirements-web.txt`, `deploy.yml`); falta provisionar a VPS de fato,
+   apontar a URL de produção e desligar o deploy do Streamlit Cloud. A migração anterior
+   para o Render foi abandonada sem chegar a subir o serviço. Checklist completo (VPS +
    Evolution API + backup + IA) em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao terminar,
    revisar as seções 1, 7 e 13.
 2. **Recarregar crédito Zenrows/ScraperAPI** — destrava Construbem e Daniel Garcia de uma vez
@@ -446,8 +455,8 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Banco/Auth | **Supabase** (Postgres + Auth PKCE) | `profiles`, `favorites`, `billing_webhook_events`, `whatsapp_send_log`. |
 | Cobrança | **Stripe** (Checkout + Billing Portal + Webhook) | Webhook roda como Supabase Edge Function em **Deno**. |
 | Alertas | **WhatsApp via Evolution API** (não oficial) | Ver risco na seção 11. |
-| Automação | **GitHub Actions** (cron 2×/dia) | Scraper → commit `leiloes.json` → alertas, tudo em um workflow. |
-| Hospedagem | **Streamlit Community Cloud** (migração pro **Render** em andamento — Web Service plano Starter, US$ 7/mês) | Deploy automático no push do `main`. Ver `SETUP_RENDER.md`, `DEPLOY_CHECKLIST.md`, `render.yaml`. |
+| Automação | **GitHub Actions** (cron 1×/dia) | Scraper → commit `leiloes.json` → alertas, tudo em um workflow. |
+| Hospedagem | **Streamlit Community Cloud** (migração pra **VPS Hostinger** em andamento — plano KVM 1, 1 vCPU/4GB RAM) | Deploy automático via GitHub Actions (SSH) no push do `main`. Ver `SETUP_HOSTINGER_VPS.md`, `DEPLOY_CHECKLIST.md`, `deploy.yml`. |
 | Dados | `leiloes.json` + `analises_ia_cache.json` + `historico_tokens_ia.jsonl` + `scraper_health.json` **commitados no git** | Funciona como banco de dados versionado para os lotes; ver riscos. |
 
 ---
