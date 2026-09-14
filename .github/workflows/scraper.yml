@@ -2,8 +2,8 @@ name: Scraper LeilãoCE
 
 on:
   schedule:
-    # Roda às 06:00 e 18:00 UTC = 03:00 e 15:00 horário de Fortaleza (UTC-3)
-    - cron: '0 6,18 * * *'
+    # Roda às 06:00 UTC = 03:00 horário de Fortaleza (UTC-3)
+    - cron: '0 6 * * *'
   workflow_dispatch:        # permite rodar manualmente pela aba Actions
 
 # Permissões necessárias para o GITHUB_TOKEN fazer push do leiloes.json

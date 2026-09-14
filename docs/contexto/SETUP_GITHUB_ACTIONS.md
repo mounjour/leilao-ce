@@ -1,6 +1,6 @@
 # Setup do GitHub Actions — LeilãoCE
 
-Este projeto roda o scraper automaticamente via GitHub Actions, duas vezes por dia,
+Este projeto roda o scraper automaticamente via GitHub Actions, uma vez por dia,
 e faz commit do `leiloes.json` atualizado de volta no repositório.
 O Streamlit Cloud detecta o novo commit e o dashboard mostra os dados frescos.
 
@@ -59,9 +59,9 @@ No arquivo `.github/workflows/scraper.yml`, linha `cron`:
 
 | Frequência         | Cron                  | Observação                          |
 |--------------------|-----------------------|-------------------------------------|
-| 2x ao dia (atual)  | `0 6,18 * * *`        | 03h e 15h Fortaleza (UTC-3)         |
+| 1x ao dia (atual)  | `0 6 * * *`           | 03h Fortaleza (UTC-3)               |
+| 2x ao dia          | `0 6,18 * * *`        | 03h e 15h Fortaleza (UTC-3)         |
 | 4x ao dia          | `0 0,6,12,18 * * *`   | A cada 6 horas                      |
-| 1x ao dia          | `0 9 * * *`           | 06h Fortaleza                       |
 | A cada 3 horas     | `0 */3 * * *`         | Cuidado com limite de minutos       |
 | Só dias úteis 8h   | `0 11 * * 1-5`        | 08h Fortaleza, seg–sex              |
 
