@@ -52,6 +52,31 @@ Streamlit. Sem plano de rodar a Evolution API (WhatsApp) na mesma máquina por
 enquanto (ver `DEPLOY_CHECKLIST.md`, bloco C) — se isso mudar, reavaliar para
 KVM 2 (2 vCPU / 8 GB).
 
+### O KVM 1 aguenta a expansão para 1200–1600 lotes?
+
+Sim, com folga confortável — medido, não estimado (2026-09-14, `leiloes.json`
+com 558 lotes na época):
+
+| Dimensão | Hoje (558 lotes) | Projeção (1600 lotes) | Impacto no KVM 1 |
+|---|---|---|---|
+| `leiloes.json` em disco | 632 KB | ~1,8 MB | Irrelevante (50 GB NVMe) |
+| Estrutura em memória (Python, `tracemalloc`) | 5,6 MB | ~16 MB (linear) | Irrelevante (4 GB RAM) |
+| Filtro + sort por rerun do Streamlit (`dashboard.py`) | 0,21 ms | ~0,59 ms (linear) | Irrelevante (orçamento de rerun é dezenas de ms) |
+| Cards renderizados por página | 50 (fixo) | 50 (fixo) | **Não escala com o total** — `ITEMS_PER_PAGE = 50` (`dashboard.py:1047`) pagina antes de renderizar; o filtro/sort acima roda sobre a lista inteira, mas isso é a linha da tabela anterior, não a renderização |
+
+O tamanho do catálogo não é o eixo que algum dia forçaria upgrade de VPS —
+nessa dimensão o KVM 1 sobraria até para uma ordem de grandeza a mais de
+lotes. O eixo que de fato limita é **sessões simultâneas**: o Streamlit é um
+processo único, guarda sessão em RAM por usuário conectado, e cada rerun é
+CPU-bound — um vCPU serializa esse trabalho, então muitos usuários ativos ao
+mesmo tempo (não o tamanho do catálogo) é o que eventualmente pediria mais
+CPU/RAM. Nesse eixo o KVM 1 já é uma melhora sobre o Render Starter que o
+time havia validado como suficiente (1 vCPU dedicado vs. 0,5 CPU
+compartilhado; 4 GB vs. 512 MB) — daí a recomendação permanecer o KVM 1
+também com o crescimento do catálogo para 1200–1600 lotes. Se o gatilho for
+esse (mais usuários simultâneos, não mais lotes), o upgrade é só trocar o
+Instance Type no painel da Hostinger — sem mudar código.
+
 ---
 
 ## Checklist
