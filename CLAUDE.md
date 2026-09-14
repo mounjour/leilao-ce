@@ -1,8 +1,8 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: leilao-ce.onrender.com (Render, Web Service plano Starter US$ 7/mes, autodeploy no push do main). Migracao do Streamlit Community Cloud (leilaoce.streamlit.app) em andamento — ver SETUP_RENDER.md e o bullet "Migracao de deploy para o Render" no STATUS.
+- Deploy: leilao-ce.onrender.com (Render, Web Service plano Starter US$ 7/mes, autodeploy no push do main). Migracao do Streamlit Community Cloud (leilaoce.streamlit.app) em andamento — ver docs/contexto/SETUP_RENDER.md e o bullet "Migracao de deploy para o Render" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
-- Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em SETUP_GITHUB_ACTIONS.md.
+- Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-08):
 - Testes: adicionado tests/test_scraper.py em 2026-09-08 (46 casos, pytest,
@@ -29,7 +29,7 @@ STATUS (atualizado 2026-09-08):
   (/agenda-de-leiloes so tem editais de 2019 "EM BREVE"). Chamada comentada em
   `raspar_leiloes()`; funcao e helpers mantidos como base. Reescrever estilo
   MGL (sessao propria) quando o site voltar a ter leilao. Ver
-  CELSO_CUNHA_DORMENTE.md.
+  docs/contexto/CELSO_CUNHA_DORMENTE.md.
 - Health check do scraper (2026-09-08): novo `scraper_health.py`, chamado no
   fim de `raspar_leiloes()` (best-effort, nunca derruba o run). Mantem um
   placar por fonte em `scraper_health.json` (commitado junto do leiloes.json,
@@ -43,7 +43,7 @@ STATUS (atualizado 2026-09-08):
   scraper" do workflow (ausente = so `::warning::`, sem WhatsApp). NAO falha o
   job de proposito. Testes: `tests/test_scraper_health.py` (10 casos).
 - Higiene (2026-09-08): `debug.py` removido (script solto de dev, nao importado).
-  `PLANO-DO-PROJETO.md` atualizado (snapshot, secoes 1/3/5/7/9/10/11/12/13/14).
+  `docs/contexto/PLANO-DO-PROJETO.md` atualizado (snapshot, secoes 1/3/5/7/9/10/11/12/13/14).
   Decisoes do dono registradas como FORA DE ESCOPO: relatorios/exportacao,
   notificacao de lote novo por filtro salvo, migrar WhatsApp p/ Cloud API oficial
   da Meta. Mantido: `leiloes.json` versionado no git. Pendencias novas
@@ -52,11 +52,11 @@ STATUS (atualizado 2026-09-08):
   run 08/09 — se firmar, tirar de `FONTES_ESPERADAS_ZERO`).
 - Migracao de deploy para o Render EM ANDAMENTO: blueprint `render.yaml`
   (Web Service, plano Starter US$ 7/mes), `requirements-web.txt`,
-  `SETUP_RENDER.md`. Falta subir o servico e apontar a URL de producao.
+  `docs/contexto/SETUP_RENDER.md`. Falta subir o servico e apontar a URL de producao.
   Passo a passo completo do que ainda falta (Render + Evolution API + backup +
-  IA + desligar o Community Cloud) em `DEPLOY_CHECKLIST.md`. Quando concluir,
+  IA + desligar o Community Cloud) em `docs/contexto/DEPLOY_CHECKLIST.md`. Quando concluir,
   revisar a linha "Deploy" no topo deste arquivo e as secoes 1/7/13 do
-  PLANO-DO-PROJETO.md.
+  docs/contexto/PLANO-DO-PROJETO.md.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:
@@ -76,7 +76,7 @@ STATUS (atualizado 2026-09-08):
   0317900/000003/2026 (60/60 montados, com valorAvaliacao). Um edital de
   exemplo pula de ~10 candidatos para ~396 (+2-3 min no run). IA em fallback
   (credito Anthropic zerado), entao todo eletronico sai como NAO_INFORMADO
-  ate recarregar. Ver RECEITA_SLE_ADICIONADO.md, secao "Eletronicos".
+  ate recarregar. Ver docs/contexto/RECEITA_SLE_ADICIONADO.md, secao "Eletronicos".
 - Francisco Freitas adicionada em 2026-09-04
   (_raspar_francisco_freitas): leiloeiro forte no Nordeste, plataforma
   "Norte Nordeste Leilões" (nortenordesteleiloes.com.br == mesmo backend de
@@ -97,7 +97,7 @@ STATUS (atualizado 2026-09-08):
   incluso, bloco padrão Cloudflare "AI Bots"); User-agent:* é Allow:/ e o
   scraper não se identifica como nenhum bot de IA (mesmo UA de navegador
   das outras fontes) — registrado por transparência. Ver
-  FRANCISCO_FREITAS_ADICIONADO.md. Receita Federal adicionada em 2026-09-03
+  docs/contexto/FRANCISCO_FREITAS_ADICIONADO.md. Receita Federal adicionada em 2026-09-03
   (_raspar_receita_sle): leilão de
   mercadoria apreendida, API JSON pública em www25.receita.fazenda.gov.br
   (.gov, sem Cloudflare/sessão, confirmado com curl cru). A DRF Fortaleza
@@ -109,8 +109,8 @@ STATUS (atualizado 2026-09-08):
   vivo) — lance_atual = valor mínimo. Desde 2026-09-08 entram lotes de
   veículo/máquina pesada E de eletrônico (~93% do edital) na categoria
   `eletronicos` — ver o bullet "Eletrônicos" acima e a seção "Eletrônicos"
-  do RECEITA_SLE_ADICIONADO.md. Ficam de fora só têxtil/mineral/químico/
-  bazar/utensílio. Ver RECEITA_SLE_ADICIONADO.md.
+  do docs/contexto/RECEITA_SLE_ADICIONADO.md. Ficam de fora só têxtil/mineral/químico/
+  bazar/utensílio. Ver docs/contexto/RECEITA_SLE_ADICIONADO.md.
   Nasar Leilões (Fortaleza, muito imóvel no CE) foi visto em investigação
   mas está atrás de Cloudflare — fica no radar se houver proxy. MGL
   reescrito em 2026-09-02 para
@@ -118,10 +118,10 @@ STATUS (atualizado 2026-09-08):
   imóveis do CE) — código validado com dados reais, MAS 2 runs manuais
   confirmaram que o Cloudflare bloqueia o site inteiro a partir do IP do
   GitHub Actions (SPA nao inicializa + 403). Parado até ter proxy residencial
-  (ver MGL_SCRAPER_PENDENTE.md). Construbem/Daniel Garcia = mesmo muro;
+  (ver docs/contexto/MGL_SCRAPER_PENDENTE.md). Construbem/Daniel Garcia = mesmo muro;
   Zenrows sem crédito (402) e ScraperAPI com timeout nos runs de 2026-09-02.
   Sodré Santoro investigado em 2026-08-31 e descartado: pátios só em SP/PR,
-  sem estoque no CE (ver SODRE_SANTORO_DESCARTADO.md). MGL destravado em
+  sem estoque no CE (ver docs/contexto/SODRE_SANTORO_DESCARTADO.md). MGL destravado em
   2026-09-04: `_raspar_mgl` agora abre sua própria sessão via Zenrows
   Scraping Browser (`p.chromium.connect_over_cdp("wss://browser.zenrows.com?apikey=...")`,
   reaproveita `ZENROWS_API_KEY`) em vez do Chromium local — o Cloudflare
@@ -132,7 +132,7 @@ STATUS (atualizado 2026-09-08):
   pra isso não compensa pro volume/prioridade do MGL). Se `ZENROWS_API_KEY`
   faltar ou a conexão falhar, faz bail limpo (mensagem clara, sem travar o
   resto do scraper). Ainda não testado num run real do GitHub Actions — ver
-  MGL_SCRAPER_PENDENTE.md.
+  docs/contexto/MGL_SCRAPER_PENDENTE.md.
 - IA (Anthropic): créditos esgotados nos runs de 2026-09-02 — circuit breaker
   desliga a análise e usa fallback "Não informado" em todos os lotes.
 - Favoritos: pronto, sincronizando com Supabase (upsert por user_id,lote_url).
@@ -157,7 +157,7 @@ STATUS (atualizado 2026-09-08):
   pooler (porta 5432; o Transaction pooler nao serve pra pg_dump). Job falha
   alto se o secret faltar ou o dump vier vazio. PENDENTE: configurar o
   secret, testar 1 restauracao, e decidir copia off-site mensal (o artifact
-  expira em 90 dias). Ver SETUP_BACKUP_DB.md.
+  expira em 90 dias). Ver docs/contexto/SETUP_BACKUP_DB.md.
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger handle_new_user.
 - Planos pagos (Stripe): enforcement ligado — dashboard.py bloqueia quem não
   tem assinatura ativa. Portal de cobrança e webhook funcionando.
@@ -182,8 +182,8 @@ BACKLOG:
 - Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — Receita
   Federal (SLE, edital Fortaleza) e Francisco Freitas
   Leilões (91 lotes CE, maior fonte) implementadas. Ver STATUS,
-  RECEITA_SLE_ADICIONADO.md e
-  FRANCISCO_FREITAS_ADICIONADO.md. Candidatos avaliados e descartados por
+  docs/contexto/RECEITA_SLE_ADICIONADO.md e
+  docs/contexto/FRANCISCO_FREITAS_ADICIONADO.md. Candidatos avaliados e descartados por
   ora: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
   Cloudflare), Lopes Leilões (site sem Cloudflare mas dormente, zero lotes),
   Copart (login obrigatório + anti-bot agressivo), VIP Leilões (venda
@@ -193,7 +193,7 @@ BACKLOG:
   Browser (`connect_over_cdp`), não pelo padrão de proxy de URL do
   _raspar_soleon (esse não bastava pro MGL, que precisa da navegação
   inteira passando pelo proxy, não só o fetch). Falta validar num run real
-  do GitHub Actions. Ver STATUS e MGL_SCRAPER_PENDENTE.md.
+  do GitHub Actions. Ver STATUS e docs/contexto/MGL_SCRAPER_PENDENTE.md.
 - Recarregar crédito Anthropic (destrava a análise de IA). Zenrows/ScraperAPI
   já em uso nos planos de entrada (dono do projeto confirmou em 2026-09-04
   que preço não é uma preocupação aqui).

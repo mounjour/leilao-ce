@@ -2,8 +2,8 @@
 #
 # O que este arquivo cria: UM Web Service Python. Nao cria banco (o Supabase
 # e externo) nem cron (o scraping continua no GitHub Actions, ver
-# SETUP_GITHUB_ACTIONS.md). Passo a passo e o que preencher a mao:
-# SETUP_RENDER.md.
+# docs/contexto/SETUP_GITHUB_ACTIONS.md). Passo a passo e o que preencher a mao:
+# docs/contexto/SETUP_RENDER.md.
 #
 # Depois de dar push nisto: Render -> New -> Blueprint -> aponta para o repo
 # mounjour/leilao-ce. O Render le este arquivo e pede os valores marcados

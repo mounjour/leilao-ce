@@ -1157,7 +1157,7 @@ def _raspar_mj_leiloes(vistos):
 # disso nao ha leilao ativo — /agenda-de-leiloes so lista editais de 2019 "EM
 # BREVE". A chamada em raspar_leiloes() esta comentada. Quando o site voltar a
 # ter leilao, reescrever estilo MGL (sessao/fetch propria). Ver
-# CELSO_CUNHA_DORMENTE.md. O codigo abaixo fica como base para essa reescrita.
+# docs/contexto/CELSO_CUNHA_DORMENTE.md. O codigo abaixo fica como base para essa reescrita.
 _CC_BASE    = "https://celsocunhaleiloes.com.br"
 _CC_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                               "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -2383,7 +2383,7 @@ def _raspar_mgl(p, vistos):
     GitHub Actions (a SPA nem inicializa) — so passa com proxy residencial.
     Por isso abre sua PROPRIA sessao remota na Zenrows Scraping Browser
     (connect_over_cdp) em vez de reaproveitar o Chromium local dos demais
-    scrapers Playwright. Ver MGL_SCRAPER_PENDENTE.md.
+    scrapers Playwright. Ver docs/contexto/MGL_SCRAPER_PENDENTE.md.
     """
     lotes = []
     zenrows_key = os.getenv("ZENROWS_API_KEY", "").strip()
@@ -2773,7 +2773,7 @@ def raspar_leiloes():
     lotes += _raspar_mj_leiloes(vistos)
     # Celso Cunha DORMENTE desde ~28/08/2026 — site reconstruido, esquema de URL
     # antigo removido e nenhum leilao ativo. Reativar (reescrevendo estilo MGL)
-    # so quando o site voltar a ter leilao. Ver CELSO_CUNHA_DORMENTE.md.
+    # so quando o site voltar a ter leilao. Ver docs/contexto/CELSO_CUNHA_DORMENTE.md.
     # lotes += _raspar_celso_cunha(vistos)
     lotes += _raspar_receita_sle(vistos)
     lotes += _raspar_francisco_freitas(vistos)

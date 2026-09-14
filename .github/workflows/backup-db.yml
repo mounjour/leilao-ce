@@ -26,7 +26,7 @@ jobs:
           set -euo pipefail
 
           if [ -z "${SUPABASE_DB_URL:-}" ]; then
-            echo "::error::Secret SUPABASE_DB_URL não configurado — ver SETUP_BACKUP_DB.md"
+            echo "::error::Secret SUPABASE_DB_URL não configurado — ver docs/contexto/SETUP_BACKUP_DB.md"
             exit 1
           fi
 
