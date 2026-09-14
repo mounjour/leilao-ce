@@ -1,0 +1,38 @@
+name: Deploy do site (VPS Hostinger)
+
+# Roda a cada push no main (inclusive os commits automaticos do scraper
+# "chore: atualiza leiloes.json [auto ...]"): entra na VPS via SSH, atualiza
+# o repositorio e reinicia o servico do dashboard.
+# Setup completo: docs/contexto/SETUP_HOSTINGER_VPS.md
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # permite rodar manualmente pela aba Actions
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/leilao-ce
+            git fetch origin main
+            git reset --hard origin/main
+            source .venv/bin/activate
+            pip install -q -r requirements-web.txt
+            sudo systemctl restart leilao-ce
+            sleep 2
+            sudo systemctl is-active --quiet leilao-ce

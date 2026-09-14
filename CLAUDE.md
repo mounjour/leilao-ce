@@ -1,6 +1,6 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: leilao-ce.onrender.com (Render, Web Service plano Starter US$ 7/mes, autodeploy no push do main). Migracao do Streamlit Community Cloud (leilaoce.streamlit.app) em andamento — ver docs/contexto/SETUP_RENDER.md e o bullet "Migracao de deploy para o Render" no STATUS.
+- Deploy: migrando do Streamlit Community Cloud (leilaoce.streamlit.app) para uma VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `SEU-IP.sslip.io` (sem dominio proprio, TLS via Let's Encrypt/Certbot), autodeploy via GitHub Actions SSH no push do main. Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Ver docs/contexto/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
@@ -50,11 +50,17 @@ STATUS (atualizado 2026-09-08):
   (nao-bloqueantes) no backlog do PLANO: retencao do `whatsapp_send_log`,
   confirmar tier de backup do Supabase, observar Construbem (rendeu 7 lotes em 1
   run 08/09 — se firmar, tirar de `FONTES_ESPERADAS_ZERO`).
-- Migracao de deploy para o Render EM ANDAMENTO: blueprint `render.yaml`
-  (Web Service, plano Starter US$ 7/mes), `requirements-web.txt`,
-  `docs/contexto/SETUP_RENDER.md`. Falta subir o servico e apontar a URL de producao.
-  Passo a passo completo do que ainda falta (Render + Evolution API + backup +
-  IA + desligar o Community Cloud) em `docs/contexto/DEPLOY_CHECKLIST.md`. Quando concluir,
+- Migracao de deploy para a VPS Hostinger EM ANDAMENTO (2026-09-14): a
+  migracao anterior para o Render foi abandonada sem nunca subir o servico
+  (decisao do dono) e substituida por uma VPS Hostinger (plano KVM 1).
+  `render.yaml` e `docs/contexto/SETUP_RENDER.md` removidos; guia novo em
+  `docs/contexto/SETUP_HOSTINGER_VPS.md` (provisionamento, systemd, Nginx +
+  Certbot com endereco `sslip.io` — sem dominio proprio por ora — e deploy
+  automatico via `.github/workflows/deploy.yml`, SSH a cada push no main).
+  `requirements-web.txt` continua valendo (dependencias do site, sem mudanca).
+  Falta: provisionar a VPS de fato e apontar a URL de producao. Passo a passo
+  completo do que ainda falta (VPS + Evolution API + backup + IA + desligar o
+  Community Cloud) em `docs/contexto/DEPLOY_CHECKLIST.md`. Quando concluir,
   revisar a linha "Deploy" no topo deste arquivo e as secoes 1/7/13 do
   docs/contexto/PLANO-DO-PROJETO.md.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
