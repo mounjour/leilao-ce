@@ -4,7 +4,32 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-15):
+STATUS (atualizado 2026-09-16):
+- Bug critico no Leilo corrigido (2026-09-16): dono reportou categoria
+  errada (filtro "motos" mostrando caminhao, "caminhoes" mostrando carro) e
+  nome de lote com texto estranho ("Leilao-De-Seguradoras-15-09-26 Honda...").
+  Causa raiz: o site do Leilo mudou de estrutura — `/leilao/{cidade}-ceara/
+  {categoria}` parou de filtrar por categoria (cai num feed nacional sem
+  filtro) e a URL do lote ganhou um segmento novo (nome do "leilao"
+  nomeado) entre categoria e veiculo, quebrando o parser por indice fixo
+  (marca virava o nome do leilao). Achado MAIS GRAVE na investigacao: como
+  ninguem validava a UF real do lote, lotes de OUTROS ESTADOS (Taguatinga/
+  DF, Cuiaba/MT, Manaus/AM, Aparecida de Goiania/GO...) estavam sendo
+  rotulados "/CE" e aparecendo pro usuario como se fossem do Ceara.
+  `_raspar_leilo` reescrita: uma unica URL (`/leilao/fortaleza-ceara`, unico
+  grupo de busca CE que ainda filtra de verdade), virou "requests direto"
+  (site e server-rendered, nao precisa mais de Playwright nem de abrir
+  pagina de detalhe por lote — a listagem ja traz tudo), categoria vem do
+  segmento da propria URL do lote (nao mais de um valor "pedido"), e todo
+  lote so entra se o UF do proprio card for "CE" (rede de seguranca contra
+  o vazamento de outro estado se o filtro cair de novo). Cobertura: 36
+  lotes/run (sem paginacao disponivel na listagem — testado, nao encontrado
+  mecanismo real apesar do badge do site dizer "124 Lotes"). Imoveis/
+  equipamentos do Leilo (secao separada do site) ficam fora do escopo, como
+  antes. Testes: `TestLeiloParseListagem` em tests/test_scraper.py (HTML
+  real + casos sinteticos pro vazamento de outro estado). `leiloes.json`
+  commitado so reflete a correcao apos o proximo run do GitHub Actions. Ver
+  docs/contexto/LEILO_REESCRITO_2026-09.md.
 - Grupo Lance adicionada como fonte (2026-09-15): `_raspar_grupo_lance` em
   scraper.py, "requests direto" (sem Playwright/proxy — site server-rendered
   Yii2/PHP, sem Cloudflare nem outro anti-bot). Filtro CE funciona de

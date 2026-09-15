@@ -20,9 +20,6 @@ CIDADES_CE = [
     "fortaleza","eusebio","maracanau","caucaia","juazeiro-do-norte",
     "sobral","crato","iguatu","horizonte","pacajus","aquiraz","russas"
 ]
-CATEGORIAS = ["carros","motos","caminhoes","imoveis","equipamentos"]
-URLS = [(f"https://leilo.com.br/leilao/{c}-ceara/{cat}", cat)
-        for c in CIDADES_CE for cat in CATEGORIAS]
 
 FIPE_API   = "https://parallelum.com.br/fipe/api/v1"
 cliente_ia = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -640,24 +637,6 @@ def _extrair_lance(texto):
         return valores[0]
     return 0
 
-def _extrair_foto(html, dominios=('cdndp.com.br',)):
-    # A CDN do Leilo serve um placeholder fixo (mesma URL em todos os lotes,
-    # sem "_media" no nome) para foto ausente/pendente — como o nome não tem
-    # nenhuma das palavras-chave abaixo, ele passava pelo filtro e virava a
-    # "foto" do card. Fotos reais dos lotes sempre têm "_media" no nome.
-    # "leilomaster" tambem exclui: e o dominio antigo (pre-rebranding pra
-    # Leilo) que ainda aparece no cabecalho de algumas paginas — sem essa
-    # exclusao, uma corrida entre esse dominio e a galeria de fotos real
-    # (que carrega via JS, mais devagar) podia fazer o regex pegar a logo
-    # antiga em vez da foto do lote.
-    for dom in dominios:
-        pat = rf'https?://[^\s"\']+{re.escape(dom)}[^\s"\']*\.(?:jpg|jpeg|png|webp)'
-        for f in re.findall(pat, html, re.IGNORECASE):
-            fl = f.lower()
-            if '_media' in fl and not any(x in fl for x in ['logo','icon','avatar','banner','no-image','leilomaster']):
-                return f
-    return ""
-
 def _extrair_km(texto):
     for m in re.findall(r'([\d]{2,3}\.[\d]{3})\s*km', texto, re.IGNORECASE):
         if int(m.replace(".","")) >= 1000:
@@ -753,81 +732,153 @@ def _extrair_data_leilao(texto):
     return ""
 
 # ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────
-def _raspar_leilo(pg_lista, pg_detalhe, vistos):
+# Reescrito em 2026-09-16 — o site foi reestruturado e quebrou o scraper antigo
+# de duas formas:
+#
+# 1. A navegacao por cidade+categoria (`/leilao/{cidade}-ceara/{categoria}`)
+#    parou de filtrar por categoria: qualquer sufixo alem da raiz (`/carros`,
+#    `/motos`, `/caminhoes`...) cai num feed generico/nacional sem filtro
+#    nenhum (mesmos lotes de SP/GO/DF/MT/BA/AM/PA pra qualquer categoria
+#    pedida) — e o codigo antigo nao validava isso, entao lotes de OUTROS
+#    ESTADOS estavam sendo importados e rotulados como "/CE" por engano
+#    (confirmado em producao: leiloes.json com cidade "Taguatinga Df/CE",
+#    "Cuiaba Mt/CE", "Manaus Am/CE" etc.).
+# 2. A URL do lote ganhou um segmento novo — o "nome do leilao" (ex.:
+#    "leilao-de-seguradoras-15-09-26") — entre a categoria e o slug do
+#    veiculo, empurrando os indices fixos que o parser antigo usava
+#    (pts[3]=marca, pts[4]=modelo). Resultado: marca virava o nome do
+#    leilao ("Leilao-De-Seguradoras-15-09-26") e a categoria pedida
+#    (cat_url do loop) raramente batia com a real, trocando "motos" por
+#    "caminhoes" etc.
+#
+# So `/leilao/{cidade}-ceara` (SEM sufixo de categoria) continua filtrando de
+# verdade — e hoje so existe UM grupo de busca ativo pro Nordeste/CE
+# ("Fortaleza/CE", que cobre o patio fisico em Eusebio/CE; nao ha groups
+# separados por cidade do interior). E pagina server-rendered (confirmado
+# com requests.get() cru, sem Playwright) e cada card da listagem ja traz
+# tudo que precisamos prontos (titulo "MARCA/MODELO", UF, cidade, km, lance,
+# data do leilao, foto) — nao precisa mais abrir a pagina de detalhe por
+# lote. Imoveis/equipamentos do Leilo vivem numa secao separada do site
+# (`/leilao/imoveis`) e nao passam por essa listagem — fora do escopo desta
+# reescrita (o codigo antigo tambem nunca trouxe nenhum, ver leiloes.json).
+_LEILO_URL_CE = "https://leilo.com.br/leilao/fortaleza-ceara"
+_LEILO_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                 "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                 "Chrome/124.0.0.0 Safari/537.36"}
+# Um card = `<a class="cl column" href="..." aria-label="MARCA/MODELO">`.
+_LEILO_CARD_RE = re.compile(
+    r'<a href="(/leilao/[^"]+?/ano\.(\d{4})/[a-f0-9-]+)" class="cl column" aria-label="([^"]+)"'
+)
+_LEILO_CAT_HREF = {
+    "carros": "carros", "motos": "motos", "caminhoes": "caminhoes",
+    "pesados": "caminhoes", "utilitarios": "caminhoes", "onibus": "caminhoes",
+}
+
+
+def _leilo_parse_listagem(pagina_html):
+    """Extrai lotes da listagem /leilao/{cidade}-ceara (HTML estatico).
+
+    Titulo (aria-label) ja vem pronto como "MARCA/MODELO" — so splitar no
+    primeiro "/", bem mais confiavel que tentar remontar a partir da URL
+    (que agora carrega o nome do leilao no meio). A categoria real vem do
+    segmento da propria URL, nao do que foi "pedido" — a pagina so tem uma
+    listagem, nao ha o que pedir. `cl__uf`/`cl__info--local` sao a UF que o
+    proprio site atribui ao lote: exigir "CE" ali (em vez de so confiar que
+    a pagina filtrou direito) e a rede de seguranca contra o problema 1
+    acima — se o filtro cair de novo, os lotes de outro estado sao
+    descartados em vez de herdar "/CE" por engano.
+    """
+    matches = list(_LEILO_CARD_RE.finditer(pagina_html))
+    resultados = []
+    for i, m in enumerate(matches):
+        href, ano_str, aria_label = m.group(1), m.group(2), m.group(3)
+        fim = matches[i + 1].start() if i + 1 < len(matches) else min(len(pagina_html), m.end() + 4000)
+        chunk = pagina_html[m.start():fim]
+
+        if not re.search(r'cl__uf"[^>]*>\s*CE\s*<', chunk):
+            continue
+        m_local = re.search(r'cl__info--local"[^>]*title="([^"]+)"', chunk)
+        cidade = html.unescape(m_local.group(1)).strip() if m_local else "CE"
+        if not cidade.upper().endswith("/CE"):
+            continue
+
+        partes = href.strip('/').split('/')
+        categoria_href = partes[2] if len(partes) > 2 else ""
+        categoria_url  = _LEILO_CAT_HREF.get(categoria_href, "carros")
+
+        marca, _, modelo = html.unescape(aria_label).strip().partition('/')
+        marca  = marca.title() or "?"
+        modelo = modelo.title() or "?"
+
+        m_lance = re.search(r'cl__valor"[^>]*>R\$[\xa0\s]*([\d.,]+)', chunk)
+        lance   = _parse_brl(m_lance.group(1)) if m_lance else 0
+
+        m_data = re.search(r'cl__leilao-data--completa"[^>]*>(\d{2}/\d{2}/\d{4})', chunk)
+        m_hora = re.search(r'cl__leilao-hora"[^>]*>\D*(\d{2}:\d{2})', chunk)
+        data_leilao = ""
+        if m_data:
+            try:
+                data_leilao = datetime.strptime(
+                    f"{m_data.group(1)} {m_hora.group(1) if m_hora else '00:00'}",
+                    "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
+            except ValueError:
+                pass
+
+        m_foto = re.search(r'<img src="(https://leilo\.cdndp\.com\.br/[^"]+)"', chunk)
+        m_desc = re.search(r'cl__retomada-texto"[^>]*>([^<]+)<', chunk)
+
+        resultados.append({
+            "url": f"https://leilo.com.br{href}", "categoria_url": categoria_url,
+            "marca": marca, "modelo": modelo, "ano": int(ano_str), "cidade": cidade,
+            "km": _extrair_km(chunk), "lance": lance,
+            "foto": m_foto.group(1) if m_foto else "",
+            "descricao": html.unescape(m_desc.group(1)).strip() if m_desc else "",
+            "data_leilao": data_leilao,
+        })
+    return resultados
+
+
+def _raspar_leilo(vistos):
     lotes = []
-    for url_base, cat_url in URLS:
-        try:
-            pg_lista.goto(url_base, timeout=15000, wait_until="domcontentloaded")
-            pg_lista.wait_for_timeout(4000)
-        except:
+    try:
+        r = requests.get(_LEILO_URL_CE, headers=_LEILO_HEADERS, timeout=20)
+    except Exception as e:
+        print(f"⚠️ Leilo: {e}")
+        return lotes
+    if r.status_code != 200:
+        print(f"⚠️ Leilo: HTTP {r.status_code}")
+        return lotes
+
+    itens = _leilo_parse_listagem(r.text)
+    if not itens:
+        print("⚠️ Leilo: nenhum lote no CE")
+        return lotes
+    print(f"📡 Leilo Fortaleza/CE | {len(itens)} lote(s)")
+
+    for it in itens:
+        if it["url"] in vistos:
             continue
-
-        for _ in range(5):
-            pg_lista.keyboard.press("End")
-            pg_lista.wait_for_timeout(2000)
-
-        # Extrai data do evento da listagem — fallback para todos os lotes desta página
+        vistos.add(it["url"])
         try:
-            data_evento = _extrair_data_leilao(pg_lista.inner_text('body'))
-        except:
-            data_evento = ""
+            marca, modelo, ano = it["marca"], it["modelo"], it["ano"]
+            categoria = detectar_categoria(modelo, marca, it["categoria_url"])
+            lance     = it["lance"]
 
-        hrefs = []
-        for link in pg_lista.query_selector_all('a'):
-            try:
-                href = link.get_attribute('href') or ''
-                if '/leilao/' in href and 'ano.' in href and href not in vistos:
-                    vistos.add(href); hrefs.append(href)
-            except:
-                continue
+            ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+            analise = _analisar_cached(it["url"], marca, modelo, ano, it["descricao"],
+                                       it["km"], lance, ref_val, categoria)
+            classif = classificar(lance, ref_val, analise.get("estado", ""))
 
-        if not hrefs:
-            continue
-        print(f"📡 Leilo {url_base.split('/leilao/')[1]} | {len(hrefs)} lotes")
-
-        for href in hrefs[:30]:
-            try:
-                pts      = href.strip('/').split('/')
-                cidade   = pts[1].replace("-ceara","").replace("-"," ").title() if len(pts)>1 else "?"
-                marca    = pts[3].title() if len(pts)>3 else "?"
-                modelo   = limpar_modelo(pts[4]) if len(pts)>4 else "?"
-                ano_str  = pts[5].replace("ano.","") if len(pts)>5 else "0"
-                ano      = int(ano_str) if ano_str.isdigit() else 0
-                url_lote = f"https://leilo.com.br{href}"
-                categoria = detectar_categoria(modelo, marca, cat_url)
-
-                try:
-                    pg_detalhe.goto(url_lote, timeout=12000, wait_until="domcontentloaded")
-                    # A galeria de fotos do lote carrega via JS depois do resto da
-                    # pagina — com so 2s de espera, as vezes ainda nao tinha
-                    # renderizado nenhuma foto real, e o _extrair_foto caia pra
-                    # uma logo antiga da epoca "LeiloMaster" que sobrou no cabecalho
-                    # da pagina (mesmo dominio cdndp.com.br, mas nao e foto do lote).
-                    pg_detalhe.wait_for_timeout(4500)
-                    texto = pg_detalhe.inner_text('body')
-                    html  = pg_detalhe.content()
-                except:
-                    texto, html = "", ""
-
-                lance     = _extrair_lance(texto)
-                foto      = _extrair_foto(html, ('leilo.cdndp.com.br', 'cdndp.com.br'))
-                km        = _extrair_km(texto)
-                descricao = _extrair_descricao(texto)
-
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
-                classif  = classificar(lance, ref_val, analise.get("estado",""))
-
-                icone = ICONES.get(categoria, "📦")
-                data_leilao = _extrair_data_leilao(texto) or data_evento
-                print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif} | {data_leilao or 'sem data'}")
-
-                lotes.append(_lote_dict("leilo", categoria, marca, modelo, ano,
-                                        cidade+"/CE", lance, ref_val, ref_str,
-                                        classif, foto, km, descricao, analise, url_lote, data_leilao))
-                time.sleep(0.5)
-            except Exception as e:
-                print(f"  ⚠️ Leilo: {e}"); continue
+            icone = ICONES.get(categoria, "📦")
+            print(f"  {icone} [Leilo/{categoria}] {marca} {modelo} {ano} — "
+                  f"R${lance:,.0f} | {classif} | {it['cidade']}")
+            lotes.append(_lote_dict("leilo", categoria, marca, modelo, ano,
+                                    it["cidade"], lance, ref_val, ref_str, classif,
+                                    it["foto"], it["km"], it["descricao"], analise,
+                                    it["url"], it["data_leilao"]))
+            time.sleep(0.1)
+        except Exception as e:
+            print(f"  ⚠️ Leilo: {e}")
 
     return lotes
 
@@ -2894,7 +2945,6 @@ def raspar_leiloes():
         pg_lista   = ctx.new_page()
         pg_detalhe = ctx.new_page()
 
-        lotes += _raspar_leilo(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mega(pg_lista, vistos)
         lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mgl(p, vistos)
@@ -2904,6 +2954,7 @@ def raspar_leiloes():
         browser.close()
 
     # Sites simples — requests direto, sem Playwright nem ScraperAPI
+    lotes += _raspar_leilo(vistos)
     lotes += _raspar_mj_leiloes(vistos)
     # Celso Cunha DORMENTE desde ~28/08/2026 — site reconstruido, esquema de URL
     # antigo removido e nenhum leilao ativo. Reativar (reescrevendo estilo MGL)

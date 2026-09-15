@@ -29,6 +29,7 @@ from scraper import (
     _rf_parse_eletronico,
     _grupo_lance_categoria,
     _grupo_lance_parse_pagina,
+    _leilo_parse_listagem,
 )
 
 
@@ -364,3 +365,64 @@ class TestGrupoLanceParsePagina:
 
     def test_pagina_sem_cards(self):
         assert _grupo_lance_parse_pagina("<html><body>sem lotes</body></html>") == []
+
+
+# --- Leilo -------------------------------------------------------------------
+# HTML real (16/09/2026) de /leilao/fortaleza-ceara: um card de carro em CE,
+# mais dois cards sinteticos (moto em CE, carro em GO) pra cobrir o mapeamento
+# de categoria e a rede de seguranca contra lote de outro estado vazando —
+# foi exatamente esse vazamento (Taguatinga/DF, Cuiaba/MT, Manaus/AM etc.
+# rotulados como "/CE") que o site reestruturado causou em 2026-09 (ver
+# _raspar_leilo).
+_LEILO_CARD_CARRO_CE = '''
+<a href="/leilao/eusebio-ce/carros/leilao-nordeste-de-veiculos-16-09-26/ford-fiesta-sedan-1-6-flex-4p/ano.2013/a5376e3b-cd2d-4e81-bab0-074f47165e02" class="cl column" aria-label="FORD/FIESTA SEDAN 1.6 FLEX (4P)" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><div class="cl__lote-badge" data-v-1c9f2c44>LOTE 127</div><span class="cl__uf" data-v-1c9f2c44>CE</span><div class="carrossel-container" data-v-1c9f2c44><div class="carrossel-wrapper"><img src="https://leilo.cdndp.com.br/v1/arquivo/2026/9/11/1789157403137_d1c9f8af-5cad-474f-bfc5-5d59a345e79a_mini_leilo.webp" alt="FORD/FIESTA SEDAN 1.6 FLEX (4P)" class="lote-card-img"></div></div><div class="cl__retomada" title="Recuperado de Financiamento" data-v-1c9f2c44><span class="cl__retomada-texto" data-v-1c9f2c44>Recuperado de Financiamento</span></div></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info" data-v-1c9f2c44>12/13</span><span class="cl__info" data-v-1c9f2c44><img src="/home/icones/km.svg"></i> 115.573 km </span><span class="cl__info cl__info--local" title="Eusébio/CE" data-v-1c9f2c44> Eusébio/CE</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 10.000,00</p><p class="cl__rotulo q-mb-none" data-v-1c9f2c44>Lance Inicial</p></div><p class="cl__leilao" data-v-1c9f2c44><span class="cl__leilao-rotulo" data-v-1c9f2c44>Leilão:</span><span class="cl__leilao-data cl__leilao-data--completa" data-v-1c9f2c44>16/09/2026 Qua</span><span class="cl__leilao-hora" data-v-1c9f2c44>• 09:30</span></p></div></a>
+'''
+
+_LEILO_CARD_MOTO_CE = '''
+<a href="/leilao/eusebio-ce/motos/leilao-nordeste-de-veiculos-16-09-26/honda-adv-150/ano.2024/ae494e3d-42da-43df-a0d2-73c209f50e86" class="cl column" aria-label="HONDA/ADV 150" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><div class="cl__lote-badge" data-v-1c9f2c44>LOTE 162</div><span class="cl__uf" data-v-1c9f2c44>CE</span></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info cl__info--local" title="Eusébio/CE" data-v-1c9f2c44> Eusébio/CE</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 15.000,00</p></div></div></a>
+'''
+
+_LEILO_CARD_CARRO_GO = '''
+<a href="/leilao/aparecida-de-goiania-go/carros/super-terca-15-09-26/chevrolet-onix-joye-4p/ano.2018/b31aec5c-1e4f-43c8-8536-2e27e345d997" class="cl column" aria-label="CHEVROLET/ONIX JOY E (4P)" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><span class="cl__uf" data-v-1c9f2c44>GO</span></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info cl__info--local" title="Aparecida de Goiânia/GO" data-v-1c9f2c44> Aparecida de Goiânia/GO</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 20.000,00</p></div></div></a>
+'''
+
+
+class TestLeiloParseListagem:
+    def test_extrai_carro_ce(self):
+        itens = _leilo_parse_listagem(_LEILO_CARD_CARRO_CE)
+        assert len(itens) == 1
+        it = itens[0]
+        assert it["marca"] == "Ford"
+        assert it["modelo"] == "Fiesta Sedan 1.6 Flex (4P)"
+        assert it["ano"] == 2013
+        assert it["cidade"] == "Eusébio/CE"
+        assert it["categoria_url"] == "carros"
+        assert it["lance"] == 10000.0
+        assert it["km"] == "115.573 km"
+        assert it["descricao"] == "Recuperado de Financiamento"
+        assert it["data_leilao"] == "2026-09-16T09:30"
+        assert it["foto"].startswith("https://leilo.cdndp.com.br/")
+        assert it["url"] == ("https://leilo.com.br/leilao/eusebio-ce/carros/"
+                             "leilao-nordeste-de-veiculos-16-09-26/ford-fiesta-sedan-1-6-flex-4p/"
+                             "ano.2013/a5376e3b-cd2d-4e81-bab0-074f47165e02")
+
+    def test_categoria_moto_vem_da_url(self):
+        it = _leilo_parse_listagem(_LEILO_CARD_MOTO_CE)[0]
+        assert it["categoria_url"] == "motos"
+        assert it["marca"] == "Honda"
+        assert it["modelo"] == "Adv 150"
+
+    def test_lote_de_outro_estado_e_descartado(self):
+        # Trava contra o bug de 2026-09: o site as vezes deixa passar lote
+        # de outro estado no feed do Fortaleza/CE — o "cl__uf" (e a cidade)
+        # sao a fonte da verdade, nao o fato de ter vindo dessa pagina.
+        assert _leilo_parse_listagem(_LEILO_CARD_CARRO_GO) == []
+
+    def test_so_o_lote_de_ce_sobrevive_numa_pagina_mista(self):
+        pagina = _LEILO_CARD_CARRO_CE + _LEILO_CARD_CARRO_GO + _LEILO_CARD_MOTO_CE
+        itens = _leilo_parse_listagem(pagina)
+        assert len(itens) == 2
+        assert all(it["cidade"].endswith("/CE") for it in itens)
+
+    def test_pagina_sem_cards(self):
+        assert _leilo_parse_listagem("<html><body>sem lotes</body></html>") == []
