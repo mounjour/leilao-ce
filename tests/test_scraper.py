@@ -27,6 +27,8 @@ from scraper import (
     _rf_categoria,
     _rf_eletronico_ce,
     _rf_parse_eletronico,
+    _grupo_lance_categoria,
+    _grupo_lance_parse_pagina,
 )
 
 
@@ -253,3 +255,112 @@ class TestReceitaParseEletronico:
 
     def test_lista_vazia(self):
         assert _rf_parse_eletronico([]) == ("?", "?")
+
+
+# --- Grupo Lance -------------------------------------------------------------
+class TestGrupoLanceCategoria:
+    def test_imovel(self):
+        assert _grupo_lance_categoria("/imoveis/imoveis-comerciais/ce/iguatu/slug-28523") == "imoveis"
+
+    def test_veiculo_ainda_nao_suportado(self):
+        # veiculos/bens-industriais/bens-de-consumo nao tem lote no CE ainda
+        # (ver docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md) — nao
+        # deve ser tratado como categoria valida ate o parse ser validado.
+        assert _grupo_lance_categoria("/veiculos/carros/ce/fortaleza/slug-1") is None
+
+    def test_url_vazia(self):
+        assert _grupo_lance_categoria("") is None
+
+
+# HTML real (2026-09-14) de dois cards de /imoveis/ce: um com 1a/2a praça
+# (28523, Iguatu) e um com praça única (28030, Juazeiro do Norte).
+_GRUPO_LANCE_HTML_2_CARDS = '''
+<div class="row"><div class="card-item col-sm-12 col-md-6 col-lg-4 col-xl-3" data-key="28523"><div class="card mb-4">
+    <div class="card-image-holder" style="position: relative;"><a class="card-image d-block" href="https://www.grupolance.com.br/imoveis/imoveis-comerciais/ce/iguatu/imovel-comercial-at-227m2-planalto-iguatu-ce-28523" alt="Imóvel Comercial, A.T.: 227m², Planalto, Iguatu/CE" style="background: url(//cdn.grupolance.com.br/batches/16/28523/f3ccdd27d2000e3f9255a7e3e2c48800_thumb.jpg) center center no-repeat; background-size: cover;" data-pjax="0"></a></div>    <div class="card-body">
+        <a class="card-title" href="/imoveis/imoveis-comerciais/ce/iguatu/imovel-comercial-at-227m2-planalto-iguatu-ce-28523" title="Imóvel Comercial, A.T.: 227m², Planalto, Iguatu/CE" data-pjax="0">Imóvel Comercial, A.T.: 227m², Planalto, Iguatu/CE</a>                <div class="card-price">
+            R$ 160.000,00        </div>
+        <div class="card-info">
+            <div class="float-left text-uppercase"><a href="/leiloes/judiciais" data-pjax="0">Judicial</a></div>
+            <div class="float-left ml-3"><a class="card-locality" href="/ce/iguatu" title="Iguatu, CE" data-pjax="0"><i class="fas fa-map-marker-alt"></i> Iguatu, CE</a></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="card-instance-info">
+            <div><a href="/imoveis/imoveis-comerciais/ce/iguatu/imovel-comercial-at-227m2-planalto-iguatu-ce-28523" data-pjax="0">28523 - LOTE 1238</a></div>
+        </div>
+        <div class="card-dates">
+            <div class="card-date-row">
+                <div class="card-instance-label"><span class="badge badge-primary">1ª Praça</span></div>
+                <ol class="card-instance-date">
+                    <li>15/09/2026 às 12:00</li>
+                    <li>16/09/2026 às 08:00</li>
+                    <li class="fs-px-12" style="line-height: 1;">R$ 160.000,00</li>
+                </ol>
+            </div>
+            <div class="card-date-row">
+                <div class="card-instance-label"><span class="badge badge-primary">2ª Praça</span></div>
+                <ol class="card-instance-date">
+                    <li>16/09/2026 às 08:00</li>
+                    <li>15/10/2026 às 08:00</li>
+                    <li class="fs-px-12" style="line-height: 1;">R$ 120.000,00</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div></div>
+<div class="card-item col-sm-12 col-md-6 col-lg-4 col-xl-3" data-key="28030"><div class="card mb-4">
+    <div class="card-image-holder" style="position: relative;"><a class="card-image d-block" href="https://www.grupolance.com.br/imoveis/terrenos-e-lotes/ce/juazeiro-do-norte/terreno-6000m2-jose-geraldo-da-cruz-juazeiro-do-norte-ce-28030" alt="Terreno" style="background: url(//cdn.grupolance.com.br/batches/fc/28030/07f62224f5b4296c2af4975ac0da5576_thumb.jpg) center center no-repeat; background-size: cover;" data-pjax="0"></a></div>    <div class="card-body">
+        <a class="card-title" href="/imoveis/terrenos-e-lotes/ce/juazeiro-do-norte/terreno-6000m2-jose-geraldo-da-cruz-juazeiro-do-norte-ce-28030" title="Terreno, 6.000m², José Geraldo da Cruz, Juazeiro do Norte/CE" data-pjax="0">Terreno, 6.000m², José Geraldo da Cruz, Juazeiro do Norte/CE</a>                <div class="card-price">
+            R$ 1.575.000,00        </div>
+        <div class="card-info">
+            <div class="float-left text-uppercase"><a href="/leiloes/judiciais" data-pjax="0">Judicial</a></div>
+            <div class="float-left ml-3"><a class="card-locality" href="/ce/juazeiro-do-norte" title="Juazeiro Do Norte, CE" data-pjax="0"><i class="fas fa-map-marker-alt"></i> Juazeiro Do Norte, CE</a></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="card-instance-info">
+            <div><a href="/imoveis/terrenos-e-lotes/ce/juazeiro-do-norte/terreno-6000m2-jose-geraldo-da-cruz-juazeiro-do-norte-ce-28030" data-pjax="0">28030 - LOTE 344</a></div>
+        </div>
+        <div class="card-dates">
+            <div class="card-date-row">
+                <div class="card-instance-label"><span class="badge badge-primary">P. Única</span></div>
+                <ol class="card-instance-date">
+                    <li>02/03/2026 às 08:00</li>
+                    <li>05/12/2026 às 10:00</li>
+                    <li class="fs-px-12" style="line-height: 1;">R$ 1.575.000,00</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div></div>
+</div>
+'''
+
+
+class TestGrupoLanceParsePagina:
+    def test_extrai_dois_cards(self):
+        itens = _grupo_lance_parse_pagina(_GRUPO_LANCE_HTML_2_CARDS)
+        assert len(itens) == 2
+
+    def test_card_com_1a_e_2a_praca(self):
+        it = _grupo_lance_parse_pagina(_GRUPO_LANCE_HTML_2_CARDS)[0]
+        assert it["id"] == "28523"
+        assert it["url"] == ("https://www.grupolance.com.br/imoveis/imoveis-comerciais/ce/"
+                             "iguatu/imovel-comercial-at-227m2-planalto-iguatu-ce-28523")
+        assert it["categoria"] == "imoveis"
+        assert it["cidade"] == "Iguatu/CE"
+        assert it["titulo"] == "Imóvel Comercial, A.T.: 227m², Planalto, Iguatu/CE"
+        # card-price mostra o valor da praça ativa agora (1a praça, 160k);
+        # a referencia de avaliação é o maior valor entre as praças.
+        assert it["lance"] == 160000.0
+        assert it["ref_val"] == 160000.0
+        assert it["data_leilao"] == "2026-09-15T12:00"
+        assert it["foto"] == "https://cdn.grupolance.com.br/batches/16/28523/f3ccdd27d2000e3f9255a7e3e2c48800_thumb.jpg"
+
+    def test_card_com_praca_unica(self):
+        it = _grupo_lance_parse_pagina(_GRUPO_LANCE_HTML_2_CARDS)[1]
+        assert it["id"] == "28030"
+        assert it["cidade"] == "Juazeiro Do Norte/CE"
+        assert it["lance"] == 1575000.0
+        assert it["ref_val"] == 1575000.0
+
+    def test_pagina_sem_cards(self):
+        assert _grupo_lance_parse_pagina("<html><body>sem lotes</body></html>") == []

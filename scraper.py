@@ -1867,6 +1867,140 @@ def _raspar_francisco_freitas(vistos):
 
     return lotes
 
+# ─── SCRAPER GRUPO LANCE ──────────────────────────────────────────────────────
+# Investigado em 2026-09-14 (ver docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md).
+# Site server-rendered (Yii2/PHP), sem Cloudflare nem outro anti-bot na frente —
+# confirmado com requests.get() cru, sem proxy nem Playwright. O filtro por UF
+# funciona de verdade na propria URL (`/imoveis/ce`, diferente do Francisco
+# Freitas e da MGL, onde o parametro `estado=`/UI e ignorado e sempre devolve
+# o inventario nacional) e o card da listagem ja traz cidade/UF, preco e as
+# datas/valores de praca — não precisa abrir a pagina de detalhe por lote.
+_GRUPO_LANCE_BASE = "https://www.grupolance.com.br"
+# So imoveis tem lote no CE por ora — veiculos/bens-industriais/bens-de-consumo
+# zerados na investigacao (mesmo site, mesmo padrao de URL `/{categoria}/ce`).
+# Adicionar aqui quando aparecer lote real nessas categorias, pra dar pra
+# validar o parse de titulo de veiculo (formato ainda desconhecido).
+_GRUPO_LANCE_URLS = [f"{_GRUPO_LANCE_BASE}/imoveis/ce"]
+_GRUPO_LANCE_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                       "Chrome/124.0.0.0 Safari/537.36"}
+
+
+def _grupo_lance_categoria(url_lote):
+    """Categoria a partir do 1o segmento da URL do lote (/imoveis/... ou /veiculos/...)."""
+    raiz = url_lote.strip("/").split("/")[0] if url_lote else ""
+    return "imoveis" if raiz == "imoveis" else None
+
+
+def _grupo_lance_parse_pagina(pagina_html):
+    """Extrai lotes de uma pagina de listagem /{categoria}/ce (HTML estatico).
+
+    Um card = um bloco `data-key="ID"` ate o proximo (ou fim da pagina). Tudo
+    que precisamos ja esta na listagem: titulo/URL (card-title), cidade
+    (card-locality), preco atual (card-price) e o(s) valor(es) de praca
+    (card-instance-date) — o maior deles e a avaliacao/1a praca, usada como
+    referencia de mercado.
+    """
+    posicoes = [(m.group(1), m.start()) for m in re.finditer(r'data-key="(\d+)"', pagina_html)]
+    resultados = []
+    for i, (lote_id, pos) in enumerate(posicoes):
+        fim = posicoes[i + 1][1] if i + 1 < len(posicoes) else len(pagina_html)
+        chunk = pagina_html[pos:fim]
+
+        m_title = re.search(r'class="card-title" href="([^"]+)" title="([^"]+)"', chunk)
+        if not m_title:
+            continue
+        href, titulo = m_title.group(1), html.unescape(m_title.group(2)).strip()
+        categoria = _grupo_lance_categoria(href)
+        if not categoria:
+            continue
+        url_lote = href if href.startswith("http") else f"{_GRUPO_LANCE_BASE}{href}"
+
+        m_local = re.search(r'class="card-locality"[^>]*title="([^"]+)"', chunk)
+        cidade = html.unescape(m_local.group(1)).strip() if m_local else "CE"
+        cidade = re.sub(r',\s*CE$', '/CE', cidade, flags=re.IGNORECASE)
+
+        precos_praca = [_parse_brl(v) for v in re.findall(
+            r'card-instance-date">.*?<li[^>]*>\s*R\$[\xa0\s]*([\d.,]+)\s*</li>', chunk, re.S)]
+        precos_praca = [v for v in precos_praca if v > 0]
+        ref_val = max(precos_praca) if precos_praca else 0
+
+        m_preco = re.search(r'class="card-price">\s*R\$[\xa0\s]*([\d.,]+)\s*</div>', chunk)
+        lance = _parse_brl(m_preco.group(1)) if m_preco else (min(precos_praca) if precos_praca else 0)
+
+        m_foto = re.search(r'card-image[^>]*background:\s*url\(([^)]+)\)', chunk)
+        foto = ""
+        if m_foto:
+            f = m_foto.group(1).strip()
+            foto = f if f.startswith("http") else f"https:{f}"
+
+        resultados.append({
+            "id": lote_id, "url": url_lote, "titulo": titulo, "cidade": cidade,
+            "categoria": categoria, "lance": lance, "ref_val": ref_val,
+            "foto": foto, "data_leilao": _extrair_data_leilao(chunk),
+        })
+    return resultados
+
+
+def _raspar_grupo_lance(vistos):
+    lotes = []
+    sess = requests.Session()
+    sess.headers.update(_GRUPO_LANCE_HEADERS)
+
+    for url_base in _GRUPO_LANCE_URLS:
+        itens, total_paginas = [], 1
+        for pagina in range(1, 21):
+            if pagina > total_paginas:
+                break
+            url = f"{url_base}?pagina={pagina}"
+            try:
+                r = sess.get(url, timeout=20)
+            except Exception as e:
+                print(f"  ⚠️ Grupo Lance {url}: {e}")
+                break
+            if r.status_code != 200:
+                print(f"  ⚠️ Grupo Lance {url}: HTTP {r.status_code}")
+                break
+            if pagina == 1:
+                m_pag = re.search(r'P[aá]gina\s*<b>\d+</b>\s*de\s*<b>(\d+)</b>', r.text)
+                if m_pag:
+                    total_paginas = int(m_pag.group(1))
+            itens += _grupo_lance_parse_pagina(r.text)
+            time.sleep(0.3)
+
+        if not itens:
+            continue
+        print(f"📡 Grupo Lance {url_base.split('/')[-2]} | {len(itens)} lote(s) no CE")
+
+        for it in itens:
+            if it["url"] in vistos:
+                continue
+            vistos.add(it["url"])
+
+            categoria, titulo = it["categoria"], it["titulo"]
+            marca, modelo, ano = ("Imóvel", titulo, 0) if categoria == "imoveis" \
+                                  else _extrair_veiculo_de_titulo(titulo)
+
+            lance, ref_val = it["lance"], it["ref_val"]
+            ref_str = f"R$ {ref_val:,.0f} (avaliação)" if ref_val else "Sem referência"
+            icone = ICONES.get(categoria, "📦")
+
+            try:
+                analise = _analisar_cached(it["url"], marca, modelo, ano, titulo, "",
+                                           lance, ref_val, categoria)
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [GrupoLance/{categoria}] {marca} {modelo} — "
+                      f"R${lance:,.0f} | {classif} | {it['cidade']}")
+                lotes.append(_lote_dict("grupo_lance", categoria, marca, modelo, ano,
+                                        it["cidade"], lance, ref_val, ref_str, classif,
+                                        it["foto"], "", titulo, analise, it["url"],
+                                        it["data_leilao"]))
+                time.sleep(0.1)
+            except Exception as e:
+                print(f"  ⚠️ Grupo Lance lote {it['id']}: {e}")
+
+    return lotes
+
 # ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
@@ -2745,7 +2879,7 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
-    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + ReceitaSLE + FranciscoFreitas\n")
+    print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + ReceitaSLE + FranciscoFreitas + GrupoLance\n")
     _reset_metricas_ia()
     _load_analise_cache()
     lotes, vistos = [], set()
@@ -2777,6 +2911,7 @@ def raspar_leiloes():
     # lotes += _raspar_celso_cunha(vistos)
     lotes += _raspar_receita_sle(vistos)
     lotes += _raspar_francisco_freitas(vistos)
+    lotes += _raspar_grupo_lance(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)

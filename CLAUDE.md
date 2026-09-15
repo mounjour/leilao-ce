@@ -4,7 +4,20 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-08):
+STATUS (atualizado 2026-09-15):
+- Grupo Lance adicionada como fonte (2026-09-15): `_raspar_grupo_lance` em
+  scraper.py, "requests direto" (sem Playwright/proxy — site server-rendered
+  Yii2/PHP, sem Cloudflare nem outro anti-bot). Filtro CE funciona de
+  verdade na própria URL (`/imoveis/ce`, diferente do `?estado=` que é
+  ignorado no Francisco Freitas/MGL). 9 lotes de imóvel confirmados no CE
+  (Iguatu, Aquiraz, Juazeiro do Norte x2, Maranguape, Fortaleza, Pedra
+  Branca, Crato), validados num run real. Veículos/bens industriais/bens de
+  consumo do mesmo site ficaram de fora por ora (zerados no CE, formato de
+  título de veículo nunca visto com dado real). `grupo_lance` entrou em
+  `FONTES_ATIVAS` do scraper_health.py. Testes:
+  `TestGrupoLanceCategoria`/`TestGrupoLanceParsePagina` em
+  tests/test_scraper.py (HTML real, sem rede). Ver
+  docs/contexto/GRUPO_LANCE_ADICIONADO.md.
 - Testes: adicionado tests/test_scraper.py em 2026-09-08 (46 casos, pytest,
   ~0,4s) cobrindo as funcoes puras de scraper.py: classificar,
   oportunidade_preco, _score_modelo, _parse_brl, _extrair_lance, _extrair_km,
@@ -185,6 +198,16 @@ STATUS (atualizado 2026-09-08):
   push" ele vai reaplicar essa + a 20260826000000 — as duas sao idempotentes.)
 
 BACKLOG:
+- Nova rodada de investigação de fontes (2026-09-14): Grupo Lance FEITO
+  (2026-09-15, ver STATUS e docs/contexto/GRUPO_LANCE_ADICIONADO.md).
+  Restam para implementar, por prioridade: Spy Leilões (agregador, 195
+  lotes em Fortaleza, exige dedup entre fontes), Nasar Leilões (leiloeiro
+  próprio de Fortaleza, reaproveitar Zenrows do MGL para driblar
+  Cloudflare). Leilão Imóvel (agregador) fica de reserva, menor prioridade.
+  Descartados: cearaleiloes.com.br (= Francisco Freitas), Silvio Cesar
+  Maraschi (= HastaPública, já removida), Alfa/Italo/Átrio Leilões (sem
+  volume CE confirmado ou risco reputacional). Ver
+  docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md.
 - Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — Receita
   Federal (SLE, edital Fortaleza) e Francisco Freitas
   Leilões (91 lotes CE, maior fonte) implementadas. Ver STATUS,
