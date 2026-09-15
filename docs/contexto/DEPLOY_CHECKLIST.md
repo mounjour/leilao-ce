@@ -13,40 +13,41 @@ Referências: [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md), [`SETUP_BACKUP
 
 ## A. VPS Hostinger — subir o site
 
-- [ ] VPS **KVM 1** (1 vCPU / 4 GB RAM) contratada na Hostinger, Ubuntu 24.04 LTS
-- [ ] Acesso SSH confirmado; endereço `SEU-IP.sslip.io` anotado
-- [ ] Usuário `leilao`, firewall (`ufw`) e dependências instalados (seções 1–2 do guia)
-- [ ] Repositório clonado, venv criado, `requirements-web.txt` instalado (seção 3)
-- [ ] `.env` criado na VPS com os segredos do site:
-  - [ ] `SUPABASE_URL` = `https://tybfusbovbihrkmcncux.supabase.co`
-  - [ ] `SUPABASE_ANON_KEY` (chave `anon` / `public`, o `eyJ…`)
-  - [ ] `STRIPE_SECRET_KEY` — **`sk_live_…`** se o site cobra de verdade (`sk_test_…` só para validar sem cobrar)
-  - [ ] `STRIPE_PUBLISHABLE_KEY` — `pk_live_…` / `pk_test_…` (mesmo modo da secret)
-  - [ ] `STRIPE_PRICE_ID` = `price_…` — **confirmar que é o preço certo** (e que bate com o rótulo `R$ 47`)
-  - [ ] `APP_URL` = `https://SEU-IP.sslip.io` (sem barra no final)
+- [x] VPS **KVM 1** (1 vCPU / 4 GB RAM) contratada na Hostinger, Ubuntu 24.04 LTS
+- [x] Acesso SSH confirmado; endereço `2-25-223-119.sslip.io` anotado
+- [x] Usuário `leilao` criado (com sudo), firewall (`ufw`) e dependências instalados (seções 1–2 do guia)
+- [x] Repositório clonado, venv criado, `requirements-web.txt` instalado (seção 3)
+- [x] `.env` criado na VPS com os segredos do site:
+  - [x] `SUPABASE_URL` = `https://tybfusbovbihrkmcncux.supabase.co`
+  - [x] `SUPABASE_ANON_KEY` (chave `anon` / `public`, o `eyJ…`)
+  - [x] `STRIPE_SECRET_KEY` — **`sk_live_…`** se o site cobra de verdade (`sk_test_…` só para validar sem cobrar)
+  - [X] `STRIPE_PUBLISHABLE_KEY` — `pk_live_…` / `pk_test_…` (mesmo modo da secret)
+  - [x] `STRIPE_PRICE_ID` = `price_…` — **confirmar que é o preço certo** (e que bate com o rótulo `R$ 47`)
+    - Estão com chaves de teste, trocar para chabes reais depois
+  - [x] `APP_URL` = `https://2-25-223-119.sslip.io` (sem barra no final)
   - [ ] **3 `EVOLUTION_*` deixe de fora por enquanto** (bloco C)
-- [ ] Serviço systemd `leilao-ce` criado e ativo (seção 4)
-- [ ] Nginx + Certbot configurados, certificado TLS emitido para `SEU-IP.sslip.io` (seção 5)
-- [ ] Abrir `https://SEU-IP.sslip.io/_stcore/health` → tem que responder `ok`
-- [ ] Se o app abrir mas travar em "Please wait…" / "Connection error": conferir os headers `Upgrade`/`Connection "upgrade"` no bloco Nginx
+- [x] Serviço systemd `leilao-ce` criado e ativo (seção 4)
+- [x] Nginx + Certbot configurados, certificado TLS emitido para `2-25-223-119.sslip.io` (seção 5)
+- [x] Abrir `https://2-25-223-119.sslip.io/_stcore/health` → tem que responder `ok`
+- [x] Se o app abrir mas travar em "Please wait…" / "Connection error": conferir os headers `Upgrade`/`Connection "upgrade"` no bloco Nginx
 
 ## B. Apontar Supabase e Stripe para a URL da VPS
 
-- [ ] **Supabase** → projeto `tybfusbovbihrkmcncux` → **Authentication** → **URL Configuration**:
-  - [ ] **Site URL:** `https://SEU-IP.sslip.io`
-  - [ ] **Redirect URLs:** `https://SEU-IP.sslip.io`, `https://SEU-IP.sslip.io/**`, `https://leilaoce.streamlit.app` (manter ~1 semana), `http://localhost:8501`
+- [x] **Supabase** → projeto `tybfusbovbihrkmcncux` → **Authentication** → **URL Configuration**:
+  - [x] **Site URL:** `https://2-25-223-119.sslip.io`
+  - [x] **Redirect URLs:** `https://2-25-223-119.sslip.io`, `https://2-25-223-119.sslip.io/**`, `https://leilaoce.streamlit.app` (manter ~1 semana), `http://localhost:8501`
 - [ ] **Stripe** → Settings → Billing → Customer portal → se houver *default return link* no domínio antigo, atualizar (cosmético; o código já passa as URLs por sessão via `APP_URL`)
-- [ ] **Webhook do Stripe:** nada a fazer — o endpoint é `*.supabase.co/functions/v1/stripe-webhook`, não depende da URL do site
-- [ ] **Deploy automático:** secrets `VPS_HOST`/`VPS_USER`/`VPS_SSH_KEY` no GitHub Actions e `sudoers` configurado para restart sem senha (seção 6 do guia)
-- [ ] **Teste E2E** em `https://SEU-IP.sslip.io`:
-  - [ ] Página de login/cadastro abre sem travar
-  - [ ] Cadastro novo funciona (chega e-mail do Supabase com link da VPS)
-  - [ ] Login cai no dashboard
-  - [ ] Sem assinatura → aparece o paywall
-  - [ ] Botão de assinar abre o Stripe Checkout (cartão de teste se chave `test`; em `live`, cancelar antes de pagar)
-  - [ ] Com assinatura ativa → dashboard completo, lotes carregando
-  - [ ] Favoritar um lote salva e reflete no Supabase
-  - [ ] Menu do usuário → portal de cobrança abre e volta pra VPS
+- [x] **Webhook do Stripe:** nada a fazer — o endpoint é `*.supabase.co/functions/v1/stripe-webhook`, não depende da URL do site
+- [x] **Deploy automático:** secrets `VPS_HOST`/`VPS_USER`/`VPS_SSH_KEY` no GitHub Actions e `sudoers` configurado para restart sem senha (seção 6 do guia) — configurado 2026-09-15, aguardando o próximo push no `main` disparar de verdade
+- [x] **Teste E2E** em `https://2-25-223-119.sslip.io`:
+  - [x] Página de login/cadastro abre sem travar
+  - [x] Cadastro novo funciona (chega e-mail do Supabase com link da VPS)
+  - [X] Login cai no dashboard
+  - [x] Sem assinatura → aparece o paywall
+  - [x] Botão de assinar abre o Stripe Checkout (cartão de teste se chave `test`; em `live`, cancelar antes de pagar)
+  - [x] Com assinatura ativa → dashboard completo, lotes carregando
+  - [x] Favoritar um lote salva e reflete no Supabase
+  - [x] Menu do usuário → portal de cobrança abre e volta pra VPS
 
 ## C. Evolution API (WhatsApp) — opcional, mas hoje está desligado
 
@@ -87,6 +88,6 @@ recuperável. O site sobe e opera sem isso.
 
 ## H. Documentação final
 
-- [ ] `CLAUDE.md` — tirar o "em andamento" da linha Deploy quando o serviço estiver no ar e validado
-- [ ] `PLANO-DO-PROJETO.md` — seções 1/7/13 para **VPS Hostinger (`SEU-IP.sslip.io`)**
+- [x] `CLAUDE.md` — tirar o "em andamento" da linha Deploy (feito 2026-09-15)
+- [x] `PLANO-DO-PROJETO.md` — seções 1/7/12/13 para **VPS Hostinger (`2-25-223-119.sslip.io`)** (feito 2026-09-15)
 - [ ] (Opcional, futuro) Se o restart a cada commit do scraper (1×/dia) incomodar: o dashboard já lê `leiloes.json` via `st.cache_data(ttl=1800)`, então dá para trocar o `deploy.yml` por um cron simples de `git pull` sem restart nos commits só de dados — reservar o restart só para pushes que mudem código

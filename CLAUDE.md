@@ -1,6 +1,6 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: migrando do Streamlit Community Cloud (leilaoce.streamlit.app) para uma VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `SEU-IP.sslip.io` (sem dominio proprio, TLS via Let's Encrypt/Certbot), autodeploy via GitHub Actions SSH no push do main. Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Ver docs/contexto/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
+- Deploy: Achadin Leiloes em producao numa VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `2-25-223-119.sslip.io` (IP `2.25.223.119`, sem dominio proprio ainda, TLS via Let's Encrypt/Certbot), autodeploy via GitHub Actions SSH no push do main (`.github/workflows/deploy.yml`). Migracao concluida em 2026-09-15 (testada ponta a ponta: cadastro, login, paywall, Stripe Checkout, favoritar). Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Streamlit Community Cloud (leilaoce.streamlit.app) ainda no ar como rollback rapido — desligar so apos alguns dias validando a VPS em uso real. Site na VPS roda com chaves Stripe de TESTE (sk_test_/pk_test_) — trocar para live antes de cobrar de verdade (acesso a conta Stripe travado em 2FA por app autenticador sem posse confirmada; resolver isso antes da troca). Ver docs/contexto/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
@@ -88,19 +88,31 @@ STATUS (atualizado 2026-09-16):
   (nao-bloqueantes) no backlog do PLANO: retencao do `whatsapp_send_log`,
   confirmar tier de backup do Supabase, observar Construbem (rendeu 7 lotes em 1
   run 08/09 — se firmar, tirar de `FONTES_ESPERADAS_ZERO`).
-- Migracao de deploy para a VPS Hostinger EM ANDAMENTO (2026-09-14): a
-  migracao anterior para o Render foi abandonada sem nunca subir o servico
-  (decisao do dono) e substituida por uma VPS Hostinger (plano KVM 1).
-  `render.yaml` e `docs/contexto/SETUP_RENDER.md` removidos; guia novo em
-  `docs/contexto/SETUP_HOSTINGER_VPS.md` (provisionamento, systemd, Nginx +
-  Certbot com endereco `sslip.io` — sem dominio proprio por ora — e deploy
-  automatico via `.github/workflows/deploy.yml`, SSH a cada push no main).
-  `requirements-web.txt` continua valendo (dependencias do site, sem mudanca).
-  Falta: provisionar a VPS de fato e apontar a URL de producao. Passo a passo
-  completo do que ainda falta (VPS + Evolution API + backup + IA + desligar o
-  Community Cloud) em `docs/contexto/DEPLOY_CHECKLIST.md`. Quando concluir,
-  revisar a linha "Deploy" no topo deste arquivo e as secoes 1/7/13 do
-  docs/contexto/PLANO-DO-PROJETO.md.
+- Migracao de deploy para a VPS Hostinger CONCLUIDA (2026-09-15): a migracao
+  anterior para o Render foi abandonada sem nunca subir o servico (decisao do
+  dono) e substituida por uma VPS Hostinger (plano **KVM 1**, IP
+  `2.25.223.119`, endereco `2-25-223-119.sslip.io`). `render.yaml` e
+  `docs/contexto/SETUP_RENDER.md` removidos; guia usado:
+  `docs/contexto/SETUP_HOSTINGER_VPS.md` (provisionamento, usuario `leilao`,
+  systemd `leilao-ce.service`, Nginx + Certbot — certificado valido ate
+  2026-12-14). Deploy automatico via `.github/workflows/deploy.yml` (SSH a
+  cada push no main) configurado e testado: chave dedicada
+  `~/deploy_leilao_ce` autorizada, sudoers `leilao-ce-deploy` (restart sem
+  senha), secrets `VPS_HOST`/`VPS_USER`/`VPS_SSH_KEY` no GitHub Actions.
+  Supabase Auth (Site URL + Redirect URLs) apontado para a URL da VPS. Teste
+  E2E completo passou: cadastro, confirmacao de e-mail, login, paywall,
+  Stripe Checkout (cartao de teste), dashboard com lotes, favoritar.
+  `requirements-web.txt` sem mudanca. **Pendente:** (1) site ainda roda com
+  chaves Stripe de **TESTE** (`sk_test_`/`pk_test_`) — trocar para `live`
+  antes de cobrar de verdade; acesso a conta Stripe esta travado num 2FA por
+  app autenticador cuja posse nao foi confirmada, resolver isso antes de
+  pegar as chaves live; (2) secrets `SUPABASE_DB_URL` (backup do Postgres) e
+  `OWNER_WHATSAPP` (alerta de fonte zerada) ainda nao configurados no GitHub
+  Actions; (3) Evolution API (WhatsApp) segue desligada, instancia perdida;
+  (4) credito Anthropic zerado; (5) desligar o Streamlit Community Cloud
+  (`leilaoce.streamlit.app`) so depois de alguns dias validando a VPS em uso
+  real — por ora mantido no ar como rollback rapido. Checklist detalhado em
+  `docs/contexto/DEPLOY_CHECKLIST.md`.
 - Eletrônicos: em 2026-09-08 `_raspar_receita_sle` passou a trazer TAMBEM os
   lotes de eletronico da Receita (celular, audio/video, informatica,
   videogame) numa categoria nova `eletronicos` (icone 📱). Decisao do dono:

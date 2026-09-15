@@ -46,15 +46,17 @@ um sistema rodando. O corpo do app é essencialmente **quatro scripts Python** (
 do Stripe. Não há framework web nem back-end separado: o Streamlit *é* o front-end e o
 back-end ao mesmo tempo.
 
-- **Deploy:** hoje em [leilaoce.streamlit.app](https://leilaoce.streamlit.app) (Streamlit
-  Community Cloud), atualiza a cada push no `main`. **Migração para uma VPS Hostinger em
-  andamento** (plano **KVM 1**, 1 vCPU/4GB RAM; `requirements-web.txt`;
+- **Deploy:** em produção numa **VPS Hostinger** (plano **KVM 1**, 1 vCPU/4GB RAM), endereço
+  `2-25-223-119.sslip.io` (IP `2.25.223.119`, sem domínio próprio ainda, TLS via Let's
+  Encrypt/Certbot). Migração concluída em 2026-09-15 (guia:
   [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md); deploy automático via
-  [`deploy.yml`](../../.github/workflows/deploy.yml), SSH no push do `main`) — enquanto a URL
-  de produção não mudar, o deploy vigente ainda é o Streamlit Cloud. A migração anterior
-  para o Render foi abandonada sem chegar a subir o serviço (decisão do dono, 2026-09-14).
-  Passo a passo do que falta em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao concluir,
-  revisar as seções 7 e 13.
+  [`deploy.yml`](../../.github/workflows/deploy.yml), SSH no push do `main`, testado e
+  funcionando). A migração anterior para o Render foi abandonada sem chegar a subir o
+  serviço (decisão do dono, 2026-09-14). O antigo
+  [leilaoce.streamlit.app](https://leilaoce.streamlit.app) (Streamlit Community Cloud) segue
+  no ar como rollback rápido por alguns dias, antes de ser desligado. **Pendências:** site
+  ainda com chaves Stripe de **teste**; secrets `SUPABASE_DB_URL`/`OWNER_WHATSAPP` faltando
+  no GitHub Actions. Checklist completo em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md).
 - **Repositório:** [github.com/mounjour/leilao-ce](https://github.com/mounjour/leilao-ce).
 - **Coleta:** GitHub Actions (`.github/workflows/scraper.yml`) roda `scraper.py` 2×/dia
   (03h e 15h de Fortaleza), sobrescreve `leiloes.json` e faz commit automático — ver
@@ -310,18 +312,22 @@ persistem entre rodadas):
   oficial da Meta) — ver riscos na [seção 11](#11-riscos-e-mitigações).
 - **Alertas de operação**: `scraper_health.py` avisa o dono por WhatsApp se uma fonte ativa
   para de render lote por 3 runs seguidos (não falha o job).
-- **Hospedagem**: hoje Streamlit Community Cloud (deploy automático no push do `main`);
-  **migração para uma VPS Hostinger em andamento** (plano **KVM 1**: 1 vCPU / 4 GB RAM /
-  50 GB NVMe, ~R$ 28/mês; subir pra KVM 2 no painel se sobrar pouca RAM, ou se decidir
-  self-host da Evolution API na mesma máquina), processo `streamlit run dashboard.py` sob
-  **systemd**, atrás de **Nginx** com TLS via **Let's Encrypt/Certbot** num endereço
-  `sslip.io` (sem domínio próprio por ora). Deploy automático via GitHub Actions
-  (`deploy.yml`, SSH no push do `main`: `git reset --hard` + reinstala deps + restart do
-  systemd). Não cria banco (Supabase é externo) nem cron (o scraper continua no GitHub
-  Actions). `requirements-web.txt` enxuto (sem playwright/anthropic) mantém o ambiente do
-  site leve. A migração anterior para o Render foi abandonada sem chegar a subir o serviço
-  (decisão do dono, 2026-09-14). Deps externas: `SETUP_HOSTINGER_VPS.md` (passo a passo),
-  `DEPLOY_CHECKLIST.md` (tudo que falta pra virar a chave). Sem ambiente de **staging** —
+- **Hospedagem**: **VPS Hostinger** (plano **KVM 1**: 1 vCPU / 4 GB RAM / 50 GB NVMe,
+  ~R$ 28/mês; subir pra KVM 2 no painel se sobrar pouca RAM, ou se decidir self-host da
+  Evolution API na mesma máquina), IP `2.25.223.119`, endereço `2-25-223-119.sslip.io`,
+  processo `streamlit run dashboard.py` sob **systemd** (`leilao-ce.service`), atrás de
+  **Nginx** com TLS via **Let's Encrypt/Certbot** (certificado válido até 2026-12-14).
+  Deploy automático via GitHub Actions (`deploy.yml`, SSH no push do `main`: `git reset
+  --hard` + reinstala deps + restart do systemd) — configurado e testado em 2026-09-15
+  (chave SSH dedicada, sudoers `leilao-ce-deploy` para restart sem senha, secrets
+  `VPS_HOST`/`VPS_USER`/`VPS_SSH_KEY`). Migração concluída, Streamlit Community Cloud
+  mantido no ar como rollback rápido por alguns dias. Não cria banco (Supabase é externo)
+  nem cron (o scraper continua no GitHub Actions). `requirements-web.txt` enxuto (sem
+  playwright/anthropic) mantém o ambiente do site leve. A migração anterior para o Render
+  foi abandonada sem chegar a subir o serviço (decisão do dono, 2026-09-14). Deps externas:
+  `SETUP_HOSTINGER_VPS.md` (passo a passo), `DEPLOY_CHECKLIST.md` (pendências: secrets
+  `SUPABASE_DB_URL`/`OWNER_WHATSAPP`, chaves Stripe live, desligar o Community Cloud). Sem
+  ambiente de **staging** —
   todo push no `main` vai direto pra produção. O gate de testes (`pytest` no `tests.yml` e
   no `scraper.yml`) é a única barreira; não há smoke test do app em si. Diferente do
   Render, o restart do systemd não é zero-downtime (~2–5 s de corte por deploy) e não há
@@ -410,7 +416,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Dependência de uma única pessoa entendendo o sistema (arquivos grandes). | **Mitigado (08/09):** `tests/` com pytest cobrindo os parsers/classificação críticos de `scraper.py`, `whatsapp_log` e `scraper_health`; roda no `tests.yml` (push/PR) e como gate no `scraper.yml`. `teste_alerta.py` segue como script manual à parte. |
 | Falha silenciosa de `_whatsapp_favorito` / `alertas.send_whatsapp` (exceção engolida). | **Mitigado (08/09):** as duas rotas gravam a falha em `whatsapp_send_log` (Supabase) via `whatsapp_log.registrar_falha` — auditável pelo painel, sem cavar log do Actions. |
 | Fonte de leilão muda de site e para de render lote sem ninguém notar (aconteceu com a Celso Cunha: 12 dias em 0). | **Mitigado (08/09):** `scraper_health.py` alerta o dono por WhatsApp se uma fonte de `FONTES_ATIVAS` fica 3 runs seguidos zerada. |
-| Deploy direto em produção (sem staging) — um push quebrado no `main` derruba o app. | Parcial: o gate de `pytest` pega regressão de lógica pura; não há smoke test do app. Aceito por ora (app pequeno, rollback = `git checkout` + restart do systemd na VPS). Vale reavaliar na migração pra VPS Hostinger. |
+| Deploy direto em produção (sem staging) — um push quebrado no `main` derruba o app. | Parcial: o gate de `pytest` pega regressão de lógica pura; não há smoke test do app. Aceito por ora (app pequeno, rollback = `git checkout` + restart do systemd na VPS). |
 | Perda do Postgres do Supabase (usuários/favoritos/cobrança). | **Mitigado (09/09):** `pg_dump` diário (schemas `public` + `auth`) via `.github/workflows/backup-db.yml`, dump gzipado como artifact do Actions, retenção 90 dias. Plano Supabase é Free (sem backup nativo). Falta: teste de restauração num projeto novo + eventual cópia off-site mensal (artifact expira em 90 dias). |
 | Cobrança duplicada de assinatura Stripe. | Já mitigado: `create_checkout_url` verifica assinaturas existentes (`ExistingSubscriptionError`) antes de criar uma nova sessão. |
 | Falha do trigger `handle_new_user` deixando profile sem telefone. | Já mitigado: fallback no webhook do Stripe lê `auth.users.raw_user_meta_data`. |
@@ -419,12 +425,13 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 
 ## 12. Próximos passos imediatos
 
-1. **Concluir a migração para a VPS Hostinger** — guia pronto (`SETUP_HOSTINGER_VPS.md`,
-   plano KVM 1, `requirements-web.txt`, `deploy.yml`); falta provisionar a VPS de fato,
-   apontar a URL de produção e desligar o deploy do Streamlit Cloud. A migração anterior
-   para o Render foi abandonada sem chegar a subir o serviço. Checklist completo (VPS +
-   Evolution API + backup + IA) em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md). Ao terminar,
-   revisar as seções 1, 7 e 13.
+1. ~~**Concluir a migração para a VPS Hostinger**~~ — FEITO (2026-09-15): VPS KVM 1 no ar
+   (`2-25-223-119.sslip.io`), systemd + Nginx + Certbot, deploy automático via GitHub
+   Actions testado, Supabase apontado, teste E2E completo passou (cadastro, login, paywall,
+   checkout, favoritar). Falta: trocar chaves Stripe de teste por live (acesso à conta
+   travado em 2FA sem posse confirmada), configurar secrets `SUPABASE_DB_URL` e
+   `OWNER_WHATSAPP`, e desligar o Streamlit Community Cloud após alguns dias de validação.
+   Checklist completo em [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md).
 2. **Recarregar crédito Zenrows/ScraperAPI** — destrava Construbem e Daniel Garcia de uma vez
    (ambos já têm código pronto, só falta a rota de proxy funcionar).
 3. **Avaliar proxy residencial para MGL** — é a única saída, já que o Cloudflare bloqueia o IP
@@ -456,7 +463,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Cobrança | **Stripe** (Checkout + Billing Portal + Webhook) | Webhook roda como Supabase Edge Function em **Deno**. |
 | Alertas | **WhatsApp via Evolution API** (não oficial) | Ver risco na seção 11. |
 | Automação | **GitHub Actions** (cron 1×/dia) | Scraper → commit `leiloes.json` → alertas, tudo em um workflow. |
-| Hospedagem | **Streamlit Community Cloud** (migração pra **VPS Hostinger** em andamento — plano KVM 1, 1 vCPU/4GB RAM) | Deploy automático via GitHub Actions (SSH) no push do `main`. Ver `SETUP_HOSTINGER_VPS.md`, `DEPLOY_CHECKLIST.md`, `deploy.yml`. |
+| Hospedagem | **VPS Hostinger** (plano KVM 1, 1 vCPU/4GB RAM, `2-25-223-119.sslip.io`) | Deploy automático via GitHub Actions (SSH) no push do `main`, testado. Streamlit Community Cloud mantido como rollback por alguns dias. Ver `SETUP_HOSTINGER_VPS.md`, `DEPLOY_CHECKLIST.md`, `deploy.yml`. |
 | Dados | `leiloes.json` + `analises_ia_cache.json` + `historico_tokens_ia.jsonl` + `scraper_health.json` **commitados no git** | Funciona como banco de dados versionado para os lotes; ver riscos. |
 
 ---
