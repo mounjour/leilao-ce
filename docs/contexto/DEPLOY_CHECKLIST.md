@@ -23,7 +23,7 @@ Referências: [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md), [`SETUP_BACKUP
   - [x] `STRIPE_SECRET_KEY` — **`sk_live_…`** se o site cobra de verdade (`sk_test_…` só para validar sem cobrar)
   - [X] `STRIPE_PUBLISHABLE_KEY` — `pk_live_…` / `pk_test_…` (mesmo modo da secret)
   - [x] `STRIPE_PRICE_ID` = `price_…` — **confirmar que é o preço certo** (e que bate com o rótulo `R$ 47`)
-    - Estão com chaves de teste, trocar para chabes reais depois
+    - [ ] Estão com chaves de teste, trocar para chabes reais depois
   - [x] `APP_URL` = `https://2-25-223-119.sslip.io` (sem barra no final)
   - [ ] **3 `EVOLUTION_*` deixe de fora por enquanto** (bloco C)
 - [x] Serviço systemd `leilao-ce` criado e ativo (seção 4)
