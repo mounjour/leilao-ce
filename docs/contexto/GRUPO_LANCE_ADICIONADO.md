@@ -82,3 +82,27 @@ como `_raspar_grupo_lance` em `scraper.py`.
 `TestGrupoLanceParsePagina`, com HTML real capturado em 15/09/2026 (um
 card com 1ª/2ª praça, um com praça única). Cobrem categoria, cidade,
 lance/referência e extração de data — sem rede.
+
+## Possível bloqueio de Cloudflare no IP do GitHub Actions (observado 2026-09-16)
+
+O run agendado de 16/09 (10h37 UTC) reportou `HTTP 403` na primeira página
+(`/imoveis/ce?pagina=1`), zerando a fonte nesse run (health check ainda não
+alertou — exige 3 runs seguidos zerados). Investigação no mesmo dia:
+
+- Da minha rede local (fora do GitHub Actions), a mesma URL responde
+  `200 OK` com conteúdo real (HTML completo, ~75KB, cards intactos) —
+  testado com `curl` e com `requests.Session()` (o mesmo client do
+  scraper), 3x seguidas, sem falha.
+- O site está atrás de Cloudflare (`Server: cloudflare` no header de
+  resposta), o que **não** batia com a investigação original de 15/09
+  ("Nenhum Cloudflare/WAF bloqueando o IP de datacenter"). Ou o site ligou
+  proteção nova entre 15/09 e 16/09, ou a Cloudflare passou a
+  bloquear/desafiar a faixa de IP de datacenter do GitHub Actions
+  especificamente (igual já acontece com MGL/Construbem/Daniel Garcia).
+- Decisão do dono (16/09): **esperar mais 1-2 runs agendados** (03h/15h
+  Fortaleza) antes de agir — pode ter sido bloqueio pontual/temporário.
+  Se confirmar 3 runs seguidos zerados (e o WhatsApp de alerta disparar),
+  as opções em aberto são: (a) rotear via Zenrows como a MGL faz
+  (`ZENROWS_API_KEY` já existe no projeto), ou (b) mover `grupo_lance` pra
+  `FONTES_ESPERADAS_ZERO` em `scraper_health.py` e aceitar a fonte como
+  dormente por ora, documentando aqui.
