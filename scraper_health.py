@@ -30,6 +30,7 @@ _RENOTIFICAR_A_CADA = 14
 FONTES_ATIVAS = {
     "leilo", "mega", "pacto", "montenegro",
     "mj", "receita_sle", "francisco_freitas", "grupo_lance", "maria_fixer",
+    "spy_leiloes",
 }
 
 # Fontes rastreadas mas que NAO disparam alerta ao ficar em zero — hoje nao

@@ -2153,6 +2153,144 @@ def _raspar_grupo_lance(vistos):
 
     return lotes
 
+# ─── SCRAPER SPY LEILÕES (agregador nacional de imóveis) ─────────────────────
+# Agregador (não é leiloeiro próprio) — "cobertura de 99,9% dos leiloeiros do
+# Brasil" segundo o próprio site, +200 mil leilões cadastrados. SaaS pago
+# (planos de R$99-197/mês pro usuário final), mas a busca pública em
+# /imoveis-leilao é livre, sem login. Investigado em 2026-09-16: o filtro
+# ?estado=CE funciona de verdade (604 imóveis no CE no teste, ante os ~195 só
+# de Fortaleza vistos na investigação de 2026-09-14 — a diferença é porque
+# aquele número era só de um recorte por cidade).
+#
+# A listagem é renderizada no servidor (Next.js App Router com SSR) — um
+# `requests.get()` cru já traz o HTML final com todos os cards, sem precisar
+# de Playwright nem de achar uma API JSON separada (a página não expõe uma; os
+# dados vêm embutidos no próprio HTML). Paginação real é `page=N` (a UI mostra
+# "pagina"/"porPagina" mas esses nomes são ignorados pelo backend — só `page`
+# funciona, testado). A ordenação default ("Aleatório" na UI) é na prática
+# estável entre requisições idênticas (testado 2x seguidas, mesma ordem) —
+# sem isso, paginar página a página poderia pular ou duplicar lotes.
+#
+# Como é agregador, os mesmos imóveis de leiloeiros já raspados diretamente
+# (Francisco Freitas, Maria Fixer, Grupo Lance...) podem aparecer aqui de
+# novo com URL diferente — sem chave de dedup cruzada entre fontes (URLs são
+# por leiloeiro), essas entradas ficam como itens duplicados no dashboard.
+# Aceito por ora (mesma limitação apontada no backlog de 2026-09-14); revisar
+# se virar um incômodo real pro dono.
+_SPY_BASE = "https://spyleiloes.com.br"
+_SPY_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                              "AppleWebKit/537.36 (KHTML, like Gecko) "
+                              "Chrome/124.0.0.0 Safari/537.36"}
+
+
+def _spy_parse_pagina(pagina_html):
+    """Extrai lotes de uma pagina de /imoveis-leilao?estado=CE&page=N (SSR).
+
+    Um card = um bloco `<li class="BroadSearch_auctionItem__iYXnc">` ate o
+    proximo. Tudo que precisamos ja esta na listagem: titulo/URL, endereco
+    (cidade vem do final "<Cidade> - Ceará"), preco atual e as datas/valores
+    de praca (o maior valor de praca = avaliacao/referencia).
+    """
+    resultados = []
+    for chunk in re.split(r'<li class="BroadSearch_auctionItem__iYXnc">', pagina_html)[1:]:
+        m_link = re.search(r'<a title="([^"]+)" href="(/leilao/(\d+)/[^"]+)"', chunk)
+        if not m_link:
+            continue
+        titulo = html.unescape(m_link.group(1)).strip()
+        url_lote = f"{_SPY_BASE}{m_link.group(2)}"
+        lote_id = m_link.group(3)
+
+        m_end = re.search(r'styles_adress__\w+">([^<]+)</p>', chunk)
+        endereco = html.unescape(m_end.group(1)).strip() if m_end else ""
+        m_cidade = re.search(r'([^,]+) - Ceará', endereco)
+        cidade = f"{m_cidade.group(1).strip()}/CE" if m_cidade else "CE"
+
+        pracas = re.findall(r'<span[^>]*>(\d{2}/\d{2}/\d{4})</span>.'
+                             r'<span[^>]*>R\$\xa0([\d.,]+)</span>', chunk)
+        valores_praca = [_parse_brl(v) for _, v in pracas]
+        ref_val = max(valores_praca) if valores_praca else 0
+
+        m_preco = re.search(r'styles_h4LanceInicial__\w+">R\$\xa0([\d.,]+)</span>', chunk)
+        lance = _parse_brl(m_preco.group(1)) if m_preco else (
+            valores_praca[-1] if valores_praca else 0)
+
+        data_leilao = ""
+        if pracas:
+            try:
+                data_leilao = datetime.strptime(pracas[-1][0], "%d/%m/%Y").strftime("%Y-%m-%dT00:00")
+            except ValueError:
+                pass
+
+        m_foto = re.search(r'styles_imgDiv__\w+"><img src="([^"]+)"', chunk)
+        foto = m_foto.group(1) if m_foto and "semFoto" not in m_foto.group(1) else ""
+        if foto and not foto.startswith("http"):
+            foto = f"{_SPY_BASE}{foto}"
+
+        resultados.append({
+            "id": lote_id, "url": url_lote, "titulo": titulo, "cidade": cidade,
+            "lance": lance, "ref_val": ref_val, "foto": foto,
+            "data_leilao": data_leilao,
+        })
+    return resultados
+
+
+def _raspar_spy_leiloes(vistos):
+    lotes = []
+    sess = requests.Session()
+    sess.headers.update(_SPY_HEADERS)
+
+    itens, total_paginas = [], 1
+    for pagina in range(1, 51):
+        if pagina > total_paginas:
+            break
+        url = f"{_SPY_BASE}/imoveis-leilao?estado=CE&page={pagina}"
+        try:
+            r = sess.get(url, timeout=20)
+        except Exception as e:
+            print(f"  ⚠️ Spy Leilões {url}: {e}")
+            break
+        if r.status_code != 200:
+            print(f"  ⚠️ Spy Leilões {url}: HTTP {r.status_code}")
+            break
+        if pagina == 1:
+            m_pag = re.search(r'de\s*<!-- -->(\d+)<!-- -->\s*\(', r.text)
+            if m_pag:
+                total_paginas = int(m_pag.group(1))
+        itens += _spy_parse_pagina(r.text)
+        time.sleep(0.3)
+
+    if not itens:
+        print("⚠️ Spy Leilões: nenhum imóvel no CE")
+        return lotes
+
+    print(f"📡 Spy Leilões | {len(itens)} lote(s) no CE")
+
+    for it in itens:
+        if it["url"] in vistos:
+            continue
+        vistos.add(it["url"])
+
+        marca, modelo, ano = "Imóvel", it["titulo"], 0
+        lance, ref_val = it["lance"], it["ref_val"]
+        ref_str = f"R$ {ref_val:,.0f} (avaliação)" if ref_val else "Sem referência"
+        icone = ICONES.get("imoveis", "📦")
+
+        try:
+            analise = _analisar_cached(it["url"], marca, modelo, ano, it["titulo"], "",
+                                       lance, ref_val, "imoveis")
+            classif = classificar(lance, ref_val, analise.get("estado", ""))
+            print(f"  {icone} [SpyLeiloes/imoveis] {modelo[:60]} — "
+                  f"R${lance:,.0f} | {classif} | {it['cidade']}")
+            lotes.append(_lote_dict("spy_leiloes", "imoveis", marca, modelo, ano,
+                                    it["cidade"], lance, ref_val, ref_str, classif,
+                                    it["foto"], "", it["titulo"], analise, it["url"],
+                                    it["data_leilao"]))
+            time.sleep(0.1)
+        except Exception as e:
+            print(f"  ⚠️ Spy Leilões lote {it['id']}: {e}")
+
+    return lotes
+
 # ─── SCRAPER SOLEON (Construbem + Daniel Garcia) ─────────────────────────────
 _SOLEON_CE = ['ceará','ceara','fortaleza','maracanau','maracanaú','caucaia',
               'juazeiro','sobral','crato','eusebio','horizonte','pacajus',
@@ -3065,6 +3203,7 @@ def raspar_leiloes():
     lotes += _raspar_francisco_freitas(vistos)
     lotes += _raspar_maria_fixer(vistos)
     lotes += _raspar_grupo_lance(vistos)
+    lotes += _raspar_spy_leiloes(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)

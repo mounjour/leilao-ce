@@ -5,6 +5,20 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-16):
+- Spy Leiloes adicionada como fonte (2026-09-16): `_raspar_spy_leiloes` em
+  scraper.py. Agregador nacional de imoveis (SaaS pago pro usuario final,
+  mas a busca em /imoveis-leilao e publica sem login), 604 imoveis
+  confirmados no CE num run real (`?estado=CE&page=N`, SSR — requests direto
+  sem Playwright nem API JSON separada). Bug pego e corrigido durante a
+  validacao: o separador entre data e preco de cada praca no card e um
+  bullet "•" (U+2022), nao espaco/nbsp — o regex copiado por analogia de
+  outra fonte nao batia e zerava fipe_valor/data_leilao silenciosamente;
+  corrigido apos smoke test contra a pagina ao vivo (495/604 lotes com
+  referencia de preco depois do fix). Limitacao conhecida: por ser
+  agregador, pode duplicar imoveis ja raspados de outras fontes (Francisco
+  Freitas, Maria Fixer, Grupo Lance) com URL diferente, sem dedup cruzada
+  entre fontes — aceito por ora. `spy_leiloes` entrou em FONTES_ATIVAS do
+  scraper_health.py. Ver docs/contexto/SPY_LEILOES_ADICIONADO.md.
 - Maria Fixer Leiloes adicionada como fonte (2026-09-16): `_raspar_maria_fixer`
   em scraper.py, mesma plataforma "vlance" do Francisco Freitas (mesmos
   endpoints get-leiloes/get-lotes e mesmo schema de campos) — reaproveita os
