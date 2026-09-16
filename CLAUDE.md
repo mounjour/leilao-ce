@@ -5,6 +5,17 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-16):
+- Maria Fixer Leiloes adicionada como fonte (2026-09-16): `_raspar_maria_fixer`
+  em scraper.py, mesma plataforma "vlance" do Francisco Freitas (mesmos
+  endpoints get-leiloes/get-lotes e mesmo schema de campos) — reaproveita os
+  helpers genericos ja escritos pro Francisco Freitas (_ff_get, _ff_categoria,
+  _ff_parse_veiculo, _ff_html_para_texto, _ff_num). 77 lotes CE confirmados
+  num teste ao vivo (motos/carro em Farias Brito, 1 imovel em Caucaia) —
+  mais que os "16" do contador do site porque sucata judicial reaparece em
+  2a/3a rodada de leilao com lance decrescente (cada rodada e um leilao_id
+  distinto). `maria_fixer` entrou em FONTES_ATIVAS do scraper_health.py. Sem
+  teste novo dedicado (reaproveita helpers puros ja existentes e nao
+  testados do Francisco Freitas). Ver docs/contexto/MARIA_FIXER_ADICIONADO.md.
 - Bug critico no Leilo corrigido (2026-09-16): dono reportou categoria
   errada (filtro "motos" mostrando caminhao, "caminhoes" mostrando carro) e
   nome de lote com texto estranho ("Leilao-De-Seguradoras-15-09-26 Honda...").

@@ -1918,6 +1918,107 @@ def _raspar_francisco_freitas(vistos):
 
     return lotes
 
+# ─── SCRAPER MARIA FIXER LEILÕES ──────────────────────────────────────────────
+# Mesma plataforma "vlance" do Francisco Freitas (get-leiloes/get-lotes com o
+# mesmo schema de campos — nm_estado, nm_cidade, nm_titulo_lote, nm_categoria,
+# nm_subcategoria, vl_lance...), confirmado testando a API ao vivo em
+# 2026-09-16. Por isso reaproveita os helpers genéricos _ff_get, _ff_categoria,
+# _ff_parse_veiculo, _ff_html_para_texto e _ff_num (nenhum deles hardcoda o
+# domínio da Francisco Freitas). Leiloeiro pequeno mas com presença real no
+# CE: 16 lotes/33 no Brasil vistos na investigação (Veículos, Bens Diversos,
+# Imóveis).
+_MF_BASE = "https://mariafixerleiloes.com.br"
+
+
+def _mf_get_lotes(leilao_id, timeout=20):
+    r = requests.post(f"{_MF_BASE}/core/api/get-lotes?leilao_id={leilao_id}",
+                      headers={**_FF_HEADERS, "Content-Type": "application/json"},
+                      data="{}", timeout=timeout)
+    r.raise_for_status()
+    return r.json()
+
+
+def _raspar_maria_fixer(vistos):
+    lotes = []
+    leilao_ids, pg = [], 1
+    while True:
+        try:
+            dados = _ff_get(f"{_MF_BASE}/core/api/get-leiloes?pg={pg}&itens_pagina=100")
+        except Exception as e:
+            print(f"⚠️ Maria Fixer pg={pg}: {e}")
+            break
+        novos = [it["id"] for it in dados.get("items", []) if it["id"] not in leilao_ids]
+        leilao_ids += novos
+        if pg >= (dados.get("totalPages") or 1) or not novos:
+            break
+        pg += 1
+
+    if not leilao_ids:
+        print("⚠️ Maria Fixer: nenhum leilão ativo")
+        return lotes
+
+    print(f"📡 Maria Fixer | {len(leilao_ids)} leilão(ões) ativo(s) no Brasil")
+
+    for leilao_id in leilao_ids:
+        try:
+            resp = _mf_get_lotes(leilao_id)
+        except Exception as e:
+            print(f"  ⚠️ Maria Fixer leilão {leilao_id}: {e}")
+            continue
+
+        for it in resp.get("items", []):
+            if (it.get("nm_estado") or "").upper() != "CE":
+                continue
+
+            lote_id = it.get("lote_id")
+            url_lote = f"{_MF_BASE}/leilao/index/leilao_id/{leilao_id}/lote/{lote_id}"
+            if url_lote in vistos:
+                continue
+            vistos.add(url_lote)
+            try:
+                titulo    = it.get("nm_titulo_lote") or ""
+                categoria = _ff_categoria(it.get("nm_categoria"), it.get("nm_subcategoria"), titulo)
+                if not categoria:
+                    continue
+
+                cidade = f"{(it.get('nm_cidade') or '').strip()}/CE"
+
+                if categoria in ("carros", "motos", "caminhoes"):
+                    marca, modelo, ano = _ff_parse_veiculo(titulo)
+                else:
+                    nome = re.split(r'\s+-\s+', titulo.strip())[0]
+                    marca, modelo, ano = (nome.title()[:90] or "?"), cidade, 0
+
+                lance = (_ff_num(it.get("vl_lance")) or _ff_num(it.get("vl_lanceinicial"))
+                        or _ff_num(it.get("vl_lanceminimo")) or 0)
+                descricao = _ff_html_para_texto(it.get("nm_descricao"))[:400]
+                km = _extrair_km(descricao)
+
+                data_leilao = ""
+                m_dt = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})', it.get("dt_fechamento") or "")
+                if m_dt:
+                    data_leilao = f"{m_dt.group(1)}T{m_dt.group(2)}"
+
+                fotos = it.get("fotos") or []
+                foto  = fotos[0].get("nm_path_completo", "") if fotos else ""
+
+                icone = ICONES.get(categoria, "📦")
+                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                analise = _analisar_cached(url_lote, marca, modelo, ano,
+                                           descricao, km, lance, ref_val, categoria)
+                classif = classificar(lance, ref_val, analise.get("estado", ""))
+                print(f"  {icone} [MariaFixer/{categoria}] {marca} {modelo} "
+                      f"{ano} — R${lance:,.0f} | {classif} | {cidade}")
+                lotes.append(_lote_dict("maria_fixer", categoria, marca, modelo, ano,
+                                        cidade, lance, ref_val, ref_str, classif, foto,
+                                        km, descricao, analise, url_lote, data_leilao))
+                time.sleep(0.1)
+            except Exception as e:
+                print(f"  ⚠️ Maria Fixer lote {lote_id}: {e}")
+        time.sleep(0.2)
+
+    return lotes
+
 # ─── SCRAPER GRUPO LANCE ──────────────────────────────────────────────────────
 # Investigado em 2026-09-14 (ver docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md).
 # Site server-rendered (Yii2/PHP), sem Cloudflare nem outro anti-bot na frente —
@@ -2962,6 +3063,7 @@ def raspar_leiloes():
     # lotes += _raspar_celso_cunha(vistos)
     lotes += _raspar_receita_sle(vistos)
     lotes += _raspar_francisco_freitas(vistos)
+    lotes += _raspar_maria_fixer(vistos)
     lotes += _raspar_grupo_lance(vistos)
 
     # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
