@@ -30,6 +30,8 @@ from scraper import (
     _grupo_lance_categoria,
     _grupo_lance_parse_pagina,
     _leilo_parse_listagem,
+    _chave_dedup_entre_fontes,
+    _remover_duplicatas_entre_fontes,
 )
 
 
@@ -426,3 +428,63 @@ class TestLeiloParseListagem:
 
     def test_pagina_sem_cards(self):
         assert _leilo_parse_listagem("<html><body>sem lotes</body></html>") == []
+
+
+# --- _chave_dedup_entre_fontes / _remover_duplicatas_entre_fontes ----------
+def _lote(fonte, descricao="", modelo="", url=""):
+    return {"fonte": fonte, "descricao": descricao, "modelo": modelo, "url": url}
+
+
+class TestChaveDedupEntreFontes:
+    def test_extrai_numero_de_processo_cnj(self):
+        lote = _lote("maria_fixer", descricao="(Proc. 8500061-18.2025.8.06.0076)")
+        assert _chave_dedup_entre_fontes(lote) == "proc:8500061-18.2025.8.06.0076"
+
+    def test_extrai_matricula_do_imovel(self):
+        lote = _lote("spy_leiloes",
+                      descricao="50% DO IMÓVEL DA MATRÍCULA 6.264 DO REGISTRO DE IMÓVEIS")
+        assert _chave_dedup_entre_fontes(lote) == "mat:6264"
+
+    def test_matricula_curta_demais_e_ignorada(self):
+        # Menos de 4 digitos e comum demais pra servir de identificador —
+        # risco real de colidir por coincidencia entre imoveis diferentes.
+        lote = _lote("spy_leiloes", descricao="Matrícula nº 12 do cartório")
+        assert _chave_dedup_entre_fontes(lote) is None
+
+    def test_sem_identificador_retorna_none(self):
+        lote = _lote("grupo_lance", descricao="Terreno c/ 500m² - Cananéia/SP")
+        assert _chave_dedup_entre_fontes(lote) is None
+
+    def test_busca_tambem_no_campo_modelo(self):
+        lote = _lote("francisco_freitas", descricao="", modelo="Proc. 1234567-89.2025.8.06.0001")
+        assert _chave_dedup_entre_fontes(lote) == "proc:1234567-89.2025.8.06.0001"
+
+
+class TestRemoverDuplicatasEntreFontes:
+    def test_remove_mesmo_processo_de_fonte_diferente(self):
+        direto     = _lote("francisco_freitas", descricao="Proc. 8500061-18.2025.8.06.0076", url="a")
+        agregador  = _lote("spy_leiloes", descricao="Proc. 8500061-18.2025.8.06.0076", url="b")
+        resultado = _remover_duplicatas_entre_fontes([direto, agregador])
+        assert resultado == [direto]
+
+    def test_mantem_a_primeira_ocorrencia(self):
+        # raspar_leiloes() chama os leiloeiros diretos antes dos agregadores,
+        # entao a ordem de entrada ja favorece a fonte original.
+        primeiro = _lote("maria_fixer", descricao="Proc. 1111111-11.2025.8.06.0001", url="a")
+        segundo  = _lote("spy_leiloes", descricao="Proc. 1111111-11.2025.8.06.0001", url="b")
+        resultado = _remover_duplicatas_entre_fontes([segundo, primeiro])
+        assert resultado == [segundo]
+
+    def test_sem_identificador_nunca_e_removido(self):
+        # Dois lotes de veiculo bem diferentes, sem processo/matricula —
+        # nao ha chave, entao ambos sobrevivem mesmo sem nada em comum.
+        a = _lote("mega", descricao="Honda Cg 125", url="a")
+        b = _lote("pacto", descricao="Honda Cg 125", url="b")
+        resultado = _remover_duplicatas_entre_fontes([a, b])
+        assert resultado == [a, b]
+
+    def test_lotes_de_processos_diferentes_sobrevivem_ambos(self):
+        a = _lote("francisco_freitas", descricao="Proc. 1111111-11.2025.8.06.0001", url="a")
+        b = _lote("maria_fixer", descricao="Proc. 2222222-22.2025.8.06.0002", url="b")
+        resultado = _remover_duplicatas_entre_fontes([a, b])
+        assert resultado == [a, b]

@@ -71,16 +71,18 @@ código do separador (`hex(ord(c))` → `0x2022`) num smoke test contra a
 página ao vivo. Sem esse teste com dado real, o bug passaria despercebido
 silenciosamente (nenhum erro, só campos vazios).
 
-## Limitação conhecida: duplicata entre fontes
+## Duplicata entre fontes — mitigado (ver docs/contexto/DEDUP_ENTRE_FONTES.md)
 
 Como é agregador, os mesmos imóveis de leiloeiros já raspados diretamente
 (Francisco Freitas, Maria Fixer, Grupo Lance...) podem aparecer aqui de
 novo com uma URL diferente (`spyleiloes.com.br/leilao/...` em vez da URL
-do leiloeiro original) — sem chave de dedup cruzada entre fontes (o
-`vistos` do scraper dedupa só por URL, e cada fonte tem sua própria URL),
-esses imóveis entram como itens duplicados no dashboard. Já era um risco
-conhecido apontado no backlog da investigação de 2026-09-14; aceito por
-ora, revisar se virar um incômodo real pro dono.
+do leiloeiro original) — já era um risco conhecido apontado no backlog da
+investigação de 2026-09-14. No mesmo dia da adição, `_remover_duplicatas_entre_fontes`
+passou a rodar no fim de `raspar_leiloes()`, removendo duplicata quando o
+texto do lote traz um número de processo CNJ ou matrícula do imóvel em
+comum entre fontes. Cobertura é parcial (só pega quando um desses
+identificadores está presente no texto) — ver o doc de dedup pra detalhes
+e o porquê de não tentar merge por heurística de título/endereço.
 
 ## Health check
 

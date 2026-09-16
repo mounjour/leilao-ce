@@ -5,6 +5,21 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-16):
+- Dedup entre fontes implementado (2026-09-16): `_remover_duplicatas_entre_fontes`
+  em scraper.py, rodando no fim de raspar_leiloes() antes de salvar
+  leiloes.json. Resolve a pendencia da investigacao de 2026-09-14 (agregadores
+  como Spy Leiloes/Grupo Lance podem repetir imovel ja raspado direto de
+  Francisco Freitas/Maria Fixer com URL diferente). So remove quando acha um
+  identificador de alta confianca no texto do lote (numero de processo CNJ ou
+  matricula do imovel via `_chave_dedup_entre_fontes`) — sem isso, NAO tenta
+  merge por heuristica de titulo/endereco (risco de falso positivo esconder
+  oportunidade real e considerado pior que mostrar duplicata). Mantem a 1a
+  ocorrencia (leiloeiro direto roda antes dos agregadores no pipeline). Health
+  check (scraper_health.processar) usa a contagem ANTES do dedup, pra nao
+  confundir "fonte quebrada" com "lotes mesclados". Testes:
+  TestChaveDedupEntreFontes e TestRemoverDuplicatasEntreFontes em
+  tests/test_scraper.py (9 casos novos, 99/99 no total). Ver
+  docs/contexto/DEDUP_ENTRE_FONTES.md.
 - Spy Leiloes adicionada como fonte (2026-09-16): `_raspar_spy_leiloes` em
   scraper.py. Agregador nacional de imoveis (SaaS pago pro usuario final,
   mas a busca em /imoveis-leilao e publica sem login), 604 imoveis
@@ -14,11 +29,11 @@ STATUS (atualizado 2026-09-16):
   bullet "•" (U+2022), nao espaco/nbsp — o regex copiado por analogia de
   outra fonte nao batia e zerava fipe_valor/data_leilao silenciosamente;
   corrigido apos smoke test contra a pagina ao vivo (495/604 lotes com
-  referencia de preco depois do fix). Limitacao conhecida: por ser
-  agregador, pode duplicar imoveis ja raspados de outras fontes (Francisco
-  Freitas, Maria Fixer, Grupo Lance) com URL diferente, sem dedup cruzada
-  entre fontes — aceito por ora. `spy_leiloes` entrou em FONTES_ATIVAS do
-  scraper_health.py. Ver docs/contexto/SPY_LEILOES_ADICIONADO.md.
+  referencia de preco depois do fix). Limitacao conhecida (por ser
+  agregador, pode duplicar imoveis ja raspados de outras fontes com URL
+  diferente) mitigada no mesmo dia — ver bullet "Dedup entre fontes"
+  abaixo. `spy_leiloes` entrou em FONTES_ATIVAS do scraper_health.py. Ver
+  docs/contexto/SPY_LEILOES_ADICIONADO.md.
 - Maria Fixer Leiloes adicionada como fonte (2026-09-16): `_raspar_maria_fixer`
   em scraper.py, mesma plataforma "vlance" do Francisco Freitas (mesmos
   endpoints get-leiloes/get-lotes e mesmo schema de campos) — reaproveita os

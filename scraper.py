@@ -3167,6 +3167,60 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 
     return lotes
 
+# ─── DEDUP ENTRE FONTES ───────────────────────────────────────────────────────
+# Apontado desde a investigação de novas fontes (2026-09-14, ver
+# docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md): agregadores como
+# Spy Leilões e Grupo Lance podem trazer o MESMO imóvel que um leiloeiro
+# direto já raspado (Francisco Freitas, Maria Fixer...), só que com URL
+# diferente — o `vistos` (dedup por URL) não pega isso porque a URL É
+# diferente entre fontes.
+#
+# Só gera chave de dedup quando há um identificador de alta confiança no
+# texto do lote: número de processo judicial (padrão CNJ,
+# NNNNNNN-DD.AAAA.J.TR.OOOO) ou matrícula do imóvel. Na ausência de um
+# desses (a maioria dos lotes, principalmente veículo), NÃO tenta merge por
+# heurística fraca de título/endereço — formato varia demais entre fontes e
+# um falso positivo esconderia uma oportunidade real do usuário, o que é
+# pior do que mostrar uma duplicata.
+_CNJ_PROCESSO_RE = re.compile(r'\d{7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}')
+_MATRICULA_RE    = re.compile(r'matr[ií]cula\D{0,10}([\d.]{4,})', re.IGNORECASE)
+
+
+def _chave_dedup_entre_fontes(lote):
+    """Chave de identidade do lote independente de fonte/URL, ou None se
+    nenhum identificador de alta confiança foi encontrado no texto."""
+    texto = f"{lote.get('descricao') or ''} {lote.get('modelo') or ''}"
+    m = _CNJ_PROCESSO_RE.search(texto)
+    if m:
+        return f"proc:{m.group(0)}"
+    m = _MATRICULA_RE.search(texto)
+    if m:
+        matricula = re.sub(r'\D', '', m.group(1))
+        if len(matricula) >= 4:
+            return f"mat:{matricula}"
+    return None
+
+
+def _remover_duplicatas_entre_fontes(lotes):
+    """Remove lotes com a mesma chave de dedup vindos de fontes diferentes.
+
+    Mantém a 1a ocorrência — como raspar_leiloes() chama os leiloeiros
+    diretos antes dos agregadores (Grupo Lance, Spy Leilões), o lote do
+    leiloeiro original é o que sobrevive quando há colisão.
+    """
+    vistas, resultado, duplicatas = set(), [], 0
+    for lote in lotes:
+        chave = _chave_dedup_entre_fontes(lote)
+        if chave:
+            if chave in vistas:
+                duplicatas += 1
+                continue
+            vistas.add(chave)
+        resultado.append(lote)
+    if duplicatas:
+        print(f"🧹 {duplicatas} duplicata(s) entre fontes removida(s) (mesmo processo/matrícula)")
+    return resultado
+
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
 def raspar_leiloes():
     print("\n🚀 Scraper — Ceará | Leilo + Mega + Pacto + MGL + Montenegro + Construbem + DanielGarcia + MJLeiloes + ReceitaSLE + FranciscoFreitas + GrupoLance\n")
@@ -3209,6 +3263,9 @@ def raspar_leiloes():
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
     lotes += _raspar_soleon("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos)
 
+    lotes_brutos = lotes
+    lotes = _remover_duplicatas_entre_fontes(lotes)
+
     with open("leiloes.json","w",encoding="utf-8") as f:
         json.dump(lotes, f, ensure_ascii=False, indent=2)
 
@@ -3216,9 +3273,12 @@ def raspar_leiloes():
     _salvar_resumo_ia(len(lotes))
 
     # Health check: fonte ativa que parou de render lote -> ::warning:: + WhatsApp
-    # pro dono. Best-effort, nunca derruba o run.
+    # pro dono. Best-effort, nunca derruba o run. Usa lotes_brutos (antes do
+    # dedup entre fontes) pra medir se CADA SCRAPER ainda produz, sem
+    # confundir "fonte quebrada" com "fonte cujos lotes foram todos
+    # mesclados por já aparecerem em outra fonte".
     try:
-        scraper_health.processar(lotes)
+        scraper_health.processar(lotes_brutos)
     except Exception as e:
         print(f"⚠️ scraper_health falhou (ignorado): {e}")
 
