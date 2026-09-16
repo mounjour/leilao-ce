@@ -4,7 +4,7 @@ Passo a passo para fechar a migração do site para uma **VPS Hostinger** e
 reativar o que está pendente em volta (Evolution API, backup, IA).
 
 Ordem de execução: os blocos **A → B** são o caminho crítico do site;
-**C → F** podem ser feitos em paralelo; **G → H** são o fechamento.
+**C → G** podem ser feitos em paralelo; **H → I** são o fechamento.
 
 Referências: [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md), [`SETUP_BACKUP_DB.md`](SETUP_BACKUP_DB.md),
 [`SETUP_GITHUB_ACTIONS.md`](SETUP_GITHUB_ACTIONS.md), [`deploy.yml`](../../.github/workflows/deploy.yml).
@@ -81,12 +81,37 @@ recuperável. O site sobe e opera sem isso.
 
 - [ ] Recarregar crédito da Anthropic — destrava a análise de estado dos lotes (`estado` / `selo`), hoje toda em fallback "Não informado". Não bloqueia o deploy, mas o painel fica com dado pobre até isso
 
-## G. Desligar o Community Cloud (só depois de 3–7 dias com a VPS validada)
+## G. Domínio próprio (opcional)
+
+Hoje o site usa `2-25-223-119.sslip.io` (sem domínio, TLS via Let's Encrypt
+comum). Trocar por um domínio de verdade é opcional, mas fica mais fácil de
+divulgar e de confiar do que um endereço com IP no meio.
+
+- [x] Buscar alternativas de nome nos domínios **grátis/baratos da
+      Hostinger** — na primeira busca só `achadinleiloes.tech` apareceu
+      disponível (`.com`, `.com.br` etc. já estavam ocupados); tentar outras
+      variações de nome (não só "achadinleiloes") para ver se aparece algum
+      TLD mais popular (`.com`, `.com.br`, `.online`, `.site`) em vez de cair
+      sempre no `.tech`
+  - Conclusão: todos os domínios pesquisados caem no `.tech`
+- [ ] Registrar o domínio escolhido
+- [ ] Apontar o DNS do domínio para o IP da VPS (`2.25.223.119`)
+- [ ] Reemitir o certificado TLS pro domínio novo: `sudo certbot --nginx -d
+      SEU-DOMINIO --redirect -m SEU-EMAIL --agree-tos --no-eff-email`
+      (seção 5 do `SETUP_HOSTINGER_VPS.md`)
+- [ ] Atualizar `APP_URL` no `.env` da VPS e reiniciar o serviço
+- [ ] Atualizar Site URL / Redirect URLs no Supabase Auth (bloco B) pro
+      domínio novo
+- [ ] Atualizar `server_name` no bloco do Nginx
+- [ ] Atualizar `CLAUDE.md` e `PLANO-DO-PROJETO.md` trocando as referências
+      de `2-25-223-119.sslip.io` pelo domínio novo
+
+## H. Desligar o Community Cloud (só depois de 3–7 dias com a VPS validada)
 
 - [ ] <https://share.streamlit.io> → o app → Settings → **Pause** (rollback rápido) ou **Delete**
 - [ ] Trocar links `leilaoce.streamlit.app` que existirem por aí
 
-## H. Documentação final
+## I. Documentação final
 
 - [x] `CLAUDE.md` — tirar o "em andamento" da linha Deploy (feito 2026-09-15)
 - [x] `PLANO-DO-PROJETO.md` — seções 1/7/12/13 para **VPS Hostinger (`2-25-223-119.sslip.io`)** (feito 2026-09-15)
