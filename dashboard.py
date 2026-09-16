@@ -1594,9 +1594,31 @@ with st.sidebar:
         st.session_state["f_lance_val"] = v
         st.session_state["f_lance_txt"] = _agrupa(v)
 
-    st.text_input(
-        "Lance máximo (R$)", key="f_lance_txt", on_change=_sync_lance_do_campo,
-    )
+    def _lance_decrementar():
+        v = max(int(st.session_state["f_lance_val"]) - LANCE_STEP, 0)
+        st.session_state["f_lance_val"] = v
+        st.session_state["f_lance_txt"] = _agrupa(v)
+        st.session_state["f_lance_slider"] = v
+
+    def _lance_incrementar():
+        v = min(int(st.session_state["f_lance_val"]) + LANCE_STEP, LANCE_MAX)
+        st.session_state["f_lance_val"] = v
+        st.session_state["f_lance_txt"] = _agrupa(v)
+        st.session_state["f_lance_slider"] = v
+
+    st.markdown("Lance máximo (R$)")
+    col_menos, col_campo, col_mais = st.columns([1, 4, 1])
+    with col_menos:
+        st.button("−", key="f_lance_menos", on_click=_lance_decrementar,
+                   use_container_width=True)
+    with col_campo:
+        st.text_input(
+            "Lance máximo (R$)", key="f_lance_txt", on_change=_sync_lance_do_campo,
+            label_visibility="collapsed",
+        )
+    with col_mais:
+        st.button("+", key="f_lance_mais", on_click=_lance_incrementar,
+                   use_container_width=True)
     st.slider(
         "Ajuste rápido", 0, LANCE_MAX, step=LANCE_STEP, format="%d",
         key="f_lance_slider", on_change=_sync_lance_do_slider,
