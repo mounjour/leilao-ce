@@ -254,6 +254,29 @@ Streamlit não conecta e a página trava em "Please wait…".
 Renovação do certificado já vem agendada pelo `certbot` (timer systemd
 `certbot.timer` — confirme com `systemctl list-timers | grep certbot`).
 
+### Título da aba (mitigar o flash "Streamlit")
+
+O HTML estático que o Streamlit serve antes do app React carregar vem com
+`<title>Streamlit</title>` fixo — só depois que o JS conecta no WebSocket e
+recebe o `st.set_page_config` do backend é que o título troca pra "Achadin
+Leilões". Isso causa um flash de 1-2s com "Streamlit" na aba a cada
+carregamento. Mitigado reescrevendo o HTML na saída do Nginx (dentro do
+mesmo `location /` acima, depois do `certbot` já ter reescrito o bloco pra
+HTTPS):
+
+```nginx
+        proxy_set_header Accept-Encoding "";
+        sub_filter '<title>Streamlit</title>' '<title>Achadin Leilões</title>';
+        sub_filter_once on;
+```
+
+O `Accept-Encoding ""` é necessário porque a home page do Streamlit vem
+gzipada por padrão — o `sub_filter` não reescreve corpo comprimido.
+Cosmético só no `<title>`; o favicon padrão do Streamlit (`/favicon.png`)
+ainda pisca por 1-2s antes do 🚗 (decisão do dono: não vale o esforço de
+gerar/servir um favicon estático custom só pra isso). Aplicado e validado ao
+vivo em 2026-09-18 (`sudo nginx -t && sudo systemctl reload nginx`).
+
 Teste: `curl https://SEU-IP.sslip.io/_stcore/health` → deve responder `ok`.
 
 ## 6. Deploy automático via GitHub Actions
