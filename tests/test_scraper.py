@@ -189,6 +189,9 @@ class TestDetectarCategoria:
     def test_equipamento(self):
         assert detectar_categoria("Retroescavadeira 4x4", "JCB", "carros") == "equipamentos"
 
+    def test_equipamento_typo_retroecavadeira(self):
+        assert detectar_categoria("Retroecavadeira XC870BR-1", "", "carros") == "equipamentos"
+
     def test_caminhao(self):
         assert detectar_categoria("FH 540", "Volvo", "carros") == "caminhoes"
 

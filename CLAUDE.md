@@ -4,7 +4,27 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-16):
+STATUS (atualizado 2026-09-18):
+- Pereira Leilões adicionada como fonte (2026-09-18): reaproveita
+  `_raspar_soleon` em scraper.py (mesmo backend "Soleon" do Construbem/Daniel
+  Garcia, confirmado pelo `<meta name="author" content="SOLEON...">` e pelas
+  URLs `/leilao/{id}/lotes` e `/item/{id}/detalhes` iguais) em vez de um
+  parser dedicado — evita duplicar a logica de categorizacao/extracao ja em
+  producao. `_raspar_soleon` ganhou o parametro `usar_proxy` (default True);
+  Pereira roda com `usar_proxy=False` porque, diferente de Construbem/Daniel
+  Garcia, o site nao esta atras de bloqueio de Cloudflare no IP do GitHub
+  Actions (requests direto responde 200 normalmente). Leiloeiro cearense
+  focado em bens de orgaos publicos (prefeituras municipais, UFC) — 17 lotes
+  confirmados num leilao ativo no teste (12 veiculos + 5 diversos, incl.
+  retroescavadeiras). Bug pego na validacao: titulo do site tem o typo
+  "RETROECAVADEIRA" (sem o "s" de escavadeira), que nao batia com a
+  palavra-chave `retroescavadeira` em PALAVRAS_MAQUINA — corrigido
+  adicionando a variante com erro de digitacao, com teste novo em
+  tests/test_scraper.py. `pereira` entrou em `FONTES_ESPERADAS_ZERO` (nao em
+  FONTES_ATIVAS) no scraper_health.py — leiloeiro unico com leiloes
+  esporadicos (semanas/meses de intervalo pelo historico de encerrados), 0
+  lote por varios runs entre leiloes e esperado, nao fonte quebrada. Ver
+  docs/contexto/PEREIRA_LEILOES_ADICIONADO.md.
 - Dedup entre fontes implementado (2026-09-16): `_remover_duplicatas_entre_fontes`
   em scraper.py, rodando no fim de raspar_leiloes() antes de salvar
   leiloes.json. Resolve a pendencia da investigacao de 2026-09-14 (agregadores

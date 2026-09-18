@@ -40,6 +40,10 @@ FONTES_ESPERADAS_ZERO = {
     "construbem",   # Zenrows sem credito
     "danielgarcia",  # ScraperAPI com timeout
     "celsocunha",   # dormente — site reconstruido, sem leilao ativo (ver docs/contexto/CELSO_CUNHA_DORMENTE.md)
+    "pereira",      # leiloeiro unico de leiloes municipais, cadencia de semanas/
+                    # meses entre leiloes (normal, nao e fonte quebrada) — ver
+                    # docs/contexto/PEREIRA_LEILOES_ADICIONADO.md. Promover pra
+                    # FONTES_ATIVAS se a cadencia se mostrar mais constante.
 }
 
 

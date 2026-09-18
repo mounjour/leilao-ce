@@ -38,7 +38,7 @@ PALAVRAS_CAMINHAO = ['fh ','fmx','constellation','actros','axor','atego','cargo 
                      'randon','facchini','noma','guerra','librelato','volvo vm',
                      'volvo/fh','6x2t','re dl','mpolo','marcopolo','torino gvu',
                      'torino u','comil','busscar','neobus','caio','unisauto']
-PALAVRAS_MAQUINA  = ['escavadeira','retroescavadeira','pa carregadeira','trator',
+PALAVRAS_MAQUINA  = ['escavadeira','retroescavadeira','retroecavadeira','pa carregadeira','trator',
                      'empilhadeira','guindaste','munck','compactador','gerador',
                      'compressor','alinhador','balanceador','elevador','betoneira',
                      'motoniveladora','fotovoltaico','tkba','skf']
@@ -2475,25 +2475,32 @@ _SOLEON_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
 _ZENROWS_API_URL   = "https://api.zenrows.com/v1/"
 _SCRAPERAPI_API_URL = "https://api.scraperapi.com/"
 
-def _raspar_soleon(base, fonte, vistos):
-    """Scraper para Construbem e Daniel Garcia (plataforma Soleon).
-    Ambos os sites são renderizados no servidor (sem JS necessário) — mas o
-    Cloudflare deles bloqueia especificamente a faixa de IP dos runners do
-    GitHub Actions (confirmado: o mesmo requests.get() com os mesmos headers
-    funciona normalmente de outros IPs, então não é um bloqueio por
-    fingerprint de user-agent nem exige renderizar JS).
+def _raspar_soleon(base, fonte, vistos, usar_proxy=True):
+    """Scraper para sites na plataforma Soleon (Construbem, Daniel Garcia,
+    Pereira Leilões — mesmos endpoints /leilao/{id}/lotes e /item/{id}/detalhes,
+    confirmado pelo <meta name="author" content="SOLEON..."> no HTML).
 
-    Ordem de tentativa por URL: Zenrows -> ScraperAPI -> requests direto.
-    Os dois proxies só entram se a respectiva chave estiver configurada; se
-    um falhar (ex.: Zenrows sem crédito -> HTTP 402), cai pro próximo. Em
-    dev local, sem nenhuma chave, o requests direto basta.
+    Construbem e Daniel Garcia são renderizados no servidor (sem JS
+    necessário) — mas o Cloudflare deles bloqueia especificamente a faixa de
+    IP dos runners do GitHub Actions (confirmado: o mesmo requests.get() com
+    os mesmos headers funciona normalmente de outros IPs, então não é um
+    bloqueio por fingerprint de user-agent nem exige renderizar JS). Pereira
+    Leilões não tem esse bloqueio (testado com requests direto, sem proxy) —
+    por isso `usar_proxy=False` pra essa fonte, evitando gastar crédito de
+    Zenrows/ScraperAPI à toa.
+
+    Ordem de tentativa por URL quando usar_proxy=True: Zenrows -> ScraperAPI
+    -> requests direto. Os dois proxies só entram se a respectiva chave
+    estiver configurada; se um falhar (ex.: Zenrows sem crédito -> HTTP 402),
+    cai pro próximo. Em dev local, sem nenhuma chave, o requests direto basta.
     """
     lotes = []
-    nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia"}.get(fonte, fonte.title())
+    nome  = {"construbem": "Construbem", "danielgarcia": "Daniel Garcia",
+              "pereira": "Pereira Leilões"}.get(fonte, fonte.title())
     sess  = requests.Session()
     sess.headers.update(_SOLEON_HEADERS)
-    zenrows_key    = os.getenv("ZENROWS_API_KEY", "").strip()
-    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "").strip()
+    zenrows_key    = os.getenv("ZENROWS_API_KEY", "").strip() if usar_proxy else ""
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "").strip() if usar_proxy else ""
 
     def _fetch_variants(url):
         if zenrows_key:
@@ -3259,9 +3266,11 @@ def raspar_leiloes():
     lotes += _raspar_grupo_lance(vistos)
     lotes += _raspar_spy_leiloes(vistos)
 
-    # Plataforma Soleon (Construbem + Daniel Garcia) — requests direto, sem Zenrows
+    # Plataforma Soleon (Construbem + Daniel Garcia atras de Cloudflare -> Zenrows/
+    # ScraperAPI; Pereira Leiloes sem bloqueio -> requests direto, usar_proxy=False)
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
     lotes += _raspar_soleon("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos)
+    lotes += _raspar_soleon("https://www.pereiraleiloesce.com.br", "pereira", vistos, usar_proxy=False)
 
     lotes_brutos = lotes
     lotes = _remover_duplicatas_entre_fontes(lotes)
