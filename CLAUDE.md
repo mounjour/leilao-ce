@@ -5,6 +5,30 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-18):
+- Bug de foto faltando no Pacto corrigido (2026-09-18): investigacao pedida
+  pelo dono (lotes sem imagem no projeto mas com imagem no site original)
+  varreu leiloes.json inteiro (1011 lotes) e checou ao vivo contra o site de
+  cada fonte com lote sem `foto`. receita_sle (282/287), spy_leiloes
+  (87/594), francisco_freitas (17/37), mega (1/22) e maria_fixer (1/2)
+  bateram com ausencia real de foto no site original (confirmado via API/
+  DOM ao vivo) — nao sao bug. So o Pacto (6/19) tinha bug de verdade:
+  confirmado ao vivo que `BAJAJ/DOMINAR NS160` e `CHEVROLET/VECTRA HATCH 4P
+  GT` tem foto real no site mas foram salvos com `foto: ""`. Causa raiz: a
+  foto do card e' um `background-image` no componente Quasar `q-img`
+  (`_raspar_pacto` em scraper.py), setado de forma assincrona/preguicosa
+  conforme o card entra na tela — o scraper lia o style uma unica vez logo
+  apos o scroll, e alguns cards ainda nao tinham terminado de carregar a
+  imagem nesse instante. Corrigido com `pg.wait_for_load_state("networkidle")`
+  apos o scroll e um retry (ate 4x, 500ms) que só preenche as fotos que
+  ainda faltavam, sem sobrescrever as ja capturadas. Suite de testes
+  (100/100) sem regressao — sem teste dedicado pra `_raspar_pacto` por
+  depender de Playwright/rede real; validar de fato so no proximo run do
+  GitHub Actions. Limitacao a parte, nao corrigida: 2 lotes de
+  pesados/agro (trator/plaina) nem aparecem na listagem `/leilao/{cidade}-
+  ceara` mesmo com scroll bem mais agressivo — sugere que o Pacto tem
+  multiplos "leiloes" concorrentes por cidade e a listagem agregada nem
+  sempre traz todos os lotes/categorias; fica como pendencia de cobertura,
+  nao de foto.
 - Pereira Leilões adicionada como fonte (2026-09-18): reaproveita
   `_raspar_soleon` em scraper.py (mesmo backend "Soleon" do Construbem/Daniel
   Garcia, confirmado pelo `<meta name="author" content="SOLEON...">` e pelas

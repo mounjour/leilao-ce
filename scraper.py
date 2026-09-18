@@ -1000,6 +1000,32 @@ _PACTO_CAT_MAP = {
     "utilitarios":"caminhoes","sucatas":"carros","imoveis":"imoveis",
 }
 
+
+# Extrai texto (preço/km/data) e foto de cada card. A foto e' um
+# background-image em div.q-img__image (componente Quasar), nao uma tag
+# <img> -- precisa ler o style em vez de src. O Quasar carrega essa
+# background-image de forma preguicosa (assincrona, conforme o card entra
+# na tela), entao logo apos o scroll alguns cards ainda podem estar com o
+# style vazio mesmo tendo foto real -- ver retry em _raspar_pacto.
+_PACTO_EXTRACT_JS = '''els => {
+    const acc = {};
+    for (const e of els) {
+        const h = e.href;
+        if (!acc[h]) acc[h] = {text: "", foto: ""};
+        acc[h].text += " " + e.innerText.trim();
+        if (!acc[h].foto) {
+            const imgDiv = e.querySelector(".q-img__image");
+            const bg = imgDiv ? imgDiv.style.backgroundImage : "";
+            const m = bg.match(/url\\(["']?([^"')]+)["']?\\)/);
+            if (m) acc[h].foto = m[1];
+        }
+    }
+    return Object.entries(acc).map(([href, v]) => (
+        {href, text: v.text.trim(), foto: v.foto}
+    ));
+}'''
+
+
 def _raspar_pacto(pg, _pg_d, vistos):
     lotes = []
     for cidade in _PACTO_CIDADES:
@@ -1014,29 +1040,33 @@ def _raspar_pacto(pg, _pg_d, vistos):
             pg.keyboard.press("End")
             pg.wait_for_timeout(700)
 
-        # Concatena todos os textos de links com mesmo href (preço, km, data ficam juntos).
-        # A foto do card é um background-image em div.q-img__image (componente Quasar),
-        # não uma tag <img> — precisa ler o style em vez de src.
+        try:
+            pg.wait_for_load_state("networkidle", timeout=5000)
+        except:
+            pass
+
         items = pg.eval_on_selector_all(
-            'a[href*="/leilao/"][href*="/ano."]',
-            '''els => {
-                const acc = {};
-                for (const e of els) {
-                    const h = e.href;
-                    if (!acc[h]) acc[h] = {text: "", foto: ""};
-                    acc[h].text += " " + e.innerText.trim();
-                    if (!acc[h].foto) {
-                        const imgDiv = e.querySelector(".q-img__image");
-                        const bg = imgDiv ? imgDiv.style.backgroundImage : "";
-                        const m = bg.match(/url\\(["']?([^"')]+)["']?\\)/);
-                        if (m) acc[h].foto = m[1];
-                    }
-                }
-                return Object.entries(acc).map(([href, v]) => (
-                    {href, text: v.text.trim(), foto: v.foto}
-                ));
-            }'''
+            'a[href*="/leilao/"][href*="/ano."]', _PACTO_EXTRACT_JS
         )
+
+        # Retry: cards cuja foto ainda nao carregou (lazy loading do Quasar)
+        # aparecem com foto vazia mesmo tendo imagem real no site. Tenta de
+        # novo algumas vezes, dando tempo do background-image ser setado,
+        # e preenche so as fotos que faltavam (sem sobrescrever o resto).
+        fotos = {it['href']: it['foto'] for it in items}
+        for _ in range(4):
+            if all(fotos.values()):
+                break
+            pg.wait_for_timeout(500)
+            retry = pg.eval_on_selector_all(
+                'a[href*="/leilao/"][href*="/ano."]', _PACTO_EXTRACT_JS
+            )
+            for it in retry:
+                if not fotos.get(it['href']) and it['foto']:
+                    fotos[it['href']] = it['foto']
+        for it in items:
+            it['foto'] = fotos.get(it['href'], it['foto'])
+
         novos = [it for it in items if it['href'] not in vistos and '/ano.' in it['href']]
         for it in novos:
             vistos.add(it['href'])
