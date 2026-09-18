@@ -879,20 +879,6 @@ def _brl(valor):
     return f"R$ {txt}"
 
 
-def _agrupa(valor):
-    """Só os dígitos, com ponto de milhar: 1000000 -> '1.000.000'."""
-    try:
-        return f"{int(valor or 0):,}".replace(",", ".")
-    except (TypeError, ValueError):
-        return "0"
-
-
-def _so_digitos(texto):
-    """Extrai o inteiro de um texto digitado ('R$ 1.000,00' -> 100000)."""
-    d = "".join(c for c in str(texto or "") if c.isdigit())
-    return int(d) if d else 0
-
-
 def _horario_execucao(valor):
     if not valor:
         return "Horário não informado"
@@ -1571,54 +1557,32 @@ with st.sidebar:
     LANCE_STEP = 1_000
     LANCE_PADRAO = LANCE_MAX       # valor inicial fixo (equivale a "sem limite")
 
-    # f_lance_val = valor canônico (int). f_lance_txt (campo) e f_lance_slider
+    # f_lance_val = valor canônico (int). f_lance_num (campo) e f_lance_slider
     # são só as duas faces do widget e derivam sempre de f_lance_val.
     if "f_lance_val" not in st.session_state:
         st.session_state["f_lance_val"] = LANCE_PADRAO
-        # limpa chaves de versões antigas (campo numérico + teto dinâmico)
+        # limpa chaves de versões antigas (campo em texto + teto dinâmico)
         for _k in ("f_lance_num", "f_lance_txt", "f_lance_slider"):
             st.session_state.pop(_k, None)
     # sanitiza valor herdado de sessão antiga (quando o teto era dinâmico)
     st.session_state["f_lance_val"] = min(int(st.session_state["f_lance_val"]), LANCE_MAX)
-    st.session_state.setdefault("f_lance_txt", _agrupa(st.session_state["f_lance_val"]))
+    st.session_state.setdefault("f_lance_num", st.session_state["f_lance_val"])
     st.session_state.setdefault("f_lance_slider", st.session_state["f_lance_val"])
 
     def _sync_lance_do_campo():
-        v = min(_so_digitos(st.session_state["f_lance_txt"]), LANCE_MAX)
+        v = int(st.session_state["f_lance_num"])
         st.session_state["f_lance_val"] = v
         st.session_state["f_lance_slider"] = v
-        st.session_state["f_lance_txt"] = _agrupa(v)  # normaliza o que foi digitado
 
     def _sync_lance_do_slider():
         v = int(st.session_state["f_lance_slider"])
         st.session_state["f_lance_val"] = v
-        st.session_state["f_lance_txt"] = _agrupa(v)
+        st.session_state["f_lance_num"] = v
 
-    def _lance_decrementar():
-        v = max(int(st.session_state["f_lance_val"]) - LANCE_STEP, 0)
-        st.session_state["f_lance_val"] = v
-        st.session_state["f_lance_txt"] = _agrupa(v)
-        st.session_state["f_lance_slider"] = v
-
-    def _lance_incrementar():
-        v = min(int(st.session_state["f_lance_val"]) + LANCE_STEP, LANCE_MAX)
-        st.session_state["f_lance_val"] = v
-        st.session_state["f_lance_txt"] = _agrupa(v)
-        st.session_state["f_lance_slider"] = v
-
-    st.markdown("Lance máximo (R$)")
-    col_menos, col_campo, col_mais = st.columns([1, 4, 1])
-    with col_menos:
-        st.button("−", key="f_lance_menos", on_click=_lance_decrementar,
-                   use_container_width=True)
-    with col_campo:
-        st.text_input(
-            "Lance máximo (R$)", key="f_lance_txt", on_change=_sync_lance_do_campo,
-            label_visibility="collapsed",
-        )
-    with col_mais:
-        st.button("+", key="f_lance_mais", on_click=_lance_incrementar,
-                   use_container_width=True)
+    st.number_input(
+        "Lance máximo (R$)", min_value=0, max_value=LANCE_MAX, step=LANCE_STEP,
+        key="f_lance_num", on_change=_sync_lance_do_campo,
+    )
     st.slider(
         "Ajuste rápido", 0, LANCE_MAX, step=LANCE_STEP, format="%d",
         key="f_lance_slider", on_change=_sync_lance_do_slider,
