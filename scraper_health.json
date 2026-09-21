@@ -4,92 +4,92 @@
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 18
+      "zero_streak": 19
     },
     "construbem": {
       "alertado_streak": 0,
-      "ultima_contagem": 46,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultima_contagem": 22,
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "danielgarcia": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 18
+      "zero_streak": 19
     },
     "francisco_freitas": {
       "alertado_streak": 0,
-      "ultima_contagem": 43,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultima_contagem": 45,
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "grupo_lance": {
       "alertado_streak": 3,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 5
+      "zero_streak": 6
     },
     "leilo": {
       "alertado_streak": 0,
       "ultima_contagem": 36,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "maria_fixer": {
       "alertado_streak": 0,
       "ultima_contagem": 16,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "mega": {
       "alertado_streak": 0,
       "ultima_contagem": 21,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "mgl": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 18
+      "zero_streak": 19
     },
     "mj": {
       "alertado_streak": 0,
       "ultima_contagem": 32,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "montenegro": {
       "alertado_streak": 0,
       "ultima_contagem": 17,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "pacto": {
       "alertado_streak": 0,
-      "ultima_contagem": 30,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultima_contagem": 48,
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     },
     "pereira": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 2
+      "zero_streak": 3
     },
     "receita_sle": {
       "alertado_streak": 0,
-      "ultima_contagem": 287,
+      "ultima_contagem": 0,
       "ultimo_nonzero": "2026-09-20T10:29Z",
-      "zero_streak": 0
+      "zero_streak": 1
     },
     "spy_leiloes": {
       "alertado_streak": 0,
       "ultima_contagem": 582,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
+      "ultimo_nonzero": "2026-09-21T11:24Z",
       "zero_streak": 0
     }
   },
-  "ultimo_run": "2026-09-20T10:29Z"
+  "ultimo_run": "2026-09-21T11:24Z"
 }
