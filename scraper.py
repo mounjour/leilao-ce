@@ -2125,9 +2125,40 @@ def _grupo_lance_parse_pagina(pagina_html):
 
 
 def _raspar_grupo_lance(vistos):
+    """Site passou a ficar atras de Cloudflare (nao era o caso em 2026-09-15),
+    que bloqueia especificamente a faixa de IP dos runners do GitHub Actions —
+    mesmo padrao ja visto em Construbem/Daniel Garcia/MGL, confirmado com
+    requests direto de outro IP retornando 200 normalmente. Tenta requests
+    direto primeiro (de proposito, nao so por economia de credito: se o site
+    algum dia tirar essa protecao, o direto volta a bastar sozinho) e só cai
+    pra Zenrows/ScraperAPI (mesmo padrao de _raspar_soleon) quando o direto
+    falhar. Proxies so entram se a respectiva chave estiver configurada.
+    """
     lotes = []
     sess = requests.Session()
     sess.headers.update(_GRUPO_LANCE_HEADERS)
+    zenrows_key    = os.getenv("ZENROWS_API_KEY", "").strip()
+    scraperapi_key = os.getenv("SCRAPERAPI_KEY", "").strip()
+
+    def _fetch_variants(url):
+        yield "direto", url, None
+        if zenrows_key:
+            yield "Zenrows", _ZENROWS_API_URL, {"apikey": zenrows_key, "url": url}
+        if scraperapi_key:
+            yield "ScraperAPI", _SCRAPERAPI_API_URL, {
+                "api_key": scraperapi_key, "url": url, "keep_headers": "true",
+            }
+
+    def _get(url):
+        for label, endpoint, params in _fetch_variants(url):
+            try:
+                r = sess.get(endpoint, params=params, timeout=30 if params else 20)
+                if r.status_code == 200:
+                    return r.text
+                print(f"  ⚠️ Grupo Lance [{label}] {r.status_code}: {url}")
+            except Exception as e:
+                print(f"  ⚠️ Grupo Lance [{label}] request: {e}")
+        return ""
 
     for url_base in _GRUPO_LANCE_URLS:
         itens, total_paginas = [], 1
@@ -2135,19 +2166,14 @@ def _raspar_grupo_lance(vistos):
             if pagina > total_paginas:
                 break
             url = f"{url_base}?pagina={pagina}"
-            try:
-                r = sess.get(url, timeout=20)
-            except Exception as e:
-                print(f"  ⚠️ Grupo Lance {url}: {e}")
-                break
-            if r.status_code != 200:
-                print(f"  ⚠️ Grupo Lance {url}: HTTP {r.status_code}")
+            html_pagina = _get(url)
+            if not html_pagina:
                 break
             if pagina == 1:
-                m_pag = re.search(r'P[aá]gina\s*<b>\d+</b>\s*de\s*<b>(\d+)</b>', r.text)
+                m_pag = re.search(r'P[aá]gina\s*<b>\d+</b>\s*de\s*<b>(\d+)</b>', html_pagina)
                 if m_pag:
                     total_paginas = int(m_pag.group(1))
-            itens += _grupo_lance_parse_pagina(r.text)
+            itens += _grupo_lance_parse_pagina(html_pagina)
             time.sleep(0.3)
 
         if not itens:
