@@ -8,6 +8,11 @@ scraper_health.json (commitado junto com o leiloes.json, porque o runner do
 GitHub Actions e efemero) e, quando uma fonte que DEVERIA render fica N runs
 seguidos com zero lote, loga um ::warning:: e manda um WhatsApp pro dono.
 
+Alem da contagem, vigia a QUALIDADE dos campos-chave (lance e foto): se uma
+fonte que costumava preenche-los passa a traze-los vazios em massa (caso do
+Pacto em 21/09: 29 lotes, 0 com lance e 0 com foto, e a contagem sozinha nao
+acusou), alerta igual.
+
 Chamado no fim de raspar_leiloes() via processar(lotes) — best-effort, nunca
 derruba o run. Tambem roda solto: `python scraper_health.py`.
 """
@@ -25,6 +30,21 @@ _LIMITE_STREAK = 3
 # Enquanto a fonte seguir zerada, re-alerta a cada N runs (~1 semana) pra nao
 # esquecer, sem mandar WhatsApp todo run.
 _RENOTIFICAR_A_CADA = 14
+
+# Campos-chave vigiados por fonte: nome -> predicado sobre o lote.
+_CAMPOS = {
+    "lance": lambda l: (l.get("lance_atual") or 0) > 0,
+    "foto": lambda l: bool(l.get("foto")),
+}
+# So avalia a fonte se trouxe ao menos N lotes (amostra pequena oscila).
+_MIN_LOTES_CAMPOS = 5
+# Queda (fracao 0-1) sobre a taxa de referencia que conta como "vazio em
+# massa", e taxa de referencia minima pro campo valer ser vigiado (campo que a
+# fonte nunca preenche, ex. foto no Construbem, nao alerta).
+_QUEDA_CAMPOS = 0.5
+_REF_MIN_CAMPOS = 0.5
+# Runs seguidos degradados antes de alertar (scraper roda 1x/dia).
+_LIMITE_STREAK_CAMPOS = 2
 
 # Fontes que se espera render lote todo run. Se uma destas zerar, alerta.
 FONTES_ATIVAS = {
@@ -98,6 +118,59 @@ def aplicar_run(estado: dict, contagem: dict, *, agora: str | None = None) -> di
     return estado
 
 
+def taxas_de_campos(lotes: list) -> dict:
+    """Por fonte: {"n": total de lotes, "lance": fracao 0-1, "foto": fracao 0-1}."""
+    grupos = collections.defaultdict(list)
+    for l in lotes:
+        if isinstance(l, dict):
+            grupos[l.get("fonte") or "?"].append(l)
+    return {
+        fonte: {"n": len(ls),
+                **{c: sum(1 for l in ls if pred(l)) / len(ls) for c, pred in _CAMPOS.items()}}
+        for fonte, ls in grupos.items()
+    }
+
+
+def aplicar_campos(estado: dict, taxas: dict) -> dict:
+    """Atualiza, por fonte ativa e campo, a taxa de referencia (ultima taxa
+    saudavel) e a streak de degradacao. Pura (muta e devolve o dict)."""
+    fontes = estado.setdefault("fontes", {})
+    for fonte in FONTES_ATIVAS:
+        t = taxas.get(fonte)
+        if not t or t["n"] < _MIN_LOTES_CAMPOS:
+            continue  # sem amostra suficiente: nao mexe no estado
+        campos = fontes.setdefault(fonte, _registro_novo()).setdefault("campos", {})
+        for campo in _CAMPOS:
+            taxa = round(t[campo], 3)
+            c = campos.setdefault(campo, {"ref": taxa, "degradado_streak": 0, "alertado_streak": 0})
+            ref = float(c.get("ref", taxa))
+            c["taxa"] = taxa
+            if ref >= _REF_MIN_CAMPOS and taxa <= ref - _QUEDA_CAMPOS:
+                c["degradado_streak"] = int(c.get("degradado_streak", 0)) + 1  # ref fica congelada
+            else:
+                c["ref"] = taxa
+                c["degradado_streak"] = 0
+                c["alertado_streak"] = 0
+    return estado
+
+
+def alvos_de_campos(estado: dict) -> list[tuple[str, str, float, float, int]]:
+    """(fonte, campo, ref, taxa, streak) que merecem alerta AGORA (mesma regra
+    de primeira vez / re-notificacao periodica de alvos_de_alerta)."""
+    alvos = []
+    for fonte, reg in sorted(estado.get("fontes", {}).items()):
+        if fonte in FONTES_ESPERADAS_ZERO:
+            continue
+        for campo, c in sorted(reg.get("campos", {}).items()):
+            streak = int(c.get("degradado_streak", 0))
+            if streak < _LIMITE_STREAK_CAMPOS:
+                continue
+            ja = int(c.get("alertado_streak", 0))
+            if ja == 0 or (streak - ja) >= _RENOTIFICAR_A_CADA:
+                alvos.append((fonte, campo, float(c["ref"]), float(c["taxa"]), streak))
+    return alvos
+
+
 def alvos_de_alerta(estado: dict) -> list[tuple[str, int]]:
     """Fontes cuja streak de zero merece alerta AGORA: cruzou o limite pela
     primeira vez, ou re-notificacao periodica. Ignora as esperadas-zero."""
@@ -124,6 +197,18 @@ def _montar_mensagem(alvos: list[tuple[str, int]]) -> str:
     )
 
 
+def _montar_mensagem_campos(alvos: list) -> str:
+    linhas = "\n".join(
+        f"- {fonte}: {campo} preenchido em {taxa:.0%} dos lotes (antes {ref:.0%}), {streak} runs"
+        for fonte, campo, ref, taxa, streak in alvos
+    )
+    return (
+        "🩺 *Achadin Leilões — scraper*\n\n"
+        f"{len(alvos)} campo(s) vieram vazios em massa:\n{linhas}\n\n"
+        "Provável mudança de layout no site da fonte. Ver os logs do GitHub Actions."
+    )
+
+
 def _enviar_whatsapp(mensagem: str) -> None:
     telefone = os.getenv("OWNER_WHATSAPP", "").strip()
     if not telefone:
@@ -144,7 +229,9 @@ def processar(lotes: list, *, arquivo: str = _ARQUIVO) -> int:
     )
     estado = carregar_estado(arquivo)
     aplicar_run(estado, contagem)
+    aplicar_campos(estado, taxas_de_campos(lotes))
     alvos = alvos_de_alerta(estado)
+    alvos_c = alvos_de_campos(estado)
 
     if alvos:
         nomes = [f for f, _ in alvos]
@@ -152,7 +239,13 @@ def processar(lotes: list, *, arquivo: str = _ARQUIVO) -> int:
         _enviar_whatsapp(_montar_mensagem(alvos))
         for fonte, streak in alvos:
             estado["fontes"][fonte]["alertado_streak"] = streak
-    else:
+    if alvos_c:
+        resumo = [f"{f}.{c}" for f, c, *_ in alvos_c]
+        print(f"::warning::scraper_health: {len(alvos_c)} campo(s) vazio(s) em massa: {resumo}")
+        _enviar_whatsapp(_montar_mensagem_campos(alvos_c))
+        for fonte, campo, _ref, _taxa, streak in alvos_c:
+            estado["fontes"][fonte]["campos"][campo]["alertado_streak"] = streak
+    if not alvos and not alvos_c:
         ativas_ok = sum(
             1 for f in FONTES_ATIVAS
             if estado["fontes"].get(f, {}).get("ultima_contagem", 0) > 0
@@ -160,7 +253,7 @@ def processar(lotes: list, *, arquivo: str = _ARQUIVO) -> int:
         print(f"[scraper_health] OK — {ativas_ok}/{len(FONTES_ATIVAS)} fontes ativas com lote neste run.")
 
     salvar_estado(estado, arquivo)
-    return len(alvos)
+    return len(alvos) + len(alvos_c)
 
 
 if __name__ == "__main__":

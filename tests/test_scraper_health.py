@@ -115,3 +115,52 @@ def test_carregar_estado_tolera_arquivo_ausente_ou_corrompido(tmp_path):
     ruim = tmp_path / "ruim.json"
     ruim.write_text("{ isso não é json", encoding="utf-8")
     assert sh.carregar_estado(str(ruim)) == {"fontes": {}}
+
+
+# ─── campos zerados em massa ────────────────────────────────────────────────
+
+def _lotes_campos(fonte, n, lance=True, foto=True):
+    return [{"fonte": fonte, "lance_atual": 100 if lance else 0,
+             "foto": "http://f" if foto else ""} for _ in range(n)]
+
+
+def _run_campos(estado, lotes):
+    sh.aplicar_run(estado, {"pacto": len(lotes)})
+    sh.aplicar_campos(estado, sh.taxas_de_campos(lotes))
+    return sh.alvos_de_campos(estado)
+
+
+def test_campos_degradados_alertam_so_apos_limite_de_runs():
+    estado = {"fontes": {}}
+    assert _run_campos(estado, _lotes_campos("pacto", 30)) == []
+    assert _run_campos(estado, _lotes_campos("pacto", 30, lance=False, foto=False)) == []
+    alvos = _run_campos(estado, _lotes_campos("pacto", 30, lance=False, foto=False))
+    assert {(a[0], a[1]) for a in alvos} == {("pacto", "lance"), ("pacto", "foto")}
+
+
+def test_campo_nunca_preenchido_nao_alerta():
+    estado = {"fontes": {}}
+    for _ in range(5):
+        assert _run_campos(estado, _lotes_campos("pacto", 30, foto=False)) == []
+
+
+def test_amostra_pequena_e_ignorada_e_recuperacao_zera_streak():
+    estado = {"fontes": {}}
+    _run_campos(estado, _lotes_campos("pacto", 30))
+    _run_campos(estado, _lotes_campos("pacto", 3, lance=False))  # abaixo do minimo: ignora
+    assert estado["fontes"]["pacto"]["campos"]["lance"]["degradado_streak"] == 0
+    _run_campos(estado, _lotes_campos("pacto", 30, lance=False))
+    _run_campos(estado, _lotes_campos("pacto", 30))  # voltou
+    assert estado["fontes"]["pacto"]["campos"]["lance"]["degradado_streak"] == 0
+
+
+def test_processar_dispara_warning_de_campos_e_nao_repete(tmp_path, capsys):
+    arq = str(tmp_path / "h.json")
+    aviso = "campo(s) vazio(s) em massa"
+    sh.processar(_lotes_campos("pacto", 30), arquivo=arq)
+    sh.processar(_lotes_campos("pacto", 30, lance=False), arquivo=arq)
+    capsys.readouterr()
+    sh.processar(_lotes_campos("pacto", 30, lance=False), arquivo=arq)
+    assert aviso in capsys.readouterr().out
+    sh.processar(_lotes_campos("pacto", 30, lance=False), arquivo=arq)
+    assert aviso not in capsys.readouterr().out

@@ -29,6 +29,16 @@ STATUS (atualizado 2026-09-24):
   do bullet de 2026-09-18 no seletor, mas o retry foi mantido. Pendencia (outra
   sessao): health check de campos-chave zerados em massa. Ver
   docs/contexto/PACTO_REGRESSAO_2026-09.md.
+- Health check de campos zerados em massa (2026-09-24): `scraper_health.py`
+  agora tambem vigia `lance_atual>0` e `foto` por fonte de `FONTES_ATIVAS`
+  (min. 5 lotes). Guarda em `scraper_health.json` a taxa de referencia (ultima
+  saudavel) por campo; se a taxa cai >= 50 pontos abaixo da ref (ref >= 50%) por
+  2 runs seguidos, loga `::warning::` e manda 1 WhatsApp (mesmo esquema de
+  re-alerta a cada ~14 runs). Campo que a fonte nunca preenche (ex. foto do
+  Construbem) nao alerta. Motivo: regressao do Pacto em 21/09 (29 lotes, 0 com
+  lance e 0 com foto) passou batida porque so a contagem era checada. Backtest
+  nos commits reais alertaria Pacto em 22/09 sem falso positivo em outra fonte.
+  Testes novos em tests/test_scraper_health.py (131/131 no total).
 - Bug de foto faltando no Pacto corrigido (2026-09-18): investigacao pedida
   pelo dono (lotes sem imagem no projeto mas com imagem no site original)
   varreu leiloes.json inteiro (1011 lotes) e checou ao vivo contra o site de
