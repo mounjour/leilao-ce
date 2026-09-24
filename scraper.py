@@ -993,123 +993,225 @@ def _raspar_mega(pg, vistos):
     return lotes
 
 # ─── SCRAPER PACTO LEILÕES ────────────────────────────────────────────────────
-_PACTO_CIDADES = ["fortaleza","eusebio","maracanau","caucaia","horizonte",
-                  "pacajus","aquiraz","russas","juazeiro-do-norte","sobral"]
+# O site do Pacto foi refeito em 09/2026 (regressao vista nos runs de 21/09 em
+# diante: lance 0, foto vazia, marca = nome do leilao). O que mudou:
+# - As listagens por cidade (`/leilao/{cidade}-ceara`) redirecionam para
+#   `/leilao/ceara/`; cada categoria tem a sua pagina (`/leilao/ceara/motos/`).
+#   Hoje so existe o patio de Eusebio no CE. A pagina geral pode omitir lotes
+#   (36 vs 37 somando as categorias), entao raspamos por categoria.
+# - O card virou `a.lote-card-link` com href `/lote/<uuid>/` (sem categoria,
+#   marca, modelo nem `ano.` na URL; antes era /leilao/.../ano.XXXX/<uuid>).
+# - Nome pronto em `.lote-card-nome` ("Honda/Nxr 160 Bros ABS"), lance em
+#   `.valor-card` ("R$ 16.100", SEM centavos -- o regex de _extrair_lance
+#   exige ",dd" e devolvia 0), foto num <img class="lote-card-img"> (antes era
+#   background-image do q-img) e ano fab/modelo em texto ("25 /26").
+# - A data do leilao vem como "Sab, 26/09/20 • 09:30h": o proprio site corta o
+#   ano para 2 digitos ("20" em vez de "26"), entao o ano e' inferido.
+_PACTO_BASE = "https://www.pactoleiloes.com.br"
+_PACTO_CATEGORIAS = ["carros", "motos", "pesados", "utilitarios", "sucatas",
+                     "equipamentos", "imoveis"]
 _PACTO_CAT_MAP = {
     "carros":"carros","motos":"motos","pesados":"caminhoes",
     "utilitarios":"caminhoes","sucatas":"carros","imoveis":"imoveis",
+    "equipamentos":"equipamentos",
 }
+# O card so mostra "CE"; a cidade real esta so no detalhe. O unico patio
+# listado no CE e' o de Eusebio (filtro "Cidades em CEARA" do site).
+_PACTO_CIDADE = "Eusebio/CE"
+
+_PACTO_SELETOR_CARD = "a.lote-card-link"
+
+# Le os campos estruturados de cada card. A foto e' <img class="lote-card-img">
+# carregada de forma preguicosa: logo apos o scroll alguns cards ainda podem
+# nao ter o src final -- ver retry em _pacto_coletar. /lote/fotos-modelo/ e' a
+# imagem generica "sem foto" e e' descartada em _pacto_parse_card.
+_PACTO_EXTRACT_JS = '''els => els.map(e => {
+    const q = s => e.querySelector(s);
+    const txt = s => { const n = q(s); return n ? n.innerText.trim() : ""; };
+    const img = q("img.lote-card-img");
+    return {
+        href: e.href,
+        nome: txt(".lote-card-nome"),
+        valor: txt(".valor-card"),
+        data: txt(".card-data-leilao-linha strong"),
+        text: e.innerText.trim(),
+        foto: img && img.getAttribute("src") ? img.src : "",
+    };
+})'''
 
 
-# Extrai texto (preço/km/data) e foto de cada card. A foto e' um
-# background-image em div.q-img__image (componente Quasar), nao uma tag
-# <img> -- precisa ler o style em vez de src. O Quasar carrega essa
-# background-image de forma preguicosa (assincrona, conforme o card entra
-# na tela), entao logo apos o scroll alguns cards ainda podem estar com o
-# style vazio mesmo tendo foto real -- ver retry em _raspar_pacto.
-_PACTO_EXTRACT_JS = '''els => {
-    const acc = {};
-    for (const e of els) {
-        const h = e.href;
-        if (!acc[h]) acc[h] = {text: "", foto: ""};
-        acc[h].text += " " + e.innerText.trim();
-        if (!acc[h].foto) {
-            const imgDiv = e.querySelector(".q-img__image");
-            const bg = imgDiv ? imgDiv.style.backgroundImage : "";
-            const m = bg.match(/url\\(["']?([^"')]+)["']?\\)/);
-            if (m) acc[h].foto = m[1];
-        }
+def _pacto_parse_href(href):
+    """Extrai url canonica, uuid e (se presentes) dados do veiculo do href.
+
+    Formato atual: `/lote/<uuid>/?localizacao.estado=CE` -- so da o uuid.
+    Formato legado: `/leilao/eusebio-ce/<cat>/[<nome-do-leilao>/]<slug>/ano.<AAAA>/<uuid>`.
+    O legado e' lido a partir do marcador `ano.`, nunca por indice absoluto,
+    porque o segmento com o nome do leilao aparece e some entre versoes do site.
+    """
+    caminho = re.sub(r'^https?://[^/]+', '', href).split('?')[0].strip('/')
+    pts = caminho.split('/')
+    if len(pts) >= 2 and pts[0] == "lote":
+        return {"url": f"{_PACTO_BASE}/lote/{pts[1]}/", "uuid": pts[1],
+                "categoria_url": "", "slug": "", "ano": 0}
+    idx = next((i for i, p in enumerate(pts) if p.startswith("ano.")), -1)
+    if idx < 1 or idx + 1 >= len(pts):
+        return None
+    ano_str = pts[idx][4:]
+    return {"url": f"{_PACTO_BASE}/{caminho}", "uuid": pts[idx + 1],
+            "categoria_url": pts[2] if len(pts) > 2 else "",
+            "slug": pts[idx - 1],
+            "ano": int(ano_str) if ano_str.isdigit() else 0}
+
+
+def _pacto_parse_valor(texto):
+    """'R$ 16.100' ou 'R$ 1.234,50' -> float; 0 se nao achar."""
+    m = re.search(r'R\$[\xa0\s]*(\d{1,3}(?:\.\d{3})*)(?:,(\d{2}))?', texto or "")
+    if not m:
+        return 0
+    return float(m.group(1).replace(".", "") + "." + (m.group(2) or "00"))
+
+
+def _pacto_parse_ano(texto):
+    """'25 /26' (fab/modelo, 2 digitos) -> 2026 (ano do modelo); 0 se ausente."""
+    m = re.search(r'calendar_today\s*(\d{2})\s*/\s*(\d{2})', texto or "")
+    if not m:
+        return 0
+    yy = int(m.group(2))
+    return 2000 + yy if yy <= 40 else 1900 + yy
+
+
+def _pacto_parse_data(texto, agora=None):
+    """'Sab, 26/09/20 • 09:30h' -> '2026-09-26T09:30'.
+
+    O ano do site vem truncado, entao usa o ano corrente (ou o proximo, se a
+    data ja passou ha mais de um dia -- leilao de janeiro visto em dezembro).
+    """
+    m = re.search(r'(\d{2})/(\d{2})/\d{2,4}\D{0,5}(\d{2}):(\d{2})', texto or "")
+    if not m:
+        return ""
+    agora = agora or datetime.now()
+    dia, mes, hora, minuto = (int(x) for x in m.groups())
+    try:
+        dt = datetime(agora.year, mes, dia, hora, minuto)
+        if dt < agora - timedelta(days=1):
+            dt = dt.replace(year=agora.year + 1)
+    except ValueError:
+        return ""
+    return dt.strftime("%Y-%m-%dT%H:%M")
+
+
+def _pacto_parse_card(item, cat_url, agora=None):
+    """Converte o dict extraido por _PACTO_EXTRACT_JS em campos do lote.
+
+    Marca/modelo vem de `.lote-card-nome` ("MARCA/MODELO"), como no Leilo; o
+    slug do href legado e' so fallback quando o nome vier vazio. Nome sem "/"
+    (equipamentos) vira modelo, com marca "Outros". Devolve None
+    se nao houver como identificar o lote.
+    """
+    ref = _pacto_parse_href(item['href'])
+    if not ref:
+        return None
+    nome = html.unescape(item.get('nome', '')).strip()
+    if nome:
+        marca, sep, modelo = nome.partition('/')
+        if sep:
+            marca, modelo = marca.strip().title(), modelo.strip().title()
+        else:
+            # Equipamentos/implementos vem sem "MARCA/": o nome todo e' o modelo.
+            marca, modelo = "Outros", nome.title()
+    elif ref['slug']:
+        marca, modelo = "", limpar_modelo(ref['slug'])
+    else:
+        return None
+    foto = item.get('foto', '')
+    # /lote/fotos-modelo/<categoria>.webp e' a imagem generica ("Fotos em
+    # breve"): carrega com sucesso, mas nao e' do veiculo.
+    if '/fotos-modelo/' in foto:
+        foto = ''
+    texto = item.get('text', '')
+    return {
+        "url": ref['url'],
+        "categoria_url": cat_url,
+        "marca": marca or "?",
+        "modelo": modelo or "?",
+        "ano": _pacto_parse_ano(texto) or ref['ano'],
+        "lance": _pacto_parse_valor(item.get('valor', '')) or _pacto_parse_valor(texto),
+        "km": _extrair_km(texto),
+        "foto": foto,
+        "data_leilao": _pacto_parse_data(item.get('data', '') or texto, agora),
     }
-    return Object.entries(acc).map(([href, v]) => (
-        {href, text: v.text.trim(), foto: v.foto}
-    ));
-}'''
+
+
+def _pacto_coletar(pg):
+    """Rola a pagina ate o numero de cards estabilizar e le todos."""
+    anterior = -1
+    for _ in range(15):
+        pg.keyboard.press("End")
+        pg.wait_for_timeout(700)
+        n = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, "e => e.length")
+        if n == anterior:
+            break
+        anterior = n
+    try:
+        pg.wait_for_load_state("networkidle", timeout=5000)
+    except:
+        pass
+
+    items = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, _PACTO_EXTRACT_JS)
+
+    # Retry: cards cuja foto ainda nao carregou (lazy loading) aparecem com
+    # foto vazia mesmo tendo imagem real no site. Tenta de novo algumas
+    # vezes e preenche so as fotos que faltavam (sem sobrescrever o resto).
+    fotos = {it['href']: it['foto'] for it in items}
+    for _ in range(4):
+        if all(fotos.values()):
+            break
+        pg.wait_for_timeout(500)
+        retry = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, _PACTO_EXTRACT_JS)
+        for it in retry:
+            if not fotos.get(it['href']) and it['foto']:
+                fotos[it['href']] = it['foto']
+    for it in items:
+        it['foto'] = fotos.get(it['href'], it['foto'])
+    return items
 
 
 def _raspar_pacto(pg, _pg_d, vistos):
     lotes = []
-    for cidade in _PACTO_CIDADES:
-        url_base = f"https://www.pactoleiloes.com.br/leilao/{cidade}-ceara"
+    for cat_url in _PACTO_CATEGORIAS:
         try:
-            pg.goto(url_base, timeout=20000, wait_until="networkidle")
+            pg.goto(f"{_PACTO_BASE}/leilao/ceara/{cat_url}/", timeout=20000,
+                    wait_until="networkidle")
             pg.wait_for_timeout(2000)
         except:
             continue
 
-        for _ in range(6):
-            pg.keyboard.press("End")
-            pg.wait_for_timeout(700)
+        campos = []
+        for it in _pacto_coletar(pg):
+            c = _pacto_parse_card(it, cat_url)
+            if c and c['url'] not in vistos:
+                vistos.add(c['url'])
+                campos.append(c)
 
-        try:
-            pg.wait_for_load_state("networkidle", timeout=5000)
-        except:
-            pass
-
-        items = pg.eval_on_selector_all(
-            'a[href*="/leilao/"][href*="/ano."]', _PACTO_EXTRACT_JS
-        )
-
-        # Retry: cards cuja foto ainda nao carregou (lazy loading do Quasar)
-        # aparecem com foto vazia mesmo tendo imagem real no site. Tenta de
-        # novo algumas vezes, dando tempo do background-image ser setado,
-        # e preenche so as fotos que faltavam (sem sobrescrever o resto).
-        fotos = {it['href']: it['foto'] for it in items}
-        for _ in range(4):
-            if all(fotos.values()):
-                break
-            pg.wait_for_timeout(500)
-            retry = pg.eval_on_selector_all(
-                'a[href*="/leilao/"][href*="/ano."]', _PACTO_EXTRACT_JS
-            )
-            for it in retry:
-                if not fotos.get(it['href']) and it['foto']:
-                    fotos[it['href']] = it['foto']
-        for it in items:
-            it['foto'] = fotos.get(it['href'], it['foto'])
-
-        novos = [it for it in items if it['href'] not in vistos and '/ano.' in it['href']]
-        for it in novos:
-            vistos.add(it['href'])
-
-        if not novos:
+        if not campos:
             continue
-        print(f"📡 Pacto {cidade} | {len(novos)} lotes")
+        print(f"📡 Pacto {cat_url} | {len(campos)} lotes")
 
-        for it in novos[:50]:
-            href = it['href']
+        for c in campos[:50]:
             try:
-                pts       = href.replace('https://www.pactoleiloes.com.br','').strip('/').split('/')
-                if len(pts) < 6:
-                    continue
-                cidade_s  = pts[1].replace("-ceara","").replace("-"," ").title()
-                cat_url   = pts[2]
-                marca     = pts[3].title() if len(pts) > 3 else "?"
-                modelo    = limpar_modelo(pts[4]) if len(pts) > 4 else "?"
-                ano_str   = pts[5].replace("ano.","") if len(pts) > 5 else "0"
-                ano       = int(ano_str) if ano_str.isdigit() else 0
+                marca, modelo, ano, lance = c['marca'], c['modelo'], c['ano'], c['lance']
                 categoria = detectar_categoria(modelo, marca, _PACTO_CAT_MAP.get(cat_url, cat_url))
                 icone     = ICONES.get(categoria, "📦")
 
-                # Extrai lance do texto do card (sem navegar ao detalhe)
-                lance = _extrair_lance(it['text'])
-                km    = _extrair_km(it['text'])
-
                 ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = _analisar_cached(href, marca, modelo, ano, "", km, lance, ref_val, categoria)
+                analise  = _analisar_cached(c['url'], marca, modelo, ano, "", c['km'], lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado",""))
 
-                data_leilao = _extrair_data_leilao(it['text'])
-                foto = it.get('foto', '')
-                # A Pacto usa /lote/fotos-modelo/<categoria>.webp como imagem
-                # generica ("Fotos em breve") quando o lote nao tem foto real
-                # cadastrada — carrega com sucesso (nao e "quebrada"), so nao
-                # e do veiculo, entao trata como se nao houvesse foto.
-                if '/fotos-modelo/' in foto:
-                    foto = ''
                 print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
                 lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
-                                        f"{cidade_s}/CE", lance, ref_val, ref_str,
-                                        classif, foto, km, "", analise, href, data_leilao))
+                                        _PACTO_CIDADE, lance, ref_val, ref_str,
+                                        classif, c['foto'], c['km'], "", analise,
+                                        c['url'], c['data_leilao']))
                 time.sleep(0.1)
             except Exception as e:
                 print(f"  ⚠️ Pacto: {e}"); continue

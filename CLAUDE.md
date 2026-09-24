@@ -4,7 +4,21 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-18):
+STATUS (atualizado 2026-09-24):
+- Regressao do Pacto corrigida (2026-09-24): desde o run de 21/09 os lotes
+  vinham com lance 0, foto vazia, marca = nome do leilao e FIPE zerada. Causa
+  raiz: o site foi refeito (nao so um segmento novo na URL) -- listagem agora em
+  /leilao/ceara/{categoria}/, card `a.lote-card-link` com href /lote/<uuid>/,
+  lance em `.valor-card` SEM centavos (o regex de _extrair_lance exige ',dd'),
+  foto em <img> (nao mais background-image) e nome pronto "Marca/Modelo".
+  `_raspar_pacto` reescrita com funcoes puras (`_pacto_parse_href/valor/ano/
+  data/card`), 20 testes novos (120/120). Validado ao vivo: 37/37 lotes com
+  lance, ano e data; 32 com foto real; 28 com FIPE. Atencao: a URL do lote
+  mudou para /lote/<uuid>/ (favoritos de lotes Pacto antigos deixam de casar) e
+  a cidade e fixa "Eusebio/CE" (card so mostra "CE"). Substitui o retry de foto
+  do bullet de 2026-09-18 no seletor, mas o retry foi mantido. Pendencia (outra
+  sessao): health check de campos-chave zerados em massa. Ver
+  docs/contexto/PACTO_REGRESSAO_2026-09.md.
 - Bug de foto faltando no Pacto corrigido (2026-09-18): investigacao pedida
   pelo dono (lotes sem imagem no projeto mas com imagem no site original)
   varreu leiloes.json inteiro (1011 lotes) e checou ao vivo contra o site de

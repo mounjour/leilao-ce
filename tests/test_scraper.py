@@ -491,3 +491,156 @@ class TestRemoverDuplicatasEntreFontes:
         b = _lote("maria_fixer", descricao="Proc. 2222222-22.2025.8.06.0002", url="b")
         resultado = _remover_duplicatas_entre_fontes([a, b])
         assert resultado == [a, b]
+
+
+# ─── PACTO (site refeito em 09/2026) ─────────────────────────────────────────
+# Textos/hrefs copiados de cards reais de pactoleiloes.com.br em 2026-09-24.
+from datetime import datetime as _dt
+from scraper import (
+    _pacto_parse_href,
+    _pacto_parse_valor,
+    _pacto_parse_ano,
+    _pacto_parse_data,
+    _pacto_parse_card,
+)
+
+_PACTO_HREF_NOVO = "https://www.pactoleiloes.com.br/lote/22664880-58a2-4792-8ece-431ea7acc562/?localizacao.estado=CE"
+_PACTO_HREF_LEGADO_COM_LEILAO = (
+    "https://www.pactoleiloes.com.br/leilao/eusebio-ce/pesados/"
+    "leilao-de-pesados-e-agro-25-09-2026/iveco-stralis-600s56t/ano.2014/"
+    "22664880-58a2-4792-8ece-431ea7acc562?cidade_busca=Fortaleza/CE"
+)
+_PACTO_HREF_LEGADO_SEM_LEILAO = (
+    "https://www.pactoleiloes.com.br/leilao/eusebio-ce/carros/"
+    "peugeot-208-allure-4p/ano.2018/d1b2304e-98cd-478b-b04c-78152f16d464"
+)
+_PACTO_TEXTO_MOTO = (
+    "Lote 27\nlocation_on\nCE\nchevron_left\nchevron_right\nRecuperado de Financiamento\n"
+    "Honda/Nxr 160 Bros ABS\nfavorite\ncalendar_today\n25 /26\n15.495 km\nR$ 16.100\n"
+    "Lance enviado por J*********0\nschedule\nComeça em\nLeilão inicia em 2 dias\n"
+    "Leilão\nSáb, 26/09/20 • 09:30h\nphoto\n14 Fotos\nplay_circle\nVídeo"
+)
+_PACTO_TEXTO_IVECO = (
+    "Lote 10\nlocation_on\nCE\nchevron_left\nchevron_right\nRecuperado de Financiamento\n"
+    "Iveco/Stralis 600S56T\nfavorite\ncalendar_today\n13 /14\nR$ 60.000\nLance atual\n"
+    "schedule\nComeça em\nLeilão inicia em 18 horas\nLeilão\nSex, 25/09/20 • 09:30h\nphoto\n38 Fotos"
+)
+_PACTO_AGORA = _dt(2026, 9, 24, 12, 0)
+
+
+class TestPactoParseHref:
+    def test_href_novo_so_tem_uuid_e_vira_url_canonica(self):
+        r = _pacto_parse_href(_PACTO_HREF_NOVO)
+        assert r["uuid"] == "22664880-58a2-4792-8ece-431ea7acc562"
+        assert r["url"] == "https://www.pactoleiloes.com.br/lote/22664880-58a2-4792-8ece-431ea7acc562/"
+        assert r["slug"] == ""
+
+    def test_href_legado_com_segmento_de_leilao_ignora_o_leilao(self):
+        r = _pacto_parse_href(_PACTO_HREF_LEGADO_COM_LEILAO)
+        assert r["slug"] == "iveco-stralis-600s56t"
+        assert r["categoria_url"] == "pesados"
+        assert r["ano"] == 2014
+        assert r["uuid"] == "22664880-58a2-4792-8ece-431ea7acc562"
+
+    def test_href_legado_sem_segmento_de_leilao_da_o_mesmo_resultado(self):
+        r = _pacto_parse_href(_PACTO_HREF_LEGADO_SEM_LEILAO)
+        assert r["slug"] == "peugeot-208-allure-4p"
+        assert r["categoria_url"] == "carros"
+        assert r["ano"] == 2018
+
+    def test_href_irreconhecivel_devolve_none(self):
+        assert _pacto_parse_href("https://www.pactoleiloes.com.br/leilao/ceara/motos/") is None
+
+
+class TestPactoParseCampos:
+    def test_valor_sem_centavos(self):
+        assert _pacto_parse_valor(" R$ 16.100") == 16100
+
+    def test_valor_com_centavos_e_milhar(self):
+        assert _pacto_parse_valor("R$ 1.234.567,89") == 1234567.89
+
+    def test_valor_ausente_e_zero(self):
+        assert _pacto_parse_valor("") == 0
+        assert _pacto_parse_valor("Lance atual") == 0
+
+    def test_ano_pega_o_ano_do_modelo(self):
+        assert _pacto_parse_ano(_PACTO_TEXTO_MOTO) == 2026
+        assert _pacto_parse_ano(_PACTO_TEXTO_IVECO) == 2014
+
+    def test_ano_ausente_e_zero(self):
+        assert _pacto_parse_ano("Lote 1\nCE\nR$ 100") == 0
+
+    def test_data_com_ano_truncado_usa_ano_corrente(self):
+        assert _pacto_parse_data("Sáb, 26/09/20 • 09:30h", _PACTO_AGORA) == "2026-09-26T09:30"
+
+    def test_data_ja_passada_ha_mais_de_um_dia_vai_pro_ano_seguinte(self):
+        assert _pacto_parse_data("Seg, 05/01/20 • 09:00h", _dt(2026, 12, 20)) == "2027-01-05T09:00"
+
+    def test_data_de_hoje_mais_cedo_nao_vira_ano_seguinte(self):
+        assert _pacto_parse_data("Qui, 24/09/20 • 09:00h", _PACTO_AGORA) == "2026-09-24T09:00"
+
+    def test_data_ausente_ou_invalida(self):
+        assert _pacto_parse_data("", _PACTO_AGORA) == ""
+        assert _pacto_parse_data("Sáb, 31/02/20 • 09:30h", _PACTO_AGORA) == ""
+
+
+class TestPactoParseCard:
+    def _item(self, texto, nome, valor, data, foto="", href=_PACTO_HREF_NOVO):
+        return {"href": href, "nome": nome, "valor": valor, "data": data,
+                "text": texto, "foto": foto}
+
+    def test_card_de_moto_completo(self):
+        c = _pacto_parse_card(
+            self._item(_PACTO_TEXTO_MOTO, "Honda/Nxr 160 Bros ABS", "R$ 16.100",
+                       "Sáb, 26/09/20 • 09:30h",
+                       foto="https://leilo.cdndp.com.br/v1/arquivo/2026/9/23/x_pequena_pacto.webp"),
+            "motos", _PACTO_AGORA)
+        assert c["marca"] == "Honda"
+        assert c["modelo"] == "Nxr 160 Bros Abs"
+        assert c["ano"] == 2026
+        assert c["lance"] == 16100
+        assert c["km"] == "15.495 km"
+        assert c["foto"].endswith("_pequena_pacto.webp")
+        assert c["data_leilao"] == "2026-09-26T09:30"
+
+    def test_marca_e_modelo_nao_viram_o_nome_do_leilao(self):
+        # Regressao: o parse por indice de URL devolvia marca = nome do leilao
+        # e modelo = "marca + modelo" juntos.
+        c = _pacto_parse_card(
+            self._item(_PACTO_TEXTO_IVECO, "Iveco/Stralis 600S56T", "R$ 60.000",
+                       "Sex, 25/09/20 • 09:30h", href=_PACTO_HREF_LEGADO_COM_LEILAO),
+            "pesados", _PACTO_AGORA)
+        assert c["marca"] == "Iveco"
+        assert c["modelo"] == "Stralis 600S56T"
+        assert c["lance"] == 60000
+        assert c["ano"] == 2014
+
+    def test_foto_generica_de_modelo_vira_vazia(self):
+        c = _pacto_parse_card(
+            self._item(_PACTO_TEXTO_MOTO, "Honda/Biz 125", "R$ 10.600", "",
+                       foto="https://www.pactoleiloes.com.br/lote/fotos-modelo/moto.webp"),
+            "motos", _PACTO_AGORA)
+        assert c["foto"] == ""
+
+    def test_lance_cai_para_o_texto_do_card_se_valor_vier_vazio(self):
+        c = _pacto_parse_card(self._item(_PACTO_TEXTO_MOTO, "Honda/Biz 125", "", ""),
+                              "motos", _PACTO_AGORA)
+        assert c["lance"] == 16100
+
+    def test_sem_nome_usa_slug_do_href_legado(self):
+        c = _pacto_parse_card(
+            self._item("R$ 5.000", "", "R$ 5.000", "", href=_PACTO_HREF_LEGADO_SEM_LEILAO),
+            "carros", _PACTO_AGORA)
+        assert c["modelo"] == "Peugeot 208 Allure 4P"
+        assert c["ano"] == 2018
+
+    def test_sem_nome_e_sem_slug_devolve_none(self):
+        assert _pacto_parse_card(self._item("R$ 5.000", "", "R$ 5.000", ""),
+                                 "carros", _PACTO_AGORA) is None
+
+    def test_nome_sem_barra_vira_modelo_com_marca_outros(self):
+        c = _pacto_parse_card(
+            self._item("R$ 180.000", "Escavadeira Hidráulica Pc130Lc-10", "R$ 180.000", ""),
+            "pesados", _PACTO_AGORA)
+        assert c["marca"] == "Outros"
+        assert c["modelo"] == "Escavadeira Hidráulica Pc130Lc-10"
