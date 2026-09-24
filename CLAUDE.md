@@ -5,6 +5,14 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-24):
+- Receita SLE corrigida (2026-09-24): 0 lotes desde 21/09 era bug, nao falta de
+  edital. O edital de Fortaleza 0317900/000003/2026 (411 lotes, propostas ate
+  25/09) passou de `situacao 2` para `3` na abertura das propostas e o filtro
+  so aceitava 2. Agora `_rf_editais_fortaleza` aceita 2 e 3 (5 testes novos,
+  136/136); validado ao vivo: 287 lotes CE (282 eletronicos + 5 veiculo/
+  maquina), igual a 20/09. Cadencia dos editais de Fortaleza ~3 meses
+  (23/03, 22/06, 21/09): 0 lote entre editais e normal. Ver
+  docs/contexto/RECEITA_SLE_ADICIONADO.md.
 - Grupo Lance corrigido (2026-09-24): 0 lotes desde ~21/09 NAO era falha do
   fallback Zenrows/ScraperAPI e sim reestruturacao do site: listagem foi para
   `/ce/imoveis` (a antiga da 301) e URLs de lote para `/ce/<cidade>/imoveis/...`,

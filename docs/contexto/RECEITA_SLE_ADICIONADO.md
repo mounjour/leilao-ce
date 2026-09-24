@@ -40,8 +40,10 @@ BACKLOG do `CLAUDE.md` para o motivo dos outros terem ficado de fora.
   `requests` puro, sem Playwright, sem proxy.
 - Três endpoints, todos JSON limpo:
   - `GET /api/editais-disponiveis` → todos os editais abertos no Brasil,
-    agrupados por `situacao` (2 = aberto p/ proposta — o único que interessa;
-    8 e 15 são estados pós-encerramento).
+    agrupados por `situacao` (2 = divulgado, propostas ainda não começaram;
+    3 = propostas em andamento — 2 e 3 interessam; 8/11/12/14/15 são estados
+    pós-encerramento). O edital de Fortaleza passa de 2 para 3 na abertura das
+    propostas (ex.: 21/09 08:00).
   - `GET /api/edital/{orgao}/{num}/{ano}` → `listaLotes[]` com `tipo`,
     `valorMinimo`, `valorAvaliacao` por lote (sem descrição textual).
   - `GET /api/lote/{orgao}/{num}/{ano}/{nrAtribuido}` → detalhe do lote:
@@ -69,7 +71,7 @@ Maranhão e do Piauí carimbado como CE.
 
 ## Como o scraper funciona (`_raspar_receita_sle`)
 
-1. `GET /api/editais-disponiveis` → filtra `situacao == 2` (aberto) e
+1. `GET /api/editais-disponiveis` → filtra `situacao in (2, 3)` (`_rf_editais_fortaleza`) e
    `cidade == "FORTALEZA"` (única unidade da RFB no CE).
 2. Para cada edital: `GET /api/edital/{orgao}/{num}/{ano}` → filtra
    `listaLotes` por `tipo` (regex `_RF_TIPO_RE`: caminhão/ônibus/veículo/
@@ -208,3 +210,14 @@ Quase nada mudou — as abas e o filtro de categoria já eram data-driven e
 `candidatos` do edital de exemplo pula de ~10 para ~396 → ~386 GETs de
 detalhe a mais (0,2s de sleep entre eles) ≈ +2–3 min por run. Dentro do
 timeout de 90 min do workflow.
+
+## Regressão de 2026-09-21 (fonte zerada) — corrigida em 2026-09-24
+
+O filtro aceitava só `situacao == 2`. Em 21/09 08:00 o edital
+`0317900/000003/2026` (411 lotes; propostas 21-25/09, lances 28/09) passou a
+`situacao 3` e a fonte zerou por 4 runs (health check alertou), embora o edital
+estivesse aberto. Corrigido para aceitar 2 e 3; validado ao vivo: 287 lotes CE
+(282 eletrônicos + 5 veículos/máquinas), igual ao run de 20/09. Cadência dos
+editais de Fortaleza em 2026: 23/03, 22/06 e 21/09 (~3 meses), então entre
+editais 0 lote é esperado; o log agora mostra as situações de Fortaleza na API
+quando não há edital aberto.

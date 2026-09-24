@@ -25,6 +25,7 @@ from scraper import (
     buscar_referencia_mercado,
     detectar_categoria,
     _rf_categoria,
+    _rf_editais_fortaleza,
     _rf_eletronico_ce,
     _rf_parse_eletronico,
     _grupo_lance_categoria,
@@ -221,6 +222,36 @@ class TestReceitaCategoria:
         # TÊXTIL / MINERAL nunca chegam aqui (filtrados antes), mas se chegarem
         # nao devem virar "eletronicos"
         assert _rf_categoria("TÊXTIL", "", "") != "eletronicos"
+
+
+class TestReceitaEditaisFortaleza:
+    @staticmethod
+    def _dados(*grupos):
+        return {"situacoes": [
+            {"situacao": sit, "lista": [{"edital": e, "cidade": c}
+                                        for e, c in itens]}
+            for sit, itens in grupos]}
+
+    def test_aceita_situacao_2_divulgado(self):
+        d = self._dados((2, [("0317900/000004/2026", "FORTALEZA")]))
+        assert len(_rf_editais_fortaleza(d)) == 1
+
+    def test_aceita_situacao_3_propostas_em_andamento(self):
+        # regressao 2026-09-21: edital 0317900/000003/2026 virou situacao 3
+        d = self._dados((3, [("0317900/000003/2026", "FORTALEZA")]))
+        assert len(_rf_editais_fortaleza(d)) == 1
+
+    def test_ignora_encerrados(self):
+        d = self._dados((8, [("a", "FORTALEZA")]), (11, [("b", "FORTALEZA")]),
+                        (12, [("c", "FORTALEZA")]), (15, [("d", "FORTALEZA")]))
+        assert _rf_editais_fortaleza(d) == []
+
+    def test_ignora_outras_cidades(self):
+        d = self._dados((2, [("x", "CURITIBA")]), (3, [("y", "SÃO PAULO")]))
+        assert _rf_editais_fortaleza(d) == []
+
+    def test_payload_vazio(self):
+        assert _rf_editais_fortaleza({}) == []
 
 
 class TestReceitaEletronicoCE:

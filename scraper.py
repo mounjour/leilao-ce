@@ -1769,6 +1769,26 @@ def _rf_parse_veiculo(descricao):
     return marca, modelo, ano
 
 
+# Situacoes do edital na API editais-disponiveis: 2 = divulgado (propostas
+# ainda nao comecaram), 3 = propostas em andamento. Os dois interessam: o
+# edital de Fortaleza muda de 2 para 3 na abertura das propostas (ex.: 21/09
+# 08:00) e ate 2026-09-24 so o 2 era aceito, zerando a fonte durante a fase em
+# que da pra ofertar. 8/11/12/14/15 = propostas encerradas/finalizado.
+_RF_SITUACOES_ABERTAS = (2, 3)
+
+
+def _rf_editais_fortaleza(dados):
+    """Editais da DRF Fortaleza ainda abertos a proposta (situacao 2 ou 3)."""
+    editais = []
+    for grupo in dados.get("situacoes", []):
+        if grupo.get("situacao") not in _RF_SITUACOES_ABERTAS:
+            continue
+        for ed in grupo.get("lista", []):
+            if (ed.get("cidade") or "").upper() == _RF_CIDADE_EDITAL:
+                editais.append(ed)
+    return editais
+
+
 def _raspar_receita_sle(vistos):
     lotes = []
     try:
@@ -1777,16 +1797,14 @@ def _raspar_receita_sle(vistos):
         print(f"⚠️ Receita SLE: {e}")
         return lotes
 
-    editais_ce = []
-    for grupo in dados.get("situacoes", []):
-        if grupo.get("situacao") != 2:   # só leilão aberto p/ proposta
-            continue
-        for ed in grupo.get("lista", []):
-            if (ed.get("cidade") or "").upper() == _RF_CIDADE_EDITAL:
-                editais_ce.append(ed)
+    editais_ce = _rf_editais_fortaleza(dados)
 
     if not editais_ce:
-        print("⚠️ Receita SLE: nenhum edital aberto em Fortaleza")
+        sit = sorted({g.get("situacao") for g in dados.get("situacoes", [])
+                      for e in g.get("lista", [])
+                      if (e.get("cidade") or "").upper() == _RF_CIDADE_EDITAL})
+        print("⚠️ Receita SLE: nenhum edital aberto em Fortaleza "
+              f"(situacoes de Fortaleza na API: {sit})")
         return lotes
 
     print(f"📡 Receita SLE | {len(editais_ce)} edital(is) em Fortaleza")
