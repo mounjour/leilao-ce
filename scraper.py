@@ -2164,16 +2164,34 @@ _GRUPO_LANCE_BASE = "https://www.grupolance.com.br"
 # zerados na investigacao (mesmo site, mesmo padrao de URL `/{categoria}/ce`).
 # Adicionar aqui quando aparecer lote real nessas categorias, pra dar pra
 # validar o parse de titulo de veiculo (formato ainda desconhecido).
-_GRUPO_LANCE_URLS = [f"{_GRUPO_LANCE_BASE}/imoveis/ce"]
+# Em 2026-09-24 o site passou a servir a listagem em /ce/imoveis (a antiga
+# /imoveis/ce responde 301) e as URLs de lote de /imoveis/<sub>/ce/<cidade>/...
+# para /ce/<cidade>/imoveis/<sub>/... — o parser antigo descartava todos os cards.
+_GRUPO_LANCE_URLS = [f"{_GRUPO_LANCE_BASE}/ce/imoveis"]
 _GRUPO_LANCE_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                        "AppleWebKit/537.36 (KHTML, like Gecko) "
                                        "Chrome/124.0.0.0 Safari/537.36"}
 
 
 def _grupo_lance_categoria(url_lote):
-    """Categoria a partir do 1o segmento da URL do lote (/imoveis/... ou /veiculos/...)."""
-    raiz = url_lote.strip("/").split("/")[0] if url_lote else ""
+    """Categoria a partir do caminho da URL do lote.
+
+    Formato atual: /ce/<cidade>/<categoria>/<sub>/<slug>; formato antigo
+    (ate 2026-09-23): /<categoria>/<sub>/ce/<cidade>/<slug>.
+    """
+    if not url_lote:
+        return None
+    segs = [x for x in urlsplit(url_lote).path.split("/") if x]
+    if not segs:
+        return None
+    raiz = segs[2] if segs[0] == "ce" and len(segs) > 2 else segs[0]
     return "imoveis" if raiz == "imoveis" else None
+
+
+def _grupo_lance_resposta_valida(status, texto):
+    """Resposta so serve se for 200 e trouxer ao menos um card de lote; uma
+    pagina de bloqueio/desafio com 200 nao pode encerrar a cadeia de fallback."""
+    return status == 200 and 'data-key="' in (texto or "")
 
 
 def _grupo_lance_parse_pagina(pagina_html):
@@ -2255,9 +2273,14 @@ def _raspar_grupo_lance(vistos):
         for label, endpoint, params in _fetch_variants(url):
             try:
                 r = sess.get(endpoint, params=params, timeout=30 if params else 20)
-                if r.status_code == 200:
+                if _grupo_lance_resposta_valida(r.status_code, r.text):
                     return r.text
-                print(f"  ⚠️ Grupo Lance [{label}] {r.status_code}: {url}")
+                if r.status_code == 200:
+                    m_t = re.search(r'<title>([^<]*)', r.text)
+                    print(f"  ⚠️ Grupo Lance [{label}] 200 sem cards "
+                          f"({len(r.text)} bytes, titulo={(m_t.group(1).strip() if m_t else '?')[:60]!r}): {url}")
+                else:
+                    print(f"  ⚠️ Grupo Lance [{label}] {r.status_code}: {url}")
             except Exception as e:
                 print(f"  ⚠️ Grupo Lance [{label}] request: {e}")
         return ""
@@ -2278,9 +2301,9 @@ def _raspar_grupo_lance(vistos):
             itens += _grupo_lance_parse_pagina(html_pagina)
             time.sleep(0.3)
 
+        print(f"📡 Grupo Lance {url_base.rsplit('/', 1)[-1]} | {len(itens)} lote(s) no CE")
         if not itens:
             continue
-        print(f"📡 Grupo Lance {url_base.split('/')[-2]} | {len(itens)} lote(s) no CE")
 
         for it in itens:
             if it["url"] in vistos:

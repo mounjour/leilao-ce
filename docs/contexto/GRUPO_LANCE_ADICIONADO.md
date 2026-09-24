@@ -106,3 +106,25 @@ alertou — exige 3 runs seguidos zerados). Investigação no mesmo dia:
   (`ZENROWS_API_KEY` já existe no projeto), ou (b) mover `grupo_lance` pra
   `FONTES_ESPERADAS_ZERO` em `scraper_health.py` e aceitar a fonte como
   dormente por ora, documentando aqui.
+
+## Causa real do 0 lotes (2026-09-24)
+
+O fallback Zenrows/ScraperAPI (c88f89a) estava correto. O problema era outro:
+o site foi reestruturado. A listagem passou de `/imoveis/ce` (agora 301) para
+`/ce/imoveis`, e as URLs de lote de `/imoveis/<sub>/ce/<cidade>/<slug>` para
+`/ce/<cidade>/imoveis/<sub>/<slug>`. `_grupo_lance_categoria` so aceitava
+`imoveis` como 1o segmento e descartava todos os cards (0 lotes, sem log,
+porque um fetch 200 que nao gera lote nao imprimia nada).
+
+Correcao: `_GRUPO_LANCE_URLS` aponta para `/ce/imoveis`; `_grupo_lance_categoria`
+aceita os dois formatos; `_grupo_lance_resposta_valida` trata 200 sem card
+(pagina de bloqueio/desafio) como falha e passa ao proximo fornecedor, com log
+explicito (`200 sem cards`, tamanho e titulo); o total de lotes da fonte e
+sempre logado, mesmo 0.
+
+Validacao local (requests direto, sem proxy): 9 lotes CE, os mesmos da adicao
+(Aquiraz, Juazeiro x3, Maranguape, Pedra Branca, Fortaleza, Crato x2).
+Nao validado: o caminho via proxy no Actions (o 403 no IP do runner e
+inconfirmavel localmente). Se o proximo run mostrar os logs de fallback
+falhando, opcoes: mover para `FONTES_ESPERADAS_ZERO` ou Zenrows Scraping
+Browser via CDP (como no MGL).

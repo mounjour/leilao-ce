@@ -5,6 +5,16 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-24):
+- Grupo Lance corrigido (2026-09-24): 0 lotes desde ~21/09 NAO era falha do
+  fallback Zenrows/ScraperAPI e sim reestruturacao do site: listagem foi para
+  `/ce/imoveis` (a antiga da 301) e URLs de lote para `/ce/<cidade>/imoveis/...`,
+  entao `_grupo_lance_categoria` descartava todos os cards em silencio.
+  Corrigido (URL + categoria nos dois formatos) e adicionada observabilidade:
+  200 sem cards vira falha logada e cai pro proximo fornecedor
+  (`_grupo_lance_resposta_valida`), total de lotes sempre logado. Validado
+  local: 9 lotes CE (iguais aos da adicao); 127/127 testes. Pendente: confirmar
+  no proximo run do Actions que o caminho via proxy passa do 403 do IP do
+  runner. Ver docs/contexto/GRUPO_LANCE_ADICIONADO.md.
 - Regressao do Pacto corrigida (2026-09-24): desde o run de 21/09 os lotes
   vinham com lance 0, foto vazia, marca = nome do leilao e FIPE zerada. Causa
   raiz: o site foi refeito (nao so um segmento novo na URL) -- listagem agora em

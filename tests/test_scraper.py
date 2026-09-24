@@ -28,6 +28,7 @@ from scraper import (
     _rf_eletronico_ce,
     _rf_parse_eletronico,
     _grupo_lance_categoria,
+    _grupo_lance_resposta_valida,
     _grupo_lance_parse_pagina,
     _leilo_parse_listagem,
     _chave_dedup_entre_fontes,
@@ -277,6 +278,29 @@ class TestGrupoLanceCategoria:
     def test_url_vazia(self):
         assert _grupo_lance_categoria("") is None
 
+    def test_formato_novo_2026_09_24(self):
+        assert _grupo_lance_categoria(
+            "/ce/aquiraz/imoveis/terrenos-e-lotes/terreno-at-2160m2-camara-aquiraz-ce-28590") == "imoveis"
+        assert _grupo_lance_categoria(
+            "https://www.grupolance.com.br/ce/crato/imoveis/casas/casa-crato-ce-1") == "imoveis"
+
+    def test_veiculo_formato_novo_nao_suportado(self):
+        assert _grupo_lance_categoria("/ce/fortaleza/veiculos/carros/slug-1") is None
+
+
+class TestGrupoLanceRespostaValida:
+    def test_200_com_cards(self):
+        assert _grupo_lance_resposta_valida(200, '<div data-key="28590">')
+
+    def test_200_sem_cards_e_pagina_de_bloqueio(self):
+        assert not _grupo_lance_resposta_valida(200, "<title>Just a moment...</title>")
+
+    def test_403(self):
+        assert not _grupo_lance_resposta_valida(403, '<div data-key="1">')
+
+    def test_texto_vazio(self):
+        assert not _grupo_lance_resposta_valida(200, "")
+
 
 # HTML real (2026-09-14) de dois cards de /imoveis/ce: um com 1a/2a praça
 # (28523, Iguatu) e um com praça única (28030, Juazeiro do Norte).
@@ -341,7 +365,37 @@ _GRUPO_LANCE_HTML_2_CARDS = '''
 '''
 
 
+# HTML real (2026-09-24) de um card de /ce/imoveis, com o formato novo de URL.
+_GRUPO_LANCE_HTML_CARD_NOVO = '''
+<div class="card-item col-sm-12 col-md-6 col-lg-4 col-xl-3" data-key="28590"><div class="card mb-4">
+    <div class="card-image-holder" style="position: relative;"><a class="card-image d-block" href="https://www.grupolance.com.br/ce/aquiraz/imoveis/terrenos-e-lotes/terreno-at-2160m2-camara-aquiraz-ce-28590" alt="Terreno" style="background: url(//cdn.grupolance.com.br/batches/f1/28590/f3ccdd27d2000e3f9255a7e3e2c48800_thumb.jpg) center center no-repeat; background-size: cover;" data-pjax="0"></a></div>    <div class="card-body">
+        <a class="card-title" href="/ce/aquiraz/imoveis/terrenos-e-lotes/terreno-at-2160m2-camara-aquiraz-ce-28590" title="Terreno, A.T.: 2.160m², Camará, Aquiraz/CE" data-pjax="0">Terreno, A.T.: 2.160m², Camará, Aquiraz/CE</a>                <div class="card-price">
+            R$ 150.000,00        </div>
+        <div class="card-info">
+            <div class="float-left ml-3"><a class="card-locality" href="/ce/aquiraz" title="Aquiraz, CE" data-pjax="0"> Aquiraz, CE</a></div>
+        </div>
+        <div class="card-dates">
+            <div class="card-date-row">
+                <ol class="card-instance-date">
+                    <li>27/08/2026 às 12:00</li>
+                    <li>28/08/2026 às 08:00</li>
+                    <li class="fs-px-12" style="line-height: 1;">R$ 150.000,00</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div></div>
+'''
+
+
 class TestGrupoLanceParsePagina:
+    def test_card_formato_novo_de_url(self):
+        itens = _grupo_lance_parse_pagina(_GRUPO_LANCE_HTML_CARD_NOVO)
+        assert len(itens) == 1
+        assert itens[0]["categoria"] == "imoveis"
+        assert itens[0]["cidade"] == "Aquiraz/CE"
+        assert itens[0]["lance"] == 150000.0
+
     def test_extrai_dois_cards(self):
         itens = _grupo_lance_parse_pagina(_GRUPO_LANCE_HTML_2_CARDS)
         assert len(itens) == 2
