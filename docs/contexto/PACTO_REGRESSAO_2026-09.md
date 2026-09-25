@@ -55,3 +55,40 @@ generica do site), 28 com FIPE, 16 com km (so os que informam km).
   por uuid, Pacto canonico. Ver `LEILO_REDESIGN_2026-09.md`.
 - Health check de "campos-chave zerados em massa" por fonte (lance/foto/marca)
   teria pego esta regressao no primeiro run: proposta para outra sessao.
+
+## Migracao para requests (2026-09-25)
+O Pacto e o Leilo sao a mesma plataforma (mesmo JSON `window.__INITIAL_STATE__`
+-> `elastic.lotes`, mesmo uuid). `_raspar_pacto(vistos)` agora usa o parser
+generico `_plataforma_*` (`_plataforma_coletar(base)`, `_plataforma_parse_pagina`,
+`_plataforma_parse_lote(lote, base)`) via `requests` em
+`https://www.pactoleiloes.com.br/leilao/ceara/?pagina=N`, sem Playwright, sem
+scroll e sem retry de foto. O Leilo usa as mesmas funcoes com `base` do Leilo.
+Removidos: `_pacto_coletar`, `_PACTO_EXTRACT_JS`, `_PACTO_SELETOR_CARD`,
+`_pacto_parse_*`, `_PACTO_CATEGORIAS/_CAT_MAP`, `limpar_modelo` (sem uso) e os
+testes correspondentes; a cobertura equivalente vem da fixture real
+`tests/fixtures/pacto_listagem_2026-09-25.html` (6 lotes, JSON recortado).
+
+Mantido: URL `/lote/<uuid>/`, uuid, fonte "pacto", cidade "Eusebio/CE", foto
+`/fotos-modelo/` -> "", lance com fallback para `valor.minimo`, data em horario
+de Fortaleza, UF "CE" por lote, ordem Pacto antes do Leilo em `raspar_leiloes()`
+(dedup por uuid e `_analise_do_gemeo`). O browser Playwright segue em
+`raspar_leiloes()` (Mega, MGL, Montenegro); `pg_detalhe` saiu (era so do Pacto).
+
+Mudancas de comportamento:
+- **A IA agora recebe a descricao do lote** (`veiculo.retomada`), como no Leilo
+  (antes o Pacto passava ""). O `dados_hash` do cache muda: uma reanalise unica
+  dos lotes Pacto no proximo run.
+- Sem teto de 50 lotes por categoria (nao ha mais categorias).
+- Foto vem do `fotosUrls[0]` em tamanho cheio (antes o DOM dava a miniatura
+  `_pequena_pacto.webp`); km passa a vir do JSON (o parser por texto perdia
+  alguns); data em UTC convertida (antes ano inferido do texto).
+
+Cobertura medida ao vivo em 2026-09-25 (duas vezes): listagem geral paginada ==
+uniao das 7 paginas por categoria, uuid a uuid (54 = 30+23+1 de manha; 69 a
+tarde, o site cresceu). Nenhum lote so na geral nem so nas categorias.
+Validacao de `_raspar_pacto` (FIPE/IA stubadas): 69 lotes, 69 com lance, 36 com
+foto (o resto usa a imagem generica), todos CE; 69/69 uuid iguais aos do Leilo.
+Comparado ao `leiloes.json` do run anterior: 40 lotes em comum, 10 saidos (leilao
+encerrado), 29 novos, diferencas so em foto (miniatura -> cheia), km (preenchido)
+e lance (lances novos).
+

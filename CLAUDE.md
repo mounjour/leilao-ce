@@ -54,6 +54,19 @@ STATUS (atualizado 2026-09-25):
   local: 9 lotes CE (iguais aos da adicao); 127/127 testes. Pendente: confirmar
   no proximo run do Actions que o caminho via proxy passa do 403 do IP do
   runner. Ver docs/contexto/GRUPO_LANCE_ADICIONADO.md.
+- Pacto migrado para requests (2026-09-25): `_raspar_pacto(vistos)` reescrita
+  sem Playwright, reaproveitando o parser da plataforma Leilo (renomeado
+  `_plataforma_*`, com parametro `base`; Leilo usa o mesmo). Le o JSON
+  `elastic.lotes` de `pactoleiloes.com.br/leilao/ceara/?pagina=N`. Cobertura
+  medida: listagem geral paginada == uniao das categorias (69 lotes, 0 diferenca
+  de uuid). URL, uuid, fonte, cidade "Eusebio/CE" e ordem Pacto->Leilo iguais.
+  Removidos `_pacto_coletar`/`_PACTO_EXTRACT_JS`/`_pacto_parse_*`/`limpar_modelo`
+  e seus testes; fixture real em tests/fixtures/. A IA passa a receber a
+  descricao (`retomada`) -> reanalise unica dos lotes Pacto (cache hash muda).
+  Testes: 176/176. Validado ao vivo: 69 lotes, 69 com lance, 36 com foto (resto
+  sem foto no site), todos CE. Confirmar no proximo run do Actions. Ver
+  docs/contexto/PACTO_REGRESSAO_2026-09.md. Pendencia restante: favoritos por
+  uuid (`favorites._normalizar_url`).
 - Regressao do Pacto corrigida (2026-09-24): desde o run de 21/09 os lotes
   vinham com lance 0, foto vazia, marca = nome do leilao e FIPE zerada. Causa
   raiz: o site foi refeito (nao so um segmento novo na URL) -- listagem agora em

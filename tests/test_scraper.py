@@ -470,12 +470,13 @@ from pathlib import Path
 import scraper as _sc
 from scraper import (
     _uuid_lote_plataforma,
-    _leilo_estado_elastic,
-    _leilo_parse_lote,
-    _leilo_parse_pagina,
-    _leilo_coletar,
+    _plataforma_estado_elastic,
+    _plataforma_parse_lote,
+    _plataforma_parse_pagina,
+    _plataforma_coletar,
     _analise_do_gemeo,
     _raspar_leilo,
+    _raspar_pacto,
 )
 
 _LEILO_HTML = (Path(__file__).parent / "fixtures" / "leilo_listagem_2026-09-25.html"
@@ -483,13 +484,13 @@ _LEILO_HTML = (Path(__file__).parent / "fixtures" / "leilo_listagem_2026-09-25.h
 _UUID_NXR = "72951930-efeb-4baa-81e3-7470abe10dc5"
 
 
-def _leilo_lotes_json():
+def _plataforma_lotes_json():
     """Copia profunda dos lotes do JSON da fixture, para alterar nos testes."""
-    return copy.deepcopy(_leilo_estado_elastic(_LEILO_HTML)["lotes"])
+    return copy.deepcopy(_plataforma_estado_elastic(_LEILO_HTML)["lotes"])
 
 
 class TestUuidLotePlataforma:
-    def test_pacto_e_leilo_dao_o_mesmo_uuid(self):
+    def test_pacto_e_plataforma_dao_o_mesmo_uuid(self):
         assert _uuid_lote_plataforma(f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/") == _UUID_NXR
         assert _uuid_lote_plataforma(f"https://leilo.com.br/lote/{_UUID_NXR}/") == _UUID_NXR
 
@@ -512,7 +513,7 @@ class TestUuidLotePlataforma:
 
 class TestLeiloParseLote:
     def test_moto_com_lance(self):
-        it = _leilo_parse_lote(_leilo_lotes_json()[0])
+        it = _plataforma_parse_lote(_plataforma_lotes_json()[0], _sc._LEILO_BASE)
         assert it["uuid"] == _UUID_NXR
         assert it["url"] == f"https://leilo.com.br/lote/{_UUID_NXR}/"
         assert it["categoria_url"] == "motos"
@@ -529,102 +530,102 @@ class TestLeiloParseLote:
     def test_sem_lance_usa_o_lance_inicial(self):
         # O card mostra "Lance Inicial R$ 5.700,00" (= valor.minimo) enquanto
         # ninguem lancou; lance 0 zeraria a classificacao e o health check.
-        it = _leilo_parse_lote(_leilo_lotes_json()[1])
+        it = _plataforma_parse_lote(_plataforma_lotes_json()[1], _sc._LEILO_BASE)
         assert it["lance"] == 5700.0
 
     def test_lote_sem_foto_fica_com_foto_vazia(self):
-        assert _leilo_parse_lote(_leilo_lotes_json()[1])["foto"] == ""
+        assert _plataforma_parse_lote(_plataforma_lotes_json()[1], _sc._LEILO_BASE)["foto"] == ""
 
     def test_foto_generica_e_descartada(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["fotosUrls"] = ["https://leilo.com.br/lote/fotos-modelo/moto.webp",
                              "https://leilo.cdndp.com.br/v1/arquivo/x.jpeg"]
-        assert _leilo_parse_lote(lote)["foto"] == "https://leilo.cdndp.com.br/v1/arquivo/x.jpeg"
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE)["foto"] == "https://leilo.cdndp.com.br/v1/arquivo/x.jpeg"
         lote["fotosUrls"] = ["https://leilo.com.br/lote/fotos-modelo/moto.webp"]
-        assert _leilo_parse_lote(lote)["foto"] == ""
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE)["foto"] == ""
 
     def test_tipo_utilitarios_vira_caminhoes(self):
-        it = _leilo_parse_lote(_leilo_lotes_json()[3])
+        it = _plataforma_parse_lote(_plataforma_lotes_json()[3], _sc._LEILO_BASE)
         assert it["categoria_url"] == "caminhoes"
         assert it["km"] == "144.960 km"
 
     def test_tipo_desconhecido_cai_em_carros(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["tipo"] = "Tipo Novo"
-        assert _leilo_parse_lote(lote)["categoria_url"] == "carros"
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE)["categoria_url"] == "carros"
 
     def test_km_ausente_e_km_baixo(self):
-        lotes = _leilo_lotes_json()
-        assert _leilo_parse_lote(lotes[4])["km"] == ""
-        assert _leilo_parse_lote(lotes[5])["km"] == "623 km"
+        lotes = _plataforma_lotes_json()
+        assert _plataforma_parse_lote(lotes[4], _sc._LEILO_BASE)["km"] == ""
+        assert _plataforma_parse_lote(lotes[5], _sc._LEILO_BASE)["km"] == "623 km"
 
     def test_lote_de_outro_estado_e_descartado(self):
         # Trava contra o bug de 2026-09-16 (lotes de GO/DF/MT rotulados "/CE"):
         # a UF do proprio lote e' a fonte da verdade.
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["localizacao"] = {"nome": "PATIO GOIANIA", "cidade": "APARECIDA DE GOIANIA", "estado": "GO"}
-        assert _leilo_parse_lote(lote) is None
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE) is None
 
     def test_sem_localizacao_e_descartado(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         del lote["localizacao"]
-        assert _leilo_parse_lote(lote) is None
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE) is None
 
     def test_id_invalido_ou_nome_vazio_e_descartado(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["id"] = "nao-e-uuid"
-        assert _leilo_parse_lote(lote) is None
-        lote = _leilo_lotes_json()[0]
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE) is None
+        lote = _plataforma_lotes_json()[0]
         lote["nome"] = "  "
-        assert _leilo_parse_lote(lote) is None
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE) is None
 
     def test_nome_sem_barra_vira_modelo_com_marca_outros(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["nome"] = "GERADOR 5KVA"
-        it = _leilo_parse_lote(lote)
+        it = _plataforma_parse_lote(lote, _sc._LEILO_BASE)
         assert (it["marca"], it["modelo"]) == ("Outros", "Gerador 5Kva")
 
     def test_lote_sem_veiculo_nao_quebra(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["veiculo"] = None
-        it = _leilo_parse_lote(lote)
+        it = _plataforma_parse_lote(lote, _sc._LEILO_BASE)
         assert it["ano"] == 0 and it["km"] == "" and it["descricao"] == ""
 
     def test_data_cai_para_data_fim_sem_data_do_leilao(self):
-        lote = _leilo_lotes_json()[0]
+        lote = _plataforma_lotes_json()[0]
         lote["leilao"] = {}
-        assert _leilo_parse_lote(lote)["data_leilao"] == "2026-09-26T09:43"
+        assert _plataforma_parse_lote(lote, _sc._LEILO_BASE)["data_leilao"] == "2026-09-26T09:43"
 
 
 class TestLeiloParsePagina:
     def test_pagina_real(self):
-        dados = _leilo_parse_pagina(_LEILO_HTML)
+        dados = _plataforma_parse_pagina(_LEILO_HTML, _sc._LEILO_BASE)
         assert len(dados["itens"]) == 6
         assert (dados["pagina"], dados["paginas"], dados["total"], dados["recebidos"]) == (1, 2, 54, 6)
         assert all(it["cidade"].endswith("/CE") for it in dados["itens"])
 
     def test_pagina_mista_so_mantem_ce_mas_conta_o_recebido(self):
-        lotes = _leilo_lotes_json()
+        lotes = _plataforma_lotes_json()
         lotes[0]["localizacao"]["estado"] = "GO"
         json_estado = json.dumps({"elastic": {"lotes": lotes}})
-        dados = _leilo_parse_pagina(f"<script>window.__INITIAL_STATE__={json_estado};x()</script>")
+        dados = _plataforma_parse_pagina(f"<script>window.__INITIAL_STATE__={json_estado};x()</script>", _sc._LEILO_BASE)
         assert len(dados["itens"]) == 5
         assert dados["recebidos"] == 6
 
     def test_sem_estado_devolve_none(self):
         # HTML 200 sem o JSON = layout mudou; o chamador precisa saber (!= 0 lotes no CE).
-        assert _leilo_parse_pagina("<html><body>sem lotes</body></html>") is None
+        assert _plataforma_parse_pagina("<html><body>sem lotes</body></html>", _sc._LEILO_BASE) is None
 
     def test_json_invalido_ou_sem_lotes_devolve_none(self):
-        assert _leilo_parse_pagina("<script>window.__INITIAL_STATE__={quebrado</script>") is None
-        assert _leilo_parse_pagina('<script>window.__INITIAL_STATE__={"elastic":{}}</script>') is None
+        assert _plataforma_parse_pagina("<script>window.__INITIAL_STATE__={quebrado</script>", _sc._LEILO_BASE) is None
+        assert _plataforma_parse_pagina('<script>window.__INITIAL_STATE__={"elastic":{}}</script>', _sc._LEILO_BASE) is None
 
 
 def _pag(n, paginas, uuids):
-    """Resposta falsa de _leilo_baixar_pagina."""
+    """Resposta falsa de _plataforma_baixar_pagina."""
     itens = []
     for u in uuids:
-        it = _leilo_parse_lote(_leilo_lotes_json()[0])
+        it = _plataforma_parse_lote(_plataforma_lotes_json()[0], _sc._LEILO_BASE)
         it["uuid"], it["url"] = u, f"https://leilo.com.br/lote/{u}/"
         itens.append(it)
     return {"itens": itens, "recebidos": len(itens), "pagina": n,
@@ -634,43 +635,43 @@ def _pag(n, paginas, uuids):
 class TestLeiloColetar:
     def test_percorre_todas_as_paginas(self, monkeypatch):
         paginas = {1: _pag(1, 2, ["u1", "u2"]), 2: _pag(2, 2, ["u3"])}
-        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", lambda n: paginas[n])
-        itens, total = _leilo_coletar()
+        monkeypatch.setattr(_sc, "_plataforma_baixar_pagina", lambda b, n: paginas[n])
+        itens, total = _plataforma_coletar(_sc._LEILO_BASE)
         assert [it["uuid"] for it in itens] == ["u1", "u2", "u3"]
         assert total == 3
 
     def test_falha_na_pagina_2_mantem_a_1(self, monkeypatch):
-        monkeypatch.setattr(_sc, "_leilo_baixar_pagina",
-                            lambda n: _pag(1, 2, ["u1", "u2"]) if n == 1 else None)
-        itens, _ = _leilo_coletar()
+        monkeypatch.setattr(_sc, "_plataforma_baixar_pagina",
+                            lambda b, n: _pag(1, 2, ["u1", "u2"]) if n == 1 else None)
+        itens, _ = _plataforma_coletar(_sc._LEILO_BASE)
         assert [it["uuid"] for it in itens] == ["u1", "u2"]
 
     def test_falha_na_pagina_1_devolve_vazio(self, monkeypatch):
-        def falha(n):
+        def falha(b, n):
             raise ConnectionError("sem rede")
-        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", falha)
-        assert _leilo_coletar() == ([], 0)
+        monkeypatch.setattr(_sc, "_plataforma_baixar_pagina", falha)
+        assert _plataforma_coletar(_sc._LEILO_BASE) == ([], 0)
 
     def test_site_que_ignora_o_parametro_de_pagina_nao_entra_em_loop(self, monkeypatch):
         chamadas = []
 
-        def sempre_pagina_1(n):
+        def sempre_pagina_1(b, n):
             chamadas.append(n)
             return _pag(1, 5, ["u1", "u2"])
-        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", sempre_pagina_1)
-        itens, _ = _leilo_coletar()
+        monkeypatch.setattr(_sc, "_plataforma_baixar_pagina", sempre_pagina_1)
+        itens, _ = _plataforma_coletar(_sc._LEILO_BASE)
         assert chamadas == [1, 2]
         assert len(itens) == 2
 
     def test_respeita_o_limite_de_paginas(self, monkeypatch):
         chamadas = []
 
-        def infinito(n):
+        def infinito(b, n):
             chamadas.append(n)
             return _pag(n, 999, [f"u{n}"])
-        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", infinito)
-        _leilo_coletar()
-        assert len(chamadas) == _sc._LEILO_MAX_PAGINAS
+        monkeypatch.setattr(_sc, "_plataforma_baixar_pagina", infinito)
+        _plataforma_coletar(_sc._LEILO_BASE)
+        assert len(chamadas) == _sc._PLATAFORMA_MAX_PAGINAS
 
 
 class TestRasparLeilo:
@@ -680,13 +681,13 @@ class TestRasparLeilo:
                       "positivos": ["ok"], "negativos": [], "avaliacao_plataforma": "boa"}
 
     def _preparar(self, monkeypatch, cache):
-        item = _leilo_parse_lote(_leilo_lotes_json()[0])
-        monkeypatch.setattr(_sc, "_leilo_coletar", lambda: ([item], 1))
+        item = _plataforma_parse_lote(_plataforma_lotes_json()[0], _sc._LEILO_BASE)
+        monkeypatch.setattr(_sc, "_plataforma_coletar", lambda base: ([item], 1))
         monkeypatch.setattr(_sc, "buscar_fipe", lambda *a: (24363.0, "R$ 24.363"))
         monkeypatch.setattr(_sc, "_CACHE_ANALISE", cache)
         monkeypatch.setattr(_sc.time, "sleep", lambda s: None)
 
-    def test_gera_lote_do_leilo_com_os_campos_do_parser(self, monkeypatch):
+    def test_gera_lote_do_plataforma_com_os_campos_do_parser(self, monkeypatch):
         self._preparar(monkeypatch, {})
         chamadas = []
         monkeypatch.setattr(_sc, "_analisar_cached",
@@ -810,7 +811,7 @@ class TestRemoverDuplicatasEntreFontes:
         resultado = _remover_duplicatas_entre_fontes([a, b])
         assert resultado == [a, b]
 
-    def test_remove_o_leilo_quando_o_pacto_tem_o_mesmo_lote(self):
+    def test_remove_o_plataforma_quando_o_pacto_tem_o_mesmo_lote(self):
         # Pacto roda antes no pipeline: e' o canonico, o Leilo sai.
         pacto = _lote("pacto", modelo="Nxr 160 Bros Abs",
                       url=f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/")
@@ -818,7 +819,7 @@ class TestRemoverDuplicatasEntreFontes:
                       url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
         assert _remover_duplicatas_entre_fontes([pacto, leilo]) == [pacto]
 
-    def test_leilo_sobrevive_quando_o_pacto_nao_tem_o_lote(self):
+    def test_plataforma_sobrevive_quando_o_pacto_nao_tem_o_lote(self):
         # Reserva: se o scraper do Pacto quebrar, os lotes do Leilo aparecem.
         leilo = _lote("leilo", url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
         assert _remover_duplicatas_entre_fontes([leilo]) == [leilo]
@@ -838,157 +839,90 @@ class TestRemoverDuplicatasEntreFontes:
         assert _remover_duplicatas_entre_fontes([pacto, outro]) == [pacto, outro]
 
 
-# ─── PACTO (site refeito em 09/2026) ─────────────────────────────────────────
-# Textos/hrefs copiados de cards reais de pactoleiloes.com.br em 2026-09-24.
-from datetime import datetime as _dt
-from scraper import (
-    _pacto_parse_href,
-    _pacto_parse_valor,
-    _pacto_parse_ano,
-    _pacto_parse_data,
-    _pacto_parse_card,
-)
-
-_PACTO_HREF_NOVO = "https://www.pactoleiloes.com.br/lote/22664880-58a2-4792-8ece-431ea7acc562/?localizacao.estado=CE"
-_PACTO_HREF_LEGADO_COM_LEILAO = (
-    "https://www.pactoleiloes.com.br/leilao/eusebio-ce/pesados/"
-    "leilao-de-pesados-e-agro-25-09-2026/iveco-stralis-600s56t/ano.2014/"
-    "22664880-58a2-4792-8ece-431ea7acc562?cidade_busca=Fortaleza/CE"
-)
-_PACTO_HREF_LEGADO_SEM_LEILAO = (
-    "https://www.pactoleiloes.com.br/leilao/eusebio-ce/carros/"
-    "peugeot-208-allure-4p/ano.2018/d1b2304e-98cd-478b-b04c-78152f16d464"
-)
-_PACTO_TEXTO_MOTO = (
-    "Lote 27\nlocation_on\nCE\nchevron_left\nchevron_right\nRecuperado de Financiamento\n"
-    "Honda/Nxr 160 Bros ABS\nfavorite\ncalendar_today\n25 /26\n15.495 km\nR$ 16.100\n"
-    "Lance enviado por J*********0\nschedule\nComeça em\nLeilão inicia em 2 dias\n"
-    "Leilão\nSáb, 26/09/20 • 09:30h\nphoto\n14 Fotos\nplay_circle\nVídeo"
-)
-_PACTO_TEXTO_IVECO = (
-    "Lote 10\nlocation_on\nCE\nchevron_left\nchevron_right\nRecuperado de Financiamento\n"
-    "Iveco/Stralis 600S56T\nfavorite\ncalendar_today\n13 /14\nR$ 60.000\nLance atual\n"
-    "schedule\nComeça em\nLeilão inicia em 18 horas\nLeilão\nSex, 25/09/20 • 09:30h\nphoto\n38 Fotos"
-)
-_PACTO_AGORA = _dt(2026, 9, 24, 12, 0)
+# ─── PACTO via parser da plataforma (requests, sem Playwright) ────────────────
+# Fixture: 6 primeiros lotes de pactoleiloes.com.br/leilao/ceara/ em 2026-09-25
+# (so o JSON `elastic` de window.__INITIAL_STATE__, recortado).
+_PACTO_HTML = (Path(__file__).parent / "fixtures" / "pacto_listagem_2026-09-25.html"
+               ).read_text(encoding="utf-8")
 
 
-class TestPactoParseHref:
-    def test_href_novo_so_tem_uuid_e_vira_url_canonica(self):
-        r = _pacto_parse_href(_PACTO_HREF_NOVO)
-        assert r["uuid"] == "22664880-58a2-4792-8ece-431ea7acc562"
-        assert r["url"] == "https://www.pactoleiloes.com.br/lote/22664880-58a2-4792-8ece-431ea7acc562/"
-        assert r["slug"] == ""
+class TestPactoParsePagina:
+    def test_pagina_real_usa_o_dominio_do_pacto(self):
+        dados = _plataforma_parse_pagina(_PACTO_HTML, _sc._PACTO_BASE)
+        assert len(dados["itens"]) == 6 and dados["total"] == 69
+        for it in dados["itens"]:
+            assert it["url"] == f"https://www.pactoleiloes.com.br/lote/{it['uuid']}/"
+            assert _uuid_lote_plataforma(it["url"]) == it["uuid"]
+            assert it["cidade"].endswith("/CE")
 
-    def test_href_legado_com_segmento_de_leilao_ignora_o_leilao(self):
-        r = _pacto_parse_href(_PACTO_HREF_LEGADO_COM_LEILAO)
-        assert r["slug"] == "iveco-stralis-600s56t"
-        assert r["categoria_url"] == "pesados"
-        assert r["ano"] == 2014
-        assert r["uuid"] == "22664880-58a2-4792-8ece-431ea7acc562"
+    def test_campos_chave_preenchidos_e_foto_generica_descartada(self):
+        itens = _plataforma_parse_pagina(_PACTO_HTML, _sc._PACTO_BASE)["itens"]
+        assert all(it["lance"] > 0 for it in itens)  # lance ou "Lance Inicial"
+        assert itens[0]["lance"] == 16400.0 and itens[2]["lance"] == 5700.0
+        assert itens[0]["foto"].startswith("https://") and itens[2]["foto"] == ""
+        assert itens[0]["data_leilao"] == "2026-09-26T09:30"
 
-    def test_href_legado_sem_segmento_de_leilao_da_o_mesmo_resultado(self):
-        r = _pacto_parse_href(_PACTO_HREF_LEGADO_SEM_LEILAO)
-        assert r["slug"] == "peugeot-208-allure-4p"
-        assert r["categoria_url"] == "carros"
-        assert r["ano"] == 2018
-
-    def test_href_irreconhecivel_devolve_none(self):
-        assert _pacto_parse_href("https://www.pactoleiloes.com.br/leilao/ceara/motos/") is None
-
-
-class TestPactoParseCampos:
-    def test_valor_sem_centavos(self):
-        assert _pacto_parse_valor(" R$ 16.100") == 16100
-
-    def test_valor_com_centavos_e_milhar(self):
-        assert _pacto_parse_valor("R$ 1.234.567,89") == 1234567.89
-
-    def test_valor_ausente_e_zero(self):
-        assert _pacto_parse_valor("") == 0
-        assert _pacto_parse_valor("Lance atual") == 0
-
-    def test_ano_pega_o_ano_do_modelo(self):
-        assert _pacto_parse_ano(_PACTO_TEXTO_MOTO) == 2026
-        assert _pacto_parse_ano(_PACTO_TEXTO_IVECO) == 2014
-
-    def test_ano_ausente_e_zero(self):
-        assert _pacto_parse_ano("Lote 1\nCE\nR$ 100") == 0
-
-    def test_data_com_ano_truncado_usa_ano_corrente(self):
-        assert _pacto_parse_data("Sáb, 26/09/20 • 09:30h", _PACTO_AGORA) == "2026-09-26T09:30"
-
-    def test_data_ja_passada_ha_mais_de_um_dia_vai_pro_ano_seguinte(self):
-        assert _pacto_parse_data("Seg, 05/01/20 • 09:00h", _dt(2026, 12, 20)) == "2027-01-05T09:00"
-
-    def test_data_de_hoje_mais_cedo_nao_vira_ano_seguinte(self):
-        assert _pacto_parse_data("Qui, 24/09/20 • 09:00h", _PACTO_AGORA) == "2026-09-24T09:00"
-
-    def test_data_ausente_ou_invalida(self):
-        assert _pacto_parse_data("", _PACTO_AGORA) == ""
-        assert _pacto_parse_data("Sáb, 31/02/20 • 09:30h", _PACTO_AGORA) == ""
+    def test_mesmo_uuid_e_campos_que_o_leilo_para_o_mesmo_lote(self):
+        pacto = _plataforma_parse_pagina(_PACTO_HTML, _sc._PACTO_BASE)["itens"]
+        leilo = _plataforma_parse_pagina(_LEILO_HTML, _sc._LEILO_BASE)["itens"]
+        p0 = next(it for it in pacto if it["uuid"] == _UUID_NXR)
+        l0 = next(it for it in leilo if it["uuid"] == _UUID_NXR)
+        campos = ("marca", "modelo", "ano", "lance", "foto", "km", "data_leilao", "categoria_url")
+        assert {c: p0[c] for c in campos} == {c: l0[c] for c in campos}
+        assert p0["url"] != l0["url"]
 
 
-class TestPactoParseCard:
-    def _item(self, texto, nome, valor, data, foto="", href=_PACTO_HREF_NOVO):
-        return {"href": href, "nome": nome, "valor": valor, "data": data,
-                "text": texto, "foto": foto}
+class TestRasparPacto:
+    """Cola de _raspar_pacto, sem rede: FIPE e IA falsas."""
 
-    def test_card_de_moto_completo(self):
-        c = _pacto_parse_card(
-            self._item(_PACTO_TEXTO_MOTO, "Honda/Nxr 160 Bros ABS", "R$ 16.100",
-                       "Sáb, 26/09/20 • 09:30h",
-                       foto="https://leilo.cdndp.com.br/v1/arquivo/2026/9/23/x_pequena_pacto.webp"),
-            "motos", _PACTO_AGORA)
-        assert c["marca"] == "Honda"
-        assert c["modelo"] == "Nxr 160 Bros Abs"
-        assert c["ano"] == 2026
-        assert c["lance"] == 16100
-        assert c["km"] == "15.495 km"
-        assert c["foto"].endswith("_pequena_pacto.webp")
-        assert c["data_leilao"] == "2026-09-26T09:30"
+    def _preparar(self, monkeypatch, itens):
+        monkeypatch.setattr(_sc, "_plataforma_coletar", lambda base: (itens, len(itens)))
+        monkeypatch.setattr(_sc, "buscar_fipe", lambda *a: (24363.0, "R$ 24.363"))
+        monkeypatch.setattr(_sc.time, "sleep", lambda s: None)
 
-    def test_marca_e_modelo_nao_viram_o_nome_do_leilao(self):
-        # Regressao: o parse por indice de URL devolvia marca = nome do leilao
-        # e modelo = "marca + modelo" juntos.
-        c = _pacto_parse_card(
-            self._item(_PACTO_TEXTO_IVECO, "Iveco/Stralis 600S56T", "R$ 60.000",
-                       "Sex, 25/09/20 • 09:30h", href=_PACTO_HREF_LEGADO_COM_LEILAO),
-            "pesados", _PACTO_AGORA)
-        assert c["marca"] == "Iveco"
-        assert c["modelo"] == "Stralis 600S56T"
-        assert c["lance"] == 60000
-        assert c["ano"] == 2014
+    def _itens(self):
+        return _plataforma_parse_pagina(_PACTO_HTML, _sc._PACTO_BASE)["itens"]
 
-    def test_foto_generica_de_modelo_vira_vazia(self):
-        c = _pacto_parse_card(
-            self._item(_PACTO_TEXTO_MOTO, "Honda/Biz 125", "R$ 10.600", "",
-                       foto="https://www.pactoleiloes.com.br/lote/fotos-modelo/moto.webp"),
-            "motos", _PACTO_AGORA)
-        assert c["foto"] == ""
+    def test_gera_lote_do_pacto(self, monkeypatch):
+        itens = self._itens()[:1]
+        self._preparar(monkeypatch, itens)
+        chamadas = []
+        monkeypatch.setattr(_sc, "_analisar_cached",
+                            lambda *a: chamadas.append(a) or dict(TestRasparLeilo._ANALISE_PACTO))
+        vistos = set()
+        lotes = _raspar_pacto(vistos)
+        assert len(lotes) == 1 and len(chamadas) == 1
+        l = lotes[0]
+        assert l["fonte"] == "pacto" and l["categoria"] == "motos"
+        assert l["cidade"] == "Eusebio/CE"
+        assert l["url"] == f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/"
+        assert l["lance_atual"] == 16400.0 and l["foto"].endswith(".jpeg")
+        assert l["data_leilao"] == "2026-09-26T09:30"
+        assert l["url"] in vistos
+        # A descricao do lote (retomada) vai para a IA, como no Leilo.
+        assert chamadas[0][4] == itens[0]["descricao"]
 
-    def test_lance_cai_para_o_texto_do_card_se_valor_vier_vazio(self):
-        c = _pacto_parse_card(self._item(_PACTO_TEXTO_MOTO, "Honda/Biz 125", "", ""),
-                              "motos", _PACTO_AGORA)
-        assert c["lance"] == 16100
+    def test_pula_url_ja_vista(self, monkeypatch):
+        itens = self._itens()[:1]
+        self._preparar(monkeypatch, itens)
+        assert _raspar_pacto({itens[0]["url"]}) == []
 
-    def test_sem_nome_usa_slug_do_href_legado(self):
-        c = _pacto_parse_card(
-            self._item("R$ 5.000", "", "R$ 5.000", "", href=_PACTO_HREF_LEGADO_SEM_LEILAO),
-            "carros", _PACTO_AGORA)
-        assert c["modelo"] == "Peugeot 208 Allure 4P"
-        assert c["ano"] == 2018
+    def test_sem_lotes_devolve_vazio(self, monkeypatch):
+        self._preparar(monkeypatch, [])
+        assert _raspar_pacto(set()) == []
 
-    def test_sem_nome_e_sem_slug_devolve_none(self):
-        assert _pacto_parse_card(self._item("R$ 5.000", "", "R$ 5.000", ""),
-                                 "carros", _PACTO_AGORA) is None
+    def test_lote_com_erro_nao_derruba_os_outros(self, monkeypatch):
+        itens = self._itens()[:2]
+        self._preparar(monkeypatch, itens)
+        n = []
 
-    def test_nome_sem_barra_vira_modelo_com_marca_outros(self):
-        c = _pacto_parse_card(
-            self._item("R$ 180.000", "Escavadeira Hidráulica Pc130Lc-10", "R$ 180.000", ""),
-            "pesados", _PACTO_AGORA)
-        assert c["marca"] == "Outros"
-        assert c["modelo"] == "Escavadeira Hidráulica Pc130Lc-10"
+        def analisar(*a):
+            n.append(1)
+            if len(n) == 1:
+                raise RuntimeError("falha na IA")
+            return dict(TestRasparLeilo._ANALISE_PACTO)
+        monkeypatch.setattr(_sc, "_analisar_cached", analisar)
+        assert len(_raspar_pacto(set())) == 1
 
 
 # --- MJ Leiloes: dedup de URL, titulo e categoria ---------------------------

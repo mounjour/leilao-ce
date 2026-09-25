@@ -566,10 +566,6 @@ def _analisar_cached(
 
     return analise
 
-def limpar_modelo(raw):
-    m = unquote(raw)
-    return re.sub(r'\(.*?\)', '', m).replace("-", " ").strip().title()
-
 def _lote_dict(fonte, categoria, marca, modelo, ano, cidade, lance,
                ref_val, ref_str, classif, foto, km, descricao, analise, url, data_leilao=""):
     return {
@@ -756,16 +752,16 @@ def _extrair_data_leilao(texto):
 # pipeline e e' o canonico; o Leilo funciona como reserva (se o scraper do
 # Pacto quebrar, os lotes do Leilo passam a aparecer).
 _LEILO_BASE        = "https://leilo.com.br"
-_LEILO_URL_CE      = f"{_LEILO_BASE}/leilao/ceara/"
-_LEILO_MAX_PAGINAS = 10  # trava contra loop se o site informar um total absurdo
-_LEILO_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+_PACTO_BASE        = "https://www.pactoleiloes.com.br"
+_PLATAFORMA_MAX_PAGINAS = 10  # trava contra loop se o site informar um total absurdo
+_PLATAFORMA_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                  "AppleWebKit/537.36 (KHTML, like Gecko) "
                                  "Chrome/124.0.0.0 Safari/537.36"}
-_LEILO_ESTADO_MARCADOR = "window.__INITIAL_STATE__="
+_PLATAFORMA_ESTADO_MARCADOR = "window.__INITIAL_STATE__="
 # Fortaleza nao tem horario de verao desde 2019: offset fixo.
-_LEILO_FUSO = timezone(timedelta(hours=-3))
+_PLATAFORMA_FUSO = timezone(timedelta(hours=-3))
 # "tipo" do lote no JSON do site -> categoria interna (mesmos nomes do Pacto).
-_LEILO_TIPO_CAT = {
+_PLATAFORMA_TIPO_CAT = {
     "carros": "carros", "motos": "motos", "pesados": "caminhoes",
     "utilitarios": "caminhoes", "utilitários": "caminhoes",
     "onibus": "caminhoes", "caminhoes": "caminhoes", "sucatas": "carros",
@@ -789,13 +785,13 @@ def _uuid_lote_plataforma(url):
     return m.group(1).lower() if m else None
 
 
-def _leilo_estado_elastic(pagina_html):
+def _plataforma_estado_elastic(pagina_html):
     """Bloco `elastic` do JSON embutido na pagina, ou None se ausente/invalido."""
-    i = pagina_html.find(_LEILO_ESTADO_MARCADOR)
+    i = pagina_html.find(_PLATAFORMA_ESTADO_MARCADOR)
     if i < 0:
         return None
     try:
-        estado, _ = json.JSONDecoder().raw_decode(pagina_html, i + len(_LEILO_ESTADO_MARCADOR))
+        estado, _ = json.JSONDecoder().raw_decode(pagina_html, i + len(_PLATAFORMA_ESTADO_MARCADOR))
     except ValueError:
         return None
     elastic = estado.get("elastic") if isinstance(estado, dict) else None
@@ -804,7 +800,7 @@ def _leilo_estado_elastic(pagina_html):
     return None
 
 
-def _leilo_foto(fotos):
+def _plataforma_foto(fotos):
     """Primeira foto real do lote; a imagem generica "sem foto" (/fotos-modelo/) e' ignorada."""
     for f in fotos or []:
         if isinstance(f, str) and f and "/fotos-modelo/" not in f:
@@ -812,16 +808,16 @@ def _leilo_foto(fotos):
     return ""
 
 
-def _leilo_data(valor_iso):
+def _plataforma_data(valor_iso):
     """'2026-09-26T12:30:00.000Z' (UTC) -> '2026-09-26T09:30' (horario de Fortaleza)."""
     try:
         dt = datetime.strptime(str(valor_iso)[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
     except ValueError:
         return ""
-    return dt.astimezone(_LEILO_FUSO).strftime("%Y-%m-%dT%H:%M")
+    return dt.astimezone(_PLATAFORMA_FUSO).strftime("%Y-%m-%dT%H:%M")
 
 
-def _leilo_km(km):
+def _plataforma_km(km):
     """15495 -> '15.495 km' (mesmo formato de _extrair_km); '' se ausente ou zero."""
     try:
         n = int(km or 0)
@@ -830,7 +826,7 @@ def _leilo_km(km):
     return f"{n:,}".replace(",", ".") + " km" if n > 0 else ""
 
 
-def _leilo_lance(valor):
+def _plataforma_lance(valor):
     """Lance atual; enquanto ninguem lancou, o "Lance Inicial" (`minimo`) — o mesmo que o card mostra."""
     valor = valor if isinstance(valor, dict) else {}
     lance = (valor.get("lance") or {}).get("valor")
@@ -840,11 +836,11 @@ def _leilo_lance(valor):
     return 0
 
 
-def _leilo_int(valor, padrao=0):
+def _plataforma_int(valor, padrao=0):
     return valor if isinstance(valor, int) and not isinstance(valor, bool) else padrao
 
 
-def _leilo_parse_lote(lote):
+def _plataforma_parse_lote(lote, base):
     """Converte um item de `elastic.lotes` nos campos do lote.
 
     Devolve None se o lote nao e' do CE (rede de seguranca contra o vazamento
@@ -873,68 +869,68 @@ def _leilo_parse_lote(lote):
     veic = lote.get("veiculo") or {}
     cidade = str(loc.get("cidade") or "").strip().title()
     return {
-        "url": f"{_LEILO_BASE}/lote/{uuid}/",
+        "url": f"{base}/lote/{uuid}/",
         "uuid": uuid,
-        "categoria_url": _LEILO_TIPO_CAT.get(_normalizar_texto(lote.get("tipo")), "carros"),
+        "categoria_url": _PLATAFORMA_TIPO_CAT.get(_normalizar_texto(lote.get("tipo")), "carros"),
         "marca": marca or "?",
         "modelo": modelo or "?",
-        "ano": _leilo_int(veic.get("anoModelo")) or _leilo_int(veic.get("anoFabricacao")),
+        "ano": _plataforma_int(veic.get("anoModelo")) or _plataforma_int(veic.get("anoFabricacao")),
         "cidade": f"{cidade}/CE" if cidade else "CE",
-        "km": _leilo_km(veic.get("km")),
-        "lance": _leilo_lance(lote.get("valor")),
-        "foto": _leilo_foto(lote.get("fotosUrls")),
+        "km": _plataforma_km(veic.get("km")),
+        "lance": _plataforma_lance(lote.get("valor")),
+        "foto": _plataforma_foto(lote.get("fotosUrls")),
         "descricao": str(veic.get("retomada") or "").strip(),
-        "data_leilao": (_leilo_data((lote.get("leilao") or {}).get("data"))
-                        or _leilo_data(lote.get("dataFim"))),
+        "data_leilao": (_plataforma_data((lote.get("leilao") or {}).get("data"))
+                        or _plataforma_data(lote.get("dataFim"))),
     }
 
 
-def _leilo_parse_pagina(pagina_html):
+def _plataforma_parse_pagina(pagina_html, base):
     """Le uma pagina da listagem.
 
     Devolve None se o HTML nao trouxe o JSON esperado (o layout mudou); senao
     {itens, recebidos, pagina, paginas, total}, onde `recebidos` conta todos os
     lotes da pagina e `itens` so os do CE.
     """
-    elastic = _leilo_estado_elastic(pagina_html)
+    elastic = _plataforma_estado_elastic(pagina_html)
     if elastic is None:
         return None
     lotes = elastic["lotes"]
     return {
-        "itens": [it for it in map(_leilo_parse_lote, lotes) if it],
+        "itens": [it for it in (_plataforma_parse_lote(l, base) for l in lotes) if it],
         "recebidos": len(lotes),
-        "pagina": _leilo_int(elastic.get("paginaAtualBusca"), 1),
-        "paginas": _leilo_int(elastic.get("totalPaginasAtual"), 1),
-        "total": _leilo_int(elastic.get("totalRegistros"), len(lotes)),
+        "pagina": _plataforma_int(elastic.get("paginaAtualBusca"), 1),
+        "paginas": _plataforma_int(elastic.get("totalPaginasAtual"), 1),
+        "total": _plataforma_int(elastic.get("totalRegistros"), len(lotes)),
     }
 
 
-def _leilo_baixar_pagina(pagina):
-    url = _LEILO_URL_CE if pagina == 1 else f"{_LEILO_URL_CE}?pagina={pagina}"
-    r = requests.get(url, headers=_LEILO_HEADERS, timeout=20)
+def _plataforma_baixar_pagina(base, pagina):
+    url = f"{base}/leilao/ceara/" + (f"?pagina={pagina}" if pagina > 1 else "")
+    r = requests.get(url, headers=_PLATAFORMA_HEADERS, timeout=20)
     if r.status_code != 200:
-        print(f"⚠️ Leilo: HTTP {r.status_code} na pagina {pagina}")
+        print(f"⚠️ {base}: HTTP {r.status_code} na pagina {pagina}")
         return None
-    dados = _leilo_parse_pagina(r.text)
+    dados = _plataforma_parse_pagina(r.text, base)
     if dados is None:
-        print(f"⚠️ Leilo: HTTP 200 sem o JSON de lotes na pagina {pagina} (layout mudou?)")
+        print(f"⚠️ {base}: HTTP 200 sem o JSON de lotes na pagina {pagina} (layout mudou?)")
     return dados
 
 
-def _leilo_coletar():
+def _plataforma_coletar(base):
     """Percorre `?pagina=N` ate o total informado pelo site. Devolve (itens, total)."""
     itens, uuids = [], set()
     pagina, paginas, total, recebidos = 1, 1, 0, 0
-    while pagina <= min(paginas, _LEILO_MAX_PAGINAS):
+    while pagina <= min(paginas, _PLATAFORMA_MAX_PAGINAS):
         try:
-            dados = _leilo_baixar_pagina(pagina)
+            dados = _plataforma_baixar_pagina(base, pagina)
         except Exception as e:
-            print(f"⚠️ Leilo: {e}")
+            print(f"⚠️ {base}: {e}")
             dados = None
         if dados is None:
             break
         if dados["pagina"] != pagina:
-            print(f"⚠️ Leilo: pediu a pagina {pagina} e o site devolveu a {dados['pagina']}")
+            print(f"⚠️ {base}: pediu a pagina {pagina} e o site devolveu a {dados['pagina']}")
             break
         paginas, total = dados["paginas"], dados["total"]
         recebidos += dados["recebidos"]
@@ -944,9 +940,9 @@ def _leilo_coletar():
                 itens.append(it)
         pagina += 1
     if recebidos and not itens:
-        print(f"⚠️ Leilo: {recebidos} lote(s) recebidos, nenhum no CE")
+        print(f"⚠️ {base}: {recebidos} lote(s) recebidos, nenhum no CE")
     elif recebidos < total:
-        print(f"⚠️ Leilo: coletou {recebidos} de {total} lote(s) informados pelo site")
+        print(f"⚠️ {base}: coletou {recebidos} de {total} lote(s) informados pelo site")
     return itens, total
 
 
@@ -966,7 +962,7 @@ def _analise_do_gemeo(url_gemeo):
 
 def _raspar_leilo(vistos):
     lotes = []
-    itens, total = _leilo_coletar()
+    itens, total = _plataforma_coletar(_LEILO_BASE)
     if not itens:
         print("⚠️ Leilo: nenhum lote no CE")
         return lotes
@@ -1116,228 +1112,48 @@ def _raspar_mega(pg, vistos):
     return lotes
 
 # ─── SCRAPER PACTO LEILÕES ────────────────────────────────────────────────────
-# O site do Pacto foi refeito em 09/2026 (regressao vista nos runs de 21/09 em
-# diante: lance 0, foto vazia, marca = nome do leilao). O que mudou:
-# - As listagens por cidade (`/leilao/{cidade}-ceara`) redirecionam para
-#   `/leilao/ceara/`; cada categoria tem a sua pagina (`/leilao/ceara/motos/`).
-#   Hoje so existe o patio de Eusebio no CE. A pagina geral pode omitir lotes
-#   (36 vs 37 somando as categorias), entao raspamos por categoria.
-# - O card virou `a.lote-card-link` com href `/lote/<uuid>/` (sem categoria,
-#   marca, modelo nem `ano.` na URL; antes era /leilao/.../ano.XXXX/<uuid>).
-# - Nome pronto em `.lote-card-nome` ("Honda/Nxr 160 Bros ABS"), lance em
-#   `.valor-card` ("R$ 16.100", SEM centavos -- o regex de _extrair_lance
-#   exige ",dd" e devolvia 0), foto num <img class="lote-card-img"> (antes era
-#   background-image do q-img) e ano fab/modelo em texto ("25 /26").
-# - A data do leilao vem como "Sab, 26/09/20 • 09:30h": o proprio site corta o
-#   ano para 2 digitos ("20" em vez de "26"), entao o ano e' inferido.
-_PACTO_BASE = "https://www.pactoleiloes.com.br"
-_PACTO_CATEGORIAS = ["carros", "motos", "pesados", "utilitarios", "sucatas",
-                     "equipamentos", "imoveis"]
-_PACTO_CAT_MAP = {
-    "carros":"carros","motos":"motos","pesados":"caminhoes",
-    "utilitarios":"caminhoes","sucatas":"carros","imoveis":"imoveis",
-    "equipamentos":"equipamentos",
-}
+# O Pacto e' a mesma plataforma do Leilo (mesmo JSON, mesmo uuid de lote): usa o
+# parser `_plataforma_*` via requests, sem Playwright. Historico: o site foi
+# refeito em 09/2026 e o scraper por DOM (scroll + retry de foto preguicosa)
+# quebrou nos runs de 21-24/09; ver docs/contexto/PACTO_REGRESSAO_2026-09.md.
+# A listagem geral paginada (`/leilao/ceara/?pagina=N`) traz o mesmo conjunto
+# que a soma das paginas por categoria (54 = 30 carros + 23 motos + 1
+# utilitario, medido em 2026-09-25), entao nao se raspa mais por categoria.
 # O card so mostra "CE"; a cidade real esta so no detalhe. O unico patio
 # listado no CE e' o de Eusebio (filtro "Cidades em CEARA" do site).
 _PACTO_CIDADE = "Eusebio/CE"
 
-_PACTO_SELETOR_CARD = "a.lote-card-link"
 
-# Le os campos estruturados de cada card. A foto e' <img class="lote-card-img">
-# carregada de forma preguicosa: logo apos o scroll alguns cards ainda podem
-# nao ter o src final -- ver retry em _pacto_coletar. /lote/fotos-modelo/ e' a
-# imagem generica "sem foto" e e' descartada em _pacto_parse_card.
-_PACTO_EXTRACT_JS = '''els => els.map(e => {
-    const q = s => e.querySelector(s);
-    const txt = s => { const n = q(s); return n ? n.innerText.trim() : ""; };
-    const img = q("img.lote-card-img");
-    return {
-        href: e.href,
-        nome: txt(".lote-card-nome"),
-        valor: txt(".valor-card"),
-        data: txt(".card-data-leilao-linha strong"),
-        text: e.innerText.trim(),
-        foto: img && img.getAttribute("src") ? img.src : "",
-    };
-})'''
-
-
-def _pacto_parse_href(href):
-    """Extrai url canonica, uuid e (se presentes) dados do veiculo do href.
-
-    Formato atual: `/lote/<uuid>/?localizacao.estado=CE` -- so da o uuid.
-    Formato legado: `/leilao/eusebio-ce/<cat>/[<nome-do-leilao>/]<slug>/ano.<AAAA>/<uuid>`.
-    O legado e' lido a partir do marcador `ano.`, nunca por indice absoluto,
-    porque o segmento com o nome do leilao aparece e some entre versoes do site.
-    """
-    caminho = re.sub(r'^https?://[^/]+', '', href).split('?')[0].strip('/')
-    pts = caminho.split('/')
-    if len(pts) >= 2 and pts[0] == "lote":
-        return {"url": f"{_PACTO_BASE}/lote/{pts[1]}/", "uuid": pts[1],
-                "categoria_url": "", "slug": "", "ano": 0}
-    idx = next((i for i, p in enumerate(pts) if p.startswith("ano.")), -1)
-    if idx < 1 or idx + 1 >= len(pts):
-        return None
-    ano_str = pts[idx][4:]
-    return {"url": f"{_PACTO_BASE}/{caminho}", "uuid": pts[idx + 1],
-            "categoria_url": pts[2] if len(pts) > 2 else "",
-            "slug": pts[idx - 1],
-            "ano": int(ano_str) if ano_str.isdigit() else 0}
-
-
-def _pacto_parse_valor(texto):
-    """'R$ 16.100' ou 'R$ 1.234,50' -> float; 0 se nao achar."""
-    m = re.search(r'R\$[\xa0\s]*(\d{1,3}(?:\.\d{3})*)(?:,(\d{2}))?', texto or "")
-    if not m:
-        return 0
-    return float(m.group(1).replace(".", "") + "." + (m.group(2) or "00"))
-
-
-def _pacto_parse_ano(texto):
-    """'25 /26' (fab/modelo, 2 digitos) -> 2026 (ano do modelo); 0 se ausente."""
-    m = re.search(r'calendar_today\s*(\d{2})\s*/\s*(\d{2})', texto or "")
-    if not m:
-        return 0
-    yy = int(m.group(2))
-    return 2000 + yy if yy <= 40 else 1900 + yy
-
-
-def _pacto_parse_data(texto, agora=None):
-    """'Sab, 26/09/20 • 09:30h' -> '2026-09-26T09:30'.
-
-    O ano do site vem truncado, entao usa o ano corrente (ou o proximo, se a
-    data ja passou ha mais de um dia -- leilao de janeiro visto em dezembro).
-    """
-    m = re.search(r'(\d{2})/(\d{2})/\d{2,4}\D{0,5}(\d{2}):(\d{2})', texto or "")
-    if not m:
-        return ""
-    agora = agora or datetime.now()
-    dia, mes, hora, minuto = (int(x) for x in m.groups())
-    try:
-        dt = datetime(agora.year, mes, dia, hora, minuto)
-        if dt < agora - timedelta(days=1):
-            dt = dt.replace(year=agora.year + 1)
-    except ValueError:
-        return ""
-    return dt.strftime("%Y-%m-%dT%H:%M")
-
-
-def _pacto_parse_card(item, cat_url, agora=None):
-    """Converte o dict extraido por _PACTO_EXTRACT_JS em campos do lote.
-
-    Marca/modelo vem de `.lote-card-nome` ("MARCA/MODELO"), como no Leilo; o
-    slug do href legado e' so fallback quando o nome vier vazio. Nome sem "/"
-    (equipamentos) vira modelo, com marca "Outros". Devolve None
-    se nao houver como identificar o lote.
-    """
-    ref = _pacto_parse_href(item['href'])
-    if not ref:
-        return None
-    nome = html.unescape(item.get('nome', '')).strip()
-    if nome:
-        marca, sep, modelo = nome.partition('/')
-        if sep:
-            marca, modelo = marca.strip().title(), modelo.strip().title()
-        else:
-            # Equipamentos/implementos vem sem "MARCA/": o nome todo e' o modelo.
-            marca, modelo = "Outros", nome.title()
-    elif ref['slug']:
-        marca, modelo = "", limpar_modelo(ref['slug'])
-    else:
-        return None
-    foto = item.get('foto', '')
-    # /lote/fotos-modelo/<categoria>.webp e' a imagem generica ("Fotos em
-    # breve"): carrega com sucesso, mas nao e' do veiculo.
-    if '/fotos-modelo/' in foto:
-        foto = ''
-    texto = item.get('text', '')
-    return {
-        "url": ref['url'],
-        "categoria_url": cat_url,
-        "marca": marca or "?",
-        "modelo": modelo or "?",
-        "ano": _pacto_parse_ano(texto) or ref['ano'],
-        "lance": _pacto_parse_valor(item.get('valor', '')) or _pacto_parse_valor(texto),
-        "km": _extrair_km(texto),
-        "foto": foto,
-        "data_leilao": _pacto_parse_data(item.get('data', '') or texto, agora),
-    }
-
-
-def _pacto_coletar(pg):
-    """Rola a pagina ate o numero de cards estabilizar e le todos."""
-    anterior = -1
-    for _ in range(15):
-        pg.keyboard.press("End")
-        pg.wait_for_timeout(700)
-        n = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, "e => e.length")
-        if n == anterior:
-            break
-        anterior = n
-    try:
-        pg.wait_for_load_state("networkidle", timeout=5000)
-    except:
-        pass
-
-    items = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, _PACTO_EXTRACT_JS)
-
-    # Retry: cards cuja foto ainda nao carregou (lazy loading) aparecem com
-    # foto vazia mesmo tendo imagem real no site. Tenta de novo algumas
-    # vezes e preenche so as fotos que faltavam (sem sobrescrever o resto).
-    fotos = {it['href']: it['foto'] for it in items}
-    for _ in range(4):
-        if all(fotos.values()):
-            break
-        pg.wait_for_timeout(500)
-        retry = pg.eval_on_selector_all(_PACTO_SELETOR_CARD, _PACTO_EXTRACT_JS)
-        for it in retry:
-            if not fotos.get(it['href']) and it['foto']:
-                fotos[it['href']] = it['foto']
-    for it in items:
-        it['foto'] = fotos.get(it['href'], it['foto'])
-    return items
-
-
-def _raspar_pacto(pg, _pg_d, vistos):
+def _raspar_pacto(vistos):
     lotes = []
-    for cat_url in _PACTO_CATEGORIAS:
+    itens, total = _plataforma_coletar(_PACTO_BASE)
+    if not itens:
+        print("⚠️ Pacto: nenhum lote no CE")
+        return lotes
+    print(f"📡 Pacto CE | {len(itens)} lote(s) (site informa {total})")
+
+    for it in itens:
+        if it["url"] in vistos:
+            continue
+        vistos.add(it["url"])
         try:
-            pg.goto(f"{_PACTO_BASE}/leilao/ceara/{cat_url}/", timeout=20000,
-                    wait_until="networkidle")
-            pg.wait_for_timeout(2000)
-        except:
-            continue
+            marca, modelo, ano, lance = it["marca"], it["modelo"], it["ano"], it["lance"]
+            categoria = detectar_categoria(modelo, marca, it["categoria_url"])
+            icone     = ICONES.get(categoria, "📦")
 
-        campos = []
-        for it in _pacto_coletar(pg):
-            c = _pacto_parse_card(it, cat_url)
-            if c and c['url'] not in vistos:
-                vistos.add(c['url'])
-                campos.append(c)
+            ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+            analise  = _analisar_cached(it["url"], marca, modelo, ano, it["descricao"],
+                                        it["km"], lance, ref_val, categoria)
+            classif  = classificar(lance, ref_val, analise.get("estado", ""))
 
-        if not campos:
-            continue
-        print(f"📡 Pacto {cat_url} | {len(campos)} lotes")
-
-        for c in campos[:50]:
-            try:
-                marca, modelo, ano, lance = c['marca'], c['modelo'], c['ano'], c['lance']
-                categoria = detectar_categoria(modelo, marca, _PACTO_CAT_MAP.get(cat_url, cat_url))
-                icone     = ICONES.get(categoria, "📦")
-
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-                analise  = _analisar_cached(c['url'], marca, modelo, ano, "", c['km'], lance, ref_val, categoria)
-                classif  = classificar(lance, ref_val, analise.get("estado",""))
-
-                print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
-                lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
-                                        _PACTO_CIDADE, lance, ref_val, ref_str,
-                                        classif, c['foto'], c['km'], "", analise,
-                                        c['url'], c['data_leilao']))
-                time.sleep(0.1)
-            except Exception as e:
-                print(f"  ⚠️ Pacto: {e}"); continue
+            print(f"  {icone} [Pacto/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {analise['selo']} | {classif}")
+            lotes.append(_lote_dict("pacto", categoria, marca, modelo, ano,
+                                    _PACTO_CIDADE, lance, ref_val, ref_str,
+                                    classif, it["foto"], it["km"], it["descricao"], analise,
+                                    it["url"], it["data_leilao"]))
+            time.sleep(0.1)
+        except Exception as e:
+            print(f"  ⚠️ Pacto: {e}")
 
     return lotes
 
@@ -3636,17 +3452,18 @@ def raspar_leiloes():
                        "Chrome/124.0.0.0 Safari/537.36"
         )
         pg_lista   = ctx.new_page()
-        pg_detalhe = ctx.new_page()
 
         lotes += _raspar_mega(pg_lista, vistos)
-        lotes += _raspar_pacto(pg_lista, pg_detalhe, vistos)
         lotes += _raspar_mgl(p, vistos)
         lotes += _raspar_montenegro(pg_lista, vistos, browser)
 
         ctx.close()
         browser.close()
 
-    # Sites simples — requests direto, sem Playwright nem ScraperAPI
+    # Sites simples — requests direto, sem Playwright nem ScraperAPI.
+    # Pacto ANTES do Leilo: e' o canonico do dedup por uuid e a analise de IA
+    # dele e' reaproveitada pelo Leilo (`_analise_do_gemeo`).
+    lotes += _raspar_pacto(vistos)
     lotes += _raspar_leilo(vistos)
     lotes += _raspar_mj_leiloes(vistos)
     # Celso Cunha DORMENTE desde ~28/08/2026 — site reconstruido, esquema de URL
