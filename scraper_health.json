@@ -4,92 +4,218 @@
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 22
+      "zero_streak": 23
     },
     "construbem": {
       "alertado_streak": 0,
-      "ultima_contagem": 46,
+      "ultima_contagem": 0,
       "ultimo_nonzero": "2026-09-24T10:48Z",
-      "zero_streak": 0
+      "zero_streak": 1
     },
     "danielgarcia": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 22
+      "zero_streak": 23
     },
     "francisco_freitas": {
       "alertado_streak": 0,
-      "ultima_contagem": 40,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.649,
+          "taxa": 0.649
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 37,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "grupo_lance": {
       "alertado_streak": 0,
-      "ultima_contagem": 0,
-      "ultimo_nonzero": "2026-09-22T10:39Z",
-      "zero_streak": 2
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 9,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
+      "zero_streak": 0
     },
     "leilo": {
       "alertado_streak": 0,
-      "ultima_contagem": 29,
+      "ultima_contagem": 0,
       "ultimo_nonzero": "2026-09-24T10:48Z",
-      "zero_streak": 0
+      "zero_streak": 1
     },
     "maria_fixer": {
       "alertado_streak": 0,
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.062,
+          "taxa": 0.062
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
       "ultima_contagem": 16,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "mega": {
       "alertado_streak": 0,
-      "ultima_contagem": 10,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.95,
+          "taxa": 0.95
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 20,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "mgl": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 22
+      "zero_streak": 23
     },
     "mj": {
       "alertado_streak": 0,
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
       "ultima_contagem": 32,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "montenegro": {
       "alertado_streak": 0,
-      "ultima_contagem": 30,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 17,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "pacto": {
       "alertado_streak": 0,
-      "ultima_contagem": 29,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.86,
+          "taxa": 0.86
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 50,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     },
     "pereira": {
       "alertado_streak": 0,
       "ultima_contagem": 0,
       "ultimo_nonzero": null,
-      "zero_streak": 6
+      "zero_streak": 7
     },
     "receita_sle": {
-      "alertado_streak": 3,
-      "ultima_contagem": 0,
-      "ultimo_nonzero": "2026-09-20T10:29Z",
-      "zero_streak": 4
+      "alertado_streak": 0,
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.017,
+          "taxa": 0.017
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 1.0,
+          "taxa": 1.0
+        }
+      },
+      "ultima_contagem": 287,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
+      "zero_streak": 0
     },
     "spy_leiloes": {
       "alertado_streak": 0,
-      "ultima_contagem": 957,
-      "ultimo_nonzero": "2026-09-24T10:48Z",
+      "campos": {
+        "foto": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.921,
+          "taxa": 0.921
+        },
+        "lance": {
+          "alertado_streak": 0,
+          "degradado_streak": 0,
+          "ref": 0.993,
+          "taxa": 0.993
+        }
+      },
+      "ultima_contagem": 986,
+      "ultimo_nonzero": "2026-09-25T10:51Z",
       "zero_streak": 0
     }
   },
-  "ultimo_run": "2026-09-24T10:48Z"
+  "ultimo_run": "2026-09-25T10:51Z"
 }
