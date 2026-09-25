@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import json
 import os
 import time
+from urllib.parse import quote, unquote
 
 import streamlit as st
+import streamlit.components.v1 as components
 import stripe
 from dotenv import load_dotenv
 from supabase import Client, create_client
@@ -81,6 +84,91 @@ def get_supabase_client() -> Client:
     return _sb()
 
 
+# ── Persistência da sessão no navegador (sobrevive a F5 / Ctrl+F5) ──────────
+# st.session_state morre a cada recarga da página. Guardamos o refresh token do
+# Supabase (e o instante de início da sessão) em cookies do navegador e, se o
+# usuário cair sem sessão, tentamos restaurá-la a partir deles. O limite máximo
+# de horas continua valendo porque o início original é preservado.
+
+_COOKIE_RT = "lce_rt"
+_COOKIE_T0 = "lce_t0"
+
+
+def _cookie_max_age() -> int:
+    horas = _SESSION_MAX_HOURS if _SESSION_MAX_HOURS > 0 else 24 * 30
+    return int(horas * 3600)
+
+
+def _cookie_js(assignments: list[tuple[str, str, int]]) -> None:
+    """Grava/apaga cookies via JS (Streamlit só consegue ler cookies no servidor)."""
+    linhas = "".join(
+        f"set({json.dumps(nome)},{json.dumps(quote(valor, safe=''))},{max_age});"
+        for nome, valor, max_age in assignments
+    )
+    components.html(
+        "<script>(function(){"
+        "var d;try{d=window.parent.document;}catch(e){return;}"
+        "var sec=window.parent.location.protocol==='https:'?';Secure':'';"
+        "function set(n,v,a){d.cookie=n+'='+v+';path=/;max-age='+a+';SameSite=Lax'+sec;}"
+        f"{linhas}"
+        "})();</script>",
+        height=0,
+    )
+
+
+def _persist_session_cookie() -> None:
+    session = st.session_state.get("session")
+    refresh_token = getattr(session, "refresh_token", "") or ""
+    if not refresh_token:
+        return
+    inicio = st.session_state.get("_session_started_at") or time.time()
+    _cookie_js([
+        (_COOKIE_RT, refresh_token, _cookie_max_age()),
+        (_COOKIE_T0, str(int(float(inicio))), _cookie_max_age()),
+    ])
+
+
+def _clear_session_cookie() -> None:
+    _cookie_js([(_COOKIE_RT, "", 0), (_COOKIE_T0, "", 0)])
+
+
+def _read_cookie(name: str) -> str:
+    try:
+        return unquote(str(st.context.cookies.get(name, "") or ""))
+    except Exception:
+        return ""
+
+
+def _restore_session_from_cookie() -> bool:
+    """Recria a sessão a partir do refresh token guardado no navegador."""
+    if st.session_state.get("_cookie_logged_out"):
+        return False
+    refresh_token = _read_cookie(_COOKIE_RT)
+    if not refresh_token:
+        return False
+
+    agora = time.time()
+    try:
+        inicio = float(_read_cookie(_COOKIE_T0) or 0)
+    except ValueError:
+        inicio = 0.0
+    if inicio <= 0 or inicio > agora:
+        inicio = agora
+    if _SESSION_MAX_HOURS > 0 and agora - inicio >= _SESSION_MAX_HOURS * 3600:
+        st.session_state["_cookie_clear_pending"] = True
+        return False
+
+    try:
+        response = _sb().auth.refresh_session(refresh_token)
+        if not _save_auth(response):
+            raise RuntimeError("sessão não restaurada")
+    except Exception:
+        st.session_state["_cookie_clear_pending"] = True
+        return False
+    st.session_state["_session_started_at"] = inicio
+    return True
+
+
 # ── Session helpers ──────────────────────────────────────────────────────────
 
 def get_user():
@@ -132,6 +220,7 @@ def _save_auth(auth_response) -> bool:
     st.session_state["user"] = user
     st.session_state["session"] = session
     st.session_state["_auth_user_id"] = user.id
+    st.session_state.pop("_cookie_logged_out", None)
     agora = time.time()
     st.session_state["_session_started_at"] = agora
     st.session_state["_session_last_activity"] = agora
@@ -197,7 +286,13 @@ def ensure_valid_session() -> tuple[bool, str]:
     user = get_user()
     session = st.session_state.get("session")
     if not user or not session:
-        return False, ""
+        if _restore_session_from_cookie():
+            user = get_user()
+            session = st.session_state.get("session")
+        else:
+            if st.session_state.pop("_cookie_clear_pending", False):
+                _clear_session_cookie()
+            return False, ""
 
     agora = time.time()
     st.session_state.setdefault("_session_started_at", agora)
@@ -246,6 +341,7 @@ def ensure_valid_session() -> tuple[bool, str]:
             _load_profile(usuario_validado.id, sessao_atual)
 
         st.session_state["_session_last_activity"] = agora
+        _persist_session_cookie()
         return True, ""
     except Exception:
         logout()
@@ -310,6 +406,8 @@ def logout() -> None:
     except Exception:
         pass
     _clear_local_auth()
+    st.session_state["_cookie_logged_out"] = True
+    st.session_state["_cookie_clear_pending"] = True
 
 
 def reset_password(email: str) -> tuple[bool, str]:
