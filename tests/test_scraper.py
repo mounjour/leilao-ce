@@ -989,3 +989,80 @@ class TestPactoParseCard:
             "pesados", _PACTO_AGORA)
         assert c["marca"] == "Outros"
         assert c["modelo"] == "Escavadeira Hidráulica Pc130Lc-10"
+
+
+# --- MJ Leiloes: dedup de URL, titulo e categoria ---------------------------
+from scraper import _mj_normalizar_lote_path, _mj_lote_paths, _mj_parse_titulo, _mj_categoria
+
+_MJ_LOTE_1182 = "/lote/1182/fiat-uno-evolution-1-4-cor-branca-combustivel-flex-ano-mod-2014-2015-dir-a-documento"
+
+
+class TestMjNormalizarLote:
+    def test_remove_fragmento_lances(self):
+        assert _mj_normalizar_lote_path(_MJ_LOTE_1182 + "#lances") == _MJ_LOTE_1182
+
+    def test_remove_query_e_barra_final(self):
+        assert _mj_normalizar_lote_path("/lote/9/x-y/?a=1#z") == "/lote/9/x-y"
+
+    def test_path_limpo_nao_muda(self):
+        assert _mj_normalizar_lote_path(_MJ_LOTE_1182) == _MJ_LOTE_1182
+
+    def test_lote_paths_dedup_com_e_sem_fragmento(self):
+        html = (f'<a href="{_MJ_LOTE_1182}">x</a><a href="{_MJ_LOTE_1182}#lances">y</a>'
+                '<a href="/lote/1170/sucata-de-compressor-de-ar#lances">z</a>')
+        assert _mj_lote_paths(html) == [_MJ_LOTE_1182, "/lote/1170/sucata-de-compressor-de-ar"]
+
+
+# (titulo real do site, nome-categoria esperada, marca, modelo, ano)
+_MJ_TITULOS = [
+    ("FIAT UNO EVOLUTION 1.4, COR: BRANCA, COMBUSTÍVEL; FLEX, ANO/MOD 2014/2015, (DIR. A DOCUMENTO).",
+     "carros", "Fiat", "Uno Evolution 1.4", 2015),
+    ("TOYOTA ETIOS HB XS 1.5, COR: PRATA, COMBUSTÍVEL; FLEX, ANO/MOD 2015/2015, (DIR A DOCUMENTO)..",
+     "carros", "Toyota", "Etios Hb Xs 1.5", 2015),
+    ("VW/ONIBUS 15.190 EOD ESC.SUPER, CAPACIDADE: 57 PASSAGEIROS, COR: AMARELA, COMBUSTÍVEL; DIESEL, ANO/MOD 2009/2010, (DIR. A DOCUMENTO).",
+     "caminhoes", "Vw", "Onibus 15.190 Eod Esc.Super", 2010),
+    ("CAMINHÃO FORD CARGO 1319, COR: PRATA, COMBUSTÍVEL; DIESEL, ANO/MOD 2013/2013, (DIR. A DOCUMENTO).",
+     "caminhoes", "Ford", "Cargo 1319", 2013),
+    ("FIAT DUCATO GREENCAR MO3 2.3, AMBULÂNCIA, 8 PASSAGEIROS, COR: BRANCA, COMBUSTÍVEL; DIESEL, ANO/MOD 2016/2017,(DIR. A DOCUMENTO).",
+     "caminhoes", "Fiat", "Ducato Greencar Mo3 2.3, Ambulância", 2017),
+    ("RETROESCAVADEIRA JBC 3C, CHASSI: 9B9214T74DBDT4663",
+     "equipamentos", "Retroescavadeira", "Jbc 3C", 0),
+    ("BENZ SPRINTERM 313CDI, 16 PASSAGEIROS, COR: BRANCA, COMBUSTÍVEL; DIESEL, ANO/MOD 2011/2012,  (DIR. A DOCUMENTO).",
+     "caminhoes", "Benz", "Sprinterm 313Cdi", 2012),
+    ("FIAT STRAD MODIFICAR AMBULÂNCIA 1.4, 5 PASSAGEIRO, COR: BRANCA, COMBUSTÍVEL; FLEX, ANO/MOD 2013/2013 (DIR. A DOCUMENTO).",
+     "carros", "Fiat", "Strad Modificar Ambulância 1.4", 2013),
+    ("SUCATA DE COMPRESSOR DE AR.",
+     "equipamentos", "Sucata", "De Compressor De Ar", 0),
+    ("SUCATAS DE ELETRÔNICAS TELEVISÕES, FONTES DE COMPUTADORES, VENTILADORES. IMPRESSORAS, AR-CONDICIONADOS E OUTROS.",
+     "eletronicos", "Sucatas", None, 0),
+    ("EQUIPAMENTOS HOSPITALARES E ODONTOLÓGICOS, MATERIAIS ESCOLARES; MESAS, CADEIRAS E OUTROS.",
+     "eletronicos", "Equipamentos", None, 0),
+    ("APARELHOS ELETRÔNICOS - COMPUTADORES, RÁDIOS, CAIXA DE SOM, IMPRESSORAS, AR-CONDICIONADO E VENTILADORES.",
+     "eletronicos", "Aparelhos", None, 0),
+]
+
+
+class TestMjTituloECategoria:
+    @pytest.mark.parametrize("titulo,categoria,marca,modelo,ano", _MJ_TITULOS)
+    def test_titulos_reais(self, titulo, categoria, marca, modelo, ano):
+        nome, m, mod, a = _mj_parse_titulo(titulo)
+        assert (m, a) == (marca, ano)
+        if modelo is not None:
+            assert mod == modelo
+        assert _mj_categoria(nome, m, mod) == categoria
+
+    def test_titulo_longo_nao_fica_sem_marca(self):
+        # regressao: regex {5,120} zerava marca/modelo (viravam "" e "?")
+        _, marca, modelo, _ = _mj_parse_titulo(_MJ_TITULOS[2][0])
+        assert marca and modelo != "?"
+
+    def test_sem_ruido_de_cor_combustivel_chassi(self):
+        for titulo, *_ in _MJ_TITULOS:
+            _, _, modelo, _ = _mj_parse_titulo(titulo)
+            assert not any(x in modelo.lower() for x in ("cor:", "combust", "chassi"))
+
+    def test_titulo_vazio(self):
+        assert _mj_parse_titulo("") == ("", "?", "?", 0)
+
+    def test_cargo_de_caminhao_nao_vira_moto(self):
+        assert detectar_categoria("Caminhão Ford Cargo 1319", "", "carros") == "caminhoes"

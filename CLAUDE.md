@@ -5,6 +5,19 @@ CONTEXTO DO PROJETO:
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
 STATUS (atualizado 2026-09-25):
+- MJ Leiloes corrigido (2026-09-25): (A) cada lote saia 2x (href com e sem
+  `#lances`; bug desde ~06/2026): `_mj_normalizar_lote_path`/`_mj_lote_paths`
+  removem fragmento/query antes de deduplicar (32 -> 16 lotes reais; a URL
+  canonica e a sem fragmento; favoritos ja casam porque
+  `favorites._normalizar_url` descarta o fragmento). (B) `_mj_parse_titulo`
+  (sem o limite de 120 chars que zerava marca/modelo de onibus/ambulancia; corta
+  `, Cor:`/`Combustivel`/`Chassi:`/`Capacidade:`; tira "Caminhao"/"Onibus" do
+  modelo) e `_mj_categoria`: `' cargo'` de PALAVRAS_MOTO fazia "Caminhao Ford
+  Cargo" virar moto (PALAVRAS_CAMINHAO ganhou caminhao/onibus/ford cargo);
+  sucata eletronica, hospitalar/escolar e aparelhos vao para `eletronicos`
+  (decisao do dono, sem FIPE). Validado ao vivo: 16 unicos, 0 sem marca/modelo,
+  lance e foto 16/16. Testes: 189/189. Limitacao: marca "Benz" (titulo do site
+  omite "Mercedes"). `leiloes.json` so reflete apos o proximo run do Actions.
 - Leilo corrigido + dedup com o Pacto (2026-09-25): 0 lotes desde 25/09 porque o
   site foi refeito (mesmo redesign do Pacto): href do card virou `/lote/<uuid>/`
   e o regex exigia `ano.NNNN`. `_raspar_leilo` reescrita para ler o JSON

@@ -32,7 +32,7 @@ PALAVRAS_MOTO = ['cg ','fan ','bros','titan','pcx','fazer','crosser','biz','lead
                  'twister','burgman','nmax','lander','mt-','xtz','shineray','xy150',
                  'xy125','shi 175','biz','dominar','fz15','harley','davidson',
                  'flhtcu','flht','softail','sportster','motocicleta']
-PALAVRAS_CAMINHAO = ['fh ','fmx','constellation','actros','axor','atego','cargo truck',
+PALAVRAS_CAMINHAO = ['caminhão','caminhao','ônibus','onibus','ford cargo','fh ','fmx','constellation','actros','axor','atego','cargo truck',
                      'f-4000','sprinter','transit','master','daily','ducato','toco',
                      'truck','bi-truck','cavalo','carreta','reboque','semirreboque',
                      'randon','facchini','noma','guerra','librelato','volvo vm',
@@ -1350,6 +1350,74 @@ _MJ_CE      = ['ceará','ceara','/ce','-ce','ce-','pacujá','pacuja','juazeiro',
                'fortaleza','caucaia','maracanau','sobral','crato','eusebio',
                'horizonte','pacajus','aquiraz','russas']
 
+# Href de lote na pagina do leilao. O site repete cada lote com o fragmento
+# "#lances" (aba da pagina), o que duplicava tudo: normalizar ANTES de deduplicar.
+_MJ_LOTE_RE = re.compile(r'/lote/\d+/[^"\'<>\s]+')
+
+def _mj_normalizar_lote_path(path):
+    """'/lote/1182/x-y#lances' e '/lote/1182/x-y?a=1' -> '/lote/1182/x-y'."""
+    return re.split(r'[#?]', path, maxsplit=1)[0].rstrip('/')
+
+def _mj_lote_paths(html):
+    """Paths de lote unicos (ordem da pagina), ja sem fragmento/query."""
+    return list(dict.fromkeys(
+        _mj_normalizar_lote_path(p) for p in _MJ_LOTE_RE.findall(html)))
+
+# Ruido que o titulo do MJ carrega depois do modelo: ", COR: ...",
+# ", COMBUSTIVEL; ...", ", CHASSI: ...", ", CAPACIDADE: ...", ", 16 PASSAGEIROS".
+_MJ_RUIDO_RE = re.compile(
+    r',\s*(?:cor\s*:|combust\w*\s*[;:]|chassi\s*:|capacidade\s*:|'
+    r'\d+\s+passageiros?\b|ano\s*/\s*mod)', re.I)
+_MJ_ANO_MOD_RE = re.compile(r'ano\s*/\s*mod\D*(\d{4})\s*(?:/\s*(\d{4}))?', re.I)
+_MJ_TIPO_GENERICO = {'caminhão', 'caminhao', 'ônibus', 'onibus', 'micro-ônibus'}
+
+def _mj_parse_titulo(titulo):
+    """
+    Titulo do lote -> (nome, marca, modelo, ano).
+
+    nome = titulo sem ruido (usado na deteccao de categoria, ainda com o tipo
+    "Caminhao"/"Onibus"); marca/modelo saem sem o tipo generico e sem o
+    ruido de cor/combustivel/chassi que atrapalha o casamento com a FIPE.
+    """
+    t = re.sub(r'\s+', ' ', titulo or '').strip()
+    ano = 0
+    m_ano = _MJ_ANO_MOD_RE.search(t)
+    if m_ano:
+        ano = int(m_ano.group(2) or m_ano.group(1))
+    corte = _MJ_RUIDO_RE.search(t)
+    if corte:
+        t = t[:corte.start()]
+    t = re.sub(r'\(.*?\)?\s*$', '', t)   # "(DIR. A DOCUMENTO)" sem ano/mod
+    nome = t.strip(' ,;.').title()
+    if not nome:
+        return "", "?", "?", ano
+
+    palavras = nome.split(' ')
+    if palavras[0].lower() in _MJ_TIPO_GENERICO and len(palavras) > 1:
+        palavras = palavras[1:]
+    primeira = palavras[0]
+    if '/' in primeira and primeira.split('/', 1)[1]:   # "VW/ONIBUS" -> VW + Onibus
+        marca, resto = primeira.split('/', 1)
+        modelo = ' '.join([resto] + palavras[1:])
+    else:
+        marca = primeira
+        modelo = ' '.join(palavras[1:]) or "?"
+    return nome, marca, modelo, ano
+
+# Lotes que nao sao veiculo/maquina/imovel (sucata eletronica, mobiliario e
+# equipamento hospitalar/escolar): decisao do dono em 2026-09-25, vao para
+# "eletronicos" (mesma categoria dos itens da Receita).
+_MJ_PALAVRAS_ELETRONICO = ['eletrônic', 'eletronic', 'computador', 'televis',
+                           'impressora', 'ar-condicionado', 'ventilador',
+                           'hospitalar', 'odontol', 'escolar', 'mobili',
+                           'cadeira', 'mesas']
+
+def _mj_categoria(nome, marca, modelo):
+    n = (nome or '').lower()
+    if any(p in n for p in _MJ_PALAVRAS_ELETRONICO):
+        return "eletronicos"
+    return detectar_categoria(f"{nome} {modelo}", marca, "carros")
+
 def _raspar_mj_leiloes(vistos):
     lotes = []
     try:
@@ -1381,7 +1449,7 @@ def _raspar_mj_leiloes(vistos):
         titulo  = title_m.group(1).strip() if title_m else f"Leilão {auction_id}"
         print(f"📡 MJLeiloes | leilão {auction_id} (CE): {titulo[:70]}")
 
-        lot_paths = list(dict.fromkeys(re.findall(r'/lote/\d+/[^"\'<>\s]+', html_auction)))
+        lot_paths = _mj_lote_paths(html_auction)
         if not lot_paths:
             print(f"  ⚠️ MJLeiloes: nenhum lote encontrado em leilão {auction_id}")
             continue
@@ -1400,22 +1468,15 @@ def _raspar_mj_leiloes(vistos):
                 texto = re.sub(r'\s+', ' ', texto).strip()
 
                 # Título do lote: "Volkswagen Saveiro ..., Ano/Mod 2012/2013"
-                h_m = re.search(r'<h[12][^>]*>\s*([^<]{5,120})\s*</h[12]>', html_lote, re.I)
-                titulo_lote = h_m.group(1).strip() if h_m else ""
+                # (sem limite curto de tamanho: onibus/ambulancia passam de 120 chars)
+                h_m = re.search(r'<h[12][^>]*>\s*([^<]{5,400}?)\s*</h[12]>', html_lote, re.I)
+                titulo_lote = html.unescape(h_m.group(1)).strip() if h_m else ""
 
-                ano = 0
-                ano_m = re.search(r'Ano[/\s]+Mod[^\d]*(\d{4})[/\s]*(\d{4})?', titulo_lote, re.I)
-                if ano_m:
-                    ano = int(ano_m.group(2) or ano_m.group(1))
-                    titulo_lote = titulo_lote[:titulo_lote.lower().find('ano')].strip().rstrip(',')
-                else:
+                nome, marca, modelo, ano = _mj_parse_titulo(titulo_lote)
+                if not ano:
                     ano_m2 = re.search(r'\b(19[89]\d|20[012]\d)\b', titulo_lote + ' ' + texto[:300])
                     if ano_m2:
                         ano = int(ano_m2.group())
-
-                partes = titulo_lote.split(' ', 1)
-                marca  = partes[0].title() if partes else "?"
-                modelo = partes[1].title() if len(partes) > 1 else "?"
 
                 lance      = _extrair_lance(texto)
                 km         = _extrair_km(texto)
@@ -1440,9 +1501,12 @@ def _raspar_mj_leiloes(vistos):
                     if m_cid:
                         cidade = m_cid.group(1).strip() + '/CE'
 
-                categoria = detectar_categoria(modelo, marca, "carros")
+                categoria = _mj_categoria(nome, marca, modelo)
                 icone     = ICONES.get(categoria, "📦")
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
+                if categoria == "eletronicos":   # sem FIPE nem referencia de mercado
+                    ref_val, ref_str = 0, "Sem referência"
+                else:
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise  = _analisar_cached(url_lote, marca, modelo, ano, descricao, km, lance, ref_val, categoria)
                 classif  = classificar(lance, ref_val, analise.get("estado", ""))
                 print(f"  {icone} [MJLeiloes/{categoria}] {marca} {modelo} {ano} — R${lance:,.0f} | {classif}")
