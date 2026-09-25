@@ -45,6 +45,16 @@ leiloeiros diretos antes dos agregadores (Grupo Lance e Spy Leilões
 raspados por último, antes só do Soleon), o lote do leiloeiro original é o
 que sobrevive quando há colisão de chave.
 
+## Chave por uuid do lote: Pacto x Leilo (2026-09-25)
+
+Pacto e Leilo são dois front-ends da mesma plataforma e servem o mesmo
+estoque: os 54 lotes do CE tinham o mesmo uuid nos dois, com campos idênticos.
+`_chave_dedup_entre_fontes` agora devolve `lote:<uuid>` para URLs `/lote/<uuid>/`
+de `pactoleiloes.com.br` e `leilo.com.br` (só esses dois domínios), com
+prioridade sobre processo/matrícula. Continua sem heurística de título/ano/lance.
+O Pacto roda antes e é o canônico; o Leilo funciona como reserva (sobrevive se o
+Pacto não trouxer o lote). Detalhes e números em `LEILO_REDESIGN_2026-09.md`.
+
 ## Health check não é afetado
 
 `scraper_health.processar()` recebe os lotes **antes** do dedup

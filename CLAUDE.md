@@ -4,7 +4,25 @@ CONTEXTO DO PROJETO:
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-24):
+STATUS (atualizado 2026-09-25):
+- Leilo corrigido + dedup com o Pacto (2026-09-25): 0 lotes desde 25/09 porque o
+  site foi refeito (mesmo redesign do Pacto): href do card virou `/lote/<uuid>/`
+  e o regex exigia `ano.NNNN`. `_raspar_leilo` reescrita para ler o JSON
+  embutido (`window.__INITIAL_STATE__` -> `elastic.lotes`) em vez de regex de
+  HTML, com paginacao real (`?pagina=N`): 54 lotes CE em vez de 36. Mantidas as
+  salvaguardas de 16/09 (categoria do proprio lote, UF "CE" por lote). Pacto e
+  Leilo sao a MESMA plataforma: 54/54 lotes com o mesmo uuid e campos
+  identicos (Leilo subconjunto do Pacto em 4/4 runs de 21-24/09).
+  `_chave_dedup_entre_fontes` ganhou a chave exata `lote:<uuid>` (so
+  pactoleiloes.com.br e leilo.com.br); Pacto e o canonico (roda antes) e o Leilo
+  fica como reserva se o scraper do Pacto quebrar. Health check segue contando o
+  Leilo antes do dedup. IA nao e cobrada duas vezes (`_analise_do_gemeo`); FIPE
+  duplica (~200 requests/run). Testes: 169/169 (fixture real em
+  tests/fixtures/). Validado ao vivo (FIPE/IA stubados): 54 lotes, 54 com lance,
+  36 com foto (18 sem foto no site), dedup 108 -> 54. Pendencias: migrar o Pacto
+  para este parser via requests; favoritos por uuid (`favorites._normalizar_url`
+  compara URL inteira); confirmar no proximo run do Actions. Ver
+  docs/contexto/LEILO_REDESIGN_2026-09.md.
 - Receita SLE corrigida (2026-09-24): 0 lotes desde 21/09 era bug, nao falta de
   edital. O edital de Fortaleza 0317900/000003/2026 (411 lotes, propostas ate
   25/09) passou de `situacao 2` para `3` na abertura das propostas e o filtro

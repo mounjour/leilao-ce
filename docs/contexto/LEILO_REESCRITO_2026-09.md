@@ -1,5 +1,10 @@
 # Leilo — bug de categoria/nome de lote e vazamento de outro estado (2026-09-16)
 
+> **Superado em 2026-09-25** por `LEILO_REDESIGN_2026-09.md`: o site foi refeito de
+> novo, o parser por HTML foi trocado pelo JSON embutido e a afirmacao abaixo de
+> que "nao ha paginacao" caiu (existe `?pagina=N`). As salvaguardas (categoria do
+> proprio lote, UF "CE" por lote) foram mantidas.
+
 Reportado pelo dono: no dashboard em produção, o filtro "Categoria: motos"
 mostrava caminhões, "Categoria: caminhões" mostrava carros, e alguns nomes
 de lote apareciam com texto estranho (ex.: "Leilao-De-Seguradoras-15-09-26

@@ -13,6 +13,8 @@ Nao tocam rede nem browser (ver conftest.py). Rodam em bem menos de 1s:
 
     python -m pytest -q
 """
+import json
+
 import pytest
 
 from scraper import (
@@ -31,7 +33,6 @@ from scraper import (
     _grupo_lance_categoria,
     _grupo_lance_resposta_valida,
     _grupo_lance_parse_pagina,
-    _leilo_parse_listagem,
     _chave_dedup_entre_fontes,
     _remover_duplicatas_entre_fontes,
 )
@@ -458,64 +459,285 @@ class TestGrupoLanceParsePagina:
 
 
 # --- Leilo -------------------------------------------------------------------
-# HTML real (16/09/2026) de /leilao/fortaleza-ceara: um card de carro em CE,
-# mais dois cards sinteticos (moto em CE, carro em GO) pra cobrir o mapeamento
-# de categoria e a rede de seguranca contra lote de outro estado vazando —
-# foi exatamente esse vazamento (Taguatinga/DF, Cuiaba/MT, Manaus/AM etc.
-# rotulados como "/CE") que o site reestruturado causou em 2026-09 (ver
-# _raspar_leilo).
-_LEILO_CARD_CARRO_CE = '''
-<a href="/leilao/eusebio-ce/carros/leilao-nordeste-de-veiculos-16-09-26/ford-fiesta-sedan-1-6-flex-4p/ano.2013/a5376e3b-cd2d-4e81-bab0-074f47165e02" class="cl column" aria-label="FORD/FIESTA SEDAN 1.6 FLEX (4P)" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><div class="cl__lote-badge" data-v-1c9f2c44>LOTE 127</div><span class="cl__uf" data-v-1c9f2c44>CE</span><div class="carrossel-container" data-v-1c9f2c44><div class="carrossel-wrapper"><img src="https://leilo.cdndp.com.br/v1/arquivo/2026/9/11/1789157403137_d1c9f8af-5cad-474f-bfc5-5d59a345e79a_mini_leilo.webp" alt="FORD/FIESTA SEDAN 1.6 FLEX (4P)" class="lote-card-img"></div></div><div class="cl__retomada" title="Recuperado de Financiamento" data-v-1c9f2c44><span class="cl__retomada-texto" data-v-1c9f2c44>Recuperado de Financiamento</span></div></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info" data-v-1c9f2c44>12/13</span><span class="cl__info" data-v-1c9f2c44><img src="/home/icones/km.svg"></i> 115.573 km </span><span class="cl__info cl__info--local" title="Eusébio/CE" data-v-1c9f2c44> Eusébio/CE</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 10.000,00</p><p class="cl__rotulo q-mb-none" data-v-1c9f2c44>Lance Inicial</p></div><p class="cl__leilao" data-v-1c9f2c44><span class="cl__leilao-rotulo" data-v-1c9f2c44>Leilão:</span><span class="cl__leilao-data cl__leilao-data--completa" data-v-1c9f2c44>16/09/2026 Qua</span><span class="cl__leilao-hora" data-v-1c9f2c44>• 09:30</span></p></div></a>
-'''
+# Fixture: 6 lotes REAIS de leilo.com.br/leilao/ceara/ (2026-09-25) dentro do
+# HTML no formato do site (`window.__INITIAL_STATE__=...`). Ordem: moto com
+# lance, moto sem lance e sem foto, carro, utilitario sem lance, moto sem km,
+# moto com km < 1000. Os casos de outro estado / campos ausentes sao sinteticos,
+# derivados desses lotes. Contexto: docs/contexto/LEILO_REDESIGN_2026-09.md.
+import copy
+from pathlib import Path
 
-_LEILO_CARD_MOTO_CE = '''
-<a href="/leilao/eusebio-ce/motos/leilao-nordeste-de-veiculos-16-09-26/honda-adv-150/ano.2024/ae494e3d-42da-43df-a0d2-73c209f50e86" class="cl column" aria-label="HONDA/ADV 150" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><div class="cl__lote-badge" data-v-1c9f2c44>LOTE 162</div><span class="cl__uf" data-v-1c9f2c44>CE</span></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info cl__info--local" title="Eusébio/CE" data-v-1c9f2c44> Eusébio/CE</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 15.000,00</p></div></div></a>
-'''
+import scraper as _sc
+from scraper import (
+    _uuid_lote_plataforma,
+    _leilo_estado_elastic,
+    _leilo_parse_lote,
+    _leilo_parse_pagina,
+    _leilo_coletar,
+    _analise_do_gemeo,
+    _raspar_leilo,
+)
 
-_LEILO_CARD_CARRO_GO = '''
-<a href="/leilao/aparecida-de-goiania-go/carros/super-terca-15-09-26/chevrolet-onix-joye-4p/ano.2018/b31aec5c-1e4f-43c8-8536-2e27e345d997" class="cl column" aria-label="CHEVROLET/ONIX JOY E (4P)" data-v-1c9f2c44><div class="cl__foto" data-v-1c9f2c44><span class="cl__uf" data-v-1c9f2c44>GO</span></div><div class="cl__corpo" data-v-1c9f2c44><div class="cl__infos" data-v-1c9f2c44><span class="cl__info cl__info--local" title="Aparecida de Goiânia/GO" data-v-1c9f2c44> Aparecida de Goiânia/GO</span></div><div class="cl__valores q-mb-sm" data-v-1c9f2c44><p class="cl__valor" data-v-1c9f2c44>R$ 20.000,00</p></div></div></a>
-'''
+_LEILO_HTML = (Path(__file__).parent / "fixtures" / "leilo_listagem_2026-09-25.html"
+               ).read_text(encoding="utf-8")
+_UUID_NXR = "72951930-efeb-4baa-81e3-7470abe10dc5"
 
 
-class TestLeiloParseListagem:
-    def test_extrai_carro_ce(self):
-        itens = _leilo_parse_listagem(_LEILO_CARD_CARRO_CE)
-        assert len(itens) == 1
-        it = itens[0]
-        assert it["marca"] == "Ford"
-        assert it["modelo"] == "Fiesta Sedan 1.6 Flex (4P)"
-        assert it["ano"] == 2013
-        assert it["cidade"] == "Eusébio/CE"
-        assert it["categoria_url"] == "carros"
-        assert it["lance"] == 10000.0
-        assert it["km"] == "115.573 km"
-        assert it["descricao"] == "Recuperado de Financiamento"
-        assert it["data_leilao"] == "2026-09-16T09:30"
-        assert it["foto"].startswith("https://leilo.cdndp.com.br/")
-        assert it["url"] == ("https://leilo.com.br/leilao/eusebio-ce/carros/"
-                             "leilao-nordeste-de-veiculos-16-09-26/ford-fiesta-sedan-1-6-flex-4p/"
-                             "ano.2013/a5376e3b-cd2d-4e81-bab0-074f47165e02")
+def _leilo_lotes_json():
+    """Copia profunda dos lotes do JSON da fixture, para alterar nos testes."""
+    return copy.deepcopy(_leilo_estado_elastic(_LEILO_HTML)["lotes"])
 
-    def test_categoria_moto_vem_da_url(self):
-        it = _leilo_parse_listagem(_LEILO_CARD_MOTO_CE)[0]
+
+class TestUuidLotePlataforma:
+    def test_pacto_e_leilo_dao_o_mesmo_uuid(self):
+        assert _uuid_lote_plataforma(f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/") == _UUID_NXR
+        assert _uuid_lote_plataforma(f"https://leilo.com.br/lote/{_UUID_NXR}/") == _UUID_NXR
+
+    def test_ignora_query_string_e_caixa(self):
+        url = f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR.upper()}/?localizacao.estado=CE"
+        assert _uuid_lote_plataforma(url) == _UUID_NXR
+
+    def test_outro_dominio_nao_e_reconhecido(self):
+        assert _uuid_lote_plataforma(f"https://outroleilao.com.br/lote/{_UUID_NXR}/") is None
+
+    def test_url_legada_do_pacto_nao_e_reconhecida(self):
+        assert _uuid_lote_plataforma(
+            "https://www.pactoleiloes.com.br/leilao/eusebio-ce/carros/peugeot-208/"
+            f"ano.2018/{_UUID_NXR}") is None
+
+    def test_vazio_e_none(self):
+        assert _uuid_lote_plataforma("") is None
+        assert _uuid_lote_plataforma(None) is None
+
+
+class TestLeiloParseLote:
+    def test_moto_com_lance(self):
+        it = _leilo_parse_lote(_leilo_lotes_json()[0])
+        assert it["uuid"] == _UUID_NXR
+        assert it["url"] == f"https://leilo.com.br/lote/{_UUID_NXR}/"
         assert it["categoria_url"] == "motos"
-        assert it["marca"] == "Honda"
-        assert it["modelo"] == "Adv 150"
+        assert (it["marca"], it["modelo"]) == ("Honda", "Nxr 160 Bros Abs")
+        assert it["ano"] == 2026
+        assert it["cidade"] == "Eusébio/CE"
+        assert it["km"] == "15.495 km"
+        assert it["lance"] == 16400.0
+        assert it["descricao"] == "Recuperado de Financiamento"
+        assert it["foto"].startswith("https://leilo.cdndp.com.br/") and it["foto"].endswith(".jpeg")
+        # leilao.data vem em UTC (12:30Z); o card do site mostra 09:30 de Fortaleza.
+        assert it["data_leilao"] == "2026-09-26T09:30"
+
+    def test_sem_lance_usa_o_lance_inicial(self):
+        # O card mostra "Lance Inicial R$ 5.700,00" (= valor.minimo) enquanto
+        # ninguem lancou; lance 0 zeraria a classificacao e o health check.
+        it = _leilo_parse_lote(_leilo_lotes_json()[1])
+        assert it["lance"] == 5700.0
+
+    def test_lote_sem_foto_fica_com_foto_vazia(self):
+        assert _leilo_parse_lote(_leilo_lotes_json()[1])["foto"] == ""
+
+    def test_foto_generica_e_descartada(self):
+        lote = _leilo_lotes_json()[0]
+        lote["fotosUrls"] = ["https://leilo.com.br/lote/fotos-modelo/moto.webp",
+                             "https://leilo.cdndp.com.br/v1/arquivo/x.jpeg"]
+        assert _leilo_parse_lote(lote)["foto"] == "https://leilo.cdndp.com.br/v1/arquivo/x.jpeg"
+        lote["fotosUrls"] = ["https://leilo.com.br/lote/fotos-modelo/moto.webp"]
+        assert _leilo_parse_lote(lote)["foto"] == ""
+
+    def test_tipo_utilitarios_vira_caminhoes(self):
+        it = _leilo_parse_lote(_leilo_lotes_json()[3])
+        assert it["categoria_url"] == "caminhoes"
+        assert it["km"] == "144.960 km"
+
+    def test_tipo_desconhecido_cai_em_carros(self):
+        lote = _leilo_lotes_json()[0]
+        lote["tipo"] = "Tipo Novo"
+        assert _leilo_parse_lote(lote)["categoria_url"] == "carros"
+
+    def test_km_ausente_e_km_baixo(self):
+        lotes = _leilo_lotes_json()
+        assert _leilo_parse_lote(lotes[4])["km"] == ""
+        assert _leilo_parse_lote(lotes[5])["km"] == "623 km"
 
     def test_lote_de_outro_estado_e_descartado(self):
-        # Trava contra o bug de 2026-09: o site as vezes deixa passar lote
-        # de outro estado no feed do Fortaleza/CE — o "cl__uf" (e a cidade)
-        # sao a fonte da verdade, nao o fato de ter vindo dessa pagina.
-        assert _leilo_parse_listagem(_LEILO_CARD_CARRO_GO) == []
+        # Trava contra o bug de 2026-09-16 (lotes de GO/DF/MT rotulados "/CE"):
+        # a UF do proprio lote e' a fonte da verdade.
+        lote = _leilo_lotes_json()[0]
+        lote["localizacao"] = {"nome": "PATIO GOIANIA", "cidade": "APARECIDA DE GOIANIA", "estado": "GO"}
+        assert _leilo_parse_lote(lote) is None
 
-    def test_so_o_lote_de_ce_sobrevive_numa_pagina_mista(self):
-        pagina = _LEILO_CARD_CARRO_CE + _LEILO_CARD_CARRO_GO + _LEILO_CARD_MOTO_CE
-        itens = _leilo_parse_listagem(pagina)
+    def test_sem_localizacao_e_descartado(self):
+        lote = _leilo_lotes_json()[0]
+        del lote["localizacao"]
+        assert _leilo_parse_lote(lote) is None
+
+    def test_id_invalido_ou_nome_vazio_e_descartado(self):
+        lote = _leilo_lotes_json()[0]
+        lote["id"] = "nao-e-uuid"
+        assert _leilo_parse_lote(lote) is None
+        lote = _leilo_lotes_json()[0]
+        lote["nome"] = "  "
+        assert _leilo_parse_lote(lote) is None
+
+    def test_nome_sem_barra_vira_modelo_com_marca_outros(self):
+        lote = _leilo_lotes_json()[0]
+        lote["nome"] = "GERADOR 5KVA"
+        it = _leilo_parse_lote(lote)
+        assert (it["marca"], it["modelo"]) == ("Outros", "Gerador 5Kva")
+
+    def test_lote_sem_veiculo_nao_quebra(self):
+        lote = _leilo_lotes_json()[0]
+        lote["veiculo"] = None
+        it = _leilo_parse_lote(lote)
+        assert it["ano"] == 0 and it["km"] == "" and it["descricao"] == ""
+
+    def test_data_cai_para_data_fim_sem_data_do_leilao(self):
+        lote = _leilo_lotes_json()[0]
+        lote["leilao"] = {}
+        assert _leilo_parse_lote(lote)["data_leilao"] == "2026-09-26T09:43"
+
+
+class TestLeiloParsePagina:
+    def test_pagina_real(self):
+        dados = _leilo_parse_pagina(_LEILO_HTML)
+        assert len(dados["itens"]) == 6
+        assert (dados["pagina"], dados["paginas"], dados["total"], dados["recebidos"]) == (1, 2, 54, 6)
+        assert all(it["cidade"].endswith("/CE") for it in dados["itens"])
+
+    def test_pagina_mista_so_mantem_ce_mas_conta_o_recebido(self):
+        lotes = _leilo_lotes_json()
+        lotes[0]["localizacao"]["estado"] = "GO"
+        json_estado = json.dumps({"elastic": {"lotes": lotes}})
+        dados = _leilo_parse_pagina(f"<script>window.__INITIAL_STATE__={json_estado};x()</script>")
+        assert len(dados["itens"]) == 5
+        assert dados["recebidos"] == 6
+
+    def test_sem_estado_devolve_none(self):
+        # HTML 200 sem o JSON = layout mudou; o chamador precisa saber (!= 0 lotes no CE).
+        assert _leilo_parse_pagina("<html><body>sem lotes</body></html>") is None
+
+    def test_json_invalido_ou_sem_lotes_devolve_none(self):
+        assert _leilo_parse_pagina("<script>window.__INITIAL_STATE__={quebrado</script>") is None
+        assert _leilo_parse_pagina('<script>window.__INITIAL_STATE__={"elastic":{}}</script>') is None
+
+
+def _pag(n, paginas, uuids):
+    """Resposta falsa de _leilo_baixar_pagina."""
+    itens = []
+    for u in uuids:
+        it = _leilo_parse_lote(_leilo_lotes_json()[0])
+        it["uuid"], it["url"] = u, f"https://leilo.com.br/lote/{u}/"
+        itens.append(it)
+    return {"itens": itens, "recebidos": len(itens), "pagina": n,
+            "paginas": paginas, "total": 3}
+
+
+class TestLeiloColetar:
+    def test_percorre_todas_as_paginas(self, monkeypatch):
+        paginas = {1: _pag(1, 2, ["u1", "u2"]), 2: _pag(2, 2, ["u3"])}
+        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", lambda n: paginas[n])
+        itens, total = _leilo_coletar()
+        assert [it["uuid"] for it in itens] == ["u1", "u2", "u3"]
+        assert total == 3
+
+    def test_falha_na_pagina_2_mantem_a_1(self, monkeypatch):
+        monkeypatch.setattr(_sc, "_leilo_baixar_pagina",
+                            lambda n: _pag(1, 2, ["u1", "u2"]) if n == 1 else None)
+        itens, _ = _leilo_coletar()
+        assert [it["uuid"] for it in itens] == ["u1", "u2"]
+
+    def test_falha_na_pagina_1_devolve_vazio(self, monkeypatch):
+        def falha(n):
+            raise ConnectionError("sem rede")
+        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", falha)
+        assert _leilo_coletar() == ([], 0)
+
+    def test_site_que_ignora_o_parametro_de_pagina_nao_entra_em_loop(self, monkeypatch):
+        chamadas = []
+
+        def sempre_pagina_1(n):
+            chamadas.append(n)
+            return _pag(1, 5, ["u1", "u2"])
+        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", sempre_pagina_1)
+        itens, _ = _leilo_coletar()
+        assert chamadas == [1, 2]
         assert len(itens) == 2
-        assert all(it["cidade"].endswith("/CE") for it in itens)
 
-    def test_pagina_sem_cards(self):
-        assert _leilo_parse_listagem("<html><body>sem lotes</body></html>") == []
+    def test_respeita_o_limite_de_paginas(self, monkeypatch):
+        chamadas = []
+
+        def infinito(n):
+            chamadas.append(n)
+            return _pag(n, 999, [f"u{n}"])
+        monkeypatch.setattr(_sc, "_leilo_baixar_pagina", infinito)
+        _leilo_coletar()
+        assert len(chamadas) == _sc._LEILO_MAX_PAGINAS
+
+
+class TestRasparLeilo:
+    """Cola de _raspar_leilo, sem rede: FIPE e IA falsas."""
+
+    _ANALISE_PACTO = {"estado": "USADO", "selo": "🚗 Usado", "uso_sugerido": "uso pessoal",
+                      "positivos": ["ok"], "negativos": [], "avaliacao_plataforma": "boa"}
+
+    def _preparar(self, monkeypatch, cache):
+        item = _leilo_parse_lote(_leilo_lotes_json()[0])
+        monkeypatch.setattr(_sc, "_leilo_coletar", lambda: ([item], 1))
+        monkeypatch.setattr(_sc, "buscar_fipe", lambda *a: (24363.0, "R$ 24.363"))
+        monkeypatch.setattr(_sc, "_CACHE_ANALISE", cache)
+        monkeypatch.setattr(_sc.time, "sleep", lambda s: None)
+
+    def test_gera_lote_do_leilo_com_os_campos_do_parser(self, monkeypatch):
+        self._preparar(monkeypatch, {})
+        chamadas = []
+        monkeypatch.setattr(_sc, "_analisar_cached",
+                            lambda *a: chamadas.append(a) or dict(self._ANALISE_PACTO))
+        lotes = _raspar_leilo(set())
+        assert len(lotes) == 1 and len(chamadas) == 1
+        l = lotes[0]
+        assert l["fonte"] == "leilo" and l["categoria"] == "motos"
+        assert l["url"] == f"https://leilo.com.br/lote/{_UUID_NXR}/"
+        assert l["lance_atual"] == 16400.0 and l["foto"].endswith(".jpeg")
+        assert l["data_leilao"] == "2026-09-26T09:30"
+
+    def test_reaproveita_a_analise_do_gemeo_no_pacto(self, monkeypatch):
+        url_pacto = f"{_sc._PACTO_BASE}/lote/{_UUID_NXR}/"
+        cache = {_sc._id_veiculo(url_pacto): {"cache_version": _sc._CACHE_VERSION,
+                                               "analise": dict(self._ANALISE_PACTO)}}
+        self._preparar(monkeypatch, cache)
+
+        def nao_deve_chamar(*a):
+            raise AssertionError("IA chamada de novo para lote que o Pacto ja analisou")
+        monkeypatch.setattr(_sc, "_analisar_cached", nao_deve_chamar)
+        lotes = _raspar_leilo({url_pacto})
+        assert len(lotes) == 1  # segue no resultado: o dedup e' no fim do pipeline
+        assert lotes[0]["estado"] == "USADO"
+
+    def test_sem_gemeo_no_vistos_nao_reaproveita(self, monkeypatch):
+        url_pacto = f"{_sc._PACTO_BASE}/lote/{_UUID_NXR}/"
+        cache = {_sc._id_veiculo(url_pacto): {"cache_version": _sc._CACHE_VERSION,
+                                               "analise": dict(self._ANALISE_PACTO)}}
+        self._preparar(monkeypatch, cache)
+        chamadas = []
+        monkeypatch.setattr(_sc, "_analisar_cached",
+                            lambda *a: chamadas.append(a) or dict(_sc._FALLBACK_IA))
+        _raspar_leilo(set())  # Pacto nao raspou esse lote nesta run
+        assert len(chamadas) == 1
+
+
+class TestAnaliseDoGemeo:
+    def test_devolve_a_analise_em_cache(self, monkeypatch):
+        url = f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/"
+        monkeypatch.setattr(_sc, "_CACHE_ANALISE", {_sc._id_veiculo(url): {
+            "cache_version": _sc._CACHE_VERSION, "analise": {"estado": "LACRADO"}}})
+        assert _analise_do_gemeo(url) == {"estado": "LACRADO"}
+
+    def test_ignora_cache_de_versao_antiga_e_ausente(self, monkeypatch):
+        url = f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/"
+        monkeypatch.setattr(_sc, "_CACHE_ANALISE", {_sc._id_veiculo(url): {
+            "cache_version": -1, "analise": {"estado": "LACRADO"}}})
+        assert _analise_do_gemeo(url) is None
+        monkeypatch.setattr(_sc, "_CACHE_ANALISE", {})
+        assert _analise_do_gemeo(url) is None
 
 
 # --- _chave_dedup_entre_fontes / _remover_duplicatas_entre_fontes ----------
@@ -547,6 +769,17 @@ class TestChaveDedupEntreFontes:
         lote = _lote("francisco_freitas", descricao="", modelo="Proc. 1234567-89.2025.8.06.0001")
         assert _chave_dedup_entre_fontes(lote) == "proc:1234567-89.2025.8.06.0001"
 
+    def test_uuid_do_lote_e_igual_no_pacto_e_no_leilo(self):
+        pacto = _lote("pacto", url=f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/")
+        leilo = _lote("leilo", url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
+        assert _chave_dedup_entre_fontes(pacto) == f"lote:{_UUID_NXR}"
+        assert _chave_dedup_entre_fontes(leilo) == _chave_dedup_entre_fontes(pacto)
+
+    def test_uuid_tem_prioridade_sobre_o_texto(self):
+        lote = _lote("leilo", descricao="Proc. 8500061-18.2025.8.06.0076",
+                     url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
+        assert _chave_dedup_entre_fontes(lote) == f"lote:{_UUID_NXR}"
+
 
 class TestRemoverDuplicatasEntreFontes:
     def test_remove_mesmo_processo_de_fonte_diferente(self):
@@ -576,6 +809,33 @@ class TestRemoverDuplicatasEntreFontes:
         b = _lote("maria_fixer", descricao="Proc. 2222222-22.2025.8.06.0002", url="b")
         resultado = _remover_duplicatas_entre_fontes([a, b])
         assert resultado == [a, b]
+
+    def test_remove_o_leilo_quando_o_pacto_tem_o_mesmo_lote(self):
+        # Pacto roda antes no pipeline: e' o canonico, o Leilo sai.
+        pacto = _lote("pacto", modelo="Nxr 160 Bros Abs",
+                      url=f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/")
+        leilo = _lote("leilo", modelo="Nxr 160 Bros Abs",
+                      url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
+        assert _remover_duplicatas_entre_fontes([pacto, leilo]) == [pacto]
+
+    def test_leilo_sobrevive_quando_o_pacto_nao_tem_o_lote(self):
+        # Reserva: se o scraper do Pacto quebrar, os lotes do Leilo aparecem.
+        leilo = _lote("leilo", url=f"https://leilo.com.br/lote/{_UUID_NXR}/")
+        assert _remover_duplicatas_entre_fontes([leilo]) == [leilo]
+
+    def test_lotes_parecidos_com_uuids_diferentes_sobrevivem_ambos(self):
+        # Mesmo modelo, ano, lance e leilao, mas sao duas motos: uuid diferente.
+        outro = "0e1a5d43-05ae-40fa-9dea-93be8417a420"
+        pacto = _lote("pacto", modelo="Honda Biz 125",
+                      url=f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/")
+        leilo = _lote("leilo", modelo="Honda Biz 125",
+                      url=f"https://leilo.com.br/lote/{outro}/")
+        assert _remover_duplicatas_entre_fontes([pacto, leilo]) == [pacto, leilo]
+
+    def test_mesmo_uuid_em_dominio_desconhecido_nao_e_removido(self):
+        pacto = _lote("pacto", url=f"https://www.pactoleiloes.com.br/lote/{_UUID_NXR}/")
+        outro = _lote("mega", url=f"https://outrosite.com.br/lote/{_UUID_NXR}/")
+        assert _remover_duplicatas_entre_fontes([pacto, outro]) == [pacto, outro]
 
 
 # ─── PACTO (site refeito em 09/2026) ─────────────────────────────────────────

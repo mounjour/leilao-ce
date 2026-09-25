@@ -51,6 +51,7 @@ generica do site), 28 com FIPE, 16 com km (so os que informam km).
 
 ## Fora de escopo (registrado)
 - Pacto e Leilo listam lotes dos mesmos leiloes (o Iveco Stralis aparece nos
-  dois); sem dedup entre eles.
+  dois). RESOLVIDO em 2026-09-25: mesmo uuid de lote nos dois sites, dedup exato
+  por uuid, Pacto canonico. Ver `LEILO_REDESIGN_2026-09.md`.
 - Health check de "campos-chave zerados em massa" por fonte (lance/foto/marca)
   teria pego esta regressao no primeiro run: proposta para outra sessao.

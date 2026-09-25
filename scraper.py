@@ -1,6 +1,6 @@
 from playwright.sync_api import sync_playwright
 from playwright_stealth import stealth_sync
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import anthropic
 import requests
 import json
@@ -732,132 +732,254 @@ def _extrair_data_leilao(texto):
     return ""
 
 # ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────
-# Reescrito em 2026-09-16 — o site foi reestruturado e quebrou o scraper antigo
-# de duas formas:
+# O site foi reestruturado duas vezes em 10 dias (ver docs/contexto/):
 #
-# 1. A navegacao por cidade+categoria (`/leilao/{cidade}-ceara/{categoria}`)
-#    parou de filtrar por categoria: qualquer sufixo alem da raiz (`/carros`,
-#    `/motos`, `/caminhoes`...) cai num feed generico/nacional sem filtro
-#    nenhum (mesmos lotes de SP/GO/DF/MT/BA/AM/PA pra qualquer categoria
-#    pedida) — e o codigo antigo nao validava isso, entao lotes de OUTROS
-#    ESTADOS estavam sendo importados e rotulados como "/CE" por engano
-#    (confirmado em producao: leiloes.json com cidade "Taguatinga Df/CE",
-#    "Cuiaba Mt/CE", "Manaus Am/CE" etc.).
-# 2. A URL do lote ganhou um segmento novo — o "nome do leilao" (ex.:
-#    "leilao-de-seguradoras-15-09-26") — entre a categoria e o slug do
-#    veiculo, empurrando os indices fixos que o parser antigo usava
-#    (pts[3]=marca, pts[4]=modelo). Resultado: marca virava o nome do
-#    leilao ("Leilao-De-Seguradoras-15-09-26") e a categoria pedida
-#    (cat_url do loop) raramente batia com a real, trocando "motos" por
-#    "caminhoes" etc.
+# 2026-09-16 (LEILO_REESCRITO_2026-09.md): a navegacao `/leilao/{cidade}-ceara/
+#    {categoria}` parou de filtrar e caia num feed nacional — lotes de OUTROS
+#    ESTADOS (DF, MT, AM, GO...) eram salvos rotulados "/CE". Salvaguardas que
+#    seguem valendo: a categoria vem do proprio lote (nunca de um valor
+#    "pedido") e todo lote so entra se a UF do proprio lote for "CE".
 #
-# So `/leilao/{cidade}-ceara` (SEM sufixo de categoria) continua filtrando de
-# verdade — e hoje so existe UM grupo de busca ativo pro Nordeste/CE
-# ("Fortaleza/CE", que cobre o patio fisico em Eusebio/CE; nao ha groups
-# separados por cidade do interior). E pagina server-rendered (confirmado
-# com requests.get() cru, sem Playwright) e cada card da listagem ja traz
-# tudo que precisamos prontos (titulo "MARCA/MODELO", UF, cidade, km, lance,
-# data do leilao, foto) — nao precisa mais abrir a pagina de detalhe por
-# lote. Imoveis/equipamentos do Leilo vivem numa secao separada do site
-# (`/leilao/imoveis`) e nao passam por essa listagem — fora do escopo desta
-# reescrita (o codigo antigo tambem nunca trouxe nenhum, ver leiloes.json).
-_LEILO_URL_CE = "https://leilo.com.br/leilao/fortaleza-ceara"
+# 2026-09-25 (LEILO_REDESIGN_2026-09.md): o site foi refeito (mesmo redesign do
+#    Pacto de 21/09). O href do card virou `/lote/<uuid>/`, sem o `ano.NNNN` que
+#    o regex antigo exigia, e o scraper passou a devolver 0 lote. Em vez de
+#    re-mapear o markup, le o JSON que o SSR embute em
+#    `window.__INITIAL_STATE__` (`elastic.lotes`): campos estruturados (uuid,
+#    UF, ano, km, lance, fotos, data do leilao), sem regex de HTML. A listagem
+#    tem paginacao real (`?pagina=N`, 36 por pagina); a versao anterior via 36
+#    dos 54 lotes do CE.
+#
+# Leilo e Pacto sao dois front-ends (hotsites) da MESMA plataforma e servem o
+# MESMO estoque: em 2026-09-25 os 54 lotes do CE tinham o mesmo uuid nos dois,
+# com todos os campos-chave identicos. O uuid do lote e' por isso uma chave
+# EXATA de dedup entre os dois (`_uuid_lote_plataforma`). O Pacto roda antes no
+# pipeline e e' o canonico; o Leilo funciona como reserva (se o scraper do
+# Pacto quebrar, os lotes do Leilo passam a aparecer).
+_LEILO_BASE        = "https://leilo.com.br"
+_LEILO_URL_CE      = f"{_LEILO_BASE}/leilao/ceara/"
+_LEILO_MAX_PAGINAS = 10  # trava contra loop se o site informar um total absurdo
 _LEILO_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                                  "AppleWebKit/537.36 (KHTML, like Gecko) "
                                  "Chrome/124.0.0.0 Safari/537.36"}
-# Um card = `<a class="cl column" href="..." aria-label="MARCA/MODELO">`.
-_LEILO_CARD_RE = re.compile(
-    r'<a href="(/leilao/[^"]+?/ano\.(\d{4})/[a-f0-9-]+)" class="cl column" aria-label="([^"]+)"'
-)
-_LEILO_CAT_HREF = {
-    "carros": "carros", "motos": "motos", "caminhoes": "caminhoes",
-    "pesados": "caminhoes", "utilitarios": "caminhoes", "onibus": "caminhoes",
+_LEILO_ESTADO_MARCADOR = "window.__INITIAL_STATE__="
+# Fortaleza nao tem horario de verao desde 2019: offset fixo.
+_LEILO_FUSO = timezone(timedelta(hours=-3))
+# "tipo" do lote no JSON do site -> categoria interna (mesmos nomes do Pacto).
+_LEILO_TIPO_CAT = {
+    "carros": "carros", "motos": "motos", "pesados": "caminhoes",
+    "utilitarios": "caminhoes", "utilitários": "caminhoes",
+    "onibus": "caminhoes", "caminhoes": "caminhoes", "sucatas": "carros",
+    "imoveis": "imoveis", "equipamentos": "equipamentos",
 }
 
+_UUID_RE = r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'
+_LOTE_PLATAFORMA_RE = re.compile(
+    rf'^https?://(?:www\.)?(?:pactoleiloes|leilo)\.com\.br/lote/({_UUID_RE})(?:[/?#]|$)',
+    re.IGNORECASE)
 
-def _leilo_parse_listagem(pagina_html):
-    """Extrai lotes da listagem /leilao/{cidade}-ceara (HTML estatico).
 
-    Titulo (aria-label) ja vem pronto como "MARCA/MODELO" — so splitar no
-    primeiro "/", bem mais confiavel que tentar remontar a partir da URL
-    (que agora carrega o nome do leilao no meio). A categoria real vem do
-    segmento da propria URL, nao do que foi "pedido" — a pagina so tem uma
-    listagem, nao ha o que pedir. `cl__uf`/`cl__info--local` sao a UF que o
-    proprio site atribui ao lote: exigir "CE" ali (em vez de so confiar que
-    a pagina filtrou direito) e a rede de seguranca contra o problema 1
-    acima — se o filtro cair de novo, os lotes de outro estado sao
-    descartados em vez de herdar "/CE" por engano.
+def _uuid_lote_plataforma(url):
+    """uuid do lote em `/lote/<uuid>/` do Leilo ou do Pacto, ou None.
+
+    Os dois sites sao a mesma plataforma e usam o mesmo uuid para o mesmo lote,
+    entao serve de chave exata de dedup entre eles. So reconhece esses dois
+    dominios: um uuid de outro site nao diz nada sobre o estoque destes.
     """
-    matches = list(_LEILO_CARD_RE.finditer(pagina_html))
-    resultados = []
-    for i, m in enumerate(matches):
-        href, ano_str, aria_label = m.group(1), m.group(2), m.group(3)
-        fim = matches[i + 1].start() if i + 1 < len(matches) else min(len(pagina_html), m.end() + 4000)
-        chunk = pagina_html[m.start():fim]
+    m = _LOTE_PLATAFORMA_RE.match(str(url or "").strip())
+    return m.group(1).lower() if m else None
 
-        if not re.search(r'cl__uf"[^>]*>\s*CE\s*<', chunk):
-            continue
-        m_local = re.search(r'cl__info--local"[^>]*title="([^"]+)"', chunk)
-        cidade = html.unescape(m_local.group(1)).strip() if m_local else "CE"
-        if not cidade.upper().endswith("/CE"):
-            continue
 
-        partes = href.strip('/').split('/')
-        categoria_href = partes[2] if len(partes) > 2 else ""
-        categoria_url  = _LEILO_CAT_HREF.get(categoria_href, "carros")
+def _leilo_estado_elastic(pagina_html):
+    """Bloco `elastic` do JSON embutido na pagina, ou None se ausente/invalido."""
+    i = pagina_html.find(_LEILO_ESTADO_MARCADOR)
+    if i < 0:
+        return None
+    try:
+        estado, _ = json.JSONDecoder().raw_decode(pagina_html, i + len(_LEILO_ESTADO_MARCADOR))
+    except ValueError:
+        return None
+    elastic = estado.get("elastic") if isinstance(estado, dict) else None
+    if isinstance(elastic, dict) and isinstance(elastic.get("lotes"), list):
+        return elastic
+    return None
 
-        marca, _, modelo = html.unescape(aria_label).strip().partition('/')
-        marca  = marca.title() or "?"
-        modelo = modelo.title() or "?"
 
-        m_lance = re.search(r'cl__valor"[^>]*>R\$[\xa0\s]*([\d.,]+)', chunk)
-        lance   = _parse_brl(m_lance.group(1)) if m_lance else 0
+def _leilo_foto(fotos):
+    """Primeira foto real do lote; a imagem generica "sem foto" (/fotos-modelo/) e' ignorada."""
+    for f in fotos or []:
+        if isinstance(f, str) and f and "/fotos-modelo/" not in f:
+            return f
+    return ""
 
-        m_data = re.search(r'cl__leilao-data--completa"[^>]*>(\d{2}/\d{2}/\d{4})', chunk)
-        m_hora = re.search(r'cl__leilao-hora"[^>]*>\D*(\d{2}:\d{2})', chunk)
-        data_leilao = ""
-        if m_data:
-            try:
-                data_leilao = datetime.strptime(
-                    f"{m_data.group(1)} {m_hora.group(1) if m_hora else '00:00'}",
-                    "%d/%m/%Y %H:%M").strftime("%Y-%m-%dT%H:%M")
-            except ValueError:
-                pass
 
-        m_foto = re.search(r'<img src="(https://leilo\.cdndp\.com\.br/[^"]+)"', chunk)
-        m_desc = re.search(r'cl__retomada-texto"[^>]*>([^<]+)<', chunk)
+def _leilo_data(valor_iso):
+    """'2026-09-26T12:30:00.000Z' (UTC) -> '2026-09-26T09:30' (horario de Fortaleza)."""
+    try:
+        dt = datetime.strptime(str(valor_iso)[:16], "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return ""
+    return dt.astimezone(_LEILO_FUSO).strftime("%Y-%m-%dT%H:%M")
 
-        resultados.append({
-            "url": f"https://leilo.com.br{href}", "categoria_url": categoria_url,
-            "marca": marca, "modelo": modelo, "ano": int(ano_str), "cidade": cidade,
-            "km": _extrair_km(chunk), "lance": lance,
-            "foto": m_foto.group(1) if m_foto else "",
-            "descricao": html.unescape(m_desc.group(1)).strip() if m_desc else "",
-            "data_leilao": data_leilao,
-        })
-    return resultados
+
+def _leilo_km(km):
+    """15495 -> '15.495 km' (mesmo formato de _extrair_km); '' se ausente ou zero."""
+    try:
+        n = int(km or 0)
+    except (TypeError, ValueError):
+        return ""
+    return f"{n:,}".replace(",", ".") + " km" if n > 0 else ""
+
+
+def _leilo_lance(valor):
+    """Lance atual; enquanto ninguem lancou, o "Lance Inicial" (`minimo`) — o mesmo que o card mostra."""
+    valor = valor if isinstance(valor, dict) else {}
+    lance = (valor.get("lance") or {}).get("valor")
+    for v in (lance, valor.get("minimo")):
+        if isinstance(v, (int, float)) and v > 0:
+            return float(v)
+    return 0
+
+
+def _leilo_int(valor, padrao=0):
+    return valor if isinstance(valor, int) and not isinstance(valor, bool) else padrao
+
+
+def _leilo_parse_lote(lote):
+    """Converte um item de `elastic.lotes` nos campos do lote.
+
+    Devolve None se o lote nao e' do CE (rede de seguranca contra o vazamento
+    de outros estados de 2026-09-16: a UF do proprio lote e' a fonte da
+    verdade, nao o fato de ter vindo dessa listagem), se o uuid for invalido ou
+    se nao houver nome.
+    """
+    if not isinstance(lote, dict):
+        return None
+    loc = lote.get("localizacao") or {}
+    if str(loc.get("estado") or "").strip().upper() != "CE":
+        return None
+    uuid = str(lote.get("id") or "").strip().lower()
+    if not re.fullmatch(_UUID_RE, uuid):
+        return None
+    nome = html.unescape(str(lote.get("nome") or "")).strip()
+    if not nome:
+        return None
+    marca, sep, modelo = nome.partition("/")
+    if sep:
+        marca, modelo = marca.strip().title(), modelo.strip().title()
+    else:
+        # Equipamentos/implementos vem sem "MARCA/": o nome todo e' o modelo.
+        marca, modelo = "Outros", nome.title()
+
+    veic = lote.get("veiculo") or {}
+    cidade = str(loc.get("cidade") or "").strip().title()
+    return {
+        "url": f"{_LEILO_BASE}/lote/{uuid}/",
+        "uuid": uuid,
+        "categoria_url": _LEILO_TIPO_CAT.get(_normalizar_texto(lote.get("tipo")), "carros"),
+        "marca": marca or "?",
+        "modelo": modelo or "?",
+        "ano": _leilo_int(veic.get("anoModelo")) or _leilo_int(veic.get("anoFabricacao")),
+        "cidade": f"{cidade}/CE" if cidade else "CE",
+        "km": _leilo_km(veic.get("km")),
+        "lance": _leilo_lance(lote.get("valor")),
+        "foto": _leilo_foto(lote.get("fotosUrls")),
+        "descricao": str(veic.get("retomada") or "").strip(),
+        "data_leilao": (_leilo_data((lote.get("leilao") or {}).get("data"))
+                        or _leilo_data(lote.get("dataFim"))),
+    }
+
+
+def _leilo_parse_pagina(pagina_html):
+    """Le uma pagina da listagem.
+
+    Devolve None se o HTML nao trouxe o JSON esperado (o layout mudou); senao
+    {itens, recebidos, pagina, paginas, total}, onde `recebidos` conta todos os
+    lotes da pagina e `itens` so os do CE.
+    """
+    elastic = _leilo_estado_elastic(pagina_html)
+    if elastic is None:
+        return None
+    lotes = elastic["lotes"]
+    return {
+        "itens": [it for it in map(_leilo_parse_lote, lotes) if it],
+        "recebidos": len(lotes),
+        "pagina": _leilo_int(elastic.get("paginaAtualBusca"), 1),
+        "paginas": _leilo_int(elastic.get("totalPaginasAtual"), 1),
+        "total": _leilo_int(elastic.get("totalRegistros"), len(lotes)),
+    }
+
+
+def _leilo_baixar_pagina(pagina):
+    url = _LEILO_URL_CE if pagina == 1 else f"{_LEILO_URL_CE}?pagina={pagina}"
+    r = requests.get(url, headers=_LEILO_HEADERS, timeout=20)
+    if r.status_code != 200:
+        print(f"⚠️ Leilo: HTTP {r.status_code} na pagina {pagina}")
+        return None
+    dados = _leilo_parse_pagina(r.text)
+    if dados is None:
+        print(f"⚠️ Leilo: HTTP 200 sem o JSON de lotes na pagina {pagina} (layout mudou?)")
+    return dados
+
+
+def _leilo_coletar():
+    """Percorre `?pagina=N` ate o total informado pelo site. Devolve (itens, total)."""
+    itens, uuids = [], set()
+    pagina, paginas, total, recebidos = 1, 1, 0, 0
+    while pagina <= min(paginas, _LEILO_MAX_PAGINAS):
+        try:
+            dados = _leilo_baixar_pagina(pagina)
+        except Exception as e:
+            print(f"⚠️ Leilo: {e}")
+            dados = None
+        if dados is None:
+            break
+        if dados["pagina"] != pagina:
+            print(f"⚠️ Leilo: pediu a pagina {pagina} e o site devolveu a {dados['pagina']}")
+            break
+        paginas, total = dados["paginas"], dados["total"]
+        recebidos += dados["recebidos"]
+        for it in dados["itens"]:
+            if it["uuid"] not in uuids:
+                uuids.add(it["uuid"])
+                itens.append(it)
+        pagina += 1
+    if recebidos and not itens:
+        print(f"⚠️ Leilo: {recebidos} lote(s) recebidos, nenhum no CE")
+    elif recebidos < total:
+        print(f"⚠️ Leilo: coletou {recebidos} de {total} lote(s) informados pelo site")
+    return itens, total
+
+
+def _analise_do_gemeo(url_gemeo):
+    """Analise de IA ja feita para o mesmo lote em outro site da plataforma, ou None.
+
+    Evita pagar a IA duas vezes pelo mesmo lote: o Pacto roda antes e deixa a
+    analise no cache. Ignora o `dados_hash` de proposito (o Pacto nao le a
+    descricao do lote, o Leilo le), mas o veiculo e' o mesmo.
+    """
+    cached = _CACHE_ANALISE.get(_id_veiculo(url_gemeo))
+    if (cached and cached.get("cache_version") == _CACHE_VERSION
+            and isinstance(cached.get("analise"), dict)):
+        return cached["analise"]
+    return None
 
 
 def _raspar_leilo(vistos):
     lotes = []
-    try:
-        r = requests.get(_LEILO_URL_CE, headers=_LEILO_HEADERS, timeout=20)
-    except Exception as e:
-        print(f"⚠️ Leilo: {e}")
-        return lotes
-    if r.status_code != 200:
-        print(f"⚠️ Leilo: HTTP {r.status_code}")
-        return lotes
-
-    itens = _leilo_parse_listagem(r.text)
+    itens, total = _leilo_coletar()
     if not itens:
         print("⚠️ Leilo: nenhum lote no CE")
         return lotes
-    print(f"📡 Leilo Fortaleza/CE | {len(itens)} lote(s)")
+    print(f"📡 Leilo CE | {len(itens)} lote(s) (site informa {total})")
 
     for it in itens:
         if it["url"] in vistos:
             continue
+        # O Pacto (mesmo uuid, outro dominio) roda antes e ja adicionou a URL
+        # dele a `vistos`; o lote do Leilo e' mantido aqui (o health check
+        # precisa ver o que o parser do Leilo produz) e removido no fim por
+        # `_remover_duplicatas_entre_fontes`.
+        gemeo = f"{_PACTO_BASE}/lote/{it['uuid']}/"
         vistos.add(it["url"])
         try:
             marca, modelo, ano = it["marca"], it["modelo"], it["ano"]
@@ -865,8 +987,9 @@ def _raspar_leilo(vistos):
             lance     = it["lance"]
 
             ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
-            analise = _analisar_cached(it["url"], marca, modelo, ano, it["descricao"],
-                                       it["km"], lance, ref_val, categoria)
+            analise = (_analise_do_gemeo(gemeo) if gemeo in vistos else None) or \
+                _analisar_cached(it["url"], marca, modelo, ano, it["descricao"],
+                                 it["km"], lance, ref_val, categoria)
             classif = classificar(lance, ref_val, analise.get("estado", ""))
 
             icone = ICONES.get(categoria, "📦")
@@ -3381,9 +3504,10 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
 # diferente — o `vistos` (dedup por URL) não pega isso porque a URL É
 # diferente entre fontes.
 #
-# Só gera chave de dedup quando há um identificador de alta confiança no
-# texto do lote: número de processo judicial (padrão CNJ,
-# NNNNNNN-DD.AAAA.J.TR.OOOO) ou matrícula do imóvel. Na ausência de um
+# Só gera chave de dedup quando há um identificador de alta confiança: uuid do
+# lote na URL (Pacto e Leilo são a mesma plataforma e usam o mesmo uuid, ver
+# bloco do Leilo), ou, no texto do lote, número de processo judicial (padrão
+# CNJ, NNNNNNN-DD.AAAA.J.TR.OOOO) ou matrícula do imóvel. Na ausência de um
 # desses (a maioria dos lotes, principalmente veículo), NÃO tenta merge por
 # heurística fraca de título/endereço — formato varia demais entre fontes e
 # um falso positivo esconderia uma oportunidade real do usuário, o que é
@@ -3394,7 +3518,13 @@ _MATRICULA_RE    = re.compile(r'matr[ií]cula\D{0,10}([\d.]{4,})', re.IGNORECASE
 
 def _chave_dedup_entre_fontes(lote):
     """Chave de identidade do lote independente de fonte/URL, ou None se
-    nenhum identificador de alta confiança foi encontrado no texto."""
+    nenhum identificador de alta confiança foi encontrado.
+
+    Ordem: uuid do lote na plataforma Pacto/Leilo (URL `/lote/<uuid>/`, o mesmo
+    uuid nos dois sites), depois processo CNJ e matrícula no texto."""
+    uuid = _uuid_lote_plataforma(lote.get('url'))
+    if uuid:
+        return f"lote:{uuid}"
     texto = f"{lote.get('descricao') or ''} {lote.get('modelo') or ''}"
     m = _CNJ_PROCESSO_RE.search(texto)
     if m:
@@ -3424,7 +3554,7 @@ def _remover_duplicatas_entre_fontes(lotes):
             vistas.add(chave)
         resultado.append(lote)
     if duplicatas:
-        print(f"🧹 {duplicatas} duplicata(s) entre fontes removida(s) (mesmo processo/matrícula)")
+        print(f"🧹 {duplicatas} duplicata(s) entre fontes removida(s) (mesmo lote/processo/matrícula)")
     return resultado
 
 # ─── SCRAPER PRINCIPAL ────────────────────────────────────────────────────────
