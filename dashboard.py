@@ -1043,7 +1043,7 @@ _FOTOS_PLACEHOLDER_PATTERNS = ("leilomaster.cdndp.com.br", "/fotos-modelo/")
 
 def render_lotes(lotes_lista, key="main"):
     icones_cat = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
-                  "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","outros":"📦"}
+                  "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","diversos":"🧰","outros":"📦"}
 
     total        = len(lotes_lista)
     total_pages  = max(1, (total + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE)
@@ -1536,7 +1536,7 @@ with st.sidebar:
                 margin-bottom:.5rem;">Filtros</div>""", unsafe_allow_html=True)
 
     cats_existentes = sorted(set(l.get("categoria","") for l in lotes))
-    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos"]
+    cats_completas  = ["carros","motos","caminhoes","imoveis","casas","terrenos","equipamentos","eletronicos","diversos"]
     cats    = ["Todas"] + sorted(set(cats_existentes + cats_completas))
     marcas  = sorted(set(l["marca"] for l in lotes))
     cidades = ["Todas"] + sorted(set(l.get("cidade","") for l in lotes))
@@ -1694,7 +1694,7 @@ if not fil:
     st.stop()
 
 icones_cat = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
-              "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","outros":"📦"}
+              "casas":"🏡","terrenos":"🌍","equipamentos":"⚙️","eletronicos":"📱","diversos":"🧰","outros":"📦"}
 cats_presentes = sorted(set(l.get("categoria","outros") for l in fil))
 
 abas_labels = ["🏠 Todos"] + [f"{icones_cat.get(c,'📦')} {c.title()}" for c in cats_presentes]

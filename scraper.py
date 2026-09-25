@@ -24,7 +24,7 @@ CIDADES_CE = [
 FIPE_API   = "https://parallelum.com.br/fipe/api/v1"
 cliente_ia = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 ICONES     = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"🏠",
-              "equipamentos":"⚙️","eletronicos":"📱"}
+              "equipamentos":"⚙️","eletronicos":"📱","diversos":"🧰"}
 
 # ─── CATEGORIZAÇÃO REAL ───────────────────────────────────────────────────────
 PALAVRAS_MOTO = ['cg ','fan ','bros','titan','pcx','fazer','crosser','biz','lead',
@@ -41,7 +41,11 @@ PALAVRAS_CAMINHAO = ['caminhão','caminhao','ônibus','onibus','ford cargo','fh 
 PALAVRAS_MAQUINA  = ['escavadeira','retroescavadeira','retroecavadeira','pa carregadeira','trator',
                      'empilhadeira','guindaste','munck','compactador','gerador',
                      'compressor','alinhador','balanceador','elevador','betoneira',
-                     'motoniveladora','fotovoltaico','tkba','skf']
+                     'motoniveladora','fotovoltaico','tkba','skf','plaina','implemento agr']
+# Picapes: o site as agrupa em "utilitarios" (mapeado p/ caminhoes), mas o
+# usuario procura em carros.
+PALAVRAS_PICAPE   = ['strada','saveiro','toro ','hilux','s10','ranger','amarok','montana',
+                     'oroch','frontier','l200','hoggar','courier','ram 1500','rampage']
 PALAVRAS_IMOVEL   = ['apartamento','casa ','terreno','lote ','sala comercial',
                      'galpao','barracão','prédio','sítio','fazenda','chácara',
                      'loja ','sobrado','cobertura','flat ','imóvel','imóveis',
@@ -53,6 +57,8 @@ def detectar_categoria(modelo, marca, cat_url):
     if any(p in nome for p in PALAVRAS_MAQUINA):   return "equipamentos"
     if any(p in nome for p in PALAVRAS_CAMINHAO):  return "caminhoes"
     if any(p in nome for p in PALAVRAS_MOTO):      return "motos"
+    if cat_url == "caminhoes" and any(p in nome for p in PALAVRAS_PICAPE):
+        return "carros"
     return cat_url
 
 # ─── REFERÊNCIAS DE MERCADO ───────────────────────────────────────────────────
@@ -83,7 +89,7 @@ def _score_modelo(fipe_nome: str, palavras: list) -> int:
     return sum(1 for p in palavras if p in nome)
 
 def buscar_fipe(marca, modelo, ano, categoria):
-    if categoria in ["imoveis","equipamentos","caminhoes"]:
+    if categoria in ["imoveis","equipamentos","caminhoes","eletronicos","diversos"]:
         return buscar_referencia_mercado(marca, modelo)
     endpoint = "motos" if categoria == "motos" else "carros"
     try:
@@ -860,6 +866,8 @@ def _plataforma_parse_lote(lote, base):
     if not nome:
         return None
     marca, sep, modelo = nome.partition("/")
+    if sep and any(p in marca.lower() for p in PALAVRAS_MAQUINA):
+        sep = ""   # "PLAINA AGRICOLA X / TRATOR Y": o trecho antes da barra nao e marca
     if sep:
         marca, modelo = marca.strip().title(), modelo.strip().title()
     else:
@@ -1220,18 +1228,27 @@ def _mj_parse_titulo(titulo):
         modelo = ' '.join(palavras[1:]) or "?"
     return nome, marca, modelo, ano
 
-# Lotes que nao sao veiculo/maquina/imovel (sucata eletronica, mobiliario e
-# equipamento hospitalar/escolar): decisao do dono em 2026-09-25, vao para
-# "eletronicos" (mesma categoria dos itens da Receita).
-_MJ_PALAVRAS_ELETRONICO = ['eletrônic', 'eletronic', 'computador', 'televis',
-                           'impressora', 'ar-condicionado', 'ventilador',
-                           'hospitalar', 'odontol', 'escolar', 'mobili',
-                           'cadeira', 'mesas']
+# Lotes que nao sao veiculo/maquina/imovel: "eletronicos" so quando o titulo cita
+# eletronico de fato; o resto (mobiliario, bicicleta, material hospitalar/escolar)
+# cai em "diversos" (decisao do dono, 2026-09-25).
+_PALAVRAS_ELETRONICO_RE = re.compile(
+    r'eletr[ôo]nic|computador|televis|\btvs?\b|impressora|ar[- ]condicionado|'
+    r'ventilador|headset|notebook|celular|smartphone|caixa de som|r[áa]dio|'
+    r'monitor|videogame|projetor|geladeira|microondas', re.IGNORECASE)
+
+def _categoria_nao_veiculo(titulo):
+    """Categoria de um lote sem marca/modelo de veiculo: eletronicos ou diversos."""
+    return "eletronicos" if _PALAVRAS_ELETRONICO_RE.search(titulo or "") else "diversos"
+
+_MJ_PALAVRAS_DIVERSOS = ['hospitalar', 'odontol', 'escolar', 'mobili',
+                         'cadeira', 'mesas']
 
 def _mj_categoria(nome, marca, modelo):
     n = (nome or '').lower()
-    if any(p in n for p in _MJ_PALAVRAS_ELETRONICO):
+    if _PALAVRAS_ELETRONICO_RE.search(n):
         return "eletronicos"
+    if any(p in n for p in _MJ_PALAVRAS_DIVERSOS):
+        return "diversos"
     return detectar_categoria(f"{nome} {modelo}", marca, "carros")
 
 def _raspar_mj_leiloes(vistos):
@@ -1319,7 +1336,7 @@ def _raspar_mj_leiloes(vistos):
 
                 categoria = _mj_categoria(nome, marca, modelo)
                 icone     = ICONES.get(categoria, "📦")
-                if categoria == "eletronicos":   # sem FIPE nem referencia de mercado
+                if categoria in ("eletronicos", "diversos"):   # sem FIPE nem referencia
                     ref_val, ref_str = 0, "Sem referência"
                 else:
                     ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
@@ -3197,6 +3214,17 @@ _MONTENEGRO_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                    "Chrome/124.0.0.0 Safari/537.36")
 
 
+def _montenegro_titulo_card(resumo):
+    """Titulo do lote no cartao da listagem (pula status, aviso de imagem e numeros)."""
+    for linha in (x.strip() for x in (resumo or "").splitlines()):
+        if not linha or linha.isdigit():
+            continue
+        if linha.lower().startswith(("vendido", "houve um problema", "lance ", "leilão -")):
+            continue
+        return re.sub(r'\s+', ' ', linha)
+    return ""
+
+
 def _raspar_montenegro(_pg_lista, vistos, browser):
     """Descobre leilões abertos com veículos e coleta seus lotes.
 
@@ -3355,9 +3383,19 @@ def _raspar_montenegro(_pg_lista, vistos, browser):
                 if fotos:
                     foto = fotos[0]
 
-                categoria = detectar_categoria(modelo, marca, "carros")
+                if marca == "?" or modelo == "?":
+                    # Leilao "de veiculos" com lote que nao e veiculo (bicicleta,
+                    # TV, ar-condicionado...): o titulo do cartao vira o modelo e o
+                    # lote vai para "eletronicos" ou "diversos", sem FIPE.
+                    titulo_card = _montenegro_titulo_card(resumo)
+                    marca = "Outros"
+                    modelo = titulo_card.rstrip(". ").title() or "Lote diverso"
+                    ano, km, categoria = 0, "", _categoria_nao_veiculo(titulo_card)
+                    ref_val, ref_str = 0, "Sem referência"
+                else:
+                    categoria = detectar_categoria(modelo, marca, "carros")
+                    ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 icone = ICONES.get(categoria, "📦")
-                ref_val, ref_str = buscar_fipe(marca, modelo, ano, categoria)
                 analise = _analisar_cached(
                     url_lote, marca, modelo, ano, descricao, km,
                     lance, ref_val, categoria

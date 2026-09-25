@@ -35,6 +35,8 @@ from scraper import (
     _grupo_lance_parse_pagina,
     _chave_dedup_entre_fontes,
     _remover_duplicatas_entre_fontes,
+    _montenegro_titulo_card,
+    _categoria_nao_veiculo,
 )
 
 
@@ -970,7 +972,7 @@ _MJ_TITULOS = [
     ("SUCATAS DE ELETRÔNICAS TELEVISÕES, FONTES DE COMPUTADORES, VENTILADORES. IMPRESSORAS, AR-CONDICIONADOS E OUTROS.",
      "eletronicos", "Sucatas", None, 0),
     ("EQUIPAMENTOS HOSPITALARES E ODONTOLÓGICOS, MATERIAIS ESCOLARES; MESAS, CADEIRAS E OUTROS.",
-     "eletronicos", "Equipamentos", None, 0),
+     "diversos", "Equipamentos", None, 0),
     ("APARELHOS ELETRÔNICOS - COMPUTADORES, RÁDIOS, CAIXA DE SOM, IMPRESSORAS, AR-CONDICIONADO E VENTILADORES.",
      "eletronicos", "Aparelhos", None, 0),
 ]
@@ -1000,3 +1002,45 @@ class TestMjTituloECategoria:
 
     def test_cargo_de_caminhao_nao_vira_moto(self):
         assert detectar_categoria("Caminhão Ford Cargo 1319", "", "carros") == "caminhoes"
+
+
+class TestMontenegroTituloCard:
+    def test_lote_que_nao_e_veiculo(self):
+        resumo = "\n".join([
+            "Vendido", "Houve um problema carregando a imagem", "005", "528", "",
+            'TV smart 75" Crystal UHD 4k', "", "Leilão - 25/09/2026 10:00",
+            "Lance inicial: R$ 500,00", "LEILÃO - SESC & SENAC", "VER DETALHES",
+        ])
+        assert _montenegro_titulo_card(resumo) == 'TV smart 75" Crystal UHD 4k'
+
+    def test_vazio(self):
+        assert _montenegro_titulo_card("") == ""
+
+    @pytest.mark.parametrize("titulo,esperado", [
+        ("01 Bicicleta estacionária vertical para musculação.", "diversos"),
+        ('TV smart 75" Crystal UHD 4k e TV Smart ultra HD 4k em led 65"', "eletronicos"),
+        ("Ar condicionado tipo split 24.000 BTU'S Samsung.", "eletronicos"),
+        ("02 (duas) Unidades Headset Ramp PN12515G12", "eletronicos"),
+        ("Mesa e cadeiras de escritório", "diversos"),
+        ("", "diversos"),
+    ])
+    def test_categoria_nao_veiculo(self, titulo, esperado):
+        assert _categoria_nao_veiculo(titulo) == esperado
+
+
+class TestPactoCategoriaPicapeEImplemento:
+    def test_picape_utilitario_vai_para_carros(self):
+        assert detectar_categoria("Strada Freedom Cabine Simples", "Fiat", "caminhoes") == "carros"
+
+    def test_picape_nao_afeta_caminhao_de_verdade(self):
+        assert detectar_categoria("Fh 540 6X4T", "Volvo", "caminhoes") == "caminhoes"
+
+    def test_implemento_agricola_e_equipamento(self):
+        assert detectar_categoria("Implemento Agricola Plaina Dianteira Pdv", "Outros", "caminhoes") == "equipamentos"
+
+    def test_nome_com_barra_sem_marca_real(self):
+        from scraper import _plataforma_parse_lote
+        uuid = "9a874398-fcf9-44f6-aee6-035b8052904a"
+        r = _plataforma_parse_lote({"id": uuid, "nome": "PLAINA AGRICOLA PDM 4707 / 5710 BT COMND TRATOR",
+                                    "localizacao": {"estado": "CE", "cidade": "X"}}, "https://www.pactoleiloes.com.br")
+        assert r["marca"] == "Outros" and "Plaina" in r["modelo"] and "Trator" in r["modelo"]
