@@ -71,7 +71,7 @@ código do separador (`hex(ord(c))` → `0x2022`) num smoke test contra a
 página ao vivo. Sem esse teste com dado real, o bug passaria despercebido
 silenciosamente (nenhum erro, só campos vazios).
 
-## Duplicata entre fontes — mitigado (ver docs/contexto/DEDUP_ENTRE_FONTES.md)
+## Duplicata entre fontes — mitigado (ver docs/contexto/fontes/incidentes/DEDUP_ENTRE_FONTES.md)
 
 Como é agregador, os mesmos imóveis de leiloeiros já raspados diretamente
 (Francisco Freitas, Maria Fixer, Grupo Lance...) podem aparecer aqui de

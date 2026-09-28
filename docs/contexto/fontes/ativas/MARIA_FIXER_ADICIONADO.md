@@ -15,7 +15,7 @@ como `_raspar_maria_fixer` em `scraper.py`.
 ## Como o site funciona (mesma plataforma do Francisco Freitas)
 
 - **Mesmo backend "vlance"** usado por
-  `docs/contexto/FRANCISCO_FREITAS_ADICIONADO.md` — confirmado testando a
+  `docs/contexto/fontes/ativas/FRANCISCO_FREITAS_ADICIONADO.md` — confirmado testando a
   API ao vivo em 2026-09-16: mesmos endpoints (`core/api/get-leiloes`,
   `core/api/get-lotes?leilao_id=X` via POST) e o mesmo schema de campos
   (`nm_estado`, `nm_cidade`, `nm_titulo_lote`, `nm_categoria`,

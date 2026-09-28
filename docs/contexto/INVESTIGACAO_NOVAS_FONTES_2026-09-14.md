@@ -50,7 +50,7 @@ implementado ainda**.
 - Já investigado antes e descartado por Cloudflare bloquear o IP do GitHub
   Actions — mas isso foi antes da solução Zenrows Scraping Browser
   (`connect_over_cdp`) que hoje resolve exatamente esse problema pro MGL
-  (ver docs/contexto/MGL_SCRAPER_PENDENTE.md). Vale reaproveitar a mesma
+  (ver docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md). Vale reaproveitar a mesma
   abordagem aqui.
 
 ### 4. Leilão Imóvel (leilaoimovel.com.br)

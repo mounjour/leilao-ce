@@ -473,7 +473,7 @@ class TestGrupoLanceParsePagina:
 # HTML no formato do site (`window.__INITIAL_STATE__=...`). Ordem: moto com
 # lance, moto sem lance e sem foto, carro, utilitario sem lance, moto sem km,
 # moto com km < 1000. Os casos de outro estado / campos ausentes sao sinteticos,
-# derivados desses lotes. Contexto: docs/contexto/LEILO_REDESIGN_2026-09.md.
+# derivados desses lotes. Contexto: docs/contexto/fontes/incidentes/LEILO_REDESIGN_2026-09.md.
 import copy
 from pathlib import Path
 
