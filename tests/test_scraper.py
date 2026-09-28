@@ -203,6 +203,14 @@ class TestDetectarCategoria:
     def test_moto(self):
         assert detectar_categoria("CG 160 Titan", "Honda", "carros") == "motos"
 
+    def test_moto_fan(self):
+        assert detectar_categoria("Fan 160", "Honda", "carros") == "motos"
+
+    def test_marca_lifan_nao_e_moto(self):
+        # "fan " (moto Honda Fan) e' substring de "Lifan": sem espaco antes,
+        # nao pode casar com a marca Lifan (bug real visto em producao).
+        assert detectar_categoria("X60 Vvt", "Lifan", "carros") == "carros"
+
     def test_fallback_para_categoria_da_url(self):
         assert detectar_categoria("Onix 1.0 LT", "Chevrolet", "carros") == "carros"
 

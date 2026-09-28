@@ -27,7 +27,7 @@ ICONES     = {"carros":"🚗","motos":"🏍️","caminhoes":"🚛","imoveis":"�
               "equipamentos":"⚙️","eletronicos":"📱","diversos":"🧰"}
 
 # ─── CATEGORIZAÇÃO REAL ───────────────────────────────────────────────────────
-PALAVRAS_MOTO = ['cg ','fan ','bros','titan','pcx','fazer','crosser','biz','lead',
+PALAVRAS_MOTO = ['cg ',' fan ','bros','titan','pcx','fazer','crosser','biz','lead',
                  'nxr','xre',' cargo','start','ybr','pop ','cb 3','ninja','factor',
                  'twister','burgman','nmax','lander','mt-','xtz','shineray','xy150',
                  'xy125','shi 175','biz','dominar','fz15','harley','davidson',
