@@ -49,7 +49,7 @@ _LIMITE_STREAK_CAMPOS = 2
 # Fontes que se espera render lote todo run. Se uma destas zerar, alerta.
 FONTES_ATIVAS = {
     "leilo", "mega", "pacto", "montenegro",
-    "mj", "receita_sle", "francisco_freitas", "grupo_lance", "maria_fixer",
+    "mj", "francisco_freitas", "grupo_lance", "maria_fixer",
     "spy_leiloes",
 }
 
@@ -60,6 +60,8 @@ FONTES_ESPERADAS_ZERO = {
     "construbem",   # Zenrows sem credito
     "danielgarcia",  # ScraperAPI com timeout
     "celsocunha",   # dormente — site reconstruido, sem leilao ativo (ver docs/contexto/fontes/pausadas/CELSO_CUNHA_DORMENTE.md)
+    "receita_sle",  # edital da DRF Fortaleza sai a cada ~3 meses (proximo ~21/12/2026); entre
+                    # editais 0 lote e normal — ver docs/contexto/fontes/ativas/RECEITA_SLE_ADICIONADO.md
     "pereira",      # leiloeiro unico de leiloes municipais, cadencia de semanas/
                     # meses entre leiloes (normal, nao e fonte quebrada) — ver
                     # docs/contexto/fontes/ativas/PEREIRA_LEILOES_ADICIONADO.md. Promover pra

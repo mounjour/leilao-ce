@@ -221,3 +221,7 @@ estivesse aberto. Corrigido para aceitar 2 e 3; validado ao vivo: 287 lotes CE
 editais de Fortaleza em 2026: 23/03, 22/06 e 21/09 (~3 meses), então entre
 editais 0 lote é esperado; o log agora mostra as situações de Fortaleza na API
 quando não há edital aberto.
+
+## Health check (2026-09-29)
+
+Apos o edital 000003/2026 encerrar (situacao 8), a fonte zerou e o health alertou 3x por WhatsApp sem haver problema. `receita_sle` saiu de `FONTES_ATIVAS` e foi para `FONTES_ESPERADAS_ZERO`. Proximo edital previsto para ~21/12/2026; se a fonte voltar a render lote, o placar continua registrando normalmente.
