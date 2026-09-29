@@ -14,8 +14,8 @@ cada item foi movido pros docs de contexto linkados, ver
 - Leilo corrigido + dedup com o Pacto (2026-09-25): site refeito (mesmo
   redesign do Pacto); parser reescrito pra ler o JSON embutido da pagina.
   Pacto e Leilo sao a MESMA plataforma — dedup por uuid entre os dois, Pacto
-  como canonico. Testes: 169/169. Pendencia: favoritos por uuid
-  (`favorites._normalizar_url` compara URL inteira). Ver
+  como canonico. Testes: 169/169. Favoritos por uuid
+  resolvido em 2026-09-29 (`favorites._normalizar_url`). Ver
   docs/contexto/fontes/incidentes/LEILO_REDESIGN_2026-09.md.
 - Receita SLE corrigida (2026-09-24): 0 lotes desde 21/09 era o filtro de
   situacao do edital desatualizado (so aceitava `situacao 2`, precisava
@@ -28,8 +28,8 @@ cada item foi movido pros docs de contexto linkados, ver
   Ver docs/contexto/fontes/ativas/GRUPO_LANCE_ADICIONADO.md.
 - Pacto migrado para requests (2026-09-25): `_raspar_pacto` reescrita sem
   Playwright, reaproveitando o parser da plataforma Leilo (JSON
-  `elastic.lotes`). 176/176 testes; validado 69 lotes ao vivo. Pendencia:
-  favoritos por uuid. Ver
+  `elastic.lotes`). 176/176 testes; validado 69 lotes ao vivo. Favoritos
+  por uuid resolvido em 2026-09-29. Ver
   docs/contexto/fontes/incidentes/PACTO_REGRESSAO_2026-09.md.
 - Regressao do Pacto corrigida (2026-09-24): site refeito quebrou lance,
   foto, marca e FIPE desde 21/09; `_raspar_pacto` reescrita com funcoes
@@ -126,10 +126,14 @@ cada item foi movido pros docs de contexto linkados, ver
   de emergencia do updateProfile (puxa phone/name de auth.users) e colunas
   de cobranca (subscription_status etc.) deployados e aplicados. Ver
   docs/contexto/STRIPE_WEBHOOK_FALLBACK.md.
+- Favoritos por uuid (2026-09-29): `favorites._normalizar_url` mapeia URLs
+  `/lote/<uuid>/` do Pacto/Leilo para a forma canonica do Pacto; remocao apaga
+  todas as formas antigas. Favoritos Pacto no formato antigo (`ano.NNNN`)
+  continuam sem casar. Testes: tests/test_favorites.py.
 
 BACKLOG:
 - Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
-  monitoramento da VPS, favoritos por uuid, credito da IA, novas fontes, funil.
+  monitoramento da VPS, credito da IA, novas fontes, funil.
   Lista completa e priorizada em
   docs/contexto/PROXIMOS_PASSOS_2026-09-29.md.
 - PENDENTE (registrado 2026-09-29): conferir a migracao para `achadinleiloes.tech`

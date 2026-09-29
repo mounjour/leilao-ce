@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 from urllib.parse import urlsplit, urlunsplit
 
 import requests
@@ -18,8 +19,46 @@ def _secret(key: str, default: str = "") -> str:
     return str(value).strip() if value is not None else default
 
 
+# Pacto e Leilo são a mesma plataforma e dão o mesmo uuid ao mesmo lote
+# (ver scraper._uuid_lote_plataforma). O favorito é chaveado pelo uuid, na
+# forma canônica do Pacto, para sobreviver a troca de domínio ou de formato.
+_UUID_RE = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+_LOTE_PLATAFORMA_RE = re.compile(
+    rf"^https?://(?:www\.)?(?:pactoleiloes|leilo)\.com\.br/lote/({_UUID_RE})(?:[/?#]|$)",
+    re.IGNORECASE,
+)
+_HOSTS_PLATAFORMA = (
+    "www.pactoleiloes.com.br",
+    "pactoleiloes.com.br",
+    "leilo.com.br",
+    "www.leilo.com.br",
+)
+
+
+def _uuid_plataforma(url: str) -> str | None:
+    m = _LOTE_PLATAFORMA_RE.match(str(url or "").strip())
+    return m.group(1).lower() if m else None
+
+
+def _urls_equivalentes(url: str) -> list[str]:
+    """Todas as chaves com que este lote pode estar gravado no banco.
+
+    Favoritos antigos ficaram com a URL do Leilo (ou do Pacto sem o `www`); ao
+    remover, todas precisam sair, senão o lote volta a aparecer no próximo login.
+    """
+    uuid = _uuid_plataforma(url)
+    if not uuid:
+        return [_normalizar_url(url)]
+    return [f"https://{host}/lote/{uuid}" for host in _HOSTS_PLATAFORMA]
+
+
 def _normalizar_url(url: str) -> str:
-    """Evita duplicidade causada por parâmetros de rastreamento ou fragmentos."""
+    """Evita duplicidade causada por parâmetros de rastreamento ou fragmentos.
+
+    Lotes da plataforma Pacto/Leilo viram sempre a URL canônica do Pacto."""
+    uuid = _uuid_plataforma(url)
+    if uuid:
+        return f"https://www.pactoleiloes.com.br/lote/{uuid}"
     try:
         partes = urlsplit(str(url or "").strip())
         caminho = partes.path.rstrip("/") or "/"
@@ -148,7 +187,7 @@ def toggle_favorite(
                 sb.table("favorites")
                 .delete()
                 .eq("user_id", user_id)
-                .eq("lote_url", url)
+                .in_("lote_url", _urls_equivalentes(url_original))
                 .execute()
             )
             favoritos.pop(url, None)

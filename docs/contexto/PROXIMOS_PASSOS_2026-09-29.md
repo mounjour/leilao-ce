@@ -28,7 +28,7 @@ Já registrados em outro lugar (não repetidos aqui):
 
 ## 3. Qualidade de produto
 
-- [ ] **Favoritos por uuid.** `favorites._normalizar_url` compara a URL inteira; como Pacto e
+- [x] **Favoritos por uuid (feito 2026-09-29).** `favorites._normalizar_url` compara a URL inteira; como Pacto e
       Leilo mudaram de URL, favoritos antigos quebram em silêncio. Normalizar por uuid
       (dedup Pacto/Leilo já é por uuid). Correção pequena, impacto direto no usuário.
 - [ ] **Análise de IA.** Sem crédito Anthropic, todos os lotes caem no fallback "Não informado".

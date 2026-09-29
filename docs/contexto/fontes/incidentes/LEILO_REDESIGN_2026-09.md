@@ -99,7 +99,7 @@ Leilo sobrevivem.
 - **Migrar o Pacto para este mesmo parser via `requests`**: o JSON esta no HTML
   SSR do Pacto tambem; eliminaria Playwright e a classe de bug de foto
   preguicosa. Mexe num scraper ja validado; fazer em sessao propria.
-- **Favoritos por uuid**: `favorites._normalizar_url` compara a URL inteira. Se o
+- **Favoritos por uuid** (RESOLVIDO em 2026-09-29): `favorites._normalizar_url` compara a URL inteira. Se o
   Pacto cair e o Leilo assumir, o favorito do lote nao casa. Normalizar por uuid
   para URLs `/lote/<uuid>/` resolveria (e tambem a troca de dominio).
 - `leiloes.json` so reflete a correcao apos o proximo run do Actions.
