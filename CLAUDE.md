@@ -128,6 +128,10 @@ cada item foi movido pros docs de contexto linkados, ver
   docs/contexto/STRIPE_WEBHOOK_FALLBACK.md.
 
 BACKLOG:
+- Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
+  monitoramento da VPS, favoritos por uuid, credito da IA, novas fontes, funil.
+  Lista completa e priorizada em
+  docs/contexto/PROXIMOS_PASSOS_2026-09-29.md.
 - PENDENTE (registrado 2026-09-29): conferir a migracao para `achadinleiloes.tech`
   fora do repo — `APP_URL` no `.env` da VPS, Site URL/Redirect URLs no Supabase
   Auth e URL do webhook no Stripe. DNS e HTTPS ja verificados. Checklist na
