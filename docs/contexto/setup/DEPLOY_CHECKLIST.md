@@ -81,11 +81,12 @@ recuperável. O site sobe e opera sem isso.
 
 - [ ] Recarregar crédito da Anthropic — destrava a análise de estado dos lotes (`estado` / `selo`), hoje toda em fallback "Não informado". Não bloqueia o deploy, mas o painel fica com dado pobre até isso
 
-## G. Domínio próprio (opcional)
+## G. Domínio próprio
 
-Hoje o site usa `2-25-223-119.sslip.io` (sem domínio, TLS via Let's Encrypt
-comum). Trocar por um domínio de verdade é opcional, mas fica mais fácil de
-divulgar e de confiar do que um endereço com IP no meio.
+O site agora responde em `achadinleiloes.tech` (verificado em 2026-09-29: DNS A
+-> `2.25.223.119` e HTTPS 200 sem erro de certificado). Antes usava
+`2-25-223-119.sslip.io`. As seções A-F acima ficam como registro histórico da
+migração original para a VPS.
 
 - [x] Buscar alternativas de nome nos domínios **grátis/baratos da
       Hostinger** — na primeira busca só `achadinleiloes.tech` apareceu
@@ -94,16 +95,17 @@ divulgar e de confiar do que um endereço com IP no meio.
       TLD mais popular (`.com`, `.com.br`, `.online`, `.site`) em vez de cair
       sempre no `.tech`
   - Conclusão: todos os domínios pesquisados caem no `.tech`
-- [ ] Registrar o domínio escolhido
-- [ ] Apontar o DNS do domínio para o IP da VPS (`2.25.223.119`)
-- [ ] Reemitir o certificado TLS pro domínio novo: `sudo certbot --nginx -d
+- [x] Registrar o domínio escolhido (`achadinleiloes.tech`)
+- [x] Apontar o DNS do domínio para o IP da VPS (`2.25.223.119`)
+- [x] Reemitir o certificado TLS pro domínio novo: `sudo certbot --nginx -d
       SEU-DOMINIO --redirect -m SEU-EMAIL --agree-tos --no-eff-email`
       (seção 5 do `SETUP_HOSTINGER_VPS.md`)
-- [ ] Atualizar `APP_URL` no `.env` da VPS e reiniciar o serviço
+- [ ] Atualizar `APP_URL` no `.env` da VPS e reiniciar o serviço (não verificado)
 - [ ] Atualizar Site URL / Redirect URLs no Supabase Auth (bloco B) pro
-      domínio novo
-- [ ] Atualizar `server_name` no bloco do Nginx
-- [ ] Atualizar `CLAUDE.md` e `PLANO-DO-PROJETO.md` trocando as referências
+      domínio novo (não verificado)
+- [ ] Conferir URL do webhook no Stripe (não verificado)
+- [x] Atualizar `server_name` no bloco do Nginx (site responde no domínio)
+- [x] Atualizar `CLAUDE.md` e `PLANO-DO-PROJETO.md` trocando as referências
       de `2-25-223-119.sslip.io` pelo domínio novo
 
 ## H. Desligar o Community Cloud (só depois de 3–7 dias com a VPS validada)
@@ -114,5 +116,5 @@ divulgar e de confiar do que um endereço com IP no meio.
 ## I. Documentação final
 
 - [x] `CLAUDE.md` — tirar o "em andamento" da linha Deploy (feito 2026-09-15)
-- [x] `PLANO-DO-PROJETO.md` — seções 1/7/12/13 para **VPS Hostinger (`2-25-223-119.sslip.io`)** (feito 2026-09-15)
+- [x] `PLANO-DO-PROJETO.md` — seções 1/7/12/13 para **VPS Hostinger (`achadinleiloes.tech`)** (feito 2026-09-15)
 - [ ] (Opcional, futuro) Se o restart a cada commit do scraper (1×/dia) incomodar: o dashboard já lê `leiloes.json` via `st.cache_data(ttl=1800)`, então dá para trocar o `deploy.yml` por um cron simples de `git pull` sem restart nos commits só de dados — reservar o restart só para pushes que mudem código

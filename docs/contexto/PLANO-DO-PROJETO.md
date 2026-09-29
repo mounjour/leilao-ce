@@ -47,7 +47,7 @@ do Stripe. Não há framework web nem back-end separado: o Streamlit *é* o fron
 back-end ao mesmo tempo.
 
 - **Deploy:** em produção numa **VPS Hostinger** (plano **KVM 1**, 1 vCPU/4GB RAM), endereço
-  `2-25-223-119.sslip.io` (IP `2.25.223.119`, sem domínio próprio ainda, TLS via Let's
+  `achadinleiloes.tech` (IP `2.25.223.119`, domínio próprio; antes `2-25-223-119.sslip.io`, TLS via Let's
   Encrypt/Certbot). Migração concluída em 2026-09-15 (guia:
   [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md); deploy automático via
   [`deploy.yml`](../../.github/workflows/deploy.yml), SSH no push do `main`, testado e
@@ -314,7 +314,7 @@ persistem entre rodadas):
   para de render lote por 3 runs seguidos (não falha o job).
 - **Hospedagem**: **VPS Hostinger** (plano **KVM 1**: 1 vCPU / 4 GB RAM / 50 GB NVMe,
   ~R$ 28/mês; subir pra KVM 2 no painel se sobrar pouca RAM, ou se decidir self-host da
-  Evolution API na mesma máquina), IP `2.25.223.119`, endereço `2-25-223-119.sslip.io`,
+  Evolution API na mesma máquina), IP `2.25.223.119`, endereço `achadinleiloes.tech`,
   processo `streamlit run dashboard.py` sob **systemd** (`leilao-ce.service`), atrás de
   **Nginx** com TLS via **Let's Encrypt/Certbot** (certificado válido até 2026-12-14).
   Deploy automático via GitHub Actions (`deploy.yml`, SSH no push do `main`: `git reset
@@ -426,7 +426,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 ## 12. Próximos passos imediatos
 
 1. ~~**Concluir a migração para a VPS Hostinger**~~ — FEITO (2026-09-15): VPS KVM 1 no ar
-   (`2-25-223-119.sslip.io`), systemd + Nginx + Certbot, deploy automático via GitHub
+   (`achadinleiloes.tech`), systemd + Nginx + Certbot, deploy automático via GitHub
    Actions testado, Supabase apontado, teste E2E completo passou (cadastro, login, paywall,
    checkout, favoritar). Falta: trocar chaves Stripe de teste por live (acesso à conta
    travado em 2FA sem posse confirmada), configurar secrets `SUPABASE_DB_URL` e
@@ -463,7 +463,7 @@ qualidade de dado do painel — não são bugs, são bloqueios de crédito/infra
 | Cobrança | **Stripe** (Checkout + Billing Portal + Webhook) | Webhook roda como Supabase Edge Function em **Deno**. |
 | Alertas | **WhatsApp via Evolution API** (não oficial) | Ver risco na seção 11. |
 | Automação | **GitHub Actions** (cron 1×/dia) | Scraper → commit `leiloes.json` → alertas, tudo em um workflow. |
-| Hospedagem | **VPS Hostinger** (plano KVM 1, 1 vCPU/4GB RAM, `2-25-223-119.sslip.io`) | Deploy automático via GitHub Actions (SSH) no push do `main`, testado. Streamlit Community Cloud mantido como rollback por alguns dias. Ver `SETUP_HOSTINGER_VPS.md`, `DEPLOY_CHECKLIST.md`, `deploy.yml`. |
+| Hospedagem | **VPS Hostinger** (plano KVM 1, 1 vCPU/4GB RAM, `achadinleiloes.tech`) | Deploy automático via GitHub Actions (SSH) no push do `main`, testado. Streamlit Community Cloud mantido como rollback por alguns dias. Ver `SETUP_HOSTINGER_VPS.md`, `DEPLOY_CHECKLIST.md`, `deploy.yml`. |
 | Dados | `leiloes.json` + `analises_ia_cache.json` + `historico_tokens_ia.jsonl` + `scraper_health.json` **commitados no git** | Funciona como banco de dados versionado para os lotes; ver riscos. |
 
 ---
