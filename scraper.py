@@ -2704,9 +2704,8 @@ def _raspar_soleon(base, fonte, vistos, usar_proxy=True):
     IP dos runners do GitHub Actions (confirmado: o mesmo requests.get() com
     os mesmos headers funciona normalmente de outros IPs, então não é um
     bloqueio por fingerprint de user-agent nem exige renderizar JS). Pereira
-    Leilões não tem esse bloqueio (testado com requests direto, sem proxy) —
-    por isso `usar_proxy=False` pra essa fonte, evitando gastar crédito de
-    Zenrows/ScraperAPI à toa.
+    Leilões também passou a dar 403 direto no Actions (2026-09-29), então
+    usa proxy como as demais; `usar_proxy=False` segue disponível.
 
     Ordem de tentativa por URL quando usar_proxy=True: Zenrows -> ScraperAPI
     -> requests direto. Os dois proxies só entram se a respectiva chave
@@ -2732,13 +2731,18 @@ def _raspar_soleon(base, fonte, vistos, usar_proxy=True):
 
     def _get(url):
         for label, endpoint, params in _fetch_variants(url):
-            try:
-                r = sess.get(endpoint, params=params, timeout=30 if params else 20)
-                if r.status_code == 200:
-                    return r.text
-                print(f"  ⚠️ {nome} [{label}] {r.status_code}: {url}")
-            except Exception as e:
-                print(f"  ⚠️ {nome} [{label}] request: {e}")
+            # ScraperAPI oscila (timeout/500): uma segunda tentativa antes de cair pro proximo
+            tentativas = 2 if label == "ScraperAPI" else 1
+            for tentativa in range(tentativas):
+                try:
+                    r = sess.get(endpoint, params=params, timeout=60 if params else 20)
+                    if r.status_code == 200:
+                        return r.text
+                    print(f"  ⚠️ {nome} [{label}] {r.status_code}: {url}")
+                    if r.status_code < 500:
+                        break
+                except Exception as e:
+                    print(f"  ⚠️ {nome} [{label}] request: {e}")
         return ""
 
     html_home = _get(base + "/")
@@ -3518,7 +3522,7 @@ def raspar_leiloes():
     # ScraperAPI; Pereira Leiloes sem bloqueio -> requests direto, usar_proxy=False)
     lotes += _raspar_soleon("https://www.construbemleiloes.com.br", "construbem", vistos)
     lotes += _raspar_soleon("https://www.danielgarcialeiloes.com.br", "danielgarcia", vistos)
-    lotes += _raspar_soleon("https://www.pereiraleiloesce.com.br", "pereira", vistos, usar_proxy=False)
+    lotes += _raspar_soleon("https://www.pereiraleiloesce.com.br", "pereira", vistos)
 
     lotes_brutos = lotes
     lotes = _remover_duplicatas_entre_fontes(lotes)
