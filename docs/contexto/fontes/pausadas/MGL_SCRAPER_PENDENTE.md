@@ -1,3 +1,21 @@
+# MGL Leilões — FUNCIONANDO via API HTTP do Zenrows (2026-09-29)
+
+> **Atualização 2026-09-29:** o Scraping Browser (CDP) nunca passou: o Cloudflare
+> servia a interstitial ("Just a moment", em árabe por causa do país do proxy) e a
+> SPA não inicializava (0 lotes de 26 a 29/09). Diagnóstico no Actions mostrou que a
+> **API HTTP do Zenrows** funciona: `POST /apiplugin/GetBusca` com
+> `premium_proxy=true&proxy_country=br` devolve os lotes do CE em ~2s (sem
+> `proxy_country=br` dá 422). `_raspar_mgl` foi reescrita sem Playwright
+> (`_mgl_zenrows_busca` / `_mgl_zenrows_detalhe`). A página de detalhe é instável
+> (às vezes volta o desafio, 4-7 KB): repete até 3x e, se falhar, segue só com os dados
+> da listagem (sem avaliação/descrição). Validado num run real: 13 lotes de imóvel, 4
+> sem detalhe. Custo: requisições premium do Zenrows (~1 busca + ~1-3 por lote).
+> `mgl` saiu de `FONTES_ESPERADAS_ZERO` e entrou em `FONTES_ATIVAS`. O restante deste
+> doc é histórico (descreve o Playwright/CDP, hoje removido; o contrato da API e os
+> parsers seguem valendo).
+
+---
+
 # MGL Leilões — bloqueio do runner contornado via Zenrows (2026-09-04)
 
 > **Atualização 2026-09-04:** `_raspar_mgl` foi mudado pra abrir sua própria

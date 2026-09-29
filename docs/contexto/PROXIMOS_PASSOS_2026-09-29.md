@@ -21,10 +21,8 @@ Já registrados em outro lugar (não repetidos aqui):
 - [ ] **Monitoramento da VPS.** Alerta de uptime (UptimeRobot ou similar, grátis), backup/snapshot
       da própria VPS, vigilância da renovação do Certbot e rotação de logs. É 1 vCPU/4 GB, ponto único de falha.
 - [ ] **Fontes pendentes (conferido nos runs do Actions de 26 a 29/09):** Grupo Lance OK (8 lotes CE,
-      403 no acesso direto mas recupera). **MGL NÃO funciona**: 0 lotes em todos os runs
-      ("SPA nao inicializou mesmo via proxy" e, em 27/09, `ERR_CERT_COMMON_NAME_INVALID`). Como `mgl`
-      está em `FONTES_ESPERADAS_ZERO`, o health check nunca avisa. Decidir: consertar o acesso via
-      Zenrows ou marcar a fonte como pausada e tirá-la do run (economiza ~15s e chamadas ao proxy).
+      403 no acesso direto mas recupera). MGL corrigido em 2026-09-29** (13 lotes CE via API HTTP do Zenrows,
+      ver [`fontes/pausadas/MGL_SCRAPER_PENDENTE.md`](fontes/pausadas/MGL_SCRAPER_PENDENTE.md)); passou a ser vigiada pelo health check.
 - [ ] **Desligar o Streamlit Community Cloud** (`leilaoce.streamlit.app`) depois de alguns dias
       de VPS estável em uso real.
 

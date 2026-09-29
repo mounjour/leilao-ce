@@ -50,13 +50,12 @@ _LIMITE_STREAK_CAMPOS = 2
 FONTES_ATIVAS = {
     "leilo", "mega", "pacto", "montenegro",
     "mj", "francisco_freitas", "grupo_lance", "maria_fixer",
-    "spy_leiloes",
+    "spy_leiloes", "mgl",
 }
 
 # Fontes rastreadas mas que NAO disparam alerta ao ficar em zero — hoje nao
 # produzem de proposito. Tirar daqui quando uma voltar a funcionar.
 FONTES_ESPERADAS_ZERO = {
-    "mgl",          # Cloudflare bloqueia o IP do runner (ver docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md)
     "construbem",   # Zenrows sem credito
     "danielgarcia",  # ScraperAPI com timeout
     "celsocunha",   # dormente — site reconstruido, sem leilao ativo (ver docs/contexto/fontes/pausadas/CELSO_CUNHA_DORMENTE.md)
