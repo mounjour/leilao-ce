@@ -96,9 +96,21 @@ if not KEY:
     print("sem ZENROWS_API_KEY")
     sys.exit(1)
 
-api_post("post-premium", premium_proxy="true")
-api_post("post-premium-br", premium_proxy="true", proxy_country="br")
-api_post("post-render", premium_proxy="true", js_render="true")
-api_get("get-premium", premium_proxy="true")
-api_get("get-render", premium_proxy="true", js_render="true", wait="5000")
-cdp()
+r = requests.post(API, params={"apikey": KEY, "url": f"{BASE}/apiplugin/GetBusca/1/1/0?",
+                               "premium_proxy": "true", "proxy_country": "br"}, json=BODY, timeout=120)
+d = r.json()
+lotes = d.get("Lotes") or []
+print("lotes", len(lotes), "campos", sorted(lotes[0].keys())[:40] if lotes else None)
+for l in lotes[:3]:
+    url = BASE + "/" + (l.get("URLlote") or "").lstrip("/")
+    for nome, extra in (("det-premium-br", {}), ("det-render-br", {"js_render": "true"})):
+        try:
+            rr = requests.get(API, params={"apikey": KEY, "url": url, "premium_proxy": "true",
+                                           "proxy_country": "br", **extra}, timeout=120)
+            t = rr.text
+            print(f"[{nome}] {url[-60:]} status={rr.status_code} len={len(t)} "
+                  f"Avalia={'Avalia' in t} MODELO={'MODELO:' in t} Informa={'Informa' in t}")
+            if rr.status_code != 200:
+                print("   corpo:", snip(t, 200))
+        except Exception as e:
+            print(f"[{nome}] erro {e}")
