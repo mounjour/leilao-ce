@@ -21,10 +21,11 @@ numa lista só. Não foi feita auditoria do código.
       num Postgres 17 descartável (Docker local), 0 erros; 13 `auth.users`, 12 `profiles`,
       3 `favorites`, 6 `whatsapp_send_log`, triggers recriados. Ver
       [`setup/SETUP_BACKUP_DB.md`](setup/SETUP_BACKUP_DB.md). Falta só o hábito de baixar 1 artifact/mês.
-- [~] **Monitoramento da VPS.** Alerta de uptime + validade do certificado feitos
-      (`.github/workflows/uptime.yml`, a cada 15 min, ainda sem push). **Falta o dono, na VPS/painel:**
-      snapshot/backup Hostinger, `certbot renew --dry-run`, limite do journald. Passo a passo em
-      [`setup/OPERACAO_VPS.md`](setup/OPERACAO_VPS.md).
+- [x] **Monitoramento da VPS** (feito 2026-10-02): alerta de uptime + validade do certificado
+      (`.github/workflows/uptime.yml`, a cada 15 min, run de teste verde); backups semanais da
+      Hostinger ativos (22/09 e 29/09); `certbot renew --dry-run` ok e timer ativo; disco 5%,
+      journal 22 MB; certificado antigo do `sslip.io` removido. Passo a passo em
+      [`setup/OPERACAO_VPS.md`](setup/OPERACAO_VPS.md). O VPS ainda e ponto unico de falha (1 vCPU).
 - [ ] **Desligar o Streamlit Community Cloud** (`leilaoce.streamlit.app`) após alguns dias de
       VPS estável em uso real.
 
