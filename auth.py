@@ -11,6 +11,8 @@ import stripe
 from dotenv import load_dotenv
 from supabase import Client, create_client
 
+from legal import links_markdown
+
 try:
     # Caminho documentado nas versões atuais do supabase-py.
     from supabase.client import ClientOptions
@@ -905,6 +907,11 @@ def render_auth_page() -> None:
                     placeholder="Repita a senha",
                     key="signup_confirmation",
                 )
+                accepted_terms = st.checkbox(
+                    "Li e aceito os [Termos de Uso](?pagina=termos) e a "
+                    "[Política de Privacidade](?pagina=privacidade)",
+                    key="signup_terms",
+                )
                 submitted = st.form_submit_button(
                     "Criar conta", use_container_width=True, type="primary"
                 )
@@ -912,6 +919,8 @@ def render_auth_page() -> None:
             if submitted:
                 if not name.strip() or not email.strip() or not password or not confirmation:
                     st.error("Preencha todos os campos obrigatórios.")
+                elif not accepted_terms:
+                    st.error("Aceite os Termos de Uso e a Política de Privacidade para continuar.")
                 elif password != confirmation:
                     st.error("As senhas não conferem.")
                 elif len(password) < 6:
@@ -931,6 +940,8 @@ def render_auth_page() -> None:
                         st.error("Este e-mail já está cadastrado.")
                     else:
                         st.error(f"Erro ao criar conta: {status}")
+
+        st.caption(links_markdown())
 
 
 def render_paywall() -> None:
@@ -958,7 +969,7 @@ def render_paywall() -> None:
                 Acesso completo ao Achadin Leilões
               </p>
               <div class="paywall-price">{_PLAN_PRICE_LABEL}</div>
-              <div class="paywall-period">por mês · cancele quando quiser</div>
+              <div class="paywall-period">por mês · cancele quando quiser · 7 dias para desistir com reembolso integral</div>
               <hr style="opacity:.2;margin:1.25rem 0">
               <div class="paywall-feature">✅ Todos os leilões do Ceará em tempo real</div>
               <div class="paywall-feature">✅ Análise de oportunidade com IA</div>
@@ -995,6 +1006,11 @@ def render_paywall() -> None:
                     pass
             except Exception as exc:
                 st.error(f"Erro ao gerar link de pagamento: {exc}")
+
+            st.caption(
+                "Ao assinar, você concorda com os [Termos de Uso](?pagina=termos). "
+                "Cancelamento e reembolso: [veja a política](?pagina=reembolso)."
+            )
 
         payment_state = str(st.query_params.get("payment", ""))
         if payment_state == "success":

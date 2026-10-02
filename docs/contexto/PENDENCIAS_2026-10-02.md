@@ -7,8 +7,10 @@ numa lista só. Não foi feita auditoria do código.
 
 - [ ] **Chaves Stripe live.** O site na VPS roda com `sk_test_`/`pk_test_`. A conta Stripe está
       travada no 2FA por app autenticador, sem posse confirmada. Resolver isso antes da troca.
-- [ ] **Páginas legais.** Termos de Uso, Política de Privacidade (LGPD: o site guarda telefone
-      e nome) e política de cancelamento e reembolso.
+- [~] **Páginas legais.** Implementadas em `legal.py` (2026-10-02): `?pagina=termos|privacidade|reembolso`,
+      públicas, com links no login/cadastro/paywall e checkbox de aceite no cadastro. Política: 7 dias de
+      reembolso integral (CDC art. 49), depois sem proporcional. **Falta:** preencher `_CONTROLADOR`
+      (nome + CPF) em `legal.py`, revisar o texto (idealmente com advogado) e deploy.
 - [ ] **Conferir a migração para `achadinleiloes.tech` fora do repo.** `APP_URL` no `.env` da
       VPS, Site URL/Redirect URLs no Supabase Auth e URL do webhook no Stripe. DNS e HTTPS já
       verificados. Ver seção G de [`setup/DEPLOY_CHECKLIST.md`](setup/DEPLOY_CHECKLIST.md).

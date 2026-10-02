@@ -18,9 +18,16 @@ from auth import (
     render_auth_page,
     render_paywall,
 )
+from legal import pagina_legal_solicitada, render_legal
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
 st.set_page_config(page_title="Achadin Leilões", page_icon="🚗", layout="wide", initial_sidebar_state="expanded")
+
+# Paginas legais sao publicas: respondem antes de qualquer login/paywall.
+_pagina_legal = pagina_legal_solicitada()
+if _pagina_legal:
+    render_legal(_pagina_legal)
+    st.stop()
 
 BASE_DIR = Path(__file__).resolve().parent
 
