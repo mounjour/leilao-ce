@@ -141,10 +141,10 @@ BACKLOG:
   monitoramento da VPS, credito da IA, novas fontes, funil.
   Lista completa e priorizada em
   docs/contexto/PROXIMOS_PASSOS_2026-09-29.md.
-- PENDENTE (registrado 2026-09-29): conferir a migracao para `achadinleiloes.tech`
-  fora do repo — `APP_URL` no `.env` da VPS, Site URL/Redirect URLs no Supabase
-  Auth e URL do webhook no Stripe. DNS e HTTPS ja verificados. Checklist na
-  secao G de docs/contexto/setup/DEPLOY_CHECKLIST.md.
+- FEITO (2026-10-02): migracao para `achadinleiloes.tech` conferida fora do repo
+  — `APP_URL` na VPS corrigido (estava no sslip.io), Supabase Auth ajustado,
+  webhook do Stripe independe do dominio. Checklist na secao G de
+  docs/contexto/setup/DEPLOY_CHECKLIST.md.
 - Nova rodada de investigação de fontes (2026-09-14): Grupo Lance FEITO
   (2026-09-15, ver STATUS e docs/contexto/fontes/ativas/GRUPO_LANCE_ADICIONADO.md).
   Restam para implementar, por prioridade: Spy Leilões (agregador, 195

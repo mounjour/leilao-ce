@@ -100,10 +100,10 @@ migração original para a VPS.
 - [x] Reemitir o certificado TLS pro domínio novo: `sudo certbot --nginx -d
       SEU-DOMINIO --redirect -m SEU-EMAIL --agree-tos --no-eff-email`
       (seção 5 do `SETUP_HOSTINGER_VPS.md`)
-- [ ] Atualizar `APP_URL` no `.env` da VPS e reiniciar o serviço (não verificado)
-- [ ] Atualizar Site URL / Redirect URLs no Supabase Auth (bloco B) pro
-      domínio novo (não verificado)
-- [ ] Conferir URL do webhook no Stripe (não verificado)
+- [x] Atualizar `APP_URL` no `.env` da VPS e reiniciar o serviço (feito 2026-10-02; estava no `sslip.io`)
+- [x] Atualizar Site URL / Redirect URLs no Supabase Auth (bloco B) pro
+      domínio novo (feito 2026-10-02, pelo dono)
+- [x] Conferir URL do webhook no Stripe (nada a fazer: o endpoint é do Supabase e independe do domínio do site)
 - [x] Atualizar `server_name` no bloco do Nginx (site responde no domínio)
 - [x] Atualizar `CLAUDE.md` e `PLANO-DO-PROJETO.md` trocando as referências
       de `2-25-223-119.sslip.io` pelo domínio novo

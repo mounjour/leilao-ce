@@ -11,9 +11,9 @@ numa lista só. Não foi feita auditoria do código.
       públicas, com links no login/cadastro/paywall e checkbox de aceite no cadastro. Política: 7 dias de
       reembolso integral (CDC art. 49), depois sem proporcional. **Falta:** preencher `_CONTROLADOR`
       (nome + CPF) em `legal.py`, revisar o texto (idealmente com advogado) e deploy.
-- [ ] **Conferir a migração para `achadinleiloes.tech` fora do repo.** `APP_URL` no `.env` da
-      VPS, Site URL/Redirect URLs no Supabase Auth e URL do webhook no Stripe. DNS e HTTPS já
-      verificados. Ver seção G de [`setup/DEPLOY_CHECKLIST.md`](setup/DEPLOY_CHECKLIST.md).
+- [x] **Migração para `achadinleiloes.tech` fora do repo** (feito 2026-10-02): `APP_URL` corrigido
+      na VPS (estava no `sslip.io`), Supabase Auth ajustado pelo dono; webhook do Stripe não
+      depende do domínio. Ver seção G de [`setup/DEPLOY_CHECKLIST.md`](setup/DEPLOY_CHECKLIST.md).
 
 ## 2. Confiabilidade e operação
 
