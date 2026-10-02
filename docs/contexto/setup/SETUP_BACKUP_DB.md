@@ -79,6 +79,16 @@ psql "$SUPABASE_DB_URL" -f supabase-<timestamp>.sql
    dele com os dados do dump; confira se o login volta a funcionar antes de apontar a
    produção para o projeto novo.
 
+### Teste de restauração feito (2026-10-02)
+
+Sem precisar de projeto Supabase: `gh run download <run-id>`, `gunzip`, e `psql -f` num
+`postgres:17-alpine` local (Docker). Antes, criar os roles que o dump referencia
+(`anon`, `authenticated`, `service_role`, `supabase_auth_admin`, `create role ... nologin`).
+Resultado: 0 erros, contagens batem com a produção, triggers (`on_auth_user_created` etc.)
+recriados. Nota: 1 `auth.users` antigo (maio/2026, e-mail não confirmado) não tem `profile`
+— anterior ao trigger, não é falha do backup. Isso valida o dump, não o passo "projeto
+Supabase novo" (login real contra o projeto novo).
+
 > **Faça um teste de restauração pelo menos uma vez** num projeto descartável, para saber
 > que o dump presta e que o passo a passo funciona — um backup nunca testado não é um
 > backup.

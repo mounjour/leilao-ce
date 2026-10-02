@@ -17,11 +17,14 @@ numa lista só. Não foi feita auditoria do código.
 
 ## 2. Confiabilidade e operação
 
-- [ ] **Restaurar um backup do Postgres** num projeto Supabase descartável. O `pg_dump` diário
-      roda (5 runs verdes em 2026-09-29), mas nunca foi restaurado. Ver
-      [`setup/SETUP_BACKUP_DB.md`](setup/SETUP_BACKUP_DB.md).
-- [ ] **Monitoramento da VPS.** Alerta de uptime, snapshot da VPS, renovação do Certbot e
-      rotação de logs. 1 vCPU/4 GB é ponto único de falha.
+- [x] **Restaurar um backup do Postgres** (feito 2026-10-02): artifact do run de 02/10 restaurado
+      num Postgres 17 descartável (Docker local), 0 erros; 13 `auth.users`, 12 `profiles`,
+      3 `favorites`, 6 `whatsapp_send_log`, triggers recriados. Ver
+      [`setup/SETUP_BACKUP_DB.md`](setup/SETUP_BACKUP_DB.md). Falta só o hábito de baixar 1 artifact/mês.
+- [~] **Monitoramento da VPS.** Alerta de uptime + validade do certificado feitos
+      (`.github/workflows/uptime.yml`, a cada 15 min, ainda sem push). **Falta o dono, na VPS/painel:**
+      snapshot/backup Hostinger, `certbot renew --dry-run`, limite do journald. Passo a passo em
+      [`setup/OPERACAO_VPS.md`](setup/OPERACAO_VPS.md).
 - [ ] **Desligar o Streamlit Community Cloud** (`leilaoce.streamlit.app`) após alguns dias de
       VPS estável em uso real.
 

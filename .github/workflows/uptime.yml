@@ -1,0 +1,48 @@
+name: Monitor de uptime (VPS)
+
+on:
+  schedule:
+    # A cada 15 min. O Actions pode atrasar execucoes agendadas; serve para
+    # detectar queda de minutos/horas, nao de segundos.
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      HOST: achadinleiloes.tech
+      DIAS_ALERTA_CERT: '14'
+
+    steps:
+      - name: Health do Streamlit
+        run: |
+          set -euo pipefail
+          # 3 tentativas: evita falso positivo por soluco de rede do runner
+          for i in 1 2 3; do
+            RESP="$(curl -fsS -m 20 "https://${HOST}/_stcore/health" || true)"
+            if [ "$RESP" = "ok" ]; then
+              echo "Site OK (tentativa $i)"
+              exit 0
+            fi
+            echo "Tentativa $i falhou (resposta: '${RESP}')"
+            sleep 15
+          done
+          echo "::error::https://${HOST}/_stcore/health nao respondeu ok — site fora do ar?"
+          exit 1
+
+      - name: Validade do certificado TLS
+        run: |
+          set -euo pipefail
+          FIM="$(echo | openssl s_client -connect "${HOST}:443" -servername "${HOST}" 2>/dev/null \
+            | openssl x509 -noout -enddate | cut -d= -f2)"
+          RESTANTE=$(( ( $(date -d "$FIM" +%s) - $(date +%s) ) / 86400 ))
+          echo "Certificado vence em $FIM ($RESTANTE dias)"
+          if [ "$RESTANTE" -lt "$DIAS_ALERTA_CERT" ]; then
+            echo "::error::Certificado vence em $RESTANTE dias — renovacao do Certbot falhou? (sudo certbot renew --dry-run na VPS)"
+            exit 1
+          fi
