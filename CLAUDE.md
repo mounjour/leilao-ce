@@ -132,6 +132,10 @@ cada item foi movido pros docs de contexto linkados, ver
   continuam sem casar. Testes: tests/test_favorites.py.
 
 BACKLOG:
+- PENDENTE (registrado 2026-10-02): paginas legais no ar (`legal.py`) mas com
+  `_CONTROLADOR` ainda com placeholders `[NOME COMPLETO]`/`[CPF]` — preencher antes
+  de cobrar de verdade e revisar o texto (idealmente com advogado). Ver
+  docs/contexto/PENDENCIAS_2026-10-02.md.
 - Lista consolidada de pendencias (2026-10-02): docs/contexto/PENDENCIAS_2026-10-02.md.
 - Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
   monitoramento da VPS, credito da IA, novas fontes, funil.
