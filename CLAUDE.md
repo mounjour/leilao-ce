@@ -132,6 +132,7 @@ cada item foi movido pros docs de contexto linkados, ver
   continuam sem casar. Testes: tests/test_favorites.py.
 
 BACKLOG:
+- Lista consolidada de pendencias (2026-10-02): docs/contexto/PENDENCIAS_2026-10-02.md.
 - Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
   monitoramento da VPS, credito da IA, novas fontes, funil.
   Lista completa e priorizada em
