@@ -4,6 +4,12 @@ Guia de migração do site de **Streamlit Community Cloud**
 (`leilaoce.streamlit.app`) para uma **VPS da Hostinger**, usando um endereço
 `*.sslip.io` (sem domínio próprio) com TLS válido via Let's Encrypt/Certbot.
 
+> **Estado atual (2026-10-05):** a raiz `achadinleiloes.tech/` é uma landing estática e o Streamlit
+> roda em `/app/` (`server.baseUrlPath=app`, `APP_URL=https://achadinleiloes.tech/app`). As seções 4, 5 e 7
+> abaixo descrevem a instalação original (Streamlit na raiz); a configuração vigente do Nginx e o drop-in do
+> systemd estão versionados em [`deploy/`](../../../deploy/) e o passo a passo da troca em
+> [`CUTOVER_LANDING.md`](CUTOVER_LANDING.md). Health check atual: `/app/_stcore/health`.
+
 O scraper **não** muda: continua no GitHub Actions 1×/dia (ver
 [`SETUP_GITHUB_ACTIONS.md`](SETUP_GITHUB_ACTIONS.md)). O Supabase e o Stripe
 **não** mudam — só passam a apontar para a URL da VPS.
@@ -26,7 +32,8 @@ O scraper **não** muda: continua no GitHub Actions 1×/dia (ver
 
 | Peça | Onde roda | Muda? |
 |---|---|---|
-| Site (`dashboard.py`, Streamlit) | **VPS Hostinger**, atrás de Nginx (TLS) | ✅ sai do Community Cloud |
+| Site (`dashboard.py`, Streamlit) | **VPS Hostinger**, atrás de Nginx (TLS), em `/app/` | ✅ sai do Community Cloud |
+| Landing (`site/`, estática) | **VPS Hostinger**, Nginx serve `/var/www/achadin` na raiz | ✅ novo (2026-10-05) |
 | Scraper (`scraper.py`) | GitHub Actions (cron 1×/dia) | ❌ |
 | Deploy automático | GitHub Actions faz SSH na VPS a cada push no `main`: `git pull` + reinstala deps + `systemctl restart` | ✅ novo, substitui o autodeploy de PaaS |
 | Banco + Auth | Supabase | só Redirect URLs |
@@ -343,6 +350,9 @@ Configuration**:
   portal** → se houver um *default return link* no domínio antigo, atualize.
 - O **webhook** (`stripe-webhook` no Supabase) continua igual — endpoint
   `*.supabase.co/functions/v1/stripe-webhook`, não depende da URL do site.
+
+> **Desde 2026-10-05:** `APP_URL=https://achadinleiloes.tech/app`; no Supabase, *Site URL* =
+> `https://achadinleiloes.tech/app` e Redirect URLs com `https://achadinleiloes.tech/app` e `/app/**`.
 
 ### 7.4 Teste final
 Repita o checklist abaixo, agora com atenção a: e-mail de confirmação do

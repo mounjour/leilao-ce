@@ -118,3 +118,11 @@ migração original para a VPS.
 - [x] `CLAUDE.md` — tirar o "em andamento" da linha Deploy (feito 2026-09-15)
 - [x] `PLANO-DO-PROJETO.md` — seções 1/7/12/13 para **VPS Hostinger (`achadinleiloes.tech`)** (feito 2026-09-15)
 - [ ] (Opcional, futuro) Se o restart a cada commit do scraper (1×/dia) incomodar: o dashboard já lê `leiloes.json` via `st.cache_data(ttl=1800)`, então dá para trocar o `deploy.yml` por um cron simples de `git pull` sem restart nos commits só de dados — reservar o restart só para pushes que mudem código
+
+## J. Landing estática + Streamlit em `/app/` (2026-10-05)
+
+- [x] Cutover executado na VPS (`deploy/cutover-landing.sh aplicar`) e validado ponta a ponta — ver [`CUTOVER_LANDING.md`](CUTOVER_LANDING.md)
+- [x] `APP_URL` = `https://achadinleiloes.tech/app`; Supabase *Site URL* e Redirect URLs atualizados
+- [x] `certbot renew --dry-run` ok com o Nginx novo
+- [x] `uptime.yml` verde (health em `/app/_stcore/health` + `GET /`)
+- [ ] Reinício da VPS pendente por atualização de kernel (janela tranquila)
