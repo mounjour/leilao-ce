@@ -2,7 +2,9 @@
 import sys
 from unittest.mock import MagicMock
 
-for _mod in ("auth",):
+# favorites.py importa streamlit e auth (que puxa supabase/stripe) no topo; o CI so instala
+# pytest/requests (requirements-dev.txt) e os testes so usam funcoes puras de URL.
+for _mod in ("auth", "streamlit"):
     sys.modules.setdefault(_mod, MagicMock())
 
 from favorites import _normalizar_url, _urls_equivalentes  # noqa: E402
