@@ -21,6 +21,11 @@ Continuam iguais: código do app, Supabase, Stripe (as URLs de retorno saem de `
 login já aberto (o cookie de sessão é `path=/`, vale nos dois). Sessões do Streamlit abertas na hora do
 restart caem e recarregam.
 
+**Nomes de domínio (conferido na VPS em 2026-10-05):** o certificado `achadinleiloes.tech` cobre o domínio e o
+`www`, mas não o `2-25-223-119.sslip.io` (que já não funcionava por HTTPS). O Nginx novo atende os dois nomes do
+certificado: `www` redireciona (301) para o domínio principal e HTTP redireciona para HTTPS (antes,
+`http://achadinleiloes.tech` dava 404). O `sslip.io` sai da configuração.
+
 **Links antigos continuam funcionando:** pedidos em `/` com `?code=`, `?mode=`, `?payment=`, `?pagina=`
 ou `?error=` recebem 302 para `/app/` com a mesma query. Cobre e-mails de confirmação/recuperação já
 enviados, Checkouts do Stripe em andamento e links das páginas legais.
@@ -43,14 +48,14 @@ O usuário `leilao` não tem senha de `sudo` (só NOPASSWD para o restart), ent�
 ```bash
 ssh root@2.25.223.119
 cd /home/leilao/leilao-ce
-git status --short          # deve estar limpo; o deploy já trouxe o main
+runuser -u leilao -- git status --short   # limpo; (git como root dá "dubious ownership": use o runuser)
 ./deploy/cutover-landing.sh aplicar
 ```
 
 O script: confere pré-requisitos (certificado, arquivos do Certbot, `.venv`, `rsync`…) e aborta **sem
 alterar nada** se faltar algo → mostra o diff do Nginx e pede confirmação → faz backup em
 `~leilao/backup-cutover/<data>` → publica o site → instala Nginx e drop-in → `nginx -t` → reload/restart →
-verifica `/app/_stcore/health`, a landing em `/`, o redirect de legado, `/app/`, `robots.txt` e o
+verifica `/app/_stcore/health`, a landing em `/`, o redirect de legado, `/app/`, `robots.txt`, o redirect do `www`, HTTP→HTTPS e o
 **WebSocket (101)** através do Nginx. **Qualquer falha dispara o rollback sozinho.**
 
 ## 2. Depois (manual)
