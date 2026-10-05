@@ -1,0 +1,5 @@
+# Tema nativo do Streamlit. O resto do visual vem dos tokens --lce-* (site/css/tokens.css).
+# primaryColor = azul do app (era o vermelho padrao do Streamlit: indicador de aba,
+# botoes "primary" sem CSS proprio como o "Assinar agora" do paywall).
+[theme]
+primaryColor = "#2563eb"

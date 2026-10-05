@@ -210,7 +210,7 @@ def render_legal(pagina: str) -> None:
     st.markdown(_CORPO[pagina])
     st.divider()
     st.markdown(links_markdown())
-    st.markdown("[← Voltar ao Achadin Leilões](/)")
+    st.markdown("[← Voltar ao site](/)")
 
 
 def pagina_legal_solicitada() -> str | None:

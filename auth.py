@@ -36,6 +36,8 @@ _SUPABASE_KEY = _secret("SUPABASE_ANON_KEY")
 _PRICE_ID = _secret("STRIPE_PRICE_ID")
 _PUBLISHABLE = _secret("STRIPE_PUBLISHABLE_KEY")
 _APP_URL = _secret("APP_URL", "https://leilaoce.streamlit.app").rstrip("/")
+# Landing estatica: raiz do dominio, quando o app roda em /app (ver site/).
+_SITE_URL = _APP_URL.removesuffix("/app")
 _PLAN_PRICE_LABEL = _secret("STRIPE_PLAN_PRICE_LABEL", "R$ 47")
 _SESSION_MAX_HOURS = float(_secret("SESSION_MAX_HOURS", "8") or 8)
 _SESSION_IDLE_MINUTES = float(_secret("SESSION_IDLE_MINUTES", "60") or 60)
@@ -592,10 +594,22 @@ _AUTH_CSS = """
     border: 1.5px solid var(--lce-border, #e5e7eb) !important; border-radius: 8px !important;
     font-size: .95rem !important;
 }
+/* Formulario como cartao, igual ao cartao de preco da landing. */
+[data-testid="stForm"] {
+    background: var(--lce-surface, #ffffff) !important;
+    border: 1px solid var(--lce-card-border, #e5e7eb) !important;
+    border-radius: var(--lce-radius, 12px) !important;
+    box-shadow: var(--lce-shadow, none) !important;
+    padding: 1.5rem !important;
+}
+.auth-back { font-size: .85rem; margin-bottom: 1rem; }
+.auth-back a { color: var(--lce-primary-strong, #1d4ed8); text-decoration: none; font-weight: 500; }
+.auth-back a:hover { text-decoration: underline; }
+[data-testid="stCaptionContainer"] a { color: var(--lce-primary-strong, #1d4ed8) !important; }
 .stTextInput input::placeholder { color: var(--lce-muted, #9ca3af) !important; }
 .stTextInput input:focus {
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 3px rgba(37,99,235,.1) !important;
+    border-color: var(--lce-primary, #2563eb) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--lce-primary, #2563eb) 18%, transparent) !important;
 }
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
@@ -630,23 +644,23 @@ _AUTH_CSS = """
    transição o traço só aparece/some na troca de aba. */
 .stTabs [data-baseweb="tab"][aria-selected="true"],
 .stTabs [role="tab"][aria-selected="true"] {
-    box-shadow: inset 0 -2px 0 0 #ff4b4b !important;
+    box-shadow: inset 0 -2px 0 0 var(--lce-primary, #2563eb) !important;
 }
 .stTabs [data-baseweb="tab-panel"] { padding-top: 1.5rem !important; }
 .stFormSubmitButton button {
-    background: #2563eb !important; color: #fff !important;
+    background: var(--lce-btn, #2563eb) !important; color: var(--lce-on-btn, #fff) !important;
     border: none !important; border-radius: 8px !important;
     font-weight: 600 !important; font-size: .95rem !important;
     height: 44px !important;
 }
-.stFormSubmitButton button:hover { background: #1d4ed8 !important; }
+.stFormSubmitButton button:hover { background: var(--lce-btn-hover, #1d4ed8) !important; }
 div[data-testid="stButton"] button {
-    background: transparent !important; color: #2563eb !important;
+    background: transparent !important; color: var(--lce-primary-strong, #1d4ed8) !important;
     border: none !important; padding: 0 !important;
     font-size: .83rem !important; font-weight: 500 !important;
     box-shadow: none !important;
 }
-div[data-testid="stButton"] button:hover { color: #1d4ed8 !important; }
+div[data-testid="stButton"] button:hover { color: var(--lce-primary-strong, #1d4ed8) !important; text-decoration: underline !important; }
 hr { border-color: var(--lce-border, #f3f4f6) !important; }
 
 /* dashboard.py injeta (bloco "V3" dos cards de lote) uma regra que força
@@ -735,7 +749,8 @@ def _render_brand_panel() -> None:
 
 def _render_brand() -> None:
     st.markdown(
-        """
+        f"""
+        <div class="auth-back"><a href="{_SITE_URL}/">← Voltar ao site</a></div>
         <div style="text-align:center;padding:.25rem 0 2rem;">
           <div style="font-size:2rem;font-weight:800;color:var(--lce-text, #111827);margin-bottom:.25rem;">
             🚗 Achadin Leilões
@@ -951,21 +966,22 @@ def render_paywall() -> None:
             f"""
             <style>
             .paywall-box {{
-                background:var(--secondary-background-color);
-                color:var(--text-color);
-                border:1px solid color-mix(in srgb, var(--text-color) 18%, transparent);
-                border-radius:12px; padding:2rem; text-align:center;
+                background:var(--lce-surface, #ffffff);
+                color:var(--lce-text, #0f172a);
+                border:1px solid var(--lce-card-border, #e5e7eb);
+                border-radius:var(--lce-radius, 12px); padding:2rem; text-align:center;
+                box-shadow:var(--lce-shadow, none);
                 margin-top:2rem;
             }}
-            .paywall-price {{ font-size:2.5rem; font-weight:800; color:#16a34a; }}
-            .paywall-period {{ opacity:.72; font-size:.9rem; }}
+            .paywall-price {{ font-size:2.5rem; font-weight:800; color:var(--lce-green, #16a34a); }}
+            .paywall-period {{ color:var(--lce-muted, #64748b); font-size:.9rem; }}
             .paywall-feature {{
                 display:flex; align-items:center; gap:.5rem;
-                color:var(--text-color); margin:.4rem 0; text-align:left;
+                color:var(--lce-text, #0f172a); margin:.4rem 0; text-align:left;
             }}
             </style>
             <div class="paywall-box">
-              <p style="font-size:1.2rem;font-weight:700;color:var(--text-color);margin-bottom:.5rem">
+              <p style="font-size:1.2rem;font-weight:700;color:var(--lce-text, #0f172a);margin-bottom:.5rem">
                 Acesso completo ao Achadin Leilões
               </p>
               <div class="paywall-price">{_PLAN_PRICE_LABEL}</div>
