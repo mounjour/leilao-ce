@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Achadin Leilões — monitoramento de leilões no Ceará</title>
+  <meta name="description" content="Leilões de veículos, imóveis e equipamentos do Ceará num só lugar: comparação com a tabela FIPE, análise de cada lote por IA e alertas no WhatsApp.">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="canonical" href="https://achadinleiloes.tech/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Achadin Leilões">
+  <meta property="og:title" content="Achadin Leilões — monitoramento de leilões no Ceará">
+  <meta property="og:description" content="Leilões de vários sites num só lugar, com comparação FIPE, análise por IA e alertas no WhatsApp.">
+  <meta property="og:url" content="https://achadinleiloes.tech/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Achadin Leilões — início"><span aria-hidden="true">🚗</span> Achadin Leilões</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#precos">Preço</a>
+        <a href="#faq">Dúvidas</a>
+        <a class="btn" href="/app/">Entrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="hero">
+      <div class="container">
+        <h1>Leilões do Ceará <em>num só lugar</em></h1>
+        <p class="lead">Monitoramos leilões de veículos, imóveis e equipamentos de vários sites, comparamos com a tabela FIPE e analisamos cada lote com inteligência artificial. Você decide com mais informação.</p>
+        <div class="hero-cta">
+          <a class="btn btn-lg" href="/app/">Começar agora</a>
+          <a class="btn btn-lg btn-ghost" href="#como-funciona">Como funciona</a>
+        </div>
+        <p class="hero-note">Cancele quando quiser · 7 dias para desistir com reembolso integral</p>
+
+        <ul class="stats" id="stats" hidden>
+          <li class="stat"><strong id="stat-lotes">—</strong><span>lotes monitorados</span></li>
+          <li class="stat"><strong id="stat-fontes">—</strong><span>sites de leilão acompanhados</span></li>
+          <li class="stat"><strong>2×</strong><span>atualizações por dia</span></li>
+        </ul>
+        <p class="hero-note" id="stat-atualizado" hidden></p>
+      </div>
+    </div>
+
+    <section id="como-funciona" class="alt" aria-labelledby="t-como">
+      <div class="container">
+        <h2 class="section-title" id="t-como">Como funciona</h2>
+        <p class="section-sub">Do monitoramento ao lance, em três passos.</p>
+        <div class="grid grid-3">
+          <div class="card">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Monitoramos por você</h3>
+            <p>Acompanhamos automaticamente os leilões de vários sites e reunimos tudo num só painel, com filtros por cidade, categoria e preço.</p>
+          </div>
+          <div class="card">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Analisamos cada lote</h3>
+            <p>Comparamos o lance com a tabela FIPE e usamos IA para apontar estado, riscos e oportunidade antes de você decidir.</p>
+          </div>
+          <div class="card">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Você dá o lance</h3>
+            <p>Favorite os lotes e receba alerta no WhatsApp quando o lance mudar. O lance é dado no site oficial do leilão.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="t-cats">
+      <div class="container">
+        <h2 class="section-title" id="t-cats">O que você encontra</h2>
+        <p class="section-sub">Leilões de bens em Fortaleza e em todo o Ceará.</p>
+        <div class="grid grid-4">
+          <div class="card cat"><div class="icon" aria-hidden="true">🚗</div><h3>Carros e motos</h3></div>
+          <div class="card cat"><div class="icon" aria-hidden="true">🏠</div><h3>Imóveis</h3></div>
+          <div class="card cat"><div class="icon" aria-hidden="true">🚛</div><h3>Caminhões e equipamentos</h3></div>
+          <div class="card cat"><div class="icon" aria-hidden="true">📱</div><h3>Eletrônicos e diversos</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" aria-labelledby="t-porque">
+      <div class="container">
+        <h2 class="section-title" id="t-porque">Por que usar</h2>
+        <p class="section-sub">Menos abas abertas, mais critério na hora de dar o lance.</p>
+        <div class="grid grid-3">
+          <div class="card"><div class="icon" aria-hidden="true">📡</div><h3>Vários sites, um painel</h3><p>Veículos, imóveis e equipamentos monitorados automaticamente todos os dias.</p></div>
+          <div class="card"><div class="icon" aria-hidden="true">🤖</div><h3>Análise por IA</h3><p>Estado, riscos e oportunidade de cada lote, para você não depender só da foto e do título.</p></div>
+          <div class="card"><div class="icon" aria-hidden="true">🔔</div><h3>Alertas no WhatsApp</h3><p>Avisamos assim que o lance de um lote favoritado mudar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precos" aria-labelledby="t-preco">
+      <div class="container">
+        <h2 class="section-title" id="t-preco">Um plano, sem pegadinha</h2>
+        <p class="section-sub">Acesso completo, cobrado por mês, cancelável a qualquer momento.</p>
+        <div class="price-box">
+          <h3>Acesso completo ao Achadin Leilões</h3>
+          <div class="price" id="preco">R$ 47</div>
+          <div class="price-period">por mês · cancele quando quiser<br>7 dias para desistir com reembolso integral</div>
+          <ul class="features">
+            <li>Leilões do Ceará de vários sites</li>
+            <li>Análise de oportunidade com IA</li>
+            <li>Comparação com a tabela FIPE</li>
+            <li>Filtros por cidade, categoria e preço</li>
+            <li>Atualizado 2× por dia automaticamente</li>
+          </ul>
+          <a class="btn btn-lg" href="/app/">Criar conta e assinar</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="alt" aria-labelledby="t-faq">
+      <div class="container">
+        <h2 class="section-title" id="t-faq">Dúvidas frequentes</h2>
+        <p class="section-sub">Se faltar alguma resposta, as páginas de Termos e Reembolso detalham o resto.</p>
+        <div class="faq">
+          <details>
+            <summary>Vocês vendem os bens ou são leiloeiros?</summary>
+            <p>Não. O Achadin Leilões é um sistema independente de análise: não vendemos nada, não somos leiloeiros e não somos afiliados aos sites de leilão. Sempre confirme as informações no site do leilão antes de dar um lance.</p>
+          </details>
+          <details>
+            <summary>De onde vêm os leilões?</summary>
+            <p>De sites de leilão públicos que operam no Ceará. Cada lote traz o link para a página original, onde o lance é dado.</p>
+          </details>
+          <details>
+            <summary>A análise por IA é garantia de bom negócio?</summary>
+            <p>Não. As análises e a comparação com a FIPE são orientativas e não substituem a leitura do edital, a vistoria e a visita ao bem. A decisão de compra é sempre sua.</p>
+          </details>
+          <details>
+            <summary>Como cancelo a assinatura?</summary>
+            <p>Sozinho, a qualquer momento, pelo portal de cobrança dentro da sua conta. Depois de cancelar, nenhuma nova cobrança é feita e você segue com acesso até o fim do período já pago.</p>
+          </details>
+          <details>
+            <summary>Posso pedir reembolso?</summary>
+            <p>Sim: você tem 7 dias corridos, a partir da primeira cobrança, para desistir com reembolso integral. Veja a <a href="/app/?pagina=reembolso">política completa de cancelamento e reembolso</a>.</p>
+          </details>
+          <details>
+            <summary>Como o pagamento é feito?</summary>
+            <p>Pelo Stripe. Não armazenamos número, validade ou CVV do seu cartão.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final" aria-labelledby="t-cta">
+      <div class="container">
+        <h2 class="section-title" id="t-cta">Pronto para achar boas oportunidades?</h2>
+        <p>Crie sua conta e veja os leilões do Ceará num só lugar.</p>
+        <a class="btn btn-lg" href="/app/">Começar agora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>🚗 Achadin Leilões</strong>
+        <p>Plataforma independente de análise. Não somos leiloeiros nem afiliados a sites de leilão. As análises são orientativas.</p>
+      </div>
+      <nav aria-label="Páginas legais">
+        <a href="/app/?pagina=termos">Termos de Uso</a>
+        <a href="/app/?pagina=privacidade">Privacidade</a>
+        <a href="/app/?pagina=reembolso">Cancelamento e Reembolso</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Numeros agregados e preco vem de /stats.json (gerado no deploy). Sem ele
+    // a pagina continua correta: o preco ja vai no HTML e os numeros ficam ocultos.
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      fetch('/stats.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (s) {
+          if (s.preco) $('preco').textContent = s.preco;
+          if (typeof s.lotes === 'number' && s.lotes > 0) {
+            $('stat-lotes').textContent = s.lotes.toLocaleString('pt-BR');
+            $('stat-fontes').textContent = s.fontes;
+            $('stats').hidden = false;
+          }
+          if (s.atualizado_em) {
+            var m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}:\d{2})/.exec(s.atualizado_em);
+            if (m) {
+              $('stat-atualizado').textContent = 'Última atualização: ' + m[3] + '/' + m[2] + '/' + m[1] + ' às ' + m[4];
+              $('stat-atualizado').hidden = false;
+            }
+          }
+        })
+        .catch(function () {});
+    })();
+  </script>
+</body>
+</html>
