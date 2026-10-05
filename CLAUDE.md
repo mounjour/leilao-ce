@@ -140,10 +140,9 @@ BACKLOG:
 - PENDENTE (registrado 2026-10-05): CI `pytest` vermelho desde 02/10 (`tests/test_favorites.py` importa
   `streamlit`, ausente de `requirements-dev.txt`); VPS com reinicio pendente por atualizacao de kernel (fazer em
   janela tranquila); opcionais da landing: imagem OG para compartilhamento e fonte Inter hospedada localmente.
-- PENDENTE (registrado 2026-10-02): paginas legais no ar (`legal.py`) mas com
-  `_CONTROLADOR` ainda com placeholders `[NOME COMPLETO]`/`[CPF]` — preencher antes
-  de cobrar de verdade e revisar o texto (idealmente com advogado). Ver
-  docs/contexto/PENDENCIAS_2026-10-02.md.
+- FEITO (2026-10-05): `_CONTROLADOR` em `legal.py` preenchido com nome e CNPJ do dono
+  (57.445.137/0001-77). Resta revisar o texto das paginas legais (idealmente com
+  advogado) antes de cobrar de verdade. Ver docs/contexto/PENDENCIAS_2026-10-02.md.
 - Lista consolidada de pendencias (2026-10-02): docs/contexto/PENDENCIAS_2026-10-02.md.
 - Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
   monitoramento da VPS, credito da IA, novas fontes, funil.

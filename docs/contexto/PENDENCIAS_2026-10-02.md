@@ -9,8 +9,8 @@ numa lista só. Não foi feita auditoria do código.
       travada no 2FA por app autenticador, sem posse confirmada. Resolver isso antes da troca.
 - [~] **Páginas legais.** Implementadas em `legal.py` (2026-10-02): `?pagina=termos|privacidade|reembolso`,
       públicas, com links no login/cadastro/paywall e checkbox de aceite no cadastro. Política: 7 dias de
-      reembolso integral (CDC art. 49), depois sem proporcional. **Falta:** preencher `_CONTROLADOR`
-      (nome + CPF) em `legal.py`, revisar o texto (idealmente com advogado) e deploy.
+      reembolso integral (CDC art. 49), depois sem proporcional. `_CONTROLADOR` preenchido em 2026-10-05
+      (nome + CNPJ). **Falta:** revisar o texto (idealmente com advogado).
 - [x] **Migração para `achadinleiloes.tech` fora do repo** (feito 2026-10-02): `APP_URL` corrigido
       na VPS (estava no `sslip.io`), Supabase Auth ajustado pelo dono; webhook do Stripe não
       depende do domínio. Ver seção G de [`setup/DEPLOY_CHECKLIST.md`](setup/DEPLOY_CHECKLIST.md).

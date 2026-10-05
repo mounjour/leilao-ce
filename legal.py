@@ -1,14 +1,14 @@
 """Paginas legais publicas (Termos de Uso, Privacidade, Cancelamento e Reembolso).
 
-Acessiveis sem login via ?pagina=termos|privacidade|reembolso. Os campos entre
-colchetes em _CONTROLADOR precisam ser preenchidos pelo dono antes de cobrar.
+Acessiveis sem login via ?pagina=termos|privacidade|reembolso. _CONTROLADOR
+identifica o responsavel (CNPJ); mude ATUALIZADO_EM ao alterar os textos.
 """
 import streamlit as st
 
 SITE = "achadinleiloes.tech"
 CONTATO = "alissonerllen3@gmail.com"
-ATUALIZADO_EM = "02/10/2026"
-_CONTROLADOR = "[NOME COMPLETO], CPF [CPF], pessoa física"
+ATUALIZADO_EM = "05/10/2026"
+_CONTROLADOR = "Alisson Erllen dos Santos Silva, inscrito no CNPJ 57.445.137/0001-77"
 
 PAGINAS = {
     "termos": "Termos de Uso",
