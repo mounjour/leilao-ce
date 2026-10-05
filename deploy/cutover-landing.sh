@@ -53,6 +53,14 @@ verificar_novo() {
     resp="$(curl -s -m 10 -o /dev/null -w '%{http_code} %{redirect_url}' "https://$DOMINIO/?mode=confirmed" || true)"
     [ "$resp" = "302 https://$DOMINIO/app/?mode=confirmed" ] \
         && echo "  ok   /?mode=confirmed -> /app/?mode=confirmed" || { echo "  FALHOU redirect de legado (veio: $resp)"; falhas=1; }
+    # www -> dominio principal (--resolve evita depender do DNS do www a partir da propria VPS)
+    resp="$(curl -s --http1.1 -m 10 -o /dev/null -w '%{http_code} %{redirect_url}' \
+        --resolve "www.$DOMINIO:443:127.0.0.1" "https://www.$DOMINIO/app/?x=1" || true)"
+    [ "$resp" = "301 https://$DOMINIO/app/?x=1" ] \
+        && echo "  ok   www -> dominio principal" || { echo "  FALHOU redirect do www (veio: $resp)"; falhas=1; }
+    resp="$(curl -s --http1.1 -m 10 -o /dev/null -w '%{http_code} %{redirect_url}' "http://$DOMINIO/x" || true)"
+    [ "$resp" = "301 https://$DOMINIO/x" ] \
+        && echo "  ok   http -> https" || { echo "  FALHOU redirect http->https (veio: $resp)"; falhas=1; }
     [ "$(curl -s -m 10 -o /dev/null -w '%{http_code}' "https://$DOMINIO/app/")" = "200" ] \
         && echo "  ok   /app/ = 200" || { echo "  FALHOU /app/"; falhas=1; }
     resp="$(curl -fsS --http1.1 -m 10 "https://$DOMINIO/robots.txt" || true)"
