@@ -1,0 +1,3 @@
+# Scripts e configs que rodam no Linux da VPS: sempre LF (CRLF quebra o bash e o Nginx).
+*.sh text eol=lf
+deploy/** text eol=lf

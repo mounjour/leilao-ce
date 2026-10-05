@@ -36,3 +36,10 @@ jobs:
             sudo systemctl restart leilao-ce
             sleep 2
             sudo systemctl is-active --quiet leilao-ce
+
+            # Landing estatica: so publica depois do cutover (a pasta e criada por
+            # deploy/cutover-landing.sh). Antes disso este passo e ignorado.
+            if [ -d /var/www/achadin ]; then
+              python scripts/gerar_stats_site.py
+              rsync -a --delete --chmod=D755,F644 site/ /var/www/achadin/
+            fi

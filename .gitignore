@@ -56,3 +56,6 @@ logs/
 *.bak
 *.backup
 *~
+
+# Gerado no deploy por scripts/gerar_stats_site.py
+site/stats.json

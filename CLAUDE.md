@@ -132,6 +132,10 @@ cada item foi movido pros docs de contexto linkados, ver
   continuam sem casar. Testes: tests/test_favorites.py.
 
 BACKLOG:
+- PREPARADO, NAO EXECUTADO (2026-10-05): landing estatica em `/` + Streamlit em `/app/` (plano B de
+  redesenho do front, branch `feat/landing-estatica`: `site/`, `design_tokens.py`, `deploy/`). Falta mergear em
+  `main` e rodar o cutover na VPS. Passo a passo e rollback em
+  docs/contexto/setup/CUTOVER_LANDING.md.
 - PENDENTE (registrado 2026-10-02): paginas legais no ar (`legal.py`) mas com
   `_CONTROLADOR` ainda com placeholders `[NOME COMPLETO]`/`[CPF]` — preencher antes
   de cobrar de verdade e revisar o texto (idealmente com advogado). Ver

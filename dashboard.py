@@ -18,6 +18,7 @@ from auth import (
     render_auth_page,
     render_paywall,
 )
+from design_tokens import tokens_style
 from legal import pagina_legal_solicitada, render_legal
 from favorites import load_favorites, get_favorites, is_favorite, toggle_favorite
 
@@ -30,6 +31,8 @@ if _pagina_legal:
     st.stop()
 
 BASE_DIR = Path(__file__).resolve().parent
+
+st.markdown(tokens_style(), unsafe_allow_html=True)
 
 st.markdown("""
 <style>
@@ -204,40 +207,8 @@ footer[data-testid="stFooter"],
    elemento da página) — var(--background-color, #f5f7fb) sempre caía
    no fallback claro, então o tema nunca mudava de verdade. Detectamos
    o modo escuro nós mesmos via prefers-color-scheme. */
-:root {
-    --lce-bg: #f5f7fb;
-    --lce-surface: #ffffff;
-    --lce-text: #0f172a;
-    --lce-primary: #2563eb;
-    --lce-muted: color-mix(in srgb, var(--lce-text) 66%, transparent);
-    --lce-border: color-mix(in srgb, var(--lce-text) 18%, transparent);
-    --lce-hover: color-mix(in srgb, var(--lce-primary) 14%, var(--lce-surface));
-    --lce-shadow: 0 8px 24px color-mix(in srgb, #000 14%, transparent);
-    --lce-radius: 12px;
-    /* Fundo/borda dos cards de lote. Separado de --lce-surface pra permitir
-       um card mais "fundo" (proximo do fundo da pagina) no tema escuro,
-       como na referencia de estilizacao. */
-    --lce-card: #ffffff;
-    --lce-card-border: var(--lce-border);
-    /* f59e0b (o amber "vivo" usado no escuro) so tem 2:1 de contraste
-       contra fundo claro — b45309 mantem a mesma familia de cor e passa
-       WCAG AA (4.68:1+) no claro. */
-    --lce-amber: #b45309;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --lce-bg: #0f1729;
-        --lce-surface: #1a2540;
-        --lce-text: #e2e8f0;
-        --lce-primary: #3b82f6;
-        --lce-hover: color-mix(in srgb, var(--lce-primary) 20%, var(--lce-surface));
-        --lce-shadow: 0 8px 24px rgba(0,0,0,.5);
-        --lce-card: #0d1526;
-        --lce-card-border: color-mix(in srgb, var(--lce-text) 14%, transparent);
-        --lce-amber: #f59e0b;
-    }
-}
+/* Tokens --lce-* (claro/escuro, fallback sem color-mix): injetados a partir de
+   site/css/tokens.css (design_tokens.tokens_style), fonte unica com a landing. */
 
 /* Base: usa as variáveis de tema fornecidas pelo Streamlit. */
 .stApp,
@@ -820,14 +791,6 @@ button[data-testid="stBaseButton-headerNoPadding"] * {
     .pill { margin-bottom: 6px !important; }
 }
 
-/* Fallback para navegadores sem color-mix. */
-@supports not (color: color-mix(in srgb, white 50%, black)) {
-    :root {
-        --lce-muted: #64748b;
-        --lce-border: #cbd5e1;
-        --lce-hover: #dbeafe;
-    }
-}
 </style>
 """, unsafe_allow_html=True)
 
