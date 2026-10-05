@@ -5,8 +5,9 @@ Complementa [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md). A VPS é 1 vCPU/
 
 ## 1. Alerta de uptime (automatizado)
 
-`.github/workflows/uptime.yml` roda a cada 15 min: confere `https://achadinleiloes.tech/_stcore/health`
-(3 tentativas) e a validade do certificado (alerta com menos de 14 dias). Se falhar, o GitHub
+`.github/workflows/uptime.yml` roda a cada 15 min: confere o health do Streamlit (`/app/_stcore/health`; aceita também o caminho antigo
+`/_stcore/health` até o [cutover da landing](CUTOVER_LANDING.md), 3 tentativas), se `GET /` responde 200 e a
+validade do certificado (alerta com menos de 14 dias). Se falhar, o GitHub
 manda e-mail de "workflow failed" ao dono do repo.
 
 **Checar uma vez:** GitHub > Settings (conta) > Notifications > Actions — deixar ligado

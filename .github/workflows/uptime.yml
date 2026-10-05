@@ -22,18 +22,33 @@ jobs:
       - name: Health do Streamlit
         run: |
           set -euo pipefail
+          # O Streamlit mora em /app/ (landing na raiz). Aceita tambem o caminho
+          # antigo (/_stcore/health) para nao dar falso alerta antes do cutover;
+          # depois dele esse caminho responde 404 e so o novo conta.
           # 3 tentativas: evita falso positivo por soluco de rede do runner
           for i in 1 2 3; do
-            RESP="$(curl -fsS -m 20 "https://${HOST}/_stcore/health" || true)"
-            if [ "$RESP" = "ok" ]; then
-              echo "Site OK (tentativa $i)"
-              exit 0
-            fi
+            for CAMINHO in /app/_stcore/health /_stcore/health; do
+              RESP="$(curl -fsS -m 20 "https://${HOST}${CAMINHO}" || true)"
+              if [ "$RESP" = "ok" ]; then
+                echo "Streamlit OK em ${CAMINHO} (tentativa $i)"
+                exit 0
+              fi
+            done
             echo "Tentativa $i falhou (resposta: '${RESP}')"
             sleep 15
           done
-          echo "::error::https://${HOST}/_stcore/health nao respondeu ok — site fora do ar?"
+          echo "::error::https://${HOST}/app/_stcore/health nao respondeu ok — site fora do ar?"
           exit 1
+
+      - name: Landing responde
+        run: |
+          set -euo pipefail
+          CODIGO="$(curl -s -m 20 -o /dev/null -w '%{http_code}' "https://${HOST}/" || true)"
+          echo "GET / -> ${CODIGO}"
+          if [ "$CODIGO" != "200" ]; then
+            echo "::error::https://${HOST}/ respondeu ${CODIGO} (esperado 200)"
+            exit 1
+          fi
 
       - name: Validade do certificado TLS
         run: |
