@@ -1,7 +1,11 @@
 # Cutover da landing (site estático em `/`, Streamlit em `/app/`)
 
-Preparado em 2026-10-05, branch `feat/landing-estatica` (fases 1–3 do plano B). **Status: preparado, ainda
-não executado na VPS.** Ao executar, atualizar este cabeçalho, o `CLAUDE.md` e o `SETUP_HOSTINGER_VPS.md`.
+**Status: EXECUTADO e validado em 2026-10-05** (PRs #20 e #21; backup do cutover em
+`~leilao/backup-cutover/20261005-172038` na VPS). Resultado: as 8 verificações do script passaram na VPS e de
+fora (landing, health, redirects de legado, `www`, HTTP→HTTPS, WebSocket 101, headers, `/.env` 403),
+`certbot renew --dry-run` ok, monitor de uptime verde e teste ponta a ponta completo (cadastro com
+confirmação por e-mail, login, paywall, Checkout de teste, favoritar, recuperar senha, páginas legais).
+Site URL do Supabase trocado para `https://achadinleiloes.tech/app`.
 
 ```
 achadinleiloes.tech/        → site estático (site/), servido direto pelo Nginx de /var/www/achadin
@@ -32,14 +36,14 @@ enviados, Checkouts do Stripe em andamento e links das páginas legais.
 
 ## 0. Antes (uma vez)
 
-- [ ] Branch mergeada em `main` (depende de você aprovar o push/PR) e o workflow **Deploy do site** verde.
+- [x] Branch mergeada em `main` (depende de você aprovar o push/PR) e o workflow **Deploy do site** verde.
       É seguro mergear antes do cutover: o passo da landing no `deploy.yml` só age se `/var/www/achadin`
       existir, e o `uptime.yml` aceita o health nos dois caminhos.
-- [ ] **Snapshot da VPS** no painel da Hostinger ([`OPERACAO_VPS.md`](OPERACAO_VPS.md) §2). O `.env` não está no git.
-- [ ] **Supabase** → Authentication → URL Configuration → *Redirect URLs*: adicionar
+- [x] **Snapshot da VPS** no painel da Hostinger ([`OPERACAO_VPS.md`](OPERACAO_VPS.md) §2). O `.env` não está no git.
+- [x] **Supabase** → Authentication → URL Configuration → *Redirect URLs*: adicionar
       `https://achadinleiloes.tech/app` e `https://achadinleiloes.tech/app/**` (manter as atuais).
       **Não** trocar o *Site URL* ainda.
-- [ ] Horário de pouco uso. A troca leva segundos, mas derruba sessões abertas.
+- [x] Horário de pouco uso. A troca leva segundos, mas derruba sessões abertas.
 
 ## 1. Executar
 
@@ -60,19 +64,19 @@ verifica `/app/_stcore/health`, a landing em `/`, o redirect de legado, `/app/`,
 
 ## 2. Depois (manual)
 
-- [ ] Supabase → *Site URL* → `https://achadinleiloes.tech/app`.
-- [ ] `./deploy/cutover-landing.sh status` (tudo `ok`).
-- [ ] `sudo certbot renew --dry-run` — confirma que a renovação do certificado segue funcionando com o Nginx novo.
-- [ ] GitHub → Actions → **Monitor de uptime** → Run workflow (verde).
-- [ ] Teste ponta a ponta (como em 2026-09-15), de preferência no celular:
-  - [ ] `/` abre a landing; "Entrar" e "Começar agora" levam a `/app/`; "Voltar ao site" volta.
-  - [ ] Cadastro com e-mail novo → e-mail de confirmação → o link cai em `/app/?mode=confirmed` com "E-mail confirmado".
-  - [ ] Login → paywall (R$ 47 igual ao da landing) → Checkout em modo teste → volta em `/app/?payment=success` → acesso liberado.
-  - [ ] Favoritar um lote; recarregar `/app/`; continua logado.
-  - [ ] "Esqueci minha senha" → link → definir nova senha.
-  - [ ] Rodapé da landing: Termos, Privacidade e Reembolso abrem em `/app/?pagina=…`.
-  - [ ] Link antigo: abrir `https://achadinleiloes.tech/?pagina=termos` → cai em `/app/?pagina=termos`.
-- [ ] Atualizar `CLAUDE.md` (deploy: landing + `/app`), `SETUP_HOSTINGER_VPS.md` (§4 drop-in, §5 Nginx, §7 `APP_URL`/Supabase)
+- [x] Supabase → *Site URL* → `https://achadinleiloes.tech/app`.
+- [x] `./deploy/cutover-landing.sh status` (tudo `ok`).
+- [x] `sudo certbot renew --dry-run` — confirma que a renovação do certificado segue funcionando com o Nginx novo.
+- [x] GitHub → Actions → **Monitor de uptime** → Run workflow (verde).
+- [x] Teste ponta a ponta (como em 2026-09-15), de preferência no celular:
+  - [x] `/` abre a landing; "Entrar" e "Começar agora" levam a `/app/`; "Voltar ao site" volta.
+  - [x] Cadastro com e-mail novo → e-mail de confirmação → o link cai em `/app/?mode=confirmed` com "E-mail confirmado".
+  - [x] Login → paywall (R$ 47 igual ao da landing) → Checkout em modo teste → volta em `/app/?payment=success` → acesso liberado.
+  - [x] Favoritar um lote; recarregar `/app/`; continua logado.
+  - [x] "Esqueci minha senha" → link → definir nova senha.
+  - [x] Rodapé da landing: Termos, Privacidade e Reembolso abrem em `/app/?pagina=…`.
+  - [x] Link antigo: abrir `https://achadinleiloes.tech/?pagina=termos` → cai em `/app/?pagina=termos`.
+- [x] Atualizar `CLAUDE.md` (deploy: landing + `/app`), `SETUP_HOSTINGER_VPS.md` (§4 drop-in, §5 Nginx, §7 `APP_URL`/Supabase)
       e o status deste arquivo.
 
 ## 3. Rollback

@@ -1,6 +1,6 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: Achadin Leiloes em producao numa VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `achadinleiloes.tech` (IP `2.25.223.119`, dominio proprio; DNS e HTTPS verificados em 2026-09-29, TLS via Let's Encrypt/Certbot; antes usava `2-25-223-119.sslip.io`), autodeploy via GitHub Actions SSH no push do main (`.github/workflows/deploy.yml`). Migracao concluida em 2026-09-15 (testada ponta a ponta: cadastro, login, paywall, Stripe Checkout, favoritar). Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Streamlit Community Cloud (leilaoce.streamlit.app) ainda no ar como rollback rapido — desligar so apos alguns dias validando a VPS em uso real. Site na VPS roda com chaves Stripe de TESTE (sk_test_/pk_test_) — trocar para live antes de cobrar de verdade (acesso a conta Stripe travado em 2FA por app autenticador sem posse confirmada; resolver isso antes da troca). Ver docs/contexto/setup/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
+- Deploy: Achadin Leiloes em producao numa VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `achadinleiloes.tech` (IP `2.25.223.119`, dominio proprio; DNS e HTTPS verificados em 2026-09-29, TLS via Let's Encrypt/Certbot; antes usava `2-25-223-119.sslip.io`), autodeploy via GitHub Actions SSH no push do main (`.github/workflows/deploy.yml`). Migracao concluida em 2026-09-15 (testada ponta a ponta: cadastro, login, paywall, Stripe Checkout, favoritar). Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Streamlit Community Cloud (leilaoce.streamlit.app) ainda no ar como rollback rapido — desligar so apos alguns dias validando a VPS em uso real. Site na VPS roda com chaves Stripe de TESTE (sk_test_/pk_test_) — trocar para live antes de cobrar de verdade (acesso a conta Stripe travado em 2FA por app autenticador sem posse confirmada; resolver isso antes da troca). Desde 2026-10-05 a raiz do dominio e uma landing estatica (`site/`, servida pelo Nginx de `/var/www/achadin`) e o Streamlit mora em `/app/` (`APP_URL=https://achadinleiloes.tech/app`, drop-in `STREAMLIT_SERVER_BASE_URL_PATH=app`; `www` e HTTP redirecionam para o dominio principal) — ver docs/contexto/setup/CUTOVER_LANDING.md. Ver docs/contexto/setup/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
 - Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/setup/SETUP_GITHUB_ACTIONS.md.
 
@@ -132,10 +132,14 @@ cada item foi movido pros docs de contexto linkados, ver
   continuam sem casar. Testes: tests/test_favorites.py.
 
 BACKLOG:
-- PREPARADO, NAO EXECUTADO (2026-10-05): landing estatica em `/` + Streamlit em `/app/` (plano B de
-  redesenho do front, branch `feat/landing-estatica`: `site/`, `design_tokens.py`, `deploy/`). Falta mergear em
-  `main` e rodar o cutover na VPS. Passo a passo e rollback em
-  docs/contexto/setup/CUTOVER_LANDING.md.
+- FEITO (2026-10-05): landing estatica em `/` + Streamlit em `/app/` (plano B do redesenho do front, PRs #20 e
+  #21): `site/` (landing), `design_tokens.py` + `site/css/tokens.css` (tokens `--lce-*` compartilhados entre
+  landing e app), `deploy/` (Nginx, drop-in do systemd, `cutover-landing.sh` com rollback), `.streamlit/config.toml`
+  (primaryColor azul). Estilo do app mantido (mockup de 10/09 descartado), sem analytics. Executado e validado
+  ponta a ponta; detalhes e rollback em docs/contexto/setup/CUTOVER_LANDING.md.
+- PENDENTE (registrado 2026-10-05): CI `pytest` vermelho desde 02/10 (`tests/test_favorites.py` importa
+  `streamlit`, ausente de `requirements-dev.txt`); VPS com reinicio pendente por atualizacao de kernel (fazer em
+  janela tranquila); opcionais da landing: imagem OG para compartilhamento e fonte Inter hospedada localmente.
 - PENDENTE (registrado 2026-10-02): paginas legais no ar (`legal.py`) mas com
   `_CONTROLADOR` ainda com placeholders `[NOME COMPLETO]`/`[CPF]` — preencher antes
   de cobrar de verdade e revisar o texto (idealmente com advogado). Ver
