@@ -1,5 +1,5 @@
 # Dependencias SO do site (dashboard.py + auth.py + favorites.py), usadas no
-# deploy da VPS Hostinger (ver docs/contexto/SETUP_HOSTINGER_VPS.md).
+# deploy da VPS Hostinger (ver docs/contexto/setup/SETUP_HOSTINGER_VPS.md).
 # Deliberadamente NAO inclui playwright/playwright-stealth (scraper), anthropic
 # (IA do scraper) nem as libs de proxy — o dashboard nao importa nada disso, e
 # tira-las mantem o ambiente do site leve.

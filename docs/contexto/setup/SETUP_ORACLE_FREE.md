@@ -6,7 +6,7 @@ Tudo que não aparece aqui (venv, `.env`, unit do systemd, sudoers do deploy, se
 segue o guia da Hostinger e os arquivos versionados em [`deploy/`](../../../deploy/).
 
 > Escrito em 2026-11-13, antes da migração. Contexto da escolha e comparação de preços em
-> [`PESQUISA_HOSPEDAGEM_2026-11.md`](PESQUISA_HOSPEDAGEM_2026-11.md) (seção 5, plano B).
+> [`PESQUISA_HOSPEDAGEM_2026-11.md`](../PESQUISA_HOSPEDAGEM_2026-11.md) (seção 5, plano B).
 > A Oracle muda regras do Always Free sem aviso (a cota do A1 caiu de 4 OCPU/24 GB para
 > 2 OCPU/12 GB em 2026): confira a página oficial de [Always Free Resources][free] antes.
 
