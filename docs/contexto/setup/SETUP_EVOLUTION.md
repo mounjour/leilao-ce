@@ -290,8 +290,8 @@ instalação padrão).
 1x a cada ~14 dias, senão a sessão cai e é preciso reparear (novo QR).
 
 **Risco de banimento:** número não-oficial pode ser banido pela Meta em
-2–8 semanas, sem aviso e sem recurso (risco já registrado no
-`PLANO-DO-PROJETO.md`). Tenha 2–3 chips reserva.
+2–8 semanas, sem aviso e sem recurso (risco aceito pelo dono, ver
+o `README.md`). Tenha 2–3 chips reserva.
 
 **Atualizar a Evolution no futuro:** troque a tag da imagem (`sed` do
 [passo 4.1](#41-travar-a-imagem-em-v237)) só depois de ler o changelog da
