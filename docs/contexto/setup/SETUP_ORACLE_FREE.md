@@ -18,7 +18,29 @@ segue o guia da Hostinger e os arquivos versionados em [`deploy/`](../../../depl
 | **Cobrança no PAYG** | Qualquer recurso fora da cota Always Free passa a ser cobrado no cartão (com IOF). | **Budget com alerta** (passo 1.3). Só usar shape `VM.Standard.A1.Flex` dentro de 2 OCPU/12 GB, até 200 GB de disco em bloco no total, até 5 backups de volume. Não criar load balancer, banco gerenciado nem outro shape. |
 | **"Out of host capacity"** | A criação do A1 falha por falta de máquina na região. São Paulo tem um único Availability Domain, então não há para onde desviar. | Tentar 1 OCPU/6 GB, outros horários, ou já com a conta em PAYG. Se passar de ~3 dias, plano C (Contabo) da pesquisa. |
 | **Região home é definitiva** | O Always Free só vale na região home, escolhida no cadastro. | Escolher **Brazil East (São Paulo)** ou **Brazil Southeast (Vinhedo)**. |
+| **Domínio continua na Hostinger** | `achadinleiloes.tech` veio **grátis no 1º ano** junto do plano da VPS Hostinger (registrado ~set/2026) e o DNS dele fica no hPanel. Sair da VPS não tira o domínio, mas a renovação depois do 1º ano é paga (preço cheio de `.tech`) e depende da conta Hostinger. | Conferir o domínio no hPanel **antes** de tudo (seção 0). Lembrete de renovação. Transferir para outro registrador é opcional (só depois de 60 dias do registro). |
 | **Sem suporte humano / conta encerrada** | O plano grátis não tem suporte, e há relatos de contas grátis encerradas sem aviso. | O app é quase sem estado (código e `leiloes.json` no git, dados no Supabase): reconstruir em outra VPS leva ~1 h. Ver [Plano de saída](#plano-de-saída). |
+
+## 0. Domínio no hPanel (dono do projeto, antes de criar a conta Oracle)
+
+O domínio não foi comprado à parte: veio de bônus com a VPS Hostinger. Nameservers da Hostinger
+(`hermes.dns-parking.com` / `artemis.dns-parking.com`); em 2026-11-13 o registro A ainda apontava
+para o IP da VPS antiga (`2.25.223.119`).
+
+hPanel → **Domínios** → `achadinleiloes.tech`, conferir:
+
+- [ ] Status **ativo** (não suspenso junto com a VPS).
+- [ ] **Data de expiração** e preço de renovação: anotar no lembrete de renovação.
+- [ ] **Zona DNS editável** (*DNS / Nameservers* → *Gerenciar registros DNS*) mesmo com a VPS
+      expirada.
+
+Se o domínio estiver perdido ou travado:
+
+- **Contingência:** usar `IP-COM-HIFENS.sslip.io` com o IP da Oracle, como antes do domínio
+  próprio. Muda `APP_URL`, *Site URL*/Redirect URLs do Supabase, `server_name` no Nginx e o
+  certificado; links já enviados por e-mail (confirmação, recuperação de senha) quebram.
+- **Alternativa:** comprar outro domínio e refazer a seção G de
+  [`DEPLOY_CHECKLIST.md`](DEPLOY_CHECKLIST.md).
 
 ## 1. Conta (dono do projeto)
 
@@ -110,8 +132,9 @@ Com a pasta criada, o `deploy.yml` passa a publicar a landing a cada deploy.
 
 ## 5. DNS e HTTPS
 
-1. No registrador do `achadinleiloes.tech`, apontar os registros **A** do domínio e do `www` para
-   o IP da instância.
+1. No **hPanel** (Domínios → `achadinleiloes.tech` → *DNS / Nameservers*), trocar os registros
+   **A** de `@` e `www` para o IP da instância. Não mexer nos nameservers. Conferir com
+   `dig +short achadinleiloes.tech` antes de seguir.
 2. Nginx em duas etapas, porque [`deploy/nginx/leilao-ce.conf`](../../../deploy/nginx/leilao-ce.conf)
    já referencia os certificados em `/etc/letsencrypt`:
    - primeiro um bloco HTTP simples (`listen 80; server_name achadinleiloes.tech www.achadinleiloes.tech;`)
@@ -159,7 +182,10 @@ O que mora só na VM: `.env`, `/etc/nginx/sites-available/leilao-ce` (versionado
 certificados (reemitíveis), unit e drop-in do systemd. Para sair da Oracle:
 
 1. Contratar outra VPS (Hostinger ou Contabo, ver a pesquisa) e seguir o guia da Hostinger.
-2. Trocar o registro A, reemitir o certificado e atualizar os secrets `VPS_*`.
+2. Trocar o registro A no hPanel, reemitir o certificado e atualizar os secrets `VPS_*`.
+
+O domínio é a única peça que continua presa à Hostinger: manter a renovação dele em dia mesmo
+depois de sair da VPS.
 3. Enquanto isso, o Streamlit Community Cloud (`leilaoce.streamlit.app`) segue como rollback.
 
 [free]: https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm
