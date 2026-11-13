@@ -191,7 +191,177 @@ CONVENÇÕES:
 - Mensagens em português, código em inglês (variáveis, funções)
 - Sem emojis dentro de código Python, apenas no UI do Streamlit
 - Antes de mudanças grandes, sempre apresente um plano para eu aprovar
-- Não rode "git push" sem me perguntar primeiro
+- Nunca dar `git push` direto na `main` nem `git push --force` em branch
+  compartilhada. Push de branch de trabalho (para abrir/atualizar PR) faz
+  parte do fluxo abaixo e está autorizado.
+
+## Fluxo de trabalho: branches, commits, PRs e merge
+
+Toda mudança no repo (código, config, workflow, docs) segue este fluxo. A
+única exceção é o commit automático do scraper (`chore: atualiza leiloes.json
+[auto ...]`), que o GitHub Actions faz direto na `main`.
+
+### 1. Branch
+
+- Sempre partir da `main` atualizada: `git switch main && git pull --ff-only`
+  (o bot do scraper commita na `main` 2x/dia, então ela anda sozinha).
+- Nome: `<tipo>/<descricao-curta-em-kebab-case>`, com o mesmo `<tipo>` dos
+  commits. Ex.: `feat/fonte-nasar`, `fix/pacto-foto-vazia`,
+  `docs/padrao-markdown`, `ci/cache-pip`.
+- Uma branch = um assunto = um PR. Não misturar correção de fonte com ajuste
+  de UI no mesmo PR.
+- Nunca incluir arquivos não rastreados que não fazem parte da mudança
+  (conferir `git status` antes de cada commit; usar `git add <arquivo>`, não
+  `git add -A`).
+
+### 2. Commits (Conventional Commits, em português)
+
+Formato:
+
+```
+<tipo>(<escopo>): <resumo no presente, minúsculo, sem ponto final>
+
+<corpo opcional: o PORQUÊ da mudança e o que não é óbvio no diff,
+quebrado em ~72 colunas>
+
+<rodapé opcional: Refs #12 / Closes #12 / BREAKING CHANGE: ...>
+```
+
+- Resumo com no máximo ~72 caracteres, verbo na 3ª pessoa do presente
+  ("corrige", "adiciona", "remove", "atualiza"), sem acento obrigatório.
+  Ex.: `fix(scraper): corrige lote duplicado do MJ Leiloes`.
+- Tipos permitidos:
+  - `feat`: funcionalidade nova para o usuário (nova fonte, novo filtro)
+  - `fix`: correção de bug
+  - `refactor`: mudança de código sem mudar comportamento
+  - `perf`: melhoria de desempenho
+  - `test`: só testes
+  - `docs`: só documentação (inclui este CLAUDE.md)
+  - `ci`: workflows do GitHub Actions
+  - `build`: dependências e requirements
+  - `chore`: manutenção que não se encaixa acima (dados, limpeza)
+  - `style`: só formatação/CSS sem mudança de comportamento
+  - `revert`: reverte commit anterior (`revert: <resumo original>`)
+- Escopos (opcional, mas preferível): `scraper`, `fonte-<nome>` (ex.:
+  `fonte-pacto`), `health`, `dashboard`, `auth`, `favoritos`, `alertas`,
+  `billing` (Stripe), `legal`, `site` (landing), `deploy`, `db`
+  (Supabase/migrations), `ci`, `deps`, `docs`.
+- Mudança que quebra compatibilidade (ex.: formato do `leiloes.json`, URL de
+  favorito, schema do banco): `!` após o escopo e rodapé
+  `BREAKING CHANGE: <o que quebra e como migrar>`.
+- Todo commit feito pelo Claude termina com a linha de co-autoria
+  `Co-Authored-By:` indicada pelo ambiente.
+
+Critérios de granularidade (quando fazer um commit):
+
+- Um commit por mudança lógica completa: dá pra descrever em uma linha sem
+  usar "e". Se precisar de "e", provavelmente são dois commits.
+- Cada commit deixa a suíte passando (`python -m pytest -q`). Teste vai no
+  mesmo commit do código que ele cobre.
+- Refactor separado de mudança de comportamento: primeiro o `refactor`, depois
+  o `fix`/`feat` em cima.
+- Dependência nova (`requirements*.txt`) vai no commit que passa a usá-la.
+- Doc que descreve a mudança vai no mesmo commit da mudança; atualização do
+  STATUS/BACKLOG deste arquivo pode ser um `docs:` separado no fim do PR.
+- Commitar ao concluir cada passo do plano, não acumular tudo pro final. Nada
+  de commit "wip"/"ajustes" na branch final; se acontecer, reorganizar antes
+  de abrir o PR.
+
+### 3. Pull Request
+
+- Push da branch: `git push -u origin <branch>`.
+- Abrir com `gh pr create --base main`. Título no mesmo formato de commit
+  (`fix(fonte-pacto): ...`), porque vira o resumo no histórico.
+- Corpo do PR (em português):
+
+  ```
+  ## Resumo
+  <1-3 frases: o que muda e por quê>
+
+  ## Mudanças
+  - <item por arquivo/área relevante>
+
+  ## Como foi testado
+  - `python -m pytest -q`: N/N
+  - <validação manual/ao vivo, se houve>
+
+  ## Impacto em produção
+  <o que muda no deploy da VPS / banco / Stripe / secrets; "nenhum" se nada>
+
+  Closes #<issue>   (se houver)
+  ```
+
+- Terminar o corpo com a linha de atribuição do Claude Code indicada pelo
+  ambiente.
+
+### 4. Merge (feito pelo próprio Claude)
+
+O repositório não usa auto-merge do GitHub; o Claude faz o merge depois do
+CI, sem precisar pedir confirmação:
+
+1. Esperar o CI: `gh pr checks <n> --watch`.
+2. CI verde e sem conflito: `gh pr merge <n> --merge --delete-branch`
+   (merge commit, preservando os commits atômicos da branch).
+3. Voltar pra main local: `git switch main && git pull --ff-only`.
+4. CI vermelho: corrigir na mesma branch (novo commit `fix`/`test`), push e
+   repetir. Nunca fazer merge com CI vermelho nem pular o CI.
+5. Conflito com a `main`: `git merge origin/main` na branch, resolver, rodar
+   os testes, push e repetir.
+
+Lembrete: merge na `main` dispara o `deploy.yml` (deploy na VPS). Conferir a
+seção "Impacto em produção" do PR antes de mergear; se a mudança exigir passo
+manual fora do repo (secret novo, migration no Supabase, config no Stripe),
+avisar o dono no fim do turno.
+
+## Documentação em Markdown
+
+Doc novo é exceção, não regra. A maior parte do registro já fica no commit,
+no PR e nas issues.
+
+### Quando NÃO criar um `.md` novo
+
+- Correção pequena, ajuste de UI, refactor, bump de dependência: o
+  commit + a descrição do PR bastam.
+- Status de andamento: uma linha no STATUS deste `CLAUDE.md` (com data e link
+  pro doc, se houver).
+- Pendência, ideia, próximo passo: abrir GitHub Issue (ver "Issue tracker"
+  abaixo), não criar `PENDENCIAS_*.md`/`PROXIMOS_PASSOS_*.md` novos.
+- Assunto que já tem doc: atualizar o doc existente (nova seção datada), não
+  criar outro ao lado.
+
+### Quando criar
+
+- Fonte nova integrada ao scraper → `docs/contexto/fontes/ativas/`.
+- Fonte pausada/descartada → mover/criar em `docs/contexto/fontes/pausadas/`.
+- Incidente com investigação não trivial (causa raiz que não cabe no PR) →
+  `docs/contexto/fontes/incidentes/` (fontes) ou `docs/contexto/` (resto).
+- Guia operacional que alguém vai seguir passo a passo (setup, deploy,
+  rollback) → `docs/contexto/setup/`.
+- Decisão de arquitetura com alternativas descartadas → ADR em `docs/adr/`
+  (formato em `docs/agents/domain.md`).
+
+### Padrão dos arquivos
+
+- Nome: `MAIUSCULO_COM_UNDERSCORE.md`, sem acento. Sufixo de data
+  (`_AAAA-MM` ou `_AAAA-MM-DD`) só em docs de um momento (incidente,
+  investigação, pesquisa); guias vivos não levam data.
+- Estrutura mínima:
+
+  ```
+  # <Título> (<status curto>, AAAA-MM-DD)
+
+  > Resumo: 2-3 linhas com o essencial. Quem só ler isto tem que entender.
+
+  ## Contexto
+  ## <Corpo: Causa raiz / Implementação / Passo a passo, conforme o tipo>
+  ## Pendências   (se houver; preferir linkar issues)
+  ## Referências  (PRs, issues, arquivos de código)
+  ```
+
+- Português, Markdown simples (títulos `#`/`##`, listas, blocos de código com
+  linguagem), sem emojis, links relativos para outros docs/arquivos do repo.
+- Todo doc novo é linkado de algum lugar (STATUS deste arquivo ou outro doc);
+  doc órfão não existe.
 
 ## Agent skills
 
