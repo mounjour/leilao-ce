@@ -1,12 +1,24 @@
-name: Deploy do site (VPS Hostinger)
+name: Deploy do site (VPS)
 
-# Roda a cada push no main (inclusive os commits automaticos do scraper
-# "chore: atualiza leiloes.json [auto ...]"): entra na VPS via SSH, atualiza
-# o repositorio e reinicia o servico do dashboard.
-# Setup completo: docs/contexto/SETUP_HOSTINGER_VPS.md
+# Entra na VPS via SSH, atualiza o repositorio e reinicia o servico do dashboard.
+#
+# Gatilhos:
+# - push no main feito por pessoa (merge, commit manual);
+# - fim do workflow do scraper ("Scraper LeilãoCE") com sucesso. Necessario
+#   porque o scraper commita o leiloes.json com o GITHUB_TOKEN, e push feito
+#   com o GITHUB_TOKEN NAO dispara outros workflows: sem o workflow_run, a VPS
+#   so recebia os lotes novos quando alguem dava push manual;
+# - manual, pela aba Actions.
+#
+# Setup: docs/contexto/setup/SETUP_HOSTINGER_VPS.md (base) e
+# docs/contexto/setup/SETUP_ORACLE_FREE.md (diferencas da Oracle Cloud).
 
 on:
   push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Scraper LeilãoCE"]   # precisa bater com o `name:` do scraper.yml
+    types: [completed]
     branches: [main]
   workflow_dispatch:   # permite rodar manualmente pela aba Actions
 
@@ -16,6 +28,8 @@ concurrency:
 
 jobs:
   deploy:
+    # No workflow_run, so faz deploy se o scraper terminou com sucesso.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 

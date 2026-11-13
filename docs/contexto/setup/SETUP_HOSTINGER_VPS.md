@@ -139,8 +139,15 @@ ufw allow 80/tcp
 ufw allow 443/tcp
 ufw --force enable
 
+# Python 3.11 (mesma versao do CI). O Ubuntu 24.04 so traz o 3.12 nos repositorios
+# padrao, entao o 3.11 vem do PPA deadsnakes (tem pacote amd64 e arm64).
+apt update && apt install -y software-properties-common
+add-apt-repository -y ppa:deadsnakes/ppa
 apt update && apt install -y python3.11 python3.11-venv git nginx certbot python3-certbot-nginx
 ```
+
+> **Oracle Cloud:** pule o bloco do `ufw` acima, porque a imagem da Oracle usa iptables próprio.
+> Ver [`SETUP_ORACLE_FREE.md`](SETUP_ORACLE_FREE.md), seção 3.
 
 A partir daqui, logar como `leilao` (`ssh leilao@SEU-IP`), não mais como root.
 
