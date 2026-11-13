@@ -1,5 +1,11 @@
 # Investigação de novas fontes/leiloeiros (2026-09-14)
 
+> **Status (2026-11-13):** Grupo Lance (2026-09-15) e Spy Leilões (2026-09-16) já foram
+> implementados, ver `fontes/ativas/`. Restam Nasar Leilões
+> ([issue #35](https://github.com/mounjour/leilao-ce/issues/35)) e Leilão Imóvel
+> ([issue #36](https://github.com/mounjour/leilao-ce/issues/36)). O resto deste doc é o
+> registro da pesquisa como foi feita.
+
 Segunda rodada de busca por leiloeiros/plataformas com atuação no CE
 (Fortaleza e interior), cruzando cada candidato com Reclame Aqui, listas de
 sites falsos (ALEIBRAS/Leilão Seguro) e checagem direta do site para
@@ -50,7 +56,7 @@ implementado ainda**.
 - Já investigado antes e descartado por Cloudflare bloquear o IP do GitHub
   Actions — mas isso foi antes da solução Zenrows Scraping Browser
   (`connect_over_cdp`) que hoje resolve exatamente esse problema pro MGL
-  (ver docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md). Vale reaproveitar a mesma
+  (ver docs/contexto/fontes/ativas/MGL_ADICIONADO.md). Vale reaproveitar a mesma
   abordagem aqui.
 
 ### 4. Leilão Imóvel (leilaoimovel.com.br)
