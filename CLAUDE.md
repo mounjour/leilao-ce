@@ -303,9 +303,17 @@ CI, sem precisar pedir confirmação:
 2. CI verde e sem conflito: `gh pr merge <n> --merge --delete-branch`
    (merge commit, preservando os commits atômicos da branch).
 3. Voltar pra main local: `git switch main && git pull --ff-only`.
-4. CI vermelho: corrigir na mesma branch (novo commit `fix`/`test`), push e
+4. Apagar a branch do PR no remoto e no local (obrigatório após todo merge).
+   O `--delete-branch` já tenta as duas coisas; conferir e completar o que
+   faltar:
+   - remoto: `git ls-remote --heads origin <branch>` deve vir vazio; se não,
+     `git push origin --delete <branch>`;
+   - local: `git branch --list <branch>` deve vir vazio; se não,
+     `git branch -d <branch>` (`-D` só se o PR constar como MERGED);
+   - `git fetch --prune` para limpar a referência `origin/<branch>`.
+5. CI vermelho: corrigir na mesma branch (novo commit `fix`/`test`), push e
    repetir. Nunca fazer merge com CI vermelho nem pular o CI.
-5. Conflito com a `main`: `git merge origin/main` na branch, resolver, rodar
+6. Conflito com a `main`: `git merge origin/main` na branch, resolver, rodar
    os testes, push e repetir.
 
 Lembrete: merge na `main` dispara o `deploy.yml` (deploy na VPS). Conferir a
