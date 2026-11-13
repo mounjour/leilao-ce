@@ -54,4 +54,4 @@ sudo systemctl restart systemd-journald
 Enquanto `leilaoce.streamlit.app` existir (pausado ou não), ele é o plano B: basta apontar o
 `APP_URL`/Redirect URLs do Supabase de volta. Ao deletar o app, esse plano B some — por isso
 o desligamento só acontece depois de alguns dias de VPS estável (ver
-[`PENDENCIAS_2026-10-02.md`](../PENDENCIAS_2026-10-02.md)).
+[issue #31](https://github.com/mounjour/leilao-ce/issues/31)).

@@ -31,6 +31,6 @@ tabela `whatsapp_send_log` existe).
 ## Como consultar
 
 Só entram linhas de falha na tabela; o dono consulta pelo painel do
-Supabase. Pendência (registrada no backlog do
-[PLANO-DO-PROJETO.md](PLANO-DO-PROJETO.md)): definir política de retenção
+Supabase. Pendência
+([issue #41](https://github.com/mounjour/leilao-ce/issues/41)): definir política de retenção
 da tabela.
