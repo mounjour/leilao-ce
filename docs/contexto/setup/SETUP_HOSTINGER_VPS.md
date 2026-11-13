@@ -109,7 +109,7 @@ Instance Type no painel da Hostinger — sem mudar código.
 
 **Fechamento**
 - [ ] App no Community Cloud pausado/deletado ([seção 8](#8-desligar-o-community-cloud))
-- [ ] `CLAUDE.md` e `PLANO-DO-PROJETO.md` atualizados (deploy = VPS Hostinger)
+- [ ] `CLAUDE.md` e `README.md` atualizados (deploy = VPS Hostinger)
 
 ---
 
@@ -323,7 +323,7 @@ No GitHub → repositório → **Settings** → **Secrets and variables** →
 | `VPS_USER` | `leilao` |
 | `VPS_SSH_KEY` | conteúdo de `~/deploy_leilao_ce` (a chave **privada**) |
 
-O workflow [`deploy.yml`](../../.github/workflows/deploy.yml) faz SSH na VPS
+O workflow [`deploy.yml`](../../../.github/workflows/deploy.yml) faz SSH na VPS
 a cada push no `main`, sincroniza o repositório com `origin/main` (`git
 fetch` + `reset --hard` — evita divergência se alguém mexer na VPS na mão),
 reinstala `requirements-web.txt` e reinicia o serviço.
@@ -381,8 +381,7 @@ Só depois de validado (recomendo esperar 3–7 dias).
 
 1. <https://share.streamlit.io> → o app → **Settings** → **Delete app** (ou
    *Pause*, para manter como rollback rápido por mais uns dias).
-2. Atualizar no repo: `CLAUDE.md` (linha "Deploy") e `PLANO-DO-PROJETO.md`
-   (seções 1/7/13) para **VPS Hostinger**.
+2. Atualizar no repo: `CLAUDE.md` (linha "Deploy") e `README.md`.
 3. Trocar links para `leilaoce.streamlit.app` que existirem por aí.
 
 ---

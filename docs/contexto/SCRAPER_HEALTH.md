@@ -10,15 +10,18 @@ nunca derruba o run). Mantém um placar por fonte em `scraper_health.json`
 (commitado junto do `leiloes.json`; o runner do GitHub Actions é efêmero).
 
 Quando uma fonte de `FONTES_ATIVAS` (leilo/mega/pacto/montenegro/mj/
-receita_sle/francisco_freitas/spy_leiloes/maria_fixer/grupo_lance) fica 3
+francisco_freitas/grupo_lance/maria_fixer/spy_leiloes/mgl; listas conferidas
+com o código em 2026-11-13) fica 3
 runs seguidos com 0 lote, loga `::warning::` e manda 1 WhatsApp pro dono via
 `alertas.send_whatsapp(origem="scraper_health")`; re-alerta a cada ~14 runs
 enquanto seguir zerada; zera ao voltar.
 
-`FONTES_ESPERADAS_ZERO` (mgl/construbem/danielgarcia/celsocunha/pereira) são
-rastreadas mas nunca alertam por contagem zero — são fontes com leilões
-esporádicos ou bloqueadas por infra conhecida, não fontes quebradas. Tirar
-da lista quando uma delas voltar a produzir de forma consistente.
+`FONTES_ESPERADAS_ZERO` (construbem/danielgarcia/celsocunha/receita_sle/
+pereira) são rastreadas mas nunca alertam por contagem zero — são fontes com
+leilões esporádicos (Receita SLE: edital a cada ~3 meses; Pereira: leilões
+municipais espaçados) ou bloqueadas por infra conhecida, não fontes quebradas.
+Tirar da lista quando uma delas voltar a produzir de forma consistente. O MGL
+saiu daqui e entrou em `FONTES_ATIVAS` em 2026-09-29.
 
 Secret `OWNER_WHATSAPP` no passo "Rodar scraper" do workflow (ausente = só
 `::warning::`, sem WhatsApp). O health check nunca falha o job de propósito.

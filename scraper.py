@@ -736,7 +736,7 @@ def _extrair_data_leilao(texto):
 # ─── SCRAPER LEILO.COM.BR ─────────────────────────────────────────────────────
 # O site foi reestruturado duas vezes em 10 dias (ver docs/contexto/):
 #
-# 2026-09-16 (LEILO_REESCRITO_2026-09.md): a navegacao `/leilao/{cidade}-ceara/
+# 2026-09-16 (LEILO_REDESIGN_2026-09.md, secao historica): a navegacao `/leilao/{cidade}-ceara/
 #    {categoria}` parou de filtrar e caia num feed nacional — lotes de OUTROS
 #    ESTADOS (DF, MT, AM, GO...) eram salvos rotulados "/CE". Salvaguardas que
 #    seguem valendo: a categoria vem do proprio lote (nunca de um valor
@@ -3043,7 +3043,7 @@ def _raspar_mgl(p, vistos):
     O Cloudflare bloqueia o IP de datacenter do GitHub Actions, entao listagem e
     detalhe passam pela API HTTP do Zenrows (premium_proxy + proxy_country=br).
     O parametro `p` (Playwright) nao e mais usado; ficou so pela assinatura.
-    Ver docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md.
+    Ver docs/contexto/fontes/ativas/MGL_ADICIONADO.md.
     """
     lotes = []
     zenrows_key = os.getenv("ZENROWS_API_KEY", "").strip()

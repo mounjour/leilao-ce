@@ -1,12 +1,12 @@
 CONTEXTO DO PROJETO:
 - SaaS de monitoramento de leilões no Ceará
-- Deploy: Achadin Leiloes em producao numa VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `achadinleiloes.tech` (IP `2.25.223.119`, dominio proprio; DNS e HTTPS verificados em 2026-09-29, TLS via Let's Encrypt/Certbot; antes usava `2-25-223-119.sslip.io`), autodeploy via GitHub Actions SSH no push do main (`.github/workflows/deploy.yml`). Migracao concluida em 2026-09-15 (testada ponta a ponta: cadastro, login, paywall, Stripe Checkout, favoritar). Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Streamlit Community Cloud (leilaoce.streamlit.app) ainda no ar como rollback rapido — desligar so apos alguns dias validando a VPS em uso real. Site na VPS roda com chaves Stripe de TESTE (sk_test_/pk_test_) — trocar para live antes de cobrar de verdade (acesso a conta Stripe travado em 2FA por app autenticador sem posse confirmada; resolver isso antes da troca). Desde 2026-10-05 a raiz do dominio e uma landing estatica (`site/`, servida pelo Nginx de `/var/www/achadin`) e o Streamlit mora em `/app/` (`APP_URL=https://achadinleiloes.tech/app`, drop-in `STREAMLIT_SERVER_BASE_URL_PATH=app`; `www` e HTTP redirecionam para o dominio principal) — ver docs/contexto/setup/CUTOVER_LANDING.md. Ver docs/contexto/setup/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
+- Deploy: SITE FORA DO AR desde ~15/10/2026 — a VPS Hostinger expirou por falta de pagamento; escolha da nova hospedagem na issue #28 (pesquisa em docs/contexto/PESQUISA_HOSPEDAGEM_2026-11.md, plano B em docs/contexto/setup/SETUP_ORACLE_FREE.md). Ate expirar: VPS Hostinger (plano KVM 1, 1 vCPU/4GB RAM, ~R$ 28/mes), endereco `achadinleiloes.tech` (IP `2.25.223.119`, dominio proprio; DNS e HTTPS verificados em 2026-09-29, TLS via Let's Encrypt/Certbot; antes usava `2-25-223-119.sslip.io`), autodeploy via GitHub Actions SSH no push do main (`.github/workflows/deploy.yml`). Migracao concluida em 2026-09-15 (testada ponta a ponta: cadastro, login, paywall, Stripe Checkout, favoritar). Migracao do Render abandonada antes de ir ao ar (nunca chegou a subir o servico) — trocado pela VPS por decisao do dono em 2026-09-14. Streamlit Community Cloud (leilaoce.streamlit.app) ainda no ar como rollback rapido — desligar so apos alguns dias validando a VPS em uso real. Site na VPS roda com chaves Stripe de TESTE (sk_test_/pk_test_) — trocar para live antes de cobrar de verdade (acesso a conta Stripe travado em 2FA por app autenticador sem posse confirmada; resolver isso antes da troca). Desde 2026-10-05 a raiz do dominio e uma landing estatica (`site/`, servida pelo Nginx de `/var/www/achadin`) e o Streamlit mora em `/app/` (`APP_URL=https://achadinleiloes.tech/app`, drop-in `STREAMLIT_SERVER_BASE_URL_PATH=app`; `www` e HTTP redirecionam para o dominio principal) — ver docs/contexto/setup/CUTOVER_LANDING.md. Ver docs/contexto/setup/SETUP_HOSTINGER_VPS.md e o bullet "Migracao de deploy para a VPS Hostinger" no STATUS.
 - Repo: github.com/mounjour/leilao-ce
-- Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 2x/dia (03h e 15h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/setup/SETUP_GITHUB_ACTIONS.md.
+- Hoje configuramos GitHub Actions (.github/workflows/scraper.yml) que roda o scraper 1x/dia (03h Fortaleza) e commita leiloes.json atualizado automaticamente. Documentação em docs/contexto/setup/SETUP_GITHUB_ACTIONS.md.
 
-STATUS (atualizado 2026-09-25; podado em 2026-09-28 — detalhe completo de
-cada item foi movido pros docs de contexto linkados, ver
-[ORGANIZACAO_PROJETO_2026-09-28.md](docs/contexto/ORGANIZACAO_PROJETO_2026-09-28.md)):
+STATUS (atualizado 2026-09-25; podado em 2026-09-28 e 2026-11-13 — detalhe
+de cada item fica nos docs de contexto linkados; visao geral e arquitetura no
+README.md; pendencias abertas em GitHub Issues):
 - MJ Leiloes corrigido (2026-09-25): lote saia 2x (URL com/sem `#lances`) e
   titulo/categoria quebravam pra veiculos pesados. 16 lotes unicos, 0 sem
   marca/modelo. Testes: 189/189. Ver
@@ -24,7 +24,7 @@ cada item foi movido pros docs de contexto linkados, ver
 - Grupo Lance corrigido (2026-09-24): site reestruturou URLs de
   listagem/lote e o filtro de categoria descartava tudo em silencio;
   corrigido + observabilidade nova (200 sem cards vira falha logada). 9
-  lotes CE, 127/127 testes. Pendente: confirmar no proximo run do Actions.
+  lotes CE, 127/127 testes. Confirmado nos runs de 26 a 29/09 (8 lotes CE).
   Ver docs/contexto/fontes/ativas/GRUPO_LANCE_ADICIONADO.md.
 - Pacto migrado para requests (2026-09-25): `_raspar_pacto` reescrita sem
   Playwright, reaproveitando o parser da plataforma Leilo (JSON
@@ -40,12 +40,10 @@ cada item foi movido pros docs de contexto linkados, ver
   passou a vigiar tambem `lance_atual>0` e `foto` por fonte, nao so a
   contagem de lotes — a regressao do Pacto acima passou batida por dias
   porque so a contagem era checada. Ver docs/contexto/SCRAPER_HEALTH.md.
-- Bug de foto faltando no Pacto corrigido (2026-09-18): investigacao
-  confirmou que so o Pacto tinha bug real (foto carregada de forma
-  assincrona no site, lida cedo demais pelo scraper); corrigido com
-  wait_for_load_state + retry. Demais fontes sem foto batiam com ausencia
-  real no site original. Ver
-  docs/contexto/fontes/incidentes/PACTO_FOTO_ASSINCRONA_2026-09-18.md.
+- Bug de foto faltando no Pacto (2026-09-18): so o Pacto tinha bug real;
+  demais fontes sem foto batiam com ausencia real no site original. Correcao
+  obsoleta desde a migracao do Pacto para requests. Ver secao historica de
+  docs/contexto/fontes/incidentes/PACTO_REGRESSAO_2026-09.md.
 - Pereira Leiloes adicionada como fonte (2026-09-18): reaproveita
   `_raspar_soleon` (mesmo backend do Construbem/Daniel Garcia), sem bloqueio
   de Cloudflare no IP do Actions. Leiloeiro cearense de bens publicos,
@@ -64,8 +62,8 @@ cada item foi movido pros docs de contexto linkados, ver
   docs/contexto/fontes/ativas/MARIA_FIXER_ADICIONADO.md.
 - Bug critico no Leilo corrigido (2026-09-16): categoria errada e vazamento
   de lotes de OUTROS ESTADOS rotulados como CE; parser reescrito com
-  validacao de UF por lote. Ver
-  docs/contexto/fontes/incidentes/LEILO_REESCRITO_2026-09.md.
+  validacao de UF por lote. Ver secao historica de
+  docs/contexto/fontes/incidentes/LEILO_REDESIGN_2026-09.md.
 - Grupo Lance adicionada como fonte (2026-09-15): 9 lotes de imovel
   confirmados no CE, requests direto (sem Cloudflare). Ver
   docs/contexto/fontes/ativas/GRUPO_LANCE_ADICIONADO.md.
@@ -76,19 +74,20 @@ cada item foi movido pros docs de contexto linkados, ver
   local: `python -m pytest -q`. teste_alerta.py e script manual separado
   (dispara WhatsApp real, nao e parte da suite).
 - Scraping: Leilo, Mega, Pacto, MGL, Montenegro, Construbem, Daniel Garcia,
-  MJ Leiloes, Receita Federal (SLE) e Francisco Freitas Leiloes
-  implementados. Celso Cunha DORMENTE (ver abaixo). HastaPublica removida
+  MJ Leiloes, Receita Federal (SLE), Francisco Freitas, Maria Fixer, Spy
+  Leiloes, Grupo Lance e Pereira implementados. Construbem e Daniel Garcia
+  bloqueados por proxy (issues #38 e #39). Celso Cunha DORMENTE (ver abaixo). HastaPublica removida
   (2026-09-11, decisao do dono).
 - Celso Cunha DORMENTE (2026-09-08): site reconstruido, sem leilao ativo
   desde 28/08. Ver docs/contexto/fontes/pausadas/CELSO_CUNHA_DORMENTE.md.
 - Health check do scraper (2026-09-08): scraper_health.py mantem placar por
   fonte; 3 runs seguidos com 0 lote numa fonte de FONTES_ATIVAS aciona
   WhatsApp pro dono. Ver docs/contexto/SCRAPER_HEALTH.md.
-- Higiene (2026-09-08): debug.py removido; PLANO-DO-PROJETO.md atualizado.
+- Higiene (2026-09-08): debug.py removido.
   Decisoes FORA DE ESCOPO: relatorios/exportacao, notificacao de lote novo
   por filtro salvo, migrar WhatsApp p/ Cloud API oficial da Meta.
-- Migracao de deploy para a VPS Hostinger CONCLUIDA (2026-09-15): detalhe e
-  pendencias atuais no bullet "Deploy" da secao CONTEXTO DO PROJETO acima.
+- Migracao de deploy para a VPS Hostinger CONCLUIDA (2026-09-15); VPS
+  expirada em ~15/10 (ver bullet "Deploy" acima e issue #28).
   Checklist completo em docs/contexto/setup/DEPLOY_CHECKLIST.md e guia em
   docs/contexto/setup/SETUP_HOSTINGER_VPS.md.
 - Eletronicos (2026-09-08): Receita SLE tambem traz eletronicos (categoria
@@ -98,25 +97,24 @@ cada item foi movido pros docs de contexto linkados, ver
 - Francisco Freitas adicionada (2026-09-04): maior fonte ja integrada (77
   lotes CE mantidos apos filtro), API JSON com dado estruturado. Receita
   Federal adicionada (2026-09-03): leilao de mercadoria apreendida, filtro
-  CE por lote. MGL reescrito (2026-09-02, API JSON) mas bloqueado por
-  Cloudflare no IP do Actions ate ser destravado via Zenrows Scraping
-  Browser em 2026-09-04 — ainda nao validado em run real do Actions. Sodre
+  CE por lote. MGL ativo desde 2026-09-29 via API HTTP do Zenrows (13 lotes
+  CE, validado em run real). Sodre
   Santoro descartado (2026-08-31, sem estoque no CE). Ver
   docs/contexto/fontes/ativas/FRANCISCO_FREITAS_ADICIONADO.md,
   docs/contexto/fontes/ativas/RECEITA_SLE_ADICIONADO.md,
-  docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md e
+  docs/contexto/fontes/ativas/MGL_ADICIONADO.md e
   docs/contexto/fontes/pausadas/SODRE_SANTORO_DESCARTADO.md.
 - IA (Anthropic): creditos esgotados nos runs de 2026-09-02 — circuit
   breaker desliga a analise e usa fallback "Nao informado" em todos os
-  lotes.
+  lotes (issue #32).
 - Favoritos: pronto, sincronizando com Supabase (upsert por
   user_id,lote_url).
 - Log de falha de WhatsApp (2026-09-08): falha de envio agora e gravada na
   tabela `whatsapp_send_log` (antes era engolida silenciosamente). Ver
   docs/contexto/WHATSAPP_SEND_LOG.md.
 - Backup do Postgres (2026-09-09): pg_dump diario via GitHub Actions
-  (Supabase Free nao tem backup nativo). Pendente: configurar secret
-  `SUPABASE_DB_URL`, testar 1 restauracao. Ver
+  (Supabase Free nao tem backup nativo). Secret configurado e restauracao
+  testada em 2026-10-02; falta copia off-site (issue #40). Ver
   docs/contexto/setup/SETUP_BACKUP_DB.md.
 - Cadastro/login: pronto, Supabase Auth (fluxo PKCE) + trigger
   handle_new_user.
@@ -129,63 +127,31 @@ cada item foi movido pros docs de contexto linkados, ver
 - Favoritos por uuid (2026-09-29): `favorites._normalizar_url` mapeia URLs
   `/lote/<uuid>/` do Pacto/Leilo para a forma canonica do Pacto; remocao apaga
   todas as formas antigas. Favoritos Pacto no formato antigo (`ano.NNNN`)
-  continuam sem casar. Testes: tests/test_favorites.py.
+  continuam sem casar (issue #34). Testes: tests/test_favorites.py.
 
-BACKLOG:
-- FEITO (2026-10-05): landing estatica em `/` + Streamlit em `/app/` (plano B do redesenho do front, PRs #20 e
-  #21): `site/` (landing), `design_tokens.py` + `site/css/tokens.css` (tokens `--lce-*` compartilhados entre
-  landing e app), `deploy/` (Nginx, drop-in do systemd, `cutover-landing.sh` com rollback), `.streamlit/config.toml`
-  (primaryColor azul). Estilo do app mantido (mockup de 10/09 descartado), sem analytics. Executado e validado
-  ponta a ponta; detalhes e rollback em docs/contexto/setup/CUTOVER_LANDING.md.
-- PENDENTE (registrado 2026-10-05): CI `pytest` vermelho desde 02/10 (`tests/test_favorites.py` importa
-  `streamlit`, ausente de `requirements-dev.txt`); VPS com reinicio pendente por atualizacao de kernel (fazer em
-  janela tranquila); opcionais da landing: imagem OG para compartilhamento e fonte Inter hospedada localmente.
-- FEITO (2026-10-05): `_CONTROLADOR` em `legal.py` preenchido com nome e CNPJ do dono
-  (57.445.137/0001-77). Resta revisar o texto das paginas legais (idealmente com
-  advogado) antes de cobrar de verdade. Ver docs/contexto/PENDENCIAS_2026-10-02.md.
-- Lista consolidada de pendencias (2026-10-02): docs/contexto/PENDENCIAS_2026-10-02.md.
-- Proximos passos sugeridos (2026-09-29): paginas legais, backup do Postgres,
-  monitoramento da VPS, credito da IA, novas fontes, funil.
-  Lista completa e priorizada em
-  docs/contexto/PROXIMOS_PASSOS_2026-09-29.md.
-- FEITO (2026-10-02): migracao para `achadinleiloes.tech` conferida fora do repo
-  — `APP_URL` na VPS corrigido (estava no sslip.io), Supabase Auth ajustado,
-  webhook do Stripe independe do dominio. Checklist na secao G de
-  docs/contexto/setup/DEPLOY_CHECKLIST.md.
-- Nova rodada de investigação de fontes (2026-09-14): Grupo Lance FEITO
-  (2026-09-15, ver STATUS e docs/contexto/fontes/ativas/GRUPO_LANCE_ADICIONADO.md).
-  Restam para implementar, por prioridade: Spy Leilões (agregador, 195
-  lotes em Fortaleza, exige dedup entre fontes), Nasar Leilões (leiloeiro
-  próprio de Fortaleza, reaproveitar Zenrows do MGL para driblar
-  Cloudflare). Leilão Imóvel (agregador) fica de reserva, menor prioridade.
-  Descartados: cearaleiloes.com.br (= Francisco Freitas), Silvio Cesar
-  Maraschi (= HastaPública, já removida), Alfa/Italo/Átrio Leilões (sem
-  volume CE confirmado ou risco reputacional). Ver
+BACKLOG (pendencias abertas vivem em GitHub Issues; aqui so o resumo):
+- Bloqueia o site: hospedagem nova (#28; VPS Hostinger expirou ~15/10).
+- Bloqueia cobrar de verdade: chaves Stripe live (#29, 2FA da conta) e revisao
+  das paginas legais em `legal.py` (#30; `_CONTROLADOR` preenchido em 2026-10-05).
+- Operacao: desligar o Streamlit Community Cloud (#31), WhatsApp/Evolution e
+  `OWNER_WHATSAPP` (#43), backup off-site (#40), retencao do `whatsapp_send_log` (#41).
+- Produto/dados: credito da IA (#32), `leiloes.json` fora do git (#33),
+  favoritos Pacto antigos (#34), funil e metricas (#37), opcionais da landing (#42).
+- Fontes: Nasar (#35), Leilao Imovel (#36), Construbem (#38), Daniel Garcia (#39).
+  Descartados: cearaleiloes.com.br (= Francisco Freitas), Silvio Cesar Maraschi
+  (= HastaPublica), Alfa/Italo/Atrio, Lopes (dormente), Copart (login + anti-bot),
+  VIP Leiloes (venda direta), freitasleiloeiro.com.br (SP). Ver
   docs/contexto/INVESTIGACAO_NOVAS_FONTES_2026-09-14.md.
-- Achar outro leiloeiro/fonte que de fato opere no CE: FEITO — Receita
-  Federal (SLE, edital Fortaleza) e Francisco Freitas
-  Leilões (91 lotes CE, maior fonte) implementadas. Ver STATUS,
-  docs/contexto/fontes/ativas/RECEITA_SLE_ADICIONADO.md e
-  docs/contexto/fontes/ativas/FRANCISCO_FREITAS_ADICIONADO.md. Candidatos avaliados e descartados por
-  ora: Nasar Leilões (Fortaleza, muito imóvel no CE, mas precisa de proxy —
-  Cloudflare), Lopes Leilões (site sem Cloudflare mas dormente, zero lotes),
-  Copart (login obrigatório + anti-bot agressivo), VIP Leilões (venda
-  direta, não leilão), freitasleiloeiro.com.br de Santo André/SP (não
-  confundir com o Francisco Freitas — quase zero CE).
-- MGL: FEITO (2026-09-04) — `_raspar_mgl` roteado pela Zenrows Scraping
-  Browser (`connect_over_cdp`), não pelo padrão de proxy de URL do
-  _raspar_soleon (esse não bastava pro MGL, que precisa da navegação
-  inteira passando pelo proxy, não só o fetch). Falta validar num run real
-  do GitHub Actions. Ver STATUS e docs/contexto/fontes/pausadas/MGL_SCRAPER_PENDENTE.md.
-- Recarregar crédito Anthropic (destrava a análise de IA). Zenrows/ScraperAPI
-  já em uso nos planos de entrada (dono do projeto confirmou em 2026-09-04
-  que preço não é uma preocupação aqui).
-- stripe-webhook: endurecimento do fallback (phone/name), migration das
-  colunas de cobrança, deploy da Edge Function e aplicação da migration
-  CONCLUÍDOS em 2026-09-03 (ver STATUS). Nada pendente aqui.
-- dashboard.py: CSS de sidebar consolidado (painel em "SIDEBAR (bloco
-  unico)"; moldura header/toolbar/colapso em "HEADER/TOOLBAR E BOTÃO DE
-  COLAPSO DA SIDEBAR (bloco unico)"). Sem duplicatas pendentes.
+- FEITO (2026-10-05): landing estatica em `/` + Streamlit em `/app/` (PRs #20 e #21):
+  `site/`, `design_tokens.py` + `site/css/tokens.css` (tokens `--lce-*`), `deploy/`
+  (Nginx, drop-in do systemd, `cutover-landing.sh`), `.streamlit/config.toml`.
+  Detalhes em docs/contexto/setup/CUTOVER_LANDING.md.
+- FEITO (2026-10-02): dominio `achadinleiloes.tech` conferido fora do repo
+  (secao G de docs/contexto/setup/DEPLOY_CHECKLIST.md).
+- Vistoria dos docs Markdown (2026-11-13): removidos PLANO-DO-PROJETO,
+  ORGANIZACAO_PROJETO, PROXIMOS_PASSOS e PENDENCIAS (conteudo vivo foi para o
+  README.md e para as issues #28 a #43); docs superados de Leilo/Pacto mesclados
+  nos sucessores; MGL movido para fontes/ativas.
 
 CONVENÇÕES:
 - Mensagens em português, código em inglês (variáveis, funções)

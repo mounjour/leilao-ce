@@ -7,7 +7,7 @@ Ordem de execução: os blocos **A → B** são o caminho crítico do site;
 **C → G** podem ser feitos em paralelo; **H → I** são o fechamento.
 
 Referências: [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md), [`SETUP_BACKUP_DB.md`](SETUP_BACKUP_DB.md),
-[`SETUP_GITHUB_ACTIONS.md`](SETUP_GITHUB_ACTIONS.md), [`deploy.yml`](../../.github/workflows/deploy.yml).
+[`SETUP_GITHUB_ACTIONS.md`](SETUP_GITHUB_ACTIONS.md), [`deploy.yml`](../../../.github/workflows/deploy.yml).
 
 ---
 

@@ -1,89 +1,46 @@
-# Setup do GitHub Actions — LeilãoCE
+# GitHub Actions — workflows e secrets
 
-Este projeto roda o scraper automaticamente via GitHub Actions, uma vez por dia,
-e faz commit do `leiloes.json` atualizado de volta no repositório.
-O Streamlit Cloud detecta o novo commit e o dashboard mostra os dados frescos.
+> Resumo: seis workflows em `.github/workflows/`. O scraper roda 1x/dia e commita os dados na
+> `main`; o deploy vai para a VPS a cada push na `main` e depois de cada run do scraper. Esta
+> página lista o que cada um faz e de quais secrets depende.
 
-## Passos para ativar
+## Workflows
 
-### 1. Cadastrar a ANTHROPIC_API_KEY como Secret
+| Workflow | Quando roda | O que faz |
+|---|---|---|
+| `scraper.yml` (Scraper LeilãoCE) | 06:00 UTC (03:00 Fortaleza) e manual | `pytest` como gate, roda `scraper.py`, commita `leiloes.json`, `scraper_health.json` e caches (`chore: atualiza leiloes.json [auto ...]`), depois `alertas.py` |
+| `deploy.yml` (Deploy do site) | push na `main` e `workflow_run` do scraper com sucesso | SSH na VPS: atualiza o código, reinstala deps, publica `site/`, reinicia o serviço. O `workflow_run` existe porque o push feito com `GITHUB_TOKEN` não dispara outros workflows |
+| `tests.yml` (Testes) | push e PR | `python -m pytest -q` |
+| `backup-db.yml` | 08:00 UTC e manual | `pg_dump` do Supabase como artifact (90 dias). Ver [`SETUP_BACKUP_DB.md`](SETUP_BACKUP_DB.md) |
+| `uptime.yml` | a cada 15 min | Health do Streamlit, `GET /` e validade do certificado. Ver [`OPERACAO_VPS.md`](OPERACAO_VPS.md) |
+| `teste_alerta.yml` | manual | Dispara um WhatsApp real para o número informado (teste da Evolution API) |
 
-1. Abra o repositório no GitHub: <https://github.com/mounjour/leilao-ce>
-2. Vá em **Settings** → **Secrets and variables** → **Actions**
-3. Clique em **New repository secret**
-4. **Name:** `ANTHROPIC_API_KEY`
-5. **Secret:** cole a sua chave (a mesma que está no `.env` local)
-6. Clique em **Add secret**
+Para mudar a frequência do scraper, editar o `cron` do `scraper.yml` (em UTC; Fortaleza é
+UTC-3, sem horário de verão). Ex.: `0 6,18 * * *` = 03h e 15h.
 
-> A chave nunca aparece em logs nem fica visível no código — é injetada como variável
-> de ambiente apenas durante a execução do workflow.
+## Secrets (Settings > Secrets and variables > Actions)
 
-### 2. Garantir permissão de escrita para o GITHUB_TOKEN
+| Secret | Usado por | Observação |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | scraper | IA do estado do item; sem crédito, cai no fallback |
+| `ZENROWS_API_KEY` | scraper | MGL e Construbem |
+| `SCRAPERAPI_KEY` | scraper | Daniel Garcia |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | scraper (alertas), teste_alerta | Service role ignora RLS |
+| `EVOLUTION_API_URL`, `EVOLUTION_API_KEY`, `EVOLUTION_INSTANCE` | scraper (alertas), teste_alerta | Ver [`SETUP_EVOLUTION.md`](SETUP_EVOLUTION.md) |
+| `OWNER_WHATSAPP` | scraper (health check) | Ausente = só `::warning::` no log |
+| `SUPABASE_DB_URL` | backup-db | Session pooler, porta 5432 |
+| `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` | deploy | Ver [`SETUP_HOSTINGER_VPS.md`](SETUP_HOSTINGER_VPS.md), seção 6 |
 
-1. No repositório, vá em **Settings** → **Actions** → **General**
-2. Role até **Workflow permissions** (no rodapé)
-3. Marque **Read and write permissions**
-4. Marque também **Allow GitHub Actions to create and approve pull requests** (opcional)
-5. Clique em **Save**
-
-> Isso permite que o workflow faça `git push` do `leiloes.json` atualizado.
-
-### 3. Fazer o primeiro commit/push dos arquivos novos
-
-No PowerShell, dentro da pasta do projeto:
-
-```powershell
-# Remover o arquivo lixo (não consegui pelo sandbox)
-Remove-Item "new-item dashboard.py"
-
-# Conferir o que mudou
-git status
-
-# Commitar tudo
-git add .gitignore requirements.txt .github/workflows/scraper.yml SETUP_GITHUB_ACTIONS.md
-git commit -m "chore: add GitHub Actions workflow + housekeeping (gitignore, requirements UTF-8)"
-git push
-```
-
-### 4. Testar o workflow manualmente
-
-1. Vá em <https://github.com/mounjour/leilao-ce/actions>
-2. No menu lateral, clique em **Scraper LeilãoCE**
-3. Clique em **Run workflow** → **Run workflow** (deixa o branch `main`)
-4. Aguarde ~5–15 minutos (Playwright + Chromium + scraping de todas as cidades)
-5. Se passar, você verá um novo commit `chore: atualiza leiloes.json [auto ...]`
-
-## Como ajustar a frequência
-
-No arquivo `.github/workflows/scraper.yml`, linha `cron`:
-
-| Frequência         | Cron                  | Observação                          |
-|--------------------|-----------------------|-------------------------------------|
-| 1x ao dia (atual)  | `0 6 * * *`           | 03h Fortaleza (UTC-3)               |
-| 2x ao dia          | `0 6,18 * * *`        | 03h e 15h Fortaleza (UTC-3)         |
-| 4x ao dia          | `0 0,6,12,18 * * *`   | A cada 6 horas                      |
-| A cada 3 horas     | `0 */3 * * *`         | Cuidado com limite de minutos       |
-| Só dias úteis 8h   | `0 11 * * 1-5`        | 08h Fortaleza, seg–sex              |
-
-> GitHub Actions roda em UTC. Fortaleza é UTC-3 (sem horário de verão).
-
-## Limites do plano gratuito do GitHub Actions
-
-- **Repos públicos:** ilimitado (gratuito)
-- **Repos privados:** 2.000 minutos/mês
-- Cada rodada do scraper consome **~5 a 15 minutos**. Com 2 rodadas/dia = ~600 min/mês.
+O commit do scraper exige **Settings > Actions > General > Workflow permissions > Read and
+write permissions** (o workflow já declara `contents: write`).
 
 ## Troubleshooting
 
-### O workflow falha no passo "Rodar scraper"
-- Confira nos logs se a `ANTHROPIC_API_KEY` foi reconhecida (não aparece o valor, mas
-  você verá se as chamadas à API estão funcionando).
-- Pode ser que a Leilo tenha mudado o HTML — rode `debug.py` localmente para investigar.
-
-### O workflow não faz push
-- Confira o passo 2 acima — permissão de escrita do `GITHUB_TOKEN`.
-- Confira se o branch padrão é `main` (se for `master`, ajuste no workflow).
-
-### O Streamlit não atualiza
-- Streamlit Cloud rebuilda em cada push. Aguarde ~1–2 minutos após o commit do bot.
-- Se persistir, no painel do Streamlit Cloud clique em **Reboot app**.
+- **Scraper falhou no passo de testes**: o `pytest` é gate; corrigir o teste/código antes.
+- **Fonte zerou**: ver o log do passo "Rodar scraper" e o
+  [`SCRAPER_HEALTH.md`](../SCRAPER_HEALTH.md); incidentes anteriores em
+  [`../fontes/incidentes/`](../fontes/incidentes/).
+- **Sem push do bot**: conferir a permissão de escrita acima e se o branch padrão é `main`.
+- **Site não pegou os dados novos**: o dashboard usa `st.cache_data(ttl=1800)`; conferir se o
+  `deploy.yml` rodou depois do scraper.
+- Limite do plano gratuito: repo público é ilimitado; privado tem 2.000 min/mês.
