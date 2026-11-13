@@ -137,6 +137,9 @@ BACKLOG (pendencias abertas vivem em GitHub Issues; aqui so o resumo):
   `OWNER_WHATSAPP` (#43), backup off-site (#40), retencao do `whatsapp_send_log` (#41).
 - Produto/dados: credito da IA (#32), `leiloes.json` fora do git (#33),
   favoritos Pacto antigos (#34), funil e metricas (#37), opcionais da landing (#42).
+- Interface: migrar do Streamlit para FastAPI + HTMX em `/app/`, so depois da #28
+  (decisao de 2026-11-13, plano em fases em
+  docs/adr/0001-migrar-ui-streamlit-para-fastapi-htmx.md).
 - Fontes: Nasar (#35), Leilao Imovel (#36), Construbem (#38), Daniel Garcia (#39).
   Descartados: cearaleiloes.com.br (= Francisco Freitas), Silvio Cesar Maraschi
   (= HastaPublica), Alfa/Italo/Atrio, Lopes (dormente), Copart (login + anti-bot),
